@@ -8,6 +8,11 @@ import {
   AddProfileKeyCommand,
 } from "./commands/AddProfileKeyCommand";
 import {
+  type AssociateStreamForSegmentsCommandInput,
+  type AssociateStreamForSegmentsCommandOutput,
+  AssociateStreamForSegmentsCommand,
+} from "./commands/AssociateStreamForSegmentsCommand";
+import {
   type BatchGetCalculatedAttributeForProfileCommandInput,
   type BatchGetCalculatedAttributeForProfileCommandOutput,
   BatchGetCalculatedAttributeForProfileCommand,
@@ -168,6 +173,11 @@ import {
   DeleteSegmentDefinitionCommand,
 } from "./commands/DeleteSegmentDefinitionCommand";
 import {
+  type DeleteSegmentSubscriptionCommandInput,
+  type DeleteSegmentSubscriptionCommandOutput,
+  DeleteSegmentSubscriptionCommand,
+} from "./commands/DeleteSegmentSubscriptionCommand";
+import {
   type DeleteWorkflowCommandInput,
   type DeleteWorkflowCommandOutput,
   DeleteWorkflowCommand,
@@ -177,6 +187,11 @@ import {
   type DetectProfileObjectTypeCommandOutput,
   DetectProfileObjectTypeCommand,
 } from "./commands/DetectProfileObjectTypeCommand";
+import {
+  type DisassociateStreamForSegmentsCommandInput,
+  type DisassociateStreamForSegmentsCommandOutput,
+  DisassociateStreamForSegmentsCommand,
+} from "./commands/DisassociateStreamForSegmentsCommand";
 import {
   type GetAutoMergingPreviewCommandInput,
   type GetAutoMergingPreviewCommandOutput,
@@ -289,10 +304,20 @@ import {
   GetSegmentSnapshotCommand,
 } from "./commands/GetSegmentSnapshotCommand";
 import {
+  type GetSegmentSubscriptionCommandInput,
+  type GetSegmentSubscriptionCommandOutput,
+  GetSegmentSubscriptionCommand,
+} from "./commands/GetSegmentSubscriptionCommand";
+import {
   type GetSimilarProfilesCommandInput,
   type GetSimilarProfilesCommandOutput,
   GetSimilarProfilesCommand,
 } from "./commands/GetSimilarProfilesCommand";
+import {
+  type GetStreamForSegmentsCommandInput,
+  type GetStreamForSegmentsCommandOutput,
+  GetStreamForSegmentsCommand,
+} from "./commands/GetStreamForSegmentsCommand";
 import {
   type GetUploadJobCommandInput,
   type GetUploadJobCommandOutput,
@@ -429,6 +454,11 @@ import {
   ListSegmentDefinitionsCommand,
 } from "./commands/ListSegmentDefinitionsCommand";
 import {
+  type ListSegmentSubscriptionEventsCommandInput,
+  type ListSegmentSubscriptionEventsCommandOutput,
+  ListSegmentSubscriptionEventsCommand,
+} from "./commands/ListSegmentSubscriptionEventsCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -468,6 +498,11 @@ import {
   type PutProfileObjectTypeCommandOutput,
   PutProfileObjectTypeCommand,
 } from "./commands/PutProfileObjectTypeCommand";
+import {
+  type PutSegmentSubscriptionCommandInput,
+  type PutSegmentSubscriptionCommandOutput,
+  PutSegmentSubscriptionCommand,
+} from "./commands/PutSegmentSubscriptionCommand";
 import {
   type SearchProfilesCommandInput,
   type SearchProfilesCommandOutput,
@@ -546,10 +581,12 @@ import { paginateListRecommenderSchemas } from "./pagination/ListRecommenderSche
 import { paginateListRecommenders } from "./pagination/ListRecommendersPaginator";
 import { paginateListRuleBasedMatches } from "./pagination/ListRuleBasedMatchesPaginator";
 import { paginateListSegmentDefinitions } from "./pagination/ListSegmentDefinitionsPaginator";
+import { paginateListSegmentSubscriptionEvents } from "./pagination/ListSegmentSubscriptionEventsPaginator";
 import { paginateListUploadJobs } from "./pagination/ListUploadJobsPaginator";
 
 const commands = {
   AddProfileKeyCommand,
+  AssociateStreamForSegmentsCommand,
   BatchGetCalculatedAttributeForProfileCommand,
   BatchGetProfileCommand,
   BatchPutProfileObjectCommand,
@@ -582,8 +619,10 @@ const commands = {
   DeleteRecommenderFilterCommand,
   DeleteRecommenderSchemaCommand,
   DeleteSegmentDefinitionCommand,
+  DeleteSegmentSubscriptionCommand,
   DeleteWorkflowCommand,
   DetectProfileObjectTypeCommand,
+  DisassociateStreamForSegmentsCommand,
   GetAutoMergingPreviewCommand,
   GetCalculatedAttributeDefinitionCommand,
   GetCalculatedAttributeForProfileCommand,
@@ -607,7 +646,9 @@ const commands = {
   GetSegmentEstimateCommand,
   GetSegmentMembershipCommand,
   GetSegmentSnapshotCommand,
+  GetSegmentSubscriptionCommand,
   GetSimilarProfilesCommand,
+  GetStreamForSegmentsCommand,
   GetUploadJobCommand,
   GetUploadJobPathCommand,
   GetWorkflowCommand,
@@ -635,6 +676,7 @@ const commands = {
   ListRecommenderSchemasCommand,
   ListRuleBasedMatchesCommand,
   ListSegmentDefinitionsCommand,
+  ListSegmentSubscriptionEventsCommand,
   ListTagsForResourceCommand,
   ListUploadJobsCommand,
   ListWorkflowsCommand,
@@ -643,6 +685,7 @@ const commands = {
   PutIntegrationCommand,
   PutProfileObjectCommand,
   PutProfileObjectTypeCommand,
+  PutSegmentSubscriptionCommand,
   SearchProfilesCommand,
   StartRecommenderCommand,
   StartUploadJobCommand,
@@ -670,6 +713,7 @@ const paginators = {
   paginateListRecommenderSchemas,
   paginateListRuleBasedMatches,
   paginateListSegmentDefinitions,
+  paginateListSegmentSubscriptionEvents,
   paginateListUploadJobs,
 };
 
@@ -689,6 +733,23 @@ export interface CustomerProfiles {
     args: AddProfileKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddProfileKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateStreamForSegmentsCommand}
+   */
+  associateStreamForSegments(
+    args: AssociateStreamForSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateStreamForSegmentsCommandOutput>;
+  associateStreamForSegments(
+    args: AssociateStreamForSegmentsCommandInput,
+    cb: (err: any, data?: AssociateStreamForSegmentsCommandOutput) => void
+  ): void;
+  associateStreamForSegments(
+    args: AssociateStreamForSegmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateStreamForSegmentsCommandOutput) => void
   ): void;
 
   /**
@@ -1236,6 +1297,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link DeleteSegmentSubscriptionCommand}
+   */
+  deleteSegmentSubscription(
+    args: DeleteSegmentSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSegmentSubscriptionCommandOutput>;
+  deleteSegmentSubscription(
+    args: DeleteSegmentSubscriptionCommandInput,
+    cb: (err: any, data?: DeleteSegmentSubscriptionCommandOutput) => void
+  ): void;
+  deleteSegmentSubscription(
+    args: DeleteSegmentSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSegmentSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteWorkflowCommand}
    */
   deleteWorkflow(
@@ -1267,6 +1345,23 @@ export interface CustomerProfiles {
     args: DetectProfileObjectTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DetectProfileObjectTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateStreamForSegmentsCommand}
+   */
+  disassociateStreamForSegments(
+    args: DisassociateStreamForSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateStreamForSegmentsCommandOutput>;
+  disassociateStreamForSegments(
+    args: DisassociateStreamForSegmentsCommandInput,
+    cb: (err: any, data?: DisassociateStreamForSegmentsCommandOutput) => void
+  ): void;
+  disassociateStreamForSegments(
+    args: DisassociateStreamForSegmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateStreamForSegmentsCommandOutput) => void
   ): void;
 
   /**
@@ -1661,6 +1756,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link GetSegmentSubscriptionCommand}
+   */
+  getSegmentSubscription(
+    args: GetSegmentSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentSubscriptionCommandOutput>;
+  getSegmentSubscription(
+    args: GetSegmentSubscriptionCommandInput,
+    cb: (err: any, data?: GetSegmentSubscriptionCommandOutput) => void
+  ): void;
+  getSegmentSubscription(
+    args: GetSegmentSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSimilarProfilesCommand}
    */
   getSimilarProfiles(
@@ -1675,6 +1787,23 @@ export interface CustomerProfiles {
     args: GetSimilarProfilesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSimilarProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetStreamForSegmentsCommand}
+   */
+  getStreamForSegments(
+    args: GetStreamForSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamForSegmentsCommandOutput>;
+  getStreamForSegments(
+    args: GetStreamForSegmentsCommandInput,
+    cb: (err: any, data?: GetStreamForSegmentsCommandOutput) => void
+  ): void;
+  getStreamForSegments(
+    args: GetStreamForSegmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStreamForSegmentsCommandOutput) => void
   ): void;
 
   /**
@@ -2140,6 +2269,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link ListSegmentSubscriptionEventsCommand}
+   */
+  listSegmentSubscriptionEvents(
+    args: ListSegmentSubscriptionEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSegmentSubscriptionEventsCommandOutput>;
+  listSegmentSubscriptionEvents(
+    args: ListSegmentSubscriptionEventsCommandInput,
+    cb: (err: any, data?: ListSegmentSubscriptionEventsCommandOutput) => void
+  ): void;
+  listSegmentSubscriptionEvents(
+    args: ListSegmentSubscriptionEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSegmentSubscriptionEventsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -2273,6 +2419,23 @@ export interface CustomerProfiles {
     args: PutProfileObjectTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutProfileObjectTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutSegmentSubscriptionCommand}
+   */
+  putSegmentSubscription(
+    args: PutSegmentSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSegmentSubscriptionCommandOutput>;
+  putSegmentSubscription(
+    args: PutSegmentSubscriptionCommandInput,
+    cb: (err: any, data?: PutSegmentSubscriptionCommandOutput) => void
+  ): void;
+  putSegmentSubscription(
+    args: PutSegmentSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSegmentSubscriptionCommandOutput) => void
   ): void;
 
   /**
@@ -2627,6 +2790,17 @@ export interface CustomerProfiles {
     args: ListSegmentDefinitionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListSegmentDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListSegmentSubscriptionEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSegmentSubscriptionEventsCommandOutput}.
+   */
+  paginateListSegmentSubscriptionEvents(
+    args: ListSegmentSubscriptionEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSegmentSubscriptionEventsCommandOutput>;
 
   /**
    * @see {@link ListUploadJobsCommand}

@@ -56,6 +56,10 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import type { AddProfileKeyCommandInput, AddProfileKeyCommandOutput } from "./commands/AddProfileKeyCommand";
 import type {
+  AssociateStreamForSegmentsCommandInput,
+  AssociateStreamForSegmentsCommandOutput,
+} from "./commands/AssociateStreamForSegmentsCommand";
+import type {
   BatchGetCalculatedAttributeForProfileCommandInput,
   BatchGetCalculatedAttributeForProfileCommandOutput,
 } from "./commands/BatchGetCalculatedAttributeForProfileCommand";
@@ -162,11 +166,19 @@ import type {
   DeleteSegmentDefinitionCommandInput,
   DeleteSegmentDefinitionCommandOutput,
 } from "./commands/DeleteSegmentDefinitionCommand";
+import type {
+  DeleteSegmentSubscriptionCommandInput,
+  DeleteSegmentSubscriptionCommandOutput,
+} from "./commands/DeleteSegmentSubscriptionCommand";
 import type { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import type {
   DetectProfileObjectTypeCommandInput,
   DetectProfileObjectTypeCommandOutput,
 } from "./commands/DetectProfileObjectTypeCommand";
+import type {
+  DisassociateStreamForSegmentsCommandInput,
+  DisassociateStreamForSegmentsCommandOutput,
+} from "./commands/DisassociateStreamForSegmentsCommand";
 import type {
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
@@ -239,9 +251,17 @@ import type {
   GetSegmentSnapshotCommandOutput,
 } from "./commands/GetSegmentSnapshotCommand";
 import type {
+  GetSegmentSubscriptionCommandInput,
+  GetSegmentSubscriptionCommandOutput,
+} from "./commands/GetSegmentSubscriptionCommand";
+import type {
   GetSimilarProfilesCommandInput,
   GetSimilarProfilesCommandOutput,
 } from "./commands/GetSimilarProfilesCommand";
+import type {
+  GetStreamForSegmentsCommandInput,
+  GetStreamForSegmentsCommandOutput,
+} from "./commands/GetStreamForSegmentsCommand";
 import type { GetUploadJobCommandInput, GetUploadJobCommandOutput } from "./commands/GetUploadJobCommand";
 import type { GetUploadJobPathCommandInput, GetUploadJobPathCommandOutput } from "./commands/GetUploadJobPathCommand";
 import type { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
@@ -327,6 +347,10 @@ import type {
   ListSegmentDefinitionsCommandOutput,
 } from "./commands/ListSegmentDefinitionsCommand";
 import type {
+  ListSegmentSubscriptionEventsCommandInput,
+  ListSegmentSubscriptionEventsCommandOutput,
+} from "./commands/ListSegmentSubscriptionEventsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -343,6 +367,10 @@ import type {
   PutProfileObjectTypeCommandInput,
   PutProfileObjectTypeCommandOutput,
 } from "./commands/PutProfileObjectTypeCommand";
+import type {
+  PutSegmentSubscriptionCommandInput,
+  PutSegmentSubscriptionCommandOutput,
+} from "./commands/PutSegmentSubscriptionCommand";
 import type { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "./commands/SearchProfilesCommand";
 import type { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "./commands/StartRecommenderCommand";
 import type { StartUploadJobCommandInput, StartUploadJobCommandOutput } from "./commands/StartUploadJobCommand";
@@ -384,6 +412,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddProfileKeyCommandInput
+  | AssociateStreamForSegmentsCommandInput
   | BatchGetCalculatedAttributeForProfileCommandInput
   | BatchGetProfileCommandInput
   | BatchPutProfileObjectCommandInput
@@ -416,8 +445,10 @@ export type ServiceInputTypes =
   | DeleteRecommenderFilterCommandInput
   | DeleteRecommenderSchemaCommandInput
   | DeleteSegmentDefinitionCommandInput
+  | DeleteSegmentSubscriptionCommandInput
   | DeleteWorkflowCommandInput
   | DetectProfileObjectTypeCommandInput
+  | DisassociateStreamForSegmentsCommandInput
   | GetAutoMergingPreviewCommandInput
   | GetCalculatedAttributeDefinitionCommandInput
   | GetCalculatedAttributeForProfileCommandInput
@@ -441,7 +472,9 @@ export type ServiceInputTypes =
   | GetSegmentEstimateCommandInput
   | GetSegmentMembershipCommandInput
   | GetSegmentSnapshotCommandInput
+  | GetSegmentSubscriptionCommandInput
   | GetSimilarProfilesCommandInput
+  | GetStreamForSegmentsCommandInput
   | GetUploadJobCommandInput
   | GetUploadJobPathCommandInput
   | GetWorkflowCommandInput
@@ -469,6 +502,7 @@ export type ServiceInputTypes =
   | ListRecommendersCommandInput
   | ListRuleBasedMatchesCommandInput
   | ListSegmentDefinitionsCommandInput
+  | ListSegmentSubscriptionEventsCommandInput
   | ListTagsForResourceCommandInput
   | ListUploadJobsCommandInput
   | ListWorkflowsCommandInput
@@ -477,6 +511,7 @@ export type ServiceInputTypes =
   | PutIntegrationCommandInput
   | PutProfileObjectCommandInput
   | PutProfileObjectTypeCommandInput
+  | PutSegmentSubscriptionCommandInput
   | SearchProfilesCommandInput
   | StartRecommenderCommandInput
   | StartUploadJobCommandInput
@@ -496,6 +531,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddProfileKeyCommandOutput
+  | AssociateStreamForSegmentsCommandOutput
   | BatchGetCalculatedAttributeForProfileCommandOutput
   | BatchGetProfileCommandOutput
   | BatchPutProfileObjectCommandOutput
@@ -528,8 +564,10 @@ export type ServiceOutputTypes =
   | DeleteRecommenderFilterCommandOutput
   | DeleteRecommenderSchemaCommandOutput
   | DeleteSegmentDefinitionCommandOutput
+  | DeleteSegmentSubscriptionCommandOutput
   | DeleteWorkflowCommandOutput
   | DetectProfileObjectTypeCommandOutput
+  | DisassociateStreamForSegmentsCommandOutput
   | GetAutoMergingPreviewCommandOutput
   | GetCalculatedAttributeDefinitionCommandOutput
   | GetCalculatedAttributeForProfileCommandOutput
@@ -553,7 +591,9 @@ export type ServiceOutputTypes =
   | GetSegmentEstimateCommandOutput
   | GetSegmentMembershipCommandOutput
   | GetSegmentSnapshotCommandOutput
+  | GetSegmentSubscriptionCommandOutput
   | GetSimilarProfilesCommandOutput
+  | GetStreamForSegmentsCommandOutput
   | GetUploadJobCommandOutput
   | GetUploadJobPathCommandOutput
   | GetWorkflowCommandOutput
@@ -581,6 +621,7 @@ export type ServiceOutputTypes =
   | ListRecommendersCommandOutput
   | ListRuleBasedMatchesCommandOutput
   | ListSegmentDefinitionsCommandOutput
+  | ListSegmentSubscriptionEventsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUploadJobsCommandOutput
   | ListWorkflowsCommandOutput
@@ -589,6 +630,7 @@ export type ServiceOutputTypes =
   | PutIntegrationCommandOutput
   | PutProfileObjectCommandOutput
   | PutProfileObjectTypeCommandOutput
+  | PutSegmentSubscriptionCommandOutput
   | SearchProfilesCommandOutput
   | StartRecommenderCommandOutput
   | StartUploadJobCommandOutput

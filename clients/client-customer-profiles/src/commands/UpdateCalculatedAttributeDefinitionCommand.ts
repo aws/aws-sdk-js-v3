@@ -68,7 +68,7 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput extends Update
  * //   Description: "STRING_VALUE",
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
- * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE",
+ * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE" || "RECENT_OCCURRENCES",
  * //   Conditions: { // Conditions
  * //     Range: { // Range
  * //       Value: Number("int"),

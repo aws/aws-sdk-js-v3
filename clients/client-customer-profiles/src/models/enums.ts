@@ -292,6 +292,22 @@ export type Status = (typeof Status)[keyof typeof Status];
  * @public
  * @enum
  */
+export const EventSubscriptionSegmentStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type EventSubscriptionSegmentStatus =
+  (typeof EventSubscriptionSegmentStatus)[keyof typeof EventSubscriptionSegmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AttributeDimensionType = {
   AFTER: "AFTER",
   BEFORE: "BEFORE",
@@ -306,6 +322,8 @@ export const AttributeDimensionType = {
   INCLUSIVE: "INCLUSIVE",
   LESS_THAN: "LESS_THAN",
   LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+  LIST_CONTAINS: "LIST_CONTAINS",
+  LIST_CONTAINS_ALL: "LIST_CONTAINS_ALL",
   NOT_BETWEEN: "NOT_BETWEEN",
   ON: "ON",
 } as const;
@@ -558,6 +576,7 @@ export const Statistic = {
   MAXIMUM: "MAXIMUM",
   MAX_OCCURRENCE: "MAX_OCCURRENCE",
   MINIMUM: "MINIMUM",
+  RECENT_OCCURRENCES: "RECENT_OCCURRENCES",
   SUM: "SUM",
 } as const;
 /**
@@ -1028,6 +1047,33 @@ export type SegmentSnapshotStatus = (typeof SegmentSnapshotStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const ScheduleConfigurationUnit = {
+  HOURLY: "HOURLY",
+} as const;
+/**
+ * @public
+ */
+export type ScheduleConfigurationUnit = (typeof ScheduleConfigurationUnit)[keyof typeof ScheduleConfigurationUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const SegmentSubscriptionStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+} as const;
+/**
+ * @public
+ */
+export type SegmentSubscriptionStatus = (typeof SegmentSubscriptionStatus)[keyof typeof SegmentSubscriptionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const MatchType = {
   ML_BASED_MATCHING: "ML_BASED_MATCHING",
   RULE_BASED_MATCHING: "RULE_BASED_MATCHING",
@@ -1036,6 +1082,20 @@ export const MatchType = {
  * @public
  */
 export type MatchType = (typeof MatchType)[keyof typeof MatchType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventSubscriptionState = {
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  UNHEALTHY: "UNHEALTHY",
+} as const;
+/**
+ * @public
+ */
+export type EventSubscriptionState = (typeof EventSubscriptionState)[keyof typeof EventSubscriptionState];
 
 /**
  * @public
@@ -1066,6 +1126,32 @@ export const StatusReason = {
  * @public
  */
 export type StatusReason = (typeof StatusReason)[keyof typeof StatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionEvent = {
+  JOINED: "JOINED",
+  LEFT: "LEFT",
+} as const;
+/**
+ * @public
+ */
+export type SubscriptionEvent = (typeof SubscriptionEvent)[keyof typeof SubscriptionEvent];
+
+/**
+ * @public
+ * @enum
+ */
+export const SubscriptionEventType = {
+  LIVE: "LIVE",
+  SCHEDULE: "SCHEDULE",
+} as const;
+/**
+ * @public
+ */
+export type SubscriptionEventType = (typeof SubscriptionEventType)[keyof typeof SubscriptionEventType];
 
 /**
  * @public

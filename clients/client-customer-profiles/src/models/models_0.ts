@@ -14,6 +14,8 @@ import type {
   EstimateStatus,
   EventStreamDestinationStatus,
   EventStreamState,
+  EventSubscriptionSegmentStatus,
+  EventSubscriptionState,
   EventTriggerLogicalOperator,
   FeatureType,
   FieldContentType,
@@ -42,10 +44,12 @@ import type {
   RuleBasedMatchingStatus,
   S3ConnectorOperator,
   SalesforceConnectorOperator,
+  ScheduleConfigurationUnit,
   Scope,
   SegmentSnapshotStatus,
   SegmentSortDataType,
   SegmentSortOrder,
+  SegmentSubscriptionStatus,
   SegmentType,
   ServiceNowConnectorOperator,
   SortAttributeType,
@@ -214,7 +218,10 @@ export interface ProfileDimension {
   DimensionType: StringDimensionType | undefined;
 
   /**
-   * <p>The values to apply the DimensionType on.</p>
+   * <p>The values to apply the DimensionType on. To reference a calculated attribute or profile
+   *          attribute as a dynamic value, use handlebar notation:
+   *          <code>\{\{_profile.ProfileAttributeName\}\}</code> or
+   *          <code>\{\{_calculated_attribute.CalculatedAttributeName\}\}</code>.</p>
    * @public
    */
   Values: string[] | undefined;
@@ -790,6 +797,100 @@ export interface AppflowIntegrationWorkflowStep {
 }
 
 /**
+ * <p>Represents a segment associated with a membership event stream. </p>
+ * @public
+ */
+export interface AssociatedSegment {
+  /**
+   * <p>The unique name of the segment definition. </p>
+   * @public
+   */
+  SegmentName?: string | undefined;
+
+  /**
+   * <p>The subscription status of the segment. The following are valid values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>STARTING</b>: The segment is being prepared to publish
+   *                membership events. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>RUNNING</b>: The segment is actively publishing
+   *                membership events to the stream. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>STOPPED</b>: The segment has stopped publishing
+   *                membership events. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>FAILED</b>: The segment failed to publish membership
+   *                events. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: EventSubscriptionSegmentStatus | undefined;
+
+  /**
+   * <p>An optional message providing context, such as a failure reason. </p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateStreamForSegmentsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis data stream to deliver segment membership events to.
+   *          For example, <code>arn:aws:kinesis:region:account-id:stream/stream-name</code>. </p>
+   * @public
+   */
+  DestinationArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that allows Customer Profiles service principal to assume the role for
+   *          conducting AWS Key Management Service (KMS) and Amazon Kinesis operations. The role must grant the following
+   *          Amazon Kinesis permissions to deliver segment membership events to the stream: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>kinesis:PutRecord</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kinesis:PutRecords</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kinesis:DescribeStream</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DestinationRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateStreamForSegmentsResponse {}
+
+/**
  * <p>The details of a single attribute item specified in the mathematical expression.</p>
  * @public
  */
@@ -834,7 +935,10 @@ export interface AttributeDimension {
   DimensionType: AttributeDimensionType | undefined;
 
   /**
-   * <p>The values to apply the DimensionType on.</p>
+   * <p>The values to apply the DimensionType on. To reference a calculated attribute or profile
+   *          attribute as a dynamic value, use handlebar notation:
+   *          <code>\{\{_profile.ProfileAttributeName\}\}</code> or
+   *          <code>\{\{_calculated_attribute.CalculatedAttributeName\}\}</code>.</p>
    * @public
    */
   Values: string[] | undefined;
@@ -1699,7 +1803,10 @@ export interface CalculatedAttributeDimension {
   DimensionType: AttributeDimensionType | undefined;
 
   /**
-   * <p>The values to apply the DimensionType with.</p>
+   * <p>The values to apply the DimensionType with. To reference a calculated attribute or
+   *          profile attribute as a dynamic value, use handlebar notation:
+   *          <code>\{\{_profile.ProfileAttributeName\}\}</code> or
+   *          <code>\{\{_calculated_attribute.CalculatedAttributeName\}\}</code>.</p>
    * @public
    */
   Values: string[] | undefined;
@@ -3683,7 +3790,10 @@ export interface ExtraLengthValueProfileDimension {
   DimensionType: StringDimensionType | undefined;
 
   /**
-   * <p>The values to apply the DimensionType on.</p>
+   * <p>The values to apply the DimensionType on. To reference a calculated attribute or profile
+   *          attribute as a dynamic value, use handlebar notation:
+   *          <code>\{\{_profile.ProfileAttributeName\}\}</code> or
+   *          <code>\{\{_calculated_attribute.CalculatedAttributeName\}\}</code>.</p>
    * @public
    */
   Values: string[] | undefined;
@@ -3701,7 +3811,10 @@ export interface DateDimension {
   DimensionType: DateDimensionType | undefined;
 
   /**
-   * <p>The values to apply the DimensionType on.</p>
+   * <p>The values to apply the DimensionType on. To reference a calculated attribute or profile
+   *          attribute as a dynamic value, use handlebar notation:
+   *          <code>\{\{_profile.ProfileAttributeName\}\}</code> or
+   *          <code>\{\{_calculated_attribute.CalculatedAttributeName\}\}</code>.</p>
    * @public
    */
   Values: string[] | undefined;
@@ -4722,6 +4835,34 @@ export interface DeleteSegmentDefinitionResponse {
 /**
  * @public
  */
+export interface DeleteSegmentSubscriptionRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the segment definition. </p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSegmentSubscriptionResponse {
+  /**
+   * <p>A confirmation message indicating the subscription was deleted successfully. </p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteWorkflowRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -4820,6 +4961,28 @@ export interface DetectProfileObjectTypeResponse {
    * @public
    */
   DetectedProfileObjectTypes?: DetectedProfileObjectType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateStreamForSegmentsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateStreamForSegmentsResponse {
+  /**
+   * <p>A confirmation message indicating the stream was disassociated successfully. </p>
+   * @public
+   */
+  Message?: string | undefined;
 }
 
 /**
@@ -7039,6 +7202,126 @@ export interface GetSegmentSnapshotResponse {
 /**
  * @public
  */
+export interface GetSegmentSubscriptionRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the segment definition. </p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+}
+
+/**
+ * <p>Configuration for scheduled segment membership event notifications. </p>
+ * @public
+ */
+export interface ScheduleConfiguration {
+  /**
+   * <p>The interval between scheduled executions. </p>
+   * @public
+   */
+  Interval: number | undefined;
+
+  /**
+   * <p>The unit for the interval. The following are valid values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>HOURLY</b>: The interval is measured in hours. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Unit?: ScheduleConfigurationUnit | undefined;
+}
+
+/**
+ * <p>Information about scheduled execution timestamps. </p>
+ * @public
+ */
+export interface ScheduledExecutions {
+  /**
+   * <p>The timestamp of the next scheduled execution. </p>
+   * @public
+   */
+  NextExecutedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the last successful scheduled execution. </p>
+   * @public
+   */
+  LastExecutedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSegmentSubscriptionResponse {
+  /**
+   * <p>The current lifecycle status of the subscription. The following are valid values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>STARTING</b>: Initial snapshot is in progress. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>RUNNING</b>: Notifications are active and running.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>STOPPED</b>: Notifications have been stopped. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>FAILED</b>: Notifications failed (for example, the
+   *                Amazon Kinesis data stream became inaccessible). </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: SegmentSubscriptionStatus | undefined;
+
+  /**
+   * <p>A status message providing additional context, such as a failure reason. </p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The schedule configuration for periodic membership event notifications. </p>
+   * @public
+   */
+  ScheduleConfiguration?: ScheduleConfiguration | undefined;
+
+  /**
+   * <p>Information about scheduled execution timestamps. </p>
+   * @public
+   */
+  ScheduledExecutions?: ScheduledExecutions | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription was first started. </p>
+   * @public
+   */
+  StartedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of the most recent configuration change. </p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSimilarProfilesRequest {
   /**
    * <p>The pagination token from the previous <code>GetSimilarProfiles</code> API call.</p>
@@ -7123,6 +7406,88 @@ export interface GetSimilarProfilesResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetStreamForSegmentsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetStreamForSegmentsResponse {
+  /**
+   * <p>The timestamp of when the stream was associated. </p>
+   * @public
+   */
+  AssociatedAt?: Date | undefined;
+
+  /**
+   * <p>A list of segments currently associated with the stream and their subscription status.
+   *       </p>
+   * @public
+   */
+  AssociatedSegments?: AssociatedSegment[] | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis data stream receiving segment membership events. </p>
+   * @public
+   */
+  DestinationArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role used for Amazon Kinesis and AWS Key Management Service (KMS) operations. </p>
+   * @public
+   */
+  DestinationRoleArn?: string | undefined;
+
+  /**
+   * <p>The operational state of the destination stream. The following are valid values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>RUNNING</b>: The stream is associated and healthy.
+   *                Segment membership events are being published. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>UNHEALTHY</b>: The stream is associated but events
+   *                cannot currently be published. See <code>FailureReason</code> for details. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>STOPPED</b>: The stream is no longer publishing
+   *                segment membership events. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: EventSubscriptionState | undefined;
+
+  /**
+   * <p>The timestamp of when the stream was disassociated. </p>
+   * @public
+   */
+  DisassociatedAt?: Date | undefined;
+
+  /**
+   * <p>The reason why the stream is in an unhealthy state, if applicable. </p>
+   * @public
+   */
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -8816,345 +9181,6 @@ export interface ListProfileObjectTypesResponse {
 
   /**
    * <p>Identifies the next page of results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProfileObjectTypeTemplatesRequest {
-  /**
-   * <p>The pagination token from the previous ListObjectTypeTemplates API call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of objects returned per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>A ProfileObjectTypeTemplate in a list of ProfileObjectTypeTemplates.</p>
- * @public
- */
-export interface ListProfileObjectTypeTemplateItem {
-  /**
-   * <p>A unique identifier for the object template.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the source of the object template.</p>
-   * @public
-   */
-  SourceName?: string | undefined;
-
-  /**
-   * <p>The source of the object template.</p>
-   * @public
-   */
-  SourceObject?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProfileObjectTypeTemplatesResponse {
-  /**
-   * <p>The list of ListProfileObjectType template instances.</p>
-   * @public
-   */
-  Items?: ListProfileObjectTypeTemplateItem[] | undefined;
-
-  /**
-   * <p>The pagination token from the previous ListObjectTypeTemplates API call. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRecommenderFiltersRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The maximum number of recommender filters to return in the response. The default value is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token received from a previous ListRecommenderFilters call to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Provides a summary of a recommender filter's configuration and current state.</p>
- * @public
- */
-export interface RecommenderFilterSummary {
-  /**
-   * <p>The name of the recommender filter.</p>
-   * @public
-   */
-  RecommenderFilterName?: string | undefined;
-
-  /**
-   * <p>The name of the recommender schema associated with this recommender filter.</p>
-   * @public
-   */
-  RecommenderSchemaName?: string | undefined;
-
-  /**
-   * <p>The filter expression that defines which items to include or exclude from recommendations.</p>
-   * @public
-   */
-  RecommenderFilterExpression?: string | undefined;
-
-  /**
-   * <p>The timestamp when the recommender filter was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>A description of the recommender filter's purpose and characteristics.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The current operational status of the recommender filter.</p>
-   * @public
-   */
-  Status?: RecommenderFilterStatus | undefined;
-
-  /**
-   * <p>If the recommender filter is in a failed state, provides the reason for the failure.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRecommenderFiltersResponse {
-  /**
-   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of recommender filters and their properties in the specified domain.</p>
-   * @public
-   */
-  RecommenderFilters?: RecommenderFilterSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRecommenderRecipesRequest {
-  /**
-   * <p>The maximum number of recommender recipes to return in the response. The default value is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token received from a previous ListRecommenderRecipes call to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Defines the algorithm and approach used to generate recommendations.</p>
- * @public
- */
-export interface RecommenderRecipe {
-  /**
-   * <p>The name of the recommender recipe.</p>
-   * @public
-   */
-  name?: RecommenderRecipeName | undefined;
-
-  /**
-   * <p>A description of the recommender recipe's purpose and functionality.</p>
-   * @public
-   */
-  description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRecommenderRecipesResponse {
-  /**
-   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of available recommender recipes and their properties.</p>
-   * @public
-   */
-  RecommenderRecipes?: RecommenderRecipe[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRecommendersRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The maximum number of recommenders to return in the response. The default value is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token received from a previous ListRecommenders call to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Provides a summary of a recommender's configuration and current state.</p>
- * @public
- */
-export interface RecommenderSummary {
-  /**
-   * <p>The name of the recommender.</p>
-   * @public
-   */
-  RecommenderName?: string | undefined;
-
-  /**
-   * <p>The name of the recipe used by this recommender.</p>
-   * @public
-   */
-  RecipeName?: RecommenderRecipeName | undefined;
-
-  /**
-   * <p>The name of the recommender schema associated with this recommender.</p>
-   * @public
-   */
-  RecommenderSchemaName?: string | undefined;
-
-  /**
-   * <p>The configuration settings applied to this recommender.</p>
-   * @public
-   */
-  RecommenderConfig?: RecommenderConfig | undefined;
-
-  /**
-   * <p>The timestamp when the recommender was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>A description of the recommender's purpose and characteristics.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The current operational status of the recommender.</p>
-   * @public
-   */
-  Status?: RecommenderStatus | undefined;
-
-  /**
-   * <p>The timestamp of when the recommender was edited.</p>
-   * @public
-   */
-  LastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>If the recommender is in a failed state, provides the reason for the failure.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>Information about the most recent update performed on the recommender, including its status and timing.</p>
-   * @public
-   */
-  LatestRecommenderUpdate?: RecommenderUpdate | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRecommendersResponse {
-  /**
-   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of recommenders and their properties in the specified domain.</p>
-   * @public
-   */
-  Recommenders?: RecommenderSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRecommenderSchemasRequest {
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The maximum number of recommender schemas to return in the response. The default value is 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token received from a previous ListRecommenderSchemas call to retrieve the next page of results.</p>
    * @public
    */
   NextToken?: string | undefined;

@@ -128,7 +128,7 @@ export interface CreateSegmentDefinitionCommandOutput extends CreateSegmentDefin
  *               },
  *               Attributes: { // CustomAttributes
  *                 "<keys>": { // AttributeDimension
- *                   DimensionType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEGINS_WITH" || "ENDS_WITH" || "BEFORE" || "AFTER" || "BETWEEN" || "NOT_BETWEEN" || "ON" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "EQUAL", // required
+ *                   DimensionType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEGINS_WITH" || "ENDS_WITH" || "BEFORE" || "AFTER" || "BETWEEN" || "NOT_BETWEEN" || "ON" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "EQUAL" || "LIST_CONTAINS" || "LIST_CONTAINS_ALL", // required
  *                   Values: "<Values>", // required
  *                 },
  *               },
@@ -141,7 +141,7 @@ export interface CreateSegmentDefinitionCommandOutput extends CreateSegmentDefin
  *             },
  *             CalculatedAttributes: { // CalculatedCustomAttributes
  *               "<keys>": { // CalculatedAttributeDimension
- *                 DimensionType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEGINS_WITH" || "ENDS_WITH" || "BEFORE" || "AFTER" || "BETWEEN" || "NOT_BETWEEN" || "ON" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "EQUAL", // required
+ *                 DimensionType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEGINS_WITH" || "ENDS_WITH" || "BEFORE" || "AFTER" || "BETWEEN" || "NOT_BETWEEN" || "ON" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "EQUAL" || "LIST_CONTAINS" || "LIST_CONTAINS_ALL", // required
  *                 Values: "<Values>", // required
  *                 ConditionOverrides: { // ConditionOverrides
  *                   Range: { // RangeOverride

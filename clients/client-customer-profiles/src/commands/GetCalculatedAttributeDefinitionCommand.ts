@@ -48,7 +48,7 @@ export interface GetCalculatedAttributeDefinitionCommandOutput extends GetCalcul
  * //   Description: "STRING_VALUE",
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
- * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE",
+ * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE" || "RECENT_OCCURRENCES",
  * //   Filter: { // Filter
  * //     Include: "ALL" || "ANY" || "NONE", // required
  * //     Groups: [ // GroupList // required

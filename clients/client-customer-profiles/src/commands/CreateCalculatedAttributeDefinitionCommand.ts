@@ -90,7 +90,7 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput extends Create
  *       },
  *     ],
  *   },
- *   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE", // required
+ *   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE" || "RECENT_OCCURRENCES", // required
  *   UseHistoricalData: true || false,
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -147,7 +147,7 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput extends Create
  * //       },
  * //     ],
  * //   },
- * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE",
+ * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE" || "RECENT_OCCURRENCES",
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
  * //   UseHistoricalData: true || false,

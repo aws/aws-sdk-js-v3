@@ -13,6 +13,11 @@ import {
   AppflowIntegrationWorkflowAttributes$,
   AppflowIntegrationWorkflowMetrics$,
   AppflowIntegrationWorkflowStep$,
+  AssociatedSegment$,
+  AssociateStreamForSegments$,
+  AssociateStreamForSegmentsCommand,
+  AssociateStreamForSegmentsRequest$,
+  AssociateStreamForSegmentsResponse$,
   AttributeDetails$,
   AttributeDimension$,
   AttributeDimensionType,
@@ -179,6 +184,10 @@ import {
   DeleteSegmentDefinitionCommand,
   DeleteSegmentDefinitionRequest$,
   DeleteSegmentDefinitionResponse$,
+  DeleteSegmentSubscription$,
+  DeleteSegmentSubscriptionCommand,
+  DeleteSegmentSubscriptionRequest$,
+  DeleteSegmentSubscriptionResponse$,
   DeleteWorkflow$,
   DeleteWorkflowCommand,
   DeleteWorkflowRequest$,
@@ -190,6 +199,10 @@ import {
   DetectProfileObjectTypeRequest$,
   DetectProfileObjectTypeResponse$,
   Dimension$,
+  DisassociateStreamForSegments$,
+  DisassociateStreamForSegmentsCommand,
+  DisassociateStreamForSegmentsRequest$,
+  DisassociateStreamForSegmentsResponse$,
   DiversityCapType,
   DiversityColumn$,
   DiversityConfig$,
@@ -204,6 +217,8 @@ import {
   EventStreamDestinationStatus,
   EventStreamState,
   EventStreamSummary$,
+  EventSubscriptionSegmentStatus,
+  EventSubscriptionState,
   EventTriggerCondition$,
   EventTriggerDimension$,
   EventTriggerLimits$,
@@ -317,10 +332,18 @@ import {
   GetSegmentSnapshotCommand,
   GetSegmentSnapshotRequest$,
   GetSegmentSnapshotResponse$,
+  GetSegmentSubscription$,
+  GetSegmentSubscriptionCommand,
+  GetSegmentSubscriptionRequest$,
+  GetSegmentSubscriptionResponse$,
   GetSimilarProfiles$,
   GetSimilarProfilesCommand,
   GetSimilarProfilesRequest$,
   GetSimilarProfilesResponse$,
+  GetStreamForSegments$,
+  GetStreamForSegmentsCommand,
+  GetStreamForSegmentsRequest$,
+  GetStreamForSegmentsResponse$,
   GetUploadJob$,
   GetUploadJobCommand,
   GetUploadJobPath$,
@@ -451,6 +474,10 @@ import {
   ListSegmentDefinitionsCommand,
   ListSegmentDefinitionsRequest$,
   ListSegmentDefinitionsResponse$,
+  ListSegmentSubscriptionEvents$,
+  ListSegmentSubscriptionEventsCommand,
+  ListSegmentSubscriptionEventsRequest$,
+  ListSegmentSubscriptionEventsResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -495,6 +522,7 @@ import {
   paginateListRecommenderSchemas,
   paginateListRuleBasedMatches,
   paginateListSegmentDefinitions,
+  paginateListSegmentSubscriptionEvents,
   paginateListUploadJobs,
   PartyType,
   Period$,
@@ -526,6 +554,10 @@ import {
   PutProfileObjectTypeCommand,
   PutProfileObjectTypeRequest$,
   PutProfileObjectTypeResponse$,
+  PutSegmentSubscription$,
+  PutSegmentSubscriptionCommand,
+  PutSegmentSubscriptionRequest$,
+  PutSegmentSubscriptionResponse$,
   QueryResult,
   Range$,
   RangeOverride$,
@@ -559,6 +591,9 @@ import {
   S3SourceProperties$,
   SalesforceConnectorOperator,
   SalesforceSourceProperties$,
+  ScheduleConfiguration$,
+  ScheduleConfigurationUnit,
+  ScheduledExecutions$,
   ScheduledTriggerProperties$,
   Scope,
   SearchProfiles$,
@@ -572,6 +607,7 @@ import {
   SegmentSort$,
   SegmentSortDataType,
   SegmentSortOrder,
+  SegmentSubscriptionStatus,
   SegmentType,
   ServiceNowConnectorOperator,
   ServiceNowSourceProperties$,
@@ -602,6 +638,9 @@ import {
   StopUploadJobRequest$,
   StopUploadJobResponse$,
   StringDimensionType,
+  SubscriptionEvent,
+  SubscriptionEventItem$,
+  SubscriptionEventType,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -664,6 +703,8 @@ assert(typeof CustomerProfiles === "function");
 // commands
 assert(typeof AddProfileKeyCommand === "function");
 assert(typeof AddProfileKey$ === "object");
+assert(typeof AssociateStreamForSegmentsCommand === "function");
+assert(typeof AssociateStreamForSegments$ === "object");
 assert(typeof BatchGetCalculatedAttributeForProfileCommand === "function");
 assert(typeof BatchGetCalculatedAttributeForProfile$ === "object");
 assert(typeof BatchGetProfileCommand === "function");
@@ -728,10 +769,14 @@ assert(typeof DeleteRecommenderSchemaCommand === "function");
 assert(typeof DeleteRecommenderSchema$ === "object");
 assert(typeof DeleteSegmentDefinitionCommand === "function");
 assert(typeof DeleteSegmentDefinition$ === "object");
+assert(typeof DeleteSegmentSubscriptionCommand === "function");
+assert(typeof DeleteSegmentSubscription$ === "object");
 assert(typeof DeleteWorkflowCommand === "function");
 assert(typeof DeleteWorkflow$ === "object");
 assert(typeof DetectProfileObjectTypeCommand === "function");
 assert(typeof DetectProfileObjectType$ === "object");
+assert(typeof DisassociateStreamForSegmentsCommand === "function");
+assert(typeof DisassociateStreamForSegments$ === "object");
 assert(typeof GetAutoMergingPreviewCommand === "function");
 assert(typeof GetAutoMergingPreview$ === "object");
 assert(typeof GetCalculatedAttributeDefinitionCommand === "function");
@@ -778,8 +823,12 @@ assert(typeof GetSegmentMembershipCommand === "function");
 assert(typeof GetSegmentMembership$ === "object");
 assert(typeof GetSegmentSnapshotCommand === "function");
 assert(typeof GetSegmentSnapshot$ === "object");
+assert(typeof GetSegmentSubscriptionCommand === "function");
+assert(typeof GetSegmentSubscription$ === "object");
 assert(typeof GetSimilarProfilesCommand === "function");
 assert(typeof GetSimilarProfiles$ === "object");
+assert(typeof GetStreamForSegmentsCommand === "function");
+assert(typeof GetStreamForSegments$ === "object");
 assert(typeof GetUploadJobCommand === "function");
 assert(typeof GetUploadJob$ === "object");
 assert(typeof GetUploadJobPathCommand === "function");
@@ -834,6 +883,8 @@ assert(typeof ListRuleBasedMatchesCommand === "function");
 assert(typeof ListRuleBasedMatches$ === "object");
 assert(typeof ListSegmentDefinitionsCommand === "function");
 assert(typeof ListSegmentDefinitions$ === "object");
+assert(typeof ListSegmentSubscriptionEventsCommand === "function");
+assert(typeof ListSegmentSubscriptionEvents$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListUploadJobsCommand === "function");
@@ -850,6 +901,8 @@ assert(typeof PutProfileObjectCommand === "function");
 assert(typeof PutProfileObject$ === "object");
 assert(typeof PutProfileObjectTypeCommand === "function");
 assert(typeof PutProfileObjectType$ === "object");
+assert(typeof PutSegmentSubscriptionCommand === "function");
+assert(typeof PutSegmentSubscription$ === "object");
 assert(typeof SearchProfilesCommand === "function");
 assert(typeof SearchProfiles$ === "object");
 assert(typeof StartRecommenderCommand === "function");
@@ -886,6 +939,9 @@ assert(typeof AppflowIntegration$ === "object");
 assert(typeof AppflowIntegrationWorkflowAttributes$ === "object");
 assert(typeof AppflowIntegrationWorkflowMetrics$ === "object");
 assert(typeof AppflowIntegrationWorkflowStep$ === "object");
+assert(typeof AssociatedSegment$ === "object");
+assert(typeof AssociateStreamForSegmentsRequest$ === "object");
+assert(typeof AssociateStreamForSegmentsResponse$ === "object");
 assert(typeof AttributeDetails$ === "object");
 assert(typeof AttributeDimension$ === "object");
 assert(typeof AttributeItem$ === "object");
@@ -974,6 +1030,8 @@ assert(typeof DeleteRecommenderSchemaRequest$ === "object");
 assert(typeof DeleteRecommenderSchemaResponse$ === "object");
 assert(typeof DeleteSegmentDefinitionRequest$ === "object");
 assert(typeof DeleteSegmentDefinitionResponse$ === "object");
+assert(typeof DeleteSegmentSubscriptionRequest$ === "object");
+assert(typeof DeleteSegmentSubscriptionResponse$ === "object");
 assert(typeof DeleteWorkflowRequest$ === "object");
 assert(typeof DeleteWorkflowResponse$ === "object");
 assert(typeof DestinationSummary$ === "object");
@@ -981,6 +1039,8 @@ assert(typeof DetectedProfileObjectType$ === "object");
 assert(typeof DetectProfileObjectTypeRequest$ === "object");
 assert(typeof DetectProfileObjectTypeResponse$ === "object");
 assert(typeof Dimension$ === "object");
+assert(typeof DisassociateStreamForSegmentsRequest$ === "object");
+assert(typeof DisassociateStreamForSegmentsResponse$ === "object");
 assert(typeof DiversityColumn$ === "object");
 assert(typeof DiversityConfig$ === "object");
 assert(typeof DomainObjectTypeField$ === "object");
@@ -1053,8 +1113,12 @@ assert(typeof GetSegmentMembershipRequest$ === "object");
 assert(typeof GetSegmentMembershipResponse$ === "object");
 assert(typeof GetSegmentSnapshotRequest$ === "object");
 assert(typeof GetSegmentSnapshotResponse$ === "object");
+assert(typeof GetSegmentSubscriptionRequest$ === "object");
+assert(typeof GetSegmentSubscriptionResponse$ === "object");
 assert(typeof GetSimilarProfilesRequest$ === "object");
 assert(typeof GetSimilarProfilesResponse$ === "object");
+assert(typeof GetStreamForSegmentsRequest$ === "object");
+assert(typeof GetStreamForSegmentsResponse$ === "object");
 assert(typeof GetUploadJobPathRequest$ === "object");
 assert(typeof GetUploadJobPathResponse$ === "object");
 assert(typeof GetUploadJobRequest$ === "object");
@@ -1124,6 +1188,8 @@ assert(typeof ListRuleBasedMatchesRequest$ === "object");
 assert(typeof ListRuleBasedMatchesResponse$ === "object");
 assert(typeof ListSegmentDefinitionsRequest$ === "object");
 assert(typeof ListSegmentDefinitionsResponse$ === "object");
+assert(typeof ListSegmentSubscriptionEventsRequest$ === "object");
+assert(typeof ListSegmentSubscriptionEventsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListUploadJobsRequest$ === "object");
@@ -1161,6 +1227,8 @@ assert(typeof PutProfileObjectRequest$ === "object");
 assert(typeof PutProfileObjectResponse$ === "object");
 assert(typeof PutProfileObjectTypeRequest$ === "object");
 assert(typeof PutProfileObjectTypeResponse$ === "object");
+assert(typeof PutSegmentSubscriptionRequest$ === "object");
+assert(typeof PutSegmentSubscriptionResponse$ === "object");
 assert(typeof Range$ === "object");
 assert(typeof RangeOverride$ === "object");
 assert(typeof Readiness$ === "object");
@@ -1182,6 +1250,8 @@ assert(typeof S3ExportingConfig$ === "object");
 assert(typeof S3ExportingLocation$ === "object");
 assert(typeof S3SourceProperties$ === "object");
 assert(typeof SalesforceSourceProperties$ === "object");
+assert(typeof ScheduleConfiguration$ === "object");
+assert(typeof ScheduledExecutions$ === "object");
 assert(typeof ScheduledTriggerProperties$ === "object");
 assert(typeof SearchProfilesRequest$ === "object");
 assert(typeof SearchProfilesResponse$ === "object");
@@ -1202,6 +1272,7 @@ assert(typeof StopRecommenderRequest$ === "object");
 assert(typeof StopRecommenderResponse$ === "object");
 assert(typeof StopUploadJobRequest$ === "object");
 assert(typeof StopUploadJobResponse$ === "object");
+assert(typeof SubscriptionEventItem$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof Task$ === "object");
@@ -1245,6 +1316,8 @@ assert(typeof DiversityCapType === "object");
 assert(typeof EstimateStatus === "object");
 assert(typeof EventStreamDestinationStatus === "object");
 assert(typeof EventStreamState === "object");
+assert(typeof EventSubscriptionSegmentStatus === "object");
+assert(typeof EventSubscriptionState === "object");
 assert(typeof EventTriggerLogicalOperator === "object");
 assert(typeof FeatureType === "object");
 assert(typeof FieldContentType === "object");
@@ -1274,10 +1347,12 @@ assert(typeof RecommenderStatus === "object");
 assert(typeof RuleBasedMatchingStatus === "object");
 assert(typeof S3ConnectorOperator === "object");
 assert(typeof SalesforceConnectorOperator === "object");
+assert(typeof ScheduleConfigurationUnit === "object");
 assert(typeof Scope === "object");
 assert(typeof SegmentSnapshotStatus === "object");
 assert(typeof SegmentSortDataType === "object");
 assert(typeof SegmentSortOrder === "object");
+assert(typeof SegmentSubscriptionStatus === "object");
 assert(typeof SegmentType === "object");
 assert(typeof ServiceNowConnectorOperator === "object");
 assert(typeof SortAttributeType === "object");
@@ -1287,6 +1362,8 @@ assert(typeof Statistic === "object");
 assert(typeof Status === "object");
 assert(typeof StatusReason === "object");
 assert(typeof StringDimensionType === "object");
+assert(typeof SubscriptionEvent === "object");
+assert(typeof SubscriptionEventType === "object");
 assert(typeof TaskType === "object");
 assert(typeof TrainingMetricName === "object");
 assert(typeof TriggerType === "object");
@@ -1320,5 +1397,6 @@ assert(typeof paginateListRecommenderSchemas === "function");
 assert(typeof paginateListRecommenders === "function");
 assert(typeof paginateListRuleBasedMatches === "function");
 assert(typeof paginateListSegmentDefinitions === "function");
+assert(typeof paginateListSegmentSubscriptionEvents === "function");
 assert(typeof paginateListUploadJobs === "function");
 console.log(`CustomerProfiles index test passed.`);

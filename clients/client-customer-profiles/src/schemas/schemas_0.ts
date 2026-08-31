@@ -1,4 +1,5 @@
 const _A = "Address";
+const _AA = "AssociatedAt";
 const _AD = "AddressDimension";
 const _ADE = "AccessDeniedException";
 const _ADt = "AttributeDetails";
@@ -20,8 +21,14 @@ const _APK = "AddProfileKey";
 const _APKR = "AddProfileKeyRequest";
 const _APKRd = "AddProfileKeyResponse";
 const _ARVN = "ActiveRecommenderVersionName";
+const _AS = "AssociatedSegment";
+const _ASFS = "AssociateStreamForSegments";
+const _ASFSR = "AssociateStreamForSegmentsRequest";
+const _ASFSRs = "AssociateStreamForSegmentsResponse";
 const _ASK = "AdditionalSearchKey";
 const _ASKd = "AdditionalSearchKeys";
+const _ASL = "AssociatedSegmentsList";
+const _ASs = "AssociatedSegments";
 const _AT = "ActionType";
 const _ATS = "AttributeTypesSelector";
 const _AVI = "AttributeValueItem";
@@ -144,6 +151,8 @@ const _Cont = "Content";
 const _Conte = "Context";
 const _Cou = "Country";
 const _D = "Description";
+const _DA = "DestinationArn";
+const _DAi = "DisassociatedAt";
 const _DC = "DiversityColumn";
 const _DCAD = "DeleteCalculatedAttributeDefinition";
 const _DCADR = "DeleteCalculatedAttributeDefinitionRequest";
@@ -205,6 +214,7 @@ const _DPOTet = "DetectProfileObjectType";
 const _DPR = "DeleteProfileRequest";
 const _DPRe = "DeleteProfileResponse";
 const _DR = "DeleteRecommender";
+const _DRA = "DestinationRoleArn";
 const _DRF = "DeleteRecommenderFilter";
 const _DRFR = "DeleteRecommenderFilterRequest";
 const _DRFRe = "DeleteRecommenderFilterResponse";
@@ -217,8 +227,14 @@ const _DS = "DataStore";
 const _DSD = "DeleteSegmentDefinition";
 const _DSDR = "DeleteSegmentDefinitionRequest";
 const _DSDRe = "DeleteSegmentDefinitionResponse";
+const _DSFS = "DisassociateStreamForSegments";
+const _DSFSR = "DisassociateStreamForSegmentsRequest";
+const _DSFSRi = "DisassociateStreamForSegmentsResponse";
 const _DSR = "DataStoreRequest";
 const _DSRa = "DataStoreResponse";
+const _DSS = "DeleteSegmentSubscription";
+const _DSSR = "DeleteSegmentSubscriptionRequest";
+const _DSSRe = "DeleteSegmentSubscriptionResponse";
 const _DSe = "DestinationSummary";
 const _DSo = "DomainStats";
 const _DT = "DimensionType";
@@ -271,6 +287,8 @@ const _En = "Enabled";
 const _End = "End";
 const _Er = "Errors";
 const _Es = "Estimate";
+const _Ev = "Events";
+const _Eve = "Event";
 const _F = "Failed";
 const _FAD = "FilterAttributeDimension";
 const _FBI = "FoundByItems";
@@ -360,6 +378,9 @@ const _GSDRe = "GetSegmentDefinitionResponse";
 const _GSE = "GetSegmentEstimate";
 const _GSER = "GetSegmentEstimateRequest";
 const _GSERe = "GetSegmentEstimateResponse";
+const _GSFS = "GetStreamForSegments";
+const _GSFSR = "GetStreamForSegmentsRequest";
+const _GSFSRe = "GetStreamForSegmentsResponse";
 const _GSM = "GetSegmentMembership";
 const _GSMR = "GetSegmentMembershipRequest";
 const _GSMRe = "GetSegmentMembershipResponse";
@@ -369,6 +390,9 @@ const _GSPRe = "GetSimilarProfilesResponse";
 const _GSS = "GetSegmentSnapshot";
 const _GSSR = "GetSegmentSnapshotRequest";
 const _GSSRe = "GetSegmentSnapshotResponse";
+const _GSSRet = "GetSegmentSubscriptionRequest";
+const _GSSRete = "GetSegmentSubscriptionResponse";
+const _GSSe = "GetSegmentSubscription";
 const _GUJ = "GetUploadJob";
 const _GUJP = "GetUploadJobPath";
 const _GUJPR = "GetUploadJobPathRequest";
@@ -400,6 +424,7 @@ const _IRJL = "IdentityResolutionJobsList";
 const _ISE = "InternalServerException";
 const _IU = "IsUnstructured";
 const _In = "Include";
+const _Int = "Interval";
 const _It = "Items";
 const _JET = "JobEndTime";
 const _JETo = "JobExpirationTime";
@@ -436,6 +461,7 @@ const _LDOTR = "ListDomainObjectTypesRequest";
 const _LDOTRi = "ListDomainObjectTypesResponse";
 const _LDR = "ListDomainsRequest";
 const _LDRi = "ListDomainsResponse";
+const _LEA = "LastExecutedAt";
 const _LES = "ListEventStreams";
 const _LESR = "ListEventStreamsRequest";
 const _LESRi = "ListEventStreamsResponse";
@@ -499,6 +525,9 @@ const _LRU = "LatestRecommenderUpdate";
 const _LSD = "ListSegmentDefinitions";
 const _LSDR = "ListSegmentDefinitionsRequest";
 const _LSDRi = "ListSegmentDefinitionsResponse";
+const _LSSE = "ListSegmentSubscriptionEvents";
+const _LSSER = "ListSegmentSubscriptionEventsRequest";
+const _LSSERi = "ListSegmentSubscriptionEventsResponse";
 const _LT = "LayoutType";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
@@ -550,6 +579,7 @@ const _Max = "Maximum";
 const _Me = "Metrics";
 const _Mi = "Minimum";
 const _N = "Name";
+const _NEA = "NextExecutedAt";
 const _NOMD = "NumberOfMergesDone";
 const _NOMF = "NumberOfMatchesFound";
 const _NOMIS = "NumberOfMatchesInSample";
@@ -609,6 +639,9 @@ const _PPOTR = "PutProfileObjectTypeRequest";
 const _PPOTRu = "PutProfileObjectTypeResponse";
 const _PQF = "ProfileQueryFailures";
 const _PQR = "ProfileQueryResult";
+const _PSS = "PutSegmentSubscription";
+const _PSSR = "PutSegmentSubscriptionRequest";
+const _PSSRu = "PutSegmentSubscriptionResponse";
 const _PT = "PartyType";
 const _PTD = "ProfileTypeDimension";
 const _PTS = "PartyTypeString";
@@ -681,10 +714,12 @@ const _S = "Statistic";
 const _SA = "ShippingAddress";
 const _SAL = "SortAttributeList";
 const _SAo = "SortAttribute";
+const _SAt = "StartedAt";
 const _SBN = "S3BucketName";
 const _SC = "StepsCompleted";
 const _SCP = "SourceConnectorProperties";
 const _SCT = "SourceConnectorType";
+const _SCc = "ScheduleConfiguration";
 const _SCt = "StatusCode";
 const _SD = "StandardDeviation";
 const _SDA = "SegmentDefinitionArn";
@@ -695,9 +730,12 @@ const _SDt = "StartDate";
 const _SDta = "StatusDescription";
 const _SE = "S3Exporting";
 const _SEC = "S3ExportingConfig";
+const _SEI = "SubscriptionEventItem";
 const _SEL = "S3ExportingLocation";
+const _SELu = "SubscriptionEventsList";
 const _SET = "ScheduleEndTime";
-const _SEc = "ScheduleExpression";
+const _SEc = "ScheduledExecutions";
+const _SEch = "ScheduleExpression";
 const _SF = "SegmentFilter";
 const _SFC = "SourceFlowConfig";
 const _SFo = "SourceFields";
@@ -711,9 +749,10 @@ const _SK = "SearchKey";
 const _SKN = "S3KeyName";
 const _SLUTF = "SourceLastUpdatedTimestampFormat";
 const _SM = "StatusMessage";
-const _SN = "SourceName";
+const _SN = "SegmentName";
 const _SNSP = "ServiceNowSourceProperties";
 const _SNe = "ServiceNow";
+const _SNo = "SourceName";
 const _SO = "SourceObject";
 const _SOc = "ScheduleOffset";
 const _SP = "SourcePriority";
@@ -992,6 +1031,21 @@ export var AppflowIntegrationWorkflowStep$: StaticStructureSchema = [3, n0, _AIW
   [_FN, _Sta, _EM, _RP, _BRST, _BRET, _CA, _LUA],
   [0, 0, 0, 1, 0, 0, 4, 4], 8
 ];
+export var AssociatedSegment$: StaticStructureSchema = [3, n0, _AS,
+  0,
+  [_SN, _Sta, _M],
+  [[0, { [_jN]: _SN }], [0, { [_jN]: _Sta }], [0, { [_jN]: _M }]]
+];
+export var AssociateStreamForSegmentsRequest$: StaticStructureSchema = [3, n0, _ASFSR,
+  0,
+  [_DN, _DA, _DRA],
+  [[0, 1], 0, 0], 3
+];
+export var AssociateStreamForSegmentsResponse$: StaticStructureSchema = [3, n0, _ASFSRs,
+  0,
+  [],
+  []
+];
 export var AttributeDetails$: StaticStructureSchema = [3, n0, _ADt,
   8,
   [_At, _E],
@@ -1109,7 +1163,7 @@ export var Conditions$: StaticStructureSchema = [3, n0, _Cond,
 ];
 export var ConflictResolution$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_CRM, _SN],
+  [_CRM, _SNo],
   [0, 0], 1
 ];
 export var ConnectorOperator$: StaticStructureSchema = [3, n0, _COo,
@@ -1432,6 +1486,16 @@ export var DeleteSegmentDefinitionResponse$: StaticStructureSchema = [3, n0, _DS
   [_M],
   [[0, { [_jN]: _M }]]
 ];
+export var DeleteSegmentSubscriptionRequest$: StaticStructureSchema = [3, n0, _DSSR,
+  0,
+  [_DN, _SDN],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteSegmentSubscriptionResponse$: StaticStructureSchema = [3, n0, _DSSRe,
+  0,
+  [_M],
+  [[0, { [_jN]: _M }]]
+];
 export var DeleteWorkflowRequest$: StaticStructureSchema = [3, n0, _DWR,
   0,
   [_DN, _WI],
@@ -1461,6 +1525,16 @@ export var DetectProfileObjectTypeResponse$: StaticStructureSchema = [3, n0, _DP
   0,
   [_DPOTe],
   [[() => DetectedProfileObjectTypes, 0]]
+];
+export var DisassociateStreamForSegmentsRequest$: StaticStructureSchema = [3, n0, _DSFSR,
+  0,
+  [_DN],
+  [[0, 1]], 1
+];
+export var DisassociateStreamForSegmentsResponse$: StaticStructureSchema = [3, n0, _DSFSRi,
+  0,
+  [_M],
+  [[0, { [_jN]: _M }]]
 ];
 export var DiversityColumn$: StaticStructureSchema = [3, n0, _DC,
   0,
@@ -1739,7 +1813,7 @@ export var GetProfileObjectTypeTemplateRequest$: StaticStructureSchema = [3, n0,
 ];
 export var GetProfileObjectTypeTemplateResponse$: StaticStructureSchema = [3, n0, _GPOTTRe,
   0,
-  [_TI, _SN, _SO, _APC, _SLUTF, _Fie, _K],
+  [_TI, _SNo, _SO, _APC, _SLUTF, _Fie, _K],
   [0, 0, 0, 2, 0, [() => FieldMap, 0], [() => KeyMap, 0]]
 ];
 export var GetProfileRecommendationsRequest$: StaticStructureSchema = [3, n0, _GPRR,
@@ -1822,6 +1896,16 @@ export var GetSegmentSnapshotResponse$: StaticStructureSchema = [3, n0, _GSSRe,
   [_SI, _Sta, _DF, _SM, _EK, _RA, _DU],
   [0, 0, 0, 0, 0, 0, 0], 3
 ];
+export var GetSegmentSubscriptionRequest$: StaticStructureSchema = [3, n0, _GSSRet,
+  0,
+  [_DN, _SDN],
+  [[0, 1], [0, 1]], 2
+];
+export var GetSegmentSubscriptionResponse$: StaticStructureSchema = [3, n0, _GSSRete,
+  0,
+  [_Sta, _M, _SCc, _SEc, _SAt, _LUA],
+  [[0, { [_jN]: _Sta }], [0, { [_jN]: _M }], [() => ScheduleConfiguration$, { [_jN]: _SCc }], [() => ScheduledExecutions$, { [_jN]: _SEc }], [4, { [_jN]: _SAt }], [4, { [_jN]: _LUA }]]
+];
 export var GetSimilarProfilesRequest$: StaticStructureSchema = [3, n0, _GSPR,
   0,
   [_DN, _MT, _SK, _SV, _NT, _MR],
@@ -1831,6 +1915,16 @@ export var GetSimilarProfilesResponse$: StaticStructureSchema = [3, n0, _GSPRe,
   0,
   [_PIr, _MI, _MT, _RL, _CS, _NT],
   [64 | 0, 0, 0, 1, 1, 0]
+];
+export var GetStreamForSegmentsRequest$: StaticStructureSchema = [3, n0, _GSFSR,
+  0,
+  [_DN],
+  [[0, 1]], 1
+];
+export var GetStreamForSegmentsResponse$: StaticStructureSchema = [3, n0, _GSFSRe,
+  0,
+  [_AA, _ASs, _DN, _DA, _DRA, _St, _DAi, _FR],
+  [[4, { [_jN]: _AA }], [() => AssociatedSegmentsList, { [_jN]: _ASs }], [0, { [_jN]: _DN }], [0, { [_jN]: _DA }], [0, { [_jN]: _DRA }], [0, { [_jN]: _St }], [4, { [_jN]: _DAi }], [0, { [_jN]: _FR }]]
 ];
 export var GetUploadJobPathRequest$: StaticStructureSchema = [3, n0, _GUJPR,
   0,
@@ -2104,7 +2198,7 @@ export var ListProfileObjectTypesResponse$: StaticStructureSchema = [3, n0, _LPO
 ];
 export var ListProfileObjectTypeTemplateItem$: StaticStructureSchema = [3, n0, _LPOTTI,
   0,
-  [_TI, _SN, _SO],
+  [_TI, _SNo, _SO],
   [0, 0, 0]
 ];
 export var ListProfileObjectTypeTemplatesRequest$: StaticStructureSchema = [3, n0, _LPOTTR,
@@ -2176,6 +2270,16 @@ export var ListSegmentDefinitionsResponse$: StaticStructureSchema = [3, n0, _LSD
   0,
   [_NT, _It],
   [[0, { [_jN]: _NT }], [() => SegmentDefinitionsList, { [_jN]: _It }]]
+];
+export var ListSegmentSubscriptionEventsRequest$: StaticStructureSchema = [3, n0, _LSSER,
+  0,
+  [_DN, _SDN, _MR, _NT],
+  [[0, 1], [0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 2
+];
+export var ListSegmentSubscriptionEventsResponse$: StaticStructureSchema = [3, n0, _LSSERi,
+  0,
+  [_Ev, _NT],
+  [[() => SubscriptionEventsList, { [_jN]: _Ev }], [0, { [_jN]: _NT }]]
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
@@ -2362,6 +2466,16 @@ export var PutProfileObjectTypeResponse$: StaticStructureSchema = [3, n0, _PPOTR
   [_OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MPOC, _MAPOC, _SP, _Fie, _K, _CA, _LUA, _Ta],
   [0, [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, 1, 1, [() => FieldMap, 0], [() => KeyMap, 0], 4, 4, 128 | 0], 2
 ];
+export var PutSegmentSubscriptionRequest$: StaticStructureSchema = [3, n0, _PSSR,
+  0,
+  [_DN, _SDN, _SCc],
+  [[0, 1], [0, 1], [() => ScheduleConfiguration$, 0]], 2
+];
+export var PutSegmentSubscriptionResponse$: StaticStructureSchema = [3, n0, _PSSRu,
+  0,
+  [_Sta, _SCc, _SAt],
+  [[0, { [_jN]: _Sta }], [() => ScheduleConfiguration$, { [_jN]: _SCc }], [4, { [_jN]: _SAt }]]
+];
 export var Range$: StaticStructureSchema = [3, n0, _R,
   0,
   [_Va, _Un, _VR, _TSi, _TF],
@@ -2467,9 +2581,19 @@ export var SalesforceSourceProperties$: StaticStructureSchema = [3, n0, _SSPa,
   [_O, _EDFU, _IDR],
   [0, 2, 2], 1
 ];
+export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SCc,
+  0,
+  [_Int, _Un],
+  [[1, { [_jN]: _Int }], [0, { [_jN]: _Un }]], 1
+];
+export var ScheduledExecutions$: StaticStructureSchema = [3, n0, _SEc,
+  0,
+  [_NEA, _LEA],
+  [[4, { [_jN]: _NEA }], [4, { [_jN]: _LEA }]]
+];
 export var ScheduledTriggerProperties$: StaticStructureSchema = [3, n0, _STP,
   0,
-  [_SEc, _DPM, _SST, _SET, _Tim, _SOc, _FEF],
+  [_SEch, _DPM, _SST, _SET, _Tim, _SOc, _FEF],
   [0, 0, 4, 4, 0, 1, 4], 1
 ];
 export var SearchProfilesRequest$: StaticStructureSchema = [3, n0, _SPR,
@@ -2566,6 +2690,11 @@ export var StopUploadJobResponse$: StaticStructureSchema = [3, n0, _SUJRtop,
   0,
   [],
   []
+];
+export var SubscriptionEventItem$: StaticStructureSchema = [3, n0, _SEI,
+  0,
+  [_PI, _UA, _ETv, _Eve],
+  [[0, { [_jN]: _PI }], [4, { [_jN]: _UA }], [0, { [_jN]: _ETv }], [0, { [_jN]: _Eve }]]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -2711,6 +2840,10 @@ var additionalSearchKeysList: StaticListSchema = [1, n0, _aSKL,
   0, () => AdditionalSearchKey$
 ];
 var AddressList = 64 | 0;
+var AssociatedSegmentsList: StaticListSchema = [1, n0, _ASL,
+  0, [() => AssociatedSegment$,
+    0]
+];
 var AttributeList: StaticListSchema = [1, n0, _AL,
   0, () => AttributeItem$
 ];
@@ -2928,6 +3061,10 @@ var SourceSegmentList: StaticListSchema = [1, n0, _SSL,
     0]
 ];
 var StandardIdentifierList = 64 | 0;
+var SubscriptionEventsList: StaticListSchema = [1, n0, _SELu,
+  0, [() => SubscriptionEventItem$,
+    0]
+];
 var TagKeyList = 64 | 0;
 var Tasks: StaticListSchema = [1, n0, _Tas,
   0, () => Task$
@@ -3005,6 +3142,9 @@ export var Dimension$: StaticUnionSchema = [4, n0, _Dim,
 ];
 export var AddProfileKey$: StaticOperationSchema = [9, n0, _APK,
   { [_h]: ["POST", "/domains/{DomainName}/profiles/keys", 200] }, () => AddProfileKeyRequest$, () => AddProfileKeyResponse$
+];
+export var AssociateStreamForSegments$: StaticOperationSchema = [9, n0, _ASFS,
+  { [_h]: ["POST", "/domains/{DomainName}/segment-streams", 200] }, () => AssociateStreamForSegmentsRequest$, () => AssociateStreamForSegmentsResponse$
 ];
 export var BatchGetCalculatedAttributeForProfile$: StaticOperationSchema = [9, n0, _BGCAFP,
   { [_h]: ["POST", "/domains/{DomainName}/calculated-attributes/{CalculatedAttributeName}/batch-get-for-profiles", 200] }, () => BatchGetCalculatedAttributeForProfileRequest$, () => BatchGetCalculatedAttributeForProfileResponse$
@@ -3102,11 +3242,17 @@ export var DeleteRecommenderSchema$: StaticOperationSchema = [9, n0, _DRS,
 export var DeleteSegmentDefinition$: StaticOperationSchema = [9, n0, _DSD,
   { [_h]: ["DELETE", "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}", 200] }, () => DeleteSegmentDefinitionRequest$, () => DeleteSegmentDefinitionResponse$
 ];
+export var DeleteSegmentSubscription$: StaticOperationSchema = [9, n0, _DSS,
+  { [_h]: ["DELETE", "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}/subscriptions", 200] }, () => DeleteSegmentSubscriptionRequest$, () => DeleteSegmentSubscriptionResponse$
+];
 export var DeleteWorkflow$: StaticOperationSchema = [9, n0, _DW,
   { [_h]: ["DELETE", "/domains/{DomainName}/workflows/{WorkflowId}", 200] }, () => DeleteWorkflowRequest$, () => DeleteWorkflowResponse$
 ];
 export var DetectProfileObjectType$: StaticOperationSchema = [9, n0, _DPOTet,
   { [_h]: ["POST", "/domains/{DomainName}/detect/object-types", 200] }, () => DetectProfileObjectTypeRequest$, () => DetectProfileObjectTypeResponse$
+];
+export var DisassociateStreamForSegments$: StaticOperationSchema = [9, n0, _DSFS,
+  { [_h]: ["DELETE", "/domains/{DomainName}/segment-streams", 200] }, () => DisassociateStreamForSegmentsRequest$, () => DisassociateStreamForSegmentsResponse$
 ];
 export var GetAutoMergingPreview$: StaticOperationSchema = [9, n0, _GAMP,
   { [_h]: ["POST", "/domains/{DomainName}/identity-resolution-jobs/auto-merging-preview", 200] }, () => GetAutoMergingPreviewRequest$, () => GetAutoMergingPreviewResponse$
@@ -3177,8 +3323,14 @@ export var GetSegmentMembership$: StaticOperationSchema = [9, n0, _GSM,
 export var GetSegmentSnapshot$: StaticOperationSchema = [9, n0, _GSS,
   { [_h]: ["GET", "/domains/{DomainName}/segments/{SegmentDefinitionName}/snapshots/{SnapshotId}", 200] }, () => GetSegmentSnapshotRequest$, () => GetSegmentSnapshotResponse$
 ];
+export var GetSegmentSubscription$: StaticOperationSchema = [9, n0, _GSSe,
+  { [_h]: ["GET", "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}/subscriptions", 200] }, () => GetSegmentSubscriptionRequest$, () => GetSegmentSubscriptionResponse$
+];
 export var GetSimilarProfiles$: StaticOperationSchema = [9, n0, _GSP,
   { [_h]: ["POST", "/domains/{DomainName}/matches", 200] }, () => GetSimilarProfilesRequest$, () => GetSimilarProfilesResponse$
+];
+export var GetStreamForSegments$: StaticOperationSchema = [9, n0, _GSFS,
+  { [_h]: ["GET", "/domains/{DomainName}/segment-streams", 200] }, () => GetStreamForSegmentsRequest$, () => GetStreamForSegmentsResponse$
 ];
 export var GetUploadJob$: StaticOperationSchema = [9, n0, _GUJ,
   { [_h]: ["GET", "/domains/{DomainName}/upload-jobs/{JobId}", 200] }, () => GetUploadJobRequest$, () => GetUploadJobResponse$
@@ -3261,6 +3413,9 @@ export var ListRuleBasedMatches$: StaticOperationSchema = [9, n0, _LRBM,
 export var ListSegmentDefinitions$: StaticOperationSchema = [9, n0, _LSD,
   { [_h]: ["GET", "/domains/{DomainName}/segment-definitions", 200] }, () => ListSegmentDefinitionsRequest$, () => ListSegmentDefinitionsResponse$
 ];
+export var ListSegmentSubscriptionEvents$: StaticOperationSchema = [9, n0, _LSSE,
+  { [_h]: ["GET", "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}/subscription-events", 200] }, () => ListSegmentSubscriptionEventsRequest$, () => ListSegmentSubscriptionEventsResponse$
+];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
@@ -3284,6 +3439,9 @@ export var PutProfileObject$: StaticOperationSchema = [9, n0, _PPO,
 ];
 export var PutProfileObjectType$: StaticOperationSchema = [9, n0, _PPOT,
   { [_h]: ["PUT", "/domains/{DomainName}/object-types/{ObjectTypeName}", 200] }, () => PutProfileObjectTypeRequest$, () => PutProfileObjectTypeResponse$
+];
+export var PutSegmentSubscription$: StaticOperationSchema = [9, n0, _PSS,
+  { [_h]: ["PUT", "/domains/{DomainName}/segment-definitions/{SegmentDefinitionName}/subscriptions", 200] }, () => PutSegmentSubscriptionRequest$, () => PutSegmentSubscriptionResponse$
 ];
 export var SearchProfiles$: StaticOperationSchema = [9, n0, _SPe,
   { [_h]: ["POST", "/domains/{DomainName}/profiles/search", 200] }, () => SearchProfilesRequest$, () => SearchProfilesResponse$

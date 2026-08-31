@@ -12,4 +12,5 @@ export * from "./ListRecommendersPaginator";
 export * from "./ListRecommenderSchemasPaginator";
 export * from "./ListRuleBasedMatchesPaginator";
 export * from "./ListSegmentDefinitionsPaginator";
+export * from "./ListSegmentSubscriptionEventsPaginator";
 export * from "./ListUploadJobsPaginator";

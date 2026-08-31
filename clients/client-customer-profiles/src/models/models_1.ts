@@ -6,12 +6,18 @@ import type {
   PartyType,
   ProfileType,
   ReadinessStatus,
+  RecommenderFilterStatus,
+  RecommenderRecipeName,
   RecommenderSchemaStatus,
+  RecommenderStatus,
   Scope,
+  SegmentSubscriptionStatus,
   SegmentType,
   Statistic,
   Status,
   StatusReason,
+  SubscriptionEvent,
+  SubscriptionEventType,
   UploadJobStatus,
   WorkflowType,
 } from "./enums";
@@ -34,9 +40,350 @@ import type {
   Readiness,
   RecommenderConfig,
   RecommenderSchemaField,
+  RecommenderUpdate,
   RuleBasedMatchingRequest,
   RuleBasedMatchingResponse,
+  ScheduleConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListProfileObjectTypeTemplatesRequest {
+  /**
+   * <p>The pagination token from the previous ListObjectTypeTemplates API call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A ProfileObjectTypeTemplate in a list of ProfileObjectTypeTemplates.</p>
+ * @public
+ */
+export interface ListProfileObjectTypeTemplateItem {
+  /**
+   * <p>A unique identifier for the object template.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The name of the source of the object template.</p>
+   * @public
+   */
+  SourceName?: string | undefined;
+
+  /**
+   * <p>The source of the object template.</p>
+   * @public
+   */
+  SourceObject?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProfileObjectTypeTemplatesResponse {
+  /**
+   * <p>The list of ListProfileObjectType template instances.</p>
+   * @public
+   */
+  Items?: ListProfileObjectTypeTemplateItem[] | undefined;
+
+  /**
+   * <p>The pagination token from the previous ListObjectTypeTemplates API call. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommenderFiltersRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The maximum number of recommender filters to return in the response. The default value is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token received from a previous ListRecommenderFilters call to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Provides a summary of a recommender filter's configuration and current state.</p>
+ * @public
+ */
+export interface RecommenderFilterSummary {
+  /**
+   * <p>The name of the recommender filter.</p>
+   * @public
+   */
+  RecommenderFilterName?: string | undefined;
+
+  /**
+   * <p>The name of the recommender schema associated with this recommender filter.</p>
+   * @public
+   */
+  RecommenderSchemaName?: string | undefined;
+
+  /**
+   * <p>The filter expression that defines which items to include or exclude from recommendations.</p>
+   * @public
+   */
+  RecommenderFilterExpression?: string | undefined;
+
+  /**
+   * <p>The timestamp when the recommender filter was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>A description of the recommender filter's purpose and characteristics.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The current operational status of the recommender filter.</p>
+   * @public
+   */
+  Status?: RecommenderFilterStatus | undefined;
+
+  /**
+   * <p>If the recommender filter is in a failed state, provides the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommenderFiltersResponse {
+  /**
+   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of recommender filters and their properties in the specified domain.</p>
+   * @public
+   */
+  RecommenderFilters?: RecommenderFilterSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommenderRecipesRequest {
+  /**
+   * <p>The maximum number of recommender recipes to return in the response. The default value is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token received from a previous ListRecommenderRecipes call to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Defines the algorithm and approach used to generate recommendations.</p>
+ * @public
+ */
+export interface RecommenderRecipe {
+  /**
+   * <p>The name of the recommender recipe.</p>
+   * @public
+   */
+  name?: RecommenderRecipeName | undefined;
+
+  /**
+   * <p>A description of the recommender recipe's purpose and functionality.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommenderRecipesResponse {
+  /**
+   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of available recommender recipes and their properties.</p>
+   * @public
+   */
+  RecommenderRecipes?: RecommenderRecipe[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendersRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The maximum number of recommenders to return in the response. The default value is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token received from a previous ListRecommenders call to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Provides a summary of a recommender's configuration and current state.</p>
+ * @public
+ */
+export interface RecommenderSummary {
+  /**
+   * <p>The name of the recommender.</p>
+   * @public
+   */
+  RecommenderName?: string | undefined;
+
+  /**
+   * <p>The name of the recipe used by this recommender.</p>
+   * @public
+   */
+  RecipeName?: RecommenderRecipeName | undefined;
+
+  /**
+   * <p>The name of the recommender schema associated with this recommender.</p>
+   * @public
+   */
+  RecommenderSchemaName?: string | undefined;
+
+  /**
+   * <p>The configuration settings applied to this recommender.</p>
+   * @public
+   */
+  RecommenderConfig?: RecommenderConfig | undefined;
+
+  /**
+   * <p>The timestamp when the recommender was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>A description of the recommender's purpose and characteristics.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The current operational status of the recommender.</p>
+   * @public
+   */
+  Status?: RecommenderStatus | undefined;
+
+  /**
+   * <p>The timestamp of when the recommender was edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>If the recommender is in a failed state, provides the reason for the failure.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Information about the most recent update performed on the recommender, including its status and timing.</p>
+   * @public
+   */
+  LatestRecommenderUpdate?: RecommenderUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendersResponse {
+  /**
+   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of recommenders and their properties in the specified domain.</p>
+   * @public
+   */
+  Recommenders?: RecommenderSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommenderSchemasRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The maximum number of recommender schemas to return in the response. The default value is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A token received from a previous ListRecommenderSchemas call to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>Provides a summary of a recommender schema's configuration and current state.</p>
@@ -216,6 +563,105 @@ export interface ListSegmentDefinitionsResponse {
    * @public
    */
   Items?: SegmentDefinitionItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSegmentSubscriptionEventsRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the segment definition. </p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+
+  /**
+   * <p>The maximum number of events to return per page. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from the previous call to retrieve the next page of results. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents a single segment membership event. </p>
+ * @public
+ */
+export interface SubscriptionEventItem {
+  /**
+   * <p>The unique identifier of a customer profile.</p>
+   * @public
+   */
+  ProfileId?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the membership change was detected. </p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The type of event that triggered the membership change. The following are valid values:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>LIVE</b>: Real-time event triggered by a profile or
+   *                calculated attribute change (Classic segments only). </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SCHEDULE</b>: Event generated during a scheduled
+   *                execution. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EventType?: SubscriptionEventType | undefined;
+
+  /**
+   * <p>Whether the profile joined or left the segment. The following are valid values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>JOINED</b>: The profile joined the segment. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>LEFT</b>: The profile left the segment. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Event?: SubscriptionEvent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSegmentSubscriptionEventsResponse {
+  /**
+   * <p>A list of segment membership events. </p>
+   * @public
+   */
+  Events?: SubscriptionEventItem[] | undefined;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1085,6 +1531,73 @@ export interface PutProfileObjectTypeResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSegmentSubscriptionRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the segment definition. </p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+
+  /**
+   * <p>The optional schedule configuration that controls how often membership snapshots are run.
+   *          If not provided, the subscription defaults to a 24-hour interval. </p>
+   * @public
+   */
+  ScheduleConfiguration?: ScheduleConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSegmentSubscriptionResponse {
+  /**
+   * <p>The current lifecycle status of the subscription. The following are valid values: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>STARTING</b>: Initial snapshot is in progress. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>RUNNING</b>: Notifications are active and running.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>STOPPED</b>: Notifications have been stopped. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>FAILED</b>: Notifications failed (for example, the
+   *                Amazon Kinesis data stream became inaccessible). </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: SegmentSubscriptionStatus | undefined;
+
+  /**
+   * <p>The schedule configuration for the subscription, if configured. </p>
+   * @public
+   */
+  ScheduleConfiguration?: ScheduleConfiguration | undefined;
+
+  /**
+   * <p>The timestamp of when the subscription was started. </p>
+   * @public
+   */
+  StartedAt?: Date | undefined;
 }
 
 /**
