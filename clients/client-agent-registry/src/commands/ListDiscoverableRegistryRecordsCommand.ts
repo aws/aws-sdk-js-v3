@@ -59,11 +59,14 @@ export interface ListDiscoverableRegistryRecordsCommandOutput extends ListDiscov
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",
- * //       recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL", // required
+ * //       recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
  * //       recordVersion: "STRING_VALUE", // required
  * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       descriptorTypes: [ // DescriptorTypeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

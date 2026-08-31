@@ -21,6 +21,7 @@ export type BatchGetDiscoverableRegistryRecordErrorCode =
 export const RecordType = {
   AGENT: "AGENT",
   CUSTOM: "CUSTOM",
+  GATEWAY: "GATEWAY",
   MCP: "MCP",
   SKILL: "SKILL",
 } as const;

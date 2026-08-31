@@ -9,12 +9,12 @@ import type {
 } from "./enums";
 
 /**
- * <p>Base mixin for descriptor source from URL</p>
+ * <p> A URL-based descriptor source that identifies where descriptor content is retrieved from.</p>
  * @public
  */
 export interface DescriptorSourceFromUrl {
   /**
-   * <p>URL source for descriptor content</p>
+   * <p> The URL from which the descriptor content is retrieved.</p>
    * @public
    */
   url: string | undefined;
@@ -26,25 +26,25 @@ export interface DescriptorSourceFromUrl {
  */
 export interface DescriptorSource {
   /**
-   * <p>Base mixin for descriptor source from URL</p>
+   * <p> The URL-based descriptor source, populated when descriptor content is synchronized from a URL.</p>
    * @public
    */
   fromUrl?: DescriptorSourceFromUrl | undefined;
 }
 
 /**
- * <p>Base mixin for A2A agent card descriptor content</p>
+ * <p> Descriptor that defines the content of an A2A (Agent-to-Agent) agent card registry record. The content is validated against the A2A protocol schema.</p>
  * @public
  */
 export interface A2aAgentCardDescriptor {
   /**
-   * <p>Descriptor payload data</p>
+   * <p> The A2A agent card content, serialized as descriptor payload data.</p>
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>Version of the descriptor type schema</p>
+   * <p> The schema version of the descriptor payload.</p>
    * @public
    */
   dataSchemaVersion?: string | undefined;
@@ -62,7 +62,7 @@ export interface A2aAgentCardDescriptor {
  */
 export interface RegistryRecordsEntry {
   /**
-   * <p>Registry identifier that accepts either ARN or ID format</p>
+   * <p> The identifier of the registry to retrieve the records from. You can provide either the full Amazon Resource Name (ARN) or the registry ID.</p>
    * @public
    */
   registryId: string | undefined;
@@ -91,13 +91,13 @@ export interface BatchGetDiscoverableRegistryRecordRequest {
  */
 export interface BatchGetDiscoverableRegistryRecordError {
   /**
-   * <p>Registry identifier that accepts either ARN or ID format</p>
+   * <p> The identifier of the registry the record was requested from, echoed from the request.</p>
    * @public
    */
   registryId: string | undefined;
 
   /**
-   * <p>Record identifier that accepts either ARN or ID format</p>
+   * <p> The identifier of the record that could not be retrieved, echoed from the request in the same format that you supplied (ARN or record ID).</p>
    * @public
    */
   recordId: string | undefined;
@@ -116,18 +116,18 @@ export interface BatchGetDiscoverableRegistryRecordError {
 }
 
 /**
- * <p>Base mixin for agent skills markdown descriptor content</p>
+ * <p> Markdown-format descriptor containing an agent skills document.</p>
  * @public
  */
 export interface AgentSkillsMdDescriptor {
   /**
-   * <p>Descriptor payload data</p>
+   * <p> The agent skills markdown content, serialized as descriptor payload data.</p>
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>Version of the descriptor type schema</p>
+   * <p> The schema version of the descriptor payload.</p>
    * @public
    */
   dataSchemaVersion?: string | undefined;
@@ -145,25 +145,25 @@ export interface AgentSkillsMdDescriptor {
  */
 export interface AgentSkillsAdditionalData {
   /**
-   * <p>Base mixin for agent skills markdown descriptor content</p>
+   * <p> The agent skills markdown descriptor associated with the agent skills definition.</p>
    * @public
    */
   skillMd?: AgentSkillsMdDescriptor | undefined;
 }
 
 /**
- * <p>Base mixin for agent skills definition descriptor content</p>
+ * <p> Descriptor that defines an agent skills registry record and its associated content.</p>
  * @public
  */
 export interface AgentSkillsDefinitionDescriptor {
   /**
-   * <p>Descriptor payload data</p>
+   * <p> The agent skills definition content, serialized as descriptor payload data.</p>
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>Version of the descriptor type schema</p>
+   * <p> The schema version of the descriptor payload.</p>
    * @public
    */
   dataSchemaVersion?: string | undefined;
@@ -181,7 +181,7 @@ export interface AgentSkillsDefinitionDescriptor {
  */
 export interface CustomDescriptor {
   /**
-   * <p>Descriptor payload data</p>
+   * <p>The custom descriptor content, serialized as descriptor payload data.</p>
    * @public
    */
   data?: string | undefined;
@@ -193,13 +193,13 @@ export interface CustomDescriptor {
  */
 export interface McpToolsDescriptor {
   /**
-   * <p>Descriptor payload data</p>
+   * <p>The MCP tools descriptor content, serialized as descriptor payload data.</p>
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>Version of the descriptor type schema</p>
+   * <p>The schema version of the descriptor payload.</p>
    * @public
    */
   dataSchemaVersion?: string | undefined;
@@ -211,31 +211,31 @@ export interface McpToolsDescriptor {
  */
 export interface McpServerAdditionalData {
   /**
-   * <p>MCP tools descriptor containing tool definitions</p>
+   * <p>The MCP tools descriptor that defines the tools exposed by the MCP server.</p>
    * @public
    */
   tools?: McpToolsDescriptor | undefined;
 }
 
 /**
- * <p>Base mixin for MCP server descriptor content</p>
+ * <p> Descriptor that defines the content of an MCP (Model Context Protocol) server registry record, including the server definition and its tool definitions. The content is validated against the MCP protocol schema.</p>
  * @public
  */
 export interface McpServerDescriptor {
   /**
-   * <p>Descriptor payload data</p>
+   * <p> The MCP server descriptor content, serialized as descriptor payload data.</p>
    * @public
    */
   data?: string | undefined;
 
   /**
-   * <p>Version of the descriptor type schema</p>
+   * <p> The schema version of the descriptor payload.</p>
    * @public
    */
   dataSchemaVersion?: string | undefined;
 
   /**
-   * <p>Additional data for an MCP server descriptor</p>
+   * <p> Additional data associated with the MCP server descriptor, such as tool definitions.</p>
    * @public
    */
   additionalData?: McpServerAdditionalData | undefined;
@@ -253,25 +253,25 @@ export interface McpServerDescriptor {
  */
 export interface Descriptors {
   /**
-   * <p>Base mixin for MCP server descriptor content</p>
+   * <p> The MCP server descriptor, populated when the record type is MCP.</p>
    * @public
    */
   mcpServer?: McpServerDescriptor | undefined;
 
   /**
-   * <p>Base mixin for A2A agent card descriptor content</p>
+   * <p> The A2A agent card descriptor, populated when the record type is AGENT.</p>
    * @public
    */
   a2aAgentCard?: A2aAgentCardDescriptor | undefined;
 
   /**
-   * <p>Base mixin for agent skills definition descriptor content</p>
+   * <p> The agent skills definition descriptor, populated when the record type is SKILL.</p>
    * @public
    */
   agentSkillsDefinition?: AgentSkillsDefinitionDescriptor | undefined;
 
   /**
-   * <p>Custom descriptor for user-defined content</p>
+   * <p> The custom descriptor, populated when the record type is CUSTOM.</p>
    * @public
    */
   custom?: CustomDescriptor | undefined;
@@ -283,43 +283,43 @@ export interface Descriptors {
  */
 export interface RegistryRecordSummary {
   /**
-   * <p>Registry Amazon Resource Name</p>
+   * <p> The Amazon Resource Name (ARN) of the parent registry that owns the record.</p>
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>Registry Record Amazon Resource Name</p>
+   * <p> The Amazon Resource Name (ARN) of the registry record.</p>
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>Registry Record unique identifier - 12-character alphanumeric string</p>
+   * <p> The unique identifier of the registry record.</p>
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>Registry Record name</p>
+   * <p> The name of the registry record. Names are unique within a registry.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Description of the Resource</p>
+   * <p> A human-readable description of the registry record. Use this field to explain the record's purpose or content to consumers discovering it in the registry.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Display name for a registry record</p>
+   * <p> The human-readable display name of the registry record.</p>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>Record type enum for registry record classification</p>
+   * <p> The type of the registry record. <code>MCP</code> is a Model Context Protocol server record, <code>AGENT</code> is an Agent-to-Agent (A2A) agent card record, <code>SKILL</code> is an agent skills definition record, and <code>CUSTOM</code> is a record with a custom descriptor.</p>
    * @public
    */
   recordType: RecordType | undefined;
@@ -331,25 +331,25 @@ export interface RegistryRecordSummary {
   descriptors: Descriptors | undefined;
 
   /**
-   * <p>Version of the registry record</p>
+   * <p> The version identifier of the registry record.</p>
    * @public
    */
   recordVersion: string | undefined;
 
   /**
-   * <p>Registry record status</p>
+   * <p> The lifecycle status of the registry record. A record is <code>DRAFT</code> before it is submitted, <code>PENDING_APPROVAL</code> while awaiting curator review, and <code>APPROVED</code> once it is approved and discoverable. <code>REJECTED</code> and <code>DEPRECATED</code> records are not discoverable. The <code>CREATING</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code> values reflect the state of an in-progress or failed asynchronous change.</p>
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>Timestamp in ISO 8601 date-time format</p>
+   * <p> The timestamp when the registry record was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>Timestamp in ISO 8601 date-time format</p>
+   * <p> The timestamp when the registry record was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
@@ -413,7 +413,7 @@ export interface RegistryRecordFilter {
  */
 export interface ListDiscoverableRegistryRecordsRequest {
   /**
-   * <p>Registry identifier that accepts either ARN or ID format</p>
+   * <p> The identifier of the registry whose discoverable records are listed. You can provide either the full Amazon Resource Name (ARN) or the registry ID.</p>
    * @public
    */
   registryId: string | undefined;
@@ -443,70 +443,76 @@ export interface ListDiscoverableRegistryRecordsRequest {
  */
 export interface DiscoverableRegistryRecordSummary {
   /**
-   * <p>Registry Amazon Resource Name</p>
+   * <p> The Amazon Resource Name (ARN) of the parent registry that owns the record.</p>
    * @public
    */
   registryArn: string | undefined;
 
   /**
-   * <p>Registry Record Amazon Resource Name</p>
+   * <p> The Amazon Resource Name (ARN) of the registry record.</p>
    * @public
    */
   recordArn: string | undefined;
 
   /**
-   * <p>Registry Record unique identifier - 12-character alphanumeric string</p>
+   * <p> The unique identifier of the registry record.</p>
    * @public
    */
   recordId: string | undefined;
 
   /**
-   * <p>Registry Record name</p>
+   * <p> The name of the registry record. Names are unique within a registry.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Description of the Resource</p>
+   * <p> A human-readable description of the registry record. Use this field to explain the record's purpose or content to consumers discovering it in the registry.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * <p>Display name for a registry record</p>
+   * <p> The human-readable display name of the registry record.</p>
    * @public
    */
   displayName?: string | undefined;
 
   /**
-   * <p>Record type enum for registry record classification</p>
+   * <p> The type of the registry record. <code>MCP</code> is a Model Context Protocol server record, <code>AGENT</code> is an Agent-to-Agent (A2A) agent card record, <code>SKILL</code> is an agent skills definition record, and <code>CUSTOM</code> is a record with a custom descriptor.</p>
    * @public
    */
   recordType: RecordType | undefined;
 
   /**
-   * <p>Version of the registry record</p>
+   * <p> The version identifier of the registry record.</p>
    * @public
    */
   recordVersion: string | undefined;
 
   /**
-   * <p>Registry record status</p>
+   * <p> The lifecycle status of the registry record. A record is <code>DRAFT</code> before it is submitted, <code>PENDING_APPROVAL</code> while awaiting curator review, and <code>APPROVED</code> once it is approved and discoverable. <code>REJECTED</code> and <code>DEPRECATED</code> records are not discoverable. The <code>CREATING</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code> values reflect the state of an in-progress or failed asynchronous change.</p>
    * @public
    */
   status: RegistryRecordStatus | undefined;
 
   /**
-   * <p>Timestamp in ISO 8601 date-time format</p>
+   * <p> The timestamp when the registry record was created.</p>
    * @public
    */
   createdAt: Date | undefined;
 
   /**
-   * <p>Timestamp in ISO 8601 date-time format</p>
+   * <p> The timestamp when the registry record was last updated.</p>
    * @public
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p> The descriptor types that are present on this registry record. Each value corresponds to a descriptor entry key on the approved record.</p>
+   * @public
+   */
+  descriptorTypes?: string[] | undefined;
 }
 
 /**

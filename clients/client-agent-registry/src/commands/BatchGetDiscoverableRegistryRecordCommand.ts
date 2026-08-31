@@ -56,7 +56,7 @@ export interface BatchGetDiscoverableRegistryRecordCommandOutput extends BatchGe
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",
- * //       recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL", // required
+ * //       recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
  * //       descriptors: { // Descriptors
  * //         mcpServer: { // McpServerDescriptor
  * //           data: "STRING_VALUE",

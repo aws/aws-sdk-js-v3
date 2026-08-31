@@ -49,6 +49,7 @@ const _cu = "custom";
 const _d = "data";
 const _dN = "displayName";
 const _dSV = "dataSchemaVersion";
+const _dT = "descriptorTypes";
 const _de = "description";
 const _des = "descriptors";
 const _e = "error";
@@ -218,8 +219,8 @@ export var DescriptorSourceFromUrl$: StaticStructureSchema = [3, n0, _DSFU,
 ];
 export var DiscoverableRegistryRecordSummary$: StaticStructureSchema = [3, n0, _DRRS,
   0,
-  [_rA, _rAe, _rIe, _n, _rT, _rV, _st, _cA, _uA, _de, _dN],
-  [0, 0, 0, 0, 0, 0, 0, 5, 5, [() => Description, 0], 0], 9
+  [_rA, _rAe, _rIe, _n, _rT, _rV, _st, _cA, _uA, _de, _dN, _dT],
+  [0, 0, 0, 0, 0, 0, 0, 5, 5, [() => Description, 0], 0, 64 | 0], 9
 ];
 export var ListDiscoverableRegistryRecordsRequest$: StaticStructureSchema = [3, n0, _LDRRR,
   0,
@@ -279,6 +280,7 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 var BatchGetDiscoverableRegistryRecordErrorList: StaticListSchema = [1, n0, _BGDRREL,
   0, () => BatchGetDiscoverableRegistryRecordError$
 ];
+var DescriptorTypeList = 64 | 0;
 var DiscoverableFilterValues = 64 | 0;
 var DiscoverableRegistryRecordSummaryList: StaticListSchema = [1, n0, _DRRSL,
   0, [() => DiscoverableRegistryRecordSummary$,
