@@ -100,6 +100,20 @@ export interface BatchGetDiscoverableRegistryRecordCommandOutput extends BatchGe
  * //         custom: { // CustomDescriptor
  * //           data: "STRING_VALUE",
  * //         },
+ * //         http: { // HttpDescriptor
+ * //           source: {
+ * //             fromUrl: {
+ * //               url: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         agui: { // AgUiDescriptor
+ * //           source: {
+ * //             fromUrl: {
+ * //               url: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //       recordVersion: "STRING_VALUE", // required
  * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required

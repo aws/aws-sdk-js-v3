@@ -176,6 +176,18 @@ export interface AgentSkillsDefinitionDescriptor {
 }
 
 /**
+ * <p> A descriptor for a registry record that exposes an AG-UI protocol endpoint. This descriptor is source-only: it identifies where the endpoint is located and carries no descriptor payload data or schema version.</p>
+ * @public
+ */
+export interface AgUiDescriptor {
+  /**
+   * <p> The source location of the AG-UI protocol endpoint.</p>
+   * @public
+   */
+  source?: DescriptorSource | undefined;
+}
+
+/**
  * <p>Custom descriptor for user-defined content</p>
  * @public
  */
@@ -185,6 +197,18 @@ export interface CustomDescriptor {
    * @public
    */
   data?: string | undefined;
+}
+
+/**
+ * <p> A descriptor for a registry record that exposes an HTTP endpoint. This descriptor is source-only: it identifies where the endpoint is located and carries no descriptor payload data or schema version.</p>
+ * @public
+ */
+export interface HttpDescriptor {
+  /**
+   * <p> The source location of the HTTP endpoint.</p>
+   * @public
+   */
+  source?: DescriptorSource | undefined;
 }
 
 /**
@@ -275,6 +299,18 @@ export interface Descriptors {
    * @public
    */
   custom?: CustomDescriptor | undefined;
+
+  /**
+   * <p> The HTTP descriptor, populated when the record exposes an HTTP endpoint.</p>
+   * @public
+   */
+  http?: HttpDescriptor | undefined;
+
+  /**
+   * <p> The AG-UI descriptor, populated when the record exposes an AG-UI protocol endpoint.</p>
+   * @public
+   */
+  agui?: AgUiDescriptor | undefined;
 }
 
 /**

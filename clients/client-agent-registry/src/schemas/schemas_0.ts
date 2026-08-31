@@ -3,6 +3,7 @@ const _ADE = "AccessDeniedException";
 const _ASAD = "AgentSkillsAdditionalData";
 const _ASDD = "AgentSkillsDefinitionDescriptor";
 const _ASMD = "AgentSkillsMdDescriptor";
+const _AUD = "AgUiDescriptor";
 const _BGDRR = "BatchGetDiscoverableRegistryRecord";
 const _BGDRRE = "BatchGetDiscoverableRegistryRecordError";
 const _BGDRREL = "BatchGetDiscoverableRegistryRecordErrorList";
@@ -16,6 +17,7 @@ const _DRRSL = "DiscoverableRegistryRecordSummaryList";
 const _DS = "DescriptorSource";
 const _DSFU = "DescriptorSourceFromUrl";
 const _De = "Descriptors";
+const _HD = "HttpDescriptor";
 const _ISE = "InternalServerException";
 const _LDRR = "ListDiscoverableRegistryRecords";
 const _LDRRR = "ListDiscoverableRegistryRecordsRequest";
@@ -40,6 +42,7 @@ const _UE = "UnauthorizedException";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _a = "agui";
 const _aAC = "a2aAgentCard";
 const _aD = "additionalData";
 const _aSD = "agentSkillsDefinition";
@@ -182,6 +185,11 @@ export var AgentSkillsMdDescriptor$: StaticStructureSchema = [3, n0, _ASMD,
   [_d, _dSV, _so],
   [[() => DescriptorData, 0], 0, () => DescriptorSource$]
 ];
+export var AgUiDescriptor$: StaticStructureSchema = [3, n0, _AUD,
+  0,
+  [_so],
+  [() => DescriptorSource$]
+];
 export var BatchGetDiscoverableRegistryRecordError$: StaticStructureSchema = [3, n0, _BGDRRE,
   0,
   [_rI, _rIe, _eC, _m],
@@ -204,8 +212,8 @@ export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var Descriptors$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_mS, _aAC, _aSD, _cu],
-  [[() => McpServerDescriptor$, 0], [() => A2aAgentCardDescriptor$, 0], [() => AgentSkillsDefinitionDescriptor$, 0], [() => CustomDescriptor$, 0]]
+  [_mS, _aAC, _aSD, _cu, _h, _a],
+  [[() => McpServerDescriptor$, 0], [() => A2aAgentCardDescriptor$, 0], [() => AgentSkillsDefinitionDescriptor$, 0], [() => CustomDescriptor$, 0], () => HttpDescriptor$, () => AgUiDescriptor$]
 ];
 export var DescriptorSource$: StaticStructureSchema = [3, n0, _DS,
   0,
@@ -221,6 +229,11 @@ export var DiscoverableRegistryRecordSummary$: StaticStructureSchema = [3, n0, _
   0,
   [_rA, _rAe, _rIe, _n, _rT, _rV, _st, _cA, _uA, _de, _dN, _dT],
   [0, 0, 0, 0, 0, 0, 0, 5, 5, [() => Description, 0], 0, 64 | 0], 9
+];
+export var HttpDescriptor$: StaticStructureSchema = [3, n0, _HD,
+  0,
+  [_so],
+  [() => DescriptorSource$]
 ];
 export var ListDiscoverableRegistryRecordsRequest$: StaticStructureSchema = [3, n0, _LDRRR,
   0,

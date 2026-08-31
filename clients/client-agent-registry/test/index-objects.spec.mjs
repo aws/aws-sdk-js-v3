@@ -8,6 +8,7 @@ import {
   AgentSkillsAdditionalData$,
   AgentSkillsDefinitionDescriptor$,
   AgentSkillsMdDescriptor$,
+  AgUiDescriptor$,
   BatchGetDiscoverableRegistryRecord$,
   BatchGetDiscoverableRegistryRecordCommand,
   BatchGetDiscoverableRegistryRecordError$,
@@ -19,6 +20,7 @@ import {
   DescriptorSource$,
   DescriptorSourceFromUrl$,
   DiscoverableRegistryRecordSummary$,
+  HttpDescriptor$,
   InternalServerException,
   InternalServerException$,
   ListDiscoverableRegistryRecords$,
@@ -66,6 +68,7 @@ assert(typeof A2aAgentCardDescriptor$ === "object");
 assert(typeof AgentSkillsAdditionalData$ === "object");
 assert(typeof AgentSkillsDefinitionDescriptor$ === "object");
 assert(typeof AgentSkillsMdDescriptor$ === "object");
+assert(typeof AgUiDescriptor$ === "object");
 assert(typeof BatchGetDiscoverableRegistryRecordError$ === "object");
 assert(typeof BatchGetDiscoverableRegistryRecordRequest$ === "object");
 assert(typeof BatchGetDiscoverableRegistryRecordResponse$ === "object");
@@ -74,6 +77,7 @@ assert(typeof Descriptors$ === "object");
 assert(typeof DescriptorSource$ === "object");
 assert(typeof DescriptorSourceFromUrl$ === "object");
 assert(typeof DiscoverableRegistryRecordSummary$ === "object");
+assert(typeof HttpDescriptor$ === "object");
 assert(typeof ListDiscoverableRegistryRecordsRequest$ === "object");
 assert(typeof ListDiscoverableRegistryRecordsResponse$ === "object");
 assert(typeof McpServerAdditionalData$ === "object");
