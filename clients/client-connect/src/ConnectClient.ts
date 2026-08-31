@@ -615,6 +615,10 @@ import type {
   GetContactMetricsCommandOutput,
 } from "./commands/GetContactMetricsCommand";
 import type {
+  GetCrossRegionRoutingCommandInput,
+  GetCrossRegionRoutingCommandOutput,
+} from "./commands/GetCrossRegionRoutingCommand";
+import type {
   GetCurrentMetricDataCommandInput,
   GetCurrentMetricDataCommandOutput,
 } from "./commands/GetCurrentMetricDataCommand";
@@ -1151,6 +1155,10 @@ import type {
   UpdateContactTaskTemplateCommandOutput,
 } from "./commands/UpdateContactTaskTemplateCommand";
 import type {
+  UpdateCrossRegionRoutingCommandInput,
+  UpdateCrossRegionRoutingCommandOutput,
+} from "./commands/UpdateCrossRegionRoutingCommand";
+import type {
   UpdateDataTableAttributeCommandInput,
   UpdateDataTableAttributeCommandOutput,
 } from "./commands/UpdateDataTableAttributeCommand";
@@ -1535,6 +1543,7 @@ export type ServiceInputTypes =
   | GetAttachedFileCommandInput
   | GetContactAttributesCommandInput
   | GetContactMetricsCommandInput
+  | GetCrossRegionRoutingCommandInput
   | GetCurrentMetricDataCommandInput
   | GetCurrentUserDataCommandInput
   | GetEffectiveHoursOfOperationsCommandInput
@@ -1702,6 +1711,7 @@ export type ServiceInputTypes =
   | UpdateContactRoutingDataCommandInput
   | UpdateContactScheduleCommandInput
   | UpdateContactTaskTemplateCommandInput
+  | UpdateCrossRegionRoutingCommandInput
   | UpdateDataTableAttributeCommandInput
   | UpdateDataTableMetadataCommandInput
   | UpdateDataTablePrimaryValuesCommandInput
@@ -1933,6 +1943,7 @@ export type ServiceOutputTypes =
   | GetAttachedFileCommandOutput
   | GetContactAttributesCommandOutput
   | GetContactMetricsCommandOutput
+  | GetCrossRegionRoutingCommandOutput
   | GetCurrentMetricDataCommandOutput
   | GetCurrentUserDataCommandOutput
   | GetEffectiveHoursOfOperationsCommandOutput
@@ -2100,6 +2111,7 @@ export type ServiceOutputTypes =
   | UpdateContactRoutingDataCommandOutput
   | UpdateContactScheduleCommandOutput
   | UpdateContactTaskTemplateCommandOutput
+  | UpdateCrossRegionRoutingCommandOutput
   | UpdateDataTableAttributeCommandOutput
   | UpdateDataTableMetadataCommandOutput
   | UpdateDataTablePrimaryValuesCommandOutput

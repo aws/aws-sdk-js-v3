@@ -4,7 +4,6 @@ import type {
   ArtifactStatus,
   AttachmentScope,
   AutoEvaluationStatus,
-  BooleanComparisonType,
   Channel,
   Comparison,
   ContactFlowModuleState,
@@ -14,8 +13,8 @@ import type {
   ContactInitiationMethod,
   ContactRecordingType,
   ContactState,
+  CurrentMetricName,
   DataTableAttributeValueType,
-  DateTimeComparisonType,
   DirectoryType,
   EntityType,
   EvaluationFormValidationFindingSeverity,
@@ -61,6 +60,7 @@ import type {
   ReferenceType,
   RuleCapabilityTier,
   RulePublishStatus,
+  SortOrder,
   SourceType,
   Statistic,
   TaskTemplateStatus,
@@ -102,17 +102,87 @@ import type {
 import type {
   Attribute,
   CurrentMetric,
-  CurrentMetricSortCriteria,
   DataTableAttribute,
   EvaluationContactParticipant,
   EvaluationScore,
   ExtensionConfiguration,
-  Filters,
   HierarchyGroupSummary,
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
 } from "./models_1";
+
+/**
+ * <p>Contains the filter to apply when retrieving metrics.</p>
+ * @public
+ */
+export interface Filters {
+  /**
+   * <p>The queues to use to filter the metrics. You should specify at least one queue, and can specify up to 100 queues
+   *    per request. The <code>GetCurrentMetricsData</code> API in particular requires a queue when you include a
+   *     <code>Filter</code> in your request. </p>
+   * @public
+   */
+  Queues?: string[] | undefined;
+
+  /**
+   * <p>The channel to use to filter the metrics.</p>
+   * @public
+   */
+  Channels?: Channel[] | undefined;
+
+  /**
+   * <p>A list of up to 100 routing profile IDs or ARNs.</p>
+   * @public
+   */
+  RoutingProfiles?: string[] | undefined;
+
+  /**
+   * <p>A list of expressions as a filter, in which an expression is an object of a step in a routing
+   *    criteria. Accepts filter values up to 3,000 characters in length. Filter values are case-sensitive.
+   *    JSON object key order and whitespace may be arbitrary; array order and tree structure must be preserved.</p>
+   * @public
+   */
+  RoutingStepExpressions?: string[] | undefined;
+
+  /**
+   * <p>A list of up to 50 agent status IDs or ARNs.</p>
+   * @public
+   */
+  AgentStatuses?: string[] | undefined;
+
+  /**
+   * <p>A list of up to 10 subtypes can be provided.</p>
+   * @public
+   */
+  Subtypes?: string[] | undefined;
+
+  /**
+   * <p>A list of up to 10 validationTestTypes can be provided.</p>
+   * @public
+   */
+  ValidationTestTypes?: string[] | undefined;
+}
+
+/**
+ * <p>The way to sort the resulting response based on metrics. By default resources are sorted based on
+ *     <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the input
+ *    metrics.</p>
+ * @public
+ */
+export interface CurrentMetricSortCriteria {
+  /**
+   * <p>The current metric names.</p>
+   * @public
+   */
+  SortByMetric?: CurrentMetricName | undefined;
+
+  /**
+   * <p>The way to sort.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+}
 
 /**
  * @public
@@ -9823,7 +9893,7 @@ export interface TrafficDistributionGroupSummary {
   Name?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+   * <p>The Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceArn?: string | undefined;
@@ -11060,52 +11130,4 @@ export interface SearchAvailablePhoneNumbersResponse {
    * @public
    */
   AvailableNumbersList?: AvailableNumberSummary[] | undefined;
-}
-
-/**
- * <p>A boolean search condition for Search APIs.</p>
- * @public
- */
-export interface BooleanCondition {
-  /**
-   * <p>A name of the property to be searched.</p>
-   * @public
-   */
-  FieldName?: string | undefined;
-
-  /**
-   * <p>Boolean property comparison type.</p>
-   * @public
-   */
-  ComparisonType?: BooleanComparisonType | undefined;
-}
-
-/**
- * <p>A datetime search condition for Search APIs.</p>
- * @public
- */
-export interface DateTimeCondition {
-  /**
-   * <p>A name of the datetime property to be searched</p>
-   * @public
-   */
-  FieldName?: string | undefined;
-
-  /**
-   * <p>A minimum value of the property.</p>
-   * @public
-   */
-  MinValue?: string | undefined;
-
-  /**
-   * <p>A maximum value of the property.</p>
-   * @public
-   */
-  MaxValue?: string | undefined;
-
-  /**
-   * <p>Datetime property comparison type.</p>
-   * @public
-   */
-  ComparisonType?: DateTimeComparisonType | undefined;
 }

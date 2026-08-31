@@ -135,6 +135,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //         },
  * //       ],
  * //       VoiceEnhancementMode: "VOICE_ISOLATION" || "NOISE_SUPPRESSION" || "NONE",
+ * //       ActiveRegion: "STRING_VALUE",
  * //     },
  * //     InitiationTimestamp: new Date("TIMESTAMP"),
  * //     DisconnectTimestamp: new Date("TIMESTAMP"),

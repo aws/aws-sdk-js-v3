@@ -614,6 +614,14 @@ export interface AgentInfo {
    * @public
    */
   VoiceEnhancementMode?: VoiceEnhancementMode | undefined;
+
+  /**
+   * <p>The Region where the agent was active when they handled the contact. For Amazon Connect Global Resiliency
+   *    instances enabled for global routing, this indicates the Region in which the agent's session was established
+   *    at the time of the contact.</p>
+   * @public
+   */
+  ActiveRegion?: string | undefined;
 }
 
 /**

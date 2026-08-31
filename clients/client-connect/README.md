@@ -1417,6 +1417,13 @@ GetContactMetrics
 </details>
 <details>
 <summary>
+GetCrossRegionRouting
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/GetCrossRegionRoutingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/GetCrossRegionRoutingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/GetCrossRegionRoutingCommandOutput/)
+</details>
+<details>
+<summary>
 GetCurrentMetricData
 </summary>
 
@@ -2583,6 +2590,13 @@ UpdateContactTaskTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateContactTaskTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateContactTaskTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateContactTaskTemplateCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateCrossRegionRouting
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateCrossRegionRoutingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateCrossRegionRoutingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateCrossRegionRoutingCommandOutput/)
 </details>
 <details>
 <summary>

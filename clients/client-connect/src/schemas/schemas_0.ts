@@ -171,13 +171,13 @@ const _AQM = "AgentQualityMetrics";
 const _AQMI = "AudioQualityMetricsInfo";
 const _AQQC = "AssociateQueueQuickConnects";
 const _AQQCR = "AssociateQueueQuickConnectsRequest";
-const _AR = "AttachmentReference";
+const _AR = "ActiveRegion";
 const _ARA = "AssociatedResourceArn";
 const _ARPQ = "AssociateRoutingProfileQueues";
 const _ARPQR = "AssociateRoutingProfileQueuesRequest";
-const _ARc = "ActiveRegion";
-const _ARct = "ActiveRegions";
+const _ARc = "ActiveRegions";
 const _ARd = "AdditionalRecipients";
+const _ARt = "AttachmentReference";
 const _AS = "ActionSummary";
 const _ASA = "AssignSlaAction";
 const _ASAD = "AssignSlaActionDefinition";
@@ -1245,6 +1245,9 @@ const _GCMDR = "GetCurrentMetricDataRequest";
 const _GCMDRe = "GetCurrentMetricDataResponse";
 const _GCMR = "GetContactMetricsRequest";
 const _GCMRe = "GetContactMetricsResponse";
+const _GCRR = "GetCrossRegionRouting";
+const _GCRRR = "GetCrossRegionRoutingRequest";
+const _GCRRRe = "GetCrossRegionRoutingResponse";
 const _GCUD = "GetCurrentUserData";
 const _GCUDR = "GetCurrentUserDataRequest";
 const _GCUDRe = "GetCurrentUserDataResponse";
@@ -1343,6 +1346,7 @@ const _IAU = "InstanceAccessUrl";
 const _IAn = "InstanceAlias";
 const _IAns = "InstanceArn";
 const _IAnt = "IntegrationArn";
+const _IAs = "IsolatedAll";
 const _IB = "IsBonus";
 const _IC = "IssueCode";
 const _ICE = "InboundCallsEnabled";
@@ -1374,6 +1378,7 @@ const _IPE = "InvalidParameterException";
 const _IPN = "ImportPhoneNumber";
 const _IPNR = "ImportPhoneNumberRequest";
 const _IPNRm = "ImportPhoneNumberResponse";
+const _IR = "IsolatedRegions";
 const _IRE = "InvalidRequestException";
 const _IRER = "InvalidRequestExceptionReason";
 const _IRM = "IncludeRawMessage";
@@ -2693,6 +2698,9 @@ const _UCR = "UntagContactRequest";
 const _UCRD = "UpdateContactRoutingData";
 const _UCRDR = "UpdateContactRoutingDataRequest";
 const _UCRDRp = "UpdateContactRoutingDataResponse";
+const _UCRR = "UpdateCrossRegionRouting";
+const _UCRRR = "UpdateCrossRegionRoutingRequest";
+const _UCRRRp = "UpdateCrossRegionRoutingResponse";
 const _UCRn = "UntagContactResponse";
 const _UCRp = "UpdateContactRequest";
 const _UCRpd = "UpdateContactResponse";
@@ -3343,8 +3351,8 @@ export var AgentHierarchyGroups$: StaticStructureSchema = [3, n0, _AHGg,
 ];
 export var AgentInfo$: StaticStructureSchema = [3, n0, _AI,
   0,
-  [_I, _ABAT, _PET, _CTAT, _APDIS, _HG, _DI, _Ca, _ACWD, _ACWST, _ACWET, _AIHD, _STt, _VEM],
-  [0, 4, 4, 4, 1, () => HierarchyGroups$, () => DeviceInfo$, () => ParticipantCapabilities$, 1, 4, 4, 1, () => StateTransitions, 0]
+  [_I, _ABAT, _PET, _CTAT, _APDIS, _HG, _DI, _Ca, _ACWD, _ACWST, _ACWET, _AIHD, _STt, _VEM, _AR],
+  [0, 4, 4, 4, 1, () => HierarchyGroups$, () => DeviceInfo$, () => ParticipantCapabilities$, 1, 4, 4, 1, () => StateTransitions, 0, 0]
 ];
 export var AgentQualityMetrics$: StaticStructureSchema = [3, n0, _AQM,
   0,
@@ -3626,7 +3634,7 @@ export var AttachedFilesConfigurationSummary$: StaticStructureSchema = [3, n0, _
   [_II, _ASt, _MSLIB, _ECx],
   [0, 0, 1, () => ExtensionConfiguration$], 2
 ];
-export var AttachmentReference$: StaticStructureSchema = [3, n0, _AR,
+export var AttachmentReference$: StaticStructureSchema = [3, n0, _ARt,
   0,
   [_N, _V, _St, _A],
   [0, 0, 0, 0]
@@ -6041,6 +6049,16 @@ export var GetContactMetricsResponse$: StaticStructureSchema = [3, n0, _GCMRe,
   [_MRe, _I, _A],
   [() => ContactMetricResults, 0, 0]
 ];
+export var GetCrossRegionRoutingRequest$: StaticStructureSchema = [3, n0, _GCRRR,
+  0,
+  [_II],
+  [[0, 1]], 1
+];
+export var GetCrossRegionRoutingResponse$: StaticStructureSchema = [3, n0, _GCRRRe,
+  0,
+  [_IR],
+  [64 | 0]
+];
 export var GetCurrentMetricDataRequest$: StaticStructureSchema = [3, n0, _GCMDR,
   0,
   [_II, _Fil, _CMurr, _G, _NT, _MR, _SCo],
@@ -6163,7 +6181,7 @@ export var GetTrafficDistributionResponse$: StaticStructureSchema = [3, n0, _GTD
 ];
 export var GlobalResiliencyMetadata$: StaticStructureSchema = [3, n0, _GRM,
   0,
-  [_ARc, _OR, _TDGI],
+  [_AR, _OR, _TDGI],
   [0, 0, 0]
 ];
 export var GranularAccessControlConfiguration$: StaticStructureSchema = [3, n0, _GACC,
@@ -8058,7 +8076,7 @@ export var SearchContactsTimestampCondition$: StaticStructureSchema = [3, n0, _S
 ];
 export var SearchCriteria$: StaticStructureSchema = [3, n0, _SCea,
   0,
-  [_N, _AIg, _AHGg, _Ch, _CAo, _IMn, _QIue, _RCo, _ATR, _SCA, _SSA, _ARct, _CTonta, _AAi],
+  [_N, _AIg, _AHGg, _Ch, _CAo, _IMn, _QIue, _RCo, _ATR, _SCA, _SSA, _ARc, _CTonta, _AAi],
   [[() => NameCriteria$, 0], 64 | 0, () => AgentHierarchyGroups$, 64 | 0, [() => ContactAnalysis$, 0], 64 | 0, 64 | 0, () => SearchableRoutingCriteria$, () => SearchContactsAdditionalTimeRange$, [() => SearchableContactAttributes$, 0], [() => SearchableSegmentAttributes$, 0], 64 | 0, () => ControlPlaneTagFilter$, () => AiAgentsCriteria$]
 ];
 export var SearchDataTablesRequest$: StaticStructureSchema = [3, n0, _SDTR,
@@ -8987,6 +9005,16 @@ export var UpdateContactTaskTemplateRequest$: StaticStructureSchema = [3, n0, _U
   [0, 0, 0], 3
 ];
 export var UpdateContactTaskTemplateResponse$: StaticStructureSchema = [3, n0, _UCTTRp,
+  0,
+  [],
+  []
+];
+export var UpdateCrossRegionRoutingRequest$: StaticStructureSchema = [3, n0, _UCRRR,
+  0,
+  [_II, _IAs],
+  [[0, 1], 2], 2
+];
+export var UpdateCrossRegionRoutingResponse$: StaticStructureSchema = [3, n0, _UCRRRp,
   0,
   [],
   []
@@ -10049,6 +10077,7 @@ var InvisibleTaskTemplateFields: StaticListSchema = [1, n0, _ITTF,
   0, () => InvisibleFieldInfo$
 ];
 var IpCidrList = 64 | 0;
+var IsolatedRegionsList = 64 | 0;
 var LexBotConfigList: StaticListSchema = [1, n0, _LBCL,
   0, () => LexBotConfig$
 ];
@@ -11156,6 +11185,9 @@ export var GetContactAttributes$: StaticOperationSchema = [9, n0, _GCA,
 export var GetContactMetrics$: StaticOperationSchema = [9, n0, _GCM,
   { [_h]: ["POST", "/metrics/contact", 200] }, () => GetContactMetricsRequest$, () => GetContactMetricsResponse$
 ];
+export var GetCrossRegionRouting$: StaticOperationSchema = [9, n0, _GCRR,
+  { [_h]: ["GET", "/cross-region-routing/{InstanceId}", 200] }, () => GetCrossRegionRoutingRequest$, () => GetCrossRegionRoutingResponse$
+];
 export var GetCurrentMetricData$: StaticOperationSchema = [9, n0, _GCMD,
   { [_h]: ["POST", "/metrics/current/{InstanceId}", 200] }, () => GetCurrentMetricDataRequest$, () => GetCurrentMetricDataResponse$
 ];
@@ -11656,6 +11688,9 @@ export var UpdateContactSchedule$: StaticOperationSchema = [9, n0, _UCS,
 ];
 export var UpdateContactTaskTemplate$: StaticOperationSchema = [9, n0, _UCTT,
   { [_h]: ["POST", "/contact/task-template", 200] }, () => UpdateContactTaskTemplateRequest$, () => UpdateContactTaskTemplateResponse$
+];
+export var UpdateCrossRegionRouting$: StaticOperationSchema = [9, n0, _UCRR,
+  { [_h]: ["PUT", "/cross-region-routing/{InstanceId}", 200] }, () => UpdateCrossRegionRoutingRequest$, () => UpdateCrossRegionRoutingResponse$
 ];
 export var UpdateDataTableAttribute$: StaticOperationSchema = [9, n0, _UDTA,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200] }, () => UpdateDataTableAttributeRequest$, () => UpdateDataTableAttributeResponse$

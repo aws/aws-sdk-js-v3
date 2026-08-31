@@ -54,7 +54,6 @@ import type {
   RecordingStatus,
   RuleCapabilityTier,
   RulePublishStatus,
-  SortOrder,
   Status,
   StorageType,
   TestCaseEntryPointType,
@@ -8166,6 +8165,30 @@ export interface GetContactMetricsResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetCrossRegionRoutingRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCrossRegionRoutingResponse {
+  /**
+   * <p>The list of Regions for which cross-region routing is currently disabled (isolated). When a Region
+   *    appears in this list, contacts originating in that Region will not be routed to agents in other Regions,
+   *    and agents in that Region will not receive contacts from other Regions.</p>
+   * @public
+   */
+  IsolatedRegions?: string[] | undefined;
+}
+
+/**
  * <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  *          <important>
  *             <p>Only one of either the Name or MetricId is required.</p>
@@ -8193,76 +8216,4 @@ export interface CurrentMetric {
    * @public
    */
   Unit?: Unit | undefined;
-}
-
-/**
- * <p>Contains the filter to apply when retrieving metrics.</p>
- * @public
- */
-export interface Filters {
-  /**
-   * <p>The queues to use to filter the metrics. You should specify at least one queue, and can specify up to 100 queues
-   *    per request. The <code>GetCurrentMetricsData</code> API in particular requires a queue when you include a
-   *     <code>Filter</code> in your request. </p>
-   * @public
-   */
-  Queues?: string[] | undefined;
-
-  /**
-   * <p>The channel to use to filter the metrics.</p>
-   * @public
-   */
-  Channels?: Channel[] | undefined;
-
-  /**
-   * <p>A list of up to 100 routing profile IDs or ARNs.</p>
-   * @public
-   */
-  RoutingProfiles?: string[] | undefined;
-
-  /**
-   * <p>A list of expressions as a filter, in which an expression is an object of a step in a routing
-   *    criteria. Accepts filter values up to 3,000 characters in length. Filter values are case-sensitive.
-   *    JSON object key order and whitespace may be arbitrary; array order and tree structure must be preserved.</p>
-   * @public
-   */
-  RoutingStepExpressions?: string[] | undefined;
-
-  /**
-   * <p>A list of up to 50 agent status IDs or ARNs.</p>
-   * @public
-   */
-  AgentStatuses?: string[] | undefined;
-
-  /**
-   * <p>A list of up to 10 subtypes can be provided.</p>
-   * @public
-   */
-  Subtypes?: string[] | undefined;
-
-  /**
-   * <p>A list of up to 10 validationTestTypes can be provided.</p>
-   * @public
-   */
-  ValidationTestTypes?: string[] | undefined;
-}
-
-/**
- * <p>The way to sort the resulting response based on metrics. By default resources are sorted based on
- *     <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the input
- *    metrics.</p>
- * @public
- */
-export interface CurrentMetricSortCriteria {
-  /**
-   * <p>The current metric names.</p>
-   * @public
-   */
-  SortByMetric?: CurrentMetricName | undefined;
-
-  /**
-   * <p>The way to sort.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
 }

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateUserRoutingProfileRequest } from "../models/models_3";
+import type { UpdateUserRoutingProfileRequest } from "../models/models_4";
 import { UpdateUserRoutingProfile$ } from "../schemas/schemas_0";
 
 /**

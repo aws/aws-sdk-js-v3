@@ -868,6 +868,11 @@ import {
   GetContactMetricsCommand,
 } from "./commands/GetContactMetricsCommand";
 import {
+  type GetCrossRegionRoutingCommandInput,
+  type GetCrossRegionRoutingCommandOutput,
+  GetCrossRegionRoutingCommand,
+} from "./commands/GetCrossRegionRoutingCommand";
+import {
   type GetCurrentMetricDataCommandInput,
   type GetCurrentMetricDataCommandOutput,
   GetCurrentMetricDataCommand,
@@ -1687,6 +1692,11 @@ import {
   UpdateContactTaskTemplateCommand,
 } from "./commands/UpdateContactTaskTemplateCommand";
 import {
+  type UpdateCrossRegionRoutingCommandInput,
+  type UpdateCrossRegionRoutingCommandOutput,
+  UpdateCrossRegionRoutingCommand,
+} from "./commands/UpdateCrossRegionRoutingCommand";
+import {
   type UpdateDataTableAttributeCommandInput,
   type UpdateDataTableAttributeCommandOutput,
   UpdateDataTableAttributeCommand,
@@ -2221,6 +2231,7 @@ const commands = {
   GetAttachedFileCommand,
   GetContactAttributesCommand,
   GetContactMetricsCommand,
+  GetCrossRegionRoutingCommand,
   GetCurrentMetricDataCommand,
   GetCurrentUserDataCommand,
   GetEffectiveHoursOfOperationsCommand,
@@ -2388,6 +2399,7 @@ const commands = {
   UpdateContactRoutingDataCommand,
   UpdateContactScheduleCommand,
   UpdateContactTaskTemplateCommand,
+  UpdateCrossRegionRoutingCommand,
   UpdateDataTableAttributeCommand,
   UpdateDataTableMetadataCommand,
   UpdateDataTablePrimaryValuesCommand,
@@ -5478,6 +5490,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link GetCrossRegionRoutingCommand}
+   */
+  getCrossRegionRouting(
+    args: GetCrossRegionRoutingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCrossRegionRoutingCommandOutput>;
+  getCrossRegionRouting(
+    args: GetCrossRegionRoutingCommandInput,
+    cb: (err: any, data?: GetCrossRegionRoutingCommandOutput) => void
+  ): void;
+  getCrossRegionRouting(
+    args: GetCrossRegionRoutingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCrossRegionRoutingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCurrentMetricDataCommand}
    */
   getCurrentMetricData(
@@ -8319,6 +8348,23 @@ export interface Connect {
     args: UpdateContactTaskTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateContactTaskTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCrossRegionRoutingCommand}
+   */
+  updateCrossRegionRouting(
+    args: UpdateCrossRegionRoutingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCrossRegionRoutingCommandOutput>;
+  updateCrossRegionRouting(
+    args: UpdateCrossRegionRoutingCommandInput,
+    cb: (err: any, data?: UpdateCrossRegionRoutingCommandOutput) => void
+  ): void;
+  updateCrossRegionRouting(
+    args: UpdateCrossRegionRoutingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCrossRegionRoutingCommandOutput) => void
   ): void;
 
   /**

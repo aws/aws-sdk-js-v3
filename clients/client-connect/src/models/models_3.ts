@@ -7,6 +7,7 @@ import type {
   AttachmentScope,
   AutoEvaluationStatus,
   Behavior,
+  BooleanComparisonType,
   Channel,
   ChatEventType,
   ContactEvaluationAttributeComparisonType,
@@ -22,6 +23,7 @@ import type {
   DataTableAttributeValueType,
   DataTableLockLevel,
   DateComparisonType,
+  DateTimeComparisonType,
   DecimalComparisonType,
   EmailHeaderType,
   EvaluationFormLanguageCode,
@@ -69,7 +71,6 @@ import type {
   TimerEligibleParticipantRoles,
   TrafficType,
   TrendIndicator,
-  ViewStatus,
   Visibility,
   VocabularyLanguageCode,
   VocabularyState,
@@ -113,7 +114,6 @@ import type {
   TaskTemplateConstraints,
   TaskTemplateDefaults,
   TaskTemplateField,
-  UserProficiency,
   Validation,
 } from "./models_0";
 import type {
@@ -140,10 +140,57 @@ import type {
   UserIdentityInfo,
   UserPhoneConfig,
   View,
-  ViewInputContent,
   VoiceEnhancementConfig,
 } from "./models_1";
 import type { SignInConfig, TelephonyConfig } from "./models_2";
+
+/**
+ * <p>A boolean search condition for Search APIs.</p>
+ * @public
+ */
+export interface BooleanCondition {
+  /**
+   * <p>A name of the property to be searched.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>Boolean property comparison type.</p>
+   * @public
+   */
+  ComparisonType?: BooleanComparisonType | undefined;
+}
+
+/**
+ * <p>A datetime search condition for Search APIs.</p>
+ * @public
+ */
+export interface DateTimeCondition {
+  /**
+   * <p>A name of the datetime property to be searched</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>A minimum value of the property.</p>
+   * @public
+   */
+  MinValue?: string | undefined;
+
+  /**
+   * <p>A maximum value of the property.</p>
+   * @public
+   */
+  MaxValue?: string | undefined;
+
+  /**
+   * <p>Datetime property comparison type.</p>
+   * @public
+   */
+  ComparisonType?: DateTimeComparisonType | undefined;
+}
 
 /**
  * <p>A decimal search condition for Search APIs.</p>
@@ -6039,6 +6086,29 @@ export interface UpdateContactTaskTemplateResponse {}
 /**
  * @public
  */
+export interface UpdateCrossRegionRoutingRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Set to <code>true</code> to disable cross-region routing for all Regions associated with this instance.
+   *    Set to <code>false</code> to re-enable cross-region routing.</p>
+   * @public
+   */
+  IsolatedAll: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCrossRegionRoutingResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateDataTableAttributeRequest {
   /**
    * <p>The unique identifier for the Amazon Connect instance.</p>
@@ -7962,108 +8032,4 @@ export interface UpdateUserPhoneConfigRequest {
    * @public
    */
   InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserProficienciesRequest {
-  /**
-   * <p> The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The proficiencies to be updated for the user. Proficiencies must first be associated to the user. You can do
-   *    this using AssociateUserProficiencies API.</p>
-   * @public
-   */
-  UserProficiencies: UserProficiency[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserRoutingProfileRequest {
-  /**
-   * <p>The identifier of the routing profile for the user.</p>
-   * @public
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserSecurityProfilesRequest {
-  /**
-   * <p>The identifiers of the security profiles for the user.</p>
-   * @public
-   */
-  SecurityProfileIds: string[] | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateViewContentRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-
-  /**
-   * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code>
-   *    status will initiate validation on the content.</p>
-   * @public
-   */
-  Status: ViewStatus | undefined;
-
-  /**
-   * <p>View content containing all content necessary to render a view except for runtime input data and the runtime
-   *    input schema, which is auto-generated by this operation.</p>
-   *          <p>The total uncompressed content has a maximum file size of 400kB.</p>
-   * @public
-   */
-  Content: ViewInputContent | undefined;
 }

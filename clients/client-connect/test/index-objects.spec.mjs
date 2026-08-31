@@ -1008,6 +1008,10 @@ import {
   GetContactMetricsCommand,
   GetContactMetricsRequest$,
   GetContactMetricsResponse$,
+  GetCrossRegionRouting$,
+  GetCrossRegionRoutingCommand,
+  GetCrossRegionRoutingRequest$,
+  GetCrossRegionRoutingResponse$,
   GetCurrentMetricData$,
   GetCurrentMetricDataCommand,
   GetCurrentMetricDataRequest$,
@@ -2175,6 +2179,10 @@ import {
   UpdateContactTaskTemplateCommand,
   UpdateContactTaskTemplateRequest$,
   UpdateContactTaskTemplateResponse$,
+  UpdateCrossRegionRouting$,
+  UpdateCrossRegionRoutingCommand,
+  UpdateCrossRegionRoutingRequest$,
+  UpdateCrossRegionRoutingResponse$,
   UpdateDataTableAttribute$,
   UpdateDataTableAttributeCommand,
   UpdateDataTableAttributeRequest$,
@@ -2775,6 +2783,8 @@ assert(typeof GetContactAttributesCommand === "function");
 assert(typeof GetContactAttributes$ === "object");
 assert(typeof GetContactMetricsCommand === "function");
 assert(typeof GetContactMetrics$ === "object");
+assert(typeof GetCrossRegionRoutingCommand === "function");
+assert(typeof GetCrossRegionRouting$ === "object");
 assert(typeof GetCurrentMetricDataCommand === "function");
 assert(typeof GetCurrentMetricData$ === "object");
 assert(typeof GetCurrentUserDataCommand === "function");
@@ -3109,6 +3119,8 @@ assert(typeof UpdateContactScheduleCommand === "function");
 assert(typeof UpdateContactSchedule$ === "object");
 assert(typeof UpdateContactTaskTemplateCommand === "function");
 assert(typeof UpdateContactTaskTemplate$ === "object");
+assert(typeof UpdateCrossRegionRoutingCommand === "function");
+assert(typeof UpdateCrossRegionRouting$ === "object");
 assert(typeof UpdateDataTableAttributeCommand === "function");
 assert(typeof UpdateDataTableAttribute$ === "object");
 assert(typeof UpdateDataTableMetadataCommand === "function");
@@ -3778,6 +3790,8 @@ assert(typeof GetContactAttributesRequest$ === "object");
 assert(typeof GetContactAttributesResponse$ === "object");
 assert(typeof GetContactMetricsRequest$ === "object");
 assert(typeof GetContactMetricsResponse$ === "object");
+assert(typeof GetCrossRegionRoutingRequest$ === "object");
+assert(typeof GetCrossRegionRoutingResponse$ === "object");
 assert(typeof GetCurrentMetricDataRequest$ === "object");
 assert(typeof GetCurrentMetricDataResponse$ === "object");
 assert(typeof GetCurrentUserDataRequest$ === "object");
@@ -4376,6 +4390,8 @@ assert(typeof UpdateContactScheduleRequest$ === "object");
 assert(typeof UpdateContactScheduleResponse$ === "object");
 assert(typeof UpdateContactTaskTemplateRequest$ === "object");
 assert(typeof UpdateContactTaskTemplateResponse$ === "object");
+assert(typeof UpdateCrossRegionRoutingRequest$ === "object");
+assert(typeof UpdateCrossRegionRoutingResponse$ === "object");
 assert(typeof UpdateDataTableAttributeRequest$ === "object");
 assert(typeof UpdateDataTableAttributeResponse$ === "object");
 assert(typeof UpdateDataTableMetadataRequest$ === "object");
