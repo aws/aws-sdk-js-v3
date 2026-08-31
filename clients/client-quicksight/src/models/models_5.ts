@@ -3,6 +3,7 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   AgentStatus,
+  AppVisibility,
   AssetBundleExportFormat,
   AssetBundleImportFailureAction,
   AssetType,
@@ -13,6 +14,7 @@ import type {
   DlpAction,
   DlpProviderType,
   FieldName,
+  FilterOperator,
   GovernedAction,
   IdentityType,
   IncludeFolderMembers,
@@ -25,6 +27,7 @@ import type {
   ResourceStatus,
   ResourceType,
   Role,
+  SearchAppsFilterName,
   SearchFilterOperator,
   SelfUpgradeAdminAction,
   SelfUpgradeStatus,
@@ -60,6 +63,7 @@ import type {
   AnalysisSummary,
   ApplicableTo,
   ApprovalPolicy,
+  AppSummary,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobValidationStrategy,
   AssetBundleImportJobOverrideParameters,
@@ -145,9 +149,261 @@ import type {
   SnapshotConfiguration,
   SpaceQuickSightResourceDetails,
   SpaceSummary,
-  TemplateVersionSummary,
   User,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags
+   * 			for.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   * 			resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplateAliasesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplateAliasesResponse {
+  /**
+   * <p>A structure containing the list of the template's aliases.</p>
+   * @public
+   */
+  TemplateAliasList?: TemplateAlias[] | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplatesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The template summary.</p>
+ * @public
+ */
+export interface TemplateSummary {
+  /**
+   * <p>A summary of a template.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the template. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>A display name for the template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A structure containing a list of version numbers for the template summary.</p>
+   * @public
+   */
+  LatestVersionNumber?: number | undefined;
+
+  /**
+   * <p>The last time that this template was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The last time that this template was updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplatesResponse {
+  /**
+   * <p>A structure containing information about the templates in the list.</p>
+   * @public
+   */
+  TemplateSummaryList?: TemplateSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTemplateVersionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The template version.</p>
+ * @public
+ */
+export interface TemplateVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template version.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The version number of the template version.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The time that this template version was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The status of the template version.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>The description of the template version.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
 
 /**
  * @public
@@ -1709,6 +1965,82 @@ export interface SearchAnalysesResponse {
    * @public
    */
   Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * <p>A filter to apply when searching for apps.</p>
+ * @public
+ */
+export interface SearchAppsFilter {
+  /**
+   * <p>The name of the filter attribute.</p>
+   * @public
+   */
+  Name: SearchAppsFilterName | undefined;
+
+  /**
+   * <p>The comparison operator for the filter.</p>
+   * @public
+   */
+  Operator: FilterOperator | undefined;
+
+  /**
+   * <p>The value to filter on.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAppsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the apps to search.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters to apply to the search.</p>
+   * @public
+   */
+  Filters: SearchAppsFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single request. Valid range is 1 to 100. If you don't specify a value, the default is 20.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAppsResponse {
+  /**
+   * <p>A list of app summaries that match the search criteria.</p>
+   * @public
+   */
+  AppSummaryList: AppSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -3614,6 +3946,76 @@ export interface UpdateApplicationWithTokenExchangeGrantResponse {
    * @public
    */
   Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAppPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the app.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the app.</p>
+   * @public
+   */
+  AppId: string | undefined;
+
+  /**
+   * <p>The permissions that you want to grant on the app.</p>
+   * @public
+   */
+  GrantPermissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The permissions that you want to revoke from the app.</p>
+   * @public
+   */
+  RevokePermissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The visibility to set for the app. Currently, only <code>PRIVATE</code> is accepted, which removes public (anonymous) access from the app. If you don't specify a value, the app's visibility is unchanged. Setting an app to <code>PUBLIC</code> through this operation is not supported.</p>
+   * @public
+   */
+  Visibility?: AppVisibility | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAppPermissionsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the app.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the app.</p>
+   * @public
+   */
+  AppId?: string | undefined;
+
+  /**
+   * <p>The updated resource permissions for the app.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The visibility of the app after the update (<code>PRIVATE</code> or <code>PUBLIC</code>).</p>
+   * @public
+   */
+  Visibility?: AppVisibility | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>

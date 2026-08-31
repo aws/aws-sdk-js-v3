@@ -171,6 +171,7 @@ import type {
 } from "./commands/DeleteActionConnectorCommand";
 import type { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
 import type { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand";
+import type { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import type {
   DeleteApprovalPolicyCommandInput,
   DeleteApprovalPolicyCommandOutput,
@@ -305,6 +306,11 @@ import type {
   DescribeAnalysisPermissionsCommandInput,
   DescribeAnalysisPermissionsCommandOutput,
 } from "./commands/DescribeAnalysisPermissionsCommand";
+import type { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
+import type {
+  DescribeAppPermissionsCommandInput,
+  DescribeAppPermissionsCommandOutput,
+} from "./commands/DescribeAppPermissionsCommand";
 import type {
   DescribeApprovalPolicyCommandInput,
   DescribeApprovalPolicyCommandOutput,
@@ -543,6 +549,7 @@ import type {
   ListApprovalPoliciesCommandInput,
   ListApprovalPoliciesCommandOutput,
 } from "./commands/ListApprovalPoliciesCommand";
+import type { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
 import type {
   ListAssetBundleExportJobsCommandInput,
   ListAssetBundleExportJobsCommandOutput,
@@ -671,6 +678,7 @@ import type {
 } from "./commands/SearchActionConnectorsCommand";
 import type { SearchAgentsCommandInput, SearchAgentsCommandOutput } from "./commands/SearchAgentsCommand";
 import type { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "./commands/SearchAnalysesCommand";
+import type { SearchAppsCommandInput, SearchAppsCommandOutput } from "./commands/SearchAppsCommand";
 import type { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "./commands/SearchDashboardsCommand";
 import type { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "./commands/SearchDataSetsCommand";
 import type {
@@ -743,6 +751,10 @@ import type {
   UpdateApplicationWithTokenExchangeGrantCommandInput,
   UpdateApplicationWithTokenExchangeGrantCommandOutput,
 } from "./commands/UpdateApplicationWithTokenExchangeGrantCommand";
+import type {
+  UpdateAppPermissionsCommandInput,
+  UpdateAppPermissionsCommandOutput,
+} from "./commands/UpdateAppPermissionsCommand";
 import type {
   UpdateApprovalPolicyCommandInput,
   UpdateApprovalPolicyCommandOutput,
@@ -974,6 +986,7 @@ export type ServiceInputTypes =
   | DeleteActionConnectorCommandInput
   | DeleteAgentCommandInput
   | DeleteAnalysisCommandInput
+  | DeleteAppCommandInput
   | DeleteApprovalPolicyCommandInput
   | DeleteBrandAssignmentCommandInput
   | DeleteBrandCommandInput
@@ -1021,6 +1034,8 @@ export type ServiceInputTypes =
   | DescribeAnalysisCommandInput
   | DescribeAnalysisDefinitionCommandInput
   | DescribeAnalysisPermissionsCommandInput
+  | DescribeAppCommandInput
+  | DescribeAppPermissionsCommandInput
   | DescribeApprovalPolicyCommandInput
   | DescribeAssetBundleExportJobCommandInput
   | DescribeAssetBundleImportJobCommandInput
@@ -1091,6 +1106,7 @@ export type ServiceInputTypes =
   | ListAgentsCommandInput
   | ListAnalysesCommandInput
   | ListApprovalPoliciesCommandInput
+  | ListAppsCommandInput
   | ListAssetBundleExportJobsCommandInput
   | ListAssetBundleImportJobsCommandInput
   | ListBrandsCommandInput
@@ -1141,6 +1157,7 @@ export type ServiceInputTypes =
   | SearchActionConnectorsCommandInput
   | SearchAgentsCommandInput
   | SearchAnalysesCommandInput
+  | SearchAppsCommandInput
   | SearchDashboardsCommandInput
   | SearchDataSetsCommandInput
   | SearchDataSourcesCommandInput
@@ -1167,6 +1184,7 @@ export type ServiceInputTypes =
   | UpdateAgentPermissionsCommandInput
   | UpdateAnalysisCommandInput
   | UpdateAnalysisPermissionsCommandInput
+  | UpdateAppPermissionsCommandInput
   | UpdateApplicationWithTokenExchangeGrantCommandInput
   | UpdateApprovalPolicyCommandInput
   | UpdateBrandAssignmentCommandInput
@@ -1272,6 +1290,7 @@ export type ServiceOutputTypes =
   | DeleteActionConnectorCommandOutput
   | DeleteAgentCommandOutput
   | DeleteAnalysisCommandOutput
+  | DeleteAppCommandOutput
   | DeleteApprovalPolicyCommandOutput
   | DeleteBrandAssignmentCommandOutput
   | DeleteBrandCommandOutput
@@ -1319,6 +1338,8 @@ export type ServiceOutputTypes =
   | DescribeAnalysisCommandOutput
   | DescribeAnalysisDefinitionCommandOutput
   | DescribeAnalysisPermissionsCommandOutput
+  | DescribeAppCommandOutput
+  | DescribeAppPermissionsCommandOutput
   | DescribeApprovalPolicyCommandOutput
   | DescribeAssetBundleExportJobCommandOutput
   | DescribeAssetBundleImportJobCommandOutput
@@ -1389,6 +1410,7 @@ export type ServiceOutputTypes =
   | ListAgentsCommandOutput
   | ListAnalysesCommandOutput
   | ListApprovalPoliciesCommandOutput
+  | ListAppsCommandOutput
   | ListAssetBundleExportJobsCommandOutput
   | ListAssetBundleImportJobsCommandOutput
   | ListBrandsCommandOutput
@@ -1439,6 +1461,7 @@ export type ServiceOutputTypes =
   | SearchActionConnectorsCommandOutput
   | SearchAgentsCommandOutput
   | SearchAnalysesCommandOutput
+  | SearchAppsCommandOutput
   | SearchDashboardsCommandOutput
   | SearchDataSetsCommandOutput
   | SearchDataSourcesCommandOutput
@@ -1465,6 +1488,7 @@ export type ServiceOutputTypes =
   | UpdateAgentPermissionsCommandOutput
   | UpdateAnalysisCommandOutput
   | UpdateAnalysisPermissionsCommandOutput
+  | UpdateAppPermissionsCommandOutput
   | UpdateApplicationWithTokenExchangeGrantCommandOutput
   | UpdateApprovalPolicyCommandOutput
   | UpdateBrandAssignmentCommandOutput

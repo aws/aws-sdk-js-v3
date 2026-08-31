@@ -81,6 +81,7 @@ import type {
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserSnapshotJobResult,
   ApprovalPolicy,
+  AppSummary,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobError,
   AssetBundleExportJobSummary,
@@ -109,7 +110,6 @@ import type {
   SnapshotFile,
   SnapshotJobResultFileGroup,
   SnapshotS3DestinationConfiguration,
-  Tag,
   VpcConnectionProperties,
 } from "./models_2";
 import type {
@@ -141,6 +141,85 @@ import type {
   TopicRefreshSchedule,
   TopicV2Details,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DeleteUserCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVPCConnectionRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the account where you want to delete a VPC
+   * 			connection.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
+   * 				Amazon Web Services account.</p>
+   * @public
+   */
+  VPCConnectionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVPCConnectionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted VPC connection.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC connection that
+   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
+   * 				Amazon Web Services account.</p>
+   * @public
+   */
+  VPCConnectionId?: string | undefined;
+
+  /**
+   * <p>The deletion status of the VPC connection.</p>
+   * @public
+   */
+  DeletionStatus?: VPCConnectionResourceStatus | undefined;
+
+  /**
+   * <p>The availability status of the VPC connection.</p>
+   * @public
+   */
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
 
 /**
  * @public
@@ -712,6 +791,86 @@ export interface DescribeAnalysisPermissionsResponse {
    * @public
    */
   Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the app.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the app that you want to describe.</p>
+   * @public
+   */
+  AppId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppResponse {
+  /**
+   * <p>The information about the app.</p>
+   * @public
+   */
+  App: AppSummary | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the app.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the app.</p>
+   * @public
+   */
+  AppId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAppPermissionsResponse {
+  /**
+   * <p>The ID of the app.</p>
+   * @public
+   */
+  AppId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the app.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The resource permissions for the app.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -7572,6 +7731,52 @@ export interface ListApprovalPoliciesResponse {
 /**
  * @public
  */
+export interface ListAppsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the apps.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single request. Valid range is 1 to 100. If you don't specify a value, the default is 20.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAppsResponse {
+  /**
+   * <p>A list of app summaries.</p>
+   * @public
+   */
+  AppSummaryList: AppSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAssetBundleExportJobsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that the export jobs were executed in. </p>
@@ -9297,257 +9502,4 @@ export interface ListSpacesResponse {
    * @public
    */
   RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags
-   * 			for.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
-   * 			resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplateAliasesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template aliases that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplateAliasesResponse {
-  /**
-   * <p>A structure containing the list of the template's aliases.</p>
-   * @public
-   */
-  TemplateAliasList?: TemplateAlias[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplatesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The template summary.</p>
- * @public
- */
-export interface TemplateSummary {
-  /**
-   * <p>A summary of a template.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the template. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>A display name for the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A structure containing a list of version numbers for the template summary.</p>
-   * @public
-   */
-  LatestVersionNumber?: number | undefined;
-
-  /**
-   * <p>The last time that this template was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The last time that this template was updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplatesResponse {
-  /**
-   * <p>A structure containing information about the templates in the list.</p>
-   * @public
-   */
-  TemplateSummaryList?: TemplateSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTemplateVersionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The template version.</p>
- * @public
- */
-export interface TemplateVersionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template version.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The version number of the template version.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The time that this template version was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The status of the template version.</p>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-
-  /**
-   * <p>The description of the template version.</p>
-   * @public
-   */
-  Description?: string | undefined;
 }

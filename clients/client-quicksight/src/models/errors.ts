@@ -478,34 +478,6 @@ export class CustomerManagedKeyUnavailableException extends __BaseException {
 }
 
 /**
- * <p>The <code>NextToken</code> value isn't valid.</p>
- * @public
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name = "InvalidNextTokenException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * <p>One or more parameter has a value that isn't valid.</p>
  * @public
  */
@@ -528,6 +500,34 @@ export class InvalidParameterException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>The <code>NextToken</code> value isn't valid.</p>
+ * @public
+ */
+export class InvalidNextTokenException extends __BaseException {
+  readonly name = "InvalidNextTokenException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
     this.Message = opts.Message;
     this.RequestId = opts.RequestId;
   }

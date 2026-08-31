@@ -40,6 +40,7 @@ import type {
   ImageExtractionStatus,
   IngestionStatus,
   IngestionType,
+  InputColumnDataType,
   JoinOperationType,
   JoinType,
   LimitUnit,
@@ -115,7 +116,6 @@ import type {
   DestinationTable,
   DisplayFormatOptions,
   Governance,
-  InputColumn,
   ResourcePermission,
   SheetDefinition,
   SslProperties,
@@ -126,6 +126,39 @@ import type {
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>Metadata for a column that is used as the input of a transform operation.</p>
+ * @public
+ */
+export interface InputColumn {
+  /**
+   * <p>The name of this column in the underlying data source.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A unique identifier for the input column.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The data type of the column.</p>
+   *          <p>
+   *             <b>Note:</b>
+   *             <code>SEMISTRUCT</code> represents Athena's map, row, and struct data types. It is supported when using the new data preparation experience.</p>
+   * @public
+   */
+  Type: InputColumnDataType | undefined;
+
+  /**
+   * <p>The sub data type of the column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
+   * @public
+   */
+  SubType?: ColumnDataSubType | undefined;
+}
 
 /**
  * <p>References a parent dataset that serves as a data source, including its columns and metadata.</p>
@@ -3444,30 +3477,106 @@ export interface CreateIngestionResponse {
 export interface KbTemplateConfiguration {
   /**
    * <p>The connector configuration for the knowledge base data source. The structure depends on the connector type of the data source referenced by <code>DataSourceArn</code>.</p>
-   *          <p>The template must be a JSON object. The required fields vary by connector type:</p>
+   *          <p>The template must be a JSON object. All connector types share the following top-level keys. The value of <code>type</code> and the contents of <code>connectionConfiguration</code> vary by connector type.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Amazon S3</b> (<code>S3V2</code>) – Requires <code>connectionConfiguration</code> with <code>bucketName</code>. Supports <code>filterConfiguration</code> for inclusion and exclusion prefixes and patterns. Supports <code>accessControlConfiguration</code> and <code>deletionProtectionConfiguration</code>.</p>
+   *                   <code>type</code> – (Required) The connector type of the data source. This value identifies the connector. Valid values: <code>S3V2</code>, <code>WEBCRAWLERV3</code>, <code>GOOGLEDRIVEV3</code>, <code>ONEDRIVEV3</code>, <code>SHAREPOINTV3</code>. For the fields required by each connector, see the connector-specific list that follows.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Google Drive</b> (<code>GOOGLEDRIVEV3</code>) – Requires <code>connectionConfiguration</code> with <code>authType</code> set to <code>SERVICE_ACCOUNT</code>. Supports <code>dataEntityConfiguration</code> with <code>crawlMyDrive</code>, <code>crawlSharedWithMe</code>, and <code>crawlSharedDrives</code>.</p>
+   *                   <code>connectionConfiguration</code> – (Required) The connection details for the data source. The keys in this object vary by connector type; see the connector-specific list that follows.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>OneDrive</b> (<code>ONEDRIVEV3</code>) – Requires <code>authType</code> at the template root level set to <code>TWO_LEGGED_OAUTH</code>. Requires <code>connectionConfiguration</code> with <code>tenantId</code> in UUID format. Supports <code>dataEntityConfiguration</code> with <code>crawlPersonalDrives</code> and <code>crawlSharedWithMe</code>.</p>
+   *                   <code>filterConfiguration</code> – (Optional) Rules that determine which content is crawled, such as inclusion and exclusion prefixes, patterns, or file-size limits.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>SharePoint</b> (<code>SHAREPOINTV3</code>) – Requires <code>connectionConfiguration</code> with <code>tenantId</code> in UUID format. Supports <code>dataEntityConfiguration</code> with <code>siteUrls</code>, <code>crawlFiles</code>, and <code>crawlPages</code>.</p>
+   *                   <code>accessControlConfiguration</code> – (Optional) Document-level access control (ACL) settings. Supported by all connector types except Web Crawler (<code>WEBCRAWLERV3</code>). The available fields depend on the connector type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Web Crawler</b> (<code>WEBCRAWLERV3</code>) – Requires <code>connectionConfiguration</code> with <code>seedUrls</code> or <code>siteMapUrls</code> (mutually exclusive) and <code>authType</code>. Supports <code>crawlConfiguration</code> for crawl depth, rate limits, and scope. Supports <code>filterConfiguration</code> for file size limits and URL patterns. Valid values for <code>authType</code>: <code>NO_AUTH</code>, <code>BASIC_AUTH</code>, <code>FORM</code>, <code>SAML</code>.</p>
+   *                   <code>deletionProtectionConfiguration</code> – (Optional) Deletion-protection settings, supported by all connector types. Contains <code>enableDeletionProtection</code> (Boolean) and <code>deletionProtectionThreshold</code> (String; a value from 1 to 100).</p>
    *             </li>
    *          </ul>
-   *          <p>The optional <code>deletionProtectionConfiguration</code> object is supported by all connector types. It contains <code>enableDeletionProtection</code> and <code>deletionProtectionThreshold</code>.</p>
+   *          <p>The following list describes the valid <code>type</code> value, the <code>connectionConfiguration</code> contents, and any connector-specific fields for each connector type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon S3</b> (<code>type</code>: <code>S3V2</code>) – The <code>type</code> value must be <code>S3V2</code>. <code>connectionConfiguration</code> is required and contains:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>bucketName</code> – (Required) The name of the Amazon S3 bucket to crawl. Type: String. Length: 3–63 characters. Pattern: <code>^[a-z0-9][.\-a-z0-9]\{1,61\}[a-z0-9]$</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>bucketOwnerAccountId</code> – (Required) The ID of the AWS account that owns the bucket. Type: String. Pattern: <code>^\d\{12\}$</code>.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>Amazon S3 supports the following optional <code>filterConfiguration</code> fields:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>inclusionPrefixes</code> or <code>exclusionPrefixes</code> – Amazon S3 key prefixes to include or exclude. Type: Array of String. Up to 350 items, each 1–1,024 characters.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>inclusionPatterns</code> or <code>exclusionPatterns</code> – Patterns to include or exclude objects. Type: Array of String. Up to 350 items, each 1–1,024 characters.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>maxFileSizeInMegaBytes</code> – The maximum size, in MB, of a file to ingest. Type: String. Pattern: <code>^\d+$</code>.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>For Amazon S3, <code>accessControlConfiguration</code> supports the following fields:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>crawlAcl</code> – Specifies whether the connector crawls and enforces document access control lists (ACLs). Type: Boolean. When set to <code>true</code>, provide ACLs either in a global ACL configuration file (<code>aclConfigurationFilePath</code>) or in per-document metadata files.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>aclConfigurationFilePath</code> – The Amazon S3 URI of the global ACL configuration file. Type: String. Length: 1–1,024 characters. Optional. If you don't provide a global ACL configuration file, define ACLs in per-document metadata files.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>defaultAccessType</code> – The access behavior applied to Amazon S3 prefixes that are not listed in the ACL configuration. Type: String. The only supported value is <code>ALLOW</code>.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>
+   *                   <code>metadataFilesPrefix</code> – (Optional) The Amazon S3 prefix under which per-document metadata files are stored. Each metadata file describes a single source document and its indexable attributes. This is not the global ACL configuration file. For a single global ACL file, use <code>accessControlConfiguration.aclConfigurationFilePath</code>. Type: String. Length: 1–1,024 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Google Drive</b> (<code>type</code>: <code>GOOGLEDRIVEV3</code>) – Requires <code>connectionConfiguration</code> with <code>authType</code> set to <code>SERVICE_ACCOUNT</code>. Supports <code>dataEntityConfiguration</code> with <code>crawlMyDrive</code>, <code>crawlSharedWithMe</code>, and <code>crawlSharedDrives</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>OneDrive</b> (<code>type</code>: <code>ONEDRIVEV3</code>) – Requires <code>authType</code> at the template root level set to <code>TWO_LEGGED_OAUTH</code>. Requires <code>connectionConfiguration</code> with <code>tenantId</code> in UUID format. Supports <code>dataEntityConfiguration</code> with <code>crawlPersonalDrives</code> and <code>crawlSharedWithMe</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SharePoint</b> (<code>type</code>: <code>SHAREPOINTV3</code>) – Requires <code>connectionConfiguration</code> with <code>tenantId</code> in UUID format. Supports <code>dataEntityConfiguration</code> with <code>siteUrls</code>, <code>crawlFiles</code>, and <code>crawlPages</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Web Crawler</b> (<code>type</code>: <code>WEBCRAWLERV3</code>) – Requires <code>connectionConfiguration</code> with <code>seedUrls</code> or <code>siteMapUrls</code> (mutually exclusive) and <code>authType</code>. Supports <code>crawlConfiguration</code> for crawl depth, rate limits, and scope. Supports <code>filterConfiguration</code> for file size limits and URL patterns. Valid values for <code>authType</code>: <code>NO_AUTH</code>, <code>BASIC_AUTH</code>, <code>FORM</code>, <code>SAML</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <b>Enabling document-level access control for Amazon S3</b>
+   *          </p>
+   *          <p>For an Amazon S3 (<code>S3V2</code>) knowledge base, document-level access control is governed by two settings that must both be enabled:</p>
+   *          <ol>
+   *             <li>
+   *                <p>In this template, set <code>accessControlConfiguration.crawlAcl</code> to <code>true</code>. Define ACLs either in a global ACL configuration file, referenced by <code>accessControlConfiguration.aclConfigurationFilePath</code>, or in per-document metadata files. To control access for prefixes that are not listed in the ACL file, you can also set <code>accessControlConfiguration.defaultAccessType</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>In the <code>CreateKnowledgeBase</code> or <code>UpdateKnowledgeBase</code> request, set the top-level <code>AccessControlConfiguration.isACLEnabled</code> to <code>true</code>.</p>
+   *             </li>
+   *          </ol>
    * @public
    */
   template?: __DocumentType | undefined;
@@ -3598,7 +3707,9 @@ export interface CreateKnowledgeBaseRequest {
   AccessControlConfiguration?: AccessControlConfiguration | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the primary owner for the knowledge base. The specified user is always granted owner access, regardless of what is specified in the <code>Permissions</code> field. If you don't specify a primary owner, the knowledge base is created without one.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon QuickSight user or group to set as the primary owner of the knowledge base. The specified principal is always granted owner access, regardless of what is specified in the <code>Permissions</code> field.</p>
+   *          <p>This must be an Amazon QuickSight principal ARN, not an IAM user or role ARN. The API caller is never assigned as the owner automatically. If you don't specify a primary owner and don't grant owner access in <code>Permissions</code>, the knowledge base is created without an owner, even when you call the operation as an Amazon QuickSight user.</p>
+   *          <p>When you call <code>CreateKnowledgeBase</code> as an IAM user or an assumed IAM role, specify <code>PrimaryOwnerArn</code> (as an Amazon QuickSight principal ARN) or an owner entry in <code>Permissions</code> so that the knowledge base has an owner. Although optional, specifying a primary owner is recommended.</p>
    * @public
    */
   PrimaryOwnerArn?: string | undefined;
@@ -7768,6 +7879,34 @@ export interface DeleteAnalysisResponse {
 /**
  * @public
  */
+export interface DeleteAppRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the app.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the app that you want to delete.</p>
+   * @public
+   */
+  AppId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAppResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteApprovalPolicyRequest {
   /**
    * <p>The unique identifier of the approval policy to delete.</p>
@@ -9239,83 +9378,4 @@ export interface DeleteUserCustomPermissionRequest {
    * @public
    */
   Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserCustomPermissionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVPCConnectionRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the account where you want to delete a VPC
-   * 			connection.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVPCConnectionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted VPC connection.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC connection that
-   * 			you're creating. This ID is a unique identifier for each Amazon Web Services Region in an
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  VPCConnectionId?: string | undefined;
-
-  /**
-   * <p>The deletion status of the VPC connection.</p>
-   * @public
-   */
-  DeletionStatus?: VPCConnectionResourceStatus | undefined;
-
-  /**
-   * <p>The availability status of the VPC connection.</p>
-   * @public
-   */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
 }

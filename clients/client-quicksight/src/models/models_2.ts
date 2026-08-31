@@ -9,6 +9,7 @@ import type {
   AnonymousUserDashboardEmbeddingConfigurationDisabledFeature,
   AnonymousUserDashboardEmbeddingConfigurationEnabledFeature,
   ApplicableToType,
+  AppVisibility,
   AssetBundleExportFormat,
   AssetBundleExportJobAnalysisPropertyToOverride,
   AssetBundleExportJobDashboardPropertyToOverride,
@@ -51,7 +52,6 @@ import type {
   GeoSpatialDataRole,
   GovernedAction,
   HorizontalTextAlignment,
-  InputColumnDataType,
   LimitSource,
   LimitUnit,
   LookbackWindowSizeUnit,
@@ -2094,6 +2094,48 @@ export interface ApprovalPolicy {
 }
 
 /**
+ * <p>A summary of an app, including its identifier, name, and metadata.</p>
+ * @public
+ */
+export interface AppSummary {
+  /**
+   * <p>The ID of the app.</p>
+   * @public
+   */
+  AppId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the app.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The display name of the app.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The time that the app was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time that the app was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The sharing status of the app: <code>PUBLIC</code> if the app is shared publicly, or <code>PRIVATE</code> if it is private.</p>
+   * @public
+   */
+  Visibility?: AppVisibility | undefined;
+}
+
+/**
  * <p>Controls how a specific <code>Analysis</code> resource is parameterized in the returned
  *             CloudFormation template.</p>
  * @public
@@ -3389,7 +3431,44 @@ export interface RedshiftParameters {
 }
 
 /**
- * <p>The parameters that are required to connect to a S3 Knowledge Base data source.</p>
+ * <p>The parameters that are required to connect to an S3 knowledge base data source.</p>
+ *          <p>
+ *             <b>Prerequisites: Amazon S3 bucket access</b>
+ *          </p>
+ *          <p>Before you call <code>CreateKnowledgeBase</code> for an Amazon S3 knowledge base, an administrator must grant Amazon QuickSight access to the source S3 bucket. If access has not been granted for the bucket, knowledge base creation fails.</p>
+ *          <p>To grant access, an administrator adds the bucket in the Amazon QuickSight admin console, under Permissions, Amazon Web Services resources, Amazon S3, Select S3 buckets. This authorizes the Amazon QuickSight service role to read the bucket. The bucket can be in the same Amazon Web Services account or, when the bucket owner has authorized your account, in a different account.</p>
+ *          <p>The service role requires at least the following permissions on the bucket:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>s3:GetObject</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>s3:ListBucket</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>s3:GetBucketLocation</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>s3:GetObjectVersion</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>s3:ListBucketVersions</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For the full procedure, including cross-account buckets and KMS-encrypted buckets, see the Amazon S3 knowledge base administrator setup guide.</p>
+ *          <note>
+ *             <p>To grant access for a specific S3 knowledge base data source without granting account-wide S3 access, provide a custom IAM role on the data source by using <code>RoleArn</code>.</p>
+ *          </note>
  * @public
  */
 export interface S3KnowledgeBaseParameters {
@@ -3406,7 +3485,7 @@ export interface S3KnowledgeBaseParameters {
   BucketUrl: string | undefined;
 
   /**
-   * <p>The location of metadata files within the S3 bucket that describe the structure and content of the knowledge base.</p>
+   * <p>The Amazon S3 location (prefix) of per-document metadata files. Each metadata file describes a single source document and its indexable attributes, such as title, category, and version. This is not the global ACL configuration file. To apply a single global ACL file to the entire knowledge base, use the access control configuration instead.</p>
    * @public
    */
   MetadataFilesLocation?: string | undefined;
@@ -12407,37 +12486,4 @@ export interface DestinationTable {
    * @public
    */
   Source: DestinationTableSource | undefined;
-}
-
-/**
- * <p>Metadata for a column that is used as the input of a transform operation.</p>
- * @public
- */
-export interface InputColumn {
-  /**
-   * <p>The name of this column in the underlying data source.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A unique identifier for the input column.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The data type of the column.</p>
-   *          <p>
-   *             <b>Note:</b>
-   *             <code>SEMISTRUCT</code> represents Athena's map, row, and struct data types. It is supported when using the new data preparation experience.</p>
-   * @public
-   */
-  Type: InputColumnDataType | undefined;
-
-  /**
-   * <p>The sub data type of the column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
-   * @public
-   */
-  SubType?: ColumnDataSubType | undefined;
 }

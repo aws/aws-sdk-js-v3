@@ -2361,6 +2361,19 @@ export type AssetType = (typeof AssetType)[keyof typeof AssetType];
  * @public
  * @enum
  */
+export const AppVisibility = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+/**
+ * @public
+ */
+export type AppVisibility = (typeof AppVisibility)[keyof typeof AppVisibility];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssetBundleExportJobAnalysisPropertyToOverride = {
   NAME: "Name",
 } as const;
@@ -4682,6 +4695,22 @@ export const PurchaseMode = {
  * @public
  */
 export type PurchaseMode = (typeof PurchaseMode)[keyof typeof PurchaseMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchAppsFilterName = {
+  APP_ID: "APP_ID",
+  APP_NAME: "APP_NAME",
+  DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+} as const;
+/**
+ * @public
+ */
+export type SearchAppsFilterName = (typeof SearchAppsFilterName)[keyof typeof SearchAppsFilterName];
 
 /**
  * @public

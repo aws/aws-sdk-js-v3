@@ -227,6 +227,7 @@ import {
   type DeleteAnalysisCommandOutput,
   DeleteAnalysisCommand,
 } from "./commands/DeleteAnalysisCommand";
+import { type DeleteAppCommandInput, type DeleteAppCommandOutput, DeleteAppCommand } from "./commands/DeleteAppCommand";
 import {
   type DeleteApprovalPolicyCommandInput,
   type DeleteApprovalPolicyCommandOutput,
@@ -462,6 +463,16 @@ import {
   type DescribeAnalysisPermissionsCommandOutput,
   DescribeAnalysisPermissionsCommand,
 } from "./commands/DescribeAnalysisPermissionsCommand";
+import {
+  type DescribeAppCommandInput,
+  type DescribeAppCommandOutput,
+  DescribeAppCommand,
+} from "./commands/DescribeAppCommand";
+import {
+  type DescribeAppPermissionsCommandInput,
+  type DescribeAppPermissionsCommandOutput,
+  DescribeAppPermissionsCommand,
+} from "./commands/DescribeAppPermissionsCommand";
 import {
   type DescribeApprovalPolicyCommandInput,
   type DescribeApprovalPolicyCommandOutput,
@@ -812,6 +823,7 @@ import {
   type ListApprovalPoliciesCommandOutput,
   ListApprovalPoliciesCommand,
 } from "./commands/ListApprovalPoliciesCommand";
+import { type ListAppsCommandInput, type ListAppsCommandOutput, ListAppsCommand } from "./commands/ListAppsCommand";
 import {
   type ListAssetBundleExportJobsCommandInput,
   type ListAssetBundleExportJobsCommandOutput,
@@ -1055,6 +1067,11 @@ import {
   SearchAnalysesCommand,
 } from "./commands/SearchAnalysesCommand";
 import {
+  type SearchAppsCommandInput,
+  type SearchAppsCommandOutput,
+  SearchAppsCommand,
+} from "./commands/SearchAppsCommand";
+import {
   type SearchDashboardsCommandInput,
   type SearchDashboardsCommandOutput,
   SearchDashboardsCommand,
@@ -1189,6 +1206,11 @@ import {
   type UpdateApplicationWithTokenExchangeGrantCommandOutput,
   UpdateApplicationWithTokenExchangeGrantCommand,
 } from "./commands/UpdateApplicationWithTokenExchangeGrantCommand";
+import {
+  type UpdateAppPermissionsCommandInput,
+  type UpdateAppPermissionsCommandOutput,
+  UpdateAppPermissionsCommand,
+} from "./commands/UpdateAppPermissionsCommand";
 import {
   type UpdateApprovalPolicyCommandInput,
   type UpdateApprovalPolicyCommandOutput,
@@ -1464,6 +1486,7 @@ import { paginateDescribeFolderResolvedPermissions } from "./pagination/Describe
 import { paginateListActionConnectors } from "./pagination/ListActionConnectorsPaginator";
 import { paginateListAnalyses } from "./pagination/ListAnalysesPaginator";
 import { paginateListApprovalPolicies } from "./pagination/ListApprovalPoliciesPaginator";
+import { paginateListApps } from "./pagination/ListAppsPaginator";
 import { paginateListAssetBundleExportJobs } from "./pagination/ListAssetBundleExportJobsPaginator";
 import { paginateListAssetBundleImportJobs } from "./pagination/ListAssetBundleImportJobsPaginator";
 import { paginateListBrands } from "./pagination/ListBrandsPaginator";
@@ -1499,6 +1522,7 @@ import { paginateListUsers } from "./pagination/ListUsersPaginator";
 import { paginateListVPCConnections } from "./pagination/ListVPCConnectionsPaginator";
 import { paginateSearchActionConnectors } from "./pagination/SearchActionConnectorsPaginator";
 import { paginateSearchAnalyses } from "./pagination/SearchAnalysesPaginator";
+import { paginateSearchApps } from "./pagination/SearchAppsPaginator";
 import { paginateSearchDashboards } from "./pagination/SearchDashboardsPaginator";
 import { paginateSearchDataSets } from "./pagination/SearchDataSetsPaginator";
 import { paginateSearchDataSources } from "./pagination/SearchDataSourcesPaginator";
@@ -1556,6 +1580,7 @@ const commands = {
   DeleteActionConnectorCommand,
   DeleteAgentCommand,
   DeleteAnalysisCommand,
+  DeleteAppCommand,
   DeleteApprovalPolicyCommand,
   DeleteBrandCommand,
   DeleteBrandAssignmentCommand,
@@ -1603,6 +1628,8 @@ const commands = {
   DescribeAnalysisCommand,
   DescribeAnalysisDefinitionCommand,
   DescribeAnalysisPermissionsCommand,
+  DescribeAppCommand,
+  DescribeAppPermissionsCommand,
   DescribeApprovalPolicyCommand,
   DescribeAssetBundleExportJobCommand,
   DescribeAssetBundleImportJobCommand,
@@ -1673,6 +1700,7 @@ const commands = {
   ListAgentsCommand,
   ListAnalysesCommand,
   ListApprovalPoliciesCommand,
+  ListAppsCommand,
   ListAssetBundleExportJobsCommand,
   ListAssetBundleImportJobsCommand,
   ListBrandsCommand,
@@ -1723,6 +1751,7 @@ const commands = {
   SearchActionConnectorsCommand,
   SearchAgentsCommand,
   SearchAnalysesCommand,
+  SearchAppsCommand,
   SearchDashboardsCommand,
   SearchDataSetsCommand,
   SearchDataSourcesCommand,
@@ -1750,6 +1779,7 @@ const commands = {
   UpdateAnalysisCommand,
   UpdateAnalysisPermissionsCommand,
   UpdateApplicationWithTokenExchangeGrantCommand,
+  UpdateAppPermissionsCommand,
   UpdateApprovalPolicyCommand,
   UpdateBrandCommand,
   UpdateBrandAssignmentCommand,
@@ -1811,6 +1841,7 @@ const paginators = {
   paginateListActionConnectors,
   paginateListAnalyses,
   paginateListApprovalPolicies,
+  paginateListApps,
   paginateListAssetBundleExportJobs,
   paginateListAssetBundleImportJobs,
   paginateListBrands,
@@ -1846,6 +1877,7 @@ const paginators = {
   paginateListVPCConnections,
   paginateSearchActionConnectors,
   paginateSearchAnalyses,
+  paginateSearchApps,
   paginateSearchDashboards,
   paginateSearchDataSets,
   paginateSearchDataSources,
@@ -2621,6 +2653,23 @@ export interface QuickSight {
     args: DeleteAnalysisCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAnalysisCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAppCommand}
+   */
+  deleteApp(
+    args: DeleteAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppCommandOutput>;
+  deleteApp(
+    args: DeleteAppCommandInput,
+    cb: (err: any, data?: DeleteAppCommandOutput) => void
+  ): void;
+  deleteApp(
+    args: DeleteAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppCommandOutput) => void
   ): void;
 
   /**
@@ -3420,6 +3469,40 @@ export interface QuickSight {
     args: DescribeAnalysisPermissionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAnalysisPermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAppCommand}
+   */
+  describeApp(
+    args: DescribeAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppCommandOutput>;
+  describeApp(
+    args: DescribeAppCommandInput,
+    cb: (err: any, data?: DescribeAppCommandOutput) => void
+  ): void;
+  describeApp(
+    args: DescribeAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAppPermissionsCommand}
+   */
+  describeAppPermissions(
+    args: DescribeAppPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppPermissionsCommandOutput>;
+  describeAppPermissions(
+    args: DescribeAppPermissionsCommandInput,
+    cb: (err: any, data?: DescribeAppPermissionsCommandOutput) => void
+  ): void;
+  describeAppPermissions(
+    args: DescribeAppPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -4614,6 +4697,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListAppsCommand}
+   */
+  listApps(
+    args: ListAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppsCommandOutput>;
+  listApps(
+    args: ListAppsCommandInput,
+    cb: (err: any, data?: ListAppsCommandOutput) => void
+  ): void;
+  listApps(
+    args: ListAppsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAssetBundleExportJobsCommand}
    */
   listAssetBundleExportJobs(
@@ -5464,6 +5564,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link SearchAppsCommand}
+   */
+  searchApps(
+    args: SearchAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchAppsCommandOutput>;
+  searchApps(
+    args: SearchAppsCommandInput,
+    cb: (err: any, data?: SearchAppsCommandOutput) => void
+  ): void;
+  searchApps(
+    args: SearchAppsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchAppsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchDashboardsCommand}
    */
   searchDashboards(
@@ -5920,6 +6037,23 @@ export interface QuickSight {
     args: UpdateApplicationWithTokenExchangeGrantCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateApplicationWithTokenExchangeGrantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAppPermissionsCommand}
+   */
+  updateAppPermissions(
+    args: UpdateAppPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppPermissionsCommandOutput>;
+  updateAppPermissions(
+    args: UpdateAppPermissionsCommandInput,
+    cb: (err: any, data?: UpdateAppPermissionsCommandOutput) => void
+  ): void;
+  updateAppPermissions(
+    args: UpdateAppPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -6896,6 +7030,17 @@ export interface QuickSight {
   ): Paginator<ListApprovalPoliciesCommandOutput>;
 
   /**
+   * @see {@link ListAppsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAppsCommandOutput}.
+   */
+  paginateListApps(
+    args: ListAppsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAppsCommandOutput>;
+
+  /**
    * @see {@link ListAssetBundleExportJobsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -7279,6 +7424,17 @@ export interface QuickSight {
     args: SearchAnalysesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<SearchAnalysesCommandOutput>;
+
+  /**
+   * @see {@link SearchAppsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchAppsCommandOutput}.
+   */
+  paginateSearchApps(
+    args: SearchAppsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchAppsCommandOutput>;
 
   /**
    * @see {@link SearchDashboardsCommand}

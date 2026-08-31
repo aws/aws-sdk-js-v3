@@ -64,6 +64,8 @@ import {
   ApplicableToType,
   ApplicationTheme$,
   ApprovalPolicy$,
+  AppSummary$,
+  AppVisibility,
   ArcAxisConfiguration$,
   ArcAxisDisplayRange$,
   ArcConfiguration$,
@@ -664,6 +666,10 @@ import {
   DeleteAnalysisCommand,
   DeleteAnalysisRequest$,
   DeleteAnalysisResponse$,
+  DeleteApp$,
+  DeleteAppCommand,
+  DeleteAppRequest$,
+  DeleteAppResponse$,
   DeleteApprovalPolicy$,
   DeleteApprovalPolicyCommand,
   DeleteApprovalPolicyRequest$,
@@ -852,6 +858,14 @@ import {
   DescribeAnalysisPermissionsResponse$,
   DescribeAnalysisRequest$,
   DescribeAnalysisResponse$,
+  DescribeApp$,
+  DescribeAppCommand,
+  DescribeAppPermissions$,
+  DescribeAppPermissionsCommand,
+  DescribeAppPermissionsRequest$,
+  DescribeAppPermissionsResponse$,
+  DescribeAppRequest$,
+  DescribeAppResponse$,
   DescribeApprovalPolicy$,
   DescribeApprovalPolicyCommand,
   DescribeApprovalPolicyRequest$,
@@ -1471,6 +1485,10 @@ import {
   ListApprovalPoliciesCommand,
   ListApprovalPoliciesRequest$,
   ListApprovalPoliciesResponse$,
+  ListApps$,
+  ListAppsCommand,
+  ListAppsRequest$,
+  ListAppsResponse$,
   ListAssetBundleExportJobs$,
   ListAssetBundleExportJobsCommand,
   ListAssetBundleExportJobsRequest$,
@@ -1731,6 +1749,7 @@ import {
   paginateListActionConnectors,
   paginateListAnalyses,
   paginateListApprovalPolicies,
+  paginateListApps,
   paginateListAssetBundleExportJobs,
   paginateListAssetBundleImportJobs,
   paginateListBrands,
@@ -1766,6 +1785,7 @@ import {
   paginateListVPCConnections,
   paginateSearchActionConnectors,
   paginateSearchAnalyses,
+  paginateSearchApps,
   paginateSearchDashboards,
   paginateSearchDataSets,
   paginateSearchDataSources,
@@ -2011,6 +2031,12 @@ import {
   SearchAnalysesCommand,
   SearchAnalysesRequest$,
   SearchAnalysesResponse$,
+  SearchApps$,
+  SearchAppsCommand,
+  SearchAppsFilter$,
+  SearchAppsFilterName,
+  SearchAppsRequest$,
+  SearchAppsResponse$,
   SearchDashboards$,
   SearchDashboardsCommand,
   SearchDashboardsRequest$,
@@ -2430,6 +2456,10 @@ import {
   UpdateApplicationWithTokenExchangeGrantCommand,
   UpdateApplicationWithTokenExchangeGrantRequest$,
   UpdateApplicationWithTokenExchangeGrantResponse$,
+  UpdateAppPermissions$,
+  UpdateAppPermissionsCommand,
+  UpdateAppPermissionsRequest$,
+  UpdateAppPermissionsResponse$,
   UpdateApprovalPolicy$,
   UpdateApprovalPolicyCommand,
   UpdateApprovalPolicyRequest$,
@@ -2816,6 +2846,8 @@ assert(typeof DeleteAgentCommand === "function");
 assert(typeof DeleteAgent$ === "object");
 assert(typeof DeleteAnalysisCommand === "function");
 assert(typeof DeleteAnalysis$ === "object");
+assert(typeof DeleteAppCommand === "function");
+assert(typeof DeleteApp$ === "object");
 assert(typeof DeleteApprovalPolicyCommand === "function");
 assert(typeof DeleteApprovalPolicy$ === "object");
 assert(typeof DeleteBrandCommand === "function");
@@ -2910,6 +2942,10 @@ assert(typeof DescribeAnalysisDefinitionCommand === "function");
 assert(typeof DescribeAnalysisDefinition$ === "object");
 assert(typeof DescribeAnalysisPermissionsCommand === "function");
 assert(typeof DescribeAnalysisPermissions$ === "object");
+assert(typeof DescribeAppCommand === "function");
+assert(typeof DescribeApp$ === "object");
+assert(typeof DescribeAppPermissionsCommand === "function");
+assert(typeof DescribeAppPermissions$ === "object");
 assert(typeof DescribeApprovalPolicyCommand === "function");
 assert(typeof DescribeApprovalPolicy$ === "object");
 assert(typeof DescribeAssetBundleExportJobCommand === "function");
@@ -3050,6 +3086,8 @@ assert(typeof ListAnalysesCommand === "function");
 assert(typeof ListAnalyses$ === "object");
 assert(typeof ListApprovalPoliciesCommand === "function");
 assert(typeof ListApprovalPolicies$ === "object");
+assert(typeof ListAppsCommand === "function");
+assert(typeof ListApps$ === "object");
 assert(typeof ListAssetBundleExportJobsCommand === "function");
 assert(typeof ListAssetBundleExportJobs$ === "object");
 assert(typeof ListAssetBundleImportJobsCommand === "function");
@@ -3150,6 +3188,8 @@ assert(typeof SearchAgentsCommand === "function");
 assert(typeof SearchAgents$ === "object");
 assert(typeof SearchAnalysesCommand === "function");
 assert(typeof SearchAnalyses$ === "object");
+assert(typeof SearchAppsCommand === "function");
+assert(typeof SearchApps$ === "object");
 assert(typeof SearchDashboardsCommand === "function");
 assert(typeof SearchDashboards$ === "object");
 assert(typeof SearchDataSetsCommand === "function");
@@ -3204,6 +3244,8 @@ assert(typeof UpdateAnalysisPermissionsCommand === "function");
 assert(typeof UpdateAnalysisPermissions$ === "object");
 assert(typeof UpdateApplicationWithTokenExchangeGrantCommand === "function");
 assert(typeof UpdateApplicationWithTokenExchangeGrant$ === "object");
+assert(typeof UpdateAppPermissionsCommand === "function");
+assert(typeof UpdateAppPermissions$ === "object");
 assert(typeof UpdateApprovalPolicyCommand === "function");
 assert(typeof UpdateApprovalPolicy$ === "object");
 assert(typeof UpdateBrandCommand === "function");
@@ -3361,6 +3403,7 @@ assert(typeof AppendOperation$ === "object");
 assert(typeof ApplicableTo$ === "object");
 assert(typeof ApplicationTheme$ === "object");
 assert(typeof ApprovalPolicy$ === "object");
+assert(typeof AppSummary$ === "object");
 assert(typeof ArcAxisConfiguration$ === "object");
 assert(typeof ArcAxisDisplayRange$ === "object");
 assert(typeof ArcConfiguration$ === "object");
@@ -3776,6 +3819,8 @@ assert(typeof DeleteAgentRequest$ === "object");
 assert(typeof DeleteAgentResponse$ === "object");
 assert(typeof DeleteAnalysisRequest$ === "object");
 assert(typeof DeleteAnalysisResponse$ === "object");
+assert(typeof DeleteAppRequest$ === "object");
+assert(typeof DeleteAppResponse$ === "object");
 assert(typeof DeleteApprovalPolicyRequest$ === "object");
 assert(typeof DeleteApprovalPolicyResponse$ === "object");
 assert(typeof DeleteBrandAssignmentRequest$ === "object");
@@ -3870,6 +3915,10 @@ assert(typeof DescribeAnalysisPermissionsRequest$ === "object");
 assert(typeof DescribeAnalysisPermissionsResponse$ === "object");
 assert(typeof DescribeAnalysisRequest$ === "object");
 assert(typeof DescribeAnalysisResponse$ === "object");
+assert(typeof DescribeAppPermissionsRequest$ === "object");
+assert(typeof DescribeAppPermissionsResponse$ === "object");
+assert(typeof DescribeAppRequest$ === "object");
+assert(typeof DescribeAppResponse$ === "object");
 assert(typeof DescribeApprovalPolicyRequest$ === "object");
 assert(typeof DescribeApprovalPolicyResponse$ === "object");
 assert(typeof DescribeAssetBundleExportJobRequest$ === "object");
@@ -4264,6 +4313,8 @@ assert(typeof ListAnalysesRequest$ === "object");
 assert(typeof ListAnalysesResponse$ === "object");
 assert(typeof ListApprovalPoliciesRequest$ === "object");
 assert(typeof ListApprovalPoliciesResponse$ === "object");
+assert(typeof ListAppsRequest$ === "object");
+assert(typeof ListAppsResponse$ === "object");
 assert(typeof ListAssetBundleExportJobsRequest$ === "object");
 assert(typeof ListAssetBundleExportJobsResponse$ === "object");
 assert(typeof ListAssetBundleImportJobsRequest$ === "object");
@@ -4584,6 +4635,9 @@ assert(typeof SearchAgentsRequest$ === "object");
 assert(typeof SearchAgentsResponse$ === "object");
 assert(typeof SearchAnalysesRequest$ === "object");
 assert(typeof SearchAnalysesResponse$ === "object");
+assert(typeof SearchAppsFilter$ === "object");
+assert(typeof SearchAppsRequest$ === "object");
+assert(typeof SearchAppsResponse$ === "object");
 assert(typeof SearchDashboardsRequest$ === "object");
 assert(typeof SearchDashboardsResponse$ === "object");
 assert(typeof SearchDataSetsRequest$ === "object");
@@ -4873,6 +4927,8 @@ assert(typeof UpdateAnalysisRequest$ === "object");
 assert(typeof UpdateAnalysisResponse$ === "object");
 assert(typeof UpdateApplicationWithTokenExchangeGrantRequest$ === "object");
 assert(typeof UpdateApplicationWithTokenExchangeGrantResponse$ === "object");
+assert(typeof UpdateAppPermissionsRequest$ === "object");
+assert(typeof UpdateAppPermissionsResponse$ === "object");
 assert(typeof UpdateApprovalPolicyRequest$ === "object");
 assert(typeof UpdateApprovalPolicyResponse$ === "object");
 assert(typeof UpdateBrandAssignmentRequest$ === "object");
@@ -5048,6 +5104,7 @@ assert(typeof AnchorType === "object");
 assert(typeof AnonymousUserDashboardEmbeddingConfigurationDisabledFeature === "object");
 assert(typeof AnonymousUserDashboardEmbeddingConfigurationEnabledFeature === "object");
 assert(typeof ApplicableToType === "object");
+assert(typeof AppVisibility === "object");
 assert(typeof ArcThickness === "object");
 assert(typeof ArcThicknessOptions === "object");
 assert(typeof AssetBundleExportFormat === "object");
@@ -5261,6 +5318,7 @@ assert(typeof ReviewedAnswerErrorCode === "object");
 assert(typeof Role === "object");
 assert(typeof RowLevelPermissionFormatVersion === "object");
 assert(typeof RowLevelPermissionPolicy === "object");
+assert(typeof SearchAppsFilterName === "object");
 assert(typeof SearchFilterOperator === "object");
 assert(typeof SectionPageBreakStatus === "object");
 assert(typeof SelectAllValueOptions === "object");
@@ -5405,6 +5463,7 @@ assert(typeof paginateDescribeFolderResolvedPermissions === "function");
 assert(typeof paginateListActionConnectors === "function");
 assert(typeof paginateListAnalyses === "function");
 assert(typeof paginateListApprovalPolicies === "function");
+assert(typeof paginateListApps === "function");
 assert(typeof paginateListAssetBundleExportJobs === "function");
 assert(typeof paginateListAssetBundleImportJobs === "function");
 assert(typeof paginateListBrands === "function");
@@ -5440,6 +5499,7 @@ assert(typeof paginateListUsers === "function");
 assert(typeof paginateListVPCConnections === "function");
 assert(typeof paginateSearchActionConnectors === "function");
 assert(typeof paginateSearchAnalyses === "function");
+assert(typeof paginateSearchApps === "function");
 assert(typeof paginateSearchDashboards === "function");
 assert(typeof paginateSearchDataSets === "function");
 assert(typeof paginateSearchDataSources === "function");
