@@ -56,11 +56,20 @@ export interface ListRegistryRecordsCommandOutput extends ListRegistryRecordsRes
  * //       name: "STRING_VALUE", // required
  * //       displayName: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL", // required
+ * //       recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
  * //       recordVersion: "STRING_VALUE", // required
  * //       status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
+ * //       createdByAutoDetection: true || false,
+ * //       createdBy: "STRING_VALUE",
+ * //       provenanceSummaryList: [ // ProvenanceSummaryList
+ * //         { // ProvenanceSummary
+ * //           relation: "DETECTED_FROM", // required
+ * //           sourceId: "STRING_VALUE", // required
+ * //           sourceType: "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Gateway",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

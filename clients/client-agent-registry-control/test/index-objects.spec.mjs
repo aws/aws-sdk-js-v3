@@ -2,16 +2,26 @@ import {
   A2aAgentCardDescriptor$,
   AccessDeniedException,
   AccessDeniedException$,
+  AgentCoreGatewayProtocolType,
+  AgentCoreGatewaySourceDetails$,
+  AgentCoreRuntimeProtocolConfiguration$,
+  AgentCoreRuntimeServerProtocol,
+  AgentCoreRuntimeSourceDetails$,
   AgentRegistryControl,
   AgentRegistryControlClient,
   AgentRegistryControlServiceException,
   AgentSkillsAdditionalData$,
   AgentSkillsDefinitionDescriptor$,
   AgentSkillsMdDescriptor$,
+  AgUiDescriptor$,
   ApprovalConfiguration$,
   AuthorizerConfiguration$,
   AuthorizingClaimMatchValueType$,
   AutoApprovalRule,
+  AutoDetection$,
+  AutoDetectionConfiguration$,
+  AutoDetectionScope,
+  AutoDetectionStatus,
   ClaimMatchOperatorType,
   ClaimMatchValueType$,
   ConflictException,
@@ -39,6 +49,7 @@ import {
   DescriptorSource$,
   DescriptorSourceFromUrl$,
   DiscoveryConfiguration$,
+  EncryptionConfiguration$,
   EndpointIpAddressType,
   GetRegistry$,
   GetRegistryCommand,
@@ -48,6 +59,7 @@ import {
   GetRegistryRecordResponse$,
   GetRegistryRequest$,
   GetRegistryResponse$,
+  HttpDescriptor$,
   InboundTokenClaimValueType,
   InternalServerException,
   InternalServerException$,
@@ -71,6 +83,9 @@ import {
   paginateListRegistryRecords,
   PrivateEndpoint$,
   PrivateEndpointOverride$,
+  Provenance$,
+  ProvenanceRelation,
+  ProvenanceSummary$,
   RecordType,
   RegistryAuthorizerType,
   RegistryFilter$,
@@ -92,6 +107,8 @@ import {
   SelfManagedLatticeResource$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SourceDetails$,
+  SourceType,
   SubmitRegistryRecordForApproval$,
   SubmitRegistryRecordForApprovalCommand,
   SubmitRegistryRecordForApprovalRequest$,
@@ -114,8 +131,11 @@ import {
   UpdatedAgentSkillsDefinitionDescriptorFields$,
   UpdatedAgentSkillsMdDescriptor$,
   UpdatedAgentSkillsMdDescriptorFields$,
+  UpdatedAgUiDescriptor$,
+  UpdatedAgUiDescriptorFields$,
   UpdatedApprovalConfiguration$,
   UpdatedAuthorizerConfiguration$,
+  UpdatedAutoDetectionConfiguration$,
   UpdatedCustomDescriptor$,
   UpdatedCustomDescriptorFields$,
   UpdatedDataSchemaVersion$,
@@ -126,6 +146,8 @@ import {
   UpdatedDescriptorSource$,
   UpdatedDiscoveryConfiguration$,
   UpdatedDisplayName$,
+  UpdatedHttpDescriptor$,
+  UpdatedHttpDescriptorFields$,
   UpdatedMcpServerAdditionalData$,
   UpdatedMcpServerAdditionalDataFields$,
   UpdatedMcpServerDescriptor$,
@@ -152,6 +174,7 @@ import {
   waitForRegistryRecordApproved,
   waitUntilRegistryReady,
   waitUntilRegistryRecordApproved,
+  WorkloadIdentityDetails$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -190,12 +213,18 @@ assert(typeof UpdateRegistryRecordStatusCommand === "function");
 assert(typeof UpdateRegistryRecordStatus$ === "object");
 // structural schemas
 assert(typeof A2aAgentCardDescriptor$ === "object");
+assert(typeof AgentCoreGatewaySourceDetails$ === "object");
+assert(typeof AgentCoreRuntimeProtocolConfiguration$ === "object");
+assert(typeof AgentCoreRuntimeSourceDetails$ === "object");
 assert(typeof AgentSkillsAdditionalData$ === "object");
 assert(typeof AgentSkillsDefinitionDescriptor$ === "object");
 assert(typeof AgentSkillsMdDescriptor$ === "object");
+assert(typeof AgUiDescriptor$ === "object");
 assert(typeof ApprovalConfiguration$ === "object");
 assert(typeof AuthorizerConfiguration$ === "object");
 assert(typeof AuthorizingClaimMatchValueType$ === "object");
+assert(typeof AutoDetection$ === "object");
+assert(typeof AutoDetectionConfiguration$ === "object");
 assert(typeof ClaimMatchValueType$ === "object");
 assert(typeof CreateRegistryRecordRequest$ === "object");
 assert(typeof CreateRegistryRecordResponse$ === "object");
@@ -212,10 +241,12 @@ assert(typeof Descriptors$ === "object");
 assert(typeof DescriptorSource$ === "object");
 assert(typeof DescriptorSourceFromUrl$ === "object");
 assert(typeof DiscoveryConfiguration$ === "object");
+assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof GetRegistryRecordRequest$ === "object");
 assert(typeof GetRegistryRecordResponse$ === "object");
 assert(typeof GetRegistryRequest$ === "object");
 assert(typeof GetRegistryResponse$ === "object");
+assert(typeof HttpDescriptor$ === "object");
 assert(typeof ListRegistriesRequest$ === "object");
 assert(typeof ListRegistriesResponse$ === "object");
 assert(typeof ListRegistryRecordsRequest$ === "object");
@@ -228,6 +259,8 @@ assert(typeof McpServerDescriptor$ === "object");
 assert(typeof McpToolsDescriptor$ === "object");
 assert(typeof PrivateEndpoint$ === "object");
 assert(typeof PrivateEndpointOverride$ === "object");
+assert(typeof Provenance$ === "object");
+assert(typeof ProvenanceSummary$ === "object");
 assert(typeof RegistryFilter$ === "object");
 assert(typeof RegistryRecordCredentialProviderConfiguration$ === "object");
 assert(typeof RegistryRecordCredentialProviderUnion$ === "object");
@@ -237,6 +270,7 @@ assert(typeof RegistryRecordOAuthCredentialProvider$ === "object");
 assert(typeof RegistryRecordSummary$ === "object");
 assert(typeof RegistrySummary$ === "object");
 assert(typeof SelfManagedLatticeResource$ === "object");
+assert(typeof SourceDetails$ === "object");
 assert(typeof SubmitRegistryRecordForApprovalRequest$ === "object");
 assert(typeof SubmitRegistryRecordForApprovalResponse$ === "object");
 assert(typeof TagResourceRequest$ === "object");
@@ -251,8 +285,11 @@ assert(typeof UpdatedAgentSkillsDefinitionDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsDefinitionDescriptorFields$ === "object");
 assert(typeof UpdatedAgentSkillsMdDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsMdDescriptorFields$ === "object");
+assert(typeof UpdatedAgUiDescriptor$ === "object");
+assert(typeof UpdatedAgUiDescriptorFields$ === "object");
 assert(typeof UpdatedApprovalConfiguration$ === "object");
 assert(typeof UpdatedAuthorizerConfiguration$ === "object");
+assert(typeof UpdatedAutoDetectionConfiguration$ === "object");
 assert(typeof UpdatedCustomDescriptor$ === "object");
 assert(typeof UpdatedCustomDescriptorFields$ === "object");
 assert(typeof UpdatedDataSchemaVersion$ === "object");
@@ -263,6 +300,8 @@ assert(typeof UpdatedDescriptorsFields$ === "object");
 assert(typeof UpdatedDescriptorSource$ === "object");
 assert(typeof UpdatedDiscoveryConfiguration$ === "object");
 assert(typeof UpdatedDisplayName$ === "object");
+assert(typeof UpdatedHttpDescriptor$ === "object");
+assert(typeof UpdatedHttpDescriptorFields$ === "object");
 assert(typeof UpdatedMcpServerAdditionalData$ === "object");
 assert(typeof UpdatedMcpServerAdditionalDataFields$ === "object");
 assert(typeof UpdatedMcpServerDescriptor$ === "object");
@@ -276,11 +315,17 @@ assert(typeof UpdateRegistryRecordStatusResponse$ === "object");
 assert(typeof UpdateRegistryRequest$ === "object");
 assert(typeof UpdateRegistryResponse$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
+assert(typeof WorkloadIdentityDetails$ === "object");
 // enums
+assert(typeof AgentCoreGatewayProtocolType === "object");
+assert(typeof AgentCoreRuntimeServerProtocol === "object");
 assert(typeof AutoApprovalRule === "object");
+assert(typeof AutoDetectionScope === "object");
+assert(typeof AutoDetectionStatus === "object");
 assert(typeof ClaimMatchOperatorType === "object");
 assert(typeof EndpointIpAddressType === "object");
 assert(typeof InboundTokenClaimValueType === "object");
+assert(typeof ProvenanceRelation === "object");
 assert(typeof RecordType === "object");
 assert(typeof RegistryAuthorizerType === "object");
 assert(typeof RegistryFilterName === "object");
@@ -289,6 +334,7 @@ assert(typeof RegistryRecordFilterName === "object");
 assert(typeof RegistryRecordOAuthGrantType === "object");
 assert(typeof RegistryRecordStatus === "object");
 assert(typeof RegistryStatus === "object");
+assert(typeof SourceType === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof AgentRegistryControlServiceException);

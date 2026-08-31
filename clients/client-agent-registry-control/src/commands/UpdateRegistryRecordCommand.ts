@@ -42,7 +42,7 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  *   description: { // UpdatedDescription
  *     optionalValue: "STRING_VALUE",
  *   },
- *   recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL",
+ *   recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY",
  *   descriptors: { // UpdatedDescriptors
  *     optionalValue: { // UpdatedDescriptorsFields
  *       mcpServer: { // UpdatedMcpServerDescriptor
@@ -195,10 +195,244 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  *           data: "<UpdatedDescriptorData>",
  *         },
  *       },
+ *       http: { // UpdatedHttpDescriptor
+ *         optionalValue: { // UpdatedHttpDescriptorFields
+ *           source: {
+ *             optionalValue: {
+ *               fromUrl: {
+ *                 url: "STRING_VALUE", // required
+ *                 credentialProviderConfigurations: [
+ *                   {
+ *                     credentialProviderType: "OAUTH" || "IAM", // required
+ *                     credentialProvider: {//  Union: only one key present
+ *                       oauthCredentialProvider: {
+ *                         providerArn: "STRING_VALUE", // required
+ *                         grantType: "CLIENT_CREDENTIALS",
+ *                         scopes: [
+ *                           "STRING_VALUE",
+ *                         ],
+ *                         customParameters: {
+ *                           "<keys>": "STRING_VALUE",
+ *                         },
+ *                       },
+ *                       iamCredentialProvider: {
+ *                         roleArn: "STRING_VALUE",
+ *                         service: "STRING_VALUE",
+ *                         region: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
+ *       agui: { // UpdatedAgUiDescriptor
+ *         optionalValue: { // UpdatedAgUiDescriptorFields
+ *           source: {
+ *             optionalValue: {
+ *               fromUrl: {
+ *                 url: "STRING_VALUE", // required
+ *                 credentialProviderConfigurations: [
+ *                   {
+ *                     credentialProviderType: "OAUTH" || "IAM", // required
+ *                     credentialProvider: {//  Union: only one key present
+ *                       oauthCredentialProvider: {
+ *                         providerArn: "STRING_VALUE", // required
+ *                         grantType: "CLIENT_CREDENTIALS",
+ *                         scopes: [
+ *                           "STRING_VALUE",
+ *                         ],
+ *                         customParameters: {
+ *                           "<keys>": "STRING_VALUE",
+ *                         },
+ *                       },
+ *                       iamCredentialProvider: {
+ *                         roleArn: "STRING_VALUE",
+ *                         service: "STRING_VALUE",
+ *                         region: "STRING_VALUE",
+ *                       },
+ *                     },
+ *                   },
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         },
+ *       },
  *     },
  *   },
  *   recordVersion: "STRING_VALUE",
  *   triggerSynchronization: true || false,
+ *   provenance: [ // ProvenanceList
+ *     { // Provenance
+ *       relation: "DETECTED_FROM", // required
+ *       sourceId: "STRING_VALUE", // required
+ *       sourceType: "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Gateway",
+ *       sourceDetails: { // SourceDetails Union: only one key present
+ *         agentcoreRuntime: { // AgentCoreRuntimeSourceDetails
+ *           protocolConfiguration: { // AgentCoreRuntimeProtocolConfiguration
+ *             serverProtocol: "HTTP" || "A2A" || "MCP" || "AGUI",
+ *           },
+ *           authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
+ *             customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
+ *               discoveryUrl: "STRING_VALUE", // required
+ *               allowedAudience: [ // AllowedAudienceList
+ *                 "STRING_VALUE",
+ *               ],
+ *               allowedClients: [ // AllowedClientsList
+ *                 "STRING_VALUE",
+ *               ],
+ *               allowedScopes: [ // AllowedScopesType
+ *                 "STRING_VALUE",
+ *               ],
+ *               customClaims: [ // CustomClaimValidationsType
+ *                 { // CustomClaimValidationType
+ *                   inboundTokenClaimName: "STRING_VALUE", // required
+ *                   inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ *                   authorizingClaimMatchValue: { // AuthorizingClaimMatchValueType
+ *                     claimMatchValue: { // ClaimMatchValueType Union: only one key present
+ *                       matchValueString: "STRING_VALUE",
+ *                       matchValueStringList: [ // MatchValueStringList
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ *                   },
+ *                 },
+ *               ],
+ *               privateEndpoint: { // PrivateEndpoint Union: only one key present
+ *                 selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
+ *                   resourceConfigurationIdentifier: "STRING_VALUE",
+ *                 },
+ *                 managedVpcResource: { // ManagedVpcResource
+ *                   vpcIdentifier: "STRING_VALUE", // required
+ *                   subnetIds: [ // SubnetIds // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   endpointIpAddressType: "IPV4" || "IPV6", // required
+ *                   securityGroupIds: [ // SecurityGroupIds
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   tags: { // TagsMap
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   routingDomain: "STRING_VALUE",
+ *                 },
+ *               },
+ *               privateEndpointOverrides: [ // PrivateEndpointOverrides
+ *                 { // PrivateEndpointOverride
+ *                   domain: "STRING_VALUE", // required
+ *                   privateEndpoint: {//  Union: only one key present
+ *                     selfManagedLatticeResource: {//  Union: only one key present
+ *                       resourceConfigurationIdentifier: "STRING_VALUE",
+ *                     },
+ *                     managedVpcResource: {
+ *                       vpcIdentifier: "STRING_VALUE", // required
+ *                       subnetIds: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                       endpointIpAddressType: "IPV4" || "IPV6", // required
+ *                       securityGroupIds: [
+ *                         "STRING_VALUE",
+ *                       ],
+ *                       tags: {
+ *                         "<keys>": "STRING_VALUE",
+ *                       },
+ *                       routingDomain: "STRING_VALUE",
+ *                     },
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *           workloadIdentityDetails: { // WorkloadIdentityDetails
+ *             workloadIdentityArn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *         agentcoreGateway: { // AgentCoreGatewaySourceDetails
+ *           protocolType: "MCP",
+ *           authorizerType: "STRING_VALUE",
+ *           authorizerConfiguration: {//  Union: only one key present
+ *             customJWTAuthorizer: {
+ *               discoveryUrl: "STRING_VALUE", // required
+ *               allowedAudience: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               allowedClients: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               allowedScopes: [
+ *                 "STRING_VALUE",
+ *               ],
+ *               customClaims: [
+ *                 {
+ *                   inboundTokenClaimName: "STRING_VALUE", // required
+ *                   inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ *                   authorizingClaimMatchValue: {
+ *                     claimMatchValue: {//  Union: only one key present
+ *                       matchValueString: "STRING_VALUE",
+ *                       matchValueStringList: [
+ *                         "STRING_VALUE",
+ *                       ],
+ *                     },
+ *                     claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ *                   },
+ *                 },
+ *               ],
+ *               privateEndpoint: {//  Union: only one key present
+ *                 selfManagedLatticeResource: {//  Union: only one key present
+ *                   resourceConfigurationIdentifier: "STRING_VALUE",
+ *                 },
+ *                 managedVpcResource: {
+ *                   vpcIdentifier: "STRING_VALUE", // required
+ *                   subnetIds: [ // required
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   endpointIpAddressType: "IPV4" || "IPV6", // required
+ *                   securityGroupIds: [
+ *                     "STRING_VALUE",
+ *                   ],
+ *                   tags: {
+ *                     "<keys>": "STRING_VALUE",
+ *                   },
+ *                   routingDomain: "STRING_VALUE",
+ *                 },
+ *               },
+ *               privateEndpointOverrides: [
+ *                 {
+ *                   domain: "STRING_VALUE", // required
+ *                   privateEndpoint: {//  Union: only one key present
+ *                     selfManagedLatticeResource: {//  Union: only one key present
+ *                       resourceConfigurationIdentifier: "STRING_VALUE",
+ *                     },
+ *                     managedVpcResource: {
+ *                       vpcIdentifier: "STRING_VALUE", // required
+ *                       subnetIds: [ // required
+ *                         "STRING_VALUE",
+ *                       ],
+ *                       endpointIpAddressType: "IPV4" || "IPV6", // required
+ *                       securityGroupIds: [
+ *                         "STRING_VALUE",
+ *                       ],
+ *                       tags: {
+ *                         "<keys>": "STRING_VALUE",
+ *                       },
+ *                       routingDomain: "STRING_VALUE",
+ *                     },
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *           workloadIdentityDetails: {
+ *             workloadIdentityArn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new UpdateRegistryRecordCommand(input);
  * const response = await client.send(command);
@@ -209,7 +443,7 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  * //   name: "STRING_VALUE", // required
  * //   displayName: "STRING_VALUE",
  * //   description: "STRING_VALUE",
- * //   recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL", // required
+ * //   recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
  * //   descriptors: { // Descriptors
  * //     mcpServer: { // McpServerDescriptor
  * //       data: "STRING_VALUE",
@@ -319,12 +553,240 @@ export interface UpdateRegistryRecordCommandOutput extends UpdateRegistryRecordR
  * //     custom: { // CustomDescriptor
  * //       data: "STRING_VALUE",
  * //     },
+ * //     http: { // HttpDescriptor
+ * //       source: {
+ * //         fromUrl: {
+ * //           url: "STRING_VALUE", // required
+ * //           credentialProviderConfigurations: [
+ * //             {
+ * //               credentialProviderType: "OAUTH" || "IAM", // required
+ * //               credentialProvider: {//  Union: only one key present
+ * //                 oauthCredentialProvider: {
+ * //                   providerArn: "STRING_VALUE", // required
+ * //                   grantType: "CLIENT_CREDENTIALS",
+ * //                   scopes: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   customParameters: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 iamCredentialProvider: {
+ * //                   roleArn: "STRING_VALUE",
+ * //                   service: "STRING_VALUE",
+ * //                   region: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //     agui: { // AgUiDescriptor
+ * //       source: {
+ * //         fromUrl: {
+ * //           url: "STRING_VALUE", // required
+ * //           credentialProviderConfigurations: [
+ * //             {
+ * //               credentialProviderType: "OAUTH" || "IAM", // required
+ * //               credentialProvider: {//  Union: only one key present
+ * //                 oauthCredentialProvider: {
+ * //                   providerArn: "STRING_VALUE", // required
+ * //                   grantType: "CLIENT_CREDENTIALS",
+ * //                   scopes: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   customParameters: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 iamCredentialProvider: {
+ * //                   roleArn: "STRING_VALUE",
+ * //                   service: "STRING_VALUE",
+ * //                   region: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * //   recordVersion: "STRING_VALUE",
  * //   status: "DRAFT" || "PENDING_APPROVAL" || "APPROVED" || "REJECTED" || "DEPRECATED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   statusReason: "STRING_VALUE",
+ * //   provenance: [ // ProvenanceList
+ * //     { // Provenance
+ * //       relation: "DETECTED_FROM", // required
+ * //       sourceId: "STRING_VALUE", // required
+ * //       sourceType: "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Gateway",
+ * //       sourceDetails: { // SourceDetails Union: only one key present
+ * //         agentcoreRuntime: { // AgentCoreRuntimeSourceDetails
+ * //           protocolConfiguration: { // AgentCoreRuntimeProtocolConfiguration
+ * //             serverProtocol: "HTTP" || "A2A" || "MCP" || "AGUI",
+ * //           },
+ * //           authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
+ * //             customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
+ * //               discoveryUrl: "STRING_VALUE", // required
+ * //               allowedAudience: [ // AllowedAudienceList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               allowedClients: [ // AllowedClientsList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               allowedScopes: [ // AllowedScopesType
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               customClaims: [ // CustomClaimValidationsType
+ * //                 { // CustomClaimValidationType
+ * //                   inboundTokenClaimName: "STRING_VALUE", // required
+ * //                   inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ * //                   authorizingClaimMatchValue: { // AuthorizingClaimMatchValueType
+ * //                     claimMatchValue: { // ClaimMatchValueType Union: only one key present
+ * //                       matchValueString: "STRING_VALUE",
+ * //                       matchValueStringList: [ // MatchValueStringList
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                     claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               privateEndpoint: { // PrivateEndpoint Union: only one key present
+ * //                 selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
+ * //                   resourceConfigurationIdentifier: "STRING_VALUE",
+ * //                 },
+ * //                 managedVpcResource: { // ManagedVpcResource
+ * //                   vpcIdentifier: "STRING_VALUE", // required
+ * //                   subnetIds: [ // SubnetIds // required
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //                   securityGroupIds: [ // SecurityGroupIds
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   tags: { // TagsMap
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   routingDomain: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               privateEndpointOverrides: [ // PrivateEndpointOverrides
+ * //                 { // PrivateEndpointOverride
+ * //                   domain: "STRING_VALUE", // required
+ * //                   privateEndpoint: {//  Union: only one key present
+ * //                     selfManagedLatticeResource: {//  Union: only one key present
+ * //                       resourceConfigurationIdentifier: "STRING_VALUE",
+ * //                     },
+ * //                     managedVpcResource: {
+ * //                       vpcIdentifier: "STRING_VALUE", // required
+ * //                       subnetIds: [ // required
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                       endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //                       securityGroupIds: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                       tags: {
+ * //                         "<keys>": "STRING_VALUE",
+ * //                       },
+ * //                       routingDomain: "STRING_VALUE",
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //           workloadIdentityDetails: { // WorkloadIdentityDetails
+ * //             workloadIdentityArn: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //         agentcoreGateway: { // AgentCoreGatewaySourceDetails
+ * //           protocolType: "MCP",
+ * //           authorizerType: "STRING_VALUE",
+ * //           authorizerConfiguration: {//  Union: only one key present
+ * //             customJWTAuthorizer: {
+ * //               discoveryUrl: "STRING_VALUE", // required
+ * //               allowedAudience: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               allowedClients: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               allowedScopes: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               customClaims: [
+ * //                 {
+ * //                   inboundTokenClaimName: "STRING_VALUE", // required
+ * //                   inboundTokenClaimValueType: "STRING" || "STRING_ARRAY", // required
+ * //                   authorizingClaimMatchValue: {
+ * //                     claimMatchValue: {//  Union: only one key present
+ * //                       matchValueString: "STRING_VALUE",
+ * //                       matchValueStringList: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                     claimMatchOperator: "EQUALS" || "CONTAINS" || "CONTAINS_ANY", // required
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               privateEndpoint: {//  Union: only one key present
+ * //                 selfManagedLatticeResource: {//  Union: only one key present
+ * //                   resourceConfigurationIdentifier: "STRING_VALUE",
+ * //                 },
+ * //                 managedVpcResource: {
+ * //                   vpcIdentifier: "STRING_VALUE", // required
+ * //                   subnetIds: [ // required
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //                   securityGroupIds: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   tags: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   routingDomain: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               privateEndpointOverrides: [
+ * //                 {
+ * //                   domain: "STRING_VALUE", // required
+ * //                   privateEndpoint: {//  Union: only one key present
+ * //                     selfManagedLatticeResource: {//  Union: only one key present
+ * //                       resourceConfigurationIdentifier: "STRING_VALUE",
+ * //                     },
+ * //                     managedVpcResource: {
+ * //                       vpcIdentifier: "STRING_VALUE", // required
+ * //                       subnetIds: [ // required
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                       endpointIpAddressType: "IPV4" || "IPV6", // required
+ * //                       securityGroupIds: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                       tags: {
+ * //                         "<keys>": "STRING_VALUE",
+ * //                       },
+ * //                       routingDomain: "STRING_VALUE",
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //           workloadIdentityDetails: {
+ * //             workloadIdentityArn: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * //   createdByAutoDetection: true || false,
+ * //   createdBy: "STRING_VALUE",
  * // };
  *
  * ```

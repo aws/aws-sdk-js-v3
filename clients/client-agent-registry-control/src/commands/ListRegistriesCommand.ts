@@ -130,6 +130,14 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  * //       },
  * //       status: "CREATING" || "READY" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
  * //       statusReason: "STRING_VALUE",
+ * //       autoDetection: { // AutoDetection
+ * //         configuration: { // AutoDetectionConfiguration
+ * //           scope: "ORGANIZATION", // required
+ * //           enabled: true || false, // required
+ * //         },
+ * //         status: "ACTIVE" || "INACTIVE", // required
+ * //         statusReason: "STRING_VALUE",
+ * //       },
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },

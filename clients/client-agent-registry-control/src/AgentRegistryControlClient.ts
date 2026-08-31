@@ -335,7 +335,7 @@ export type AgentRegistryControlClientResolvedConfigType = __SmithyResolvedConfi
 export interface AgentRegistryControlClientResolvedConfig extends AgentRegistryControlClientResolvedConfigType {}
 
 /**
- * <p>AWS Agent Registry is a managed catalog for publishing and discovering resources such as MCP servers, agents, and agent skills. Agent Registry Control is its control-plane API: use it to create and manage registries and the records they contain, configure discovery and authorization, govern record approval and curation workflows, and manage automatic detection of resources. Data-plane search and MCP invocation operations are provided by the companion Agent Registry API.</p>
+ * <p>Amazon Web Services Agent Registry is a managed catalog for publishing and discovering resources such as MCP servers, agents, and agent skills. Agent Registry Control is its control-plane API: use it to create and manage registries and the records they contain, configure discovery and authorization, govern record approval and curation workflows, and manage automatic detection of resources. Data-plane search and MCP invocation operations are provided by the companion Agent Registry API.</p>
  * @public
  */
 export class AgentRegistryControlClient extends __Client<

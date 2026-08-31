@@ -121,6 +121,12 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  *       ],
  *     },
  *   },
+ *   autoDetectionConfiguration: { // UpdatedAutoDetectionConfiguration
+ *     optionalValue: { // AutoDetectionConfiguration
+ *       scope: "ORGANIZATION", // required
+ *       enabled: true || false, // required
+ *     },
+ *   },
  * };
  * const command = new UpdateRegistryCommand(input);
  * const response = await client.send(command);
@@ -204,6 +210,9 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * //     },
  * //     authorizerType: "CUSTOM_JWT" || "AWS_IAM",
  * //   },
+ * //   encryptionConfiguration: { // EncryptionConfiguration
+ * //     kmsKeyArn: "STRING_VALUE", // required
+ * //   },
  * //   approvalConfiguration: { // ApprovalConfiguration
  * //     autoApprovalRules: [ // AutoApprovalRuleList
  * //       "APPROVE_ALL",
@@ -211,6 +220,14 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * //   },
  * //   status: "CREATING" || "READY" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETING" || "DELETE_FAILED", // required
  * //   statusReason: "STRING_VALUE",
+ * //   autoDetection: { // AutoDetection
+ * //     configuration: { // AutoDetectionConfiguration
+ * //       scope: "ORGANIZATION", // required
+ * //       enabled: true || false, // required
+ * //     },
+ * //     status: "ACTIVE" || "INACTIVE", // required
+ * //     statusReason: "STRING_VALUE",
+ * //   },
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * // };

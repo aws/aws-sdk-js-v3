@@ -35,6 +35,9 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  * const input = { // CreateRegistryRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   encryptionConfiguration: { // EncryptionConfiguration
+ *     kmsKeyArn: "STRING_VALUE", // required
+ *   },
  *   discoveryConfiguration: { // DiscoveryConfiguration
  *     authorizerConfiguration: { // AuthorizerConfiguration Union: only one key present
  *       customJWTAuthorizer: { // CustomJWTAuthorizerConfiguration
@@ -116,6 +119,10 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  *     autoApprovalRules: [ // AutoApprovalRuleList
  *       "APPROVE_ALL",
  *     ],
+ *   },
+ *   autoDetectionConfiguration: { // AutoDetectionConfiguration
+ *     scope: "ORGANIZATION", // required
+ *     enabled: true || false, // required
  *   },
  * };
  * const command = new CreateRegistryCommand(input);

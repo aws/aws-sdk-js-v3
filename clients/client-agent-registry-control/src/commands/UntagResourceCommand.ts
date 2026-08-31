@@ -23,7 +23,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * Remove tags from a resource by key
+ * <p>Removes one or more tags from the specified Amazon Web Services Agent Registry resource. The operation removes only the tags whose keys you supply; other tags on the resource remain unchanged.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
