@@ -448,6 +448,7 @@ export type {
   ServiceNowOAuthClientCredentialsConfig,
   ServiceNowServiceAuthorizationConfig,
   ServiceNowServiceDetails,
+  SlackBidirectionalConfiguration,
   SlackChannel,
   SlackConfiguration,
   SlackTransmissionTarget,

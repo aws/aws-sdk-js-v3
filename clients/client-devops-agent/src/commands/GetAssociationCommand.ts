@@ -83,6 +83,10 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //             channelId: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         bidirectional: { // SlackBidirectionalConfiguration
+ * //           roleArn: "STRING_VALUE", // required
+ * //           enabled: true || false,
+ * //         },
  * //       },
  * //       dynatrace: { // DynatraceConfiguration
  * //         envId: "STRING_VALUE", // required

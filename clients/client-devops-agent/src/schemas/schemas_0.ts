@@ -278,6 +278,7 @@ const _RSO = "RegisterServiceOutput";
 const _RSSD = "RegisteredSlackServiceDetails";
 const _RSe = "RegisterService";
 const _SAC = "SourceAwsConfiguration";
+const _SBC = "SlackBidirectionalConfiguration";
 const _SC = "ScheduleCondition";
 const _SCe = "ServiceConfiguration";
 const _SCl = "SlackChannel";
@@ -420,6 +421,7 @@ const _azur = "azure";
 const _b = "body";
 const _bT = "buttonText";
 const _bTe = "bearerToken";
+const _bi = "bidirectional";
 const _by = "bytes";
 const _c = "client";
 const _cA = "createdAt";
@@ -1818,6 +1820,11 @@ export var ServiceNowServiceDetails$: StaticStructureSchema = [3, n0, _SNSD,
   [_iUn, _aC],
   [0, [() => ServiceNowServiceAuthorizationConfig$, 0]], 1
 ];
+export var SlackBidirectionalConfiguration$: StaticStructureSchema = [3, n0, _SBC,
+  0,
+  [_rAo, _en],
+  [0, 2], 1
+];
 export var SlackChannel$: StaticStructureSchema = [3, n0, _SCl,
   0,
   [_cIh, _cNh],
@@ -1825,8 +1832,8 @@ export var SlackChannel$: StaticStructureSchema = [3, n0, _SCl,
 ];
 export var SlackConfiguration$: StaticStructureSchema = [3, n0, _SCla,
   0,
-  [_wIo, _wN, _tTr],
-  [0, 0, () => SlackTransmissionTarget$], 3
+  [_wIo, _wN, _tTr, _bi],
+  [0, 0, () => SlackTransmissionTarget$, () => SlackBidirectionalConfiguration$], 3
 ];
 export var SlackTransmissionTarget$: StaticStructureSchema = [3, n0, _STT,
   0,

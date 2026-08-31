@@ -72,6 +72,10 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  *           channelId: "STRING_VALUE", // required
  *         },
  *       },
+ *       bidirectional: { // SlackBidirectionalConfiguration
+ *         roleArn: "STRING_VALUE", // required
+ *         enabled: true || false,
+ *       },
  *     },
  *     dynatrace: { // DynatraceConfiguration
  *       envId: "STRING_VALUE", // required
@@ -221,6 +225,10 @@ export interface AssociateServiceCommandOutput extends AssociateServiceOutput, _
  * //             channelName: "STRING_VALUE",
  * //             channelId: "STRING_VALUE", // required
  * //           },
+ * //         },
+ * //         bidirectional: { // SlackBidirectionalConfiguration
+ * //           roleArn: "STRING_VALUE", // required
+ * //           enabled: true || false,
  * //         },
  * //       },
  * //       dynatrace: { // DynatraceConfiguration

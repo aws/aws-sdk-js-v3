@@ -375,6 +375,7 @@ import {
   ServiceNowServiceDetails$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SlackBidirectionalConfiguration$,
   SlackChannel$,
   SlackConfiguration$,
   SlackTransmissionTarget$,
@@ -813,6 +814,7 @@ assert(typeof ServiceNowConfiguration$ === "object");
 assert(typeof ServiceNowOAuthClientCredentialsConfig$ === "object");
 assert(typeof ServiceNowServiceAuthorizationConfig$ === "object");
 assert(typeof ServiceNowServiceDetails$ === "object");
+assert(typeof SlackBidirectionalConfiguration$ === "object");
 assert(typeof SlackChannel$ === "object");
 assert(typeof SlackConfiguration$ === "object");
 assert(typeof SlackTransmissionTarget$ === "object");

@@ -87,6 +87,10 @@ export interface ListAssociationsCommandOutput extends ListAssociationsOutput, _
  * //               channelId: "STRING_VALUE", // required
  * //             },
  * //           },
+ * //           bidirectional: { // SlackBidirectionalConfiguration
+ * //             roleArn: "STRING_VALUE", // required
+ * //             enabled: true || false,
+ * //           },
  * //         },
  * //         dynatrace: { // DynatraceConfiguration
  * //           envId: "STRING_VALUE", // required
