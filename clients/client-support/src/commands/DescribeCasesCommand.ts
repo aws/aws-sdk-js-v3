@@ -38,22 +38,41 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  *                     returned records represented by the <code>CaseDetails</code> objects.</p>
  *             </li>
  *          </ul>
- *          <p>Case data is available for 12 months after creation. If a case was created more than
- *             12 months ago, a request might return an error.</p>
+ *          <p>Case data is available for 24 months after creation. If a case was created more than
+ *             24 months ago, a request might return an error.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
- *                         API. </p>
+ *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
+ *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
  *                </li>
  *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
- *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
+ *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
  *                </li>
  *             </ul>
  *          </note>
+ *          <important>
+ *             <p>Each <a>Communication</a> returned by this operation includes
+ *                 attachment information in two fields:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>attachmentSet</code>: returns only attachments that are 5 MB or
+ *                         smaller. Attachments larger than 5 MB are not included in this field.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>attachments</code>: returns all attachments regardless of size.</p>
+ *                </li>
+ *             </ul>
+ *             <p>Amazon Web Services recommends that you use the <code>attachments</code> field and download each
+ *                 attachment with <a>GetAttachmentDownloadLink</a>, which supports
+ *                 attachments of any size. The <code>attachmentSet</code> field and <a>DescribeAttachment</a> return only attachments that are 5 MB or
+ *                 smaller.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +93,7 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  *   maxResults: Number("int"),
  *   language: "STRING_VALUE",
  *   includeCommunications: true || false,
+ *   dryRun: true || false,
  * };
  * const command = new DescribeCasesCommand(input);
  * const response = await client.send(command);
@@ -96,8 +116,14 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  * //             body: "STRING_VALUE",
  * //             submittedBy: "STRING_VALUE",
  * //             timeCreated: "STRING_VALUE",
- * //             attachmentSet: [ // AttachmentSet
+ * //             attachments: [ // AttachmentSet
  * //               { // AttachmentDetails
+ * //                 attachmentId: "STRING_VALUE",
+ * //                 fileName: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             attachmentSet: [
+ * //               {
  * //                 attachmentId: "STRING_VALUE",
  * //                 fileName: "STRING_VALUE",
  * //               },
@@ -125,6 +151,10 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  *
  * @throws {@link CaseIdNotFound} (client fault)
  *  <p>The requested <code>caseId</code> couldn't be located.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
+ *          set to <code>true</code>.</p>
  *
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>

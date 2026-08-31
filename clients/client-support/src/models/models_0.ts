@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import type { UploadStatus } from "./enums";
+
 /**
  * <p>An attachment to a case communication. The attachment consists of the file name and
  *             the content of the file. Each attachment file size should not exceed 5 MB. File types that are supported include the following: pdf, jpeg,.doc, .log, .text </p>
@@ -42,6 +44,15 @@ export interface AddAttachmentsToSetRequest {
    * @public
    */
   attachments: Attachment[] | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually adding the attachments. When set
+   *          to <code>true</code>, the request is validated but no attachments are stored, and the operation
+   *          returns a <code>DryRunOperationException</code>. When omitted or set to <code>false</code>, the
+   *          request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -72,7 +83,7 @@ export interface AddCommunicationToCaseRequest {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *                 case-<i>12345678910-exen-2025-c4c1d2bf33c5cf47</i>
    *          </p>
    * @public
    */
@@ -92,11 +103,31 @@ export interface AddCommunicationToCaseRequest {
 
   /**
    * <p>The ID of a set of one or more attachments for the communication to add to the case.
-   *             Create the set by calling <a>AddAttachmentsToSet</a>
-   *          </p>
+   *             Create the set by calling <a>AddAttachmentsToSet</a>. Each attachment in the
+   *             set must be 5 MB or smaller. To attach files larger than 5 MB, use <code>uploadIds</code>.</p>
    * @public
    */
   attachmentSetId?: string | undefined;
+
+  /**
+   * <p>A list of upload IDs that identify attachments to add to the case. Each
+   *             <code>uploadId</code> is returned by the <a>GetAttachmentUploadLinks</a>
+   *          operation. The upload must reach the <code>attachment-ready</code> state by calling <a>CompleteAttachmentUpload</a> before it can be passed here.
+   *          Use
+   *             <code>uploadIds</code> to attach files of any supported size, including files larger than
+   *          5 MB.</p>
+   * @public
+   */
+  uploadIds?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually adding the communication to the
+   *          case. When set to <code>true</code>, the request is validated but the communication isn't
+   *          added, and the operation returns a <code>DryRunOperationException</code>. When omitted or set
+   *          to <code>false</code>, the request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -129,6 +160,65 @@ export interface AttachmentDetails {
    * @public
    */
   fileName?: string | undefined;
+}
+
+/**
+ * <p>Identifies a single uploaded part of a multipart attachment upload. Pass a list of
+ *             <code>CompletedUpload</code> objects to <a>CompleteAttachmentUpload</a> to
+ *          finalize the upload.</p>
+ * @public
+ */
+export interface CompletedUpload {
+  /**
+   * <p>The index of the uploaded part. This is the same <code>partIndex</code> value returned for the corresponding entry in the <code>uploadUrls</code> field of the <code>GetAttachmentUploadLinks</code> response.</p>
+   * @public
+   */
+  partIndex: number | undefined;
+
+  /**
+   * <p>The ETag returned in the response headers when the part was uploaded to Amazon S3. The <code>ETag</code> value identifies the part contents.</p>
+   * @public
+   */
+  eTag: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CompleteAttachmentUploadRequest {
+  /**
+   * <p>The identifier associated with the upload to complete.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The list of parts being reported as completed in this call. Each entry must contain the <code>partIndex</code> of an uploaded part and the <code>ETag</code> returned by Amazon S3 when that part was uploaded.</p>
+   * @public
+   */
+  completedUploads: CompletedUpload[] | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually completing the upload. When set
+   *          to <code>true</code>, the request is validated but the upload isn't finalized, and the
+   *          operation returns a <code>DryRunOperationException</code>. When omitted or set to
+   *             <code>false</code>, the request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CompleteAttachmentUploadResponse {
+  /**
+   * <p>The status of the multipart upload after the operation finalizes the
+   *          attachment. Valid values: <code>attachment-ready</code>, <code>attachment-not-ready</code>,
+   *          and <code>failed</code>.</p>
+   * @public
+   */
+  uploadStatus: UploadStatus | undefined;
 }
 
 /**
@@ -187,7 +277,7 @@ export interface CreateCaseRequest {
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish ("tr"). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
@@ -203,10 +293,31 @@ export interface CreateCaseRequest {
 
   /**
    * <p>The ID of a set of one or more attachments for the case. Create the set by using the
-   *                 <a>AddAttachmentsToSet</a> operation.</p>
+   *                 <a>AddAttachmentsToSet</a> operation. Each attachment in the set must be 5
+   *             MB or smaller. To attach files larger than 5 MB, use <code>uploadIds</code>.</p>
    * @public
    */
   attachmentSetId?: string | undefined;
+
+  /**
+   * <p>A list of upload IDs that identify attachments to add to the case. Each
+   *             <code>uploadId</code> is returned by the <a>GetAttachmentUploadLinks</a>
+   *          operation. The upload must reach the <code>attachment-ready</code> state by calling <a>CompleteAttachmentUpload</a> before it can be passed here.
+   *          Use
+   *             <code>uploadIds</code> to attach files of any supported size, including files larger than
+   *          5 MB.</p>
+   * @public
+   */
+  uploadIds?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually creating the case. When set to
+   *             <code>true</code>, the request is validated but no case is created, and the operation
+   *          returns a <code>DryRunOperationException</code>. When omitted or set to <code>false</code>, the
+   *          request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -217,7 +328,7 @@ export interface CreateCaseResponse {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string in the following format:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *                 case-<i>12345678910-exen-2025-c4c1d2bf33c5cf47</i>
    *          </p>
    * @public
    */
@@ -230,9 +341,21 @@ export interface CreateCaseResponse {
 export interface DescribeAttachmentRequest {
   /**
    * <p>The ID of the attachment to return. Attachment IDs are returned by the <a>DescribeCommunications</a> operation.</p>
+   *          <p>If the specified attachment is larger than 5 MB, this operation returns
+   *                 <code>InvalidParameterValueException</code>. To download attachments larger than 5
+   *             MB, use <a>GetAttachmentDownloadLink</a>.</p>
    * @public
    */
   attachmentId: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually retrieving the attachment. When
+   *          set to <code>true</code>, the request is validated but no attachment content is returned, and
+   *          the operation returns a <code>DryRunOperationException</code>. When omitted or set to
+   *             <code>false</code>, the request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -254,6 +377,70 @@ export interface DescribeAttachmentResponse {
 /**
  * @public
  */
+export interface DescribeAttachmentUploadStatusRequest {
+  /**
+   * <p>The unique identifier for the upload. The <code>uploadId</code> is returned by
+   *             <a>GetAttachmentUploadLinks</a> when you initiate the upload.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually returning upload status. When
+   *          set to <code>true</code>, the request is validated but no status is returned, and the operation
+   *          returns a <code>DryRunOperationException</code>. When omitted or set to <code>false</code>, the
+   *          request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * <p>The progress of a multipart attachment upload, returned by <a>DescribeAttachmentUploadStatus</a>.</p>
+ * @public
+ */
+export interface UploadProgress {
+  /**
+   * <p>The total number of parts that the file is split into.</p>
+   * @public
+   */
+  totalParts?: number | undefined;
+
+  /**
+   * <p>The number of parts that have been successfully uploaded.</p>
+   * @public
+   */
+  completedPartsCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAttachmentUploadStatusResponse {
+  /**
+   * <p>The current status of the multipart upload. Valid values: <code>attachment-ready</code>,
+   *             <code>attachment-not-ready</code>, and <code>failed</code>.</p>
+   * @public
+   */
+  uploadStatus: UploadStatus | undefined;
+
+  /**
+   * <p>The name of the file being uploaded, including the file extension.</p>
+   * @public
+   */
+  fileName: string | undefined;
+
+  /**
+   * <p>The progress of the multipart upload, including the total number of parts and the number
+   *          of parts that have been successfully uploaded.</p>
+   * @public
+   */
+  uploadProgress?: UploadProgress | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeCasesRequest {
   /**
    * <p>A list of ID numbers of the support cases you want returned. The maximum number of
@@ -270,14 +457,14 @@ export interface DescribeCasesRequest {
 
   /**
    * <p>The start date for a filtered date search on support case communications. Case
-   *             communications are available for 12 months after creation.</p>
+   *             communications are available for 24 months after creation.</p>
    * @public
    */
   afterTime?: string | undefined;
 
   /**
    * <p>The end date for a filtered date search on support case communications. Case
-   *             communications are available for 12 months after creation.</p>
+   *             communications are available for 24 months after creation.</p>
    * @public
    */
   beforeTime?: string | undefined;
@@ -303,7 +490,7 @@ export interface DescribeCasesRequest {
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish ("tr"). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
@@ -315,6 +502,15 @@ export interface DescribeCasesRequest {
    * @public
    */
   includeCommunications?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually returning case data. When set
+   *          to <code>true</code>, the request is validated but no cases are returned, and the operation
+   *          returns a <code>DryRunOperationException</code>. When omitted or set to <code>false</code>, the
+   *          request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -327,7 +523,7 @@ export interface Communication {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *                 case-<i>12345678910-exen-2025-c4c1d2bf33c5cf47</i>
    *          </p>
    * @public
    */
@@ -356,7 +552,17 @@ export interface Communication {
   timeCreated?: string | undefined;
 
   /**
-   * <p>Information about the attachments to the case communication.</p>
+   * <p>Information about all attachments on the case communication. This includes attachments added through <code>AddAttachmentsToSet</code> and attachments uploaded through <code>GetAttachmentUploadLinks</code>.</p>
+   *          <p>Use this field to enumerate every attachment on the communication. To download an attachment listed in this field, use <a>GetAttachmentDownloadLink</a>. <code>GetAttachmentDownloadLink</code> returns a presigned URL that works for attachments of any size. </p>
+   * @public
+   */
+  attachments?: AttachmentDetails[] | undefined;
+
+  /**
+   * <p>Information about the attachments to the case communication that are 5 MB or smaller.
+   *             This field doesn't include attachments larger than 5 MB. To enumerate every attachment on
+   *             the communication, including attachments larger than 5 MB, use the
+   *                 <code>attachments</code> field instead.</p>
    * @public
    */
   attachmentSet?: AttachmentDetails[] | undefined;
@@ -389,7 +595,7 @@ export interface RecentCaseCommunications {
  *                   <b>caseId</b> - The support case ID requested
  *                     or returned in the call. The case ID is an alphanumeric string formatted as
  *                     shown in this example:
- *                         case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>.</p>
+ *                         case-<i>12345678910-exen-2025-c4c1d2bf33c5cf47</i>.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -405,7 +611,7 @@ export interface RecentCaseCommunications {
  *             <li>
  *                <p>
  *                   <b>language</b> - The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
- * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+ * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish ("tr"). You must specify the ISO 639-1
  * code for the <code>language</code> parameter if you want support in that language.</p>
  *             </li>
  *             <li>
@@ -500,7 +706,7 @@ export interface CaseDetails {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *                 case-<i>12345678910-exen-2025-c4c1d2bf33c5cf47</i>
    *          </p>
    * @public
    */
@@ -615,7 +821,7 @@ export interface CaseDetails {
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish ("tr"). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
@@ -649,7 +855,7 @@ export interface DescribeCommunicationsRequest {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *                 case-<i>12345678910-exen-2025-c4c1d2bf33c5cf47</i>
    *          </p>
    * @public
    */
@@ -657,14 +863,14 @@ export interface DescribeCommunicationsRequest {
 
   /**
    * <p>The end date for a filtered date search on support case communications. Case
-   *             communications are available for 12 months after creation.</p>
+   *             communications are available for 24 months after creation.</p>
    * @public
    */
   beforeTime?: string | undefined;
 
   /**
    * <p>The start date for a filtered date search on support case communications. Case
-   *             communications are available for 12 months after creation.</p>
+   *             communications are available for 24 months after creation.</p>
    * @public
    */
   afterTime?: string | undefined;
@@ -680,6 +886,15 @@ export interface DescribeCommunicationsRequest {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually returning communications. When
+   *          set to <code>true</code>, the request is validated but no communications are returned, and the
+   *          operation returns a <code>DryRunOperationException</code>. When omitted or set to
+   *             <code>false</code>, the request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -722,7 +937,7 @@ export interface DescribeCreateCaseOptionsRequest {
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish ("tr"). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
@@ -734,6 +949,15 @@ export interface DescribeCreateCaseOptionsRequest {
    * @public
    */
   categoryCode: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually returning case option data.
+   *          When set to <code>true</code>, the request is validated but no options are returned, and the
+   *          operation returns a <code>DryRunOperationException</code>. When omitted or set to
+   *             <code>false</code>, the request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -873,6 +1097,24 @@ export interface DescribeCreateCaseOptionsResponse {
 }
 
 /**
+ * <p>Information about why a request was throttled.</p>
+ * @public
+ */
+export interface ThrottlingReason {
+  /**
+   * <p>The reason that the request was throttled.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>The resource that caused the request to be throttled.</p>
+   * @public
+   */
+  resource?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeServicesRequest {
@@ -884,11 +1126,20 @@ export interface DescribeServicesRequest {
 
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish ("tr"). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
   language?: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually returning the list of services.
+   *          When set to <code>true</code>, the request is validated but no services are returned, and the
+   *          operation returns a <code>DryRunOperationException</code>. When omitted or set to
+   *             <code>false</code>, the request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -959,11 +1210,20 @@ export interface DescribeServicesResponse {
 export interface DescribeSeverityLevelsRequest {
   /**
    * <p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support
-   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean (“ko”). You must specify the ISO 639-1
+   * currently supports Chinese (“zh”), English ("en"), Japanese ("ja") , Chinese ("zh"), Spanish ("es"), Portuguese ("pt"), French ("fr"), Korean (“ko”), and Turkish ("tr"). You must specify the ISO 639-1
    * code for the <code>language</code> parameter if you want support in that language.</p>
    * @public
    */
   language?: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually returning severity levels. When
+   *          set to <code>true</code>, the request is validated but no severity levels are returned, and the
+   *          operation returns a <code>DryRunOperationException</code>. When omitted or set to
+   *             <code>false</code>, the request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -1058,6 +1318,15 @@ export interface DescribeSupportedLanguagesRequest {
    * @public
    */
   categoryCode: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually returning supported languages.
+   *          When set to <code>true</code>, the request is validated but no languages are returned, and the
+   *          operation returns a <code>DryRunOperationException</code>. When omitted or set to
+   *             <code>false</code>, the request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -1594,6 +1863,214 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetAttachmentDownloadLinkRequest {
+  /**
+   * <p>The unique identifier of the attachment for which to retrieve a download link. Attachment
+   *          IDs are returned in the <code>AttachmentDetails</code> objects in the <code>attachments</code>
+   *          field of a <a>Communication</a> returned by <a>DescribeCommunications</a>
+   *          or <a>DescribeCases</a>.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually returning a download link. When
+   *          set to <code>true</code>, the request is validated but no URL is returned, and the operation
+   *          returns a <code>DryRunOperationException</code>. When omitted or set to <code>false</code>, the
+   *          request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * <p>A presigned URL for downloading an attachment, along with the date and time the URL
+ *          expires. Returned by <a>GetAttachmentDownloadLink</a>.</p>
+ * @public
+ */
+export interface DownloadUrl {
+  /**
+   * <p>The presigned HTTPS URL that you can use to download the attachment. Download URLs are
+   *          served from <code>downloadv1.attachments.support.\{region\}.amazonaws.com</code>. The
+   *             <code>downloadv1</code> prefix is subject to change.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The date and time, in ISO-8601 format, when the presigned URL expires. Download the
+   *          attachment before this time.</p>
+   * @public
+   */
+  expiryDate: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAttachmentDownloadLinkResponse {
+  /**
+   * <p>The name of the attachment file, including the file extension.</p>
+   * @public
+   */
+  fileName: string | undefined;
+
+  /**
+   * <p>The presigned download URL and the date and time the URL expires.</p>
+   * @public
+   */
+  downloadUrl: DownloadUrl | undefined;
+}
+
+/**
+ * <p>The range of part indexes for which to return presigned upload URLs from <a>GetAttachmentUploadLinks</a>.</p>
+ * @public
+ */
+export interface UploadRange {
+  /**
+   * <p>The starting part index of the range, inclusive. Part indexes start at 1.</p>
+   * @public
+   */
+  startIndex: number | undefined;
+
+  /**
+   * <p>The ending part index of the range, exclusive. The range is half-open:
+   *             <code>startIndex</code> is inclusive and <code>endIndex</code> is exclusive. For example,
+   *          a range with <code>startIndex</code> of 1 and <code>endIndex</code> of 4 requests URLs for
+   *          parts 1, 2, and 3. The range size (<code>endIndex</code> - <code>startIndex</code>)
+   *          must not exceed 10. If you omit <code>endIndex</code>, the service defaults to
+   *             <code>startIndex</code> + 10, capped by the total number of parts.</p>
+   * @public
+   */
+  endIndex?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAttachmentUploadLinksRequest {
+  /**
+   * <p>The name of the file to upload, including the file extension. This value is required when
+   *          you initiate a new upload.</p>
+   * @public
+   */
+  fileName: string | undefined;
+
+  /**
+   * <p>The total size of the file in bytes. The service uses this value to calculate the total
+   *          number of parts and the size of each part. Required when you initiate a new upload (when
+   *             <code>uploadId</code> isn't provided). Valid range: 1 to 157,286,400 bytes (approximately
+   *          150 MB).</p>
+   * @public
+   */
+  fileSizeBytes?: number | undefined;
+
+  /**
+   * <p>The unique identifier of an in-progress multipart upload, returned by a previous call to
+   *             <code>GetAttachmentUploadLinks</code>. Specify <code>uploadId</code> to retrieve additional
+   *          presigned upload URLs for an upload that has already been initiated. Required when
+   *             <code>fileSizeBytes</code> isn't provided. Length: 1 to 2,048 characters.</p>
+   * @public
+   */
+  uploadId?: string | undefined;
+
+  /**
+   * <p>The range of part indexes for which to return presigned upload URLs. Use this parameter
+   *          to page through the upload URLs for a large file across multiple calls. If you omit this
+   *          parameter, the service determines the range to return.</p>
+   * @public
+   */
+  uploadRange?: UploadRange | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually generating upload URLs. When
+   *          set to <code>true</code>, the request is validated but no URLs are returned, and the operation
+   *          returns a <code>DryRunOperationException</code>. When omitted or set to <code>false</code>, the
+   *          request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * <p>A presigned URL for uploading a single part of a multipart attachment upload, along with
+ *          the part index and the date and time the URL expires. Returned by <a>GetAttachmentUploadLinks</a>.</p>
+ * @public
+ */
+export interface UploadUrl {
+  /**
+   * <p>The presigned HTTPS URL that you use to upload a single part with HTTP
+   *             <code>PUT</code>. Upload URLs are served from
+   *             <code>uploadv1.attachments.support.\{region\}.amazonaws.com</code>. The
+   *             <code>uploadv1</code> prefix is subject to change.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The index of the part that this URL uploads.</p>
+   * @public
+   */
+  partIndex: number | undefined;
+
+  /**
+   * <p>The date and time, in ISO-8601 format, when the presigned URL expires. Upload the part
+   *          before this time.</p>
+   * @public
+   */
+  expiryDate: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAttachmentUploadLinksResponse {
+  /**
+   * <p>The unique identifier for the multipart upload. Use this value in subsequent calls to
+   *             <code>GetAttachmentUploadLinks</code>, <a>DescribeAttachmentUploadStatus</a>,
+   *          and <a>CompleteAttachmentUpload</a>, and to attach the upload to a case through the
+   *             <code>uploadIds</code> parameter on <a>CreateCase</a> or <a>AddCommunicationToCase</a>.</p>
+   * @public
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The size, in bytes, of each part. Split the file into parts of this size before you upload
+   *          them to the presigned URLs. For an upload with <code>n</code> total parts, parts 1 through
+   *             <code>n</code> - 1 are exactly this size; the last part may be smaller. Maximum:
+   *          104,857,600 bytes (approximately 100 MB).</p>
+   * @public
+   */
+  partSizeBytes: number | undefined;
+
+  /**
+   * <p>The total number of parts that the file is split into. Upload one part to each presigned
+   *          URL.</p>
+   * @public
+   */
+  totalParts: number | undefined;
+
+  /**
+   * <p>The next part index to request presigned URLs for. If all upload URLs for the file have
+   *          been returned, this field is <code>null</code>. Use this value as the <code>startIndex</code> in
+   *             <code>uploadRange</code> on a subsequent call to <code>GetAttachmentUploadLinks</code> to
+   *          retrieve the next batch of upload URLs.</p>
+   * @public
+   */
+  nextIndex?: number | undefined;
+
+  /**
+   * <p>The list of presigned upload URLs for the requested range of parts. The list contains at
+   *          most 10 URLs per call. Upload each part to its corresponding URL by using HTTP
+   *             <code>PUT</code> before the URL expires.</p>
+   * @public
+   */
+  uploadUrls: UploadUrl[] | undefined;
+}
+
+/**
  * <p></p>
  * @public
  */
@@ -1629,11 +2106,20 @@ export interface ResolveCaseRequest {
   /**
    * <p>The support case ID requested or returned in the call. The case ID is an alphanumeric
    *             string formatted as shown in this example:
-   *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
+   *                 case-<i>12345678910-exen-2025-c4c1d2bf33c5cf47</i>
    *          </p>
    * @public
    */
   caseId?: string | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without actually resolving the case. When set
+   *          to <code>true</code>, the request is validated but the case isn't resolved, and the operation
+   *          returns a <code>DryRunOperationException</code>. When omitted or set to <code>false</code>, the
+   *          request runs normally.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**

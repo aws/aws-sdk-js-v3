@@ -30,12 +30,12 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
- *                         API. </p>
+ *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
+ *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
  *                </li>
  *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
- *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
+ *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
  *                </li>
@@ -57,6 +57,7 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  *       data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     },
  *   ],
+ *   dryRun: true || false,
  * };
  * const command = new AddAttachmentsToSetCommand(input);
  * const response = await client.send(command);
@@ -87,6 +88,10 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * @throws {@link AttachmentSetSizeLimitExceeded} (client fault)
  *  <p>A limit for the size of an attachment set has been exceeded. The limits are three
  *             attachments and 5 MB per attachment.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
+ *          set to <code>true</code>.</p>
  *
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>

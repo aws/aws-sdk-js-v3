@@ -14,6 +14,9 @@ const _ASINF = "AttachmentSetIdNotFound";
 const _ASSLE = "AttachmentSetSizeLimitExceeded";
 const _At = "Attachments";
 const _C = "Category";
+const _CAU = "CompleteAttachmentUpload";
+const _CAUR = "CompleteAttachmentUploadRequest";
+const _CAURo = "CompleteAttachmentUploadResponse";
 const _CC = "CreateCase";
 const _CCLE = "CaseCreationLimitExceeded";
 const _CCR = "CreateCaseRequest";
@@ -25,11 +28,16 @@ const _CLa = "CategoryList";
 const _CLo = "CommunicationList";
 const _CTO = "CommunicationTypeOptions";
 const _CTOL = "CommunicationTypeOptionsList";
+const _CU = "CompletedUpload";
+const _CUL = "CompletedUploadList";
 const _Co = "Communication";
 const _DA = "DescribeAttachment";
 const _DALE = "DescribeAttachmentLimitExceeded";
 const _DAR = "DescribeAttachmentRequest";
 const _DARe = "DescribeAttachmentResponse";
+const _DAUS = "DescribeAttachmentUploadStatus";
+const _DAUSR = "DescribeAttachmentUploadStatusRequest";
+const _DAUSRe = "DescribeAttachmentUploadStatusResponse";
 const _DC = "DescribeCases";
 const _DCCO = "DescribeCreateCaseOptions";
 const _DCCOR = "DescribeCreateCaseOptionsRequest";
@@ -40,6 +48,7 @@ const _DCRes = "DescribeCommunicationsRequest";
 const _DCResc = "DescribeCommunicationsResponse";
 const _DCe = "DescribeCommunications";
 const _DI = "DateInterval";
+const _DROE = "DryRunOperationException";
 const _DS = "DescribeServices";
 const _DSL = "DescribeSeverityLevels";
 const _DSLR = "DescribeSeverityLevelsRequest";
@@ -61,7 +70,14 @@ const _DTACRes = "DescribeTrustedAdvisorCheckResult";
 const _DTACS = "DescribeTrustedAdvisorCheckSummaries";
 const _DTACSR = "DescribeTrustedAdvisorCheckSummariesRequest";
 const _DTACSRe = "DescribeTrustedAdvisorCheckSummariesResponse";
+const _DU = "DownloadUrl";
 const _DWSL = "DatesWithoutSupportList";
+const _GADL = "GetAttachmentDownloadLink";
+const _GADLR = "GetAttachmentDownloadLinkRequest";
+const _GADLRe = "GetAttachmentDownloadLinkResponse";
+const _GAUL = "GetAttachmentUploadLinks";
+const _GAULR = "GetAttachmentUploadLinksRequest";
+const _GAULRe = "GetAttachmentUploadLinksResponse";
 const _ISE = "InternalServerError";
 const _RC = "ResolveCase";
 const _RCC = "RecentCaseCommunications";
@@ -92,6 +108,13 @@ const _TARD = "TrustedAdvisorResourceDetail";
 const _TARDL = "TrustedAdvisorResourceDetailList";
 const _TARS = "TrustedAdvisorResourcesSummary";
 const _TE = "ThrottlingException";
+const _TR = "ThrottlingReason";
+const _TRL = "ThrottlingReasonList";
+const _UINF = "UploadIdNotFound";
+const _UP = "UploadProgress";
+const _UR = "UploadRange";
+const _UU = "UploadUrl";
+const _UUL = "UploadUrlList";
 const _a = "attachments";
 const _aI = "attachmentId";
 const _aQE = "awsQueryError";
@@ -110,8 +133,10 @@ const _cIL = "caseIdList";
 const _cIh = "checkIds";
 const _cIhe = "checkId";
 const _cO = "costOptimizing";
+const _cPC = "completedPartsCount";
 const _cSS = "categorySpecificSummary";
 const _cT = "communicationTypes";
+const _cU = "completedUploads";
 const _ca = "cases";
 const _cat = "categories";
 const _cate = "category";
@@ -120,18 +145,24 @@ const _co = "code";
 const _com = "communications";
 const _d = "data";
 const _dI = "displayId";
+const _dR = "dryRun";
+const _dU = "downloadUrl";
 const _dWS = "datesWithoutSupport";
 const _de = "description";
 const _di = "display";
 const _e = "error";
+const _eD = "expiryDate";
 const _eDT = "endDateTime";
+const _eI = "endIndex";
 const _eMS = "estimatedMonthlySavings";
 const _ePMS = "estimatedPercentMonthlySavings";
 const _eT = "expiryTime";
+const _eTa = "eTag";
 const _eTn = "endTime";
 const _fCS = "finalCaseStatus";
 const _fN = "fileName";
 const _fR = "flaggedResources";
+const _fSB = "fileSizeBytes";
 const _hE = "httpError";
 const _hFR = "hasFlaggedResources";
 const _i = "id";
@@ -147,7 +178,10 @@ const _mR = "maxResults";
 const _mUNR = "millisUntilNextRefreshable";
 const _me = "metadata";
 const _n = "name";
+const _nI = "nextIndex";
 const _nT = "nextToken";
+const _pI = "partIndex";
+const _pSB = "partSizeBytes";
 const _r = "result";
 const _rC = "recentCommunications";
 const _rF = "resourcesFlagged";
@@ -156,7 +190,9 @@ const _rIe = "resourcesIgnored";
 const _rP = "resourcesProcessed";
 const _rS = "resourcesSummary";
 const _rSe = "resourcesSuppressed";
-const _re = "region";
+const _re = "reason";
+const _reg = "region";
+const _res = "resource";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.support";
 const _sB = "submittedBy";
 const _sC = "serviceCode";
@@ -164,6 +200,7 @@ const _sCL = "serviceCodeList";
 const _sCe = "severityCode";
 const _sDT = "startDateTime";
 const _sH = "supportedHours";
+const _sI = "startIndex";
 const _sL = "severityLevels";
 const _sLu = "supportedLanguages";
 const _sT = "startTime";
@@ -176,7 +213,16 @@ const _su = "subject";
 const _sum = "summaries";
 const _t = "type";
 const _tC = "timeCreated";
+const _tP = "totalParts";
+const _tR = "throttlingReasons";
 const _ti = "timestamp";
+const _u = "url";
+const _uI = "uploadIds";
+const _uIp = "uploadId";
+const _uP = "uploadProgress";
+const _uR = "uploadRange";
+const _uS = "uploadStatus";
+const _uU = "uploadUrls";
 const n0 = "com.amazonaws.support";
 
 // smithy-typescript generated code
@@ -192,8 +238,10 @@ import {
   CaseCreationLimitExceeded,
   CaseIdNotFound,
   DescribeAttachmentLimitExceeded,
+  DryRunOperationException,
   InternalServerError,
   ThrottlingException,
+  UploadIdNotFound,
 } from "../models/errors";
 import { SupportServiceException } from "../models/SupportServiceException";
 
@@ -250,6 +298,12 @@ export var DescribeAttachmentLimitExceeded$: StaticErrorSchema = [-3, n0, _DALE,
   [0]
 ];
 n0_registry.registerError(DescribeAttachmentLimitExceeded$, DescribeAttachmentLimitExceeded);
+export var DryRunOperationException$: StaticErrorSchema = [-3, n0, _DROE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DryRunOperationException$, DryRunOperationException);
 export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se },
   [_m],
@@ -258,10 +312,16 @@ export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
 n0_registry.registerError(InternalServerError$, InternalServerError);
 export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
   { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
+  [_m, _tR],
+  [0, () => ThrottlingReasonList]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UploadIdNotFound$: StaticErrorSchema = [-3, n0, _UINF,
+  { [_e]: _c },
   [_m],
   [0]
 ];
-n0_registry.registerError(ThrottlingException$, ThrottlingException);
+n0_registry.registerError(UploadIdNotFound$, UploadIdNotFound);
 /**
  * TypeRegistry instances containing modeled errors.
  * @internal
@@ -273,8 +333,8 @@ export const errorTypeRegistries = [
 ]
 export var AddAttachmentsToSetRequest$: StaticStructureSchema = [3, n0, _AATSR,
   0,
-  [_a, _aSI],
-  [() => Attachments, 0], 1
+  [_a, _aSI, _dR],
+  [() => Attachments, 0, 2], 1
 ];
 export var AddAttachmentsToSetResponse$: StaticStructureSchema = [3, n0, _AATSRd,
   0,
@@ -283,8 +343,8 @@ export var AddAttachmentsToSetResponse$: StaticStructureSchema = [3, n0, _AATSRd
 ];
 export var AddCommunicationToCaseRequest$: StaticStructureSchema = [3, n0, _ACTCR,
   0,
-  [_cB, _cI, _cEA, _aSI],
-  [0, 0, 64 | 0, 0], 1
+  [_cB, _cI, _cEA, _aSI, _uI, _dR],
+  [0, 0, 64 | 0, 0, 64 | 0, 2], 1
 ];
 export var AddCommunicationToCaseResponse$: StaticStructureSchema = [3, n0, _ACTCRd,
   0,
@@ -313,18 +373,33 @@ export var Category$: StaticStructureSchema = [3, n0, _C,
 ];
 export var Communication$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_cI, _b, _sB, _tC, _aS],
-  [0, 0, 0, 0, () => AttachmentSet]
+  [_cI, _b, _sB, _tC, _a, _aS],
+  [0, 0, 0, 0, () => AttachmentSet, () => AttachmentSet]
 ];
 export var CommunicationTypeOptions$: StaticStructureSchema = [3, n0, _CTO,
   0,
   [_t, _sH, _dWS],
   [0, () => SupportedHoursList, () => DatesWithoutSupportList]
 ];
+export var CompleteAttachmentUploadRequest$: StaticStructureSchema = [3, n0, _CAUR,
+  0,
+  [_uIp, _cU, _dR],
+  [0, () => CompletedUploadList, 2], 2
+];
+export var CompleteAttachmentUploadResponse$: StaticStructureSchema = [3, n0, _CAURo,
+  0,
+  [_uS],
+  [0], 1
+];
+export var CompletedUpload$: StaticStructureSchema = [3, n0, _CU,
+  0,
+  [_pI, _eTa],
+  [1, 0], 2
+];
 export var CreateCaseRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_su, _cB, _sC, _sCe, _cC, _cEA, _l, _iT, _aSI],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0], 2
+  [_su, _cB, _sC, _sCe, _cC, _cEA, _l, _iT, _aSI, _uI, _dR],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 64 | 0, 2], 2
 ];
 export var CreateCaseResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
@@ -338,18 +413,28 @@ export var DateInterval$: StaticStructureSchema = [3, n0, _DI,
 ];
 export var DescribeAttachmentRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
-  [_aI],
-  [0], 1
+  [_aI, _dR],
+  [0, 2], 1
 ];
 export var DescribeAttachmentResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
   [_at],
   [() => Attachment$]
 ];
+export var DescribeAttachmentUploadStatusRequest$: StaticStructureSchema = [3, n0, _DAUSR,
+  0,
+  [_uIp, _dR],
+  [0, 2], 1
+];
+export var DescribeAttachmentUploadStatusResponse$: StaticStructureSchema = [3, n0, _DAUSRe,
+  0,
+  [_uS, _fN, _uP],
+  [0, 0, () => UploadProgress$], 2
+];
 export var DescribeCasesRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
-  [_cIL, _dI, _aT, _bT, _iRC, _nT, _mR, _l, _iC],
-  [64 | 0, 0, 0, 0, 2, 0, 1, 0, 2]
+  [_cIL, _dI, _aT, _bT, _iRC, _nT, _mR, _l, _iC, _dR],
+  [64 | 0, 0, 0, 0, 2, 0, 1, 0, 2, 2]
 ];
 export var DescribeCasesResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
@@ -358,8 +443,8 @@ export var DescribeCasesResponse$: StaticStructureSchema = [3, n0, _DCRe,
 ];
 export var DescribeCommunicationsRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
-  [_cI, _bT, _aT, _nT, _mR],
-  [0, 0, 0, 0, 1], 1
+  [_cI, _bT, _aT, _nT, _mR, _dR],
+  [0, 0, 0, 0, 1, 2], 1
 ];
 export var DescribeCommunicationsResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
@@ -368,8 +453,8 @@ export var DescribeCommunicationsResponse$: StaticStructureSchema = [3, n0, _DCR
 ];
 export var DescribeCreateCaseOptionsRequest$: StaticStructureSchema = [3, n0, _DCCOR,
   0,
-  [_iT, _sC, _l, _cC],
-  [0, 0, 0, 0], 4
+  [_iT, _sC, _l, _cC, _dR],
+  [0, 0, 0, 0, 2], 4
 ];
 export var DescribeCreateCaseOptionsResponse$: StaticStructureSchema = [3, n0, _DCCORe,
   0,
@@ -378,8 +463,8 @@ export var DescribeCreateCaseOptionsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeServicesRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
-  [_sCL, _l],
-  [64 | 0, 0]
+  [_sCL, _l, _dR],
+  [64 | 0, 0, 2]
 ];
 export var DescribeServicesResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -388,8 +473,8 @@ export var DescribeServicesResponse$: StaticStructureSchema = [3, n0, _DSRe,
 ];
 export var DescribeSeverityLevelsRequest$: StaticStructureSchema = [3, n0, _DSLR,
   0,
-  [_l],
-  [0]
+  [_l, _dR],
+  [0, 2]
 ];
 export var DescribeSeverityLevelsResponse$: StaticStructureSchema = [3, n0, _DSLRe,
   0,
@@ -398,8 +483,8 @@ export var DescribeSeverityLevelsResponse$: StaticStructureSchema = [3, n0, _DSL
 ];
 export var DescribeSupportedLanguagesRequest$: StaticStructureSchema = [3, n0, _DSLRes,
   0,
-  [_iT, _sC, _cC],
-  [0, 0, 0], 3
+  [_iT, _sC, _cC, _dR],
+  [0, 0, 0, 2], 3
 ];
 export var DescribeSupportedLanguagesResponse$: StaticStructureSchema = [3, n0, _DSLResc,
   0,
@@ -446,6 +531,31 @@ export var DescribeTrustedAdvisorCheckSummariesResponse$: StaticStructureSchema 
   [_sum],
   [() => TrustedAdvisorCheckSummaryList], 1
 ];
+export var DownloadUrl$: StaticStructureSchema = [3, n0, _DU,
+  0,
+  [_u, _eD],
+  [0, 0], 2
+];
+export var GetAttachmentDownloadLinkRequest$: StaticStructureSchema = [3, n0, _GADLR,
+  0,
+  [_aI, _dR],
+  [0, 2], 1
+];
+export var GetAttachmentDownloadLinkResponse$: StaticStructureSchema = [3, n0, _GADLRe,
+  0,
+  [_fN, _dU],
+  [0, () => DownloadUrl$], 2
+];
+export var GetAttachmentUploadLinksRequest$: StaticStructureSchema = [3, n0, _GAULR,
+  0,
+  [_fN, _fSB, _uIp, _uR, _dR],
+  [0, 1, 0, () => UploadRange$, 2], 1
+];
+export var GetAttachmentUploadLinksResponse$: StaticStructureSchema = [3, n0, _GAULRe,
+  0,
+  [_uIp, _pSB, _tP, _uU, _nI],
+  [0, 1, 1, () => UploadUrlList, 1], 4
+];
 export var RecentCaseCommunications$: StaticStructureSchema = [3, n0, _RCC,
   0,
   [_com, _nT],
@@ -463,8 +573,8 @@ export var RefreshTrustedAdvisorCheckResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ResolveCaseRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
-  [_cI],
-  [0]
+  [_cI, _dR],
+  [0, 2]
 ];
 export var ResolveCaseResponse$: StaticStructureSchema = [3, n0, _RCRe,
   0,
@@ -490,6 +600,11 @@ export var SupportedLanguage$: StaticStructureSchema = [3, n0, _SLu,
   0,
   [_co, _l, _di],
   [0, 0, 0]
+];
+export var ThrottlingReason$: StaticStructureSchema = [3, n0, _TR,
+  0,
+  [_re, _res],
+  [0, 0]
 ];
 export var TrustedAdvisorCategorySpecificSummary$: StaticStructureSchema = [3, n0, _TACSS,
   0,
@@ -523,13 +638,28 @@ export var TrustedAdvisorCostOptimizingSummary$: StaticStructureSchema = [3, n0,
 ];
 export var TrustedAdvisorResourceDetail$: StaticStructureSchema = [3, n0, _TARD,
   0,
-  [_st, _rI, _me, _re, _iS],
+  [_st, _rI, _me, _reg, _iS],
   [0, 0, [() => StringList, 0], 0, 2], 3
 ];
 export var TrustedAdvisorResourcesSummary$: StaticStructureSchema = [3, n0, _TARS,
   0,
   [_rP, _rF, _rIe, _rSe],
   [1, 1, 1, 1], 4
+];
+export var UploadProgress$: StaticStructureSchema = [3, n0, _UP,
+  0,
+  [_tP, _cPC],
+  [1, 1]
+];
+export var UploadRange$: StaticStructureSchema = [3, n0, _UR,
+  0,
+  [_sI, _eI],
+  [1, 1], 1
+];
+export var UploadUrl$: StaticStructureSchema = [3, n0, _UU,
+  0,
+  [_u, _pI, _eD],
+  [0, 1, 0], 3
 ];
 var Attachments: StaticListSchema = [1, n0, _At,
   0, () => Attachment$
@@ -551,6 +681,9 @@ var CommunicationList: StaticListSchema = [1, n0, _CLo,
 var CommunicationTypeOptionsList: StaticListSchema = [1, n0, _CTOL,
   0, () => CommunicationTypeOptions$
 ];
+var CompletedUploadList: StaticListSchema = [1, n0, _CUL,
+  0, () => CompletedUpload$
+];
 var DatesWithoutSupportList: StaticListSchema = [1, n0, _DWSL,
   0, () => DateInterval$
 ];
@@ -570,6 +703,9 @@ var SupportedHoursList: StaticListSchema = [1, n0, _SHL,
 var SupportedLanguagesList: StaticListSchema = [1, n0, _SLLu,
   0, () => SupportedLanguage$
 ];
+var ThrottlingReasonList: StaticListSchema = [1, n0, _TRL,
+  0, () => ThrottlingReason$
+];
 var TrustedAdvisorCheckList: StaticListSchema = [1, n0, _TACL,
   0, [() => TrustedAdvisorCheckDescription$,
     0]
@@ -584,17 +720,27 @@ var TrustedAdvisorResourceDetailList: StaticListSchema = [1, n0, _TARDL,
   0, [() => TrustedAdvisorResourceDetail$,
     0]
 ];
+var UploadIds = 64 | 0;
+var UploadUrlList: StaticListSchema = [1, n0, _UUL,
+  0, () => UploadUrl$
+];
 export var AddAttachmentsToSet$: StaticOperationSchema = [9, n0, _AATS,
   0, () => AddAttachmentsToSetRequest$, () => AddAttachmentsToSetResponse$
 ];
 export var AddCommunicationToCase$: StaticOperationSchema = [9, n0, _ACTC,
   0, () => AddCommunicationToCaseRequest$, () => AddCommunicationToCaseResponse$
 ];
+export var CompleteAttachmentUpload$: StaticOperationSchema = [9, n0, _CAU,
+  0, () => CompleteAttachmentUploadRequest$, () => CompleteAttachmentUploadResponse$
+];
 export var CreateCase$: StaticOperationSchema = [9, n0, _CC,
   0, () => CreateCaseRequest$, () => CreateCaseResponse$
 ];
 export var DescribeAttachment$: StaticOperationSchema = [9, n0, _DA,
   0, () => DescribeAttachmentRequest$, () => DescribeAttachmentResponse$
+];
+export var DescribeAttachmentUploadStatus$: StaticOperationSchema = [9, n0, _DAUS,
+  0, () => DescribeAttachmentUploadStatusRequest$, () => DescribeAttachmentUploadStatusResponse$
 ];
 export var DescribeCases$: StaticOperationSchema = [9, n0, _DC,
   0, () => DescribeCasesRequest$, () => DescribeCasesResponse$
@@ -625,6 +771,12 @@ export var DescribeTrustedAdvisorChecks$: StaticOperationSchema = [9, n0, _DTAC,
 ];
 export var DescribeTrustedAdvisorCheckSummaries$: StaticOperationSchema = [9, n0, _DTACS,
   0, () => DescribeTrustedAdvisorCheckSummariesRequest$, () => DescribeTrustedAdvisorCheckSummariesResponse$
+];
+export var GetAttachmentDownloadLink$: StaticOperationSchema = [9, n0, _GADL,
+  0, () => GetAttachmentDownloadLinkRequest$, () => GetAttachmentDownloadLinkResponse$
+];
+export var GetAttachmentUploadLinks$: StaticOperationSchema = [9, n0, _GAUL,
+  0, () => GetAttachmentUploadLinksRequest$, () => GetAttachmentUploadLinksResponse$
 ];
 export var RefreshTrustedAdvisorCheck$: StaticOperationSchema = [9, n0, _RTAC,
   0, () => RefreshTrustedAdvisorCheckRequest$, () => RefreshTrustedAdvisorCheckResponse$

@@ -36,7 +36,25 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *                <p>Use the Service Quotas <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html">RequestServiceQuotaIncrease</a> operation.</p>
  *             </li>
  *          </ul>
- *          <p>A successful <code>CreateCase</code> request returns an Amazon Web Services Support case number. You can use
+ *          <important>
+ *             <p>Amazon Web Services Support automatically redacts sensitive information from support cases to protect your data. The following information is replaced with <code>[REDACTED_BY_Amazon Web Services]</code> and is not stored:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Amazon Web Services secret keys - The complete key is replaced. Example: <code>[REDACTED_BY_Amazon Web Services]</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>Private keys - The complete key is replaced. Example: <code>[REDACTED_BY_Amazon Web Services]</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>Credit card numbers - The number is redacted, but the last 4 digits remain. Example: <code>[REDACTED_BY_Amazon Web Services]-7016</code>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *             <p>This sensitive information is never required by Amazon Web Services Support.</p>
+ *          </important>
+ *          <p>A successful <code>CreateCase</code> request returns a Amazon Web Services Support case number. You can use
  *             the <a>DescribeCases</a> operation and specify the case number to get
  *             existing Amazon Web Services Support cases. After you create a case, use the <a>AddCommunicationToCase</a> operation to add additional communication or
  *             attachments to an existing case.</p>
@@ -45,12 +63,12 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
- *                         API. </p>
+ *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
+ *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
  *                </li>
  *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
- *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
+ *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
  *                </li>
@@ -76,6 +94,10 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *   language: "STRING_VALUE",
  *   issueType: "STRING_VALUE",
  *   attachmentSetId: "STRING_VALUE",
+ *   uploadIds: [ // UploadIds
+ *     "STRING_VALUE",
+ *   ],
+ *   dryRun: true || false,
  * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
@@ -100,6 +122,10 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *
  * @throws {@link CaseCreationLimitExceeded} (client fault)
  *  <p>The case creation limit for the account has been exceeded.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
+ *          set to <code>true</code>.</p>
  *
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>

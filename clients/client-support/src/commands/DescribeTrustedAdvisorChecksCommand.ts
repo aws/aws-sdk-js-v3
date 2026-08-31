@@ -30,11 +30,11 @@ export interface DescribeTrustedAdvisorChecksCommandOutput extends DescribeTrust
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support API. </p>
+ *                   <p>You must have a Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support API. </p>
  *                </li>
  *                <li>
  *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
- *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code> error
+ *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the <code>SubscriptionRequiredException</code> error
  *                         message appears. For information about changing your support plan, see
  *                             <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
  *                </li>

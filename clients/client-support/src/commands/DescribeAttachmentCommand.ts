@@ -31,17 +31,27 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
- *                         API. </p>
+ *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
+ *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
  *                </li>
  *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
- *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
+ *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
  *                </li>
  *             </ul>
  *          </note>
+ *          <important>
+ *             <p>
+ *                <code>DescribeAttachment</code> can't return attachments larger than 5 MB. If the
+ *                 specified <code>attachmentId</code> refers to an attachment larger than 5 MB, the
+ *                 request fails with <code>InvalidParameterValueException</code>.</p>
+ *             <p>To download an attachment of any size, including attachments larger than 5 MB, use
+ *                     <a>GetAttachmentDownloadLink</a>.
+ *                     <code>GetAttachmentDownloadLink</code> returns an Amazon S3 presigned URL that you can
+ *                 use to download the attachment directly.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +62,7 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * const client = new SupportClient(config);
  * const input = { // DescribeAttachmentRequest
  *   attachmentId: "STRING_VALUE", // required
+ *   dryRun: true || false,
  * };
  * const command = new DescribeAttachmentCommand(input);
  * const response = await client.send(command);
@@ -76,6 +87,10 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * @throws {@link DescribeAttachmentLimitExceeded} (client fault)
  *  <p>The limit for the number of <a>DescribeAttachment</a> requests in a short
  *             period of time has been exceeded.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
+ *          set to <code>true</code>.</p>
  *
  * @throws {@link InternalServerError} (server fault)
  *  <p>An internal server error occurred.</p>

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
+import type { ThrottlingReason } from "./models_0";
 import { SupportServiceException as __BaseException } from "./SupportServiceException";
 
 /**
@@ -87,6 +88,27 @@ export class AttachmentSetSizeLimitExceeded extends __BaseException {
 }
 
 /**
+ * <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
+ *          set to <code>true</code>.</p>
+ * @public
+ */
+export class DryRunOperationException extends __BaseException {
+  readonly name = "DryRunOperationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DryRunOperationException, __BaseException>) {
+    super({
+      name: "DryRunOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DryRunOperationException.prototype);
+  }
+}
+
+/**
  * <p>An internal server error occurred.</p>
  * @public
  */
@@ -147,6 +169,26 @@ export class AttachmentIdNotFound extends __BaseException {
 }
 
 /**
+ * <p>The specified <code>uploadId</code> couldn't be located.</p>
+ * @public
+ */
+export class UploadIdNotFound extends __BaseException {
+  readonly name = "UploadIdNotFound" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UploadIdNotFound, __BaseException>) {
+    super({
+      name: "UploadIdNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UploadIdNotFound.prototype);
+  }
+}
+
+/**
  * <p>The case creation limit for the account has been exceeded.</p>
  * @public
  */
@@ -197,6 +239,12 @@ export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
+   * <p>A list of one or more reasons that the request was throttled.</p>
+   * @public
+   */
+  throttlingReasons?: ThrottlingReason[] | undefined;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
@@ -206,5 +254,6 @@ export class ThrottlingException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.throttlingReasons = opts.throttlingReasons;
   }
 }

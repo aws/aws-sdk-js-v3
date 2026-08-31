@@ -27,6 +27,11 @@ import {
   Category$,
   Communication$,
   CommunicationTypeOptions$,
+  CompleteAttachmentUpload$,
+  CompleteAttachmentUploadCommand,
+  CompleteAttachmentUploadRequest$,
+  CompleteAttachmentUploadResponse$,
+  CompletedUpload$,
   CreateCase$,
   CreateCaseCommand,
   CreateCaseRequest$,
@@ -38,6 +43,10 @@ import {
   DescribeAttachmentLimitExceeded$,
   DescribeAttachmentRequest$,
   DescribeAttachmentResponse$,
+  DescribeAttachmentUploadStatus$,
+  DescribeAttachmentUploadStatusCommand,
+  DescribeAttachmentUploadStatusRequest$,
+  DescribeAttachmentUploadStatusResponse$,
   DescribeCases$,
   DescribeCasesCommand,
   DescribeCasesRequest$,
@@ -78,6 +87,17 @@ import {
   DescribeTrustedAdvisorCheckSummariesCommand,
   DescribeTrustedAdvisorCheckSummariesRequest$,
   DescribeTrustedAdvisorCheckSummariesResponse$,
+  DownloadUrl$,
+  DryRunOperationException,
+  DryRunOperationException$,
+  GetAttachmentDownloadLink$,
+  GetAttachmentDownloadLinkCommand,
+  GetAttachmentDownloadLinkRequest$,
+  GetAttachmentDownloadLinkResponse$,
+  GetAttachmentUploadLinks$,
+  GetAttachmentUploadLinksCommand,
+  GetAttachmentUploadLinksRequest$,
+  GetAttachmentUploadLinksResponse$,
   InternalServerError,
   InternalServerError$,
   paginateDescribeCases,
@@ -100,6 +120,7 @@ import {
   SupportServiceException,
   ThrottlingException,
   ThrottlingException$,
+  ThrottlingReason$,
   TrustedAdvisorCategorySpecificSummary$,
   TrustedAdvisorCheckDescription$,
   TrustedAdvisorCheckRefreshStatus$,
@@ -108,6 +129,12 @@ import {
   TrustedAdvisorCostOptimizingSummary$,
   TrustedAdvisorResourceDetail$,
   TrustedAdvisorResourcesSummary$,
+  UploadIdNotFound,
+  UploadIdNotFound$,
+  UploadProgress$,
+  UploadRange$,
+  UploadStatus,
+  UploadUrl$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -118,10 +145,14 @@ assert(typeof AddAttachmentsToSetCommand === "function");
 assert(typeof AddAttachmentsToSet$ === "object");
 assert(typeof AddCommunicationToCaseCommand === "function");
 assert(typeof AddCommunicationToCase$ === "object");
+assert(typeof CompleteAttachmentUploadCommand === "function");
+assert(typeof CompleteAttachmentUpload$ === "object");
 assert(typeof CreateCaseCommand === "function");
 assert(typeof CreateCase$ === "object");
 assert(typeof DescribeAttachmentCommand === "function");
 assert(typeof DescribeAttachment$ === "object");
+assert(typeof DescribeAttachmentUploadStatusCommand === "function");
+assert(typeof DescribeAttachmentUploadStatus$ === "object");
 assert(typeof DescribeCasesCommand === "function");
 assert(typeof DescribeCases$ === "object");
 assert(typeof DescribeCommunicationsCommand === "function");
@@ -142,6 +173,10 @@ assert(typeof DescribeTrustedAdvisorChecksCommand === "function");
 assert(typeof DescribeTrustedAdvisorChecks$ === "object");
 assert(typeof DescribeTrustedAdvisorCheckSummariesCommand === "function");
 assert(typeof DescribeTrustedAdvisorCheckSummaries$ === "object");
+assert(typeof GetAttachmentDownloadLinkCommand === "function");
+assert(typeof GetAttachmentDownloadLink$ === "object");
+assert(typeof GetAttachmentUploadLinksCommand === "function");
+assert(typeof GetAttachmentUploadLinks$ === "object");
 assert(typeof RefreshTrustedAdvisorCheckCommand === "function");
 assert(typeof RefreshTrustedAdvisorCheck$ === "object");
 assert(typeof ResolveCaseCommand === "function");
@@ -157,11 +192,16 @@ assert(typeof CaseDetails$ === "object");
 assert(typeof Category$ === "object");
 assert(typeof Communication$ === "object");
 assert(typeof CommunicationTypeOptions$ === "object");
+assert(typeof CompleteAttachmentUploadRequest$ === "object");
+assert(typeof CompleteAttachmentUploadResponse$ === "object");
+assert(typeof CompletedUpload$ === "object");
 assert(typeof CreateCaseRequest$ === "object");
 assert(typeof CreateCaseResponse$ === "object");
 assert(typeof DateInterval$ === "object");
 assert(typeof DescribeAttachmentRequest$ === "object");
 assert(typeof DescribeAttachmentResponse$ === "object");
+assert(typeof DescribeAttachmentUploadStatusRequest$ === "object");
+assert(typeof DescribeAttachmentUploadStatusResponse$ === "object");
 assert(typeof DescribeCasesRequest$ === "object");
 assert(typeof DescribeCasesResponse$ === "object");
 assert(typeof DescribeCommunicationsRequest$ === "object");
@@ -182,6 +222,11 @@ assert(typeof DescribeTrustedAdvisorChecksRequest$ === "object");
 assert(typeof DescribeTrustedAdvisorChecksResponse$ === "object");
 assert(typeof DescribeTrustedAdvisorCheckSummariesRequest$ === "object");
 assert(typeof DescribeTrustedAdvisorCheckSummariesResponse$ === "object");
+assert(typeof DownloadUrl$ === "object");
+assert(typeof GetAttachmentDownloadLinkRequest$ === "object");
+assert(typeof GetAttachmentDownloadLinkResponse$ === "object");
+assert(typeof GetAttachmentUploadLinksRequest$ === "object");
+assert(typeof GetAttachmentUploadLinksResponse$ === "object");
 assert(typeof RecentCaseCommunications$ === "object");
 assert(typeof RefreshTrustedAdvisorCheckRequest$ === "object");
 assert(typeof RefreshTrustedAdvisorCheckResponse$ === "object");
@@ -191,6 +236,7 @@ assert(typeof Service$ === "object");
 assert(typeof SeverityLevel$ === "object");
 assert(typeof SupportedHour$ === "object");
 assert(typeof SupportedLanguage$ === "object");
+assert(typeof ThrottlingReason$ === "object");
 assert(typeof TrustedAdvisorCategorySpecificSummary$ === "object");
 assert(typeof TrustedAdvisorCheckDescription$ === "object");
 assert(typeof TrustedAdvisorCheckRefreshStatus$ === "object");
@@ -199,6 +245,11 @@ assert(typeof TrustedAdvisorCheckSummary$ === "object");
 assert(typeof TrustedAdvisorCostOptimizingSummary$ === "object");
 assert(typeof TrustedAdvisorResourceDetail$ === "object");
 assert(typeof TrustedAdvisorResourcesSummary$ === "object");
+assert(typeof UploadProgress$ === "object");
+assert(typeof UploadRange$ === "object");
+assert(typeof UploadUrl$ === "object");
+// enums
+assert(typeof UploadStatus === "object");
 // errors
 assert(AttachmentIdNotFound.prototype instanceof SupportServiceException);
 assert(typeof AttachmentIdNotFound$ === "object");
@@ -216,10 +267,14 @@ assert(CaseIdNotFound.prototype instanceof SupportServiceException);
 assert(typeof CaseIdNotFound$ === "object");
 assert(DescribeAttachmentLimitExceeded.prototype instanceof SupportServiceException);
 assert(typeof DescribeAttachmentLimitExceeded$ === "object");
+assert(DryRunOperationException.prototype instanceof SupportServiceException);
+assert(typeof DryRunOperationException$ === "object");
 assert(InternalServerError.prototype instanceof SupportServiceException);
 assert(typeof InternalServerError$ === "object");
 assert(ThrottlingException.prototype instanceof SupportServiceException);
 assert(typeof ThrottlingException$ === "object");
+assert(UploadIdNotFound.prototype instanceof SupportServiceException);
+assert(typeof UploadIdNotFound$ === "object");
 assert(SupportServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeCases === "function");

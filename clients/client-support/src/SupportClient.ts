@@ -62,11 +62,19 @@ import type {
   AddCommunicationToCaseCommandInput,
   AddCommunicationToCaseCommandOutput,
 } from "./commands/AddCommunicationToCaseCommand";
+import type {
+  CompleteAttachmentUploadCommandInput,
+  CompleteAttachmentUploadCommandOutput,
+} from "./commands/CompleteAttachmentUploadCommand";
 import type { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
 import type {
   DescribeAttachmentCommandInput,
   DescribeAttachmentCommandOutput,
 } from "./commands/DescribeAttachmentCommand";
+import type {
+  DescribeAttachmentUploadStatusCommandInput,
+  DescribeAttachmentUploadStatusCommandOutput,
+} from "./commands/DescribeAttachmentUploadStatusCommand";
 import type { DescribeCasesCommandInput, DescribeCasesCommandOutput } from "./commands/DescribeCasesCommand";
 import type {
   DescribeCommunicationsCommandInput,
@@ -102,6 +110,14 @@ import type {
   DescribeTrustedAdvisorCheckSummariesCommandOutput,
 } from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
 import type {
+  GetAttachmentDownloadLinkCommandInput,
+  GetAttachmentDownloadLinkCommandOutput,
+} from "./commands/GetAttachmentDownloadLinkCommand";
+import type {
+  GetAttachmentUploadLinksCommandInput,
+  GetAttachmentUploadLinksCommandOutput,
+} from "./commands/GetAttachmentUploadLinksCommand";
+import type {
   RefreshTrustedAdvisorCheckCommandInput,
   RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
@@ -123,8 +139,10 @@ export { __Client };
 export type ServiceInputTypes =
   | AddAttachmentsToSetCommandInput
   | AddCommunicationToCaseCommandInput
+  | CompleteAttachmentUploadCommandInput
   | CreateCaseCommandInput
   | DescribeAttachmentCommandInput
+  | DescribeAttachmentUploadStatusCommandInput
   | DescribeCasesCommandInput
   | DescribeCommunicationsCommandInput
   | DescribeCreateCaseOptionsCommandInput
@@ -135,6 +153,8 @@ export type ServiceInputTypes =
   | DescribeTrustedAdvisorCheckResultCommandInput
   | DescribeTrustedAdvisorCheckSummariesCommandInput
   | DescribeTrustedAdvisorChecksCommandInput
+  | GetAttachmentDownloadLinkCommandInput
+  | GetAttachmentUploadLinksCommandInput
   | RefreshTrustedAdvisorCheckCommandInput
   | ResolveCaseCommandInput;
 
@@ -144,8 +164,10 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AddAttachmentsToSetCommandOutput
   | AddCommunicationToCaseCommandOutput
+  | CompleteAttachmentUploadCommandOutput
   | CreateCaseCommandOutput
   | DescribeAttachmentCommandOutput
+  | DescribeAttachmentUploadStatusCommandOutput
   | DescribeCasesCommandOutput
   | DescribeCommunicationsCommandOutput
   | DescribeCreateCaseOptionsCommandOutput
@@ -156,6 +178,8 @@ export type ServiceOutputTypes =
   | DescribeTrustedAdvisorCheckResultCommandOutput
   | DescribeTrustedAdvisorCheckSummariesCommandOutput
   | DescribeTrustedAdvisorChecksCommandOutput
+  | GetAttachmentDownloadLinkCommandOutput
+  | GetAttachmentUploadLinksCommandOutput
   | RefreshTrustedAdvisorCheckCommandOutput
   | ResolveCaseCommandOutput;
 
@@ -358,12 +382,12 @@ export interface SupportClientResolvedConfig extends SupportClientResolvedConfig
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
- *                         API. </p>
+ *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
+ *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
  *                </li>
  *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
- *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
+ *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
  *                </li>

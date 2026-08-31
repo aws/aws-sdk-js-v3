@@ -13,6 +13,11 @@ import {
   AddCommunicationToCaseCommand,
 } from "./commands/AddCommunicationToCaseCommand";
 import {
+  type CompleteAttachmentUploadCommandInput,
+  type CompleteAttachmentUploadCommandOutput,
+  CompleteAttachmentUploadCommand,
+} from "./commands/CompleteAttachmentUploadCommand";
+import {
   type CreateCaseCommandInput,
   type CreateCaseCommandOutput,
   CreateCaseCommand,
@@ -22,6 +27,11 @@ import {
   type DescribeAttachmentCommandOutput,
   DescribeAttachmentCommand,
 } from "./commands/DescribeAttachmentCommand";
+import {
+  type DescribeAttachmentUploadStatusCommandInput,
+  type DescribeAttachmentUploadStatusCommandOutput,
+  DescribeAttachmentUploadStatusCommand,
+} from "./commands/DescribeAttachmentUploadStatusCommand";
 import {
   type DescribeCasesCommandInput,
   type DescribeCasesCommandOutput,
@@ -73,6 +83,16 @@ import {
   DescribeTrustedAdvisorCheckSummariesCommand,
 } from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
 import {
+  type GetAttachmentDownloadLinkCommandInput,
+  type GetAttachmentDownloadLinkCommandOutput,
+  GetAttachmentDownloadLinkCommand,
+} from "./commands/GetAttachmentDownloadLinkCommand";
+import {
+  type GetAttachmentUploadLinksCommandInput,
+  type GetAttachmentUploadLinksCommandOutput,
+  GetAttachmentUploadLinksCommand,
+} from "./commands/GetAttachmentUploadLinksCommand";
+import {
   type RefreshTrustedAdvisorCheckCommandInput,
   type RefreshTrustedAdvisorCheckCommandOutput,
   RefreshTrustedAdvisorCheckCommand,
@@ -89,8 +109,10 @@ import { SupportClient } from "./SupportClient";
 const commands = {
   AddAttachmentsToSetCommand,
   AddCommunicationToCaseCommand,
+  CompleteAttachmentUploadCommand,
   CreateCaseCommand,
   DescribeAttachmentCommand,
+  DescribeAttachmentUploadStatusCommand,
   DescribeCasesCommand,
   DescribeCommunicationsCommand,
   DescribeCreateCaseOptionsCommand,
@@ -101,6 +123,8 @@ const commands = {
   DescribeTrustedAdvisorCheckResultCommand,
   DescribeTrustedAdvisorChecksCommand,
   DescribeTrustedAdvisorCheckSummariesCommand,
+  GetAttachmentDownloadLinkCommand,
+  GetAttachmentUploadLinksCommand,
   RefreshTrustedAdvisorCheckCommand,
   ResolveCaseCommand,
 };
@@ -145,6 +169,23 @@ export interface Support {
   ): void;
 
   /**
+   * @see {@link CompleteAttachmentUploadCommand}
+   */
+  completeAttachmentUpload(
+    args: CompleteAttachmentUploadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CompleteAttachmentUploadCommandOutput>;
+  completeAttachmentUpload(
+    args: CompleteAttachmentUploadCommandInput,
+    cb: (err: any, data?: CompleteAttachmentUploadCommandOutput) => void
+  ): void;
+  completeAttachmentUpload(
+    args: CompleteAttachmentUploadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CompleteAttachmentUploadCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateCaseCommand}
    */
   createCase(
@@ -176,6 +217,23 @@ export interface Support {
     args: DescribeAttachmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAttachmentUploadStatusCommand}
+   */
+  describeAttachmentUploadStatus(
+    args: DescribeAttachmentUploadStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAttachmentUploadStatusCommandOutput>;
+  describeAttachmentUploadStatus(
+    args: DescribeAttachmentUploadStatusCommandInput,
+    cb: (err: any, data?: DescribeAttachmentUploadStatusCommandOutput) => void
+  ): void;
+  describeAttachmentUploadStatus(
+    args: DescribeAttachmentUploadStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAttachmentUploadStatusCommandOutput) => void
   ): void;
 
   /**
@@ -352,6 +410,40 @@ export interface Support {
   ): void;
 
   /**
+   * @see {@link GetAttachmentDownloadLinkCommand}
+   */
+  getAttachmentDownloadLink(
+    args: GetAttachmentDownloadLinkCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAttachmentDownloadLinkCommandOutput>;
+  getAttachmentDownloadLink(
+    args: GetAttachmentDownloadLinkCommandInput,
+    cb: (err: any, data?: GetAttachmentDownloadLinkCommandOutput) => void
+  ): void;
+  getAttachmentDownloadLink(
+    args: GetAttachmentDownloadLinkCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAttachmentDownloadLinkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAttachmentUploadLinksCommand}
+   */
+  getAttachmentUploadLinks(
+    args: GetAttachmentUploadLinksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAttachmentUploadLinksCommandOutput>;
+  getAttachmentUploadLinks(
+    args: GetAttachmentUploadLinksCommandInput,
+    cb: (err: any, data?: GetAttachmentUploadLinksCommandOutput) => void
+  ): void;
+  getAttachmentUploadLinks(
+    args: GetAttachmentUploadLinksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAttachmentUploadLinksCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RefreshTrustedAdvisorCheckCommand}
    */
   refreshTrustedAdvisorCheck(
@@ -418,12 +510,12 @@ export interface Support {
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the Amazon Web Services Support
- *                         API. </p>
+ *                   <p>You must have an Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan to use the Amazon Web Services Support
+ *                         API. If you're in an Amazon Web Services Region that doesn't offer one of these Amazon Web Services Support plans, or if you haven't transitioned to one of these plans, you can use the Amazon Web Services Support API with a Business, Enterprise On-Ramp, or Enterprise Support plan.</p>
  *                </li>
  *                <li>
- *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have a
- *                         Business, Enterprise On-Ramp, or Enterprise Support plan, the
+ *                   <p>If you call the Amazon Web Services Support API from an account that doesn't have an
+ *                         Amazon Web Services Business Support+, Amazon Web Services Enterprise Support, or Amazon Web Services Unified Operations plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a>.</p>
  *                </li>

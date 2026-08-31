@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ResolveCaseRequest, ResolveCaseResponse } from "../models/models_0";
-import { ResolveCase$ } from "../schemas/schemas_0";
+import type { GetAttachmentDownloadLinkRequest, GetAttachmentDownloadLinkResponse } from "../models/models_0";
+import { GetAttachmentDownloadLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,19 +12,22 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link ResolveCaseCommand}.
+ * The input for {@link GetAttachmentDownloadLinkCommand}.
  */
-export interface ResolveCaseCommandInput extends ResolveCaseRequest {}
+export interface GetAttachmentDownloadLinkCommandInput extends GetAttachmentDownloadLinkRequest {}
 /**
  * @public
  *
- * The output of {@link ResolveCaseCommand}.
+ * The output of {@link GetAttachmentDownloadLinkCommand}.
  */
-export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __MetadataBearer {}
+export interface GetAttachmentDownloadLinkCommandOutput extends GetAttachmentDownloadLinkResponse, __MetadataBearer {}
 
 /**
- * <p>Resolves a support case. This operation takes a <code>caseId</code> and returns the
- *             initial and final state of the case.</p>
+ * <p>Returns a presigned download URL for an attachment that is associated with a case
+ *          communication. The download link works for an attachment of any size, including attachments
+ *          added through <code>AddAttachmentsToSet</code> and attachments uploaded through <a>GetAttachmentUploadLinks</a>. The download URL is time-limited and expires at the
+ *          date and time indicated in the <code>downloadUrl</code> response field. Download the
+ *          attachment from the URL before it expires.</p>
  *          <note>
  *             <ul>
  *                <li>
@@ -42,32 +45,35 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SupportClient, ResolveCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
- * // const { SupportClient, ResolveCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * import { SupportClient, GetAttachmentDownloadLinkCommand } from "@aws-sdk/client-support"; // ES Modules import
+ * // const { SupportClient, GetAttachmentDownloadLinkCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * // import type { SupportClientConfig } from "@aws-sdk/client-support";
  * const config = {}; // type is SupportClientConfig
  * const client = new SupportClient(config);
- * const input = { // ResolveCaseRequest
- *   caseId: "STRING_VALUE",
+ * const input = { // GetAttachmentDownloadLinkRequest
+ *   attachmentId: "STRING_VALUE", // required
  *   dryRun: true || false,
  * };
- * const command = new ResolveCaseCommand(input);
+ * const command = new GetAttachmentDownloadLinkCommand(input);
  * const response = await client.send(command);
- * // { // ResolveCaseResponse
- * //   initialCaseStatus: "STRING_VALUE",
- * //   finalCaseStatus: "STRING_VALUE",
+ * // { // GetAttachmentDownloadLinkResponse
+ * //   fileName: "STRING_VALUE", // required
+ * //   downloadUrl: { // DownloadUrl
+ * //     url: "STRING_VALUE", // required
+ * //     expiryDate: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```
  *
- * @param ResolveCaseCommandInput - {@link ResolveCaseCommandInput}
- * @returns {@link ResolveCaseCommandOutput}
- * @see {@link ResolveCaseCommandInput} for command's `input` shape.
- * @see {@link ResolveCaseCommandOutput} for command's `response` shape.
+ * @param GetAttachmentDownloadLinkCommandInput - {@link GetAttachmentDownloadLinkCommandInput}
+ * @returns {@link GetAttachmentDownloadLinkCommandOutput}
+ * @see {@link GetAttachmentDownloadLinkCommandInput} for command's `input` shape.
+ * @see {@link GetAttachmentDownloadLinkCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
- * @throws {@link CaseIdNotFound} (client fault)
- *  <p>The requested <code>caseId</code> couldn't be located.</p>
+ * @throws {@link AttachmentIdNotFound} (client fault)
+ *  <p>An attachment with the specified ID could not be found.</p>
  *
  * @throws {@link DryRunOperationException} (client fault)
  *  <p>The request was valid, but the operation wasn't performed because <code>dryRun</code> was
@@ -82,21 +88,21 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  *
  * @public
  */
-export class ResolveCaseCommand extends command<ResolveCaseCommandInput, ResolveCaseCommandOutput>(
+export class GetAttachmentDownloadLinkCommand extends command<GetAttachmentDownloadLinkCommandInput, GetAttachmentDownloadLinkCommandOutput>(
   _ep0,
   _mw0,
-  "ResolveCase",
-  ResolveCase$
+  "GetAttachmentDownloadLink",
+  GetAttachmentDownloadLink$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ResolveCaseRequest;
-      output: ResolveCaseResponse;
+      input: GetAttachmentDownloadLinkRequest;
+      output: GetAttachmentDownloadLinkResponse;
     };
     sdk: {
-      input: ResolveCaseCommandInput;
-      output: ResolveCaseCommandOutput;
+      input: GetAttachmentDownloadLinkCommandInput;
+      output: GetAttachmentDownloadLinkCommandOutput;
     };
   };
 }
