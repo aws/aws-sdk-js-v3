@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1122.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1121.0...v3.1122.0) (2026-08-31)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Batch Transform now supports G6e instances, powered by NVIDIA L40S Tensor Core GPUs. G6e instances are the most cost-efficient GPU instances for deploying generative AI models and the highest-performance GPU instances for spatial computing workloads. ([b063cf7](https://github.com/aws/aws-sdk-js-v3/commit/b063cf77a91073f3b32a33a1386f20978b646059))
+
+
+
+
+
 # [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

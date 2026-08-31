@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1122.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1121.0...v3.1122.0) (2026-08-31)
+
+
+### Features
+
+* **client-customer-profiles:** This release introduces new APIs for segment membership events allowing segment definition membership events to be exported to a kinesis stream for downstream processing. Additionally, includes new calculated attribute statistic and 2 new segment dimension types. ([be1a9da](https://github.com/aws/aws-sdk-js-v3/commit/be1a9dab4280a118cd0e47c7aaacee919e01c02b))
+
+
+
+
+
 # [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

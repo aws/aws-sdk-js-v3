@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1122.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1121.0...v3.1122.0) (2026-08-31)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** AWS End User Messaging SMS now returns ConditionalBehavior on DescribeRegistrationFieldDefinitions, allowing you to programmatically discover which registration fields are required, optional, or disallowed based on the values of other fields in the same form. ([9cbace1](https://github.com/aws/aws-sdk-js-v3/commit/9cbace13989c31d55c45812ee801a29cf90f00ed))
+
+
+
+
+
 # [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2

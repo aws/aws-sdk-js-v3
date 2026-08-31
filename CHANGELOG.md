@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1122.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1121.0...v3.1122.0) (2026-08-31)
+
+
+### Features
+
+* **client-agent-registry-control:** AWS Agent Registry becomes Generally Available ([e41244e](https://github.com/aws/aws-sdk-js-v3/commit/e41244e9301730ac7632a4e5f67bb2933156769c))
+* **client-agent-registry:** AWS Agent Registry becomes Generally Available ([e60306f](https://github.com/aws/aws-sdk-js-v3/commit/e60306f198e7ad374089161aa448602dab590287))
+* **client-connect:** Added support for global routing on Amazon Connect Global Resiliency instances. New APIs GetCrossRegionRouting and UpdateCrossRegionRouting allow you to view and control cross-region contact routing between linked instances, so both Regions are active at all times. ([ce41026](https://github.com/aws/aws-sdk-js-v3/commit/ce41026342e42c9454be6c68ef24fe721f8149f2))
+* **client-customer-profiles:** This release introduces new APIs for segment membership events allowing segment definition membership events to be exported to a kinesis stream for downstream processing. Additionally, includes new calculated attribute statistic and 2 new segment dimension types. ([be1a9da](https://github.com/aws/aws-sdk-js-v3/commit/be1a9dab4280a118cd0e47c7aaacee919e01c02b))
+* **client-devops-agent:** Adds support for Slack bidirectional communication configuration in AWS DevOps Agent agent spaces. ([75bc6d6](https://github.com/aws/aws-sdk-js-v3/commit/75bc6d6da3f88c398be5a737ad01d8d631773fcf))
+* **client-kafkaconnect:** Amazon MSK Connect now supports restarting newly created connectors via the asynchronous RestartConnector API. Restart all tasks or only failed tasks, while preserving configuration and committed offsets. This returns a connector operation ARN that you can track with DescribeConnectorOperation. ([8771afa](https://github.com/aws/aws-sdk-js-v3/commit/8771afafd4c1723c29c1745ff8683145a837bda2))
+* **client-kinesis:** Adds support for data delivery to Amazon S3 Tables (Apache Iceberg) and general purpose Amazon S3 buckets with new CreateChannel, UpdateChannel, DeleteChannel, DescribeChannel, and ListChannels APIs for Amazon Kinesis Data Streams. ([64ebb05](https://github.com/aws/aws-sdk-js-v3/commit/64ebb058e0b7ae64bd240c7ae325099fc64ab43a))
+* **client-pinpoint-sms-voice-v2:** AWS End User Messaging SMS now returns ConditionalBehavior on DescribeRegistrationFieldDefinitions, allowing you to programmatically discover which registration fields are required, optional, or disallowed based on the values of other fields in the same form. ([9cbace1](https://github.com/aws/aws-sdk-js-v3/commit/9cbace13989c31d55c45812ee801a29cf90f00ed))
+* **client-quicksight:** This release adds support for managing apps in Amazon QuickSight with ListApps, SearchApps, DescribeApp, DescribeAppPermissions, UpdateAppPermissions, and DeleteApp ([98a4957](https://github.com/aws/aws-sdk-js-v3/commit/98a49570d50f800f74fce9014ec4ab0985fc0775))
+* **client-sagemaker:** Amazon SageMaker Batch Transform now supports G6e instances, powered by NVIDIA L40S Tensor Core GPUs. G6e instances are the most cost-efficient GPU instances for deploying generative AI models and the highest-performance GPU instances for spatial computing workloads. ([b063cf7](https://github.com/aws/aws-sdk-js-v3/commit/b063cf77a91073f3b32a33a1386f20978b646059))
+* **client-support:** AWS Support now allows up to 10 attachments (150 MB each) per case correspondence, up from 3 at 5 MB. Customers can share large diagnostic logs, heap dumps, and packet captures directly in cases to reduce back-and-forth and speed up resolution. Available in US East, US West, and Europe (Ireland). ([4ddd79c](https://github.com/aws/aws-sdk-js-v3/commit/4ddd79c10633ffa37d957d96313bdffddcba4867))
+* **client-workspaces-instances:** Amazon WorkSpaces Core managed instances now support nested virtualization. Customers can enable nested virtualization with supported instance types at launch via CpuOptions.NestedVirtualization in CreateWorkspaceInstance to run hypervisors and virtual machines inside their WorkSpaces Instance. ([29587d1](https://github.com/aws/aws-sdk-js-v3/commit/29587d1236c8805f7f72305e06a011bfc48ae55c))
+
+
+
+
+
 # [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
 
 
