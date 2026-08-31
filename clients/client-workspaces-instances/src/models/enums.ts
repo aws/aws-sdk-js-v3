@@ -119,6 +119,19 @@ export type CpuCreditsEnum = (typeof CpuCreditsEnum)[keyof typeof CpuCreditsEnum
  * @public
  * @enum
  */
+export const NestedVirtualizationEnum = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+/**
+ * @public
+ */
+export type NestedVirtualizationEnum = (typeof NestedVirtualizationEnum)[keyof typeof NestedVirtualizationEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceTypeEnum = {
   INSTANCE: "instance",
   NETWORK_INTERFACE: "network-interface",

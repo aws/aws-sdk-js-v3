@@ -67,6 +67,7 @@ export interface CreateWorkspaceInstanceCommandOutput extends CreateWorkspaceIns
  *       AmdSevSnp: "enabled" || "disabled",
  *       CoreCount: Number("int"),
  *       ThreadsPerCore: Number("int"),
+ *       NestedVirtualization: "enabled" || "disabled",
  *     },
  *     CreditSpecification: { // CreditSpecificationRequest
  *       CpuCredits: "standard" || "unlimited",

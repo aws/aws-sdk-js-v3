@@ -57,6 +57,7 @@ export type {
   InstanceMetadataTagsEnum,
   InterfaceTypeEnum,
   MarketTypeEnum,
+  NestedVirtualizationEnum,
   PlatformTypeEnum,
   ProvisionStateEnum,
   ResourceTypeEnum,

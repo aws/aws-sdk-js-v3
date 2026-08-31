@@ -16,6 +16,7 @@ import type {
   InstanceMetadataTagsEnum,
   InterfaceTypeEnum,
   MarketTypeEnum,
+  NestedVirtualizationEnum,
   PlatformTypeEnum,
   ProvisionStateEnum,
   ResourceTypeEnum,
@@ -244,6 +245,12 @@ export interface CpuOptionsRequest {
    * @public
    */
   ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>Specifies whether to enable or disable nested virtualization.</p>
+   * @public
+   */
+  NestedVirtualization?: NestedVirtualizationEnum | undefined;
 }
 
 /**

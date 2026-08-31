@@ -92,6 +92,7 @@ import {
   ListWorkspaceInstancesResponse$,
   ManagedInstanceRequest$,
   MarketTypeEnum,
+  NestedVirtualizationEnum,
   paginateListInstanceTypes,
   paginateListRegions,
   paginateListWorkspaceInstances,
@@ -248,6 +249,7 @@ assert(typeof InstanceInterruptionBehaviorEnum === "object");
 assert(typeof InstanceMetadataTagsEnum === "object");
 assert(typeof InterfaceTypeEnum === "object");
 assert(typeof MarketTypeEnum === "object");
+assert(typeof NestedVirtualizationEnum === "object");
 assert(typeof PlatformTypeEnum === "object");
 assert(typeof ProvisionStateEnum === "object");
 assert(typeof ResourceTypeEnum === "object");

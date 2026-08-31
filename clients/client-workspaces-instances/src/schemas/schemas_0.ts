@@ -160,6 +160,7 @@ const _NI = "NetworkInterfaces";
 const _NII = "NetworkInterfaceId";
 const _NPO = "NetworkPerformanceOptions";
 const _NT = "NextToken";
+const _NV = "NestedVirtualization";
 const _P = "Placement";
 const _PDNO = "PrivateDnsNameOptions";
 const _PDNOR = "PrivateDnsNameOptionsRequest";
@@ -360,8 +361,8 @@ export var ConnectionTrackingSpecificationRequest$: StaticStructureSchema = [3, 
 ];
 export var CpuOptionsRequest$: StaticStructureSchema = [3, n0, _COR,
   0,
-  [_ASS, _CC, _TPC],
-  [0, 1, 1]
+  [_ASS, _CC, _TPC, _NV],
+  [0, 1, 1, 0]
 ];
 export var CreateVolumeRequest$: StaticStructureSchema = [3, n0, _CVR,
   0,
