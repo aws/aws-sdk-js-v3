@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-swf",
-  "version": "3.1122.0",
+  "version": "3.1123.0",
   "description": "AWS SDK for JavaScript Swf Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-swf",
   "license": "Apache-2.0",
@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.977.9",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.81",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.82",
     "@aws-sdk/types": "workspace:^3.974.5",
     "@smithy/core": "^3.33.3",
     "@smithy/fetch-http-handler": "^5.7.2",

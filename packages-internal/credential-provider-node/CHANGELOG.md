@@ -84,6 +84,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.82 (2026-08-31)
+### Bug Fixes
+* **credential-provider-node:** handle passive credential refresh rejection ([#8281](https://github.com/aws/aws-sdk-js-v3/issues/8281)) ([f36843d](https://github.com/aws/aws-sdk-js-v3/commit/f36843d44080477ce9b677df75d33240d909c653))
+
+
+
 # 3.972.81 (2026-08-20)
 ### Chores
 * **codegen:** update to sync with the latest smithy-ts ([#8272](https://github.com/aws/aws-sdk-js-v3/issues/8272)) ([8369ada](https://github.com/aws/aws-sdk-js-v3/commit/8369ada75d60056e24e1ee8bca20f16ce2faea93))
