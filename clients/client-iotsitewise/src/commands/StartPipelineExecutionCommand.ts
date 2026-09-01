@@ -50,6 +50,23 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *       },
  *     },
  *   },
+ *   executionMountOverrides: { // MountOverrides
+ *     computeNodes: { // ComputeNodeMountsMap // required
+ *       "<keys>": [ // MountList
+ *         { // Mount
+ *           name: "STRING_VALUE", // required
+ *           relativePath: "STRING_VALUE", // required
+ *           source: { // MountSource Union: only one key present
+ *             s3AccessPoint: { // S3AccessPointSource
+ *               accessPointArn: "STRING_VALUE", // required
+ *               prefix: "STRING_VALUE",
+ *             },
+ *           },
+ *           storageType: "SHARED_STORAGE", // required
+ *         },
+ *       ],
+ *     },
+ *   },
  *   executionPriority: Number("int"),
  *   clientToken: "STRING_VALUE",
  * };

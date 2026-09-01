@@ -74,6 +74,23 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * //       },
  * //     },
  * //   },
+ * //   requestMountOverrides: { // MountOverrides
+ * //     computeNodes: { // ComputeNodeMountsMap // required
+ * //       "<keys>": [ // MountList
+ * //         { // Mount
+ * //           name: "STRING_VALUE", // required
+ * //           relativePath: "STRING_VALUE", // required
+ * //           source: { // MountSource Union: only one key present
+ * //             s3AccessPoint: { // S3AccessPointSource
+ * //               accessPointArn: "STRING_VALUE", // required
+ * //               prefix: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           storageType: "SHARED_STORAGE", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * //   executionPriority: Number("int"),
  * //   computeNodeExecutionDetails: [ // ComputeNodeExecutionDetailsList // required
  * //     { // ComputeNodeExecutionDetails
@@ -102,6 +119,19 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  * //       executionEnvironmentVariables: { // ExecutionEnvironmentVariablesMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       executionMounts: [
+ * //         {
+ * //           name: "STRING_VALUE", // required
+ * //           relativePath: "STRING_VALUE", // required
+ * //           source: {//  Union: only one key present
+ * //             s3AccessPoint: {
+ * //               accessPointArn: "STRING_VALUE", // required
+ * //               prefix: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           storageType: "SHARED_STORAGE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

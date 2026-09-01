@@ -203,6 +203,7 @@ const _CNES = "ComputeNodeExecutionStatus";
 const _CNESD = "ComputeNodeExecutionStateDetails";
 const _CNEVM = "ComputeNodeEnvironmentVariablesMap";
 const _CNL = "ComputeNodeList";
+const _CNMM = "ComputeNodeMountsMap";
 const _COE = "ConflictingOperationException";
 const _CP = "CreatePipeline";
 const _CPE = "CancelPipelineExecution";
@@ -425,6 +426,7 @@ const _EQR = "ExecuteQueryRequest";
 const _EQRx = "ExecuteQueryResponse";
 const _ERL = "ErrorReportLocation";
 const _ES = "ExecutionStatus";
+const _ESC = "EphemeralStorageConfiguration";
 const _ESx = "ExecutionSummary";
 const _ESxe = "ExecutionSummaries";
 const _ET = "ETag";
@@ -616,11 +618,15 @@ const _MDB = "MatchedDataBinding";
 const _MED = "MonitorErrorDetails";
 const _MFVT = "Match-For-Version-Type";
 const _MI = "MessageInput";
+const _ML = "MountList";
 const _MLS = "MultiLayerStorage";
+const _MO = "MountOverrides";
 const _MPC = "MeasurementProcessingConfig";
 const _MPCe = "MetricProcessingConfig";
+const _MS = "MountSource";
 const _MW = "MetricWindow";
 const _Me = "Metric";
+const _Mo = "Mount";
 const _Mp = "Mp4";
 const _P = "Parquet";
 const _PAMIR = "PutAssetModelInterfaceRelationship";
@@ -681,6 +687,7 @@ const _Res = "Result";
 const _Ro = "Row";
 const _Row = "Rows";
 const _S = "Source";
+const _SAPS = "S3AccessPointSource";
 const _SC = "SessionConfig";
 const _SD = "SourceDetail";
 const _SF = "SearchFilters";
@@ -837,6 +844,7 @@ const _aN = "actionName";
 const _aNs = "assetName";
 const _aP = "assetProperty";
 const _aPA = "accessPolicyArn";
+const _aPAc = "accessPointArn";
 const _aPCD = "accessPolicyCreationDate";
 const _aPI = "accessPolicyIdentity";
 const _aPIc = "accessPolicyId";
@@ -982,12 +990,15 @@ const _eIn = "entryId";
 const _eIr = "errorInfo";
 const _eIx = "executionId";
 const _eM = "errorMessage";
+const _eMO = "executionMountOverrides";
+const _eMx = "executionMounts";
 const _eP = "excludeProperties";
 const _ePEP = "enablePartialEntryProcessing";
 const _ePx = "executionPriority";
 const _eR = "executionResult";
 const _eRL = "errorReportLocation";
 const _eS = "enrichmentStatus";
+const _eSC = "ephemeralStorageConfiguration";
 const _eST = "executionStartTime";
 const _eSx = "executionStatus";
 const _eSxe = "executionSummaries";
@@ -1105,6 +1116,7 @@ const _me = "metadata";
 const _mea = "measurement";
 const _met = "metric";
 const _mi = "minimum";
+const _mo = "mounts";
 const _mp = "mp4";
 const _n = "name";
 const _nLA = "notificationLambdaArn";
@@ -1180,10 +1192,12 @@ const _rAo = "roleArn";
 const _rC = "rowCount";
 const _rEV = "requestEnvironmentVariables";
 const _rI = "resourceId";
+const _rMO = "requestMountOverrides";
 const _rN = "resourceName";
 const _rNFE = "resourceNotFoundException";
 const _rP = "resultProperty";
 const _rPe = "retentionPeriod";
+const _rPel = "relativePath";
 const _rT = "resolveTo";
 const _rTRI = "resolveToResourceId";
 const _rTRT = "resolveToResourceType";
@@ -1197,9 +1211,11 @@ const _ro = "rows";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iotsitewise";
 const _sA = "startedAt";
 const _sAI = "ssoApplicationId";
+const _sAP = "s3AccessPoint";
 const _sAt = "startedAfter";
 const _sAu = "submittedAt";
 const _sB = "startedBefore";
+const _sC = "storageClass";
 const _sD = "standardDeviation";
 const _sDI = "sourceDatasetId";
 const _sDo = "sourceDetail";
@@ -1217,6 +1233,7 @@ const _sR = "statusReason";
 const _sRA = "s3ResourceArn";
 const _sRe = "searchResults";
 const _sS = "searchSummaries";
+const _sSIGB = "storageSizeInGiB";
 const _sST = "sessionStartTimestamp";
 const _sT = "startTimestamp";
 const _sTA = "startTimeAfter";
@@ -1951,8 +1968,8 @@ export var ComputeNode$: StaticStructureSchema = [3, n0, _CN,
 ];
 export var ComputeNodeExecutionDetails$: StaticStructureSchema = [3, n0, _CNED,
   0,
-  [_cNN, _tN, _tA, _tV, _dO, _st, _sTt, _eTn, _eEV],
-  [0, 0, 0, 0, 64 | 0, () => ComputeNodeExecutionStatus$, 4, 4, [() => ExecutionEnvironmentVariablesMap, 0]], 6
+  [_cNN, _tN, _tA, _tV, _dO, _st, _sTt, _eTn, _eEV, _eMx],
+  [0, 0, 0, 0, 64 | 0, () => ComputeNodeExecutionStatus$, 4, 4, [() => ExecutionEnvironmentVariablesMap, 0], () => MountList], 6
 ];
 export var ComputeNodeExecutionStateDetails$: StaticStructureSchema = [3, n0, _CNESD,
   0,
@@ -1976,8 +1993,8 @@ export var ConfigurationStatus$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var ContainerTaskConfiguration$: StaticStructureSchema = [3, n0, _CTC,
   0,
-  [_eU, _tER, _pT, _pU, _com, _tS, _eV],
-  [[() => EcrUri, 0], [() => IamRoleArn, 0], 0, 0, [() => CommandList, 0], 1, [() => EnvironmentVariablesMap, 0]], 4
+  [_eU, _tER, _pT, _pU, _eSC, _com, _tS, _eV, _mo],
+  [[() => EcrUri, 0], [() => IamRoleArn, 0], 0, 0, () => EphemeralStorageConfiguration$, [() => CommandList, 0], 1, [() => EnvironmentVariablesMap, 0], () => MountList], 4
 ];
 export var Content$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -2611,8 +2628,8 @@ export var DescribePipelineExecutionRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribePipelineExecutionResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
-  [_pEI, _pN, _wN, _pV, _st, _rEV, _cNED, _sTt, _eTn, _ePx, _nT],
-  [0, 0, 0, 0, () => PipelineExecutionStatus$, [() => ExecutionEnvironmentVariables$, 0], [() => ComputeNodeExecutionDetailsList, 0], 4, 4, 1, 0], 7
+  [_pEI, _pN, _wN, _pV, _st, _rEV, _cNED, _sTt, _eTn, _rMO, _ePx, _nT],
+  [0, 0, 0, 0, () => PipelineExecutionStatus$, [() => ExecutionEnvironmentVariables$, 0], [() => ComputeNodeExecutionDetailsList, 0], 4, 4, () => MountOverrides$, 1, 0], 7
 ];
 export var DescribePipelineRequest$: StaticStructureSchema = [3, n0, _DPRes,
   0,
@@ -2738,6 +2755,11 @@ export var EnrichmentTrimSettings$: StaticStructureSchema = [3, n0, _ETS,
   0,
   [_sTt, _eTn],
   [() => TimeInNanos$, () => TimeInNanos$], 2
+];
+export var EphemeralStorageConfiguration$: StaticStructureSchema = [3, n0, _ESC,
+  0,
+  [_sC, _sSIGB],
+  [0, 1], 2
 ];
 export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
   0,
@@ -3424,6 +3446,16 @@ export var MonitorErrorDetails$: StaticStructureSchema = [3, n0, _MED,
   [_cod, _m],
   [0, 0]
 ];
+export var Mount$: StaticStructureSchema = [3, n0, _Mo,
+  0,
+  [_n, _rPel, _so, _sTto],
+  [0, 0, () => MountSource$, 0], 4
+];
+export var MountOverrides$: StaticStructureSchema = [3, n0, _MO,
+  0,
+  [_cNo],
+  [() => ComputeNodeMountsMap], 1
+];
 export var Mp4$: StaticStructureSchema = [3, n0, _Mp,
   0,
   [],
@@ -3609,6 +3641,11 @@ export var Row$: StaticStructureSchema = [3, n0, _Ro,
   [_da],
   [() => DatumList], 1
 ];
+export var S3AccessPointSource$: StaticStructureSchema = [3, n0, _SAPS,
+  0,
+  [_aPAc, _pre],
+  [0, 0], 1
+];
 export var SearchFilters$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_tSIi, _dIat, _tI],
@@ -3646,8 +3683,8 @@ export var SourceDetail$: StaticStructureSchema = [3, n0, _SD,
 ];
 export var StartPipelineExecutionRequest$: StaticStructureSchema = [3, n0, _SPER,
   0,
-  [_wN, _pN, _eEVO, _ePx, _cT],
-  [[0, 1], [0, 1], [() => ExecutionEnvironmentVariables$, 0], 1, [0, 4]], 2
+  [_wN, _pN, _eEVO, _eMO, _ePx, _cT],
+  [[0, 1], [0, 1], [() => ExecutionEnvironmentVariables$, 0], () => MountOverrides$, 1, [0, 4]], 2
 ];
 export var StartPipelineExecutionResponse$: StaticStructureSchema = [3, n0, _SPERt,
   0,
@@ -4193,6 +4230,9 @@ var JobSummaries: StaticListSchema = [1, n0, _JSo,
   0, () => JobSummary$
 ];
 var ListAssetModelsTypeFilter = 64 | 0;
+var MountList: StaticListSchema = [1, n0, _ML,
+  0, () => Mount$
+];
 var PipelineExecutionSummaryList: StaticListSchema = [1, n0, _PESL,
   0, () => PipelineExecutionSummary$
 ];
@@ -4265,6 +4305,9 @@ var ComputeNodeEnvironmentVariablesMap: StaticMapSchema = [2, n0, _CNEVM,
   , [() => EnvironmentVariablesMap,
     0]
 ];
+var ComputeNodeMountsMap: StaticMapSchema = [2, n0, _CNMM,
+  0, 0, () => MountList
+];
 var EnvironmentVariablesMap: StaticMapSchema = [2, n0, _EVM,
   8, 0, 0
 ];
@@ -4282,6 +4325,11 @@ export var EnrichmentJobConfiguration$: StaticUnionSchema = [4, n0, _EJC,
   0,
   [_eDv],
   [() => EventDetection$]
+];
+export var MountSource$: StaticUnionSchema = [4, n0, _MS,
+  0,
+  [_sAP],
+  [() => S3AccessPointSource$]
 ];
 export var ProcessingInput$: StaticUnionSchema = [4, n0, _PI,
   0,

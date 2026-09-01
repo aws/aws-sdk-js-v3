@@ -461,6 +461,7 @@ import {
   EnrichmentJobSummary$,
   EnrichmentStatus,
   EnrichmentTrimSettings$,
+  EphemeralStorageConfiguration$,
   ErrorCode,
   ErrorDetails$,
   ErrorReportLocation$,
@@ -712,6 +713,10 @@ import {
   MetricWindow$,
   MonitorErrorCode,
   MonitorErrorDetails$,
+  Mount$,
+  MountOverrides$,
+  MountSource$,
+  MountStorageType,
   Mp4$,
   MultiLayerStorage$,
   paginateBatchGetAssetPropertyAggregates,
@@ -827,6 +832,7 @@ import {
   ResponseStream$,
   RetentionPeriod$,
   Row$,
+  S3AccessPointSource$,
   ScalarType,
   SearchFilters$,
   SearchResult$,
@@ -851,6 +857,7 @@ import {
   StartSearchCommand,
   StartSearchRequest$,
   StartSearchResponse$,
+  StorageClass,
   StorageType,
   TagResource$,
   TagResourceCommand,
@@ -1532,6 +1539,7 @@ assert(typeof DisassociateTimeSeriesFromAssetPropertyRequest$ === "object");
 assert(typeof EnrichmentJobConfiguration$ === "object");
 assert(typeof EnrichmentJobSummary$ === "object");
 assert(typeof EnrichmentTrimSettings$ === "object");
+assert(typeof EphemeralStorageConfiguration$ === "object");
 assert(typeof ErrorDetails$ === "object");
 assert(typeof ErrorReportLocation$ === "object");
 assert(typeof EventDetection$ === "object");
@@ -1669,6 +1677,9 @@ assert(typeof Metric$ === "object");
 assert(typeof MetricProcessingConfig$ === "object");
 assert(typeof MetricWindow$ === "object");
 assert(typeof MonitorErrorDetails$ === "object");
+assert(typeof Mount$ === "object");
+assert(typeof MountOverrides$ === "object");
+assert(typeof MountSource$ === "object");
 assert(typeof Mp4$ === "object");
 assert(typeof MultiLayerStorage$ === "object");
 assert(typeof Parquet$ === "object");
@@ -1708,6 +1719,7 @@ assert(typeof ResourceStatus$ === "object");
 assert(typeof ResponseStream$ === "object");
 assert(typeof RetentionPeriod$ === "object");
 assert(typeof Row$ === "object");
+assert(typeof S3AccessPointSource$ === "object");
 assert(typeof SearchFilters$ === "object");
 assert(typeof SearchResult$ === "object");
 assert(typeof SearchSummary$ === "object");
@@ -1827,6 +1839,7 @@ assert(typeof ListBulkImportJobsFilter === "object");
 assert(typeof ListTimeSeriesType === "object");
 assert(typeof LoggingLevel === "object");
 assert(typeof MonitorErrorCode === "object");
+assert(typeof MountStorageType === "object");
 assert(typeof Permission === "object");
 assert(typeof PipelineErrorCode === "object");
 assert(typeof PipelineExecutionState === "object");
@@ -1846,6 +1859,7 @@ assert(typeof ResourceType === "object");
 assert(typeof ScalarType === "object");
 assert(typeof SearchStatus === "object");
 assert(typeof SearchType === "object");
+assert(typeof StorageClass === "object");
 assert(typeof StorageType === "object");
 assert(typeof TargetResourceType === "object");
 assert(typeof TimeOrdering === "object");

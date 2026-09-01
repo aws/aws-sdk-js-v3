@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeSearchRequest } from "../models/models_0";
-import type { DescribeSearchResponse } from "../models/models_1";
+import type { DescribeSearchRequest, DescribeSearchResponse } from "../models/models_1";
 import { DescribeSearch$ } from "../schemas/schemas_0";
 
 /**

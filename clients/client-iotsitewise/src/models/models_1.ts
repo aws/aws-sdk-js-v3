@@ -94,6 +94,7 @@ import type {
   Identity,
   ImageFile,
   LoggingOptions,
+  MountOverrides,
   PipelineExecutionStatus,
   PortalStatus,
   PortalTypeEntry,
@@ -108,6 +109,157 @@ import type {
   WorkspaceEncryptionConfiguration,
   WorkspaceStatus,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DescribeProjectResponse {
+  /**
+   * <p>The ID of the project.</p>
+   * @public
+   */
+  projectId: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the project, which has the following format.</p>
+   *          <p>
+   *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:project/$\{ProjectId\}</code>
+   *          </p>
+   * @public
+   */
+  projectArn: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  projectName: string | undefined;
+
+  /**
+   * <p>The ID of the portal that the project is in.</p>
+   * @public
+   */
+  portalId: string | undefined;
+
+  /**
+   * <p>The project's description.</p>
+   * @public
+   */
+  projectDescription?: string | undefined;
+
+  /**
+   * <p>The date the project was created, in Unix epoch time.</p>
+   * @public
+   */
+  projectCreationDate: Date | undefined;
+
+  /**
+   * <p>The date the project was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  projectLastUpdateDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQueryRequest {
+  /**
+   * <p>The name of the workspace associated with the query.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the query execution.</p>
+   * @public
+   */
+  queryId: string | undefined;
+}
+
+/**
+ * <p>Contains statistics about a completed query execution.</p>
+ * @public
+ */
+export interface QueryStatistics {
+  /**
+   * <p>The total number of rows returned by the query.</p>
+   * @public
+   */
+  rowCount: number | undefined;
+
+  /**
+   * <p>The total number of bytes scanned during query execution.</p>
+   * @public
+   */
+  bytesScanned: number | undefined;
+
+  /**
+   * <p>The total query execution time, in milliseconds.</p>
+   * @public
+   */
+  executionTimeInMillis: number | undefined;
+}
+
+/**
+ * <p>Contains the response for the DescribeQuery operation.</p>
+ * @public
+ */
+export interface DescribeQueryResponse {
+  /**
+   * <p>The unique identifier for the query execution.</p>
+   * @public
+   */
+  queryId: string | undefined;
+
+  /**
+   * <p>The current query status.</p>
+   * @public
+   */
+  status: QueryStatus | undefined;
+
+  /**
+   * <p>The date and time when the query was submitted, in Unix epoch time.</p>
+   * @public
+   */
+  submittedAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the query reached a terminal state, in Unix epoch time. This field is present when the query status is COMPLETED, FAILED, or CANCELED.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+
+  /**
+   * <p>The query execution statistics. This field is present when the query status is COMPLETED.</p>
+   * @public
+   */
+  statistics?: QueryStatistics | undefined;
+
+  /**
+   * <p>A human-readable error description. This field is present when the query status is FAILED.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * <p>Input for the DescribeSearch operation.</p>
+ * @public
+ */
+export interface DescribeSearchRequest {
+  /**
+   * <p>The name of the workspace the search belongs to.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The identifier of the search to describe.</p>
+   * @public
+   */
+  searchId: string | undefined;
+}
 
 /**
  * <p>Output of the DescribeSearch operation.</p>
@@ -5155,6 +5307,15 @@ export interface StartPipelineExecutionRequest {
    * @public
    */
   executionEnvironmentVariableOverrides?: ExecutionEnvironmentVariables | undefined;
+
+  /**
+   * <p>Runtime mount overrides for the execution. Overrides are merged by mount name into
+   * each listed compute node's task-defined mounts: a matching name replaces the task-defined
+   * mount, a new name adds a mount, and task-defined mounts not referenced remain unchanged.
+   * Compute nodes not listed use their task-defined mounts as-is.</p>
+   * @public
+   */
+  executionMountOverrides?: MountOverrides | undefined;
 
   /**
    * <p>Scheduling priority for the execution. Lower values indicate higher priority. Defaults to 2 when not specified.</p>

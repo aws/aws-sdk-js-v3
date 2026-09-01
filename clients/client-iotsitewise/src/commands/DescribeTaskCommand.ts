@@ -51,6 +51,10 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * //       taskExecutionRole: "STRING_VALUE", // required
  * //       processingType: "GENERIC_COMPUTE_PROCESSING" || "HARDWARE_ACCELERATED_PROCESSING", // required
  * //       processingUnit: "UNITS_2" || "UNITS_4" || "UNITS_8" || "UNITS_12" || "UNITS_16" || "UNITS_24" || "UNITS_32" || "UNITS_36" || "UNITS_48" || "UNITS_60" || "UNITS_64" || "UNITS_72" || "UNITS_84" || "UNITS_96", // required
+ * //       ephemeralStorageConfiguration: { // EphemeralStorageConfiguration
+ * //         storageClass: "STANDARD_1" || "STANDARD_2" || "THROUGHPUT_1" || "THROUGHPUT_2", // required
+ * //         storageSizeInGiB: Number("int"), // required
+ * //       },
  * //       command: [ // CommandList
  * //         "STRING_VALUE",
  * //       ],
@@ -58,6 +62,19 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  * //       environmentVariables: { // EnvironmentVariablesMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       mounts: [ // MountList
+ * //         { // Mount
+ * //           name: "STRING_VALUE", // required
+ * //           relativePath: "STRING_VALUE", // required
+ * //           source: { // MountSource Union: only one key present
+ * //             s3AccessPoint: { // S3AccessPointSource
+ * //               accessPointArn: "STRING_VALUE", // required
+ * //               prefix: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           storageType: "SHARED_STORAGE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   status: { // ResourceStatus

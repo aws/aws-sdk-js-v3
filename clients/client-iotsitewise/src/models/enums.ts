@@ -638,6 +638,33 @@ export type PortalState = (typeof PortalState)[keyof typeof PortalState];
  * @public
  * @enum
  */
+export const StorageClass = {
+  STANDARD_1: "STANDARD_1",
+  STANDARD_2: "STANDARD_2",
+  THROUGHPUT_1: "THROUGHPUT_1",
+  THROUGHPUT_2: "THROUGHPUT_2",
+} as const;
+/**
+ * @public
+ */
+export type StorageClass = (typeof StorageClass)[keyof typeof StorageClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const MountStorageType = {
+  SHARED_STORAGE: "SHARED_STORAGE",
+} as const;
+/**
+ * @public
+ */
+export type MountStorageType = (typeof MountStorageType)[keyof typeof MountStorageType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ProcessingType = {
   GENERIC_COMPUTE_PROCESSING: "GENERIC_COMPUTE_PROCESSING",
   HARDWARE_ACCELERATED_PROCESSING: "HARDWARE_ACCELERATED_PROCESSING",

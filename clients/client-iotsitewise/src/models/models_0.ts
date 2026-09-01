@@ -42,6 +42,7 @@ import type {
   JobType,
   LoggingLevel,
   MonitorErrorCode,
+  MountStorageType,
   Permission,
   PipelineErrorCode,
   PipelineExecutionState,
@@ -57,6 +58,7 @@ import type {
   ResolveToResourceType,
   ResourceErrorCode,
   ResourceState,
+  StorageClass,
   TimeOrdering,
   WorkspaceState,
 } from "./enums";
@@ -5591,6 +5593,111 @@ export interface CreateProjectResponse {
 }
 
 /**
+ * <p>Configuration for ephemeral storage attached to the container task.</p>
+ * @public
+ */
+export interface EphemeralStorageConfiguration {
+  /**
+   * <p>Storage type that determines I/O performance family and level.</p>
+   * @public
+   */
+  storageClass: StorageClass | undefined;
+
+  /**
+   * <p>Storage volume size in GiB.</p>
+   * @public
+   */
+  storageSizeInGiB: number | undefined;
+}
+
+/**
+ * <p>Configures a mount that reads from an Amazon S3 access point.</p>
+ * @public
+ */
+export interface S3AccessPointSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 access point.</p>
+   * @public
+   */
+  accessPointArn: string | undefined;
+
+  /**
+   * <p>An optional key prefix to scope the mount to a subset of objects at the access point.</p>
+   * @public
+   */
+  prefix?: string | undefined;
+}
+
+/**
+ * <p>The data source configuration for a mount. Specify exactly one of the following.</p>
+ * @public
+ */
+export type MountSource =
+  | MountSource.S3AccessPointMember
+  | MountSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MountSource {
+  /**
+   * <p>Configuration for a mount that reads from an Amazon S3 access point.</p>
+   * @public
+   */
+  export interface S3AccessPointMember {
+    s3AccessPoint: S3AccessPointSource;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3AccessPoint?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3AccessPoint: (value: S3AccessPointSource) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Attaches a data source to the container filesystem for a task at a customer-supplied relative path under the service-owned mount root.</p>
+ * @public
+ */
+export interface Mount {
+  /**
+   * <p>A unique name for the mount within the task.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The relative path under the service-owned mount root where this mount is attached inside the container.</p>
+   * @public
+   */
+  relativePath: string | undefined;
+
+  /**
+   * <p>The data source for the mount.</p>
+   * @public
+   */
+  source: MountSource | undefined;
+
+  /**
+   * <p>The type of storage used for the mount.</p>
+   * @public
+   */
+  storageType: MountStorageType | undefined;
+}
+
+/**
  * <p>Configuration for a container task, including the container image, IAM role, and compute settings.</p>
  * @public
  */
@@ -5620,6 +5727,12 @@ export interface ContainerTaskConfiguration {
   processingUnit: ProcessingUnit | undefined;
 
   /**
+   * <p>Ephemeral storage configuration for the container task.</p>
+   * @public
+   */
+  ephemeralStorageConfiguration?: EphemeralStorageConfiguration | undefined;
+
+  /**
    * <p>The command to execute in the container.</p>
    * @public
    */
@@ -5636,6 +5749,15 @@ export interface ContainerTaskConfiguration {
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Mounts attached to the container filesystem. Each mount exposes an external
+   * data source as a local directory inside the container. The service assigns each mount
+   * a container path based on the mount name. The container reads files through that path
+   * as if the data were on the local filesystem.</p>
+   * @public
+   */
+  mounts?: Mount[] | undefined;
 }
 
 /**
@@ -8572,6 +8694,15 @@ export interface ComputeNodeExecutionDetails {
    * @public
    */
   executionEnvironmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The fully resolved mounts used for this compute node execution, after merging
+   * task-defined mounts with any execution-level mount overrides. Each mount attaches an
+   * external data source to the container filesystem at a relative path under the
+   * service-owned mount root.</p>
+   * @public
+   */
+  executionMounts?: Mount[] | undefined;
 }
 
 /**
@@ -8590,6 +8721,18 @@ export interface ExecutionEnvironmentVariables {
    * @public
    */
   computeNodes?: Record<string, Record<string, string>> | undefined;
+}
+
+/**
+ * <p>Runtime mount overrides applied to a single pipeline execution. Overrides are transient — they do not modify the stored task configuration.</p>
+ * @public
+ */
+export interface MountOverrides {
+  /**
+   * <p>The mount overrides for each compute node, keyed by compute node name.</p>
+   * @public
+   */
+  computeNodes: Record<string, Mount[]> | undefined;
 }
 
 /**
@@ -8686,6 +8829,12 @@ export interface DescribePipelineExecutionResponse {
    * @public
    */
   requestEnvironmentVariables: ExecutionEnvironmentVariables | undefined;
+
+  /**
+   * <p>The mount overrides provided as input for the pipeline execution. Present when mount overrides were supplied at execution time.</p>
+   * @public
+   */
+  requestMountOverrides?: MountOverrides | undefined;
 
   /**
    * <p>Scheduling priority for the execution. When not specified, defaults to lowest priority.</p>
@@ -8860,155 +9009,4 @@ export interface DescribeProjectRequest {
    * @public
    */
   projectId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeProjectResponse {
-  /**
-   * <p>The ID of the project.</p>
-   * @public
-   */
-  projectId: string | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the project, which has the following format.</p>
-   *          <p>
-   *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:project/$\{ProjectId\}</code>
-   *          </p>
-   * @public
-   */
-  projectArn: string | undefined;
-
-  /**
-   * <p>The name of the project.</p>
-   * @public
-   */
-  projectName: string | undefined;
-
-  /**
-   * <p>The ID of the portal that the project is in.</p>
-   * @public
-   */
-  portalId: string | undefined;
-
-  /**
-   * <p>The project's description.</p>
-   * @public
-   */
-  projectDescription?: string | undefined;
-
-  /**
-   * <p>The date the project was created, in Unix epoch time.</p>
-   * @public
-   */
-  projectCreationDate: Date | undefined;
-
-  /**
-   * <p>The date the project was last updated, in Unix epoch time.</p>
-   * @public
-   */
-  projectLastUpdateDate: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeQueryRequest {
-  /**
-   * <p>The name of the workspace associated with the query.</p>
-   * @public
-   */
-  workspaceName: string | undefined;
-
-  /**
-   * <p>The unique identifier for the query execution.</p>
-   * @public
-   */
-  queryId: string | undefined;
-}
-
-/**
- * <p>Contains statistics about a completed query execution.</p>
- * @public
- */
-export interface QueryStatistics {
-  /**
-   * <p>The total number of rows returned by the query.</p>
-   * @public
-   */
-  rowCount: number | undefined;
-
-  /**
-   * <p>The total number of bytes scanned during query execution.</p>
-   * @public
-   */
-  bytesScanned: number | undefined;
-
-  /**
-   * <p>The total query execution time, in milliseconds.</p>
-   * @public
-   */
-  executionTimeInMillis: number | undefined;
-}
-
-/**
- * <p>Contains the response for the DescribeQuery operation.</p>
- * @public
- */
-export interface DescribeQueryResponse {
-  /**
-   * <p>The unique identifier for the query execution.</p>
-   * @public
-   */
-  queryId: string | undefined;
-
-  /**
-   * <p>The current query status.</p>
-   * @public
-   */
-  status: QueryStatus | undefined;
-
-  /**
-   * <p>The date and time when the query was submitted, in Unix epoch time.</p>
-   * @public
-   */
-  submittedAt: Date | undefined;
-
-  /**
-   * <p>The date and time when the query reached a terminal state, in Unix epoch time. This field is present when the query status is COMPLETED, FAILED, or CANCELED.</p>
-   * @public
-   */
-  completedAt?: Date | undefined;
-
-  /**
-   * <p>The query execution statistics. This field is present when the query status is COMPLETED.</p>
-   * @public
-   */
-  statistics?: QueryStatistics | undefined;
-
-  /**
-   * <p>A human-readable error description. This field is present when the query status is FAILED.</p>
-   * @public
-   */
-  errorMessage?: string | undefined;
-}
-
-/**
- * <p>Input for the DescribeSearch operation.</p>
- * @public
- */
-export interface DescribeSearchRequest {
-  /**
-   * <p>The name of the workspace the search belongs to.</p>
-   * @public
-   */
-  workspaceName: string | undefined;
-
-  /**
-   * <p>The identifier of the search to describe.</p>
-   * @public
-   */
-  searchId: string | undefined;
 }
