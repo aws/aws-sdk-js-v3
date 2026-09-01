@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1123.0...v3.1124.0) (2026-09-01)
+
+
+### Features
+
+* **client-marketplace-discovery:** GetOfferTerms now returns renewalTerm for offers with pre-authorized renewals, exposing maxRenewals, lockoutPeriod, adjustmentDeadline, priceIncrease (fixed percentage or percentage range), and termTemplates (renewal payment schedules). Enables buyers to view renewal pricing and terms. ([1fbc92c](https://github.com/aws/aws-sdk-js-v3/commit/1fbc92ca1bf046ddbdc7735bf551ed5c4fc3afc2))
+
+
+
+
+
 # [3.1123.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1122.0...v3.1123.0) (2026-08-31)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-discovery

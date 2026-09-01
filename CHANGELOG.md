@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1123.0...v3.1124.0) (2026-09-01)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Online evaluation configurations now support up to 25 evaluators. CloudWatch Logs data sources for online evaluation now support up to 10 log groups. ([add6274](https://github.com/aws/aws-sdk-js-v3/commit/add6274465d43abc87b6906ae4120ebe781fd117))
+* **client-ec2:** Update UserData and UploadPolicy shapes to use SecureBlob ([0369a0e](https://github.com/aws/aws-sdk-js-v3/commit/0369a0ea4d2a035f83ed50bee70c2dde699aaa67))
+* **client-guardduty:** Amazon GuardDuty now supports custom detection rules, including APIs to manage rule associations and organization-level configurations. ([c430945](https://github.com/aws/aws-sdk-js-v3/commit/c4309459f0cdefe421f297d62a09718866eaa7db))
+* **client-iotsitewise:** AWS IoT SiteWise Scenario Discovery now supports mounting Amazon S3 data directly into pipeline task containers via S3 Access Points, and configuring additional ephemeral storage per task. Mount configurations can be overridden at execution time. See the API guide for details. ([3b3b8a5](https://github.com/aws/aws-sdk-js-v3/commit/3b3b8a5b54bf1d84eb9852d7d33ed5dd69469566))
+* **client-kinesis:** Amazon Kinesis Data Streams now supports a dry run feature for data-plane APIs to validate the permissions and request parameters. If all checks complete successfully, the API returns a 'DryRunOperationException', confirming the request would have succeeded without the 'DryRun' parameter. ([b7c1241](https://github.com/aws/aws-sdk-js-v3/commit/b7c1241eb9057be16dd1c8524708bcfd1e2ab0f3))
+* **client-lambda:** AWS Lambda now provides configurable control over S3 direct access, allowing you to explicitly enable or disable how functions stream file reads directly from S3 buckets. This gives you flexibility to tune data access behavior based on your workload requirements, independent of memory size. ([b4738db](https://github.com/aws/aws-sdk-js-v3/commit/b4738dbb8a2d21758f9c4ebf005fb6d766bfd417))
+* **client-lightsail:** This release adds support for the Amazon Lightsail GetProfile API, which returns the profile for the specified account. ([a05a4bf](https://github.com/aws/aws-sdk-js-v3/commit/a05a4bf26cb6b487c136a4a386de3fd654537d88))
+* **client-marketplace-agreement:** This release adds renewal support for AWS Marketplace private offers. Agreements report whether they renew and, if not, why. Renewal terms add price increases, renewal limits, renewal decision deadlines, and payment schedule templates. SearchAgreements adds filters. ([5cffee4](https://github.com/aws/aws-sdk-js-v3/commit/5cffee4c9b6275d77927ff7bbb730c00bf3485e0))
+* **client-marketplace-discovery:** GetOfferTerms now returns renewalTerm for offers with pre-authorized renewals, exposing maxRenewals, lockoutPeriod, adjustmentDeadline, priceIncrease (fixed percentage or percentage range), and termTemplates (renewal payment schedules). Enables buyers to view renewal pricing and terms. ([1fbc92c](https://github.com/aws/aws-sdk-js-v3/commit/1fbc92ca1bf046ddbdc7735bf551ed5c4fc3afc2))
+* **client-mediaconvert:** Adds support for AAC passthrough. Adds ManifestCues option to support HLS manifest Cue marker passthrough. Adds playback device compatibility mode for DASH H.265 outputs. Adds TTML caption styling options. Adds interlace mode support for XAVC HD Intra CBG profile. ([4f9ca64](https://github.com/aws/aws-sdk-js-v3/commit/4f9ca64dcae7be64090d657721742434c96642e5))
+* **client-sesv2:** Added support for managing SMIME signing certificates for email identities, including associating, listing, and disassociating certificates. Added the UpdateConfigurationSet operation to configure message security options such as signing scheme. ([5d6518c](https://github.com/aws/aws-sdk-js-v3/commit/5d6518c22e633a027d6f6256fbb061420546f617))
+* **client-taxsettings:** France and Monaco Additional Info changes ([93faab8](https://github.com/aws/aws-sdk-js-v3/commit/93faab8560bc9b101465bc805a9829abe476be5b))
+* **clients:** update client endpoints as of 2026-09-01 ([5f5319a](https://github.com/aws/aws-sdk-js-v3/commit/5f5319a0725d161a33214c9f68f9cafcf39f9c74))
+
+
+
+
+
 # [3.1123.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1122.0...v3.1123.0) (2026-08-31)
 
 

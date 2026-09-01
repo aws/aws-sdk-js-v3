@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1123.0...v3.1124.0) (2026-09-01)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Online evaluation configurations now support up to 25 evaluators. CloudWatch Logs data sources for online evaluation now support up to 10 log groups. ([add6274](https://github.com/aws/aws-sdk-js-v3/commit/add6274465d43abc87b6906ae4120ebe781fd117))
+
+
+
+
+
 # [3.1123.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1122.0...v3.1123.0) (2026-08-31)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

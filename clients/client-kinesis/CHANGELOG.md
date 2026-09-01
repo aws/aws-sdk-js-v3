@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1123.0...v3.1124.0) (2026-09-01)
+
+
+### Features
+
+* **client-kinesis:** Amazon Kinesis Data Streams now supports a dry run feature for data-plane APIs to validate the permissions and request parameters. If all checks complete successfully, the API returns a 'DryRunOperationException', confirming the request would have succeeded without the 'DryRun' parameter. ([b7c1241](https://github.com/aws/aws-sdk-js-v3/commit/b7c1241eb9057be16dd1c8524708bcfd1e2ab0f3))
+
+
+
+
+
 # [3.1123.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1122.0...v3.1123.0) (2026-08-31)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis
