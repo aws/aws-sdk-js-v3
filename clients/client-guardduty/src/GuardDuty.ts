@@ -18,6 +18,16 @@ import {
   ArchiveFindingsCommand,
 } from "./commands/ArchiveFindingsCommand";
 import {
+  type CreateCustomDetectionRuleAssociationCommandInput,
+  type CreateCustomDetectionRuleAssociationCommandOutput,
+  CreateCustomDetectionRuleAssociationCommand,
+} from "./commands/CreateCustomDetectionRuleAssociationCommand";
+import {
+  type CreateCustomDetectionRuleOrgConfigurationCommandInput,
+  type CreateCustomDetectionRuleOrgConfigurationCommandOutput,
+  CreateCustomDetectionRuleOrgConfigurationCommand,
+} from "./commands/CreateCustomDetectionRuleOrgConfigurationCommand";
+import {
   type CreateDetectorCommandInput,
   type CreateDetectorCommandOutput,
   CreateDetectorCommand,
@@ -77,6 +87,16 @@ import {
   type DeclineInvitationsCommandOutput,
   DeclineInvitationsCommand,
 } from "./commands/DeclineInvitationsCommand";
+import {
+  type DeleteCustomDetectionRuleAssociationCommandInput,
+  type DeleteCustomDetectionRuleAssociationCommandOutput,
+  DeleteCustomDetectionRuleAssociationCommand,
+} from "./commands/DeleteCustomDetectionRuleAssociationCommand";
+import {
+  type DeleteCustomDetectionRuleOrgConfigurationCommandInput,
+  type DeleteCustomDetectionRuleOrgConfigurationCommandOutput,
+  DeleteCustomDetectionRuleOrgConfigurationCommand,
+} from "./commands/DeleteCustomDetectionRuleOrgConfigurationCommand";
 import {
   type DeleteDetectorCommandInput,
   type DeleteDetectorCommandOutput,
@@ -178,6 +198,21 @@ import {
   GetCoverageStatisticsCommand,
 } from "./commands/GetCoverageStatisticsCommand";
 import {
+  type GetCustomDetectionRuleAssociationCommandInput,
+  type GetCustomDetectionRuleAssociationCommandOutput,
+  GetCustomDetectionRuleAssociationCommand,
+} from "./commands/GetCustomDetectionRuleAssociationCommand";
+import {
+  type GetCustomDetectionRuleCommandInput,
+  type GetCustomDetectionRuleCommandOutput,
+  GetCustomDetectionRuleCommand,
+} from "./commands/GetCustomDetectionRuleCommand";
+import {
+  type GetCustomDetectionRuleOrgConfigurationCommandInput,
+  type GetCustomDetectionRuleOrgConfigurationCommandOutput,
+  GetCustomDetectionRuleOrgConfigurationCommand,
+} from "./commands/GetCustomDetectionRuleOrgConfigurationCommand";
+import {
   type GetDetectorCommandInput,
   type GetDetectorCommandOutput,
   GetDetectorCommand,
@@ -274,6 +309,21 @@ import {
   type ListCoverageCommandOutput,
   ListCoverageCommand,
 } from "./commands/ListCoverageCommand";
+import {
+  type ListCustomDetectionRuleAssociationsCommandInput,
+  type ListCustomDetectionRuleAssociationsCommandOutput,
+  ListCustomDetectionRuleAssociationsCommand,
+} from "./commands/ListCustomDetectionRuleAssociationsCommand";
+import {
+  type ListCustomDetectionRuleOrgConfigurationsCommandInput,
+  type ListCustomDetectionRuleOrgConfigurationsCommandOutput,
+  ListCustomDetectionRuleOrgConfigurationsCommand,
+} from "./commands/ListCustomDetectionRuleOrgConfigurationsCommand";
+import {
+  type ListCustomDetectionRulesCommandInput,
+  type ListCustomDetectionRulesCommandOutput,
+  ListCustomDetectionRulesCommand,
+} from "./commands/ListCustomDetectionRulesCommand";
 import {
   type ListDetectorsCommandInput,
   type ListDetectorsCommandOutput,
@@ -385,6 +435,16 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateCustomDetectionRuleAssociationCommandInput,
+  type UpdateCustomDetectionRuleAssociationCommandOutput,
+  UpdateCustomDetectionRuleAssociationCommand,
+} from "./commands/UpdateCustomDetectionRuleAssociationCommand";
+import {
+  type UpdateCustomDetectionRuleOrgConfigurationCommandInput,
+  type UpdateCustomDetectionRuleOrgConfigurationCommandOutput,
+  UpdateCustomDetectionRuleOrgConfigurationCommand,
+} from "./commands/UpdateCustomDetectionRuleOrgConfigurationCommand";
+import {
   type UpdateDetectorCommandInput,
   type UpdateDetectorCommandOutput,
   UpdateDetectorCommand,
@@ -449,6 +509,11 @@ import { paginateDescribeMalwareScans } from "./pagination/DescribeMalwareScansP
 import { paginateDescribeOrganizationConfiguration } from "./pagination/DescribeOrganizationConfigurationPaginator";
 import { paginateGetUsageStatistics } from "./pagination/GetUsageStatisticsPaginator";
 import { paginateListCoverage } from "./pagination/ListCoveragePaginator";
+import { paginateListCustomDetectionRuleAssociations } from "./pagination/ListCustomDetectionRuleAssociationsPaginator";
+import {
+  paginateListCustomDetectionRuleOrgConfigurations,
+} from "./pagination/ListCustomDetectionRuleOrgConfigurationsPaginator";
+import { paginateListCustomDetectionRules } from "./pagination/ListCustomDetectionRulesPaginator";
 import { paginateListDetectors } from "./pagination/ListDetectorsPaginator";
 import { paginateListFilters } from "./pagination/ListFiltersPaginator";
 import { paginateListFindings } from "./pagination/ListFindingsPaginator";
@@ -467,6 +532,8 @@ const commands = {
   AcceptAdministratorInvitationCommand,
   AcceptInvitationCommand,
   ArchiveFindingsCommand,
+  CreateCustomDetectionRuleAssociationCommand,
+  CreateCustomDetectionRuleOrgConfigurationCommand,
   CreateDetectorCommand,
   CreateFilterCommand,
   CreateInvestigationCommand,
@@ -479,6 +546,8 @@ const commands = {
   CreateThreatIntelSetCommand,
   CreateTrustedEntitySetCommand,
   DeclineInvitationsCommand,
+  DeleteCustomDetectionRuleAssociationCommand,
+  DeleteCustomDetectionRuleOrgConfigurationCommand,
   DeleteDetectorCommand,
   DeleteFilterCommand,
   DeleteInvitationsCommand,
@@ -499,6 +568,9 @@ const commands = {
   EnableOrganizationAdminAccountCommand,
   GetAdministratorAccountCommand,
   GetCoverageStatisticsCommand,
+  GetCustomDetectionRuleCommand,
+  GetCustomDetectionRuleAssociationCommand,
+  GetCustomDetectionRuleOrgConfigurationCommand,
   GetDetectorCommand,
   GetFilterCommand,
   GetFindingsCommand,
@@ -520,6 +592,9 @@ const commands = {
   GetUsageStatisticsCommand,
   InviteMembersCommand,
   ListCoverageCommand,
+  ListCustomDetectionRuleAssociationsCommand,
+  ListCustomDetectionRuleOrgConfigurationsCommand,
+  ListCustomDetectionRulesCommand,
   ListDetectorsCommand,
   ListFiltersCommand,
   ListFindingsCommand,
@@ -542,6 +617,8 @@ const commands = {
   TagResourceCommand,
   UnarchiveFindingsCommand,
   UntagResourceCommand,
+  UpdateCustomDetectionRuleAssociationCommand,
+  UpdateCustomDetectionRuleOrgConfigurationCommand,
   UpdateDetectorCommand,
   UpdateFilterCommand,
   UpdateFindingsFeedbackCommand,
@@ -560,6 +637,9 @@ const paginators = {
   paginateDescribeOrganizationConfiguration,
   paginateGetUsageStatistics,
   paginateListCoverage,
+  paginateListCustomDetectionRuleAssociations,
+  paginateListCustomDetectionRuleOrgConfigurations,
+  paginateListCustomDetectionRules,
   paginateListDetectors,
   paginateListFilters,
   paginateListFindings,
@@ -625,6 +705,40 @@ export interface GuardDuty {
     args: ArchiveFindingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ArchiveFindingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCustomDetectionRuleAssociationCommand}
+   */
+  createCustomDetectionRuleAssociation(
+    args: CreateCustomDetectionRuleAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomDetectionRuleAssociationCommandOutput>;
+  createCustomDetectionRuleAssociation(
+    args: CreateCustomDetectionRuleAssociationCommandInput,
+    cb: (err: any, data?: CreateCustomDetectionRuleAssociationCommandOutput) => void
+  ): void;
+  createCustomDetectionRuleAssociation(
+    args: CreateCustomDetectionRuleAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomDetectionRuleAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCustomDetectionRuleOrgConfigurationCommand}
+   */
+  createCustomDetectionRuleOrgConfiguration(
+    args: CreateCustomDetectionRuleOrgConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomDetectionRuleOrgConfigurationCommandOutput>;
+  createCustomDetectionRuleOrgConfiguration(
+    args: CreateCustomDetectionRuleOrgConfigurationCommandInput,
+    cb: (err: any, data?: CreateCustomDetectionRuleOrgConfigurationCommandOutput) => void
+  ): void;
+  createCustomDetectionRuleOrgConfiguration(
+    args: CreateCustomDetectionRuleOrgConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomDetectionRuleOrgConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -829,6 +943,40 @@ export interface GuardDuty {
     args: DeclineInvitationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeclineInvitationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCustomDetectionRuleAssociationCommand}
+   */
+  deleteCustomDetectionRuleAssociation(
+    args: DeleteCustomDetectionRuleAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomDetectionRuleAssociationCommandOutput>;
+  deleteCustomDetectionRuleAssociation(
+    args: DeleteCustomDetectionRuleAssociationCommandInput,
+    cb: (err: any, data?: DeleteCustomDetectionRuleAssociationCommandOutput) => void
+  ): void;
+  deleteCustomDetectionRuleAssociation(
+    args: DeleteCustomDetectionRuleAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomDetectionRuleAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCustomDetectionRuleOrgConfigurationCommand}
+   */
+  deleteCustomDetectionRuleOrgConfiguration(
+    args: DeleteCustomDetectionRuleOrgConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomDetectionRuleOrgConfigurationCommandOutput>;
+  deleteCustomDetectionRuleOrgConfiguration(
+    args: DeleteCustomDetectionRuleOrgConfigurationCommandInput,
+    cb: (err: any, data?: DeleteCustomDetectionRuleOrgConfigurationCommandOutput) => void
+  ): void;
+  deleteCustomDetectionRuleOrgConfiguration(
+    args: DeleteCustomDetectionRuleOrgConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomDetectionRuleOrgConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1169,6 +1317,57 @@ export interface GuardDuty {
     args: GetCoverageStatisticsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCoverageStatisticsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCustomDetectionRuleCommand}
+   */
+  getCustomDetectionRule(
+    args: GetCustomDetectionRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomDetectionRuleCommandOutput>;
+  getCustomDetectionRule(
+    args: GetCustomDetectionRuleCommandInput,
+    cb: (err: any, data?: GetCustomDetectionRuleCommandOutput) => void
+  ): void;
+  getCustomDetectionRule(
+    args: GetCustomDetectionRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomDetectionRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCustomDetectionRuleAssociationCommand}
+   */
+  getCustomDetectionRuleAssociation(
+    args: GetCustomDetectionRuleAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomDetectionRuleAssociationCommandOutput>;
+  getCustomDetectionRuleAssociation(
+    args: GetCustomDetectionRuleAssociationCommandInput,
+    cb: (err: any, data?: GetCustomDetectionRuleAssociationCommandOutput) => void
+  ): void;
+  getCustomDetectionRuleAssociation(
+    args: GetCustomDetectionRuleAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomDetectionRuleAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCustomDetectionRuleOrgConfigurationCommand}
+   */
+  getCustomDetectionRuleOrgConfiguration(
+    args: GetCustomDetectionRuleOrgConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomDetectionRuleOrgConfigurationCommandOutput>;
+  getCustomDetectionRuleOrgConfiguration(
+    args: GetCustomDetectionRuleOrgConfigurationCommandInput,
+    cb: (err: any, data?: GetCustomDetectionRuleOrgConfigurationCommandOutput) => void
+  ): void;
+  getCustomDetectionRuleOrgConfiguration(
+    args: GetCustomDetectionRuleOrgConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomDetectionRuleOrgConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1528,6 +1727,60 @@ export interface GuardDuty {
     args: ListCoverageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCoverageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCustomDetectionRuleAssociationsCommand}
+   */
+  listCustomDetectionRuleAssociations(): Promise<ListCustomDetectionRuleAssociationsCommandOutput>;
+  listCustomDetectionRuleAssociations(
+    args: ListCustomDetectionRuleAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomDetectionRuleAssociationsCommandOutput>;
+  listCustomDetectionRuleAssociations(
+    args: ListCustomDetectionRuleAssociationsCommandInput,
+    cb: (err: any, data?: ListCustomDetectionRuleAssociationsCommandOutput) => void
+  ): void;
+  listCustomDetectionRuleAssociations(
+    args: ListCustomDetectionRuleAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomDetectionRuleAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCustomDetectionRuleOrgConfigurationsCommand}
+   */
+  listCustomDetectionRuleOrgConfigurations(): Promise<ListCustomDetectionRuleOrgConfigurationsCommandOutput>;
+  listCustomDetectionRuleOrgConfigurations(
+    args: ListCustomDetectionRuleOrgConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomDetectionRuleOrgConfigurationsCommandOutput>;
+  listCustomDetectionRuleOrgConfigurations(
+    args: ListCustomDetectionRuleOrgConfigurationsCommandInput,
+    cb: (err: any, data?: ListCustomDetectionRuleOrgConfigurationsCommandOutput) => void
+  ): void;
+  listCustomDetectionRuleOrgConfigurations(
+    args: ListCustomDetectionRuleOrgConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomDetectionRuleOrgConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCustomDetectionRulesCommand}
+   */
+  listCustomDetectionRules(): Promise<ListCustomDetectionRulesCommandOutput>;
+  listCustomDetectionRules(
+    args: ListCustomDetectionRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomDetectionRulesCommandOutput>;
+  listCustomDetectionRules(
+    args: ListCustomDetectionRulesCommandInput,
+    cb: (err: any, data?: ListCustomDetectionRulesCommandOutput) => void
+  ): void;
+  listCustomDetectionRules(
+    args: ListCustomDetectionRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomDetectionRulesCommandOutput) => void
   ): void;
 
   /**
@@ -1911,6 +2164,40 @@ export interface GuardDuty {
   ): void;
 
   /**
+   * @see {@link UpdateCustomDetectionRuleAssociationCommand}
+   */
+  updateCustomDetectionRuleAssociation(
+    args: UpdateCustomDetectionRuleAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCustomDetectionRuleAssociationCommandOutput>;
+  updateCustomDetectionRuleAssociation(
+    args: UpdateCustomDetectionRuleAssociationCommandInput,
+    cb: (err: any, data?: UpdateCustomDetectionRuleAssociationCommandOutput) => void
+  ): void;
+  updateCustomDetectionRuleAssociation(
+    args: UpdateCustomDetectionRuleAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCustomDetectionRuleAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCustomDetectionRuleOrgConfigurationCommand}
+   */
+  updateCustomDetectionRuleOrgConfiguration(
+    args: UpdateCustomDetectionRuleOrgConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCustomDetectionRuleOrgConfigurationCommandOutput>;
+  updateCustomDetectionRuleOrgConfiguration(
+    args: UpdateCustomDetectionRuleOrgConfigurationCommandInput,
+    cb: (err: any, data?: UpdateCustomDetectionRuleOrgConfigurationCommandOutput) => void
+  ): void;
+  updateCustomDetectionRuleOrgConfiguration(
+    args: UpdateCustomDetectionRuleOrgConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCustomDetectionRuleOrgConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDetectorCommand}
    */
   updateDetector(
@@ -2157,6 +2444,39 @@ export interface GuardDuty {
     args: ListCoverageCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListCoverageCommandOutput>;
+
+  /**
+   * @see {@link ListCustomDetectionRuleAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomDetectionRuleAssociationsCommandOutput}.
+   */
+  paginateListCustomDetectionRuleAssociations(
+    args?: ListCustomDetectionRuleAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomDetectionRuleAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomDetectionRuleOrgConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomDetectionRuleOrgConfigurationsCommandOutput}.
+   */
+  paginateListCustomDetectionRuleOrgConfigurations(
+    args?: ListCustomDetectionRuleOrgConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomDetectionRuleOrgConfigurationsCommandOutput>;
+
+  /**
+   * @see {@link ListCustomDetectionRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCustomDetectionRulesCommandOutput}.
+   */
+  paginateListCustomDetectionRules(
+    args?: ListCustomDetectionRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCustomDetectionRulesCommandOutput>;
 
   /**
    * @see {@link ListDetectorsCommand}

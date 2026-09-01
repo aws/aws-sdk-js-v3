@@ -82,6 +82,19 @@ export type ProfileType = (typeof ProfileType)[keyof typeof ProfileType];
  * @public
  * @enum
  */
+export const AssociationMode = {
+  DRY_RUN: "DRY_RUN",
+  LIVE: "LIVE",
+} as const;
+/**
+ * @public
+ */
+export type AssociationMode = (typeof AssociationMode)[keyof typeof AssociationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const AutoEnableMembers = {
   ALL: "ALL",
   NEW: "NEW",
@@ -834,6 +847,80 @@ export type SignalType = (typeof SignalType)[keyof typeof SignalType];
  * @public
  * @enum
  */
+export const DetectionRuleConfigurationStatus = {
+  ACTIVE: "ACTIVE",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+} as const;
+/**
+ * @public
+ */
+export type DetectionRuleConfigurationStatus =
+  (typeof DetectionRuleConfigurationStatus)[keyof typeof DetectionRuleConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DetectionRuleDataSource = {
+  CLOUDTRAIL_MANAGEMENT_EVENT: "CloudTrailManagementEvent",
+} as const;
+/**
+ * @public
+ */
+export type DetectionRuleDataSource = (typeof DetectionRuleDataSource)[keyof typeof DetectionRuleDataSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const DetectionRuleFilterCondition = {
+  CONTAINS: "CONTAINS",
+  EQUALS: "EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type DetectionRuleFilterCondition =
+  (typeof DetectionRuleFilterCondition)[keyof typeof DetectionRuleFilterCondition];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterFieldName = {
+  DATA_SOURCE: "dataSource",
+  DESCRIPTION: "description",
+  NAME: "name",
+  SERVICE: "service",
+  SEVERITY: "severity",
+  TACTIC: "tactic",
+  TECHNIQUE: "technique",
+} as const;
+/**
+ * @public
+ */
+export type FilterFieldName = (typeof FilterFieldName)[keyof typeof FilterFieldName];
+
+/**
+ * @public
+ * @enum
+ */
+export const DetectionRuleSeverity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type DetectionRuleSeverity = (typeof DetectionRuleSeverity)[keyof typeof DetectionRuleSeverity];
+
+/**
+ * @public
+ * @enum
+ */
 export const DetectionSource = {
   AMAZON: "AMAZON",
   BITDEFENDER: "BITDEFENDER",
@@ -943,6 +1030,30 @@ export const FindingStatisticType = {
  * @public
  */
 export type FindingStatisticType = (typeof FindingStatisticType)[keyof typeof FindingStatisticType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleLanguage = {
+  SQL: "SQL",
+} as const;
+/**
+ * @public
+ */
+export type RuleLanguage = (typeof RuleLanguage)[keyof typeof RuleLanguage];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleSchema = {
+  CLOUD_TRAIL: "CloudTrail",
+} as const;
+/**
+ * @public
+ */
+export type RuleSchema = (typeof RuleSchema)[keyof typeof RuleSchema];
 
 /**
  * @public

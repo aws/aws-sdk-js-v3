@@ -1,17 +1,26 @@
 // smithy-typescript generated code
 import type {
+  AssociationMode,
   AutoEnableMembers,
   Confidence,
   DataSource,
+  DetectionRuleConfigurationStatus,
+  DetectionRuleDataSource,
+  DetectionRuleSeverity,
   DetectionSource,
   EbsSnapshotPreservation,
   FeatureStatus,
   Feedback,
   FilterAction,
   FindingPublishingFrequency,
+  FindingStatisticType,
+  GroupByType,
   InvestigationSortField,
   InvestigationStatus,
+  IpSetFormat,
+  IpSetStatus,
   ListMalwareScansCriterionKey,
+  MalwareProtectionPlanStatus,
   MalwareProtectionResourceType,
   MalwareProtectionScanStatus,
   MalwareProtectionScanType,
@@ -20,6 +29,8 @@ import type {
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
   RiskLevel,
+  RuleLanguage,
+  RuleSchema,
   ScanCategory,
   ScanCriterionKey,
   ScanResultStatus,
@@ -36,26 +47,567 @@ import type {
 import type {
   AccountFreeTrialInfo,
   AdminAccount,
+  AssociationSummary,
+  CloudDetails,
   ContinuousScanDetails,
   CoverageFilterCriteria,
   CoverageResource,
   CoverageSortCriteria,
+  CreateProtectedResource,
   DataSourceConfigurations,
   DataSourceConfigurationsResult,
   Destination,
   DestinationProperties,
+  DetectionRuleFilter,
+  DetectionRuleOrgConfigurationSummary,
   DetectorFeatureConfiguration,
   EbsSnapshot,
   FilterCondition,
+  Finding,
   FindingCriteria,
+  FindingStatistics,
   IncrementalScanDetails,
   ItemDetails,
   MalwareProtectionPlanActions,
-  ScanConfiguration,
+  ScanConfigurationContinuousScanDetails,
   SortCriteria,
+  TriggerDetails,
   UnprocessedAccount,
   VolumeDetail,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetFilterRequest {
+  /**
+   * <p>The unique ID of the detector that is associated with this filter.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The name of the filter you want to get.</p>
+   * @public
+   */
+  FilterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFilterResponse {
+  /**
+   * <p>The name of the filter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the filter.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
+   * @public
+   */
+  Action: FilterAction | undefined;
+
+  /**
+   * <p>Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.</p>
+   * @public
+   */
+  Rank?: number | undefined;
+
+  /**
+   * <p>Represents the criteria to be used in the filter for querying findings.</p>
+   * @public
+   */
+  FindingCriteria: FindingCriteria | undefined;
+
+  /**
+   * <p>The tags of the filter resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the filter was created. This field is not available for filters that were created before the lifecycle metadata feature was enabled (legacy filters).</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the filter was last updated. For legacy filters, this field is present only after the filter has been updated at least once since the lifecycle metadata feature was enabled.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The version of the filter. Every time the filter is updated, the version increments by 1. This field is not available for legacy filters that were created before the lifecycle metadata feature was enabled.</p>
+   * @public
+   */
+  Version?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsRequest {
+  /**
+   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The IDs of the findings that you want to retrieve.</p>
+   * @public
+   */
+  FindingIds: string[] | undefined;
+
+  /**
+   * <p>Represents the criteria used for sorting findings.</p>
+   * @public
+   */
+  SortCriteria?: SortCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsResponse {
+  /**
+   * <p>A list of findings.</p>
+   * @public
+   */
+  Findings: Finding[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsStatisticsRequest {
+  /**
+   * <p>The ID of the detector whose findings statistics you want to retrieve.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The types of finding statistics to retrieve.</p>
+   *
+   * @deprecated This parameter is deprecated, please use GroupBy instead.
+   * @public
+   */
+  FindingStatisticTypes?: FindingStatisticType[] | undefined;
+
+  /**
+   * <p>Represents the criteria that is used for querying findings.</p>
+   * @public
+   */
+  FindingCriteria?: FindingCriteria | undefined;
+
+  /**
+   * <p>Displays the findings statistics grouped by one of the listed valid values.</p>
+   * @public
+   */
+  GroupBy?: GroupByType | undefined;
+
+  /**
+   * <p>Displays the sorted findings in the requested order. The default value of <code>orderBy</code> is <code>DESC</code>.</p> <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
+   * @public
+   */
+  OrderBy?: OrderBy | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned in the response. The default value is 25.</p> <p>You can use this parameter only with the <code>groupBy</code> parameter.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingsStatisticsResponse {
+  /**
+   * <p>The finding statistics object.</p>
+   * @public
+   */
+  FindingStatistics: FindingStatistics | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p> <p>This parameter is currently not supported.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInvestigationRequest {
+  /**
+   * <p>The unique ID of the GuardDuty detector associated with the investigation.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the investigation to retrieve.</p>
+   * @public
+   */
+  InvestigationId: string | undefined;
+}
+
+/**
+ * <p>Contains information about the product that produced an investigation.</p>
+ * @public
+ */
+export interface Product {
+  /**
+   * <p>The name of the product.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The specific feature within the product that produced the investigation.</p>
+   * @public
+   */
+  Feature?: string | undefined;
+}
+
+/**
+ * <p>Contains metadata about the product and version that produced an investigation.</p>
+ * @public
+ */
+export interface InvestigationMetadata {
+  /**
+   * <p>The version of the investigation engine that produced the results.</p>
+   * @public
+   */
+  Version: string | undefined;
+
+  /**
+   * <p>Information about the product that produced the investigation.</p>
+   * @public
+   */
+  Product: Product | undefined;
+}
+
+/**
+ * <p>Contains the details and results of a GuardDuty investigation.</p>
+ * @public
+ */
+export interface Investigation {
+  /**
+   * <p>The unique identifier of the investigation.</p>
+   * @public
+   */
+  InvestigationId: string | undefined;
+
+  /**
+   * <p>The current status of the investigation. Possible values are <code>RUNNING</code>, <code>COMPLETED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  Status: InvestigationStatus | undefined;
+
+  /**
+   * <p>The natural-language prompt that initiated this investigation.</p>
+   * @public
+   */
+  TriggerPrompt: string | undefined;
+
+  /**
+   * <p>The account that initiated the investigation.</p>
+   * @public
+   */
+  TriggeredBy: string | undefined;
+
+  /**
+   * <p>Metadata about the product and version that produced the investigation.</p>
+   * @public
+   */
+  Metadata?: InvestigationMetadata | undefined;
+
+  /**
+   * <p>Details about the cloud environment in which the investigation was performed, including the provider, region, and account.</p>
+   * @public
+   */
+  Cloud?: CloudDetails | undefined;
+
+  /**
+   * <p>The assessed risk level of the investigated threat. Possible values are <code>Info</code>, <code>Low</code>, <code>Medium</code>, <code>High</code>, and <code>Critical</code>.</p>
+   * @public
+   */
+  RiskLevel?: RiskLevel | undefined;
+
+  /**
+   * <p>A human-readable description of the assessed risk.</p>
+   * @public
+   */
+  Risk?: string | undefined;
+
+  /**
+   * <p>The confidence level of the investigation's assessment. Possible values are <code>Unknown</code>, <code>Low</code>, <code>Medium</code>, and <code>High</code>.</p>
+   * @public
+   */
+  Confidence?: Confidence | undefined;
+
+  /**
+   * <p>A structured summary of the investigation findings, including affected resources, threat assessment, and recommended remediation steps.</p>
+   * @public
+   */
+  Summary?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the investigation started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the investigation completed.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>Details about the error if the investigation status is <code>FAILED</code>.</p>
+   * @public
+   */
+  Error?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInvestigationResponse {
+  /**
+   * <p>The details and results of the requested investigation.</p>
+   * @public
+   */
+  Investigation: Investigation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetInvitationsCountRequest {}
+
+/**
+ * @public
+ */
+export interface GetInvitationsCountResponse {
+  /**
+   * <p>The number of received invitations.</p>
+   * @public
+   */
+  InvitationsCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIPSetRequest {
+  /**
+   * <p>The unique ID of the detector that is associated with the IPSet.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * <p>The unique ID of the IPSet to retrieve.</p>
+   * @public
+   */
+  IpSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIPSetResponse {
+  /**
+   * <p>The user-friendly name for the IPSet.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The format of the file that contains the IPSet.</p>
+   * @public
+   */
+  Format: IpSetFormat | undefined;
+
+  /**
+   * <p>The URI of the file that contains the IPSet.</p>
+   * @public
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The status of IPSet file that was uploaded.</p>
+   * @public
+   */
+  Status: IpSetStatus | undefined;
+
+  /**
+   * <p>The tags of the IPSet resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket specified in the <b>location</b> parameter. This field appears in the response only if it was provided during IPSet creation or update.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareProtectionPlanRequest {
+  /**
+   * <p>A unique identifier associated with Malware Protection plan resource.</p>
+   * @public
+   */
+  MalwareProtectionPlanId: string | undefined;
+}
+
+/**
+ * <p>Information about the issue code and message associated to the status of your Malware Protection plan.</p>
+ * @public
+ */
+export interface MalwareProtectionPlanStatusReason {
+  /**
+   * <p>Issue code.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>Issue message that specifies the reason. For information about potential troubleshooting steps, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/troubleshoot-s3-malware-protection-status-errors.html">Troubleshooting Malware Protection for S3 status issues</a> in the <i>Amazon GuardDuty User Guide</i>.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareProtectionPlanResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) of the protected resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role that includes the permissions to scan and add tags to the associated protected resource.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>Information about the protected resource that is associated with the created Malware Protection plan. Presently, <code>S3Bucket</code> is the only supported protected resource.</p>
+   * @public
+   */
+  ProtectedResource?: CreateProtectedResource | undefined;
+
+  /**
+   * <p>Information about whether the tags will be added to the S3 object after scanning.</p>
+   * @public
+   */
+  Actions?: MalwareProtectionPlanActions | undefined;
+
+  /**
+   * <p>The timestamp when the Malware Protection plan resource was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>Malware Protection plan status.</p>
+   * @public
+   */
+  Status?: MalwareProtectionPlanStatus | undefined;
+
+  /**
+   * <p>Information about the issue code and message associated to the status of your Malware Protection plan.</p>
+   * @public
+   */
+  StatusReasons?: MalwareProtectionPlanStatusReason[] | undefined;
+
+  /**
+   * <p>Tags added to the Malware Protection plan resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMalwareScanRequest {
+  /**
+   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
+   * @public
+   */
+  ScanId: string | undefined;
+}
+
+/**
+ * <p>Contains information about the recovery point configuration used in the scan.</p>
+ * @public
+ */
+export interface ScanConfigurationRecoveryPoint {
+  /**
+   * <p>The name of the Amazon Web Services Backup vault that contains the recovery point for the scanned.</p>
+   * @public
+   */
+  BackupVaultName?: string | undefined;
+
+  /**
+   * <p>The time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+   * @public
+   */
+  ContinuousScanDetails?: ScanConfigurationContinuousScanDetails | undefined;
+}
+
+/**
+ * <p>Contains information about the configuration used for the malware scan.</p>
+ * @public
+ */
+export interface ScanConfiguration {
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role that should contain the required permissions for the scan.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>Information about the entity that triggered the malware scan.</p>
+   * @public
+   */
+  TriggerDetails?: TriggerDetails | undefined;
+
+  /**
+   * <p>Information about the incremental scan configuration, if applicable.</p>
+   * @public
+   */
+  IncrementalScanDetails?: IncrementalScanDetails | undefined;
+
+  /**
+   * <p>Information about the recovery point configuration used for the scan, if applicable.</p>
+   * @public
+   */
+  RecoveryPoint?: ScanConfigurationRecoveryPoint | undefined;
+}
 
 /**
  * <p>Contains additional information about a resource that was scanned.</p>
@@ -1344,6 +1896,216 @@ export interface ListCoverageResponse {
 /**
  * @public
  */
+export interface ListCustomDetectionRuleAssociationsRequest {
+  /**
+   * <p>The maximum number of results to return in a single page. Minimum value of 1, maximum value of 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token from a previous response. Use this token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the custom detection rule to filter associations by.</p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The rule execution mode to filter associations by.</p>
+   * @public
+   */
+  Mode?: AssociationMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDetectionRuleAssociationsResponse {
+  /**
+   * <p>A list of custom detection rule association summaries.</p>
+   * @public
+   */
+  RuleAssociations: AssociationSummary[] | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next page of results. If this field is empty, there are no additional results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDetectionRuleOrgConfigurationsRequest {
+  /**
+   * <p>The maximum number of results to return in a single page. Minimum value of 1, maximum value of 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token from a previous response. Use this token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The configuration status to filter by.</p>
+   * @public
+   */
+  Status?: DetectionRuleConfigurationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDetectionRuleOrgConfigurationsResponse {
+  /**
+   * <p>A list of organization configurations for custom detection rules.</p>
+   * @public
+   */
+  Configurations: DetectionRuleOrgConfigurationSummary[] | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next page of results. If this field is empty, there are no additional results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDetectionRulesRequest {
+  /**
+   * <p>The maximum number of results to return in a single page. Minimum value of 1, maximum value of 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token from a previous response. Use this token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of filter criteria to apply when listing custom detection rules.</p>
+   * @public
+   */
+  Filters?: DetectionRuleFilter[] | undefined;
+}
+
+/**
+ * <p>Contains summary information about a custom detection rule.</p>
+ * @public
+ */
+export interface RuleSummary {
+  /**
+   * <p>The unique identifier for the rule.</p>
+   * @public
+   */
+  RuleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The display name of the rule.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of what the rule detects.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The severity level assigned to findings generated by this rule.</p>
+   * @public
+   */
+  Severity: DetectionRuleSeverity | undefined;
+
+  /**
+   * <p>The data source that the rule analyzes.</p>
+   * @public
+   */
+  DataSource: DetectionRuleDataSource | undefined;
+
+  /**
+   * <p>The MITRE ATT&amp;CK tactic associated with the rule.</p>
+   * @public
+   */
+  Tactic: string | undefined;
+
+  /**
+   * <p>The MITRE ATT&amp;CK technique associated with the rule.</p>
+   * @public
+   */
+  Technique: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services service associated with the rule.</p>
+   * @public
+   */
+  Service: string | undefined;
+
+  /**
+   * <p>The language used for the detection logic expression.</p>
+   * @public
+   */
+  Language?: RuleLanguage | undefined;
+
+  /**
+   * <p>The schema version used by the rule definition.</p>
+   * @public
+   */
+  Schema?: RuleSchema | undefined;
+
+  /**
+   * <p>The timestamp when the rule was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the rule was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomDetectionRulesResponse {
+  /**
+   * <p>A list of custom detection rule summaries.</p>
+   * @public
+   */
+  Rules: RuleSummary[] | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next page of results. If this field is empty, there are no additional results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListDetectorsRequest {
   /**
    * <p>You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.</p>
@@ -2364,6 +3126,68 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateCustomDetectionRuleAssociationRequest {
+  /**
+   * <p>The unique identifier for the custom detection rule.</p>
+   * @public
+   */
+  RuleId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the association to update.</p>
+   * @public
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>The rule execution mode. Valid values: <code>LIVE</code> | <code>DRY_RUN</code>.</p>
+   * @public
+   */
+  Mode: AssociationMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCustomDetectionRuleAssociationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateCustomDetectionRuleOrgConfigurationRequest {
+  /**
+   * <p>The unique identifier for the custom detection rule.</p>
+   * @public
+   */
+  RuleId: string | undefined;
+
+  /**
+   * <p>The execution mode of the organization configuration. Valid values: <code>LIVE</code> | <code>DRY_RUN</code>.</p>
+   * @public
+   */
+  Mode: AssociationMode | undefined;
+
+  /**
+   * <p>The account IDs to include in the organization configuration. Mutually exclusive with <code>ExcludeAccountIds</code>.</p>
+   * @public
+   */
+  IncludeAccountIds?: string[] | undefined;
+
+  /**
+   * <p>The account IDs to exclude from the organization configuration. Mutually exclusive with <code>IncludeAccountIds</code>.</p>
+   * @public
+   */
+  ExcludeAccountIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCustomDetectionRuleOrgConfigurationResponse {}
 
 /**
  * @public

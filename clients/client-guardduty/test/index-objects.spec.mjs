@@ -33,6 +33,9 @@ import {
   ArchiveFindingsCommand,
   ArchiveFindingsRequest$,
   ArchiveFindingsResponse$,
+  AssociationDetail$,
+  AssociationMode,
+  AssociationSummary$,
   AutoEnableMembers,
   AutonomousSystem$,
   AutoscalingAutoScalingGroup$,
@@ -77,6 +80,14 @@ import {
   CoverageStatistics$,
   CoverageStatisticsType,
   CoverageStatus,
+  CreateCustomDetectionRuleAssociation$,
+  CreateCustomDetectionRuleAssociationCommand,
+  CreateCustomDetectionRuleAssociationRequest$,
+  CreateCustomDetectionRuleAssociationResponse$,
+  CreateCustomDetectionRuleOrgConfiguration$,
+  CreateCustomDetectionRuleOrgConfigurationCommand,
+  CreateCustomDetectionRuleOrgConfigurationRequest$,
+  CreateCustomDetectionRuleOrgConfigurationResponse$,
   CreateDetector$,
   CreateDetectorCommand,
   CreateDetectorRequest$,
@@ -136,6 +147,14 @@ import {
   DeclineInvitationsRequest$,
   DeclineInvitationsResponse$,
   DefaultServerSideEncryption$,
+  DeleteCustomDetectionRuleAssociation$,
+  DeleteCustomDetectionRuleAssociationCommand,
+  DeleteCustomDetectionRuleAssociationRequest$,
+  DeleteCustomDetectionRuleAssociationResponse$,
+  DeleteCustomDetectionRuleOrgConfiguration$,
+  DeleteCustomDetectionRuleOrgConfigurationCommand,
+  DeleteCustomDetectionRuleOrgConfigurationRequest$,
+  DeleteCustomDetectionRuleOrgConfigurationResponse$,
   DeleteDetector$,
   DeleteDetectorCommand,
   DeleteDetectorRequest$,
@@ -191,6 +210,13 @@ import {
   DestinationProperties$,
   DestinationType,
   Detection$,
+  DetectionRuleConfigurationStatus,
+  DetectionRuleDataSource,
+  DetectionRuleFilter$,
+  DetectionRuleFilterCondition,
+  DetectionRuleOrgConfiguration$,
+  DetectionRuleOrgConfigurationSummary$,
+  DetectionRuleSeverity,
   DetectionSource,
   DetectorAdditionalConfiguration$,
   DetectorAdditionalConfigurationResult$,
@@ -251,6 +277,7 @@ import {
   FilterCondition$,
   FilterCriteria$,
   FilterCriterion$,
+  FilterFieldName,
   Finding$,
   FindingCriteria$,
   FindingPublishingFrequency,
@@ -270,6 +297,18 @@ import {
   GetCoverageStatisticsCommand,
   GetCoverageStatisticsRequest$,
   GetCoverageStatisticsResponse$,
+  GetCustomDetectionRule$,
+  GetCustomDetectionRuleAssociation$,
+  GetCustomDetectionRuleAssociationCommand,
+  GetCustomDetectionRuleAssociationRequest$,
+  GetCustomDetectionRuleAssociationResponse$,
+  GetCustomDetectionRuleCommand,
+  GetCustomDetectionRuleOrgConfiguration$,
+  GetCustomDetectionRuleOrgConfigurationCommand,
+  GetCustomDetectionRuleOrgConfigurationRequest$,
+  GetCustomDetectionRuleOrgConfigurationResponse$,
+  GetCustomDetectionRuleRequest$,
+  GetCustomDetectionRuleResponse$,
   GetDetector$,
   GetDetectorCommand,
   GetDetectorRequest$,
@@ -398,6 +437,18 @@ import {
   ListCoverageCommand,
   ListCoverageRequest$,
   ListCoverageResponse$,
+  ListCustomDetectionRuleAssociations$,
+  ListCustomDetectionRuleAssociationsCommand,
+  ListCustomDetectionRuleAssociationsRequest$,
+  ListCustomDetectionRuleAssociationsResponse$,
+  ListCustomDetectionRuleOrgConfigurations$,
+  ListCustomDetectionRuleOrgConfigurationsCommand,
+  ListCustomDetectionRuleOrgConfigurationsRequest$,
+  ListCustomDetectionRuleOrgConfigurationsResponse$,
+  ListCustomDetectionRules$,
+  ListCustomDetectionRulesCommand,
+  ListCustomDetectionRulesRequest$,
+  ListCustomDetectionRulesResponse$,
   ListDetectors$,
   ListDetectorsCommand,
   ListDetectorsRequest$,
@@ -528,6 +579,9 @@ import {
   paginateDescribeOrganizationConfiguration,
   paginateGetUsageStatistics,
   paginateListCoverage,
+  paginateListCustomDetectionRuleAssociations,
+  paginateListCustomDetectionRuleOrgConfigurations,
+  paginateListCustomDetectionRules,
   paginateListDetectors,
   paginateListFilters,
   paginateListFindings,
@@ -574,6 +628,11 @@ import {
   ResourceType,
   ResourceV2$,
   RiskLevel,
+  RuleDefinition$,
+  RuleDetail$,
+  RuleLanguage,
+  RuleSchema,
+  RuleSummary$,
   RuntimeContext$,
   RuntimeDetails$,
   S3Bucket$,
@@ -662,6 +721,14 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateCustomDetectionRuleAssociation$,
+  UpdateCustomDetectionRuleAssociationCommand,
+  UpdateCustomDetectionRuleAssociationRequest$,
+  UpdateCustomDetectionRuleAssociationResponse$,
+  UpdateCustomDetectionRuleOrgConfiguration$,
+  UpdateCustomDetectionRuleOrgConfigurationCommand,
+  UpdateCustomDetectionRuleOrgConfigurationRequest$,
+  UpdateCustomDetectionRuleOrgConfigurationResponse$,
   UpdateDetector$,
   UpdateDetectorCommand,
   UpdateDetectorRequest$,
@@ -738,6 +805,10 @@ assert(typeof AcceptInvitationCommand === "function");
 assert(typeof AcceptInvitation$ === "object");
 assert(typeof ArchiveFindingsCommand === "function");
 assert(typeof ArchiveFindings$ === "object");
+assert(typeof CreateCustomDetectionRuleAssociationCommand === "function");
+assert(typeof CreateCustomDetectionRuleAssociation$ === "object");
+assert(typeof CreateCustomDetectionRuleOrgConfigurationCommand === "function");
+assert(typeof CreateCustomDetectionRuleOrgConfiguration$ === "object");
 assert(typeof CreateDetectorCommand === "function");
 assert(typeof CreateDetector$ === "object");
 assert(typeof CreateFilterCommand === "function");
@@ -762,6 +833,10 @@ assert(typeof CreateTrustedEntitySetCommand === "function");
 assert(typeof CreateTrustedEntitySet$ === "object");
 assert(typeof DeclineInvitationsCommand === "function");
 assert(typeof DeclineInvitations$ === "object");
+assert(typeof DeleteCustomDetectionRuleAssociationCommand === "function");
+assert(typeof DeleteCustomDetectionRuleAssociation$ === "object");
+assert(typeof DeleteCustomDetectionRuleOrgConfigurationCommand === "function");
+assert(typeof DeleteCustomDetectionRuleOrgConfiguration$ === "object");
 assert(typeof DeleteDetectorCommand === "function");
 assert(typeof DeleteDetector$ === "object");
 assert(typeof DeleteFilterCommand === "function");
@@ -802,6 +877,12 @@ assert(typeof GetAdministratorAccountCommand === "function");
 assert(typeof GetAdministratorAccount$ === "object");
 assert(typeof GetCoverageStatisticsCommand === "function");
 assert(typeof GetCoverageStatistics$ === "object");
+assert(typeof GetCustomDetectionRuleCommand === "function");
+assert(typeof GetCustomDetectionRule$ === "object");
+assert(typeof GetCustomDetectionRuleAssociationCommand === "function");
+assert(typeof GetCustomDetectionRuleAssociation$ === "object");
+assert(typeof GetCustomDetectionRuleOrgConfigurationCommand === "function");
+assert(typeof GetCustomDetectionRuleOrgConfiguration$ === "object");
 assert(typeof GetDetectorCommand === "function");
 assert(typeof GetDetector$ === "object");
 assert(typeof GetFilterCommand === "function");
@@ -844,6 +925,12 @@ assert(typeof InviteMembersCommand === "function");
 assert(typeof InviteMembers$ === "object");
 assert(typeof ListCoverageCommand === "function");
 assert(typeof ListCoverage$ === "object");
+assert(typeof ListCustomDetectionRuleAssociationsCommand === "function");
+assert(typeof ListCustomDetectionRuleAssociations$ === "object");
+assert(typeof ListCustomDetectionRuleOrgConfigurationsCommand === "function");
+assert(typeof ListCustomDetectionRuleOrgConfigurations$ === "object");
+assert(typeof ListCustomDetectionRulesCommand === "function");
+assert(typeof ListCustomDetectionRules$ === "object");
 assert(typeof ListDetectorsCommand === "function");
 assert(typeof ListDetectors$ === "object");
 assert(typeof ListFiltersCommand === "function");
@@ -888,6 +975,10 @@ assert(typeof UnarchiveFindingsCommand === "function");
 assert(typeof UnarchiveFindings$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateCustomDetectionRuleAssociationCommand === "function");
+assert(typeof UpdateCustomDetectionRuleAssociation$ === "object");
+assert(typeof UpdateCustomDetectionRuleOrgConfigurationCommand === "function");
+assert(typeof UpdateCustomDetectionRuleOrgConfiguration$ === "object");
 assert(typeof UpdateDetectorCommand === "function");
 assert(typeof UpdateDetector$ === "object");
 assert(typeof UpdateFilterCommand === "function");
@@ -938,6 +1029,8 @@ assert(typeof AnomalyObject$ === "object");
 assert(typeof AnomalyUnusual$ === "object");
 assert(typeof ArchiveFindingsRequest$ === "object");
 assert(typeof ArchiveFindingsResponse$ === "object");
+assert(typeof AssociationDetail$ === "object");
+assert(typeof AssociationSummary$ === "object");
 assert(typeof AutonomousSystem$ === "object");
 assert(typeof AutoscalingAutoScalingGroup$ === "object");
 assert(typeof AwsApiCallAction$ === "object");
@@ -967,6 +1060,10 @@ assert(typeof CoverageResource$ === "object");
 assert(typeof CoverageResourceDetails$ === "object");
 assert(typeof CoverageSortCriteria$ === "object");
 assert(typeof CoverageStatistics$ === "object");
+assert(typeof CreateCustomDetectionRuleAssociationRequest$ === "object");
+assert(typeof CreateCustomDetectionRuleAssociationResponse$ === "object");
+assert(typeof CreateCustomDetectionRuleOrgConfigurationRequest$ === "object");
+assert(typeof CreateCustomDetectionRuleOrgConfigurationResponse$ === "object");
 assert(typeof CreateDetectorRequest$ === "object");
 assert(typeof CreateDetectorResponse$ === "object");
 assert(typeof CreateFilterRequest$ === "object");
@@ -999,6 +1096,10 @@ assert(typeof DateStatistics$ === "object");
 assert(typeof DeclineInvitationsRequest$ === "object");
 assert(typeof DeclineInvitationsResponse$ === "object");
 assert(typeof DefaultServerSideEncryption$ === "object");
+assert(typeof DeleteCustomDetectionRuleAssociationRequest$ === "object");
+assert(typeof DeleteCustomDetectionRuleAssociationResponse$ === "object");
+assert(typeof DeleteCustomDetectionRuleOrgConfigurationRequest$ === "object");
+assert(typeof DeleteCustomDetectionRuleOrgConfigurationResponse$ === "object");
 assert(typeof DeleteDetectorRequest$ === "object");
 assert(typeof DeleteDetectorResponse$ === "object");
 assert(typeof DeleteFilterRequest$ === "object");
@@ -1027,6 +1128,9 @@ assert(typeof DescribePublishingDestinationResponse$ === "object");
 assert(typeof Destination$ === "object");
 assert(typeof DestinationProperties$ === "object");
 assert(typeof Detection$ === "object");
+assert(typeof DetectionRuleFilter$ === "object");
+assert(typeof DetectionRuleOrgConfiguration$ === "object");
+assert(typeof DetectionRuleOrgConfigurationSummary$ === "object");
 assert(typeof DetectorAdditionalConfiguration$ === "object");
 assert(typeof DetectorAdditionalConfigurationResult$ === "object");
 assert(typeof DetectorFeatureConfiguration$ === "object");
@@ -1077,6 +1181,12 @@ assert(typeof GetAdministratorAccountRequest$ === "object");
 assert(typeof GetAdministratorAccountResponse$ === "object");
 assert(typeof GetCoverageStatisticsRequest$ === "object");
 assert(typeof GetCoverageStatisticsResponse$ === "object");
+assert(typeof GetCustomDetectionRuleAssociationRequest$ === "object");
+assert(typeof GetCustomDetectionRuleAssociationResponse$ === "object");
+assert(typeof GetCustomDetectionRuleOrgConfigurationRequest$ === "object");
+assert(typeof GetCustomDetectionRuleOrgConfigurationResponse$ === "object");
+assert(typeof GetCustomDetectionRuleRequest$ === "object");
+assert(typeof GetCustomDetectionRuleResponse$ === "object");
 assert(typeof GetDetectorRequest$ === "object");
 assert(typeof GetDetectorResponse$ === "object");
 assert(typeof GetFilterRequest$ === "object");
@@ -1149,6 +1259,12 @@ assert(typeof LambdaDetails$ === "object");
 assert(typeof LineageObject$ === "object");
 assert(typeof ListCoverageRequest$ === "object");
 assert(typeof ListCoverageResponse$ === "object");
+assert(typeof ListCustomDetectionRuleAssociationsRequest$ === "object");
+assert(typeof ListCustomDetectionRuleAssociationsResponse$ === "object");
+assert(typeof ListCustomDetectionRuleOrgConfigurationsRequest$ === "object");
+assert(typeof ListCustomDetectionRuleOrgConfigurationsResponse$ === "object");
+assert(typeof ListCustomDetectionRulesRequest$ === "object");
+assert(typeof ListCustomDetectionRulesResponse$ === "object");
 assert(typeof ListDetectorsRequest$ === "object");
 assert(typeof ListDetectorsResponse$ === "object");
 assert(typeof ListFiltersRequest$ === "object");
@@ -1255,6 +1371,9 @@ assert(typeof ResourceData$ === "object");
 assert(typeof ResourceDetails$ === "object");
 assert(typeof ResourceStatistics$ === "object");
 assert(typeof ResourceV2$ === "object");
+assert(typeof RuleDefinition$ === "object");
+assert(typeof RuleDetail$ === "object");
+assert(typeof RuleSummary$ === "object");
 assert(typeof RuntimeContext$ === "object");
 assert(typeof RuntimeDetails$ === "object");
 assert(typeof S3Bucket$ === "object");
@@ -1314,6 +1433,10 @@ assert(typeof UnprocessedAccount$ === "object");
 assert(typeof UnprocessedDataSourcesResult$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateCustomDetectionRuleAssociationRequest$ === "object");
+assert(typeof UpdateCustomDetectionRuleAssociationResponse$ === "object");
+assert(typeof UpdateCustomDetectionRuleOrgConfigurationRequest$ === "object");
+assert(typeof UpdateCustomDetectionRuleOrgConfigurationResponse$ === "object");
 assert(typeof UpdateDetectorRequest$ === "object");
 assert(typeof UpdateDetectorResponse$ === "object");
 assert(typeof UpdateFilterRequest$ === "object");
@@ -1354,6 +1477,7 @@ assert(typeof VolumeMount$ === "object");
 assert(typeof VpcConfig$ === "object");
 // enums
 assert(typeof AdminStatus === "object");
+assert(typeof AssociationMode === "object");
 assert(typeof AutoEnableMembers === "object");
 assert(typeof CloudProvider === "object");
 assert(typeof ClusterStatus === "object");
@@ -1369,6 +1493,10 @@ assert(typeof CriterionKey === "object");
 assert(typeof DataSource === "object");
 assert(typeof DataSourceStatus === "object");
 assert(typeof DestinationType === "object");
+assert(typeof DetectionRuleConfigurationStatus === "object");
+assert(typeof DetectionRuleDataSource === "object");
+assert(typeof DetectionRuleFilterCondition === "object");
+assert(typeof DetectionRuleSeverity === "object");
 assert(typeof DetectionSource === "object");
 assert(typeof DetectorFeature === "object");
 assert(typeof DetectorFeatureResult === "object");
@@ -1380,6 +1508,7 @@ assert(typeof FeatureAdditionalConfiguration === "object");
 assert(typeof FeatureStatus === "object");
 assert(typeof Feedback === "object");
 assert(typeof FilterAction === "object");
+assert(typeof FilterFieldName === "object");
 assert(typeof FindingPublishingFrequency === "object");
 assert(typeof FindingResourceType === "object");
 assert(typeof FindingStatisticType === "object");
@@ -1414,6 +1543,8 @@ assert(typeof PublicBucketRestrictBehavior === "object");
 assert(typeof PublishingStatus === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RiskLevel === "object");
+assert(typeof RuleLanguage === "object");
+assert(typeof RuleSchema === "object");
 assert(typeof ScanCategory === "object");
 assert(typeof ScanCriterionKey === "object");
 assert(typeof ScanResult === "object");
@@ -1448,6 +1579,9 @@ assert(typeof paginateDescribeMalwareScans === "function");
 assert(typeof paginateDescribeOrganizationConfiguration === "function");
 assert(typeof paginateGetUsageStatistics === "function");
 assert(typeof paginateListCoverage === "function");
+assert(typeof paginateListCustomDetectionRuleAssociations === "function");
+assert(typeof paginateListCustomDetectionRuleOrgConfigurations === "function");
+assert(typeof paginateListCustomDetectionRules === "function");
 assert(typeof paginateListDetectors === "function");
 assert(typeof paginateListFilters === "function");
 assert(typeof paginateListFindings === "function");

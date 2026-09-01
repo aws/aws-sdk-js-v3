@@ -60,6 +60,14 @@ import type {
 } from "./commands/AcceptAdministratorInvitationCommand";
 import type { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
 import type { ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput } from "./commands/ArchiveFindingsCommand";
+import type {
+  CreateCustomDetectionRuleAssociationCommandInput,
+  CreateCustomDetectionRuleAssociationCommandOutput,
+} from "./commands/CreateCustomDetectionRuleAssociationCommand";
+import type {
+  CreateCustomDetectionRuleOrgConfigurationCommandInput,
+  CreateCustomDetectionRuleOrgConfigurationCommandOutput,
+} from "./commands/CreateCustomDetectionRuleOrgConfigurationCommand";
 import type { CreateDetectorCommandInput, CreateDetectorCommandOutput } from "./commands/CreateDetectorCommand";
 import type { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
 import type {
@@ -96,6 +104,14 @@ import type {
   DeclineInvitationsCommandInput,
   DeclineInvitationsCommandOutput,
 } from "./commands/DeclineInvitationsCommand";
+import type {
+  DeleteCustomDetectionRuleAssociationCommandInput,
+  DeleteCustomDetectionRuleAssociationCommandOutput,
+} from "./commands/DeleteCustomDetectionRuleAssociationCommand";
+import type {
+  DeleteCustomDetectionRuleOrgConfigurationCommandInput,
+  DeleteCustomDetectionRuleOrgConfigurationCommandOutput,
+} from "./commands/DeleteCustomDetectionRuleOrgConfigurationCommand";
 import type { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "./commands/DeleteDetectorCommand";
 import type { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
 import type {
@@ -164,6 +180,18 @@ import type {
   GetCoverageStatisticsCommandInput,
   GetCoverageStatisticsCommandOutput,
 } from "./commands/GetCoverageStatisticsCommand";
+import type {
+  GetCustomDetectionRuleAssociationCommandInput,
+  GetCustomDetectionRuleAssociationCommandOutput,
+} from "./commands/GetCustomDetectionRuleAssociationCommand";
+import type {
+  GetCustomDetectionRuleCommandInput,
+  GetCustomDetectionRuleCommandOutput,
+} from "./commands/GetCustomDetectionRuleCommand";
+import type {
+  GetCustomDetectionRuleOrgConfigurationCommandInput,
+  GetCustomDetectionRuleOrgConfigurationCommandOutput,
+} from "./commands/GetCustomDetectionRuleOrgConfigurationCommand";
 import type { GetDetectorCommandInput, GetDetectorCommandOutput } from "./commands/GetDetectorCommand";
 import type { GetFilterCommandInput, GetFilterCommandOutput } from "./commands/GetFilterCommand";
 import type { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
@@ -218,6 +246,18 @@ import type {
 } from "./commands/GetUsageStatisticsCommand";
 import type { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
 import type { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
+import type {
+  ListCustomDetectionRuleAssociationsCommandInput,
+  ListCustomDetectionRuleAssociationsCommandOutput,
+} from "./commands/ListCustomDetectionRuleAssociationsCommand";
+import type {
+  ListCustomDetectionRuleOrgConfigurationsCommandInput,
+  ListCustomDetectionRuleOrgConfigurationsCommandOutput,
+} from "./commands/ListCustomDetectionRuleOrgConfigurationsCommand";
+import type {
+  ListCustomDetectionRulesCommandInput,
+  ListCustomDetectionRulesCommandOutput,
+} from "./commands/ListCustomDetectionRulesCommand";
 import type { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "./commands/ListDetectorsCommand";
 import type { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
 import type { ListFindingsCommandInput, ListFindingsCommandOutput } from "./commands/ListFindingsCommand";
@@ -276,6 +316,14 @@ import type {
   UnarchiveFindingsCommandOutput,
 } from "./commands/UnarchiveFindingsCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateCustomDetectionRuleAssociationCommandInput,
+  UpdateCustomDetectionRuleAssociationCommandOutput,
+} from "./commands/UpdateCustomDetectionRuleAssociationCommand";
+import type {
+  UpdateCustomDetectionRuleOrgConfigurationCommandInput,
+  UpdateCustomDetectionRuleOrgConfigurationCommandOutput,
+} from "./commands/UpdateCustomDetectionRuleOrgConfigurationCommand";
 import type { UpdateDetectorCommandInput, UpdateDetectorCommandOutput } from "./commands/UpdateDetectorCommand";
 import type { UpdateFilterCommandInput, UpdateFilterCommandOutput } from "./commands/UpdateFilterCommand";
 import type {
@@ -333,6 +381,8 @@ export type ServiceInputTypes =
   | AcceptAdministratorInvitationCommandInput
   | AcceptInvitationCommandInput
   | ArchiveFindingsCommandInput
+  | CreateCustomDetectionRuleAssociationCommandInput
+  | CreateCustomDetectionRuleOrgConfigurationCommandInput
   | CreateDetectorCommandInput
   | CreateFilterCommandInput
   | CreateIPSetCommandInput
@@ -345,6 +395,8 @@ export type ServiceInputTypes =
   | CreateThreatIntelSetCommandInput
   | CreateTrustedEntitySetCommandInput
   | DeclineInvitationsCommandInput
+  | DeleteCustomDetectionRuleAssociationCommandInput
+  | DeleteCustomDetectionRuleOrgConfigurationCommandInput
   | DeleteDetectorCommandInput
   | DeleteFilterCommandInput
   | DeleteIPSetCommandInput
@@ -365,6 +417,9 @@ export type ServiceInputTypes =
   | EnableOrganizationAdminAccountCommandInput
   | GetAdministratorAccountCommandInput
   | GetCoverageStatisticsCommandInput
+  | GetCustomDetectionRuleAssociationCommandInput
+  | GetCustomDetectionRuleCommandInput
+  | GetCustomDetectionRuleOrgConfigurationCommandInput
   | GetDetectorCommandInput
   | GetFilterCommandInput
   | GetFindingsCommandInput
@@ -386,6 +441,9 @@ export type ServiceInputTypes =
   | GetUsageStatisticsCommandInput
   | InviteMembersCommandInput
   | ListCoverageCommandInput
+  | ListCustomDetectionRuleAssociationsCommandInput
+  | ListCustomDetectionRuleOrgConfigurationsCommandInput
+  | ListCustomDetectionRulesCommandInput
   | ListDetectorsCommandInput
   | ListFiltersCommandInput
   | ListFindingsCommandInput
@@ -408,6 +466,8 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UnarchiveFindingsCommandInput
   | UntagResourceCommandInput
+  | UpdateCustomDetectionRuleAssociationCommandInput
+  | UpdateCustomDetectionRuleOrgConfigurationCommandInput
   | UpdateDetectorCommandInput
   | UpdateFilterCommandInput
   | UpdateFindingsFeedbackCommandInput
@@ -428,6 +488,8 @@ export type ServiceOutputTypes =
   | AcceptAdministratorInvitationCommandOutput
   | AcceptInvitationCommandOutput
   | ArchiveFindingsCommandOutput
+  | CreateCustomDetectionRuleAssociationCommandOutput
+  | CreateCustomDetectionRuleOrgConfigurationCommandOutput
   | CreateDetectorCommandOutput
   | CreateFilterCommandOutput
   | CreateIPSetCommandOutput
@@ -440,6 +502,8 @@ export type ServiceOutputTypes =
   | CreateThreatIntelSetCommandOutput
   | CreateTrustedEntitySetCommandOutput
   | DeclineInvitationsCommandOutput
+  | DeleteCustomDetectionRuleAssociationCommandOutput
+  | DeleteCustomDetectionRuleOrgConfigurationCommandOutput
   | DeleteDetectorCommandOutput
   | DeleteFilterCommandOutput
   | DeleteIPSetCommandOutput
@@ -460,6 +524,9 @@ export type ServiceOutputTypes =
   | EnableOrganizationAdminAccountCommandOutput
   | GetAdministratorAccountCommandOutput
   | GetCoverageStatisticsCommandOutput
+  | GetCustomDetectionRuleAssociationCommandOutput
+  | GetCustomDetectionRuleCommandOutput
+  | GetCustomDetectionRuleOrgConfigurationCommandOutput
   | GetDetectorCommandOutput
   | GetFilterCommandOutput
   | GetFindingsCommandOutput
@@ -481,6 +548,9 @@ export type ServiceOutputTypes =
   | GetUsageStatisticsCommandOutput
   | InviteMembersCommandOutput
   | ListCoverageCommandOutput
+  | ListCustomDetectionRuleAssociationsCommandOutput
+  | ListCustomDetectionRuleOrgConfigurationsCommandOutput
+  | ListCustomDetectionRulesCommandOutput
   | ListDetectorsCommandOutput
   | ListFiltersCommandOutput
   | ListFindingsCommandOutput
@@ -503,6 +573,8 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UnarchiveFindingsCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCustomDetectionRuleAssociationCommandOutput
+  | UpdateCustomDetectionRuleOrgConfigurationCommandOutput
   | UpdateDetectorCommandOutput
   | UpdateFilterCommandOutput
   | UpdateFindingsFeedbackCommandOutput
