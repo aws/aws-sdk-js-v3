@@ -172,7 +172,7 @@ export function deriveLocalPath(destination: string, key: string): string {
 /**
  * Creates the parent directories for a local download path, verifying each
  * component's canonical (symlink-resolved) location stays within the
- * destination. 
+ * destination.
  *
  * @param destination - The resolved absolute destination directory.
  * @param localPath - The resolved absolute local file path (from deriveLocalPath).

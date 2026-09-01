@@ -1411,9 +1411,14 @@ export class S3TransferManager implements IS3TransferManager {
             continue;
           }
 
-          // Apply user filter.
-          if (request.filter && !request.filter(object)) {
-            continue;
+          // Apply user filter. A RegExp is matched against the object key;
+          // a callback receives the full S3 object.
+          if (request.filter) {
+            const include =
+              request.filter instanceof RegExp ? request.filter.test(object.Key!) : request.filter(object);
+            if (!include) {
+              continue;
+            }
           }
 
           const currentObject = object;

@@ -1874,7 +1874,9 @@ describe("S3TransferManager Unit Tests", () => {
         const key = command.input.Key as string;
         const err = errorByKey[key];
         if (err) {
-          return Promise.reject(Object.assign(new Error(err.name), { name: err.name, $metadata: { httpStatusCode: err.status } }));
+          return Promise.reject(
+            Object.assign(new Error(err.name), { name: err.name, $metadata: { httpStatusCode: err.status } })
+          );
         }
         const size = sizeByKey.get(key) ?? 0;
         return Promise.resolve({
@@ -1908,7 +1910,12 @@ describe("S3TransferManager Unit Tests", () => {
       ];
       const destination = join(tmpDir, "downloads");
       const mockClient = createMockClient(objects);
-      const tm = new S3TransferManager({ s3: mockClient, targetPartSizeBytes: 8388608, multipartDownloadType: "PART", maxConcurrentDownloads: 10 });
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        targetPartSizeBytes: 8388608,
+        multipartDownloadType: "PART",
+        maxConcurrentDownloads: 10,
+      });
 
       const result = await tm.downloadDirectory({ bucket: "example-bucket", destination });
 
@@ -1959,6 +1966,30 @@ describe("S3TransferManager Unit Tests", () => {
       expect(result.objectsFailed).toBe(0);
       expect(existsSync(join(destination, "mixed/image.jpg"))).toBe(true);
       expect(existsSync(join(destination, "mixed/document.txt"))).toBe(false);
+    });
+
+    it("with filter RegExp: only downloads objects whose key matches", async () => {
+      const objects = [
+        { key: "mixed/image.jpg", size: 1048576 },
+        { key: "mixed/document.txt", size: 2048 },
+        { key: "mixed/image2.jpg2", size: 1048576 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const result = await tm.downloadDirectory({
+        bucket: "example-bucket",
+        destination,
+        s3Prefix: "mixed/",
+        filter: /\.jpg$/,
+      });
+
+      expect(result.objectsDownloaded).toBe(1);
+      expect(result.objectsFailed).toBe(0);
+      expect(existsSync(join(destination, "mixed/image.jpg"))).toBe(true);
+      expect(existsSync(join(destination, "mixed/document.txt"))).toBe(false);
+      expect(existsSync(join(destination, "mixed/image2.jpg2"))).toBe(false);
     });
 
     it("skip folder objects, zero-byte keys ending in / are not downloaded", async () => {
@@ -2103,13 +2134,58 @@ describe("S3TransferManager Unit Tests", () => {
       const mockClient = createMockClient([]);
       const tm = new S3TransferManager({ s3: mockClient });
 
-      await expect(
-        tm.downloadDirectory({ bucket: "example-bucket", destination, maxConcurrency: 0 })
-      ).rejects.toThrow(/maxConcurrency must be a positive integer/);
+      await expect(tm.downloadDirectory({ bucket: "example-bucket", destination, maxConcurrency: 0 })).rejects.toThrow(
+        /maxConcurrency must be a positive integer/
+      );
 
       // Rejected before making any S3 request (validation precedes listing).
       expect(listCalls()).toHaveLength(0);
       expect(getCalls()).toHaveLength(0);
+    });
+
+    it("user abort should rejects with AbortError instead of resolving", async () => {
+      const destination = join(tmpDir, "downloads");
+      const controller = new AbortController();
+      let signalGetObjectStarted!: () => void;
+      const getObjectStarted = new Promise<void>((resolve) => {
+        signalGetObjectStarted = resolve;
+      });
+
+      // Abort-aware mock: ListObjectsV2 returns one object; GetObject stays
+      // pending until its abortSignal fires, then rejects with an AbortError.
+      const mockSend = vi.fn().mockImplementation((command: any, options: any) => {
+        const name = command.constructor.name;
+        if (name === "ListObjectsV2Command") {
+          return Promise.resolve({
+            Contents: [{ Key: "file1.txt", Size: 1024 }],
+            IsTruncated: false,
+            $metadata: {},
+          });
+        }
+        // GetObjectCommand: never resolves; rejects only when aborted.
+        return new Promise((_resolve, reject) => {
+          const signal = options?.abortSignal as AbortSignal | undefined;
+          const onAbort = () => reject(Object.assign(new Error("Aborted"), { name: "AbortError" }));
+          if (signal?.aborted) {
+            onAbort();
+            return;
+          }
+          signal?.addEventListener("abort", onAbort, { once: true });
+          signalGetObjectStarted();
+        });
+      });
+      const mockClient = { send: mockSend, config: {} } as any;
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const download = tm.downloadDirectory(
+        { bucket: "example-bucket", destination },
+        { abortSignal: controller.signal }
+      );
+
+      await getObjectStarted;
+      controller.abort();
+
+      await expect(download).rejects.toMatchObject({ name: "AbortError" });
     });
 
     it("verify continue policy, a failed object does not stop the rest", async () => {
@@ -2147,9 +2223,9 @@ describe("S3TransferManager Unit Tests", () => {
       });
       const tm = new S3TransferManager({ s3: mockClient });
 
-      await expect(
-        tm.downloadDirectory({ bucket: "example-bucket", destination, maxConcurrency: 1 })
-      ).rejects.toThrow("NoSuchKey");
+      await expect(tm.downloadDirectory({ bucket: "example-bucket", destination, maxConcurrency: 1 })).rejects.toThrow(
+        "NoSuchKey"
+      );
     });
 
     it("S3 directory bucket: downloads objects including nested keys", async () => {
@@ -2159,7 +2235,12 @@ describe("S3TransferManager Unit Tests", () => {
       ];
       const destination = join(tmpDir, "downloads");
       const mockClient = createMockClient(objects);
-      const tm = new S3TransferManager({ s3: mockClient, targetPartSizeBytes: 8388608, multipartDownloadType: "PART", maxConcurrentDownloads: 10 });
+      const tm = new S3TransferManager({
+        s3: mockClient,
+        targetPartSizeBytes: 8388608,
+        multipartDownloadType: "PART",
+        maxConcurrentDownloads: 10,
+      });
 
       const result = await tm.downloadDirectory({
         bucket: "example-directory-bucket--use1-az1--x-s3",
