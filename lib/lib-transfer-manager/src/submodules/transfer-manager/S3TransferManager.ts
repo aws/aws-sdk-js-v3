@@ -1182,7 +1182,8 @@ export class S3TransferManager implements IS3TransferManager {
       this.checkAborted(transferOptions);
 
       if (request.filter) {
-        const include = request.filter instanceof RegExp ? request.filter.test(filePath) : request.filter(filePath);
+        const include =
+          request.filter instanceof RegExp ? matchesFilterRegExp(request.filter, filePath) : request.filter(filePath);
         if (!include) continue;
       }
 
@@ -1415,7 +1416,9 @@ export class S3TransferManager implements IS3TransferManager {
           // a callback receives the full S3 object.
           if (request.filter) {
             const include =
-              request.filter instanceof RegExp ? request.filter.test(object.Key!) : request.filter(object);
+              request.filter instanceof RegExp
+                ? matchesFilterRegExp(request.filter, object.Key!)
+                : request.filter(object);
             if (!include) {
               continue;
             }
@@ -3159,6 +3162,18 @@ export class S3TransferManager implements IS3TransferManager {
       );
     }
   }
+}
+
+/**
+ * Tests a value against a filter RegExp without leaking state. A `g`/`y` flag
+ * makes `RegExp.test()` stateful via `lastIndex`, which would yield inconsistent
+ * results across repeated calls; reset it so each test is independent.
+ *
+ * @internal
+ */
+function matchesFilterRegExp(filter: RegExp, value: string): boolean {
+  filter.lastIndex = 0;
+  return filter.test(value);
 }
 
 /**

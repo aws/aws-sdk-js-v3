@@ -1992,6 +1992,31 @@ describe("S3TransferManager Unit Tests", () => {
       expect(existsSync(join(destination, "mixed/image2.jpg2"))).toBe(false);
     });
 
+    it("with a global filter RegExp: matches every key (no lastIndex carryover)", async () => {
+      const objects = [
+        { key: "logs/a.log", size: 10 },
+        { key: "logs/b.log", size: 20 },
+        { key: "logs/c.log", size: 30 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const result = await tm.downloadDirectory({
+        bucket: "example-bucket",
+        destination,
+        s3Prefix: "logs/",
+        filter: /\.log$/g,
+      });
+      expect(result.objectsDownloaded).toBe(3);
+      expect(result.objectsFailed).toBe(0);
+      expect(
+        getCalls()
+          .map((c: any) => c.input.Key)
+          .sort()
+      ).toEqual(["logs/a.log", "logs/b.log", "logs/c.log"]);
+    });
+
     it("skip folder objects, zero-byte keys ending in / are not downloaded", async () => {
       const objects = [
         { key: "data/folder1/", size: 0 },
