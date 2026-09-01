@@ -964,6 +964,13 @@ GetOperationsForResource
 </details>
 <details>
 <summary>
+GetProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetProfileCommandOutput/)
+</details>
+<details>
+<summary>
 GetRegions
 </summary>
 

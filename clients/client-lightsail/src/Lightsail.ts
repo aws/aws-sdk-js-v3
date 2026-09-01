@@ -537,6 +537,11 @@ import {
   GetOperationsForResourceCommand,
 } from "./commands/GetOperationsForResourceCommand";
 import {
+  type GetProfileCommandInput,
+  type GetProfileCommandOutput,
+  GetProfileCommand,
+} from "./commands/GetProfileCommand";
+import {
   type GetRegionsCommandInput,
   type GetRegionsCommandOutput,
   GetRegionsCommand,
@@ -888,6 +893,7 @@ const commands = {
   GetOperationCommand,
   GetOperationsCommand,
   GetOperationsForResourceCommand,
+  GetProfileCommand,
   GetRegionsCommand,
   GetRelationalDatabaseCommand,
   GetRelationalDatabaseBlueprintsCommand,
@@ -2838,6 +2844,24 @@ export interface Lightsail {
     args: GetOperationsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetOperationsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProfileCommand}
+   */
+  getProfile(): Promise<GetProfileCommandOutput>;
+  getProfile(
+    args: GetProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProfileCommandOutput>;
+  getProfile(
+    args: GetProfileCommandInput,
+    cb: (err: any, data?: GetProfileCommandOutput) => void
+  ): void;
+  getProfile(
+    args: GetProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProfileCommandOutput) => void
   ): void;
 
   /**

@@ -109,6 +109,7 @@ export * from "./GetLoadBalancersCommand";
 export * from "./GetOperationCommand";
 export * from "./GetOperationsCommand";
 export * from "./GetOperationsForResourceCommand";
+export * from "./GetProfileCommand";
 export * from "./GetRegionsCommand";
 export * from "./GetRelationalDatabaseBlueprintsCommand";
 export * from "./GetRelationalDatabaseBundlesCommand";

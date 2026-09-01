@@ -427,6 +427,9 @@ const _GORe = "GetOperationResult";
 const _GORet = "GetOperationsRequest";
 const _GORetp = "GetOperationsResult";
 const _GOe = "GetOperations";
+const _GP = "GetProfile";
+const _GPR = "GetProfileRequest";
+const _GPRe = "GetProfileResult";
 const _GR = "GetRegions";
 const _GRD = "GetRelationalDatabase";
 const _GRDB = "GetRelationalDatabaseBlueprints";
@@ -541,11 +544,12 @@ const _PA = "PutAlarm";
 const _PAR = "PutAlarmRequest";
 const _PARu = "PutAlarmResult";
 const _PD = "PasswordData";
-const _PI = "PortInfo";
+const _PI = "PartnerInfo";
 const _PIL = "PortInfoList";
 const _PIPP = "PutInstancePublicPorts";
 const _PIPPR = "PutInstancePublicPortsRequest";
 const _PIPPRu = "PutInstancePublicPortsResult";
+const _PIo = "PortInfo";
 const _PMA = "PendingMaintenanceAction";
 const _PMAL = "PendingMaintenanceActionList";
 const _PMRDV = "PendingModifiedRelationalDatabaseValues";
@@ -830,6 +834,7 @@ const _du = "duration";
 const _e = "error";
 const _eA = "expiresAt";
 const _eAm = "emailAddress";
+const _eAn = "enrolledAt";
 const _eBR = "enableBackupRetention";
 const _eC = "errorCode";
 const _eCv = "eventCategories";
@@ -1035,12 +1040,14 @@ const _pPu = "publicPorts";
 const _pRA = "privateRegistryAccess";
 const _pS = "portStates";
 const _pT = "pageToken";
+const _pTr = "profileType";
 const _pU = "productUrl";
 const _pUr = "pricingUnit";
 const _pV = "passwordVersion";
 const _pVa = "parameterValue";
 const _pa = "path";
-const _par = "parameters";
+const _par = "partner";
+const _para = "parameters";
 const _pas = "password";
 const _pl = "platform";
 const _po = "power";
@@ -1147,6 +1154,7 @@ const _tC = "tlsCertificates";
 const _tCS = "tlsCertificateSummaries";
 const _tK = "tagKeys";
 const _tMD = "treatMissingData";
+const _tN = "tierName";
 const _tP = "timePeriod";
 const _tPMIG = "transferPerMonthInGb";
 const _tPN = "tlsPolicyName";
@@ -2654,6 +2662,16 @@ export var GetOperationsResult$: StaticStructureSchema = [3, n0, _GORetp,
   [_o, _nPT],
   [() => OperationList, 0]
 ];
+export var GetProfileRequest$: StaticStructureSchema = [3, n0, _GPR,
+  0,
+  [],
+  []
+];
+export var GetProfileResult$: StaticStructureSchema = [3, n0, _GPRe,
+  0,
+  [_pTr, _par],
+  [0, () => PartnerInfo$], 1
+];
 export var GetRegionsRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_iAZ, _iRDAZ],
@@ -2741,7 +2759,7 @@ export var GetRelationalDatabaseParametersRequest$: StaticStructureSchema = [3, 
 ];
 export var GetRelationalDatabaseParametersResult$: StaticStructureSchema = [3, n0, _GRDPRe,
   0,
-  [_par, _nPT],
+  [_para, _nPT],
   [() => RelationalDatabaseParameterList, 0]
 ];
 export var GetRelationalDatabaseRequest$: StaticStructureSchema = [3, n0, _GRDR,
@@ -3004,6 +3022,11 @@ export var Origin$: StaticStructureSchema = [3, n0, _Or,
   [_n, _rT, _rNe, _pP, _rTes, _iAT],
   [0, 0, 0, 0, 1, 0]
 ];
+export var PartnerInfo$: StaticStructureSchema = [3, n0, _PI,
+  0,
+  [_eAn, _st, _tN],
+  [4, 0, 0], 2
+];
 export var PasswordData$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_ciph, _kPN],
@@ -3029,7 +3052,7 @@ export var PendingModifiedRelationalDatabaseValues$: StaticStructureSchema = [3,
   [_mUP, _eV, _bRE],
   [0, 0, 2]
 ];
-export var PortInfo$: StaticStructureSchema = [3, n0, _PI,
+export var PortInfo$: StaticStructureSchema = [3, n0, _PIo,
   0,
   [_fPr, _tPo, _pro, _ci, _iCp, _cLA],
   [1, 1, 0, 64 | 0, 64 | 0, 64 | 0]
@@ -3466,7 +3489,7 @@ export var UpdateLoadBalancerAttributeResult$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdateRelationalDatabaseParametersRequest$: StaticStructureSchema = [3, n0, _URDPR,
   0,
-  [_rDN, _par],
+  [_rDN, _para],
   [0, () => RelationalDatabaseParameterList], 2
 ];
 export var UpdateRelationalDatabaseParametersResult$: StaticStructureSchema = [3, n0, _URDPRp,
@@ -4054,6 +4077,9 @@ export var GetOperations$: StaticOperationSchema = [9, n0, _GOe,
 ];
 export var GetOperationsForResource$: StaticOperationSchema = [9, n0, _GOFR,
   { [_ht]: ["POST", "/ls/api/2016-11-28/GetOperationsForResource", 200] }, () => GetOperationsForResourceRequest$, () => GetOperationsForResourceResult$
+];
+export var GetProfile$: StaticOperationSchema = [9, n0, _GP,
+  { [_ht]: ["GET", "/ls/api/2016-11-28/GetProfile", 200] }, () => GetProfileRequest$, () => GetProfileResult$
 ];
 export var GetRegions$: StaticOperationSchema = [9, n0, _GR,
   { [_ht]: ["POST", "/ls/api/2016-11-28/GetRegions", 200] }, () => GetRegionsRequest$, () => GetRegionsResult$

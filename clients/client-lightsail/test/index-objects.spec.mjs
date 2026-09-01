@@ -533,6 +533,10 @@ import {
   GetOperationsForResourceResult$,
   GetOperationsRequest$,
   GetOperationsResult$,
+  GetProfile$,
+  GetProfileCommand,
+  GetProfileRequest$,
+  GetProfileResult$,
   GetRegions$,
   GetRegionsCommand,
   GetRegionsRequest$,
@@ -681,6 +685,8 @@ import {
   Origin$,
   OriginIpAddressTypeEnum,
   OriginProtocolPolicyEnum,
+  PartnerInfo$,
+  PartnerStatus,
   PasswordData$,
   PeerVpc$,
   PeerVpcCommand,
@@ -695,6 +701,7 @@ import {
   PricingUnit,
   PrivateRegistryAccess$,
   PrivateRegistryAccessRequest$,
+  ProfileType,
   PutAlarm$,
   PutAlarmCommand,
   PutAlarmRequest$,
@@ -812,6 +819,7 @@ import {
   TestAlarmCommand,
   TestAlarmRequest$,
   TestAlarmResult$,
+  TierName,
   TimePeriod$,
   TreatMissingData,
   UnauthenticatedException,
@@ -1091,6 +1099,8 @@ assert(typeof GetOperationsCommand === "function");
 assert(typeof GetOperations$ === "object");
 assert(typeof GetOperationsForResourceCommand === "function");
 assert(typeof GetOperationsForResource$ === "object");
+assert(typeof GetProfileCommand === "function");
+assert(typeof GetProfile$ === "object");
 assert(typeof GetRegionsCommand === "function");
 assert(typeof GetRegions$ === "object");
 assert(typeof GetRelationalDatabaseCommand === "function");
@@ -1471,6 +1481,8 @@ assert(typeof GetOperationsForResourceRequest$ === "object");
 assert(typeof GetOperationsForResourceResult$ === "object");
 assert(typeof GetOperationsRequest$ === "object");
 assert(typeof GetOperationsResult$ === "object");
+assert(typeof GetProfileRequest$ === "object");
+assert(typeof GetProfileResult$ === "object");
 assert(typeof GetRegionsRequest$ === "object");
 assert(typeof GetRegionsResult$ === "object");
 assert(typeof GetRelationalDatabaseBlueprintsRequest$ === "object");
@@ -1541,6 +1553,7 @@ assert(typeof OpenInstancePublicPortsRequest$ === "object");
 assert(typeof OpenInstancePublicPortsResult$ === "object");
 assert(typeof Operation$ === "object");
 assert(typeof Origin$ === "object");
+assert(typeof PartnerInfo$ === "object");
 assert(typeof PasswordData$ === "object");
 assert(typeof PeerVpcRequest$ === "object");
 assert(typeof PeerVpcResult$ === "object");
@@ -1702,10 +1715,12 @@ assert(typeof OperationStatus === "object");
 assert(typeof OperationType === "object");
 assert(typeof OriginIpAddressTypeEnum === "object");
 assert(typeof OriginProtocolPolicyEnum === "object");
+assert(typeof PartnerStatus === "object");
 assert(typeof PortAccessType === "object");
 assert(typeof PortInfoSourceType === "object");
 assert(typeof PortState === "object");
 assert(typeof PricingUnit === "object");
+assert(typeof ProfileType === "object");
 assert(typeof R53HostedZoneDeletionStateCode === "object");
 assert(typeof RecordState === "object");
 assert(typeof RegionName === "object");
@@ -1718,6 +1733,7 @@ assert(typeof ResourceType === "object");
 assert(typeof SetupStatus === "object");
 assert(typeof Status === "object");
 assert(typeof StatusType === "object");
+assert(typeof TierName === "object");
 assert(typeof TreatMissingData === "object");
 assert(typeof ViewerMinimumTlsProtocolVersionEnum === "object");
 // errors

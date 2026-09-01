@@ -25,6 +25,8 @@ import type {
   MetricName,
   MetricStatistic,
   MetricUnit,
+  PartnerStatus,
+  ProfileType,
   RegionName,
   RelationalDatabaseEngine,
   RelationalDatabaseMetricName,
@@ -32,6 +34,7 @@ import type {
   ResourceBucketAccess,
   ResourceType,
   SetupStatus,
+  TierName,
   TreatMissingData,
   ViewerMinimumTlsProtocolVersionEnum,
 } from "./enums";
@@ -1370,6 +1373,82 @@ export interface GetOperationsForResourceResult {
    * @public
    */
   nextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProfileRequest {}
+
+/**
+ * <p>An object that contains information about the Lightsail partner program membership of an
+ *         Amazon Lightsail account.</p>
+ * @public
+ */
+export interface PartnerInfo {
+  /**
+   * <p>The timestamp when the account was enrolled in the Lightsail partner program.</p>
+   * @public
+   */
+  enrolledAt: Date | undefined;
+
+  /**
+   * <p>The tier of the partner membership.</p>
+   * @public
+   */
+  tierName?: TierName | undefined;
+
+  /**
+   * <p>The status of the partner membership.</p>
+   *          <p>The following statuses are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Active</code> – The membership is active, and the benefits of the current tier
+   *           are available to the account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Suspended</code> – The membership is suspended, and the benefits of the tier are
+   *           not available to the account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status: PartnerStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProfileResult {
+  /**
+   * <p>The type of the profile.</p>
+   *          <p>The following profile types are possible:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Lightsailor</code> – The account is not enrolled in the Lightsail partner
+   *           program.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LightsailPartner</code> – The account is enrolled in the Lightsail partner
+   *           program.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  profileType: ProfileType | undefined;
+
+  /**
+   * <p>An object that describes the partner membership of the account, such as the tier of the
+   *       membership, its status, and when the account was enrolled.</p>
+   *          <p>This parameter is returned only for accounts that have a <code>profileType</code> of
+   *         <code>LightsailPartner</code>.</p>
+   * @public
+   */
+  partner?: PartnerInfo | undefined;
 }
 
 /**

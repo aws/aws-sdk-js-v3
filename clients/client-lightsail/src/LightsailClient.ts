@@ -356,6 +356,7 @@ import type {
   GetOperationsForResourceCommandInput,
   GetOperationsForResourceCommandOutput,
 } from "./commands/GetOperationsForResourceCommand";
+import type { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
 import type { GetRegionsCommandInput, GetRegionsCommandOutput } from "./commands/GetRegionsCommand";
 import type {
   GetRelationalDatabaseBlueprintsCommandInput,
@@ -625,6 +626,7 @@ export type ServiceInputTypes =
   | GetOperationCommandInput
   | GetOperationsCommandInput
   | GetOperationsForResourceCommandInput
+  | GetProfileCommandInput
   | GetRegionsCommandInput
   | GetRelationalDatabaseBlueprintsCommandInput
   | GetRelationalDatabaseBundlesCommandInput
@@ -791,6 +793,7 @@ export type ServiceOutputTypes =
   | GetOperationCommandOutput
   | GetOperationsCommandOutput
   | GetOperationsForResourceCommandOutput
+  | GetProfileCommandOutput
   | GetRegionsCommandOutput
   | GetRelationalDatabaseBlueprintsCommandOutput
   | GetRelationalDatabaseBundlesCommandOutput

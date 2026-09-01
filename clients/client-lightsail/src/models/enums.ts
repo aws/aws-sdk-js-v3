@@ -152,6 +152,7 @@ export const MetricName = {
   DatabaseConnections: "DatabaseConnections",
   DiskQueueDepth: "DiskQueueDepth",
   FreeStorageSpace: "FreeStorageSpace",
+  FreeableMemory: "FreeableMemory",
   HTTPCode_Instance_2XX_Count: "HTTPCode_Instance_2XX_Count",
   HTTPCode_Instance_3XX_Count: "HTTPCode_Instance_3XX_Count",
   HTTPCode_Instance_4XX_Count: "HTTPCode_Instance_4XX_Count",
@@ -169,6 +170,7 @@ export const MetricName = {
   StatusCheckFailed: "StatusCheckFailed",
   StatusCheckFailed_Instance: "StatusCheckFailed_Instance",
   StatusCheckFailed_System: "StatusCheckFailed_System",
+  SwapUsage: "SwapUsage",
   UnhealthyHostCount: "UnhealthyHostCount",
 } as const;
 /**
@@ -349,6 +351,7 @@ export const OperationType = {
   EnableAddOn: "EnableAddOn",
   GetAlarms: "GetAlarms",
   GetContactMethods: "GetContactMethods",
+  GetProfile: "GetProfile",
   OpenInstancePublicPorts: "OpenInstancePublicPorts",
   PutAlarm: "PutAlarm",
   PutInstancePublicPorts: "PutInstancePublicPorts",
@@ -1333,6 +1336,47 @@ export type LoadBalancerTlsCertificateStatus =
  * @public
  * @enum
  */
+export const PartnerStatus = {
+  Active: "Active",
+  Suspended: "Suspended",
+} as const;
+/**
+ * @public
+ */
+export type PartnerStatus = (typeof PartnerStatus)[keyof typeof PartnerStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TierName = {
+  Accelerate: "Accelerate",
+  Essential: "Essential",
+  Growth: "Growth",
+  Premier: "Premier",
+} as const;
+/**
+ * @public
+ */
+export type TierName = (typeof TierName)[keyof typeof TierName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfileType = {
+  LightsailPartner: "LightsailPartner",
+  Lightsailor: "Lightsailor",
+} as const;
+/**
+ * @public
+ */
+export type ProfileType = (typeof ProfileType)[keyof typeof ProfileType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RelationalDatabaseEngine = {
   MYSQL: "mysql",
 } as const;
@@ -1365,8 +1409,10 @@ export const RelationalDatabaseMetricName = {
   DatabaseConnections: "DatabaseConnections",
   DiskQueueDepth: "DiskQueueDepth",
   FreeStorageSpace: "FreeStorageSpace",
+  FreeableMemory: "FreeableMemory",
   NetworkReceiveThroughput: "NetworkReceiveThroughput",
   NetworkTransmitThroughput: "NetworkTransmitThroughput",
+  SwapUsage: "SwapUsage",
 } as const;
 /**
  * @public

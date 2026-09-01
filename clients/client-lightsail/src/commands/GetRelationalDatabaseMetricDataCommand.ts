@@ -37,7 +37,7 @@ export interface GetRelationalDatabaseMetricDataCommandOutput extends GetRelatio
  * const client = new LightsailClient(config);
  * const input = { // GetRelationalDatabaseMetricDataRequest
  *   relationalDatabaseName: "STRING_VALUE", // required
- *   metricName: "CPUUtilization" || "DatabaseConnections" || "DiskQueueDepth" || "FreeStorageSpace" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput", // required
+ *   metricName: "CPUUtilization" || "DatabaseConnections" || "DiskQueueDepth" || "FreeStorageSpace" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "FreeableMemory" || "SwapUsage", // required
  *   period: Number("int"), // required
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
@@ -49,7 +49,7 @@ export interface GetRelationalDatabaseMetricDataCommandOutput extends GetRelatio
  * const command = new GetRelationalDatabaseMetricDataCommand(input);
  * const response = await client.send(command);
  * // { // GetRelationalDatabaseMetricDataResult
- * //   metricName: "CPUUtilization" || "DatabaseConnections" || "DiskQueueDepth" || "FreeStorageSpace" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput",
+ * //   metricName: "CPUUtilization" || "DatabaseConnections" || "DiskQueueDepth" || "FreeStorageSpace" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "FreeableMemory" || "SwapUsage",
  * //   metricData: [ // MetricDatapointList
  * //     { // MetricDatapoint
  * //       average: Number("double"),
