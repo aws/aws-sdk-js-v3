@@ -267,6 +267,7 @@ export type {
   UpdateStreamWarmThroughputOutput,
   WarmThroughputObject,
   AccessDeniedException,
+  DryRunOperationException,
   ExpiredIteratorException,
   ExpiredNextTokenException,
   InternalFailureException,

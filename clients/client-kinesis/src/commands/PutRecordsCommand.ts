@@ -103,6 +103,7 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  *   StreamId: "STRING_VALUE",
+ *   DryRun: true || false,
  * };
  * const command = new PutRecordsCommand(input);
  * const response = await client.send(command);
@@ -130,6 +131,9 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The request was rejected because the DryRun parameter was specified.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>The processing of the request failed because of an unknown error, exception, or

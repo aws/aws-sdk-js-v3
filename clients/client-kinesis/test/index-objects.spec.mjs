@@ -72,6 +72,8 @@ import {
   DisableEnhancedMonitoring$,
   DisableEnhancedMonitoringCommand,
   DisableEnhancedMonitoringInput$,
+  DryRunOperationException,
+  DryRunOperationException$,
   EnableEnhancedMonitoring$,
   EnableEnhancedMonitoringCommand,
   EnableEnhancedMonitoringInput$,
@@ -494,6 +496,8 @@ assert(typeof StreamStatus === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof KinesisServiceException);
 assert(typeof AccessDeniedException$ === "object");
+assert(DryRunOperationException.prototype instanceof KinesisServiceException);
+assert(typeof DryRunOperationException$ === "object");
 assert(ExpiredIteratorException.prototype instanceof KinesisServiceException);
 assert(typeof ExpiredIteratorException$ === "object");
 assert(ExpiredNextTokenException.prototype instanceof KinesisServiceException);

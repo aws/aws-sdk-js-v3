@@ -63,6 +63,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  *     SequenceNumber: "STRING_VALUE",
  *     Timestamp: new Date("TIMESTAMP"),
  *   },
+ *   DryRun: true || false,
  * };
  * const command = new SubscribeToShardCommand(input);
  * const response = await client.send(command);
@@ -134,6 +135,9 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The request was rejected because the DryRun parameter was specified.</p>
  *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.

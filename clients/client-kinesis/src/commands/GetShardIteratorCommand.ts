@@ -78,6 +78,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *   Timestamp: new Date("TIMESTAMP"),
  *   StreamARN: "STRING_VALUE",
  *   StreamId: "STRING_VALUE",
+ *   DryRun: true || false,
  * };
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);
@@ -96,6 +97,9 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The request was rejected because the DryRun parameter was specified.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>The processing of the request failed because of an unknown error, exception, or

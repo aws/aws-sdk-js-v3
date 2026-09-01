@@ -25,7 +25,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelOutput, __M
 /**
  * <p>Describes the specified channel, including its configuration and current status.</p>
  *          <p>Use this operation to verify that a channel reached the <code>ACTIVE</code> state after creation, or to diagnose a channel in the <code>FAILED</code> state by reading the <code>ChannelStatusReason</code>.</p>
- *          <p>This API has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. Exceeding 5 TPS results in a <code>LimitExceededException</code>.</p>
+ *          <p>This operation has a call limit of 5 transactions per second (TPS) for each Amazon Web Services account. Exceeding 5 TPS results in a <code>LimitExceededException</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

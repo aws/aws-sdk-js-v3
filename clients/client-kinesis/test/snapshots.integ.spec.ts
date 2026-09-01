@@ -35,6 +35,7 @@ import {
   DescribeStreamSummaryCommand,
   DisableEnhancedMonitoring$,
   DisableEnhancedMonitoringCommand,
+  DryRunOperationException$,
   EnableEnhancedMonitoring$,
   EnableEnhancedMonitoringCommand,
   ExpiredIteratorException$,
@@ -176,6 +177,7 @@ describe("KinesisClient" + ` (${mode})`, () => {
     ]),
     errors: [
       AccessDeniedException$,
+      DryRunOperationException$,
       ExpiredIteratorException$,
       ExpiredNextTokenException$,
       InternalFailureException$,

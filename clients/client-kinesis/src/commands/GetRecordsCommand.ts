@@ -92,6 +92,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *   Limit: Number("int"),
  *   StreamARN: "STRING_VALUE",
  *   StreamId: "STRING_VALUE",
+ *   DryRun: true || false,
  * };
  * const command = new GetRecordsCommand(input);
  * const response = await client.send(command);
@@ -132,6 +133,9 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The request was rejected because the DryRun parameter was specified.</p>
  *
  * @throws {@link ExpiredIteratorException} (client fault)
  *  <p>The provided iterator exceeds the maximum age allowed.</p>

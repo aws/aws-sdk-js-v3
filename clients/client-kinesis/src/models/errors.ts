@@ -260,6 +260,26 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * <p>The request was rejected because the DryRun parameter was specified.</p>
+ * @public
+ */
+export class DryRunOperationException extends __BaseException {
+  readonly name = "DryRunOperationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DryRunOperationException, __BaseException>) {
+    super({
+      name: "DryRunOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DryRunOperationException.prototype);
+  }
+}
+
+/**
  * <p>The provided iterator exceeds the maximum age allowed.</p>
  * @public
  */

@@ -62,7 +62,7 @@ export interface AddTagsToStreamInput {
 }
 
 /**
- * <p>The server-side encryption configuration for a channel.</p>
+ * <p>Specifies the Amazon Web Services KMS key that Amazon Kinesis Data Streams uses to encrypt data delivered to the channel's destination.</p>
  * @public
  */
 export interface ChannelEncryptionConfiguration {
@@ -167,17 +167,15 @@ export interface S3StorageConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>STANDARD</code> (default)</p>
+   *                   <code>STANDARD</code> - Default storage class for frequently accessed data. (default)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INTELLIGENT_TIERING</code>
-   *                </p>
+   *                   <code>INTELLIGENT_TIERING</code> - Automatically moves objects to the most cost-effective access tier based on usage patterns.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>GLACIER_IR</code>
-   *                </p>
+   *                   <code>GLACIER_IR</code> - Low-cost storage for rarely accessed data that requires millisecond retrieval.</p>
    *             </li>
    *          </ul>
    * @public
@@ -421,23 +419,19 @@ export interface ChannelDescription {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code>
-   *                </p>
+   *                   <code>CREATING</code> - The channel is being created.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
+   *                   <code>ACTIVE</code> - The channel is ready to deliver records.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATING</code>
-   *                </p>
+   *                   <code>UPDATING</code> - The channel configuration is being updated.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code>
-   *                </p>
+   *                   <code>DELETING</code> - The channel is being deleted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -597,23 +591,19 @@ export interface ChannelSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATING</code>
-   *                </p>
+   *                   <code>CREATING</code> - The channel is being created.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ACTIVE</code>
-   *                </p>
+   *                   <code>ACTIVE</code> - The channel is ready to deliver records.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>UPDATING</code>
-   *                </p>
+   *                   <code>UPDATING</code> - The channel configuration is being updated.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETING</code>
-   *                </p>
+   *                   <code>DELETING</code> - The channel is being deleted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1993,6 +1983,13 @@ export interface GetRecordsInput {
    * @public
    */
   StreamId?: string | undefined;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional
+   *             parameter.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -2190,6 +2187,13 @@ export interface GetShardIteratorInput {
    * @public
    */
   StreamId?: string | undefined;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional
+   *             parameter.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -2901,6 +2905,13 @@ export interface PutRecordInput {
    * @public
    */
   StreamId?: string | undefined;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional
+   *             parameter.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -3003,6 +3014,13 @@ export interface PutRecordsInput {
    * @public
    */
   StreamId?: string | undefined;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional
+   *             parameter.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -3429,6 +3447,13 @@ export interface SubscribeToShardInput {
    * @public
    */
   StartingPosition: StartingPosition | undefined;
+
+  /**
+   * <p>Checks if your request will succeed. <code>DryRun</code> is an optional
+   *             parameter.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
 }
 
 /**

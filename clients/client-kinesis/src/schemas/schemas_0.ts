@@ -67,6 +67,8 @@ const _DL = "DescribeLimits";
 const _DLI = "DescribeLimitsInput";
 const _DLO = "DescribeLimitsOutput";
 const _DLQSC = "DeadLetterQueueS3Configuration";
+const _DR = "DryRun";
+const _DROE = "DryRunOperationException";
 const _DRP = "DeleteResourcePolicy";
 const _DRPI = "DeleteResourcePolicyInput";
 const _DS = "DeleteStream";
@@ -330,6 +332,7 @@ import type {
 
 import {
   AccessDeniedException,
+  DryRunOperationException,
   ExpiredIteratorException,
   ExpiredNextTokenException,
   InternalFailureException,
@@ -359,6 +362,12 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   [0]
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var DryRunOperationException$: StaticErrorSchema = [-3, n0, _DROE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DryRunOperationException$, DryRunOperationException);
 export var ExpiredIteratorException$: StaticErrorSchema = [-3, n0, _EIE,
   { [_e]: _c },
   [_m],
@@ -655,8 +664,8 @@ export var EnhancedMonitoringOutput$: StaticStructureSchema = [3, n0, _EMO,
 ];
 export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
-  [_SIha, _L, _SARN, _SI],
-  [0, 1, 0, 0], 1
+  [_SIha, _L, _SARN, _SI, _DR],
+  [0, 1, 0, 0, 2], 1
 ];
 export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
@@ -675,8 +684,8 @@ export var GetResourcePolicyOutput$: StaticStructureSchema = [3, n0, _GRPO,
 ];
 export var GetShardIteratorInput$: StaticStructureSchema = [3, n0, _GSII,
   0,
-  [_SIh, _SIT, _SN, _SSN, _Ti, _SARN, _SI],
-  [0, 0, 0, 0, 4, 0, 0], 2
+  [_SIh, _SIT, _SN, _SSN, _Ti, _SARN, _SI, _DR],
+  [0, 0, 0, 0, 4, 0, 0, 2], 2
 ];
 export var GetShardIteratorOutput$: StaticStructureSchema = [3, n0, _GSIO,
   0,
@@ -780,8 +789,8 @@ export var PartitionSpec$: StaticStructureSchema = [3, n0, _PSa,
 ];
 export var PutRecordInput$: StaticStructureSchema = [3, n0, _PRI,
   0,
-  [_D, _PK, _SN, _EHKx, _SNFO, _SARN, _SI],
-  [21, 0, 0, 0, 0, 0, 0], 2
+  [_D, _PK, _SN, _EHKx, _SNFO, _SARN, _SI, _DR],
+  [21, 0, 0, 0, 0, 0, 0, 2], 2
 ];
 export var PutRecordOutput$: StaticStructureSchema = [3, n0, _PRO,
   0,
@@ -790,8 +799,8 @@ export var PutRecordOutput$: StaticStructureSchema = [3, n0, _PRO,
 ];
 export var PutRecordsInput$: StaticStructureSchema = [3, n0, _PRIu,
   0,
-  [_R, _SN, _SARN, _SI],
-  [() => PutRecordsRequestEntryList, 0, 0, 0], 1
+  [_R, _SN, _SARN, _SI, _DR],
+  [() => PutRecordsRequestEntryList, 0, 0, 0, 2], 1
 ];
 export var PutRecordsOutput$: StaticStructureSchema = [3, n0, _PROu,
   0,
@@ -945,8 +954,8 @@ export var SubscribeToShardEvent$: StaticStructureSchema = [3, n0, _STSE,
 ];
 export var SubscribeToShardInput$: StaticStructureSchema = [3, n0, _STSI,
   0,
-  [_CARNo, _SIh, _SP, _SI],
-  [0, 0, () => StartingPosition$, 0], 3
+  [_CARNo, _SIh, _SP, _SI, _DR],
+  [0, 0, () => StartingPosition$, 0, 2], 3
 ];
 export var SubscribeToShardOutput$: StaticStructureSchema = [3, n0, _STSO,
   0,
