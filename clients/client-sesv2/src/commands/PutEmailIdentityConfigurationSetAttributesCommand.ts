@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutEmailIdentityConfigurationSetAttributesRequest,
   PutEmailIdentityConfigurationSetAttributesResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { PutEmailIdentityConfigurationSetAttributes$ } from "../schemas/schemas_0";
 
 /**

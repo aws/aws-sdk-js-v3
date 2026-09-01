@@ -4,6 +4,7 @@ import type {
   DkimSigningAttributesOrigin,
   DkimStatus,
   ReputationEntityType,
+  ScalingMode,
   SendingStatus,
   SuppressionListReason,
   SuppressionListScope,
@@ -15,15 +16,162 @@ import type {
   ConfigurationOverrides,
   Destination,
   DkimSigningAttributes,
+  DomainDeliverabilityTrackingOption,
   EmailContent,
   EmailTemplateContent,
   EventDestinationDefinition,
   ListManagementOptions,
+  MessageSecurityOptions,
   MessageTag,
   Tag,
   Topic,
   TopicPreference,
 } from "./models_0";
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetVdmOptionsResponse {}
+
+/**
+ * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
+ * @public
+ */
+export interface PutDedicatedIpInPoolRequest {
+  /**
+   * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
+   *             has to be a dedicated IP address that's associated with your Amazon Web Services account.</p>
+   * @public
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
+   *             specify an IP pool that already exists.</p>
+   * @public
+   */
+  DestinationPoolName: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpInPoolResponse {}
+
+/**
+ * <p>A request to convert a dedicated IP pool to a different scaling mode.</p>
+ * @public
+ */
+export interface PutDedicatedIpPoolScalingAttributesRequest {
+  /**
+   * <p>The name of the dedicated IP pool.</p>
+   * @public
+   */
+  PoolName: string | undefined;
+
+  /**
+   * <p>The scaling mode to apply to the dedicated IP pool.</p>
+   *          <note>
+   *             <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
+   *          </note>
+   * @public
+   */
+  ScalingMode: ScalingMode | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpPoolScalingAttributesResponse {}
+
+/**
+ * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
+ *             is useful when you want to resume the warm-up process for an existing IP address.</p>
+ * @public
+ */
+export interface PutDedicatedIpWarmupAttributesRequest {
+  /**
+   * <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
+   * @public
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The warm-up percentage that you want to associate with the dedicated IP
+   *             address.</p>
+   * @public
+   */
+  WarmupPercentage: number | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpWarmupAttributesResponse {}
+
+/**
+ * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
+ *             access to reputation, deliverability, and other metrics for the domains that you use to
+ *             send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p>
+ *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+ *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
+ *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
+ * @public
+ */
+export interface PutDeliverabilityDashboardOptionRequest {
+  /**
+   * <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this
+   *             value to <code>true</code>.</p>
+   * @public
+   */
+  DashboardEnabled: boolean | undefined;
+
+  /**
+   * <p>An array of objects, one for each verified domain that you use to send email and
+   *             enabled the Deliverability dashboard for.</p>
+   * @public
+   */
+  SubscribedDomains?: DomainDeliverabilityTrackingOption[] | undefined;
+}
+
+/**
+ * <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
+ * @public
+ */
+export interface PutDeliverabilityDashboardOptionResponse {}
+
+/**
+ * <p>A request to associate a configuration set with an email identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityConfigurationSetAttributesRequest {
+  /**
+   * <p>The email address or domain to associate with a configuration set.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The configuration set to associate with an email identity.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ * @public
+ */
+export interface PutEmailIdentityConfigurationSetAttributesResponse {}
 
 /**
  * <p>A request to enable or disable DKIM signing of email that you send from an email
@@ -748,6 +896,32 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * <p>A request to update the configuration of an existing configuration set.</p>
+ * @public
+ */
+export interface UpdateConfigurationSetRequest {
+  /**
+   * <p>The name of the configuration set to update.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The security options that apply to the MIME message itself for messages sent with the
+   *             configuration set.</p>
+   * @public
+   */
+  MessageSecurityOptions?: MessageSecurityOptions | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface UpdateConfigurationSetResponse {}
 
 /**
  * <p>A request to change the settings for an event destination for a configuration

@@ -7,6 +7,9 @@ const _AD = "AccountDetails";
 const _ADt = "AttributesData";
 const _AE = "AdminEmail";
 const _AEE = "AlreadyExistsException";
+const _AEIC = "AssociateEmailIdentityCertificate";
+const _AEICR = "AssociateEmailIdentityCertificateRequest";
+const _AEICRs = "AssociateEmailIdentityCertificateResponse";
 const _AL = "AttachmentList";
 const _AO = "ArchivingOptions";
 const _AS = "AccountStatus";
@@ -42,7 +45,8 @@ const _BST = "BounceSubType";
 const _BT = "BounceType";
 const _Bo = "Bounce";
 const _C = "Complaint";
-const _CA = "CcAddresses";
+const _CA = "CertificateArn";
+const _CAc = "CcAddresses";
 const _CC = "CreateContact";
 const _CCL = "CreateContactList";
 const _CCLR = "CreateContactListRequest";
@@ -80,9 +84,10 @@ const _CEJRa = "CancelExportJobResponse";
 const _CEJRr = "CreateExportJobRequest";
 const _CEJRre = "CreateExportJobResponse";
 const _CEJr = "CreateExportJob";
-const _CET = "CreateEmailTemplate";
+const _CET = "CertificateExpiryTime";
 const _CETR = "CreateEmailTemplateRequest";
 const _CETRr = "CreateEmailTemplateResponse";
+const _CETr = "CreateEmailTemplate";
 const _CFT = "ComplaintFeedbackType";
 const _CI = "ContentId";
 const _CIJ = "CreateImportJob";
@@ -130,6 +135,7 @@ const _CWD = "CloudWatchDestination";
 const _CWDC = "CloudWatchDimensionConfiguration";
 const _CWDCl = "CloudWatchDimensionConfigurations";
 const _Ca = "Cause";
+const _Ce = "Certificates";
 const _Ch = "Charset";
 const _Co = "Contact";
 const _Cod = "Code";
@@ -167,6 +173,9 @@ const _DDTOo = "DomainDeliverabilityTrackingOptions";
 const _DDV = "DefaultDimensionValue";
 const _DE = "DashboardEnabled";
 const _DEI = "DeleteEmailIdentity";
+const _DEIC = "DisassociateEmailIdentityCertificate";
+const _DEICR = "DisassociateEmailIdentityCertificateRequest";
+const _DEICRi = "DisassociateEmailIdentityCertificateResponse";
 const _DEIP = "DeleteEmailIdentityPolicy";
 const _DEIPR = "DeleteEmailIdentityPolicyRequest";
 const _DEIPRe = "DeleteEmailIdentityPolicyResponse";
@@ -203,8 +212,10 @@ const _DSD = "DeleteSuppressedDestination";
 const _DSDR = "DeleteSuppressedDestinationRequest";
 const _DSDRe = "DeleteSuppressedDestinationResponse";
 const _DSPK = "DomainSigningPrivateKey";
-const _DSS = "DomainSigningSelector";
+const _DSS = "DefaultSigningScheme";
 const _DSSe = "DefaultSubscriptionStatus";
+const _DSSo = "DomainSigningSelector";
+const _DSe = "DefaultScheme";
 const _DT = "DkimTokens";
 const _DTR = "DeleteTenantRequest";
 const _DTRA = "DeleteTenantResourceAssociation";
@@ -371,6 +382,8 @@ const _HVS = "HasValidSyntax";
 const _He = "Headers";
 const _I = "Id";
 const _IC = "InboxCount";
+const _ICL = "IdentityCertificateList";
+const _ICd = "IdentityCertificate";
 const _ID = "ImportDestination";
 const _IDS = "ImportDataSource";
 const _IDT = "ImportDestinationType";
@@ -434,6 +447,9 @@ const _LDTRRi = "ListDeliverabilityTestReportsResponse";
 const _LEE = "LimitExceededException";
 const _LEEa = "LastEngagementEvent";
 const _LEI = "ListEmailIdentities";
+const _LEIC = "ListEmailIdentityCertificates";
+const _LEICR = "ListEmailIdentityCertificatesRequest";
+const _LEICRi = "ListEmailIdentityCertificatesResponse";
 const _LEIR = "ListEmailIdentitiesRequest";
 const _LEIRi = "ListEmailIdentitiesResponse";
 const _LEJ = "ListExportJobs";
@@ -503,6 +519,7 @@ const _MR = "MessageRejected";
 const _MRE = "MultiRegionEndpoints";
 const _MREu = "MultiRegionEndpoint";
 const _MRa = "MaxResults";
+const _MSO = "MessageSecurityOptions";
 const _MSR = "MaxSendRate";
 const _MT = "MailType";
 const _MTL = "MessageTagList";
@@ -682,6 +699,7 @@ const _SER = "SendEmailRequest";
 const _SERe = "SendEmailResponse";
 const _SEe = "SendingEnabled";
 const _SEen = "SendEmail";
+const _SF = "SignatureFormat";
 const _SHZ = "SigningHostedZone";
 const _SI = "SendingIps";
 const _SLD = "SuppressionListDestination";
@@ -704,6 +722,9 @@ const _SRt = "StatusRecord";
 const _SS = "SendingStatus";
 const _SSA = "SendingStatusAggregate";
 const _SSD = "SubscriptionStartDate";
+const _SSS = "SmimeSigningScheme";
+const _SSi = "SigningScheme";
+const _SSm = "SmimeScheme";
 const _SSu = "SuppressionScope";
 const _SSub = "SubscriptionStatus";
 const _SU = "S3Url";
@@ -769,9 +790,12 @@ const _UCLR = "UpdateContactListRequest";
 const _UCLRp = "UpdateContactListResponse";
 const _UCR = "UpdateContactRequest";
 const _UCRp = "UpdateContactResponse";
+const _UCS = "UpdateConfigurationSet";
 const _UCSED = "UpdateConfigurationSetEventDestination";
 const _UCSEDR = "UpdateConfigurationSetEventDestinationRequest";
 const _UCSEDRp = "UpdateConfigurationSetEventDestinationResponse";
+const _UCSR = "UpdateConfigurationSetRequest";
+const _UCSRp = "UpdateConfigurationSetResponse";
 const _UCVET = "UpdateCustomVerificationEmailTemplate";
 const _UCVETR = "UpdateCustomVerificationEmailTemplateRequest";
 const _UCVETRp = "UpdateCustomVerificationEmailTemplateResponse";
@@ -824,6 +848,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -951,6 +976,16 @@ export var ArchivingOptions$: StaticStructureSchema = [3, n0, _AO,
   [_AA],
   [0]
 ];
+export var AssociateEmailIdentityCertificateRequest$: StaticStructureSchema = [3, n0, _AEICR,
+  0,
+  [_EI, _CA, _FA],
+  [0, 0, 0], 2
+];
+export var AssociateEmailIdentityCertificateResponse$: StaticStructureSchema = [3, n0, _AEICRs,
+  0,
+  [],
+  []
+];
 export var Attachment$: StaticStructureSchema = [3, n0, _A,
   0,
   [_RC, _FN, _CD, _CDo, _CI, _CTE, _CT],
@@ -1063,8 +1098,8 @@ export var CreateConfigurationSetEventDestinationResponse$: StaticStructureSchem
 ];
 export var CreateConfigurationSetRequest$: StaticStructureSchema = [3, n0, _CCSR,
   0,
-  [_CSN, _TO, _DO, _RO, _SO, _Ta, _SOu, _VO, _AO],
-  [0, () => TrackingOptions$, () => DeliveryOptions$, () => ReputationOptions$, () => SendingOptions$, () => TagList, () => SuppressionOptions$, () => VdmOptions$, () => ArchivingOptions$], 1
+  [_CSN, _TO, _DO, _RO, _SO, _Ta, _SOu, _VO, _AO, _MSO],
+  [0, () => TrackingOptions$, () => DeliveryOptions$, () => ReputationOptions$, () => SendingOptions$, () => TagList, () => SuppressionOptions$, () => VdmOptions$, () => ArchivingOptions$, () => MessageSecurityOptions$], 1
 ];
 export var CreateConfigurationSetResponse$: StaticStructureSchema = [3, n0, _CCSRr,
   0,
@@ -1231,6 +1266,11 @@ export var DedicatedIpPool$: StaticStructureSchema = [3, n0, _DIPe,
   [_PN, _SM],
   [0, 0], 2
 ];
+export var DefaultSigningScheme$: StaticStructureSchema = [3, n0, _DSS,
+  0,
+  [],
+  []
+];
 export var DeleteConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _DCSEDR,
   0,
   [_CSN, _EDN],
@@ -1373,13 +1413,23 @@ export var DeliveryOptions$: StaticStructureSchema = [3, n0, _DO,
 ];
 export var Destination$: StaticStructureSchema = [3, n0, _Des,
   0,
-  [_TAo, _CA, _BA],
+  [_TAo, _CAc, _BA],
   [64 | 0, 64 | 0, 64 | 0]
 ];
 export var Details$: StaticStructureSchema = [3, n0, _Det,
   0,
   [_RDo],
   [() => RoutesDetails], 1
+];
+export var DisassociateEmailIdentityCertificateRequest$: StaticStructureSchema = [3, n0, _DEICR,
+  0,
+  [_EI, _FA],
+  [0, 0], 1
+];
+export var DisassociateEmailIdentityCertificateResponse$: StaticStructureSchema = [3, n0, _DEICRi,
+  0,
+  [],
+  []
 ];
 export var DkimAttributes$: StaticStructureSchema = [3, n0, _DA,
   0,
@@ -1388,7 +1438,7 @@ export var DkimAttributes$: StaticStructureSchema = [3, n0, _DA,
 ];
 export var DkimSigningAttributes$: StaticStructureSchema = [3, n0, _DSA,
   0,
-  [_DSS, _DSPK, _NSKL, _DSAO],
+  [_DSSo, _DSPK, _NSKL, _DSAO],
   [0, [() => PrivateKey, 0], 0, 0]
 ];
 export var DomainDeliverabilityCampaign$: StaticStructureSchema = [3, n0, _DDC,
@@ -1523,8 +1573,8 @@ export var GetConfigurationSetRequest$: StaticStructureSchema = [3, n0, _GCSR,
 ];
 export var GetConfigurationSetResponse$: StaticStructureSchema = [3, n0, _GCSRe,
   0,
-  [_CSN, _TO, _DO, _RO, _SO, _Ta, _SOu, _VO, _AO],
-  [0, () => TrackingOptions$, () => DeliveryOptions$, () => ReputationOptions$, () => SendingOptions$, () => TagList, () => SuppressionOptions$, () => VdmOptions$, () => ArchivingOptions$]
+  [_CSN, _TO, _DO, _RO, _SO, _Ta, _SOu, _VO, _AO, _MSO],
+  [0, () => TrackingOptions$, () => DeliveryOptions$, () => ReputationOptions$, () => SendingOptions$, () => TagList, () => SuppressionOptions$, () => VdmOptions$, () => ArchivingOptions$, () => MessageSecurityOptions$]
 ];
 export var GetContactListRequest$: StaticStructureSchema = [3, n0, _GCLR,
   0,
@@ -1746,6 +1796,11 @@ export var GuardianOptions$: StaticStructureSchema = [3, n0, _GO,
   [_OSD],
   [0]
 ];
+export var IdentityCertificate$: StaticStructureSchema = [3, n0, _ICd,
+  0,
+  [_FA, _S, _CA, _CET],
+  [0, 0, 0, 4]
+];
 export var IdentityInfo$: StaticStructureSchema = [3, n0, _II,
   0,
   [_IT, _INd, _SEe, _VSe],
@@ -1870,6 +1925,16 @@ export var ListEmailIdentitiesResponse$: StaticStructureSchema = [3, n0, _LEIRi,
   0,
   [_EIma, _NT],
   [() => IdentityInfoList, 0]
+];
+export var ListEmailIdentityCertificatesRequest$: StaticStructureSchema = [3, n0, _LEICR,
+  0,
+  [_EI, _NT, _PS],
+  [0, 0, 1], 1
+];
+export var ListEmailIdentityCertificatesResponse$: StaticStructureSchema = [3, n0, _LEICRi,
+  0,
+  [_Ce, _NT],
+  [() => IdentityCertificateList, 0]
 ];
 export var ListEmailTemplatesRequest$: StaticStructureSchema = [3, n0, _LETR,
   0,
@@ -2015,6 +2080,11 @@ export var MessageInsightsFilters$: StaticStructureSchema = [3, n0, _MIF,
   0,
   [_FEA, _Des, _Su, _Is, _LDE, _LEEa],
   [[() => EmailAddressFilterList, 0], [() => EmailAddressFilterList, 0], [() => EmailSubjectFilterList, 0], 64 | 0, 64 | 0, 64 | 0]
+];
+export var MessageSecurityOptions$: StaticStructureSchema = [3, n0, _MSO,
+  0,
+  [_SSi],
+  [() => SigningScheme$]
 ];
 export var MessageTag$: StaticStructureSchema = [3, n0, _MTe,
   0,
@@ -2391,6 +2461,11 @@ export var SendQuota$: StaticStructureSchema = [3, n0, _SQ,
   [_MHS, _MSR, _SLH],
   [1, 1, 1]
 ];
+export var SmimeSigningScheme$: StaticStructureSchema = [3, n0, _SSS,
+  0,
+  [_SF],
+  [0]
+];
 export var SnsDestination$: StaticStructureSchema = [3, n0, _SDn,
   0,
   [_TAop],
@@ -2547,6 +2622,16 @@ export var UpdateConfigurationSetEventDestinationRequest$: StaticStructureSchema
   [[0, 1], [0, 1], () => EventDestinationDefinition$], 3
 ];
 export var UpdateConfigurationSetEventDestinationResponse$: StaticStructureSchema = [3, n0, _UCSEDRp,
+  0,
+  [],
+  []
+];
+export var UpdateConfigurationSetRequest$: StaticStructureSchema = [3, n0, _UCSR,
+  0,
+  [_CSN, _MSO],
+  [0, () => MessageSecurityOptions$], 1
+];
+export var UpdateConfigurationSetResponse$: StaticStructureSchema = [3, n0, _UCSRp,
   0,
   [],
   []
@@ -2715,6 +2800,9 @@ var ExportJobSummaryList: StaticListSchema = [1, n0, _EJSL,
 var ExportMetrics: StaticListSchema = [1, n0, _EMxp,
   0, () => ExportMetric$
 ];
+var IdentityCertificateList: StaticListSchema = [1, n0, _ICL,
+  0, () => IdentityCertificate$
+];
 var IdentityInfoList: StaticListSchema = [1, n0, _IIL,
   0, () => IdentityInfo$
 ];
@@ -2803,6 +2891,14 @@ var ListRecommendationsFilter = 128 | 0;
 var ListTenantResourcesFilter = 128 | 0;
 var PolicyMap = 128 | 0;
 var ReputationEntityFilter = 128 | 0;
+export var SigningScheme$: StaticUnionSchema = [4, n0, _SSi,
+  0,
+  [_DSe, _SSm],
+  [() => DefaultSigningScheme$, () => SmimeSigningScheme$]
+];
+export var AssociateEmailIdentityCertificate$: StaticOperationSchema = [9, n0, _AEIC,
+  { [_h]: ["POST", "/v2/email/identity/certificates", 200] }, () => AssociateEmailIdentityCertificateRequest$, () => AssociateEmailIdentityCertificateResponse$
+];
 export var BatchGetMetricData$: StaticOperationSchema = [9, n0, _BGMD,
   { [_h]: ["POST", "/v2/email/metrics/batch", 200] }, () => BatchGetMetricDataRequest$, () => BatchGetMetricDataResponse$
 ];
@@ -2836,7 +2932,7 @@ export var CreateEmailIdentity$: StaticOperationSchema = [9, n0, _CEI,
 export var CreateEmailIdentityPolicy$: StaticOperationSchema = [9, n0, _CEIP,
   { [_h]: ["POST", "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}", 200] }, () => CreateEmailIdentityPolicyRequest$, () => CreateEmailIdentityPolicyResponse$
 ];
-export var CreateEmailTemplate$: StaticOperationSchema = [9, n0, _CET,
+export var CreateEmailTemplate$: StaticOperationSchema = [9, n0, _CETr,
   { [_h]: ["POST", "/v2/email/templates", 200] }, () => CreateEmailTemplateRequest$, () => CreateEmailTemplateResponse$
 ];
 export var CreateExportJob$: StaticOperationSchema = [9, n0, _CEJr,
@@ -2892,6 +2988,9 @@ export var DeleteTenant$: StaticOperationSchema = [9, n0, _DTe,
 ];
 export var DeleteTenantResourceAssociation$: StaticOperationSchema = [9, n0, _DTRA,
   { [_h]: ["POST", "/v2/email/tenants/resources/delete", 200] }, () => DeleteTenantResourceAssociationRequest$, () => DeleteTenantResourceAssociationResponse$
+];
+export var DisassociateEmailIdentityCertificate$: StaticOperationSchema = [9, n0, _DEIC,
+  { [_h]: ["POST", "/v2/email/identity/certificates/delete", 200] }, () => DisassociateEmailIdentityCertificateRequest$, () => DisassociateEmailIdentityCertificateResponse$
 ];
 export var GetAccount$: StaticOperationSchema = [9, n0, _GAe,
   { [_h]: ["GET", "/v2/email/account", 200] }, () => GetAccountRequest$, () => GetAccountResponse$
@@ -2991,6 +3090,9 @@ export var ListDomainDeliverabilityCampaigns$: StaticOperationSchema = [9, n0, _
 ];
 export var ListEmailIdentities$: StaticOperationSchema = [9, n0, _LEI,
   { [_h]: ["GET", "/v2/email/identities", 200] }, () => ListEmailIdentitiesRequest$, () => ListEmailIdentitiesResponse$
+];
+export var ListEmailIdentityCertificates$: StaticOperationSchema = [9, n0, _LEIC,
+  { [_h]: ["POST", "/v2/email/identity/certificates/list", 200] }, () => ListEmailIdentityCertificatesRequest$, () => ListEmailIdentityCertificatesResponse$
 ];
 export var ListEmailTemplates$: StaticOperationSchema = [9, n0, _LET,
   { [_h]: ["GET", "/v2/email/templates", 200] }, () => ListEmailTemplatesRequest$, () => ListEmailTemplatesResponse$
@@ -3114,6 +3216,9 @@ export var TestRenderEmailTemplate$: StaticOperationSchema = [9, n0, _TRET,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["DELETE", "/v2/email/tags", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateConfigurationSet$: StaticOperationSchema = [9, n0, _UCS,
+  { [_h]: ["POST", "/v2/email/update-configuration-sets", 200] }, () => UpdateConfigurationSetRequest$, () => UpdateConfigurationSetResponse$
 ];
 export var UpdateConfigurationSetEventDestination$: StaticOperationSchema = [9, n0, _UCSED,
   { [_h]: ["PUT", "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}", 200] }, () => UpdateConfigurationSetEventDestinationRequest$, () => UpdateConfigurationSetEventDestinationResponse$

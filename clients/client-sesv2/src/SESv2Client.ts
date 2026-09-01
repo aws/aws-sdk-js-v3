@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  AssociateEmailIdentityCertificateCommandInput,
+  AssociateEmailIdentityCertificateCommandOutput,
+} from "./commands/AssociateEmailIdentityCertificateCommand";
+import type {
   BatchGetMetricDataCommandInput,
   BatchGetMetricDataCommandOutput,
 } from "./commands/BatchGetMetricDataCommand";
@@ -153,6 +157,10 @@ import type {
   DeleteTenantResourceAssociationCommandInput,
   DeleteTenantResourceAssociationCommandOutput,
 } from "./commands/DeleteTenantResourceAssociationCommand";
+import type {
+  DisassociateEmailIdentityCertificateCommandInput,
+  DisassociateEmailIdentityCertificateCommandOutput,
+} from "./commands/DisassociateEmailIdentityCertificateCommand";
 import type { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
 import type {
   GetBlacklistReportsCommandInput,
@@ -249,6 +257,10 @@ import type {
   ListEmailIdentitiesCommandInput,
   ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand";
+import type {
+  ListEmailIdentityCertificatesCommandInput,
+  ListEmailIdentityCertificatesCommandOutput,
+} from "./commands/ListEmailIdentityCertificatesCommand";
 import type {
   ListEmailTemplatesCommandInput,
   ListEmailTemplatesCommandOutput,
@@ -393,6 +405,10 @@ import type {
 } from "./commands/TestRenderEmailTemplateCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
+  UpdateConfigurationSetCommandInput,
+  UpdateConfigurationSetCommandOutput,
+} from "./commands/UpdateConfigurationSetCommand";
+import type {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
@@ -436,6 +452,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateEmailIdentityCertificateCommandInput
   | BatchGetMetricDataCommandInput
   | CancelExportJobCommandInput
   | CreateConfigurationSetCommandInput
@@ -466,6 +483,7 @@ export type ServiceInputTypes =
   | DeleteSuppressedDestinationCommandInput
   | DeleteTenantCommandInput
   | DeleteTenantResourceAssociationCommandInput
+  | DisassociateEmailIdentityCertificateCommandInput
   | GetAccountCommandInput
   | GetBlacklistReportsCommandInput
   | GetConfigurationSetCommandInput
@@ -499,6 +517,7 @@ export type ServiceInputTypes =
   | ListDeliverabilityTestReportsCommandInput
   | ListDomainDeliverabilityCampaignsCommandInput
   | ListEmailIdentitiesCommandInput
+  | ListEmailIdentityCertificatesCommandInput
   | ListEmailTemplatesCommandInput
   | ListExportJobsCommandInput
   | ListImportJobsCommandInput
@@ -540,6 +559,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | TestRenderEmailTemplateCommandInput
   | UntagResourceCommandInput
+  | UpdateConfigurationSetCommandInput
   | UpdateConfigurationSetEventDestinationCommandInput
   | UpdateContactCommandInput
   | UpdateContactListCommandInput
@@ -553,6 +573,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateEmailIdentityCertificateCommandOutput
   | BatchGetMetricDataCommandOutput
   | CancelExportJobCommandOutput
   | CreateConfigurationSetCommandOutput
@@ -583,6 +604,7 @@ export type ServiceOutputTypes =
   | DeleteSuppressedDestinationCommandOutput
   | DeleteTenantCommandOutput
   | DeleteTenantResourceAssociationCommandOutput
+  | DisassociateEmailIdentityCertificateCommandOutput
   | GetAccountCommandOutput
   | GetBlacklistReportsCommandOutput
   | GetConfigurationSetCommandOutput
@@ -616,6 +638,7 @@ export type ServiceOutputTypes =
   | ListDeliverabilityTestReportsCommandOutput
   | ListDomainDeliverabilityCampaignsCommandOutput
   | ListEmailIdentitiesCommandOutput
+  | ListEmailIdentityCertificatesCommandOutput
   | ListEmailTemplatesCommandOutput
   | ListExportJobsCommandOutput
   | ListImportJobsCommandOutput
@@ -657,6 +680,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | TestRenderEmailTemplateCommandOutput
   | UntagResourceCommandOutput
+  | UpdateConfigurationSetCommandOutput
   | UpdateConfigurationSetEventDestinationCommandOutput
   | UpdateContactCommandOutput
   | UpdateContactListCommandOutput

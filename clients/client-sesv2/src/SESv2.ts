@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/core/client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type AssociateEmailIdentityCertificateCommandInput,
+  type AssociateEmailIdentityCertificateCommandOutput,
+  AssociateEmailIdentityCertificateCommand,
+} from "./commands/AssociateEmailIdentityCertificateCommand";
+import {
   type BatchGetMetricDataCommandInput,
   type BatchGetMetricDataCommandOutput,
   BatchGetMetricDataCommand,
@@ -152,6 +157,11 @@ import {
   type DeleteTenantResourceAssociationCommandOutput,
   DeleteTenantResourceAssociationCommand,
 } from "./commands/DeleteTenantResourceAssociationCommand";
+import {
+  type DisassociateEmailIdentityCertificateCommandInput,
+  type DisassociateEmailIdentityCertificateCommandOutput,
+  DisassociateEmailIdentityCertificateCommand,
+} from "./commands/DisassociateEmailIdentityCertificateCommand";
 import {
   type GetAccountCommandInput,
   type GetAccountCommandOutput,
@@ -313,6 +323,11 @@ import {
   type ListEmailIdentitiesCommandOutput,
   ListEmailIdentitiesCommand,
 } from "./commands/ListEmailIdentitiesCommand";
+import {
+  type ListEmailIdentityCertificatesCommandInput,
+  type ListEmailIdentityCertificatesCommandOutput,
+  ListEmailIdentityCertificatesCommand,
+} from "./commands/ListEmailIdentityCertificatesCommand";
 import {
   type ListEmailTemplatesCommandInput,
   type ListEmailTemplatesCommandOutput,
@@ -515,6 +530,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateConfigurationSetCommandInput,
+  type UpdateConfigurationSetCommandOutput,
+  UpdateConfigurationSetCommand,
+} from "./commands/UpdateConfigurationSetCommand";
+import {
   type UpdateConfigurationSetEventDestinationCommandInput,
   type UpdateConfigurationSetEventDestinationCommandOutput,
   UpdateConfigurationSetEventDestinationCommand,
@@ -565,6 +585,7 @@ import { paginateListDedicatedIpPools } from "./pagination/ListDedicatedIpPoolsP
 import { paginateListDeliverabilityTestReports } from "./pagination/ListDeliverabilityTestReportsPaginator";
 import { paginateListDomainDeliverabilityCampaigns } from "./pagination/ListDomainDeliverabilityCampaignsPaginator";
 import { paginateListEmailIdentities } from "./pagination/ListEmailIdentitiesPaginator";
+import { paginateListEmailIdentityCertificates } from "./pagination/ListEmailIdentityCertificatesPaginator";
 import { paginateListEmailTemplates } from "./pagination/ListEmailTemplatesPaginator";
 import { paginateListExportJobs } from "./pagination/ListExportJobsPaginator";
 import { paginateListImportJobs } from "./pagination/ListImportJobsPaginator";
@@ -578,6 +599,7 @@ import { paginateListTenants } from "./pagination/ListTenantsPaginator";
 import { SESv2Client } from "./SESv2Client";
 
 const commands = {
+  AssociateEmailIdentityCertificateCommand,
   BatchGetMetricDataCommand,
   CancelExportJobCommand,
   CreateConfigurationSetCommand,
@@ -608,6 +630,7 @@ const commands = {
   DeleteSuppressedDestinationCommand,
   DeleteTenantCommand,
   DeleteTenantResourceAssociationCommand,
+  DisassociateEmailIdentityCertificateCommand,
   GetAccountCommand,
   GetBlacklistReportsCommand,
   GetConfigurationSetCommand,
@@ -641,6 +664,7 @@ const commands = {
   ListDeliverabilityTestReportsCommand,
   ListDomainDeliverabilityCampaignsCommand,
   ListEmailIdentitiesCommand,
+  ListEmailIdentityCertificatesCommand,
   ListEmailTemplatesCommand,
   ListExportJobsCommand,
   ListImportJobsCommand,
@@ -682,6 +706,7 @@ const commands = {
   TagResourceCommand,
   TestRenderEmailTemplateCommand,
   UntagResourceCommand,
+  UpdateConfigurationSetCommand,
   UpdateConfigurationSetEventDestinationCommand,
   UpdateContactCommand,
   UpdateContactListCommand,
@@ -701,6 +726,7 @@ const paginators = {
   paginateListDeliverabilityTestReports,
   paginateListDomainDeliverabilityCampaigns,
   paginateListEmailIdentities,
+  paginateListEmailIdentityCertificates,
   paginateListEmailTemplates,
   paginateListExportJobs,
   paginateListImportJobs,
@@ -714,6 +740,23 @@ const paginators = {
 };
 
 export interface SESv2 {
+  /**
+   * @see {@link AssociateEmailIdentityCertificateCommand}
+   */
+  associateEmailIdentityCertificate(
+    args: AssociateEmailIdentityCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateEmailIdentityCertificateCommandOutput>;
+  associateEmailIdentityCertificate(
+    args: AssociateEmailIdentityCertificateCommandInput,
+    cb: (err: any, data?: AssociateEmailIdentityCertificateCommandOutput) => void
+  ): void;
+  associateEmailIdentityCertificate(
+    args: AssociateEmailIdentityCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateEmailIdentityCertificateCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchGetMetricDataCommand}
    */
@@ -1222,6 +1265,23 @@ export interface SESv2 {
     args: DeleteTenantResourceAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTenantResourceAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateEmailIdentityCertificateCommand}
+   */
+  disassociateEmailIdentityCertificate(
+    args: DisassociateEmailIdentityCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateEmailIdentityCertificateCommandOutput>;
+  disassociateEmailIdentityCertificate(
+    args: DisassociateEmailIdentityCertificateCommandInput,
+    cb: (err: any, data?: DisassociateEmailIdentityCertificateCommandOutput) => void
+  ): void;
+  disassociateEmailIdentityCertificate(
+    args: DisassociateEmailIdentityCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateEmailIdentityCertificateCommandOutput) => void
   ): void;
 
   /**
@@ -1792,6 +1852,23 @@ export interface SESv2 {
     args: ListEmailIdentitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEmailIdentitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEmailIdentityCertificatesCommand}
+   */
+  listEmailIdentityCertificates(
+    args: ListEmailIdentityCertificatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEmailIdentityCertificatesCommandOutput>;
+  listEmailIdentityCertificates(
+    args: ListEmailIdentityCertificatesCommandInput,
+    cb: (err: any, data?: ListEmailIdentityCertificatesCommandOutput) => void
+  ): void;
+  listEmailIdentityCertificates(
+    args: ListEmailIdentityCertificatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEmailIdentityCertificatesCommandOutput) => void
   ): void;
 
   /**
@@ -2503,6 +2580,23 @@ export interface SESv2 {
   ): void;
 
   /**
+   * @see {@link UpdateConfigurationSetCommand}
+   */
+  updateConfigurationSet(
+    args: UpdateConfigurationSetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfigurationSetCommandOutput>;
+  updateConfigurationSet(
+    args: UpdateConfigurationSetCommandInput,
+    cb: (err: any, data?: UpdateConfigurationSetCommandOutput) => void
+  ): void;
+  updateConfigurationSet(
+    args: UpdateConfigurationSetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfigurationSetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateConfigurationSetEventDestinationCommand}
    */
   updateConfigurationSetEventDestination(
@@ -2736,6 +2830,17 @@ export interface SESv2 {
     args?: ListEmailIdentitiesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEmailIdentitiesCommandOutput>;
+
+  /**
+   * @see {@link ListEmailIdentityCertificatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEmailIdentityCertificatesCommandOutput}.
+   */
+  paginateListEmailIdentityCertificates(
+    args: ListEmailIdentityCertificatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEmailIdentityCertificatesCommandOutput>;
 
   /**
    * @see {@link ListEmailTemplatesCommand}

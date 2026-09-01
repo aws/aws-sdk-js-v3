@@ -251,6 +251,18 @@ export type TlsPolicy = (typeof TlsPolicy)[keyof typeof TlsPolicy];
  * @public
  * @enum
  */
+export const SignatureFormat = {
+  DETACHED: "DETACHED",
+} as const;
+/**
+ * @public
+ */
+export type SignatureFormat = (typeof SignatureFormat)[keyof typeof SignatureFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const SuppressionListReason = {
   BOUNCE: "BOUNCE",
   COMPLAINT: "COMPLAINT",
@@ -698,6 +710,22 @@ export const RecommendationImpact = {
  * @public
  */
 export type RecommendationImpact = (typeof RecommendationImpact)[keyof typeof RecommendationImpact];
+
+/**
+ * @public
+ * @enum
+ */
+export const IdentityCertificateStatus = {
+  ACTIVE: "ACTIVE",
+  DEPROVISIONING: "DEPROVISIONING",
+  FAILED: "FAILED",
+  INACTIVE: "INACTIVE",
+  PROVISIONING: "PROVISIONING",
+} as const;
+/**
+ * @public
+ */
+export type IdentityCertificateStatus = (typeof IdentityCertificateStatus)[keyof typeof IdentityCertificateStatus];
 
 /**
  * @public

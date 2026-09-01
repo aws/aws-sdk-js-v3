@@ -21,6 +21,7 @@ import type {
   ExportSourceType,
   FeatureStatus,
   HttpsPolicy,
+  IdentityCertificateStatus,
   IdentityType,
   ImportDestinationType,
   JobStatus,
@@ -43,6 +44,7 @@ import type {
   ReviewStatus,
   ScalingMode,
   SendingStatus,
+  SignatureFormat,
   Status,
   SubscriptionStatus,
   SuppressionConfidenceVerdictThreshold,
@@ -168,6 +170,42 @@ export interface ArchivingOptions {
    */
   ArchiveArn?: string | undefined;
 }
+
+/**
+ * <p>A request to associate an S/MIME certificate with an email identity.</p>
+ * @public
+ */
+export interface AssociateEmailIdentityCertificateRequest {
+  /**
+   * <p>The email identity, either an email address or a domain, to associate the certificate
+   *             with.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The email address that the certificate applies to. This value is required when the
+   *             email identity is a domain, and the address must belong to that domain or one of its
+   *             subdomains. When the email identity is an email address, this value is optional. If you
+   *             specify it, it must exactly match the email identity.</p>
+   * @public
+   */
+  FromAddress?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate to
+   *             associate with the email identity.</p>
+   * @public
+   */
+  CertificateArn: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface AssociateEmailIdentityCertificateResponse {}
 
 /**
  * <p> Contains metadata and attachment raw content.</p>
@@ -1252,6 +1290,99 @@ export interface DeliveryOptions {
 }
 
 /**
+ * <p>Specifies the default signing scheme, in which Amazon SES API v2 doesn't apply S/MIME signing to
+ *             messages sent with the configuration set.</p>
+ * @public
+ */
+export interface DefaultSigningScheme {}
+
+/**
+ * <p>Specifies that Amazon SES API v2 signs messages sent with the configuration set using
+ *             S/MIME.</p>
+ * @public
+ */
+export interface SmimeSigningScheme {
+  /**
+   * <p>The format of the S/MIME signature that Amazon SES API v2 applies to messages.</p>
+   * @public
+   */
+  SignatureFormat?: SignatureFormat | undefined;
+}
+
+/**
+ * <p>Specifies the signing scheme to apply to messages sent with a configuration set. This
+ *             is a union type, so you specify exactly one of its members.</p>
+ * @public
+ */
+export type SigningScheme =
+  | SigningScheme.DefaultSchemeMember
+  | SigningScheme.SmimeSchemeMember
+  | SigningScheme.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SigningScheme {
+  /**
+   * <p>Use the default signing behavior. When you select this option, Amazon SES API v2 doesn't add an
+   *             S/MIME signature to messages sent with the configuration set.</p>
+   * @public
+   */
+  export interface DefaultSchemeMember {
+    DefaultScheme: DefaultSigningScheme;
+    SmimeScheme?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Sign messages sent with the configuration set using S/MIME. For signing to apply, the
+   *             email identity used to send a message must have an active S/MIME certificate
+   *             association.</p>
+   * @public
+   */
+  export interface SmimeSchemeMember {
+    DefaultScheme?: never;
+    SmimeScheme: SmimeSigningScheme;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    DefaultScheme?: never;
+    SmimeScheme?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    DefaultScheme: (value: DefaultSigningScheme) => T;
+    SmimeScheme: (value: SmimeSigningScheme) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>An object that defines the message-level security options that apply to messages that
+ *             you send using the configuration set. Currently, these options determine whether Amazon SES API v2
+ *             adds an S/MIME signature to your messages and, if so, the format of that
+ *             signature.</p>
+ * @public
+ */
+export interface MessageSecurityOptions {
+  /**
+   * <p>The signing scheme that Amazon SES API v2 applies to messages sent with the configuration
+   *             set.</p>
+   * @public
+   */
+  SigningScheme?: SigningScheme | undefined;
+}
+
+/**
  * <p>Enable or disable collection of reputation metrics for emails that you send using this
  *             configuration set in the current Amazon Web Services Region. </p>
  * @public
@@ -1605,6 +1736,13 @@ export interface CreateConfigurationSetRequest {
    * @public
    */
   ArchivingOptions?: ArchivingOptions | undefined;
+
+  /**
+   * <p>The message security options to apply to the configuration set, such as the signing
+   *             scheme used for messages that you send with the configuration set.</p>
+   * @public
+   */
+  MessageSecurityOptions?: MessageSecurityOptions | undefined;
 }
 
 /**
@@ -2969,6 +3107,10 @@ export interface MessageInsightsDataSource {
 
   /**
    * <p>The maximum number of results.</p>
+   *          <note>
+   *             <p>If you don't specify <code>MaxResults</code>, the export returns a maximum of
+   *                 1,000 results.</p>
+   *          </note>
    * @public
    */
   MaxResults?: number | undefined;
@@ -4125,6 +4267,34 @@ export interface DeliverabilityTestReport {
 }
 
 /**
+ * <p>A request to remove the association between an S/MIME certificate and an email
+ *             identity.</p>
+ * @public
+ */
+export interface DisassociateEmailIdentityCertificateRequest {
+  /**
+   * <p>The email identity whose certificate association you want to remove.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The email address whose certificate association you want to remove. This value is
+   *             required when the email identity is a domain. When the email identity is an email
+   *             address, this value is optional.</p>
+   * @public
+   */
+  FromAddress?: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface DisassociateEmailIdentityCertificateResponse {}
+
+/**
  * <p>An object that contains the deliverability data for a specific campaign. This data is
  *             available for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
@@ -5041,6 +5211,13 @@ export interface GetConfigurationSetResponse {
    * @public
    */
   ArchivingOptions?: ArchivingOptions | undefined;
+
+  /**
+   * <p>The message security options that are applied to the configuration set, such as the
+   *             signing scheme used for messages that you send with the configuration set.</p>
+   * @public
+   */
+  MessageSecurityOptions?: MessageSecurityOptions | undefined;
 }
 
 /**
@@ -6623,6 +6800,39 @@ export interface GetTenantResponse {
 }
 
 /**
+ * <p>An object that contains information about an S/MIME certificate that's associated with
+ *             an email identity.</p>
+ * @public
+ */
+export interface IdentityCertificate {
+  /**
+   * <p>The email address that the certificate applies to.</p>
+   * @public
+   */
+  FromAddress?: string | undefined;
+
+  /**
+   * <p>The status of the certificate association. A status of <code>ACTIVE</code> indicates
+   *             that the certificate is ready to use for signing.</p>
+   * @public
+   */
+  Status?: IdentityCertificateStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate that's
+   *             associated with the email identity.</p>
+   * @public
+   */
+  CertificateArn?: string | undefined;
+
+  /**
+   * <p>The timestamp after which the certificate is no longer valid.</p>
+   * @public
+   */
+  CertificateExpiryTime?: Date | undefined;
+}
+
+/**
  * <p>Information about an email identity.</p>
  * @public
  */
@@ -7174,6 +7384,59 @@ export interface ListEmailIdentitiesResponse {
    *             additional configuration sets, issue another request to
    *             <code>ListEmailIdentities</code>, and pass this token in the <code>NextToken</code>
    *             parameter.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A request to list the S/MIME certificates that are associated with an email
+ *             identity.</p>
+ * @public
+ */
+export interface ListEmailIdentityCertificatesRequest {
+  /**
+   * <p>The email identity whose certificate associations you want to list.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListEmailIdentityCertificates</code> to
+   *             indicate the position in the list of certificates.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The number of results to show in a single call to
+   *             <code>ListEmailIdentityCertificates</code>. If the number of results is larger than the
+   *             number you specified in this parameter, then the response includes a
+   *             <code>NextToken</code> element, which you can use to obtain additional results.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+}
+
+/**
+ * <p>Information about the S/MIME certificates that are associated with an email
+ *             identity.</p>
+ * @public
+ */
+export interface ListEmailIdentityCertificatesResponse {
+  /**
+   * <p>An array that contains the certificate associations for the email identity. Each entry
+   *             includes the from address, the certificate's status, its Amazon Resource Name (ARN),
+   *             and its expiry time.</p>
+   * @public
+   */
+  Certificates?: IdentityCertificate[] | undefined;
+
+  /**
+   * <p>A token that indicates that there are additional certificates to list. To view
+   *             additional certificates, issue another request to
+   *             <code>ListEmailIdentityCertificates</code>, and pass this token in the
+   *             <code>NextToken</code> parameter.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -8407,148 +8670,3 @@ export interface PutConfigurationSetVdmOptionsRequest {
    */
   VdmOptions?: VdmOptions | undefined;
 }
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutConfigurationSetVdmOptionsResponse {}
-
-/**
- * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
- * @public
- */
-export interface PutDedicatedIpInPoolRequest {
-  /**
-   * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
-   *             has to be a dedicated IP address that's associated with your Amazon Web Services account.</p>
-   * @public
-   */
-  Ip: string | undefined;
-
-  /**
-   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
-   *             specify an IP pool that already exists.</p>
-   * @public
-   */
-  DestinationPoolName: string | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutDedicatedIpInPoolResponse {}
-
-/**
- * <p>A request to convert a dedicated IP pool to a different scaling mode.</p>
- * @public
- */
-export interface PutDedicatedIpPoolScalingAttributesRequest {
-  /**
-   * <p>The name of the dedicated IP pool.</p>
-   * @public
-   */
-  PoolName: string | undefined;
-
-  /**
-   * <p>The scaling mode to apply to the dedicated IP pool.</p>
-   *          <note>
-   *             <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
-   *          </note>
-   * @public
-   */
-  ScalingMode: ScalingMode | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutDedicatedIpPoolScalingAttributesResponse {}
-
-/**
- * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
- *             is useful when you want to resume the warm-up process for an existing IP address.</p>
- * @public
- */
-export interface PutDedicatedIpWarmupAttributesRequest {
-  /**
-   * <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
-   * @public
-   */
-  Ip: string | undefined;
-
-  /**
-   * <p>The warm-up percentage that you want to associate with the dedicated IP
-   *             address.</p>
-   * @public
-   */
-  WarmupPercentage: number | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutDedicatedIpWarmupAttributesResponse {}
-
-/**
- * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
- *             access to reputation, deliverability, and other metrics for the domains that you use to
- *             send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p>
- *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
- *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
- *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
- * @public
- */
-export interface PutDeliverabilityDashboardOptionRequest {
-  /**
-   * <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this
-   *             value to <code>true</code>.</p>
-   * @public
-   */
-  DashboardEnabled: boolean | undefined;
-
-  /**
-   * <p>An array of objects, one for each verified domain that you use to send email and
-   *             enabled the Deliverability dashboard for.</p>
-   * @public
-   */
-  SubscribedDomains?: DomainDeliverabilityTrackingOption[] | undefined;
-}
-
-/**
- * <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
- * @public
- */
-export interface PutDeliverabilityDashboardOptionResponse {}
-
-/**
- * <p>A request to associate a configuration set with an email identity.</p>
- * @public
- */
-export interface PutEmailIdentityConfigurationSetAttributesRequest {
-  /**
-   * <p>The email address or domain to associate with a configuration set.</p>
-   * @public
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * <p>The configuration set to associate with an email identity.</p>
-   * @public
-   */
-  ConfigurationSetName?: string | undefined;
-}
-
-/**
- * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
- *             HTTP body.</p>
- * @public
- */
-export interface PutEmailIdentityConfigurationSetAttributesResponse {}

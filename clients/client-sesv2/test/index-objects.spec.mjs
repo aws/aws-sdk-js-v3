@@ -5,6 +5,10 @@ import {
   AlreadyExistsException,
   AlreadyExistsException$,
   ArchivingOptions$,
+  AssociateEmailIdentityCertificate$,
+  AssociateEmailIdentityCertificateCommand,
+  AssociateEmailIdentityCertificateRequest$,
+  AssociateEmailIdentityCertificateResponse$,
   Attachment$,
   AttachmentContentDisposition,
   AttachmentContentTransferEncoding,
@@ -109,6 +113,7 @@ import {
   DataFormat,
   DedicatedIp$,
   DedicatedIpPool$,
+  DefaultSigningScheme$,
   DeleteConfigurationSet$,
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetEventDestination$,
@@ -169,6 +174,10 @@ import {
   Destination$,
   Details$,
   DimensionValueSource,
+  DisassociateEmailIdentityCertificate$,
+  DisassociateEmailIdentityCertificateCommand,
+  DisassociateEmailIdentityCertificateRequest$,
+  DisassociateEmailIdentityCertificateResponse$,
   DkimAttributes$,
   DkimSigningAttributes$,
   DkimSigningAttributesOrigin,
@@ -301,6 +310,8 @@ import {
   GuardianAttributes$,
   GuardianOptions$,
   HttpsPolicy,
+  IdentityCertificate$,
+  IdentityCertificateStatus,
   IdentityInfo$,
   IdentityType,
   ImportDataSource$,
@@ -351,6 +362,10 @@ import {
   ListEmailIdentitiesCommand,
   ListEmailIdentitiesRequest$,
   ListEmailIdentitiesResponse$,
+  ListEmailIdentityCertificates$,
+  ListEmailIdentityCertificatesCommand,
+  ListEmailIdentityCertificatesRequest$,
+  ListEmailIdentityCertificatesResponse$,
   ListEmailTemplates$,
   ListEmailTemplatesCommand,
   ListEmailTemplatesRequest$,
@@ -410,6 +425,7 @@ import {
   MessageInsightsFilters$,
   MessageRejected,
   MessageRejected$,
+  MessageSecurityOptions$,
   MessageTag$,
   Metric,
   MetricAggregation,
@@ -431,6 +447,7 @@ import {
   paginateListDeliverabilityTestReports,
   paginateListDomainDeliverabilityCampaigns,
   paginateListEmailIdentities,
+  paginateListEmailIdentityCertificates,
   paginateListEmailTemplates,
   paginateListExportJobs,
   paginateListImportJobs,
@@ -580,6 +597,9 @@ import {
   SESv2,
   SESv2Client,
   SESv2ServiceException,
+  SignatureFormat,
+  SigningScheme$,
+  SmimeSigningScheme$,
   SnsDestination$,
   SOARecord$,
   Status,
@@ -625,10 +645,14 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateConfigurationSet$,
+  UpdateConfigurationSetCommand,
   UpdateConfigurationSetEventDestination$,
   UpdateConfigurationSetEventDestinationCommand,
   UpdateConfigurationSetEventDestinationRequest$,
   UpdateConfigurationSetEventDestinationResponse$,
+  UpdateConfigurationSetRequest$,
+  UpdateConfigurationSetResponse$,
   UpdateContact$,
   UpdateContactCommand,
   UpdateContactList$,
@@ -670,6 +694,8 @@ import assert from "node:assert";
 assert(typeof SESv2Client === "function");
 assert(typeof SESv2 === "function");
 // commands
+assert(typeof AssociateEmailIdentityCertificateCommand === "function");
+assert(typeof AssociateEmailIdentityCertificate$ === "object");
 assert(typeof BatchGetMetricDataCommand === "function");
 assert(typeof BatchGetMetricData$ === "object");
 assert(typeof CancelExportJobCommand === "function");
@@ -730,6 +756,8 @@ assert(typeof DeleteTenantCommand === "function");
 assert(typeof DeleteTenant$ === "object");
 assert(typeof DeleteTenantResourceAssociationCommand === "function");
 assert(typeof DeleteTenantResourceAssociation$ === "object");
+assert(typeof DisassociateEmailIdentityCertificateCommand === "function");
+assert(typeof DisassociateEmailIdentityCertificate$ === "object");
 assert(typeof GetAccountCommand === "function");
 assert(typeof GetAccount$ === "object");
 assert(typeof GetBlacklistReportsCommand === "function");
@@ -796,6 +824,8 @@ assert(typeof ListDomainDeliverabilityCampaignsCommand === "function");
 assert(typeof ListDomainDeliverabilityCampaigns$ === "object");
 assert(typeof ListEmailIdentitiesCommand === "function");
 assert(typeof ListEmailIdentities$ === "object");
+assert(typeof ListEmailIdentityCertificatesCommand === "function");
+assert(typeof ListEmailIdentityCertificates$ === "object");
 assert(typeof ListEmailTemplatesCommand === "function");
 assert(typeof ListEmailTemplates$ === "object");
 assert(typeof ListExportJobsCommand === "function");
@@ -878,6 +908,8 @@ assert(typeof TestRenderEmailTemplateCommand === "function");
 assert(typeof TestRenderEmailTemplate$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateConfigurationSetCommand === "function");
+assert(typeof UpdateConfigurationSet$ === "object");
 assert(typeof UpdateConfigurationSetEventDestinationCommand === "function");
 assert(typeof UpdateConfigurationSetEventDestination$ === "object");
 assert(typeof UpdateContactCommand === "function");
@@ -897,6 +929,8 @@ assert(typeof UpdateReputationEntityPolicy$ === "object");
 // structural schemas
 assert(typeof AccountDetails$ === "object");
 assert(typeof ArchivingOptions$ === "object");
+assert(typeof AssociateEmailIdentityCertificateRequest$ === "object");
+assert(typeof AssociateEmailIdentityCertificateResponse$ === "object");
 assert(typeof Attachment$ === "object");
 assert(typeof BatchGetMetricDataQuery$ === "object");
 assert(typeof BatchGetMetricDataRequest$ === "object");
@@ -953,6 +987,7 @@ assert(typeof DashboardAttributes$ === "object");
 assert(typeof DashboardOptions$ === "object");
 assert(typeof DedicatedIp$ === "object");
 assert(typeof DedicatedIpPool$ === "object");
+assert(typeof DefaultSigningScheme$ === "object");
 assert(typeof DeleteConfigurationSetEventDestinationRequest$ === "object");
 assert(typeof DeleteConfigurationSetEventDestinationResponse$ === "object");
 assert(typeof DeleteConfigurationSetRequest$ === "object");
@@ -983,6 +1018,8 @@ assert(typeof DeliverabilityTestReport$ === "object");
 assert(typeof DeliveryOptions$ === "object");
 assert(typeof Destination$ === "object");
 assert(typeof Details$ === "object");
+assert(typeof DisassociateEmailIdentityCertificateRequest$ === "object");
+assert(typeof DisassociateEmailIdentityCertificateResponse$ === "object");
 assert(typeof DkimAttributes$ === "object");
 assert(typeof DkimSigningAttributes$ === "object");
 assert(typeof DomainDeliverabilityCampaign$ === "object");
@@ -1056,6 +1093,7 @@ assert(typeof GetTenantRequest$ === "object");
 assert(typeof GetTenantResponse$ === "object");
 assert(typeof GuardianAttributes$ === "object");
 assert(typeof GuardianOptions$ === "object");
+assert(typeof IdentityCertificate$ === "object");
 assert(typeof IdentityInfo$ === "object");
 assert(typeof ImportDataSource$ === "object");
 assert(typeof ImportDestination$ === "object");
@@ -1081,6 +1119,8 @@ assert(typeof ListDomainDeliverabilityCampaignsRequest$ === "object");
 assert(typeof ListDomainDeliverabilityCampaignsResponse$ === "object");
 assert(typeof ListEmailIdentitiesRequest$ === "object");
 assert(typeof ListEmailIdentitiesResponse$ === "object");
+assert(typeof ListEmailIdentityCertificatesRequest$ === "object");
+assert(typeof ListEmailIdentityCertificatesResponse$ === "object");
 assert(typeof ListEmailTemplatesRequest$ === "object");
 assert(typeof ListEmailTemplatesResponse$ === "object");
 assert(typeof ListExportJobsRequest$ === "object");
@@ -1110,6 +1150,7 @@ assert(typeof Message$ === "object");
 assert(typeof MessageHeader$ === "object");
 assert(typeof MessageInsightsDataSource$ === "object");
 assert(typeof MessageInsightsFilters$ === "object");
+assert(typeof MessageSecurityOptions$ === "object");
 assert(typeof MessageTag$ === "object");
 assert(typeof MetricDataError$ === "object");
 assert(typeof MetricDataResult$ === "object");
@@ -1185,6 +1226,8 @@ assert(typeof SendEmailRequest$ === "object");
 assert(typeof SendEmailResponse$ === "object");
 assert(typeof SendingOptions$ === "object");
 assert(typeof SendQuota$ === "object");
+assert(typeof SigningScheme$ === "object");
+assert(typeof SmimeSigningScheme$ === "object");
 assert(typeof SnsDestination$ === "object");
 assert(typeof SOARecord$ === "object");
 assert(typeof StatusRecord$ === "object");
@@ -1217,6 +1260,8 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateConfigurationSetEventDestinationRequest$ === "object");
 assert(typeof UpdateConfigurationSetEventDestinationResponse$ === "object");
+assert(typeof UpdateConfigurationSetRequest$ === "object");
+assert(typeof UpdateConfigurationSetResponse$ === "object");
 assert(typeof UpdateContactListRequest$ === "object");
 assert(typeof UpdateContactListResponse$ === "object");
 assert(typeof UpdateContactRequest$ === "object");
@@ -1257,6 +1302,7 @@ assert(typeof EventType === "object");
 assert(typeof ExportSourceType === "object");
 assert(typeof FeatureStatus === "object");
 assert(typeof HttpsPolicy === "object");
+assert(typeof IdentityCertificateStatus === "object");
 assert(typeof IdentityType === "object");
 assert(typeof ImportDestinationType === "object");
 assert(typeof JobStatus === "object");
@@ -1279,6 +1325,7 @@ assert(typeof ResourceType === "object");
 assert(typeof ReviewStatus === "object");
 assert(typeof ScalingMode === "object");
 assert(typeof SendingStatus === "object");
+assert(typeof SignatureFormat === "object");
 assert(typeof Status === "object");
 assert(typeof SubscriptionStatus === "object");
 assert(typeof SuppressionConfidenceVerdictThreshold === "object");
@@ -1327,6 +1374,7 @@ assert(typeof paginateListDedicatedIpPools === "function");
 assert(typeof paginateListDeliverabilityTestReports === "function");
 assert(typeof paginateListDomainDeliverabilityCampaigns === "function");
 assert(typeof paginateListEmailIdentities === "function");
+assert(typeof paginateListEmailIdentityCertificates === "function");
 assert(typeof paginateListEmailTemplates === "function");
 assert(typeof paginateListExportJobs === "function");
 assert(typeof paginateListImportJobs === "function");

@@ -85,6 +85,14 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *   ArchivingOptions: { // ArchivingOptions
  *     ArchiveArn: "STRING_VALUE",
  *   },
+ *   MessageSecurityOptions: { // MessageSecurityOptions
+ *     SigningScheme: { // SigningScheme Union: only one key present
+ *       DefaultScheme: {},
+ *       SmimeScheme: { // SmimeSigningScheme
+ *         SignatureFormat: "DETACHED",
+ *       },
+ *     },
+ *   },
  * };
  * const command = new CreateConfigurationSetCommand(input);
  * const response = await client.send(command);

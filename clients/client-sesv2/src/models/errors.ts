@@ -65,26 +65,6 @@ export class BadRequestException extends __BaseException {
 }
 
 /**
- * <p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>
- * @public
- */
-export class InternalServiceErrorException extends __BaseException {
-  readonly name = "InternalServiceErrorException" as const;
-  readonly $fault = "server" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
-    super({
-      name: "InternalServiceErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
-  }
-}
-
-/**
  * <p>The resource you attempted to access doesn't exist.</p>
  * @public
  */
@@ -121,6 +101,26 @@ export class TooManyRequestsException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+  }
+}
+
+/**
+ * <p>The request couldn't be processed because an error occurred with the Amazon SES API v2.</p>
+ * @public
+ */
+export class InternalServiceErrorException extends __BaseException {
+  readonly name = "InternalServiceErrorException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
+    super({
+      name: "InternalServiceErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
   }
 }
 
