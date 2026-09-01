@@ -106,15 +106,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "FileSystemConfigs": [
         {
           "Arn": "__Arn__",
-          "LocalMountPath": "__LocalMountPath__"
+          "LocalMountPath": "__LocalMountPath__",
+          "S3FilesConfig": {
+            "DirectS3Read": "__DirectS3Read__"
+          }
         },
         {
           "Arn": "__Arn__",
-          "LocalMountPath": "__LocalMountPath__"
+          "LocalMountPath": "__LocalMountPath__",
+          "S3FilesConfig": {
+            "DirectS3Read": "__DirectS3Read__"
+          }
         },
         {
           "Arn": "__Arn__",
-          "LocalMountPath": "__LocalMountPath__"
+          "LocalMountPath": "__LocalMountPath__",
+          "S3FilesConfig": {
+            "DirectS3Read": "__DirectS3Read__"
+          }
         }
       ],
       "SigningProfileVersionArn": "__SigningProfileVersionArn__",
@@ -257,15 +266,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "FileSystemConfigs": [
         {
           "Arn": "__Arn__",
-          "LocalMountPath": "__LocalMountPath__"
+          "LocalMountPath": "__LocalMountPath__",
+          "S3FilesConfig": {
+            "DirectS3Read": "__DirectS3Read__"
+          }
         },
         {
           "Arn": "__Arn__",
-          "LocalMountPath": "__LocalMountPath__"
+          "LocalMountPath": "__LocalMountPath__",
+          "S3FilesConfig": {
+            "DirectS3Read": "__DirectS3Read__"
+          }
         },
         {
           "Arn": "__Arn__",
-          "LocalMountPath": "__LocalMountPath__"
+          "LocalMountPath": "__LocalMountPath__",
+          "S3FilesConfig": {
+            "DirectS3Read": "__DirectS3Read__"
+          }
         }
       ],
       "SigningProfileVersionArn": "__SigningProfileVersionArn__",
@@ -408,15 +426,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "FileSystemConfigs": [
         {
           "Arn": "__Arn__",
-          "LocalMountPath": "__LocalMountPath__"
+          "LocalMountPath": "__LocalMountPath__",
+          "S3FilesConfig": {
+            "DirectS3Read": "__DirectS3Read__"
+          }
         },
         {
           "Arn": "__Arn__",
-          "LocalMountPath": "__LocalMountPath__"
+          "LocalMountPath": "__LocalMountPath__",
+          "S3FilesConfig": {
+            "DirectS3Read": "__DirectS3Read__"
+          }
         },
         {
           "Arn": "__Arn__",
-          "LocalMountPath": "__LocalMountPath__"
+          "LocalMountPath": "__LocalMountPath__",
+          "S3FilesConfig": {
+            "DirectS3Read": "__DirectS3Read__"
+          }
         }
       ],
       "SigningProfileVersionArn": "__SigningProfileVersionArn__",
@@ -567,15 +594,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       FileSystemConfigs: [
         {
           Arn: "__Arn__",
-          LocalMountPath: "__LocalMountPath__"
+          LocalMountPath: "__LocalMountPath__",
+          S3FilesConfig: {
+            DirectS3Read: "__DirectS3Read__"
+          }
         },
         {
           Arn: "__Arn__",
-          LocalMountPath: "__LocalMountPath__"
+          LocalMountPath: "__LocalMountPath__",
+          S3FilesConfig: {
+            DirectS3Read: "__DirectS3Read__"
+          }
         },
         {
           Arn: "__Arn__",
-          LocalMountPath: "__LocalMountPath__"
+          LocalMountPath: "__LocalMountPath__",
+          S3FilesConfig: {
+            DirectS3Read: "__DirectS3Read__"
+          }
         }
       ],
       SigningProfileVersionArn: "__SigningProfileVersionArn__",
@@ -718,15 +754,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       FileSystemConfigs: [
         {
           Arn: "__Arn__",
-          LocalMountPath: "__LocalMountPath__"
+          LocalMountPath: "__LocalMountPath__",
+          S3FilesConfig: {
+            DirectS3Read: "__DirectS3Read__"
+          }
         },
         {
           Arn: "__Arn__",
-          LocalMountPath: "__LocalMountPath__"
+          LocalMountPath: "__LocalMountPath__",
+          S3FilesConfig: {
+            DirectS3Read: "__DirectS3Read__"
+          }
         },
         {
           Arn: "__Arn__",
-          LocalMountPath: "__LocalMountPath__"
+          LocalMountPath: "__LocalMountPath__",
+          S3FilesConfig: {
+            DirectS3Read: "__DirectS3Read__"
+          }
         }
       ],
       SigningProfileVersionArn: "__SigningProfileVersionArn__",
@@ -869,15 +914,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       FileSystemConfigs: [
         {
           Arn: "__Arn__",
-          LocalMountPath: "__LocalMountPath__"
+          LocalMountPath: "__LocalMountPath__",
+          S3FilesConfig: {
+            DirectS3Read: "__DirectS3Read__"
+          }
         },
         {
           Arn: "__Arn__",
-          LocalMountPath: "__LocalMountPath__"
+          LocalMountPath: "__LocalMountPath__",
+          S3FilesConfig: {
+            DirectS3Read: "__DirectS3Read__"
+          }
         },
         {
           Arn: "__Arn__",
-          LocalMountPath: "__LocalMountPath__"
+          LocalMountPath: "__LocalMountPath__",
+          S3FilesConfig: {
+            DirectS3Read: "__DirectS3Read__"
+          }
         }
       ],
       SigningProfileVersionArn: "__SigningProfileVersionArn__",

@@ -133,6 +133,7 @@ import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyRequest$,
   DestinationConfig$,
+  DirectS3Read,
   DocumentDBEventSourceConfig$,
   DurableConfig$,
   DurableExecutionAlreadyStartedException,
@@ -512,6 +513,7 @@ import {
   Runtime,
   RuntimeVersionConfig$,
   RuntimeVersionError$,
+  S3FilesConfig$,
   S3FilesMountConnectivityException,
   S3FilesMountConnectivityException$,
   S3FilesMountFailureException,
@@ -1044,6 +1046,7 @@ assert(typeof ResolvedS3Object$ === "object");
 assert(typeof RetryDetails$ === "object");
 assert(typeof RuntimeVersionConfig$ === "object");
 assert(typeof RuntimeVersionError$ === "object");
+assert(typeof S3FilesConfig$ === "object");
 assert(typeof ScalingConfig$ === "object");
 assert(typeof SelfManagedEventSource$ === "object");
 assert(typeof SelfManagedKafkaEventSourceConfig$ === "object");
@@ -1096,6 +1099,7 @@ assert(typeof CapacityProviderPredefinedMetricType === "object");
 assert(typeof CapacityProviderScalingMode === "object");
 assert(typeof CapacityProviderState === "object");
 assert(typeof CodeSigningPolicy === "object");
+assert(typeof DirectS3Read === "object");
 assert(typeof EndPointType === "object");
 assert(typeof EventSourceMappingMetric === "object");
 assert(typeof EventSourceMappingSystemLogLevel === "object");

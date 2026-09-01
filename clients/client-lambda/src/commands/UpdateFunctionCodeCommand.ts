@@ -110,6 +110,9 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  * //     { // FileSystemConfig
  * //       Arn: "STRING_VALUE", // required
  * //       LocalMountPath: "STRING_VALUE", // required
+ * //       S3FilesConfig: { // S3FilesConfig
+ * //         DirectS3Read: "ENABLED" || "DISABLED" || "AUTO",
+ * //       },
  * //     },
  * //   ],
  * //   SigningProfileVersionArn: "STRING_VALUE",

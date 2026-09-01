@@ -165,6 +165,7 @@ const _DPCCR = "DeleteProvisionedConcurrencyConfigRequest";
 const _DR = "DryRun";
 const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DeleteResourcePolicyRequest";
+const _DSR = "DirectS3Read";
 const _De = "Destination";
 const _Du = "Duration";
 const _E = "Error";
@@ -602,6 +603,7 @@ const _SDER = "StopDurableExecutionRequest";
 const _SDERt = "StopDurableExecutionResponse";
 const _SE = "ServiceException";
 const _SET = "ScheduledEndTimestamp";
+const _SFC = "S3FilesConfig";
 const _SFD = "StepFailedDetails";
 const _SFMCE = "S3FilesMountConnectivityException";
 const _SFMFE = "S3FilesMountFailureException";
@@ -1628,8 +1630,8 @@ export var ExecutionTimedOutDetails$: StaticStructureSchema = [3, n0, _ETOD,
 ];
 export var FileSystemConfig$: StaticStructureSchema = [3, n0, _FSCi,
   0,
-  [_Arn, _LMP],
-  [0, 0], 2
+  [_Arn, _LMP, _SFC],
+  [0, 0, () => S3FilesConfig$], 2
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
@@ -2305,6 +2307,11 @@ export var RuntimeVersionError$: StaticStructureSchema = [3, n0, _RVE,
   0,
   [_EC, _M],
   [0, [() => SensitiveString, 0]]
+];
+export var S3FilesConfig$: StaticStructureSchema = [3, n0, _SFC,
+  0,
+  [_DSR],
+  [0]
 ];
 export var ScalingConfig$: StaticStructureSchema = [3, n0, _SC,
   0,

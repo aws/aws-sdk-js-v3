@@ -8,6 +8,7 @@ import type {
   CapacityProviderScalingMode,
   CapacityProviderState,
   CodeSigningPolicy,
+  DirectS3Read,
   EndPointType,
   EventSourceMappingMetric,
   EventSourceMappingSystemLogLevel,
@@ -3438,7 +3439,19 @@ export interface EphemeralStorage {
 }
 
 /**
- * <p>Details about the connection between a Lambda function and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
+ * <p>Setting controls how your function accesses data from an Amazon S3 file system.</p>
+ * @public
+ */
+export interface S3FilesConfig {
+  /**
+   * <p>Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput. Valid values:</p> <ul> <li> <p> <code>AUTO</code> (default) – Direct reads are active for functions you configure with 512 MB or more of memory.</p> </li> <li> <p> <code>ENABLED</code> – Enforces all reads are directly from the Amazon S3 bucket, regardless of available memory (less than 512 MB).</p> </li> <li> <p> <code>DISABLED</code> – Routes all reads through the file system, regardless of memory configuration.</p> </li> </ul> <p>To use direct reads, you must grant the execution role the <code>s3:GetObject</code> and <code>s3:GetObjectVersion</code> permissions. If a direct read fails, Lambda automatically falls back to reading through the file system.</p>
+   * @public
+   */
+  DirectS3Read?: DirectS3Read | undefined;
+}
+
+/**
+ * <p>Details about the connection between a Lambda function and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 file system</a>.</p>
  * @public
  */
 export interface FileSystemConfig {
@@ -3453,6 +3466,12 @@ export interface FileSystemConfig {
    * @public
    */
   LocalMountPath: string | undefined;
+
+  /**
+   * <p>The configuration for how your function accesses data on an Amazon S3 file system. Valid only when the file system access point ARN is an Amazon S3 Files access point. If you specify a different access point type (for example, Amazon Elastic File System), the operation returns an <code>InvalidParameterException</code>.</p>
+   * @public
+   */
+  S3FilesConfig?: S3FilesConfig | undefined;
 }
 
 /**
@@ -4102,7 +4121,7 @@ export interface FunctionConfiguration {
   LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | undefined;
 
   /**
-   * <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 Files file system</a>.</p>
+   * <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a> or an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon S3 file system</a>.</p>
    * @public
    */
   FileSystemConfigs?: FileSystemConfig[] | undefined;

@@ -434,6 +434,20 @@ export type S3ObjectStorageMode = (typeof S3ObjectStorageMode)[keyof typeof S3Ob
  * @public
  * @enum
  */
+export const DirectS3Read = {
+  AUTO: "AUTO",
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type DirectS3Read = (typeof DirectS3Read)[keyof typeof DirectS3Read];
+
+/**
+ * @public
+ * @enum
+ */
 export const LogFormat = {
   Json: "JSON",
   Text: "Text",
