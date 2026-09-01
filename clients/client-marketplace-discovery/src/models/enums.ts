@@ -156,6 +156,7 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @enum
  */
 export const PurchaseOptionBadgeType = {
+  AUTO_RENEW: "AUTO_RENEW",
   FUTURE_DATED: "FUTURE_DATED",
   PRIVATE_PRICING: "PRIVATE_PRICING",
   REPLACEMENT_OFFER: "REPLACEMENT_OFFER",

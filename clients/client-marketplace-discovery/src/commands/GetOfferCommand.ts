@@ -75,7 +75,7 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  * //   badges: [ // PurchaseOptionBadgeList // required
  * //     { // PurchaseOptionBadge
  * //       displayName: "STRING_VALUE", // required
- * //       badgeType: "PRIVATE_PRICING" || "FUTURE_DATED" || "REPLACEMENT_OFFER", // required
+ * //       badgeType: "PRIVATE_PRICING" || "FUTURE_DATED" || "REPLACEMENT_OFFER" || "AUTO_RENEW", // required
  * //     },
  * //   ],
  * // };

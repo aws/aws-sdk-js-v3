@@ -24,6 +24,7 @@ import {
   Ec2ImageBuilderComponentFulfillmentOption$,
   EksAddOnFulfillmentOption$,
   EksAddOnOperatingSystem$,
+  FixedPercentage$,
   FixedUpfrontPricingTerm$,
   FreeTrialPricingTerm$,
   FulfillmentOption$,
@@ -84,7 +85,11 @@ import {
   paginateListPurchaseOptions,
   paginateSearchFacets,
   paginateSearchListings,
+  PaymentScheduleEntry$,
   PaymentScheduleTerm$,
+  PaymentScheduleTermTemplate$,
+  PercentageRange$,
+  PriceIncrease$,
   PricingModel$,
   PricingModelType,
   PricingUnit$,
@@ -139,6 +144,7 @@ import {
   SellerEngagementType,
   SellerInformation$,
   SupportTerm$,
+  TermTemplate$,
   TermType,
   ThrottlingException,
   ThrottlingException$,
@@ -196,6 +202,7 @@ assert(typeof DocumentItem$ === "object");
 assert(typeof Ec2ImageBuilderComponentFulfillmentOption$ === "object");
 assert(typeof EksAddOnFulfillmentOption$ === "object");
 assert(typeof EksAddOnOperatingSystem$ === "object");
+assert(typeof FixedPercentage$ === "object");
 assert(typeof FixedUpfrontPricingTerm$ === "object");
 assert(typeof FreeTrialPricingTerm$ === "object");
 assert(typeof FulfillmentOption$ === "object");
@@ -229,7 +236,11 @@ assert(typeof OfferInformation$ === "object");
 assert(typeof OfferSetAssociatedEntity$ === "object");
 assert(typeof OfferSetInformation$ === "object");
 assert(typeof OfferTerm$ === "object");
+assert(typeof PaymentScheduleEntry$ === "object");
 assert(typeof PaymentScheduleTerm$ === "object");
+assert(typeof PaymentScheduleTermTemplate$ === "object");
+assert(typeof PercentageRange$ === "object");
+assert(typeof PriceIncrease$ === "object");
 assert(typeof PricingModel$ === "object");
 assert(typeof PricingUnit$ === "object");
 assert(typeof ProductInformation$ === "object");
@@ -262,6 +273,7 @@ assert(typeof Selector$ === "object");
 assert(typeof SellerEngagement$ === "object");
 assert(typeof SellerInformation$ === "object");
 assert(typeof SupportTerm$ === "object");
+assert(typeof TermTemplate$ === "object");
 assert(typeof UsageBasedPricingTerm$ === "object");
 assert(typeof UsageBasedRateCardItem$ === "object");
 assert(typeof UseCase$ === "object");

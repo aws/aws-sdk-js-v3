@@ -1434,6 +1434,170 @@ export interface RecurringPaymentTerm {
 }
 
 /**
+ * <p>A single fixed price increase percentage applied at each renewal cycle.</p>
+ * @public
+ */
+export interface FixedPercentage {
+  /**
+   * <p>The percentage value applied at each renewal cycle.</p>
+   * @public
+   */
+  percentageValue: string | undefined;
+}
+
+/**
+ * <p>A price increase percentage range with minimum, maximum, and default values.</p>
+ * @public
+ */
+export interface PercentageRange {
+  /**
+   * <p>The minimum percentage by which the price can increase at each renewal cycle.</p>
+   * @public
+   */
+  minimumValue: string | undefined;
+
+  /**
+   * <p>The maximum percentage by which the price can increase at each renewal cycle.</p>
+   * @public
+   */
+  maximumValue: string | undefined;
+
+  /**
+   * <p>The percentage increase applied by default when no other value is finalized before the adjustment deadline. Falls between <code>minimumValue</code> and <code>maximumValue</code>.</p>
+   * @public
+   */
+  defaultValue: string | undefined;
+}
+
+/**
+ * <p>The pricing adjustment that applies at each renewal cycle, expressed as either a fixed percentage or a percentage range. Exactly one variant is present.</p>
+ * @public
+ */
+export type PriceIncrease =
+  | PriceIncrease.FixedPercentageMember
+  | PriceIncrease.PercentageRangeMember
+  | PriceIncrease.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PriceIncrease {
+  /**
+   * <p>A single fixed percentage applied uniformly at every renewal cycle.</p>
+   * @public
+   */
+  export interface FixedPercentageMember {
+    fixedPercentage: FixedPercentage;
+    percentageRange?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A percentage band with minimum, maximum, and default values that bound the price increase at each renewal cycle.</p>
+   * @public
+   */
+  export interface PercentageRangeMember {
+    fixedPercentage?: never;
+    percentageRange: PercentageRange;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fixedPercentage?: never;
+    percentageRange?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    fixedPercentage: (value: FixedPercentage) => T;
+    percentageRange: (value: PercentageRange) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A single installment entry in the renewal payment schedule.</p>
+ * @public
+ */
+export interface PaymentScheduleEntry {
+  /**
+   * <p>The relative offset from the renewal agreement start date when this installment is due, in ISO 8601 duration format. The offset uses months only or days only (for example, P1M or P30D); mixed units are not supported, and every offset in a schedule uses the same unit.</p>
+   * @public
+   */
+  chargeDateOffset: string | undefined;
+
+  /**
+   * <p>The percentage of the increased TCV to charge in this installment. All entries in a schedule sum to 100.00.</p>
+   * @public
+   */
+  chargePercentage: string | undefined;
+
+  /**
+   * <p>The optional calendar day of month on which the charge occurs. When absent, the charge day is derived from <code>chargeDateOffset</code>, and this field does not apply when <code>chargeDateOffset</code> is expressed in days. For months with fewer days than the specified day, the charge occurs on the last day of the month. For example, if <code>dayOfMonth</code> is 31, the charge in April occurs on April 30.</p>
+   * @public
+   */
+  dayOfMonth?: number | undefined;
+}
+
+/**
+ * <p>A template for the payment schedule term on the renewal offer.</p>
+ * @public
+ */
+export interface PaymentScheduleTermTemplate {
+  /**
+   * <p>An ordered list of installment entries for the renewal payment schedule.</p>
+   * @public
+   */
+  schedule: PaymentScheduleEntry[] | undefined;
+}
+
+/**
+ * <p>A structural template defining how a specific term type is reshaped on each renewal cycle. Exactly one variant is present.</p>
+ * @public
+ */
+export type TermTemplate =
+  | TermTemplate.PaymentScheduleTermTemplateMember
+  | TermTemplate.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TermTemplate {
+  /**
+   * <p>The installment schedule used to structure payments on the renewal offer.</p>
+   * @public
+   */
+  export interface PaymentScheduleTermTemplateMember {
+    paymentScheduleTermTemplate: PaymentScheduleTermTemplate;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    paymentScheduleTermTemplate?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    paymentScheduleTermTemplate: (value: PaymentScheduleTermTemplate) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Defines a renewal term that enables automatic agreement renewal.</p>
  * @public
  */
@@ -1449,6 +1613,36 @@ export interface RenewalTerm {
    * @public
    */
   type: TermType | undefined;
+
+  /**
+   * <p>The maximum number of renewals allowed on this offer. Absent means unlimited renewals.</p>
+   * @public
+   */
+  maxRenewals?: number | undefined;
+
+  /**
+   * <p>The duration before the agreement end date when the lockout window begins, in ISO 8601 format (for example, P30D). Absent means no lockout.</p>
+   * @public
+   */
+  lockoutPeriod?: string | undefined;
+
+  /**
+   * <p>The duration before the agreement end date by which the renewal price is finalized, represented in ISO 8601 format (for example, P30D). Only applicable with <code>PercentageRange</code>.</p>
+   * @public
+   */
+  adjustmentDeadline?: string | undefined;
+
+  /**
+   * <p>The price increase applied at each renewal cycle. Absent means identical pricing on renewal.</p>
+   * @public
+   */
+  priceIncrease?: PriceIncrease | undefined;
+
+  /**
+   * <p>Structural templates defining how specific terms are reshaped on each renewal cycle. Absent for upfront-only offers.</p>
+   * @public
+   */
+  termTemplates?: TermTemplate[] | undefined;
 }
 
 /**

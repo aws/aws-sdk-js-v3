@@ -155,6 +155,32 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //       renewalTerm: { // RenewalTerm
  * //         id: "STRING_VALUE", // required
  * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
+ * //         maxRenewals: Number("int"),
+ * //         lockoutPeriod: "STRING_VALUE",
+ * //         adjustmentDeadline: "STRING_VALUE",
+ * //         priceIncrease: { // PriceIncrease Union: only one key present
+ * //           fixedPercentage: { // FixedPercentage
+ * //             percentageValue: "STRING_VALUE", // required
+ * //           },
+ * //           percentageRange: { // PercentageRange
+ * //             minimumValue: "STRING_VALUE", // required
+ * //             maximumValue: "STRING_VALUE", // required
+ * //             defaultValue: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //         termTemplates: [ // TermTemplateList
+ * //           { // TermTemplate Union: only one key present
+ * //             paymentScheduleTermTemplate: { // PaymentScheduleTermTemplate
+ * //               schedule: [ // PaymentScheduleEntryList // required
+ * //                 { // PaymentScheduleEntry
+ * //                   chargeDateOffset: "STRING_VALUE", // required
+ * //                   chargePercentage: "STRING_VALUE", // required
+ * //                   dayOfMonth: Number("int"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //       supportTerm: { // SupportTerm
  * //         id: "STRING_VALUE", // required
@@ -617,7 +643,92 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  *   offerTerms: [
  *     {
  *       renewalTerm: {
+ *         adjustmentDeadline: "P30D",
  *         id: "term-renewal-001",
+ *         lockoutPeriod: "P30D",
+ *         maxRenewals: 3,
+ *         priceIncrease: {
+ *           percentageRange: {
+ *             defaultValue: "5.00",
+ *             maximumValue: "10.00",
+ *             minimumValue: "3.00"
+ *           }
+ *         },
+ *         termTemplates: [
+ *           {
+ *             paymentScheduleTermTemplate: {
+ *               schedule: [
+ *                 {
+ *                   chargeDateOffset: "P0D",
+ *                   chargePercentage: "50.00"
+ *                 },
+ *                 {
+ *                   chargeDateOffset: "P6M",
+ *                   chargePercentage: "25.00",
+ *                   dayOfMonth: 1
+ *                 },
+ *                 {
+ *                   chargeDateOffset: "P12M",
+ *                   chargePercentage: "25.00",
+ *                   dayOfMonth: 1
+ *                 }
+ *               ]
+ *             }
+ *           }
+ *         ],
+ *         type: "RenewalTerm"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example GetOfferTerms for renewal term with fixed percentage
+ * ```javascript
+ * //
+ * const input = {
+ *   offerId: "offer-sampleRenewalFixedId"
+ * };
+ * const command = new GetOfferTermsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   offerTerms: [
+ *     {
+ *       renewalTerm: {
+ *         id: "term-renewal-002",
+ *         lockoutPeriod: "P60D",
+ *         maxRenewals: 5,
+ *         priceIncrease: {
+ *           fixedPercentage: {
+ *             percentageValue: "5.00"
+ *           }
+ *         },
+ *         type: "RenewalTerm"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example GetOfferTerms for renewal term with identical pricing (no price increase)
+ * ```javascript
+ * //
+ * const input = {
+ *   offerId: "offer-sampleRenewalNoPriceIncreaseId"
+ * };
+ * const command = new GetOfferTermsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   offerTerms: [
+ *     {
+ *       renewalTerm: {
+ *         id: "term-renewal-003",
+ *         lockoutPeriod: "P30D",
+ *         maxRenewals: 2,
  *         type: "RenewalTerm"
  *       }
  *     }

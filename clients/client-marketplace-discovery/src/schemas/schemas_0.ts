@@ -32,6 +32,7 @@ const _FO = "FulfillmentOption";
 const _FOL = "FulfillmentOptionsList";
 const _FOS = "FulfillmentOptionSummary";
 const _FOSL = "FulfillmentOptionSummaryList";
+const _FP = "FixedPercentage";
 const _FTPT = "FreeTrialPricingTerm";
 const _FUPT = "FixedUpfrontPricingTerm";
 const _GI = "GrantItem";
@@ -84,6 +85,7 @@ const _OTL = "OfferTermsList";
 const _PEI = "PromotionalEmbeddedImage";
 const _PEV = "PromotionalEmbeddedVideo";
 const _PI = "ProductInformation";
+const _PIr = "PriceIncrease";
 const _PM = "PricingModel";
 const _PML = "PricingModelList";
 const _PMLr = "PromotionalMediaList";
@@ -96,8 +98,12 @@ const _POF = "PurchaseOptionFilter";
 const _POFL = "PurchaseOptionFilterList";
 const _POS = "PurchaseOptionSummary";
 const _POSL = "PurchaseOptionSummaryList";
+const _PR = "PercentageRange";
+const _PSE = "PaymentScheduleEntry";
+const _PSEL = "PaymentScheduleEntryList";
 const _PSFO = "ProfessionalServicesFulfillmentOption";
 const _PST = "PaymentScheduleTerm";
+const _PSTT = "PaymentScheduleTermTemplate";
 const _PU = "PricingUnit";
 const _PUL = "PricingUnitList";
 const _R = "Resource";
@@ -131,7 +137,9 @@ const _SMMFO = "SageMakerModelFulfillmentOption";
 const _SMMR = "SageMakerModelRecommendation";
 const _ST = "SupportTerm";
 const _TE = "ThrottlingException";
+const _TT = "TermTemplate";
 const _TTFM = "TypeToFacetMap";
+const _TTL = "TermTemplateList";
 const _UBPT = "UsageBasedPricingTerm";
 const _UBRCI = "UsageBasedRateCardItem";
 const _UBRCL = "UsageBasedRateCardList";
@@ -141,7 +149,8 @@ const _UCL = "UseCaseList";
 const _VE = "ValidationException";
 const _VPT = "VariablePaymentTerm";
 const _VT = "ValidityTerm";
-const _aD = "agreementDuration";
+const _aD = "adjustmentDeadline";
+const _aDg = "agreementDuration";
 const _aE = "associatedEntities";
 const _aED = "agreementEndDate";
 const _aFO = "apiFulfillmentOption";
@@ -160,9 +169,11 @@ const _c = "client";
 const _cA = "chargeAmount";
 const _cC = "currencyCode";
 const _cD = "chargeDate";
+const _cDO = "chargeDateOffset";
 const _cFFO = "cloudFormationFulfillmentOption";
 const _cFO = "containerFulfillmentOption";
 const _cI = "categoryId";
+const _cP = "chargePercentage";
 const _cT = "contentType";
 const _cUPT = "configurableUpfrontPricingTerm";
 const _ca = "catalog";
@@ -177,6 +188,8 @@ const _dK = "dimensionKey";
 const _dL = "dimensionLabels";
 const _dN = "displayName";
 const _dOA = "deployedOnAws";
+const _dOM = "dayOfMonth";
+const _dV = "defaultValue";
 const _do = "documents";
 const _du = "duration";
 const _e = "error";
@@ -194,6 +207,7 @@ const _fON = "fulfillmentOptionName";
 const _fOS = "fulfillmentOptionSummaries";
 const _fOT = "fulfillmentOptionType";
 const _fOV = "fulfillmentOptionVersion";
+const _fP = "fixedPercentage";
 const _fT = "filterType";
 const _fTPT = "freeTrialPricingTerm";
 const _fTa = "facetTypes";
@@ -212,6 +226,7 @@ const _lD = "longDescription";
 const _lF = "listingFacets";
 const _lI = "listingId";
 const _lN = "listingName";
+const _lP = "lockoutPeriod";
 const _lS = "listingSummaries";
 const _lT = "labelType";
 const _lTU = "logoThumbnailUrl";
@@ -221,7 +236,10 @@ const _m = "message";
 const _mDS = "multipleDimensionSelection";
 const _mQ = "maxQuantity";
 const _mR = "maxResults";
+const _mRa = "maxRenewals";
 const _mTCA = "maxTotalChargeAmount";
+const _mV = "minimumValue";
+const _mVa = "maximumValue";
 const _ma = "manufacturer";
 const _nPT = "netPaymentTerm";
 const _nT = "nextToken";
@@ -239,6 +257,7 @@ const _oT = "offerTerms";
 const _p = "price";
 const _pDP = "paymentDuePeriod";
 const _pI = "productId";
+const _pIr = "priceIncrease";
 const _pM = "pricingModels";
 const _pMT = "pricingModelType";
 const _pMr = "promotionalMedia";
@@ -248,10 +267,13 @@ const _pO = "purchaseOptions";
 const _pOI = "purchaseOptionId";
 const _pON = "purchaseOptionName";
 const _pOT = "purchaseOptionType";
+const _pR = "percentageRange";
 const _pSFO = "professionalServicesFulfillmentOption";
 const _pST = "paymentScheduleTerm";
+const _pSTT = "paymentScheduleTermTemplate";
 const _pU = "pricingUnits";
 const _pUT = "pricingUnitType";
+const _pV = "percentageValue";
 const _pa = "parent";
 const _pr = "product";
 const _pre = "preview";
@@ -296,6 +318,7 @@ const _sel = "selector";
 const _t = "type";
 const _tR = "totalReviews";
 const _tRo = "totalResults";
+const _tT = "termTemplates";
 const _th = "thumbnail";
 const _ti = "title";
 const _u = "url";
@@ -474,6 +497,11 @@ export var EksAddOnOperatingSystem$: StaticStructureSchema = [3, n0, _EAOOS,
   [_oSFN, _oSN],
   [0, 0], 2
 ];
+export var FixedPercentage$: StaticStructureSchema = [3, n0, _FP,
+  0,
+  [_pV],
+  [0], 1
+];
 export var FixedUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _FUPT,
   0,
   [_i, _t, _cC, _p, _g, _du],
@@ -629,10 +657,25 @@ export var OfferSetInformation$: StaticStructureSchema = [3, n0, _OSI,
   [_oSI, _sOR],
   [0, () => SellerInformation$], 2
 ];
+export var PaymentScheduleEntry$: StaticStructureSchema = [3, n0, _PSE,
+  0,
+  [_cDO, _cP, _dOM],
+  [0, 0, 1], 2
+];
 export var PaymentScheduleTerm$: StaticStructureSchema = [3, n0, _PST,
   0,
   [_i, _t, _cC, _sc],
   [0, 0, 0, () => ScheduleList], 4
+];
+export var PaymentScheduleTermTemplate$: StaticStructureSchema = [3, n0, _PSTT,
+  0,
+  [_sc],
+  [() => PaymentScheduleEntryList], 1
+];
+export var PercentageRange$: StaticStructureSchema = [3, n0, _PR,
+  0,
+  [_mV, _mVa, _dV],
+  [0, 0, 0], 3
 ];
 export var PricingModel$: StaticStructureSchema = [3, n0, _PM,
   0,
@@ -696,8 +739,8 @@ export var RecurringPaymentTerm$: StaticStructureSchema = [3, n0, _RPT,
 ];
 export var RenewalTerm$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_i, _t],
-  [0, 0], 2
+  [_i, _t, _mRa, _lP, _aD, _pIr, _tT],
+  [0, 0, 1, 0, 0, () => PriceIncrease$, () => TermTemplateList], 2
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -811,7 +854,7 @@ export var UseCaseEntry$: StaticStructureSchema = [3, n0, _UCE,
 ];
 export var ValidityTerm$: StaticStructureSchema = [3, n0, _VT,
   0,
-  [_i, _t, _aD, _aED, _aSD],
+  [_i, _t, _aDg, _aED, _aSD],
   [0, 0, 0, 4, 4], 2
 ];
 export var VariablePaymentTerm$: StaticStructureSchema = [3, n0, _VPT,
@@ -884,6 +927,9 @@ var OfferSetAssociatedEntityList: StaticListSchema = [1, n0, _OSAEL,
 var OfferTermsList: StaticListSchema = [1, n0, _OTL,
   0, () => OfferTerm$
 ];
+var PaymentScheduleEntryList: StaticListSchema = [1, n0, _PSEL,
+  0, () => PaymentScheduleEntry$
+];
 var PricingModelList: StaticListSchema = [1, n0, _PML,
   0, () => PricingModel$
 ];
@@ -925,6 +971,9 @@ var SearchFilterValueList = 64 | 0;
 var SellerEngagementList: StaticListSchema = [1, n0, _SEL,
   0, () => SellerEngagement$
 ];
+var TermTemplateList: StaticListSchema = [1, n0, _TTL,
+  0, () => TermTemplate$
+];
 var UsageBasedRateCardList: StaticListSchema = [1, n0, _UBRCL,
   0, () => UsageBasedRateCardItem$
 ];
@@ -944,10 +993,20 @@ export var OfferTerm$: StaticUnionSchema = [4, n0, _OT,
   [_bPT, _cUPT, _fUPT, _fTPT, _lTe, _pST, _rPT, _rTe, _sTu, _uBPT, _vT, _vPT, _nPT],
   [() => ByolPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => FixedUpfrontPricingTerm$, () => FreeTrialPricingTerm$, () => LegalTerm$, () => PaymentScheduleTerm$, () => RecurringPaymentTerm$, () => RenewalTerm$, () => SupportTerm$, () => UsageBasedPricingTerm$, () => ValidityTerm$, () => VariablePaymentTerm$, () => NetPaymentTerm$]
 ];
+export var PriceIncrease$: StaticUnionSchema = [4, n0, _PIr,
+  0,
+  [_fP, _pR],
+  [() => FixedPercentage$, () => PercentageRange$]
+];
 export var PromotionalMedia$: StaticUnionSchema = [4, n0, _PMr,
   0,
   [_eI, _eV],
   [() => PromotionalEmbeddedImage$, () => PromotionalEmbeddedVideo$]
+];
+export var TermTemplate$: StaticUnionSchema = [4, n0, _TT,
+  0,
+  [_pSTT],
+  [() => PaymentScheduleTermTemplate$]
 ];
 export var GetListing$: StaticOperationSchema = [9, n0, _GLe,
   { [_ht]: ["POST", "/2026-02-05/getListing", 200] }, () => GetListingInput$, () => GetListingOutput$
