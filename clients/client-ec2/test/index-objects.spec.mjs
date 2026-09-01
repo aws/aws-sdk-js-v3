@@ -295,7 +295,6 @@ import {
   BatchModifyIpamRoutingPolicyRegistrationsResult$,
   BatchState,
   BgpStatus,
-  BlobAttributeValue$,
   BlockDeviceMapping$,
   BlockDeviceMappingResponse$,
   BlockPublicAccessMode,
@@ -4349,6 +4348,7 @@ import {
   SecondarySubnetCidrBlockAssociationState,
   SecondarySubnetIpv4CidrBlockAssociation$,
   SecondarySubnetState,
+  SecureBlobAttributeValue$,
   SecurityGroup$,
   SecurityGroupForVpc$,
   SecurityGroupIdentifier$,
@@ -6605,7 +6605,6 @@ assert(typeof BaselinePerformanceFactors$ === "object");
 assert(typeof BaselinePerformanceFactorsRequest$ === "object");
 assert(typeof BatchModifyIpamRoutingPolicyRegistrationsRequest$ === "object");
 assert(typeof BatchModifyIpamRoutingPolicyRegistrationsResult$ === "object");
-assert(typeof BlobAttributeValue$ === "object");
 assert(typeof BlockDeviceMapping$ === "object");
 assert(typeof BlockDeviceMappingResponse$ === "object");
 assert(typeof BlockPublicAccessStates$ === "object");
@@ -8703,6 +8702,7 @@ assert(typeof SecondaryNetwork$ === "object");
 assert(typeof SecondaryNetworkIpv4CidrBlockAssociation$ === "object");
 assert(typeof SecondarySubnet$ === "object");
 assert(typeof SecondarySubnetIpv4CidrBlockAssociation$ === "object");
+assert(typeof SecureBlobAttributeValue$ === "object");
 assert(typeof SecurityGroup$ === "object");
 assert(typeof SecurityGroupForVpc$ === "object");
 assert(typeof SecurityGroupIdentifier$ === "object");

@@ -79,7 +79,7 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *   Ramdisk: {
  *     Value: "STRING_VALUE",
  *   },
- *   UserData: { // BlobAttributeValue
+ *   UserData: { // SecureBlobAttributeValue
  *     Value: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
  *   InstanceInitiatedShutdownBehavior: {

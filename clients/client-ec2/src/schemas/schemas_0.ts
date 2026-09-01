@@ -461,7 +461,6 @@ const _Au = "Authentication";
 const _B = "Byoasn";
 const _BA = "BgpAsn";
 const _BAE = "BgpAsnExtended";
-const _BAV = "BlobAttributeValue";
 const _BBIG = "BaselineBandwidthInGbps";
 const _BBIM = "BaselineBandwidthInMbps";
 const _BC = "ByoipCidr";
@@ -5350,10 +5349,12 @@ const _SAub = "SubnetArn";
 const _SAubn = "SubnetAssociation";
 const _SAup = "SupportedArchitectures";
 const _SAupp = "SuppressAt";
-const _SB = "S3Bucket";
+const _SB = "SecureBlob";
+const _SBAV = "SecureBlobAttributeValue";
 const _SBM = "SupportedBootModes";
 const _SBN = "S3BucketName";
 const _SBP = "S3BucketPrefix";
+const _SBu = "S3Bucket";
 const _SC = "StatusCode";
 const _SCA = "ServerCertificateArn";
 const _SCAE = "SerialConsoleAccessEnabled";
@@ -8598,6 +8599,7 @@ var preSharedKey: StaticSimpleSchema = [0, n0, _pSK, 8, 0];
 var ReportInstanceStatusRequestDescription: StaticSimpleSchema = [0, n0, _RISRD, 8, 0];
 var RunInstancesUserData: StaticSimpleSchema = [0, n0, _RIUD, 8, 0];
 var S3StorageUploadPolicySignature: StaticSimpleSchema = [0, n0, _SSUPS, 8, 0];
+var SecureBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
 var SensitiveMacCredentials: StaticSimpleSchema = [0, n0, _SMC, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var SensitiveUrl: StaticSimpleSchema = [0, n0, _SU, 8, 0];
@@ -9707,12 +9709,6 @@ export var BatchModifyIpamRoutingPolicyRegistrationsResult$: StaticStructureSche
   [_IRPRD],
   [[() => IpamRoutingPolicyRegistrationDelta$, { [_eQN]: `IpamRoutingPolicyRegistrationDelta`
   , [_xN]: _iRPRD }]]
-];
-export var BlobAttributeValue$: StaticStructureSchema = [3, n0, _BAV,
-  0,
-  [_V],
-  [[21, { [_eQN]: `Value`
-  , [_xN]: _v }]]
 ];
 export var BlockDeviceMapping$: StaticStructureSchema = [3, n0, _BDM,
   0,
@@ -12153,7 +12149,7 @@ export var DataResponse$: StaticStructureSchema = [3, n0, _DRa,
 ];
 export var DeclarativePoliciesReport$: StaticStructureSchema = [3, n0, _DPRec,
   0,
-  [_RI, _SB, _SP, _TIa, _STt, _ETnd, _Sta, _T],
+  [_RI, _SBu, _SP, _TIa, _STt, _ETnd, _Sta, _T],
   [[0, { [_eQN]: `ReportId`
   , [_xN]: _rIe }], [0, { [_eQN]: `S3Bucket`
   , [_xN]: _sB }], [0, { [_eQN]: `S3Prefix`
@@ -17124,19 +17120,19 @@ export var ExportTask$: StaticStructureSchema = [3, n0, _ETx,
 ];
 export var ExportTaskS3Location$: StaticStructureSchema = [3, n0, _ETSL,
   0,
-  [_SB, _SP],
+  [_SBu, _SP],
   [[0, { [_eQN]: `S3Bucket`
   , [_xN]: _sB }], [0, { [_eQN]: `S3Prefix`
   , [_xN]: _sP }]]
 ];
 export var ExportTaskS3LocationRequest$: StaticStructureSchema = [3, n0, _ETSLR,
   0,
-  [_SB, _SP],
+  [_SBu, _SP],
   [0, 0], 1
 ];
 export var ExportToS3Task$: StaticStructureSchema = [3, n0, _ETST,
   0,
-  [_CF, _DIF, _SB, _SK],
+  [_CF, _DIF, _SBu, _SK],
   [[0, { [_eQN]: `ContainerFormat`
   , [_xN]: _cF }], [0, { [_eQN]: `DiskImageFormat`
   , [_xN]: _dIF }], [0, { [_eQN]: `S3Bucket`
@@ -17145,7 +17141,7 @@ export var ExportToS3Task$: StaticStructureSchema = [3, n0, _ETST,
 ];
 export var ExportToS3TaskSpecification$: StaticStructureSchema = [3, n0, _ETSTS,
   0,
-  [_DIF, _CF, _SB, _SP],
+  [_DIF, _CF, _SBu, _SP],
   [[0, { [_eQN]: `DiskImageFormat`
   , [_xN]: _dIF }], [0, { [_eQN]: `ContainerFormat`
   , [_xN]: _cF }], [0, { [_eQN]: `S3Bucket`
@@ -17154,7 +17150,7 @@ export var ExportToS3TaskSpecification$: StaticStructureSchema = [3, n0, _ETSTS,
 ];
 export var ExportTransitGatewayRoutesRequest$: StaticStructureSchema = [3, n0, _ETGRR,
   0,
-  [_TGRTI, _SB, _Fi, _DR],
+  [_TGRTI, _SBu, _Fi, _DR],
   [0, 0, [() => FilterList, { [_xN]: _Fil }], 2], 2
 ];
 export var ExportTransitGatewayRoutesResult$: StaticStructureSchema = [3, n0, _ETGRRx,
@@ -17670,7 +17666,7 @@ export var GetDeclarativePoliciesReportSummaryRequest$: StaticStructureSchema = 
 ];
 export var GetDeclarativePoliciesReportSummaryResult$: StaticStructureSchema = [3, n0, _GDPRSRe,
   0,
-  [_RI, _SB, _SP, _TIa, _STt, _ETnd, _NOA, _NOFA, _AStt],
+  [_RI, _SBu, _SP, _TIa, _STt, _ETnd, _NOA, _NOFA, _AStt],
   [[0, { [_eQN]: `ReportId`
   , [_xN]: _rIe }], [0, { [_eQN]: `S3Bucket`
   , [_xN]: _sB }], [0, { [_eQN]: `S3Prefix`
@@ -21352,7 +21348,7 @@ export var ModifyInstanceAttributeRequest$: StaticStructureSchema = [3, n0, _MIA
   , [_xN]: _dAT }], [() => AttributeValue$, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [() => AttributeValue$, { [_eQN]: `Kernel`
   , [_xN]: _ke }], [() => AttributeValue$, { [_eQN]: `Ramdisk`
-  , [_xN]: _ra }], [() => BlobAttributeValue$, { [_eQN]: `UserData`
+  , [_xN]: _ra }], [() => SecureBlobAttributeValue$, { [_eQN]: `UserData`
   , [_xN]: _uDs }], [() => AttributeValue$, { [_eQN]: `InstanceInitiatedShutdownBehavior`
   , [_xN]: _iISB }], [() => GroupIdStringList, { [_xN]: _GIr }], [() => AttributeBooleanValue$, { [_eQN]: `EbsOptimized`
   , [_xN]: _eO }], [() => AttributeValue$, { [_eQN]: `SriovNetSupport`
@@ -24302,7 +24298,7 @@ export var S3Storage$: StaticStructureSchema = [3, n0, _SSto,
   [_AWSAKI, _Bu, _Pre, _UPp, _UPS],
   [0, [0, { [_eQN]: `Bucket`
   , [_xN]: _b }], [0, { [_eQN]: `Prefix`
-  , [_xN]: _pre }], [21, { [_eQN]: `UploadPolicy`
+  , [_xN]: _pre }], [() => SecureBlob, { [_eQN]: `UploadPolicy`
   , [_xN]: _uPp }], [() => S3StorageUploadPolicySignature, { [_eQN]: `UploadPolicySignature`
   , [_xN]: _uPS }]]
 ];
@@ -24537,6 +24533,12 @@ export var SecondarySubnetIpv4CidrBlockAssociation$: StaticStructureSchema = [3,
   , [_xN]: _cB }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `StateReason`
   , [_xN]: _sRt }]]
+];
+export var SecureBlobAttributeValue$: StaticStructureSchema = [3, n0, _SBAV,
+  0,
+  [_V],
+  [[() => SecureBlob, { [_eQN]: `Value`
+  , [_xN]: _v }]]
 ];
 export var SecurityGroup$: StaticStructureSchema = [3, n0, _SGec,
   0,
@@ -25032,7 +25034,7 @@ export var StaleSecurityGroup$: StaticStructureSchema = [3, n0, _SSG,
 ];
 export var StartDeclarativePoliciesReportRequest$: StaticStructureSchema = [3, n0, _SDPRR,
   0,
-  [_SB, _TIa, _DR, _SP, _TS],
+  [_SBu, _TIa, _DR, _SP, _TS],
   [0, 0, 2, 0, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var StartDeclarativePoliciesReportResult$: StaticStructureSchema = [3, n0, _SDPRRt,
@@ -26159,12 +26161,12 @@ export var UpdateSecurityGroupRuleDescriptionsIngressResult$: StaticStructureSch
 ];
 export var UserBucket$: StaticStructureSchema = [3, n0, _UB,
   0,
-  [_SB, _SK],
+  [_SBu, _SK],
   [0, 0]
 ];
 export var UserBucketDetails$: StaticStructureSchema = [3, n0, _UBD,
   0,
-  [_SB, _SK],
+  [_SBu, _SK],
   [[0, { [_eQN]: `S3Bucket`
   , [_xN]: _sB }], [0, { [_eQN]: `S3Key`
   , [_xN]: _sK }]]

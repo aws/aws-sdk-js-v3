@@ -2174,9 +2174,14 @@ export interface EnclaveOptionsRequest {
 }
 
 /**
+ * <p>Describes a value for a resource attribute that is a Base64-encoded binary data object.</p>
  * @public
  */
-export interface BlobAttributeValue {
+export interface SecureBlobAttributeValue {
+  /**
+   * <p>The attribute value.</p>
+   * @public
+   */
   Value?: Uint8Array | undefined;
 }
 
@@ -2306,7 +2311,7 @@ export interface ModifyInstanceAttributeRequest {
    *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html">Work with instance user data</a>.</p>
    * @public
    */
-  UserData?: BlobAttributeValue | undefined;
+  UserData?: SecureBlobAttributeValue | undefined;
 
   /**
    * <p>Specifies whether an instance stops or terminates when you initiate shutdown from the
