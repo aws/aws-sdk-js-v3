@@ -71,6 +71,7 @@ const _LTR = "ListTaxRegistrations";
 const _LTRR = "ListTaxRegistrationsRequest";
 const _LTRRi = "ListTaxRegistrationsResponse";
 const _MAI = "MalaysiaAdditionalInfo";
+const _MAIo = "MonacoAdditionalInfo";
 const _PAI = "PhilippinesAdditionalInfo";
 const _PAIo = "PolandAdditionalInfo";
 const _PSTR = "PutSupplementalTaxRegistration";
@@ -136,6 +137,7 @@ const _b = "bucket";
 const _bA = "businessActivity";
 const _bAI = "belgiumAdditionalInfo";
 const _bAIr = "brazilAdditionalInfo";
+const _bN = "businessNumber";
 const _bRN = "businessRegistrationNumber";
 const _bRNu = "businessRepresentativeName";
 const _c = "client";
@@ -173,6 +175,7 @@ const _eCx = "exemptionCertificate";
 const _eD = "effectiveDate";
 const _eDx = "expirationDate";
 const _eIN = "enterpriseIdentificationNumber";
+const _eIRC = "eInvoiceRoutingCode";
 const _eT = "exemptionType";
 const _eTCN = "electronicTransactionCodeNumber";
 const _er = "errors";
@@ -212,6 +215,7 @@ const _lNC = "legalNatureCode";
 const _lOB = "lineOfBusiness";
 const _m = "message";
 const _mAI = "malaysiaAdditionalInfo";
+const _mAIo = "monacoAdditionalInfo";
 const _mR = "maxResults";
 const _n = "name";
 const _nT = "nextToken";
@@ -367,13 +371,13 @@ export var AccountMetaData$: StaticStructureSchema = [3, n0, _AMD,
 ];
 export var AdditionalInfoRequest$: StaticStructureSchema = [3, n0, _AIR,
   0,
-  [_mAI, _iAI, _eAI, _cAI, _sAI, _kAI, _sKAI, _tAI, _gAI, _iAIt, _rAI, _uAI, _pAI, _sAAI, _iAIn, _vAI, _eAIg, _gAIr, _uAIz, _pAIh, _bAI, _cAIh, _fAI],
-  [() => MalaysiaAdditionalInfo$, () => IsraelAdditionalInfo$, () => EstoniaAdditionalInfo$, () => CanadaAdditionalInfo$, () => SpainAdditionalInfo$, () => KenyaAdditionalInfo$, () => SouthKoreaAdditionalInfo$, () => TurkeyAdditionalInfo$, () => GeorgiaAdditionalInfo$, () => ItalyAdditionalInfo$, () => RomaniaAdditionalInfo$, () => UkraineAdditionalInfo$, () => PolandAdditionalInfo$, () => SaudiArabiaAdditionalInfo$, () => IndonesiaAdditionalInfo$, () => VietnamAdditionalInfo$, () => EgyptAdditionalInfo$, () => GreeceAdditionalInfo$, () => UzbekistanAdditionalInfo$, () => PhilippinesAdditionalInfo$, () => BelgiumAdditionalInfo$, () => ChileAdditionalInfo$, () => FranceAdditionalInfo$]
+  [_mAI, _iAI, _eAI, _cAI, _sAI, _kAI, _sKAI, _tAI, _gAI, _iAIt, _rAI, _uAI, _pAI, _sAAI, _iAIn, _vAI, _eAIg, _gAIr, _uAIz, _pAIh, _bAI, _cAIh, _fAI, _mAIo],
+  [() => MalaysiaAdditionalInfo$, () => IsraelAdditionalInfo$, () => EstoniaAdditionalInfo$, () => CanadaAdditionalInfo$, () => SpainAdditionalInfo$, () => KenyaAdditionalInfo$, () => SouthKoreaAdditionalInfo$, () => TurkeyAdditionalInfo$, () => GeorgiaAdditionalInfo$, () => ItalyAdditionalInfo$, () => RomaniaAdditionalInfo$, () => UkraineAdditionalInfo$, () => PolandAdditionalInfo$, () => SaudiArabiaAdditionalInfo$, () => IndonesiaAdditionalInfo$, () => VietnamAdditionalInfo$, () => EgyptAdditionalInfo$, () => GreeceAdditionalInfo$, () => UzbekistanAdditionalInfo$, () => PhilippinesAdditionalInfo$, () => BelgiumAdditionalInfo$, () => ChileAdditionalInfo$, () => FranceAdditionalInfo$, () => MonacoAdditionalInfo$]
 ];
 export var AdditionalInfoResponse$: StaticStructureSchema = [3, n0, _AIRd,
   0,
-  [_mAI, _iAI, _eAI, _cAI, _bAIr, _sAI, _kAI, _sKAI, _tAI, _gAI, _iAIt, _rAI, _uAI, _pAI, _sAAI, _iAInd, _iAIn, _vAI, _eAIg, _gAIr, _uAIz, _pAIh, _bAI, _cAIh, _fAI],
-  [() => MalaysiaAdditionalInfo$, () => IsraelAdditionalInfo$, () => EstoniaAdditionalInfo$, () => CanadaAdditionalInfo$, () => BrazilAdditionalInfo$, () => SpainAdditionalInfo$, () => KenyaAdditionalInfo$, () => SouthKoreaAdditionalInfo$, () => TurkeyAdditionalInfo$, () => GeorgiaAdditionalInfo$, () => ItalyAdditionalInfo$, () => RomaniaAdditionalInfo$, () => UkraineAdditionalInfo$, () => PolandAdditionalInfo$, () => SaudiArabiaAdditionalInfo$, () => IndiaAdditionalInfo$, () => IndonesiaAdditionalInfo$, () => VietnamAdditionalInfo$, () => EgyptAdditionalInfo$, () => GreeceAdditionalInfo$, () => UzbekistanAdditionalInfo$, () => PhilippinesAdditionalInfo$, () => BelgiumAdditionalInfo$, () => ChileAdditionalInfo$, () => FranceAdditionalInfo$]
+  [_mAI, _iAI, _eAI, _cAI, _bAIr, _sAI, _kAI, _sKAI, _tAI, _gAI, _iAIt, _rAI, _uAI, _pAI, _sAAI, _iAInd, _iAIn, _vAI, _eAIg, _gAIr, _uAIz, _pAIh, _bAI, _cAIh, _fAI, _mAIo],
+  [() => MalaysiaAdditionalInfo$, () => IsraelAdditionalInfo$, () => EstoniaAdditionalInfo$, () => CanadaAdditionalInfo$, () => BrazilAdditionalInfo$, () => SpainAdditionalInfo$, () => KenyaAdditionalInfo$, () => SouthKoreaAdditionalInfo$, () => TurkeyAdditionalInfo$, () => GeorgiaAdditionalInfo$, () => ItalyAdditionalInfo$, () => RomaniaAdditionalInfo$, () => UkraineAdditionalInfo$, () => PolandAdditionalInfo$, () => SaudiArabiaAdditionalInfo$, () => IndiaAdditionalInfo$, () => IndonesiaAdditionalInfo$, () => VietnamAdditionalInfo$, () => EgyptAdditionalInfo$, () => GreeceAdditionalInfo$, () => UzbekistanAdditionalInfo$, () => PhilippinesAdditionalInfo$, () => BelgiumAdditionalInfo$, () => ChileAdditionalInfo$, () => FranceAdditionalInfo$, () => MonacoAdditionalInfo$]
 ];
 export var Address$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -487,8 +491,8 @@ export var ExemptionCertificate$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var FranceAdditionalInfo$: StaticStructureSchema = [3, n0, _FAI,
   0,
-  [_sN],
-  [0], 1
+  [_sN, _eIRC],
+  [0, 0], 1
 ];
 export var GeorgiaAdditionalInfo$: StaticStructureSchema = [3, n0, _GAI,
   0,
@@ -604,6 +608,11 @@ export var MalaysiaAdditionalInfo$: StaticStructureSchema = [3, n0, _MAI,
   0,
   [_sTC, _tIN, _bRN],
   [64 | 0, 0, 0]
+];
+export var MonacoAdditionalInfo$: StaticStructureSchema = [3, n0, _MAIo,
+  0,
+  [_bN],
+  [0], 1
 ];
 export var PhilippinesAdditionalInfo$: StaticStructureSchema = [3, n0, _PAI,
   0,

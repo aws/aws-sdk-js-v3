@@ -93,6 +93,7 @@ import {
   ListTaxRegistrationsResponse$,
   MalaysiaAdditionalInfo$,
   MalaysiaServiceTaxCode,
+  MonacoAdditionalInfo$,
   paginateListSupplementalTaxRegistrations,
   paginateListTaxExemptions,
   paginateListTaxRegistrations,
@@ -245,6 +246,7 @@ assert(typeof ListTaxExemptionsResponse$ === "object");
 assert(typeof ListTaxRegistrationsRequest$ === "object");
 assert(typeof ListTaxRegistrationsResponse$ === "object");
 assert(typeof MalaysiaAdditionalInfo$ === "object");
+assert(typeof MonacoAdditionalInfo$ === "object");
 assert(typeof PhilippinesAdditionalInfo$ === "object");
 assert(typeof PolandAdditionalInfo$ === "object");
 assert(typeof PutSupplementalTaxRegistrationRequest$ === "object");

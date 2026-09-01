@@ -227,7 +227,7 @@ export interface ChileAdditionalInfo {
   documentType?: ChileDocumentType | undefined;
 
   /**
-   * <p> The business activity of the taxpayer in Chile.</p>
+   * <p> The business activity code of the taxpayer in Chile. This must be the activity code shown on your SII (Servicio de Impuestos Internos) tax profile. For the list of valid activity codes, see <a href="https://www.sii.cl/ayudas/ayudas_por_servicios/1956-codigos-1959.html">SII activity codes</a>.</p>
    * @public
    */
   businessActivity?: string | undefined;
@@ -273,6 +273,12 @@ export interface FranceAdditionalInfo {
    * @public
    */
   sirenNumber: string | undefined;
+
+  /**
+   * <p>The routing code used for electronic invoicing (e-invoicing) for the company in France.</p>
+   * @public
+   */
+  eInvoiceRoutingCode?: string | undefined;
 }
 
 /**
@@ -423,6 +429,18 @@ export interface MalaysiaAdditionalInfo {
    * @public
    */
   businessRegistrationNumber?: string | undefined;
+}
+
+/**
+ * <p>Additional tax information associated with your TRN in Monaco.</p>
+ * @public
+ */
+export interface MonacoAdditionalInfo {
+  /**
+   * <p>The business number for the company in Monaco. Can be up to 12 alphanumeric characters.</p>
+   * @public
+   */
+  businessNumber: string | undefined;
 }
 
 /**
@@ -765,6 +783,12 @@ export interface AdditionalInfoResponse {
    * @public
    */
   franceAdditionalInfo?: FranceAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information associated with your TRN in Monaco.</p>
+   * @public
+   */
+  monacoAdditionalInfo?: MonacoAdditionalInfo | undefined;
 }
 
 /**
@@ -1017,6 +1041,12 @@ export interface AdditionalInfoRequest {
    * @public
    */
   franceAdditionalInfo?: FranceAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Monaco.</p>
+   * @public
+   */
+  monacoAdditionalInfo?: MonacoAdditionalInfo | undefined;
 }
 
 /**

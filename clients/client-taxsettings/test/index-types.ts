@@ -122,6 +122,7 @@ export type {
   ListTaxRegistrationsRequest,
   ListTaxRegistrationsResponse,
   MalaysiaAdditionalInfo,
+  MonacoAdditionalInfo,
   PhilippinesAdditionalInfo,
   PolandAdditionalInfo,
   PutSupplementalTaxRegistrationRequest,

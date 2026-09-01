@@ -155,6 +155,10 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //       },
  * //       franceAdditionalInfo: { // FranceAdditionalInfo
  * //         sirenNumber: "STRING_VALUE", // required
+ * //         eInvoiceRoutingCode: "STRING_VALUE",
+ * //       },
+ * //       monacoAdditionalInfo: { // MonacoAdditionalInfo
+ * //         businessNumber: "STRING_VALUE", // required
  * //       },
  * //     },
  * //     legalAddress: { // Address
