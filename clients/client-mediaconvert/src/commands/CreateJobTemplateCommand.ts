@@ -569,7 +569,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *               },
  *             },
  *             Encryption: { // DashIsoEncryptionSettings
- *               PlaybackDeviceCompatibility: "CENC_V1" || "UNENCRYPTED_SEI",
+ *               PlaybackDeviceCompatibility: "CENC_V1" || "UNENCRYPTED_SEI" || "CENC_V1_UNENCRYPTED_HEADERS",
  *               SpekeKeyProvider: { // SpekeKeyProvider
  *                 CertificateArn: "STRING_VALUE",
  *                 EncryptionContractConfiguration: {
@@ -813,6 +813,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                     CodecProfile: "LC" || "HEV1" || "HEV2" || "XHE",
  *                     CodingMode: "AD_RECEIVER_MIX" || "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_5_1" || "CODING_MODE_AUTO",
  *                     LoudnessMeasurementMode: "PROGRAM" || "ANCHOR",
+ *                     PassthroughControl: "WHEN_POSSIBLE" || "NO_PASSTHROUGH",
  *                     RapInterval: Number("int"),
  *                     RateControlMode: "CBR" || "VBR",
  *                     RawFormat: "LATM_LOAS" || "NONE",
@@ -1026,7 +1027,15 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                     ],
  *                   },
  *                   TtmlDestinationSettings: { // TtmlDestinationSettings
+ *                     BackgroundColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
+ *                     BackgroundOpacity: Number("int"),
+ *                     FontColor: "WHITE" || "BLACK" || "YELLOW" || "RED" || "GREEN" || "BLUE" || "AUTO",
+ *                     FontOpacity: Number("int"),
+ *                     FontSize: Number("int"),
+ *                     FontStyle: "NORMAL" || "ITALIC",
+ *                     FontWeight: "NORMAL" || "BOLD",
  *                     StylePassthrough: "ENABLED" || "DISABLED",
+ *                     TextDecoration: "NONE" || "UNDERLINE",
  *                   },
  *                   WebvttDestinationSettings: { // WebvttDestinationSettings
  *                     Accessibility: "DISABLED" || "ENABLED",
@@ -1050,7 +1059,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                 KlvMetadata: "PASSTHROUGH" || "NONE",
  *                 ManifestMetadataSignaling: "ENABLED" || "DISABLED",
  *                 Scte35Esam: "INSERT" || "NONE",
- *                 Scte35Source: "PASSTHROUGH" || "NONE",
+ *                 Scte35Source: "PASSTHROUGH" || "NONE" || "MANIFEST_CUES",
  *                 SigningKmsKey: "STRING_VALUE",
  *                 TimedMetadata: "PASSTHROUGH" || "NONE",
  *                 TimedMetadataBoxVersion: "VERSION_0" || "VERSION_1",
@@ -1115,7 +1124,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                   Scte35EsamPid: Number("int"),
  *                 },
  *                 Scte35Pid: Number("int"),
- *                 Scte35Source: "PASSTHROUGH" || "NONE",
+ *                 Scte35Source: "PASSTHROUGH" || "NONE" || "MANIFEST_CUES",
  *                 SegmentationMarkers: "NONE" || "RAI_SEGSTART" || "RAI_ADAPT" || "PSI_SEGSTART" || "EBP" || "EBP_LEGACY",
  *                 SegmentationStyle: "MAINTAIN_CADENCE" || "RESET_CADENCE",
  *                 SegmentationTime: Number("double"),
@@ -1143,7 +1152,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                 PtsOffset: Number("int"),
  *                 PtsOffsetMode: "AUTO" || "SECONDS" || "MILLISECONDS",
  *                 Scte35Pid: Number("int"),
- *                 Scte35Source: "PASSTHROUGH" || "NONE",
+ *                 Scte35Source: "PASSTHROUGH" || "NONE" || "MANIFEST_CUES",
  *                 TimedMetadata: "PASSTHROUGH" || "NONE",
  *                 TimedMetadataPid: Number("int"),
  *                 TransportStreamId: Number("int"),
@@ -1177,7 +1186,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                 KlvMetadata: "NONE" || "PASSTHROUGH",
  *                 ManifestMetadataSignaling: "ENABLED" || "DISABLED",
  *                 Scte35Esam: "INSERT" || "NONE",
- *                 Scte35Source: "PASSTHROUGH" || "NONE",
+ *                 Scte35Source: "PASSTHROUGH" || "NONE" || "MANIFEST_CUES",
  *                 SigningKmsKey: "STRING_VALUE",
  *                 TimedMetadata: "PASSTHROUGH" || "NONE",
  *                 TimedMetadataBoxVersion: "VERSION_0" || "VERSION_1",
@@ -1523,6 +1532,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                     Slices: Number("int"),
  *                   },
  *                   XavcHdIntraCbgProfileSettings: { // XavcHdIntraCbgProfileSettings
+ *                     InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
  *                     XavcClass: "CLASS_50" || "CLASS_100" || "CLASS_200",
  *                   },
  *                   XavcHdProfileSettings: { // XavcHdProfileSettings
@@ -2234,7 +2244,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                 },
  * //               },
  * //               Encryption: { // DashIsoEncryptionSettings
- * //                 PlaybackDeviceCompatibility: "CENC_V1" || "UNENCRYPTED_SEI",
+ * //                 PlaybackDeviceCompatibility: "CENC_V1" || "UNENCRYPTED_SEI" || "CENC_V1_UNENCRYPTED_HEADERS",
  * //                 SpekeKeyProvider: { // SpekeKeyProvider
  * //                   CertificateArn: "STRING_VALUE",
  * //                   EncryptionContractConfiguration: {
@@ -2478,6 +2488,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                       CodecProfile: "LC" || "HEV1" || "HEV2" || "XHE",
  * //                       CodingMode: "AD_RECEIVER_MIX" || "CODING_MODE_1_0" || "CODING_MODE_1_1" || "CODING_MODE_2_0" || "CODING_MODE_5_1" || "CODING_MODE_AUTO",
  * //                       LoudnessMeasurementMode: "PROGRAM" || "ANCHOR",
+ * //                       PassthroughControl: "WHEN_POSSIBLE" || "NO_PASSTHROUGH",
  * //                       RapInterval: Number("int"),
  * //                       RateControlMode: "CBR" || "VBR",
  * //                       RawFormat: "LATM_LOAS" || "NONE",
@@ -2691,7 +2702,15 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                       ],
  * //                     },
  * //                     TtmlDestinationSettings: { // TtmlDestinationSettings
+ * //                       BackgroundColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
+ * //                       BackgroundOpacity: Number("int"),
+ * //                       FontColor: "WHITE" || "BLACK" || "YELLOW" || "RED" || "GREEN" || "BLUE" || "AUTO",
+ * //                       FontOpacity: Number("int"),
+ * //                       FontSize: Number("int"),
+ * //                       FontStyle: "NORMAL" || "ITALIC",
+ * //                       FontWeight: "NORMAL" || "BOLD",
  * //                       StylePassthrough: "ENABLED" || "DISABLED",
+ * //                       TextDecoration: "NONE" || "UNDERLINE",
  * //                     },
  * //                     WebvttDestinationSettings: { // WebvttDestinationSettings
  * //                       Accessibility: "DISABLED" || "ENABLED",
@@ -2715,7 +2734,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                   KlvMetadata: "PASSTHROUGH" || "NONE",
  * //                   ManifestMetadataSignaling: "ENABLED" || "DISABLED",
  * //                   Scte35Esam: "INSERT" || "NONE",
- * //                   Scte35Source: "PASSTHROUGH" || "NONE",
+ * //                   Scte35Source: "PASSTHROUGH" || "NONE" || "MANIFEST_CUES",
  * //                   SigningKmsKey: "STRING_VALUE",
  * //                   TimedMetadata: "PASSTHROUGH" || "NONE",
  * //                   TimedMetadataBoxVersion: "VERSION_0" || "VERSION_1",
@@ -2780,7 +2799,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                     Scte35EsamPid: Number("int"),
  * //                   },
  * //                   Scte35Pid: Number("int"),
- * //                   Scte35Source: "PASSTHROUGH" || "NONE",
+ * //                   Scte35Source: "PASSTHROUGH" || "NONE" || "MANIFEST_CUES",
  * //                   SegmentationMarkers: "NONE" || "RAI_SEGSTART" || "RAI_ADAPT" || "PSI_SEGSTART" || "EBP" || "EBP_LEGACY",
  * //                   SegmentationStyle: "MAINTAIN_CADENCE" || "RESET_CADENCE",
  * //                   SegmentationTime: Number("double"),
@@ -2808,7 +2827,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                   PtsOffset: Number("int"),
  * //                   PtsOffsetMode: "AUTO" || "SECONDS" || "MILLISECONDS",
  * //                   Scte35Pid: Number("int"),
- * //                   Scte35Source: "PASSTHROUGH" || "NONE",
+ * //                   Scte35Source: "PASSTHROUGH" || "NONE" || "MANIFEST_CUES",
  * //                   TimedMetadata: "PASSTHROUGH" || "NONE",
  * //                   TimedMetadataPid: Number("int"),
  * //                   TransportStreamId: Number("int"),
@@ -2842,7 +2861,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                   KlvMetadata: "NONE" || "PASSTHROUGH",
  * //                   ManifestMetadataSignaling: "ENABLED" || "DISABLED",
  * //                   Scte35Esam: "INSERT" || "NONE",
- * //                   Scte35Source: "PASSTHROUGH" || "NONE",
+ * //                   Scte35Source: "PASSTHROUGH" || "NONE" || "MANIFEST_CUES",
  * //                   SigningKmsKey: "STRING_VALUE",
  * //                   TimedMetadata: "PASSTHROUGH" || "NONE",
  * //                   TimedMetadataBoxVersion: "VERSION_0" || "VERSION_1",
@@ -3188,6 +3207,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                       Slices: Number("int"),
  * //                     },
  * //                     XavcHdIntraCbgProfileSettings: { // XavcHdIntraCbgProfileSettings
+ * //                       InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
  * //                       XavcClass: "CLASS_50" || "CLASS_100" || "CLASS_200",
  * //                     },
  * //                     XavcHdProfileSettings: { // XavcHdProfileSettings

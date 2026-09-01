@@ -198,6 +198,19 @@ export type AacLoudnessMeasurementMode = (typeof AacLoudnessMeasurementMode)[key
  * @public
  * @enum
  */
+export const AacPassthroughControl = {
+  NO_PASSTHROUGH: "NO_PASSTHROUGH",
+  WHEN_POSSIBLE: "WHEN_POSSIBLE",
+} as const;
+/**
+ * @public
+ */
+export type AacPassthroughControl = (typeof AacPassthroughControl)[keyof typeof AacPassthroughControl];
+
+/**
+ * @public
+ * @enum
+ */
 export const AacRateControlMode = {
   CBR: "CBR",
   VBR: "VBR",
@@ -1497,6 +1510,65 @@ export type TeletextPageType = (typeof TeletextPageType)[keyof typeof TeletextPa
  * @public
  * @enum
  */
+export const TtmlBackgroundColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  NONE: "NONE",
+  WHITE: "WHITE",
+} as const;
+/**
+ * @public
+ */
+export type TtmlBackgroundColor = (typeof TtmlBackgroundColor)[keyof typeof TtmlBackgroundColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const TtmlFontColor = {
+  AUTO: "AUTO",
+  BLACK: "BLACK",
+  BLUE: "BLUE",
+  GREEN: "GREEN",
+  RED: "RED",
+  WHITE: "WHITE",
+  YELLOW: "YELLOW",
+} as const;
+/**
+ * @public
+ */
+export type TtmlFontColor = (typeof TtmlFontColor)[keyof typeof TtmlFontColor];
+
+/**
+ * @public
+ * @enum
+ */
+export const TtmlFontStyle = {
+  ITALIC: "ITALIC",
+  NORMAL: "NORMAL",
+} as const;
+/**
+ * @public
+ */
+export type TtmlFontStyle = (typeof TtmlFontStyle)[keyof typeof TtmlFontStyle];
+
+/**
+ * @public
+ * @enum
+ */
+export const TtmlFontWeight = {
+  BOLD: "BOLD",
+  NORMAL: "NORMAL",
+} as const;
+/**
+ * @public
+ */
+export type TtmlFontWeight = (typeof TtmlFontWeight)[keyof typeof TtmlFontWeight];
+
+/**
+ * @public
+ * @enum
+ */
 export const TtmlStylePassthrough = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -1505,6 +1577,19 @@ export const TtmlStylePassthrough = {
  * @public
  */
 export type TtmlStylePassthrough = (typeof TtmlStylePassthrough)[keyof typeof TtmlStylePassthrough];
+
+/**
+ * @public
+ * @enum
+ */
+export const TtmlTextDecoration = {
+  NONE: "NONE",
+  UNDERLINE: "UNDERLINE",
+} as const;
+/**
+ * @public
+ */
+export type TtmlTextDecoration = (typeof TtmlTextDecoration)[keyof typeof TtmlTextDecoration];
 
 /**
  * @public
@@ -2657,6 +2742,7 @@ export type DashIsoGroupAudioChannelConfigSchemeIdUri =
  */
 export const DashIsoPlaybackDeviceCompatibility = {
   CENC_V1: "CENC_V1",
+  CENC_V1_UNENCRYPTED_HEADERS: "CENC_V1_UNENCRYPTED_HEADERS",
   UNENCRYPTED_SEI: "UNENCRYPTED_SEI",
 } as const;
 /**
@@ -3243,6 +3329,7 @@ export type CmfcScte35Esam = (typeof CmfcScte35Esam)[keyof typeof CmfcScte35Esam
  * @enum
  */
 export const CmfcScte35Source = {
+  MANIFEST_CUES: "MANIFEST_CUES",
   NONE: "NONE",
   PASSTHROUGH: "PASSTHROUGH",
 } as const;
@@ -3519,6 +3606,7 @@ export type M2tsRateMode = (typeof M2tsRateMode)[keyof typeof M2tsRateMode];
  * @enum
  */
 export const M2tsScte35Source = {
+  MANIFEST_CUES: "MANIFEST_CUES",
   NONE: "NONE",
   PASSTHROUGH: "PASSTHROUGH",
 } as const;
@@ -3614,6 +3702,7 @@ export type M3u8PcrControl = (typeof M3u8PcrControl)[keyof typeof M3u8PcrControl
  * @enum
  */
 export const M3u8Scte35Source = {
+  MANIFEST_CUES: "MANIFEST_CUES",
   NONE: "NONE",
   PASSTHROUGH: "PASSTHROUGH",
 } as const;
@@ -3850,6 +3939,7 @@ export type MpdScte35Esam = (typeof MpdScte35Esam)[keyof typeof MpdScte35Esam];
  * @enum
  */
 export const MpdScte35Source = {
+  MANIFEST_CUES: "MANIFEST_CUES",
   NONE: "NONE",
   PASSTHROUGH: "PASSTHROUGH",
 } as const;
@@ -6148,6 +6238,22 @@ export type Xavc4kProfileQualityTuningLevel =
  * @public
  * @enum
  */
+export const XavcInterlaceMode = {
+  BOTTOM_FIELD: "BOTTOM_FIELD",
+  FOLLOW_BOTTOM_FIELD: "FOLLOW_BOTTOM_FIELD",
+  FOLLOW_TOP_FIELD: "FOLLOW_TOP_FIELD",
+  PROGRESSIVE: "PROGRESSIVE",
+  TOP_FIELD: "TOP_FIELD",
+} as const;
+/**
+ * @public
+ */
+export type XavcInterlaceMode = (typeof XavcInterlaceMode)[keyof typeof XavcInterlaceMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const XavcHdIntraCbgProfileClass = {
   CLASS_100: "CLASS_100",
   CLASS_200: "CLASS_200",
@@ -6171,22 +6277,6 @@ export const XavcHdProfileBitrateClass = {
  * @public
  */
 export type XavcHdProfileBitrateClass = (typeof XavcHdProfileBitrateClass)[keyof typeof XavcHdProfileBitrateClass];
-
-/**
- * @public
- * @enum
- */
-export const XavcInterlaceMode = {
-  BOTTOM_FIELD: "BOTTOM_FIELD",
-  FOLLOW_BOTTOM_FIELD: "FOLLOW_BOTTOM_FIELD",
-  FOLLOW_TOP_FIELD: "FOLLOW_TOP_FIELD",
-  PROGRESSIVE: "PROGRESSIVE",
-  TOP_FIELD: "TOP_FIELD",
-} as const;
-/**
- * @public
- */
-export type XavcInterlaceMode = (typeof XavcInterlaceMode)[keyof typeof XavcInterlaceMode];
 
 /**
  * @public
@@ -6615,6 +6705,7 @@ export type StatusUpdateInterval = (typeof StatusUpdateInterval)[keyof typeof St
  */
 export const JobsQueryFilterKey = {
   audioCodec: "audioCodec",
+  errorCode: "errorCode",
   fileInput: "fileInput",
   jobEngineVersionRequested: "jobEngineVersionRequested",
   jobEngineVersionUsed: "jobEngineVersionUsed",
@@ -6645,13 +6736,16 @@ export type Type = (typeof Type)[keyof typeof Type];
  * @enum
  */
 export const Format = {
+  asf: "asf",
   avi: "avi",
+  flac: "flac",
   matroska: "matroska",
   mp3: "mp3",
   mp4: "mp4",
   mpegps: "mpegps",
   mpegts: "mpegts",
   mxf: "mxf",
+  ogg: "ogg",
   quicktime: "quicktime",
   wave: "wave",
   webm: "webm",
@@ -6668,12 +6762,15 @@ export type Format = (typeof Format)[keyof typeof Format];
 export const Codec = {
   AAC: "AAC",
   AC3: "AC3",
+  AMR: "AMR",
   AV1: "AV1",
   AVC: "AVC",
   C608: "C608",
   C708: "C708",
+  DV: "DV",
   EAC3: "EAC3",
   FLAC: "FLAC",
+  H263: "H263",
   HEVC: "HEVC",
   JPEG2000: "JPEG2000",
   MJPEG: "MJPEG",
@@ -6689,11 +6786,16 @@ export const Codec = {
   THEORA: "THEORA",
   UNCOMPRESSED: "UNCOMPRESSED",
   UNKNOWN: "UNKNOWN",
+  VC1: "VC1",
+  VC3: "VC3",
   VFW: "VFW",
   VORBIS: "VORBIS",
   VP8: "VP8",
   VP9: "VP9",
   WEBVTT: "WEBVTT",
+  WMA: "WMA",
+  WMA2: "WMA2",
+  WMAPRO: "WMAPRO",
 } as const;
 /**
  * @public
@@ -6740,6 +6842,18 @@ export const ColorPrimaries = {
  * @public
  */
 export type ColorPrimaries = (typeof ColorPrimaries)[keyof typeof ColorPrimaries];
+
+/**
+ * @public
+ * @enum
+ */
+export const Hdr10PlusPresence = {
+  PRESENT: "PRESENT",
+} as const;
+/**
+ * @public
+ */
+export type Hdr10PlusPresence = (typeof Hdr10PlusPresence)[keyof typeof Hdr10PlusPresence];
 
 /**
  * @public

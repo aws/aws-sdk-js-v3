@@ -51,9 +51,10 @@ const _APOD = "AudioPtsOffsetDelta";
 const _APu = "AudioPids";
 const _AQ = "AdaptiveQuantization";
 const _AQS = "Av1QvbrSettings";
-const _AR = "AllowedRenditions";
+const _AR = "AspectRatio";
 const _ARS = "AllowedRenditionSize";
 const _ARSu = "AudioRenditionSets";
+const _ARl = "AllowedRenditions";
 const _AS = "AacSettings";
 const _ASG = "AudioSelectorGroup";
 const _ASGu = "AudioSelectorGroups";
@@ -135,12 +136,13 @@ const _CJTR = "CreateJobTemplateRequest";
 const _CJTRr = "CreateJobTemplateResponse";
 const _CJa = "CancelJob";
 const _CJr = "CreateJob";
-const _CL = "ClipLimits";
+const _CL = "ChannelLayout";
 const _CLC = "CustomLanguageCode";
 const _CLL = "ContentLightLevel";
 const _CLM = "CaptionLanguageMappings";
 const _CLS = "ClearLeadSegments";
 const _CLSa = "CaptionLanguageSetting";
+const _CLl = "ClipLimits";
 const _CLo = "CodecLevel";
 const _CM = "CodingMode";
 const _CMh = "ChannelMapping";
@@ -201,6 +203,7 @@ const _Cou = "Count";
 const _Cr = "Crop";
 const _D = "Dialnorm";
 const _DAM = "DashAdditionalManifest";
+const _DAR = "DisplayAspectRatio";
 const _DAS = "DynamicAudioSelector";
 const _DASy = "DynamicAudioSelectors";
 const _DC = "DurationControl";
@@ -273,11 +276,11 @@ const _DVMX = "DolbyVisionMetadataXml";
 const _DVSF = "DescriptiveVideoServiceFlag";
 const _DXC = "DdsXCoordinate";
 const _DYC = "DdsYCoordinate";
-const _De = "Destination";
+const _De = "Denominator";
 const _Deb = "Deblocking";
 const _Dei = "Deinterlacer";
-const _Den = "Denominator";
-const _Des = "Description";
+const _Des = "Destination";
+const _Desc = "Description";
 const _Du = "Duration";
 const _E = "Encryption";
 const _EA = "ExpiresAt";
@@ -357,11 +360,13 @@ const _FSilt = "FilterSettings";
 const _FSo = "FontScript";
 const _FSol = "FollowSource";
 const _FSon = "FontSize";
+const _FSont = "FontStyle";
 const _FSv = "F4vSettings";
 const _FT = "FragmentTime";
 const _FTVEO = "ForceTsVideoEbpOrder";
 const _FTi = "FinishTime";
 const _FU = "FileUrl";
+const _FW = "FontWeight";
 const _Fe = "Features";
 const _Fee = "Feeds";
 const _Fi = "Filter";
@@ -413,6 +418,7 @@ const _HIt = "HttpsInputs";
 const _HM = "Hdr10Metadata";
 const _HMd = "HdrMetadata";
 const _HP = "Hdr10Plus";
+const _HPP = "Hdr10PlusPresence";
 const _HQS = "H264QvbrSettings";
 const _HQSv = "H265QvbrSettings";
 const _HRGS = "HlsRenditionGroupSettings";
@@ -608,7 +614,7 @@ const _Metadat = "Metadata7";
 const _Metadata = "Metadata8";
 const _Metadata_ = "Metadata";
 const _Mo = "Mode";
-const _N = "Name";
+const _N = "Numerator";
 const _NBFBRF = "NumberBFramesBetweenReferenceFrames";
 const _NC = "NielsenConfiguration";
 const _NFE = "NotFoundException";
@@ -628,7 +634,7 @@ const _NRFS = "NoiseReducerFilterSettings";
 const _NRSFS = "NoiseReducerSpatialFilterSettings";
 const _NRTFS = "NoiseReducerTemporalFilterSettings";
 const _NT = "NextToken";
-const _Nu = "Numerator";
+const _Na = "Name";
 const _O = "Offset";
 const _OC = "ObjectCount";
 const _OCM = "OutputChannelMapping";
@@ -657,11 +663,11 @@ const _Out = "Outputs";
 const _P = "Pids";
 const _PA = "PurchasedAt";
 const _PBU = "PreventBufferUnderflow";
-const _PC = "PeakCalculation";
-const _PCa = "PassthroughControl";
+const _PC = "PassthroughControl";
+const _PCa = "ParControl";
 const _PCad = "PaddingControl";
-const _PCar = "ParControl";
 const _PCc = "PcrControl";
+const _PCe = "PeakCalculation";
 const _PCh = "PhaseControl";
 const _PCs = "PsiControl";
 const _PD = "ParDenominator";
@@ -755,6 +761,7 @@ const _SAE = "SaliencyAwareEncoding";
 const _SAOFM = "SampleAdaptiveOffsetFilterMode";
 const _SAP = "SpekeAudioPreset";
 const _SAQ = "SpatialAdaptiveQuantization";
+const _SAR = "SampleAspectRatio";
 const _SB = "ScalingBehavior";
 const _SC = "ShadowColor";
 const _SCD = "SceneChangeDetect";
@@ -866,6 +873,7 @@ const _TDM = "TimestampDeltaMilliseconds";
 const _TDS = "TeletextDestinationSettings";
 const _TDSt = "TtmlDestinationSettings";
 const _TDU = "TimeDeltaUnits";
+const _TDe = "TextDecoration";
 const _TFS = "TemporalFilterSettings";
 const _TH = "ThumbnailHeight";
 const _THi = "TileHeight";
@@ -1103,12 +1111,13 @@ const _cGS = "cmafGroupSettings";
 const _cI = "channelsIn";
 const _cIV = "constantInitializationVector";
 const _cJ = "concurrentJobs";
-const _cL = "clipLimits";
+const _cL = "channelLayout";
 const _cLC = "customLanguageCode";
 const _cLL = "contentLightLevel";
 const _cLM = "captionLanguageMappings";
 const _cLS = "clearLeadSegments";
 const _cLSa = "captionLanguageSetting";
+const _cLl = "clipLimits";
 const _cLo = "codecLevel";
 const _cM = "codingMode";
 const _cMh = "channelMapping";
@@ -1157,6 +1166,7 @@ const _contr = "control";
 const _cou = "count";
 const _cr = "crop";
 const _d = "dialnorm";
+const _dAR = "displayAspectRatio";
 const _dAS = "dynamicAudioSelectors";
 const _dC = "downmixControl";
 const _dCN = "destination608ChannelNumber";
@@ -1206,11 +1216,11 @@ const _dVMX = "dolbyVisionMetadataXml";
 const _dVSF = "descriptiveVideoServiceFlag";
 const _dXC = "ddsXCoordinate";
 const _dYC = "ddsYCoordinate";
-const _de = "destination";
+const _de = "denominator";
 const _deb = "deblocking";
 const _dei = "deinterlacer";
-const _den = "denominator";
-const _des = "description";
+const _des = "destination";
+const _desc = "description";
 const _du = "duration";
 const _e = "error";
 const _eA = "expiresAt";
@@ -1284,11 +1294,13 @@ const _fSilt = "filterSettings";
 const _fSo = "fontScript";
 const _fSol = "followSource";
 const _fSon = "fontSize";
+const _fSont = "fontStyle";
 const _fSv = "f4vSettings";
 const _fT = "fragmentTime";
 const _fTVEO = "forceTsVideoEbpOrder";
 const _fTi = "finishTime";
 const _fU = "fileUrl";
+const _fW = "fontWeight";
 const _fe = "features";
 const _fee = "feeds";
 const _fi = "filter";
@@ -1317,6 +1329,7 @@ const _hIt = "httpsInputs";
 const _hM = "hdr10Metadata";
 const _hMd = "hdrMetadata";
 const _hP = "hdr10Plus";
+const _hPP = "hdr10PlusPresence";
 const _hQ = "httpQuery";
 const _hRGS = "hlsRenditionGroupSettings";
 const _hS = "hlsSettings";
@@ -1525,7 +1538,7 @@ const _metadat = "metadata7";
 const _metadata = "metadata8";
 const _metadata_ = "metadata";
 const _mo = "mode";
-const _n = "name";
+const _n = "numerator";
 const _nBFBRF = "numberBFramesBetweenReferenceFrames";
 const _nC = "nielsenConfiguration";
 const _nFMS = "nexguardFileMarkerSettings";
@@ -1539,7 +1552,7 @@ const _nPB = "nullPacketBitrate";
 const _nR = "noiseReducer";
 const _nRF = "numberReferenceFrames";
 const _nT = "nextToken";
-const _nu = "numerator";
+const _na = "name";
 const _o = "offset";
 const _oC = "objectCount";
 const _oCS = "outputColorSpace";
@@ -1563,11 +1576,11 @@ const _ou = "outputs";
 const _p = "pids";
 const _pA = "purchasedAt";
 const _pBU = "preventBufferUnderflow";
-const _pC = "peakCalculation";
-const _pCa = "passthroughControl";
+const _pC = "passthroughControl";
+const _pCa = "parControl";
 const _pCad = "paddingControl";
-const _pCar = "parControl";
 const _pCc = "pcrControl";
+const _pCe = "peakCalculation";
 const _pCh = "phaseControl";
 const _pCs = "psiControl";
 const _pD = "parDenominator";
@@ -1650,6 +1663,7 @@ const _sAE = "saliencyAwareEncoding";
 const _sAOFM = "sampleAdaptiveOffsetFilterMode";
 const _sAP = "spekeAudioPreset";
 const _sAQ = "spatialAdaptiveQuantization";
+const _sAR = "sampleAspectRatio";
 const _sB = "scalingBehavior";
 const _sC = "shadowColor";
 const _sCD = "sceneChangeDetect";
@@ -1751,6 +1765,7 @@ const _tDM = "timestampDeltaMilliseconds";
 const _tDS = "teletextDestinationSettings";
 const _tDSt = "ttmlDestinationSettings";
 const _tDU = "timeDeltaUnits";
+const _tDe = "textDecoration";
 const _tFS = "temporalFilterSettings";
 const _tH = "thumbnailHeight";
 const _tHi = "tileHeight";
@@ -1934,8 +1949,8 @@ export const errorTypeRegistries = [
 ]
 export var AacSettings$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_ADBM, _B, _CP, _CM, _LMM, _RI, _RCM, _RF, _SR, _S, _TLR, _VQ],
-  [[0, { [_jN]: _aDBM }], [1, { [_jN]: _b }], [0, { [_jN]: _cP }], [0, { [_jN]: _cM }], [0, { [_jN]: _lMM }], [1, { [_jN]: _rI }], [0, { [_jN]: _rCM }], [0, { [_jN]: _rF }], [1, { [_jN]: _sR }], [0, { [_jN]: _sp }], [1, { [_jN]: _tLR }], [0, { [_jN]: _vQ }]]
+  [_ADBM, _B, _CP, _CM, _LMM, _PC, _RI, _RCM, _RF, _SR, _S, _TLR, _VQ],
+  [[0, { [_jN]: _aDBM }], [1, { [_jN]: _b }], [0, { [_jN]: _cP }], [0, { [_jN]: _cM }], [0, { [_jN]: _lMM }], [0, { [_jN]: _pC }], [1, { [_jN]: _rI }], [0, { [_jN]: _rCM }], [0, { [_jN]: _rF }], [1, { [_jN]: _sR }], [0, { [_jN]: _sp }], [1, { [_jN]: _tLR }], [0, { [_jN]: _vQ }]]
 ];
 export var Ac3Settings$: StaticStructureSchema = [3, n0, _ASc,
   0,
@@ -1972,6 +1987,11 @@ export var AncillarySourceSettings$: StaticStructureSchema = [3, n0, _ASS,
   [_CT, _SACN, _TC],
   [[0, { [_jN]: _cT }], [1, { [_jN]: _sACN }], [0, { [_jN]: _tC }]]
 ];
+export var AspectRatio$: StaticStructureSchema = [3, n0, _AR,
+  0,
+  [_De, _N],
+  [[1, { [_jN]: _de }], [1, { [_jN]: _n }]]
+];
 export var AssociateCertificateRequest$: StaticStructureSchema = [3, n0, _ACR,
   0,
   [_A],
@@ -1999,8 +2019,8 @@ export var AudioDescription$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var AudioNormalizationSettings$: StaticStructureSchema = [3, n0, _ANS,
   0,
-  [_Al, _AC, _CGL, _LL, _PC, _TL, _TPLT],
-  [[0, { [_jN]: _al }], [0, { [_jN]: _aC }], [1, { [_jN]: _cGL }], [0, { [_jN]: _lL }], [0, { [_jN]: _pC }], [1, { [_jN]: _tL }], [1, { [_jN]: _tPLT }]]
+  [_Al, _AC, _CGL, _LL, _PCe, _TL, _TPLT],
+  [[0, { [_jN]: _al }], [0, { [_jN]: _aC }], [1, { [_jN]: _cGL }], [0, { [_jN]: _lL }], [0, { [_jN]: _pCe }], [1, { [_jN]: _tL }], [1, { [_jN]: _tPLT }]]
 ];
 export var AudioPitchCorrectionSettings$: StaticStructureSchema = [3, n0, _APCS,
   0,
@@ -2009,8 +2029,8 @@ export var AudioPitchCorrectionSettings$: StaticStructureSchema = [3, n0, _APCS,
 ];
 export var AudioProperties$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_BD, _BR, _C, _FR, _LC, _OC, _SR],
-  [[1, { [_jN]: _bD }], [1, { [_jN]: _bR }], [1, { [_jN]: _ch }], [() => FrameRate$, { [_jN]: _fR }], [0, { [_jN]: _lC }], [1, { [_jN]: _oC }], [1, { [_jN]: _sR }]]
+  [_BD, _BR, _CL, _C, _FR, _LC, _OC, _SR],
+  [[1, { [_jN]: _bD }], [1, { [_jN]: _bR }], [0, { [_jN]: _cL }], [1, { [_jN]: _ch }], [() => FrameRate$, { [_jN]: _fR }], [0, { [_jN]: _lC }], [1, { [_jN]: _oC }], [1, { [_jN]: _sR }]]
 ];
 export var AudioSelector$: StaticStructureSchema = [3, n0, _ASu,
   0,
@@ -2024,7 +2044,7 @@ export var AudioSelectorGroup$: StaticStructureSchema = [3, n0, _ASG,
 ];
 export var AutomatedAbrRule$: StaticStructureSchema = [3, n0, _AAR,
   0,
-  [_AR, _FIR, _MBRS, _MTRS, _Ty],
+  [_ARl, _FIR, _MBRS, _MTRS, _Ty],
   [[() => __listOfAllowedRenditionSize, { [_jN]: _aR }], [() => __listOfForceIncludeRenditionSize, { [_jN]: _fIR }], [() => MinBottomRenditionSize$, { [_jN]: _mBRS }], [() => MinTopRenditionSize$, { [_jN]: _mTRS }], [0, { [_jN]: _ty }]]
 ];
 export var AutomatedAbrSettings$: StaticStructureSchema = [3, n0, _AAS,
@@ -2117,7 +2137,7 @@ export var ChannelMapping$: StaticStructureSchema = [3, n0, _CMh,
   [_OCut],
   [[() => __listOfOutputChannelMapping, { [_jN]: _oCut }]]
 ];
-export var ClipLimits$: StaticStructureSchema = [3, n0, _CL,
+export var ClipLimits$: StaticStructureSchema = [3, n0, _CLl,
   0,
   [_MRGBT, _MYUV, _MRGBTi, _MYUVi],
   [[1, { [_jN]: _mRGBT }], [1, { [_jN]: _mYUV }], [1, { [_jN]: _mRGBTi }], [1, { [_jN]: _mYUVi }]]
@@ -2134,8 +2154,8 @@ export var CmafEncryptionSettings$: StaticStructureSchema = [3, n0, _CES,
 ];
 export var CmafGroupSettings$: StaticStructureSchema = [3, n0, _CGS,
   0,
-  [_AM, _BU, _CC, _CSo, _DIFTPNM, _DMS, _De, _DSe, _E, _FL, _IBTP, _IBTPS, _IBTPV, _MCa, _MDF, _MBT, _MFSL, _MMBT, _MP, _POHFBF, _SCe, _SL, _SLC, _SIR, _TDCM, _VCO, _WDM, _WHM, _WSTIR],
-  [[() => __listOfCmafAdditionalManifest, { [_jN]: _aM }], [0, { [_jN]: _bU }], [0, { [_jN]: _cC }], [0, { [_jN]: _cSo }], [0, { [_jN]: _dIFTPNM }], [0, { [_jN]: _dMS }], [0, { [_jN]: _de }], [() => DestinationSettings$, { [_jN]: _dSe }], [() => CmafEncryptionSettings$, { [_jN]: _en }], [1, { [_jN]: _fL }], [0, { [_jN]: _iBTP }], [() => CmafImageBasedTrickPlaySettings$, { [_jN]: _iBTPS }], [() => __listOfCmafImageBasedTrickPlayVariant, { [_jN]: _iBTPV }], [0, { [_jN]: _mCa }], [0, { [_jN]: _mDF }], [1, { [_jN]: _mBT }], [1, { [_jN]: _mFSL }], [0, { [_jN]: _mMBT }], [0, { [_jN]: _mP }], [0, { [_jN]: _pOHFBF }], [0, { [_jN]: _sCe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLC }], [0, { [_jN]: _sIR }], [0, { [_jN]: _tDCM }], [0, { [_jN]: _vCO }], [0, { [_jN]: _wDM }], [0, { [_jN]: _wHM }], [0, { [_jN]: _wSTIR }]]
+  [_AM, _BU, _CC, _CSo, _DIFTPNM, _DMS, _Des, _DSe, _E, _FL, _IBTP, _IBTPS, _IBTPV, _MCa, _MDF, _MBT, _MFSL, _MMBT, _MP, _POHFBF, _SCe, _SL, _SLC, _SIR, _TDCM, _VCO, _WDM, _WHM, _WSTIR],
+  [[() => __listOfCmafAdditionalManifest, { [_jN]: _aM }], [0, { [_jN]: _bU }], [0, { [_jN]: _cC }], [0, { [_jN]: _cSo }], [0, { [_jN]: _dIFTPNM }], [0, { [_jN]: _dMS }], [0, { [_jN]: _des }], [() => DestinationSettings$, { [_jN]: _dSe }], [() => CmafEncryptionSettings$, { [_jN]: _en }], [1, { [_jN]: _fL }], [0, { [_jN]: _iBTP }], [() => CmafImageBasedTrickPlaySettings$, { [_jN]: _iBTPS }], [() => __listOfCmafImageBasedTrickPlayVariant, { [_jN]: _iBTPV }], [0, { [_jN]: _mCa }], [0, { [_jN]: _mDF }], [1, { [_jN]: _mBT }], [1, { [_jN]: _mFSL }], [0, { [_jN]: _mMBT }], [0, { [_jN]: _mP }], [0, { [_jN]: _pOHFBF }], [0, { [_jN]: _sCe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLC }], [0, { [_jN]: _sIR }], [0, { [_jN]: _tDCM }], [0, { [_jN]: _vCO }], [0, { [_jN]: _wDM }], [0, { [_jN]: _wHM }], [0, { [_jN]: _wSTIR }]]
 ];
 export var CmafImageBasedTrickPlaySettings$: StaticStructureSchema = [3, n0, _CIBTPS,
   0,
@@ -2154,8 +2174,8 @@ export var CmfcSettings$: StaticStructureSchema = [3, n0, _CSm,
 ];
 export var CodecMetadata$: StaticStructureSchema = [3, n0, _CMo,
   0,
-  [_BD, _CSh, _CFR, _CPo, _CLL, _FOi, _H, _L, _MCat, _Pr, _Ro, _STc, _TCr, _W],
-  [[1, { [_jN]: _bD }], [0, { [_jN]: _cSh }], [() => FrameRate$, { [_jN]: _cFR }], [0, { [_jN]: _cPo }], [() => ContentLightLevel$, { [_jN]: _cLL }], [0, { [_jN]: _fOi }], [1, { [_jN]: _h }], [0, { [_jN]: _l }], [0, { [_jN]: _mCat }], [0, { [_jN]: _pr }], [1, { [_jN]: _ro }], [0, { [_jN]: _sTc }], [0, { [_jN]: _tCr }], [1, { [_jN]: _w }]]
+  [_BD, _CSh, _CFR, _CPo, _CLL, _FOi, _HPP, _H, _L, _MCat, _Pr, _Ro, _STc, _TCr, _W],
+  [[1, { [_jN]: _bD }], [0, { [_jN]: _cSh }], [() => FrameRate$, { [_jN]: _cFR }], [0, { [_jN]: _cPo }], [() => ContentLightLevel$, { [_jN]: _cLL }], [0, { [_jN]: _fOi }], [0, { [_jN]: _hPP }], [1, { [_jN]: _h }], [0, { [_jN]: _l }], [0, { [_jN]: _mCat }], [0, { [_jN]: _pr }], [1, { [_jN]: _ro }], [0, { [_jN]: _sTc }], [0, { [_jN]: _tCr }], [1, { [_jN]: _w }]]
 ];
 export var ColorConversion3DLUTSetting$: StaticStructureSchema = [3, n0, _CCDLUTS,
   0,
@@ -2164,8 +2184,8 @@ export var ColorConversion3DLUTSetting$: StaticStructureSchema = [3, n0, _CCDLUT
 ];
 export var ColorCorrector$: StaticStructureSchema = [3, n0, _CCo,
   0,
-  [_Br, _CL, _CSC, _Con, _HM, _HTSTM, _Hu, _ML, _SRC, _Sa, _SRWL],
-  [[1, { [_jN]: _br }], [() => ClipLimits$, { [_jN]: _cL }], [0, { [_jN]: _cSC }], [1, { [_jN]: _con }], [() => Hdr10Metadata$, { [_jN]: _hM }], [0, { [_jN]: _hTSTM }], [1, { [_jN]: _hu }], [1, { [_jN]: _mL }], [0, { [_jN]: _sRC }], [1, { [_jN]: _sa }], [1, { [_jN]: _sRWL }]]
+  [_Br, _CLl, _CSC, _Con, _HM, _HTSTM, _Hu, _ML, _SRC, _Sa, _SRWL],
+  [[1, { [_jN]: _br }], [() => ClipLimits$, { [_jN]: _cLl }], [0, { [_jN]: _cSC }], [1, { [_jN]: _con }], [() => Hdr10Metadata$, { [_jN]: _hM }], [0, { [_jN]: _hTSTM }], [1, { [_jN]: _hu }], [1, { [_jN]: _mL }], [0, { [_jN]: _sRC }], [1, { [_jN]: _sa }], [1, { [_jN]: _sRWL }]]
 ];
 export var Container$: StaticStructureSchema = [3, n0, _Cont,
   0,
@@ -2194,8 +2214,8 @@ export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre,
 ];
 export var CreateJobTemplateRequest$: StaticStructureSchema = [3, n0, _CJTR,
   0,
-  [_N, _Se, _AScc, _Ca, _Des, _HD, _Pri, _Q, _SUI, _Ta],
-  [[0, { [_jN]: _n }], [() => JobTemplateSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }]], 2
+  [_Na, _Se, _AScc, _Ca, _Desc, _HD, _Pri, _Q, _SUI, _Ta],
+  [[0, { [_jN]: _na }], [() => JobTemplateSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _desc }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
   0,
@@ -2204,8 +2224,8 @@ export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
 ];
 export var CreatePresetRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_N, _Se, _Ca, _Des, _Ta],
-  [[0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _set }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [128 | 0, { [_jN]: _ta }]], 2
+  [_Na, _Se, _Ca, _Desc, _Ta],
+  [[0, { [_jN]: _na }], [() => PresetSettings$, { [_jN]: _set }], [0, { [_jN]: _ca }], [0, { [_jN]: _desc }], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var CreatePresetResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -2214,8 +2234,8 @@ export var CreatePresetResponse$: StaticStructureSchema = [3, n0, _CPRr,
 ];
 export var CreateQueueRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
-  [_N, _CJ, _Des, _MCF, _PP, _RPS, _Sta, _Ta],
-  [[0, { [_jN]: _n }], [1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [1, { [_jN]: _mCF }], [0, { [_jN]: _pP }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]], 1
+  [_Na, _CJ, _Desc, _MCF, _PP, _RPS, _Sta, _Ta],
+  [[0, { [_jN]: _na }], [1, { [_jN]: _cJ }], [0, { [_jN]: _desc }], [1, { [_jN]: _mCF }], [0, { [_jN]: _pP }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]], 1
 ];
 export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr,
   0,
@@ -2244,8 +2264,8 @@ export var DashIsoEncryptionSettings$: StaticStructureSchema = [3, n0, _DIES,
 ];
 export var DashIsoGroupSettings$: StaticStructureSchema = [3, n0, _DIGS,
   0,
-  [_AM, _ACCSIU, _BU, _DIFTPNM, _DMS, _De, _DSe, _E, _FL, _HC, _IBTP, _IBTPS, _IBTPV, _MBT, _MFSL, _MMBT, _MP, _POHFBF, _SCe, _SL, _SLC, _VCO, _WSTIR],
-  [[() => __listOfDashAdditionalManifest, { [_jN]: _aM }], [0, { [_jN]: _aCCSIU }], [0, { [_jN]: _bU }], [0, { [_jN]: _dIFTPNM }], [0, { [_jN]: _dMS }], [0, { [_jN]: _de }], [() => DestinationSettings$, { [_jN]: _dSe }], [() => DashIsoEncryptionSettings$, { [_jN]: _en }], [1, { [_jN]: _fL }], [0, { [_jN]: _hC }], [0, { [_jN]: _iBTP }], [() => DashIsoImageBasedTrickPlaySettings$, { [_jN]: _iBTPS }], [() => __listOfDashIsoImageBasedTrickPlayVariant, { [_jN]: _iBTPV }], [1, { [_jN]: _mBT }], [1, { [_jN]: _mFSL }], [0, { [_jN]: _mMBT }], [0, { [_jN]: _mP }], [0, { [_jN]: _pOHFBF }], [0, { [_jN]: _sCe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLC }], [0, { [_jN]: _vCO }], [0, { [_jN]: _wSTIR }]]
+  [_AM, _ACCSIU, _BU, _DIFTPNM, _DMS, _Des, _DSe, _E, _FL, _HC, _IBTP, _IBTPS, _IBTPV, _MBT, _MFSL, _MMBT, _MP, _POHFBF, _SCe, _SL, _SLC, _VCO, _WSTIR],
+  [[() => __listOfDashAdditionalManifest, { [_jN]: _aM }], [0, { [_jN]: _aCCSIU }], [0, { [_jN]: _bU }], [0, { [_jN]: _dIFTPNM }], [0, { [_jN]: _dMS }], [0, { [_jN]: _des }], [() => DestinationSettings$, { [_jN]: _dSe }], [() => DashIsoEncryptionSettings$, { [_jN]: _en }], [1, { [_jN]: _fL }], [0, { [_jN]: _hC }], [0, { [_jN]: _iBTP }], [() => DashIsoImageBasedTrickPlaySettings$, { [_jN]: _iBTPS }], [() => __listOfDashIsoImageBasedTrickPlayVariant, { [_jN]: _iBTPV }], [1, { [_jN]: _mBT }], [1, { [_jN]: _mFSL }], [0, { [_jN]: _mMBT }], [0, { [_jN]: _mP }], [0, { [_jN]: _pOHFBF }], [0, { [_jN]: _sCe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLC }], [0, { [_jN]: _vCO }], [0, { [_jN]: _wSTIR }]]
 ];
 export var DashIsoImageBasedTrickPlaySettings$: StaticStructureSchema = [3, n0, _DIIBTPS,
   0,
@@ -2269,7 +2289,7 @@ export var Deinterlacer$: StaticStructureSchema = [3, n0, _Dei,
 ];
 export var DeleteJobTemplateRequest$: StaticStructureSchema = [3, n0, _DJTR,
   0,
-  [_N],
+  [_Na],
   [[0, 1]], 1
 ];
 export var DeleteJobTemplateResponse$: StaticStructureSchema = [3, n0, _DJTRe,
@@ -2289,7 +2309,7 @@ export var DeletePolicyResponse$: StaticStructureSchema = [3, n0, _DPRe,
 ];
 export var DeletePresetRequest$: StaticStructureSchema = [3, n0, _DPRel,
   0,
-  [_N],
+  [_Na],
   [[0, 1]], 1
 ];
 export var DeletePresetResponse$: StaticStructureSchema = [3, n0, _DPRele,
@@ -2299,7 +2319,7 @@ export var DeletePresetResponse$: StaticStructureSchema = [3, n0, _DPRele,
 ];
 export var DeleteQueueRequest$: StaticStructureSchema = [3, n0, _DQR,
   0,
-  [_N],
+  [_Na],
   [[0, 1]], 1
 ];
 export var DeleteQueueResponse$: StaticStructureSchema = [3, n0, _DQRe,
@@ -2384,8 +2404,8 @@ export var Eac3AtmosSettings$: StaticStructureSchema = [3, n0, _EAS,
 ];
 export var Eac3Settings$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_ACt, _B, _BM, _CM, _DF, _D, _DRCL, _DRCR, _LCf, _LF, _LRCML, _LRSML, _LRCMLt, _LRSMLt, _MC, _PCa, _PCh, _SR, _SD, _SEM, _SM],
-  [[0, { [_jN]: _aCt }], [1, { [_jN]: _b }], [0, { [_jN]: _bM }], [0, { [_jN]: _cM }], [0, { [_jN]: _dF }], [1, { [_jN]: _d }], [0, { [_jN]: _dRCL }], [0, { [_jN]: _dRCR }], [0, { [_jN]: _lCf }], [0, { [_jN]: _lF }], [1, { [_jN]: _lRCML }], [1, { [_jN]: _lRSML }], [1, { [_jN]: _lRCMLt }], [1, { [_jN]: _lRSMLt }], [0, { [_jN]: _mC }], [0, { [_jN]: _pCa }], [0, { [_jN]: _pCh }], [1, { [_jN]: _sR }], [0, { [_jN]: _sD }], [0, { [_jN]: _sEM }], [0, { [_jN]: _sM }]]
+  [_ACt, _B, _BM, _CM, _DF, _D, _DRCL, _DRCR, _LCf, _LF, _LRCML, _LRSML, _LRCMLt, _LRSMLt, _MC, _PC, _PCh, _SR, _SD, _SEM, _SM],
+  [[0, { [_jN]: _aCt }], [1, { [_jN]: _b }], [0, { [_jN]: _bM }], [0, { [_jN]: _cM }], [0, { [_jN]: _dF }], [1, { [_jN]: _d }], [0, { [_jN]: _dRCL }], [0, { [_jN]: _dRCR }], [0, { [_jN]: _lCf }], [0, { [_jN]: _lF }], [1, { [_jN]: _lRCML }], [1, { [_jN]: _lRSML }], [1, { [_jN]: _lRCMLt }], [1, { [_jN]: _lRSMLt }], [0, { [_jN]: _mC }], [0, { [_jN]: _pC }], [0, { [_jN]: _pCh }], [1, { [_jN]: _sR }], [0, { [_jN]: _sD }], [0, { [_jN]: _sEM }], [0, { [_jN]: _sM }]]
 ];
 export var ElementalInferenceConfiguration$: StaticStructureSchema = [3, n0, _EIC,
   0,
@@ -2444,8 +2464,8 @@ export var F4vSettings$: StaticStructureSchema = [3, n0, _FSv,
 ];
 export var FileGroupSettings$: StaticStructureSchema = [3, n0, _FGSi,
   0,
-  [_De, _DSe],
-  [[0, { [_jN]: _de }], [() => DestinationSettings$, { [_jN]: _dSe }]]
+  [_Des, _DSe],
+  [[0, { [_jN]: _des }], [() => DestinationSettings$, { [_jN]: _dSe }]]
 ];
 export var FileSourceSettings$: StaticStructureSchema = [3, n0, _FSS,
   0,
@@ -2469,8 +2489,8 @@ export var FrameCaptureSettings$: StaticStructureSchema = [3, n0, _FCS,
 ];
 export var FrameRate$: StaticStructureSchema = [3, n0, _FR,
   0,
-  [_Den, _Nu],
-  [[1, { [_jN]: _den }], [1, { [_jN]: _nu }]]
+  [_De, _N],
+  [[1, { [_jN]: _de }], [1, { [_jN]: _n }]]
 ];
 export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
   0,
@@ -2494,7 +2514,7 @@ export var GetJobsQueryResultsResponse$: StaticStructureSchema = [3, n0, _GJQRRe
 ];
 export var GetJobTemplateRequest$: StaticStructureSchema = [3, n0, _GJTR,
   0,
-  [_N],
+  [_Na],
   [[0, 1]], 1
 ];
 export var GetJobTemplateResponse$: StaticStructureSchema = [3, n0, _GJTRe,
@@ -2514,7 +2534,7 @@ export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
 ];
 export var GetPresetRequest$: StaticStructureSchema = [3, n0, _GPRet,
   0,
-  [_N],
+  [_Na],
   [[0, 1]], 1
 ];
 export var GetPresetResponse$: StaticStructureSchema = [3, n0, _GPRetr,
@@ -2524,7 +2544,7 @@ export var GetPresetResponse$: StaticStructureSchema = [3, n0, _GPRetr,
 ];
 export var GetQueueRequest$: StaticStructureSchema = [3, n0, _GQR,
   0,
-  [_N],
+  [_Na],
   [[0, 1]], 1
 ];
 export var GetQueueResponse$: StaticStructureSchema = [3, n0, _GQRe,
@@ -2544,8 +2564,8 @@ export var H264QvbrSettings$: StaticStructureSchema = [3, n0, _HQS,
 ];
 export var H264Settings$: StaticStructureSchema = [3, n0, _HS,
   0,
-  [_AQ, _BRF, _B, _CLo, _CP, _DSG, _EOSM, _EE, _EWP, _FEi, _FAQ, _FC, _FCA, _FD, _FN, _GBR, _GCC, _GS, _GSU, _HBFFP, _HBIFP, _HBS, _IM, _MB, _MII, _NBFBRF, _NRF, _PCar, _PD, _PN, _PFM, _QTL, _QS, _RCM, _RP, _SAE, _STCM, _SCD, _Sl, _SP, _So, _SAQ, _Sy, _Te, _TAQ, _UST, _WMPT],
-  [[0, { [_jN]: _aQ }], [() => BandwidthReductionFilter$, { [_jN]: _bRF }], [1, { [_jN]: _b }], [0, { [_jN]: _cLo }], [0, { [_jN]: _cP }], [0, { [_jN]: _dSG }], [0, { [_jN]: _eOSM }], [0, { [_jN]: _eE }], [0, { [_jN]: _eWP }], [0, { [_jN]: _fE }], [0, { [_jN]: _fAQ }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _gBR }], [1, { [_jN]: _gCC }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [1, { [_jN]: _hBFFP }], [1, { [_jN]: _hBIFP }], [1, { [_jN]: _hBS }], [0, { [_jN]: _iM }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [1, { [_jN]: _nBFBRF }], [1, { [_jN]: _nRF }], [0, { [_jN]: _pCar }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _qTL }], [() => H264QvbrSettings$, { [_jN]: _qS }], [0, { [_jN]: _rCM }], [0, { [_jN]: _rP }], [0, { [_jN]: _sAE }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sCD }], [1, { [_jN]: _sl }], [0, { [_jN]: _sP }], [1, { [_jN]: _so }], [0, { [_jN]: _sAQ }], [0, { [_jN]: _sy }], [0, { [_jN]: _te }], [0, { [_jN]: _tAQ }], [0, { [_jN]: _uST }], [0, { [_jN]: _wMPT }]]
+  [_AQ, _BRF, _B, _CLo, _CP, _DSG, _EOSM, _EE, _EWP, _FEi, _FAQ, _FC, _FCA, _FD, _FN, _GBR, _GCC, _GS, _GSU, _HBFFP, _HBIFP, _HBS, _IM, _MB, _MII, _NBFBRF, _NRF, _PCa, _PD, _PN, _PFM, _QTL, _QS, _RCM, _RP, _SAE, _STCM, _SCD, _Sl, _SP, _So, _SAQ, _Sy, _Te, _TAQ, _UST, _WMPT],
+  [[0, { [_jN]: _aQ }], [() => BandwidthReductionFilter$, { [_jN]: _bRF }], [1, { [_jN]: _b }], [0, { [_jN]: _cLo }], [0, { [_jN]: _cP }], [0, { [_jN]: _dSG }], [0, { [_jN]: _eOSM }], [0, { [_jN]: _eE }], [0, { [_jN]: _eWP }], [0, { [_jN]: _fE }], [0, { [_jN]: _fAQ }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _gBR }], [1, { [_jN]: _gCC }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [1, { [_jN]: _hBFFP }], [1, { [_jN]: _hBIFP }], [1, { [_jN]: _hBS }], [0, { [_jN]: _iM }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [1, { [_jN]: _nBFBRF }], [1, { [_jN]: _nRF }], [0, { [_jN]: _pCa }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _qTL }], [() => H264QvbrSettings$, { [_jN]: _qS }], [0, { [_jN]: _rCM }], [0, { [_jN]: _rP }], [0, { [_jN]: _sAE }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sCD }], [1, { [_jN]: _sl }], [0, { [_jN]: _sP }], [1, { [_jN]: _so }], [0, { [_jN]: _sAQ }], [0, { [_jN]: _sy }], [0, { [_jN]: _te }], [0, { [_jN]: _tAQ }], [0, { [_jN]: _uST }], [0, { [_jN]: _wMPT }]]
 ];
 export var H265QvbrSettings$: StaticStructureSchema = [3, n0, _HQSv,
   0,
@@ -2554,8 +2574,8 @@ export var H265QvbrSettings$: StaticStructureSchema = [3, n0, _HQSv,
 ];
 export var H265Settings$: StaticStructureSchema = [3, n0, _HSe,
   0,
-  [_AQ, _ATFS, _BRF, _B, _CLo, _CP, _Deb, _DSG, _EOSM, _FAQ, _FC, _FCA, _FD, _FN, _GBR, _GCC, _GS, _GSU, _HBFFP, _HBIFP, _HBS, _IM, _MB, _MII, _MOPB, _MTP, _NBFBRF, _NRF, _PCar, _PD, _PN, _PFM, _QTL, _QS, _RCM, _SAOFM, _STCM, _SCD, _Sl, _SP, _SAQ, _Te, _TAQ, _TIe, _THi, _TP, _TWi, _Ti, _TBS, _UST, _WMPT],
-  [[0, { [_jN]: _aQ }], [0, { [_jN]: _aTFS }], [() => BandwidthReductionFilter$, { [_jN]: _bRF }], [1, { [_jN]: _b }], [0, { [_jN]: _cLo }], [0, { [_jN]: _cP }], [0, { [_jN]: _deb }], [0, { [_jN]: _dSG }], [0, { [_jN]: _eOSM }], [0, { [_jN]: _fAQ }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _gBR }], [1, { [_jN]: _gCC }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [1, { [_jN]: _hBFFP }], [1, { [_jN]: _hBIFP }], [1, { [_jN]: _hBS }], [0, { [_jN]: _iM }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [0, { [_jN]: _mOPB }], [0, { [_jN]: _mTP }], [1, { [_jN]: _nBFBRF }], [1, { [_jN]: _nRF }], [0, { [_jN]: _pCar }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _qTL }], [() => H265QvbrSettings$, { [_jN]: _qS }], [0, { [_jN]: _rCM }], [0, { [_jN]: _sAOFM }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sCD }], [1, { [_jN]: _sl }], [0, { [_jN]: _sP }], [0, { [_jN]: _sAQ }], [0, { [_jN]: _te }], [0, { [_jN]: _tAQ }], [0, { [_jN]: _tIe }], [1, { [_jN]: _tHi }], [0, { [_jN]: _tP }], [1, { [_jN]: _tWi }], [0, { [_jN]: _ti }], [0, { [_jN]: _tBS }], [0, { [_jN]: _uST }], [0, { [_jN]: _wMPT }]]
+  [_AQ, _ATFS, _BRF, _B, _CLo, _CP, _Deb, _DSG, _EOSM, _FAQ, _FC, _FCA, _FD, _FN, _GBR, _GCC, _GS, _GSU, _HBFFP, _HBIFP, _HBS, _IM, _MB, _MII, _MOPB, _MTP, _NBFBRF, _NRF, _PCa, _PD, _PN, _PFM, _QTL, _QS, _RCM, _SAOFM, _STCM, _SCD, _Sl, _SP, _SAQ, _Te, _TAQ, _TIe, _THi, _TP, _TWi, _Ti, _TBS, _UST, _WMPT],
+  [[0, { [_jN]: _aQ }], [0, { [_jN]: _aTFS }], [() => BandwidthReductionFilter$, { [_jN]: _bRF }], [1, { [_jN]: _b }], [0, { [_jN]: _cLo }], [0, { [_jN]: _cP }], [0, { [_jN]: _deb }], [0, { [_jN]: _dSG }], [0, { [_jN]: _eOSM }], [0, { [_jN]: _fAQ }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _gBR }], [1, { [_jN]: _gCC }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [1, { [_jN]: _hBFFP }], [1, { [_jN]: _hBIFP }], [1, { [_jN]: _hBS }], [0, { [_jN]: _iM }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [0, { [_jN]: _mOPB }], [0, { [_jN]: _mTP }], [1, { [_jN]: _nBFBRF }], [1, { [_jN]: _nRF }], [0, { [_jN]: _pCa }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _qTL }], [() => H265QvbrSettings$, { [_jN]: _qS }], [0, { [_jN]: _rCM }], [0, { [_jN]: _sAOFM }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sCD }], [1, { [_jN]: _sl }], [0, { [_jN]: _sP }], [0, { [_jN]: _sAQ }], [0, { [_jN]: _te }], [0, { [_jN]: _tAQ }], [0, { [_jN]: _tIe }], [1, { [_jN]: _tHi }], [0, { [_jN]: _tP }], [1, { [_jN]: _tWi }], [0, { [_jN]: _ti }], [0, { [_jN]: _tBS }], [0, { [_jN]: _uST }], [0, { [_jN]: _wMPT }]]
 ];
 export var Hdr10Metadata$: StaticStructureSchema = [3, n0, _HM,
   0,
@@ -2589,8 +2609,8 @@ export var HlsEncryptionSettings$: StaticStructureSchema = [3, n0, _HES,
 ];
 export var HlsGroupSettings$: StaticStructureSchema = [3, n0, _HGS,
   0,
-  [_AMd, _AM, _AOH, _BU, _CLM, _CLSa, _CSLC, _CC, _CSo, _De, _DSe, _DSi, _E, _IBTP, _IBTPS, _IBTPV, _MCa, _MDF, _MFSL, _MSL, _OSutp, _PDT, _PDTP, _PWHM, _SCe, _SL, _SLC, _SPS, _SIR, _TDCM, _TMIF, _TMIP, _TDM],
-  [[64 | 0, { [_jN]: _aMd }], [() => __listOfHlsAdditionalManifest, { [_jN]: _aM }], [0, { [_jN]: _aOH }], [0, { [_jN]: _bU }], [() => __listOfHlsCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _cLSa }], [0, { [_jN]: _cSLC }], [0, { [_jN]: _cC }], [0, { [_jN]: _cSo }], [0, { [_jN]: _de }], [() => DestinationSettings$, { [_jN]: _dSe }], [0, { [_jN]: _dSi }], [() => HlsEncryptionSettings$, { [_jN]: _en }], [0, { [_jN]: _iBTP }], [() => HlsImageBasedTrickPlaySettings$, { [_jN]: _iBTPS }], [() => __listOfHlsImageBasedTrickPlayVariant, { [_jN]: _iBTPV }], [0, { [_jN]: _mCa }], [0, { [_jN]: _mDF }], [1, { [_jN]: _mFSL }], [1, { [_jN]: _mSL }], [0, { [_jN]: _oSutp }], [0, { [_jN]: _pDT }], [1, { [_jN]: _pDTP }], [0, { [_jN]: _pWHM }], [0, { [_jN]: _sCe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLC }], [1, { [_jN]: _sPS }], [0, { [_jN]: _sIR }], [0, { [_jN]: _tDCM }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [1, { [_jN]: _tDM }]]
+  [_AMd, _AM, _AOH, _BU, _CLM, _CLSa, _CSLC, _CC, _CSo, _Des, _DSe, _DSi, _E, _IBTP, _IBTPS, _IBTPV, _MCa, _MDF, _MFSL, _MSL, _OSutp, _PDT, _PDTP, _PWHM, _SCe, _SL, _SLC, _SPS, _SIR, _TDCM, _TMIF, _TMIP, _TDM],
+  [[64 | 0, { [_jN]: _aMd }], [() => __listOfHlsAdditionalManifest, { [_jN]: _aM }], [0, { [_jN]: _aOH }], [0, { [_jN]: _bU }], [() => __listOfHlsCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _cLSa }], [0, { [_jN]: _cSLC }], [0, { [_jN]: _cC }], [0, { [_jN]: _cSo }], [0, { [_jN]: _des }], [() => DestinationSettings$, { [_jN]: _dSe }], [0, { [_jN]: _dSi }], [() => HlsEncryptionSettings$, { [_jN]: _en }], [0, { [_jN]: _iBTP }], [() => HlsImageBasedTrickPlaySettings$, { [_jN]: _iBTPS }], [() => __listOfHlsImageBasedTrickPlayVariant, { [_jN]: _iBTPV }], [0, { [_jN]: _mCa }], [0, { [_jN]: _mDF }], [1, { [_jN]: _mFSL }], [1, { [_jN]: _mSL }], [0, { [_jN]: _oSutp }], [0, { [_jN]: _pDT }], [1, { [_jN]: _pDTP }], [0, { [_jN]: _pWHM }], [0, { [_jN]: _sCe }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLC }], [1, { [_jN]: _sPS }], [0, { [_jN]: _sIR }], [0, { [_jN]: _tDCM }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [1, { [_jN]: _tDM }]]
 ];
 export var HlsImageBasedTrickPlaySettings$: StaticStructureSchema = [3, n0, _HIBTPS,
   0,
@@ -2694,8 +2714,8 @@ export var JobsQueryFilter$: StaticStructureSchema = [3, n0, _JQF,
 ];
 export var JobTemplate$: StaticStructureSchema = [3, n0, _JT,
   0,
-  [_N, _Se, _AScc, _A, _Ca, _CA, _Des, _HD, _LU, _Pri, _Q, _SUI, _Ty],
-  [[0, { [_jN]: _n }], [() => JobTemplateSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [7, { [_jN]: _lU }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [0, { [_jN]: _ty }]], 2
+  [_Na, _Se, _AScc, _A, _Ca, _CA, _Desc, _HD, _LU, _Pri, _Q, _SUI, _Ty],
+  [[0, { [_jN]: _na }], [() => JobTemplateSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _desc }], [() => __listOfHopDestination, { [_jN]: _hD }], [7, { [_jN]: _lU }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [0, { [_jN]: _ty }]], 2
 ];
 export var JobTemplateSettings$: StaticStructureSchema = [3, n0, _JTS,
   0,
@@ -2844,8 +2864,8 @@ export var MpdSettings$: StaticStructureSchema = [3, n0, _MSpd,
 ];
 export var Mpeg2Settings$: StaticStructureSchema = [3, n0, _MSpeg,
   0,
-  [_AQ, _B, _CLo, _CP, _DSG, _FC, _FCA, _FD, _FN, _GCC, _GS, _GSU, _HBFFP, _HBIFP, _HBS, _IM, _IDP, _MB, _MII, _NBFBRF, _PCar, _PD, _PN, _PFM, _QTL, _RCM, _STCM, _SCD, _SP, _So, _SAQ, _Sy, _Te, _TAQ],
-  [[0, { [_jN]: _aQ }], [1, { [_jN]: _b }], [0, { [_jN]: _cLo }], [0, { [_jN]: _cP }], [0, { [_jN]: _dSG }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [1, { [_jN]: _gCC }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [1, { [_jN]: _hBFFP }], [1, { [_jN]: _hBIFP }], [1, { [_jN]: _hBS }], [0, { [_jN]: _iM }], [0, { [_jN]: _iDP }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [1, { [_jN]: _nBFBRF }], [0, { [_jN]: _pCar }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _qTL }], [0, { [_jN]: _rCM }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sCD }], [0, { [_jN]: _sP }], [1, { [_jN]: _so }], [0, { [_jN]: _sAQ }], [0, { [_jN]: _sy }], [0, { [_jN]: _te }], [0, { [_jN]: _tAQ }]]
+  [_AQ, _B, _CLo, _CP, _DSG, _FC, _FCA, _FD, _FN, _GCC, _GS, _GSU, _HBFFP, _HBIFP, _HBS, _IM, _IDP, _MB, _MII, _NBFBRF, _PCa, _PD, _PN, _PFM, _QTL, _RCM, _STCM, _SCD, _SP, _So, _SAQ, _Sy, _Te, _TAQ],
+  [[0, { [_jN]: _aQ }], [1, { [_jN]: _b }], [0, { [_jN]: _cLo }], [0, { [_jN]: _cP }], [0, { [_jN]: _dSG }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [1, { [_jN]: _gCC }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [1, { [_jN]: _hBFFP }], [1, { [_jN]: _hBIFP }], [1, { [_jN]: _hBS }], [0, { [_jN]: _iM }], [0, { [_jN]: _iDP }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [1, { [_jN]: _nBFBRF }], [0, { [_jN]: _pCa }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _qTL }], [0, { [_jN]: _rCM }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sCD }], [0, { [_jN]: _sP }], [1, { [_jN]: _so }], [0, { [_jN]: _sAQ }], [0, { [_jN]: _sy }], [0, { [_jN]: _te }], [0, { [_jN]: _tAQ }]]
 ];
 export var MsSmoothAdditionalManifest$: StaticStructureSchema = [3, n0, _MSAM,
   0,
@@ -2859,8 +2879,8 @@ export var MsSmoothEncryptionSettings$: StaticStructureSchema = [3, n0, _MSES,
 ];
 export var MsSmoothGroupSettings$: StaticStructureSchema = [3, n0, _MSGS,
   0,
-  [_AM, _ADud, _De, _DSe, _E, _FL, _FLC, _ME],
-  [[() => __listOfMsSmoothAdditionalManifest, { [_jN]: _aM }], [0, { [_jN]: _aDu }], [0, { [_jN]: _de }], [() => DestinationSettings$, { [_jN]: _dSe }], [() => MsSmoothEncryptionSettings$, { [_jN]: _en }], [1, { [_jN]: _fL }], [0, { [_jN]: _fLC }], [0, { [_jN]: _mE }]]
+  [_AM, _ADud, _Des, _DSe, _E, _FL, _FLC, _ME],
+  [[() => __listOfMsSmoothAdditionalManifest, { [_jN]: _aM }], [0, { [_jN]: _aDu }], [0, { [_jN]: _des }], [() => DestinationSettings$, { [_jN]: _dSe }], [() => MsSmoothEncryptionSettings$, { [_jN]: _en }], [1, { [_jN]: _fL }], [0, { [_jN]: _fLC }], [0, { [_jN]: _mE }]]
 ];
 export var MultiViewInput$: StaticStructureSchema = [3, n0, _MVI,
   0,
@@ -2939,8 +2959,8 @@ export var OutputDetail$: StaticStructureSchema = [3, n0, _OD,
 ];
 export var OutputGroup$: StaticStructureSchema = [3, n0, _OGu,
   0,
-  [_AES, _CNu, _N, _OGS, _Out],
-  [[() => AutomatedEncodingSettings$, { [_jN]: _aES }], [0, { [_jN]: _cNu }], [0, { [_jN]: _n }], [() => OutputGroupSettings$, { [_jN]: _oGS }], [() => __listOfOutput, { [_jN]: _ou }]]
+  [_AES, _CNu, _Na, _OGS, _Out],
+  [[() => AutomatedEncodingSettings$, { [_jN]: _aES }], [0, { [_jN]: _cNu }], [0, { [_jN]: _na }], [() => OutputGroupSettings$, { [_jN]: _oGS }], [() => __listOfOutput, { [_jN]: _ou }]]
 ];
 export var OutputGroupDetail$: StaticStructureSchema = [3, n0, _OGDu,
   0,
@@ -2974,8 +2994,8 @@ export var Policy$: StaticStructureSchema = [3, n0, _Po,
 ];
 export var Preset$: StaticStructureSchema = [3, n0, _Pre,
   0,
-  [_N, _Se, _A, _Ca, _CA, _Des, _LU, _Ty],
-  [[0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _set }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [0, { [_jN]: _ty }]], 2
+  [_Na, _Se, _A, _Ca, _CA, _Desc, _LU, _Ty],
+  [[0, { [_jN]: _na }], [() => PresetSettings$, { [_jN]: _set }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _desc }], [7, { [_jN]: _lU }], [0, { [_jN]: _ty }]], 2
 ];
 export var PresetSettings$: StaticStructureSchema = [3, n0, _PSr,
   0,
@@ -3004,8 +3024,8 @@ export var ProbeResult$: StaticStructureSchema = [3, n0, _PRrob,
 ];
 export var ProresSettings$: StaticStructureSchema = [3, n0, _PSro,
   0,
-  [_CShr, _CP, _FC, _FCA, _FD, _FN, _IM, _PCar, _PD, _PN, _PFM, _STCM, _SP, _Te],
-  [[0, { [_jN]: _cShr }], [0, { [_jN]: _cP }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _iM }], [0, { [_jN]: _pCar }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sP }], [0, { [_jN]: _te }]]
+  [_CShr, _CP, _FC, _FCA, _FD, _FN, _IM, _PCa, _PD, _PN, _PFM, _STCM, _SP, _Te],
+  [[0, { [_jN]: _cShr }], [0, { [_jN]: _cP }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _iM }], [0, { [_jN]: _pCa }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _sTCM }], [0, { [_jN]: _sP }], [0, { [_jN]: _te }]]
 ];
 export var PutPolicyRequest$: StaticStructureSchema = [3, n0, _PPR,
   0,
@@ -3019,8 +3039,8 @@ export var PutPolicyResponse$: StaticStructureSchema = [3, n0, _PPRu,
 ];
 export var Queue$: StaticStructureSchema = [3, n0, _Q,
   0,
-  [_N, _A, _CJ, _CA, _Des, _LU, _MCF, _PP, _PJC, _RPe, _SOer, _Sta, _SJC, _Ty],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _a }], [1, { [_jN]: _cJ }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [1, { [_jN]: _mCF }], [0, { [_jN]: _pP }], [1, { [_jN]: _pJC }], [() => ReservationPlan$, { [_jN]: _rPe }], [() => __listOfServiceOverride, { [_jN]: _sOer }], [0, { [_jN]: _sta }], [1, { [_jN]: _sJC }], [0, { [_jN]: _ty }]], 1
+  [_Na, _A, _CJ, _CA, _Desc, _LU, _MCF, _PP, _PJC, _RPe, _SOer, _Sta, _SJC, _Ty],
+  [[0, { [_jN]: _na }], [0, { [_jN]: _a }], [1, { [_jN]: _cJ }], [7, { [_jN]: _cA }], [0, { [_jN]: _desc }], [7, { [_jN]: _lU }], [1, { [_jN]: _mCF }], [0, { [_jN]: _pP }], [1, { [_jN]: _pJC }], [() => ReservationPlan$, { [_jN]: _rPe }], [() => __listOfServiceOverride, { [_jN]: _sOer }], [0, { [_jN]: _sta }], [1, { [_jN]: _sJC }], [0, { [_jN]: _ty }]], 1
 ];
 export var QueueTransition$: StaticStructureSchema = [3, n0, _QTu,
   0,
@@ -3084,8 +3104,8 @@ export var SearchJobsResponse$: StaticStructureSchema = [3, n0, _SJRe,
 ];
 export var ServiceOverride$: StaticStructureSchema = [3, n0, _SOerv,
   0,
-  [_M, _N, _OV, _Val],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _n }], [0, { [_jN]: _oV }], [0, { [_jN]: _val }]]
+  [_M, _Na, _OV, _Val],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _na }], [0, { [_jN]: _oV }], [0, { [_jN]: _val }]]
 ];
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
@@ -3174,8 +3194,8 @@ export var TrackSourceSettings$: StaticStructureSchema = [3, n0, _TSSr,
 ];
 export var TtmlDestinationSettings$: StaticStructureSchema = [3, n0, _TDSt,
   0,
-  [_SPt],
-  [[0, { [_jN]: _sPt }]]
+  [_BC, _BO, _FCo, _FO, _FSon, _FSont, _FW, _SPt, _TDe],
+  [[0, { [_jN]: _bC }], [1, { [_jN]: _bO }], [0, { [_jN]: _fCo }], [1, { [_jN]: _fO }], [1, { [_jN]: _fSon }], [0, { [_jN]: _fSont }], [0, { [_jN]: _fW }], [0, { [_jN]: _sPt }], [0, { [_jN]: _tDe }]]
 ];
 export var UncompressedSettings$: StaticStructureSchema = [3, n0, _US,
   0,
@@ -3194,8 +3214,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateJobTemplateRequest$: StaticStructureSchema = [3, n0, _UJTR,
   0,
-  [_N, _AScc, _Ca, _Des, _HD, _Pri, _Q, _Se, _SUI],
-  [[0, 1], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => JobTemplateSettings$, { [_jN]: _set }], [0, { [_jN]: _sUI }]], 1
+  [_Na, _AScc, _Ca, _Desc, _HD, _Pri, _Q, _Se, _SUI],
+  [[0, 1], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _desc }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => JobTemplateSettings$, { [_jN]: _set }], [0, { [_jN]: _sUI }]], 1
 ];
 export var UpdateJobTemplateResponse$: StaticStructureSchema = [3, n0, _UJTRp,
   0,
@@ -3204,8 +3224,8 @@ export var UpdateJobTemplateResponse$: StaticStructureSchema = [3, n0, _UJTRp,
 ];
 export var UpdatePresetRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_N, _Ca, _Des, _Se],
-  [[0, 1], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => PresetSettings$, { [_jN]: _set }]], 1
+  [_Na, _Ca, _Desc, _Se],
+  [[0, 1], [0, { [_jN]: _ca }], [0, { [_jN]: _desc }], [() => PresetSettings$, { [_jN]: _set }]], 1
 ];
 export var UpdatePresetResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -3214,8 +3234,8 @@ export var UpdatePresetResponse$: StaticStructureSchema = [3, n0, _UPRp,
 ];
 export var UpdateQueueRequest$: StaticStructureSchema = [3, n0, _UQR,
   0,
-  [_N, _CJ, _Des, _MCF, _RPS, _Sta],
-  [[0, 1], [1, { [_jN]: _cJ }], [0, { [_jN]: _des }], [1, { [_jN]: _mCF }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }]], 1
+  [_Na, _CJ, _Desc, _MCF, _RPS, _Sta],
+  [[0, 1], [1, { [_jN]: _cJ }], [0, { [_jN]: _desc }], [1, { [_jN]: _mCF }], [() => ReservationPlanSettings$, { [_jN]: _rPS }], [0, { [_jN]: _sta }]], 1
 ];
 export var UpdateQueueResponse$: StaticStructureSchema = [3, n0, _UQRp,
   0,
@@ -3279,8 +3299,8 @@ export var VideoPreprocessor$: StaticStructureSchema = [3, n0, _VPide,
 ];
 export var VideoProperties$: StaticStructureSchema = [3, n0, _VPi,
   0,
-  [_BD, _BR, _CMo, _CPo, _FR, _HMd, _H, _MCat, _Ro, _TCr, _W],
-  [[1, { [_jN]: _bD }], [1, { [_jN]: _bR }], [() => CodecMetadata$, { [_jN]: _cMod }], [0, { [_jN]: _cPo }], [() => FrameRate$, { [_jN]: _fR }], [() => HdrMetadata$, { [_jN]: _hMd }], [1, { [_jN]: _h }], [0, { [_jN]: _mCat }], [1, { [_jN]: _ro }], [0, { [_jN]: _tCr }], [1, { [_jN]: _w }]]
+  [_BD, _BR, _CMo, _CPo, _DAR, _FR, _HMd, _H, _MCat, _Ro, _SAR, _TCr, _W],
+  [[1, { [_jN]: _bD }], [1, { [_jN]: _bR }], [() => CodecMetadata$, { [_jN]: _cMod }], [0, { [_jN]: _cPo }], [() => AspectRatio$, { [_jN]: _dAR }], [() => FrameRate$, { [_jN]: _fR }], [() => HdrMetadata$, { [_jN]: _hMd }], [1, { [_jN]: _h }], [0, { [_jN]: _mCat }], [1, { [_jN]: _ro }], [() => AspectRatio$, { [_jN]: _sAR }], [0, { [_jN]: _tCr }], [1, { [_jN]: _w }]]
 ];
 export var VideoSelector$: StaticStructureSchema = [3, n0, _VSi,
   0,
@@ -3294,13 +3314,13 @@ export var VorbisSettings$: StaticStructureSchema = [3, n0, _VS,
 ];
 export var Vp8Settings$: StaticStructureSchema = [3, n0, _VSp,
   0,
-  [_B, _FC, _FCA, _FD, _FN, _GS, _HBS, _MB, _PCar, _PD, _PN, _QTL, _RCM],
-  [[1, { [_jN]: _b }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [1, { [_jN]: _gS }], [1, { [_jN]: _hBS }], [1, { [_jN]: _mB }], [0, { [_jN]: _pCar }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [0, { [_jN]: _qTL }], [0, { [_jN]: _rCM }]]
+  [_B, _FC, _FCA, _FD, _FN, _GS, _HBS, _MB, _PCa, _PD, _PN, _QTL, _RCM],
+  [[1, { [_jN]: _b }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [1, { [_jN]: _gS }], [1, { [_jN]: _hBS }], [1, { [_jN]: _mB }], [0, { [_jN]: _pCa }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [0, { [_jN]: _qTL }], [0, { [_jN]: _rCM }]]
 ];
 export var Vp9Settings$: StaticStructureSchema = [3, n0, _VSpe,
   0,
-  [_B, _FC, _FCA, _FD, _FN, _GS, _HBS, _MB, _PCar, _PD, _PN, _QTL, _RCM],
-  [[1, { [_jN]: _b }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [1, { [_jN]: _gS }], [1, { [_jN]: _hBS }], [1, { [_jN]: _mB }], [0, { [_jN]: _pCar }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [0, { [_jN]: _qTL }], [0, { [_jN]: _rCM }]]
+  [_B, _FC, _FCA, _FD, _FN, _GS, _HBS, _MB, _PCa, _PD, _PN, _QTL, _RCM],
+  [[1, { [_jN]: _b }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [1, { [_jN]: _gS }], [1, { [_jN]: _hBS }], [1, { [_jN]: _mB }], [0, { [_jN]: _pCa }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [0, { [_jN]: _qTL }], [0, { [_jN]: _rCM }]]
 ];
 export var WarningGroup$: StaticStructureSchema = [3, n0, _WG,
   0,
@@ -3339,8 +3359,8 @@ export var Xavc4kProfileSettings$: StaticStructureSchema = [3, n0, _XPSa,
 ];
 export var XavcHdIntraCbgProfileSettings$: StaticStructureSchema = [3, n0, _XHICPS,
   0,
-  [_XC],
-  [[0, { [_jN]: _xC }]]
+  [_IM, _XC],
+  [[0, { [_jN]: _iM }], [0, { [_jN]: _xC }]]
 ];
 export var XavcHdProfileSettings$: StaticStructureSchema = [3, n0, _XHPS,
   0,

@@ -3,6 +3,7 @@ import {
   AacCodecProfile,
   AacCodingMode,
   AacLoudnessMeasurementMode,
+  AacPassthroughControl,
   AacRateControlMode,
   AacRawFormat,
   AacSettings$,
@@ -36,6 +37,7 @@ import {
   AncillarySourceSettings$,
   AncillaryTerminateCaptions,
   AntiAlias,
+  AspectRatio$,
   AssociateCertificate$,
   AssociateCertificateCommand,
   AssociateCertificateRequest$,
@@ -415,6 +417,7 @@ import {
   H265WriteMp4PackagingType,
   Hdr10Metadata$,
   Hdr10Plus$,
+  Hdr10PlusPresence,
   HdrMetadata$,
   HDRToSDRToneMapper,
   HlsAdditionalManifest$,
@@ -743,8 +746,13 @@ import {
   TrackType,
   TransferCharacteristics,
   TsPtsOffset,
+  TtmlBackgroundColor,
   TtmlDestinationSettings$,
+  TtmlFontColor,
+  TtmlFontStyle,
+  TtmlFontWeight,
   TtmlStylePassthrough,
+  TtmlTextDecoration,
   Type,
   UncompressedFourcc,
   UncompressedFramerateControl,
@@ -927,6 +935,7 @@ assert(typeof AdvancedInputFilterSettings$ === "object");
 assert(typeof AiffSettings$ === "object");
 assert(typeof AllowedRenditionSize$ === "object");
 assert(typeof AncillarySourceSettings$ === "object");
+assert(typeof AspectRatio$ === "object");
 assert(typeof AssociateCertificateRequest$ === "object");
 assert(typeof AssociateCertificateResponse$ === "object");
 assert(typeof AudioChannelTaggingSettings$ === "object");
@@ -1208,6 +1217,7 @@ assert(typeof AacAudioDescriptionBroadcasterMix === "object");
 assert(typeof AacCodecProfile === "object");
 assert(typeof AacCodingMode === "object");
 assert(typeof AacLoudnessMeasurementMode === "object");
+assert(typeof AacPassthroughControl === "object");
 assert(typeof AacRateControlMode === "object");
 assert(typeof AacRawFormat === "object");
 assert(typeof AacSpecification === "object");
@@ -1449,6 +1459,7 @@ assert(typeof H265Tiles === "object");
 assert(typeof H265TreeBlockSize === "object");
 assert(typeof H265UnregisteredSeiTimecode === "object");
 assert(typeof H265WriteMp4PackagingType === "object");
+assert(typeof Hdr10PlusPresence === "object");
 assert(typeof HDRToSDRToneMapper === "object");
 assert(typeof HlsAdMarkers === "object");
 assert(typeof HlsAudioOnlyContainer === "object");
@@ -1616,7 +1627,12 @@ assert(typeof TimedMetadata === "object");
 assert(typeof TrackType === "object");
 assert(typeof TransferCharacteristics === "object");
 assert(typeof TsPtsOffset === "object");
+assert(typeof TtmlBackgroundColor === "object");
+assert(typeof TtmlFontColor === "object");
+assert(typeof TtmlFontStyle === "object");
+assert(typeof TtmlFontWeight === "object");
 assert(typeof TtmlStylePassthrough === "object");
+assert(typeof TtmlTextDecoration === "object");
 assert(typeof Type === "object");
 assert(typeof UncompressedFourcc === "object");
 assert(typeof UncompressedFramerateControl === "object");

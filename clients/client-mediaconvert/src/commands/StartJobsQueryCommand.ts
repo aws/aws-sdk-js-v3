@@ -35,7 +35,7 @@ export interface StartJobsQueryCommandOutput extends StartJobsQueryResponse, __M
  * const input = { // StartJobsQueryRequest
  *   FilterList: [ // __listOfJobsQueryFilter
  *     { // JobsQueryFilter
- *       Key: "queue" || "status" || "fileInput" || "jobEngineVersionRequested" || "jobEngineVersionUsed" || "audioCodec" || "videoCodec",
+ *       Key: "queue" || "status" || "fileInput" || "jobEngineVersionRequested" || "jobEngineVersionUsed" || "audioCodec" || "videoCodec" || "errorCode",
  *       Values: [ // __listOf__stringMax100
  *         "STRING_VALUE",
  *       ],
