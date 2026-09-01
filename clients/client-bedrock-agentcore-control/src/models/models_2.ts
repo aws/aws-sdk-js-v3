@@ -357,19 +357,19 @@ export interface CedarPolicy {
 }
 
 /**
- * <p>An AgentCore policy statement, which supports plain Cedar policies as well as guardrails definitions.</p>
+ * <p>An AgentCore Cedar or Dogwood policy statement, which supports plain Cedar policies, temporal policies, and guardrails definitions.</p>
  * @public
  */
 export interface PolicyStatement {
   /**
-   * <p>The body of the AgentCore policy statement. Contains the policy logic, which can be a Cedar policy or a guardrails definition.</p>
+   * <p>The body of the AgentCore Cedar or Dogwood policy statement. Contains the policy logic, which can be a Cedar policy, a temporal policy, or a guardrails definition.</p>
    * @public
    */
   statement: string | undefined;
 }
 
 /**
- * <p>Represents the information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+ * <p>Represents the information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Dogwood policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
  * @public
  */
 export interface PolicyGenerationDetails {
@@ -412,7 +412,7 @@ export namespace PolicyDefinition {
   }
 
   /**
-   * <p>The generated policy asset information within the policy definition structure. This contains information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+   * <p>The generated policy asset information within the policy definition structure. This contains information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Dogwood policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
    * @public
    */
   export interface PolicyGenerationMember {
@@ -423,7 +423,7 @@ export namespace PolicyDefinition {
   }
 
   /**
-   * <p>An AgentCore policy statement that defines the access control rules. The statement can be a Cedar policy or a guardrails definition.</p>
+   * <p>The Dogwood policy statement that defines the access control rules. This policy definition can include Dogwood policies and supports temporal conditions and information providers such as guardrails.</p>
    * @public
    */
   export interface PolicyMember {
@@ -474,7 +474,7 @@ export interface Finding {
 }
 
 /**
- * <p>Represents a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+ * <p>Represents a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Dogwood policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
  * @public
  */
 export interface PolicyGenerationAsset {
@@ -491,7 +491,7 @@ export interface PolicyGenerationAsset {
   definition?: PolicyDefinition | undefined;
 
   /**
-   * <p>The portion of the original natural language input that this generated policy asset addresses. This helps users understand which part of their policy description was translated into this specific Cedar policy statement, enabling better policy selection and refinement. When a single natural language input describes multiple authorization requirements, the generation process creates separate policy assets for each requirement, with each asset's rawTextFragment showing which requirement it addresses. Use this mapping to verify that all parts of your natural language input were correctly translated into Cedar policies.</p>
+   * <p>The portion of the original natural language input that this generated policy asset addresses. This helps users understand which part of their policy description was translated into this specific Dogwood policy statement, enabling better policy selection and refinement. When a single natural language input describes multiple authorization requirements, the generation process creates separate policy assets for each requirement, with each asset's rawTextFragment showing which requirement it addresses. Use this mapping to verify that all parts of your natural language input were correctly translated into Dogwood policies.</p>
    * @public
    */
   rawTextFragment: string | undefined;
@@ -508,7 +508,7 @@ export interface PolicyGenerationAsset {
  */
 export interface ListPolicyGenerationAssetsResponse {
   /**
-   * <p>An array of generated policy assets including Cedar policies and related artifacts from the AI-powered policy generation process. Each asset represents a different policy option or variation generated from the original natural language input.</p>
+   * <p>An array of generated policy assets including Dogwood policies and related artifacts from the AI-powered policy generation process. Each asset represents a different policy option or variation generated from the original natural language input.</p>
    * @public
    */
   policyGenerationAssets?: PolicyGenerationAsset[] | undefined;
@@ -544,7 +544,7 @@ export interface ListPolicyGenerationsRequest {
 }
 
 /**
- * <p>Represents a policy generation request within the AgentCore Policy system. Tracks the AI-powered conversion of natural language descriptions into Cedar policy statements, enabling users to author policies by describing authorization requirements in plain English. The generation process analyzes the natural language input along with the Gateway's tool context and Cedar schema to produce one or more validated policy options. Each generation request tracks the status of the conversion process and maintains findings about the generated policies, including validation results and potential issues. Generated policy assets remain available for one week after successful generation, allowing time to review and create policies from the generated options.</p>
+ * <p>Represents a policy generation request within the AgentCore Policy system. Tracks the AI-powered conversion of natural language descriptions into Dogwood policy statements, enabling users to author policies by describing authorization requirements in plain English. The generation process analyzes the natural language input along with the Gateway's tool context and Cedar schema to produce one or more validated policy options. Each generation request tracks the status of the conversion process and maintains findings about the generated policies, including validation results and potential issues. Generated policy assets remain available for one week after successful generation, allowing time to review and create policies from the generated options.</p>
  * @public
  */
 export interface PolicyGeneration {
@@ -739,7 +739,7 @@ export type Content =
  */
 export namespace Content {
   /**
-   * <p>The raw text content containing natural language descriptions of desired policy behavior. This text is processed by AI to generate corresponding Cedar policy statements that match the described intent.</p>
+   * <p>The raw text content containing natural language descriptions of desired policy behavior. This text is processed by AI to generate corresponding Dogwood policy statements that match the described intent.</p>
    * @public
    */
   export interface RawTextMember {
@@ -782,7 +782,7 @@ export interface StartPolicyGenerationRequest {
   resource: Resource | undefined;
 
   /**
-   * <p>The natural language description of the desired policy behavior. This content is processed by AI to generate corresponding Cedar policy statements that match the described intent.</p>
+   * <p>The natural language description of the desired policy behavior. This content is processed by AI to generate corresponding Dogwood policy statements that match the described intent.</p>
    * @public
    */
   content: Content | undefined;
@@ -876,7 +876,7 @@ export interface CreatePolicyRequest {
   name: string | undefined;
 
   /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic written in Cedar policy language, specifying effect (permit or forbid), principals, actions, resources, and conditions for agent behavior control.</p>
+   * <p>The Cedar or Dogwood policy statement that defines the access control rules. This contains the actual policy logic written in Cedar or Dogwood, specifying effect (permit or forbid), principals, actions, resources, and conditions for agent behavior control.</p>
    * @public
    */
   definition: PolicyDefinition | undefined;
@@ -965,7 +965,7 @@ export interface CreatePolicyResponse {
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>The Cedar policy statement that was created. This is the validated policy definition that will be used for agent behavior control and access decisions.</p>
+   * <p>The Cedar or Dogwood policy statement that was created. This is the validated policy definition that will be used for agent behavior control and access decisions.</p>
    * @public
    */
   definition: PolicyDefinition | undefined;
@@ -1141,7 +1141,7 @@ export interface GetPolicyResponse {
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
+   * <p>The Cedar or Dogwood policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
    * @public
    */
   definition: PolicyDefinition | undefined;
@@ -1259,7 +1259,7 @@ export interface ListPoliciesRequest {
 }
 
 /**
- * <p>Represents a complete policy resource within the AgentCore Policy system. Policies are ARN-able resources that contain Cedar policy statements and associated metadata for controlling agent behavior and access decisions. Each policy belongs to a policy engine and defines fine-grained authorization rules that are evaluated in real-time as agents interact with tools through Gateway. Policies use the Cedar policy language to specify who (principals based on OAuth claims like username, role, or scope) can perform what actions (tool calls) on which resources (Gateways), with optional conditions for attribute-based access control. Multiple policies can apply to a single request, with Cedar's forbid-wins semantics ensuring that security restrictions are never accidentally overridden.</p>
+ * <p>Represents a complete policy resource within the AgentCore Policy system. Policies are ARN-able resources that contain Cedar or Dogwood policy statements and associated metadata for controlling agent behavior and access decisions. Each policy belongs to a policy engine and defines fine-grained authorization rules that are evaluated in real-time as agents interact with tools through Gateway. Policies use Cedar or Dogwood to specify who (principals based on OAuth claims like username, role, or scope) can perform what actions (tool calls) on which resources (Gateways), with optional conditions for attribute-based access control. Multiple policies can apply to a single request, with forbid-wins semantics ensuring that security restrictions are never accidentally overridden.</p>
  * @public
  */
 export interface Policy {
@@ -1312,7 +1312,7 @@ export interface Policy {
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
+   * <p>The Cedar or Dogwood policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
    * @public
    */
   definition: PolicyDefinition | undefined;
@@ -1470,7 +1470,7 @@ export interface UpdatePolicyRequest {
   description?: UpdatedDescription | undefined;
 
   /**
-   * <p>The new Cedar policy statement that defines the access control rules. This replaces the existing policy definition with new logic while maintaining the policy's identity.</p>
+   * <p>The new Cedar or Dogwood policy statement that defines the access control rules. This replaces the existing policy definition with new logic while maintaining the policy's identity.</p>
    * @public
    */
   definition?: PolicyDefinition | undefined;
@@ -1541,7 +1541,7 @@ export interface UpdatePolicyResponse {
   enforcementMode?: EnforcementMode | undefined;
 
   /**
-   * <p>The updated Cedar policy statement.</p>
+   * <p>The updated Cedar or Dogwood policy statement.</p>
    * @public
    */
   definition: PolicyDefinition | undefined;

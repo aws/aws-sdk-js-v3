@@ -5401,7 +5401,7 @@ export interface UpdateConfigurationBundleRequest {
    * <p>A list of parent version identifiers for lineage tracking. Regular commits have a single parent. Merge commits have two parents: the target branch parent and the source branch parent. If the branch already exists, the first parent must be the latest version on that branch.</p>
    * @public
    */
-  parentVersionIds?: string[] | undefined;
+  parentVersionIds: string[] | undefined;
 
   /**
    * <p>The branch name for this version. If not specified, inherits the parent's branch or defaults to <code>mainline</code>.</p>
@@ -7610,7 +7610,7 @@ export interface GatewayInterceptorConfiguration {
  */
 export interface GatewayPolicyEngineConfiguration {
   /**
-   * <p>The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.</p>
+   * <p>The ARN of the policy engine. The policy engine contains Cedar or Dogwood policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.</p>
    * @public
    */
   arn: string | undefined;

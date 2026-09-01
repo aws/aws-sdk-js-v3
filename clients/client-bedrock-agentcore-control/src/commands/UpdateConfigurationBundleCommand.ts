@@ -42,7 +42,7 @@ export interface UpdateConfigurationBundleCommandOutput extends UpdateConfigurat
  *       configuration: "DOCUMENT_VALUE", // required
  *     },
  *   },
- *   parentVersionIds: [ // ConfigurationBundleVersionList
+ *   parentVersionIds: [ // ConfigurationBundleVersionList // required
  *     "STRING_VALUE",
  *   ],
  *   branchName: "STRING_VALUE",

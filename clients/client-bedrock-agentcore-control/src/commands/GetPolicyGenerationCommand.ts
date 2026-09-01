@@ -23,7 +23,7 @@ export interface GetPolicyGenerationCommandInput extends GetPolicyGenerationRequ
 export interface GetPolicyGenerationCommandOutput extends GetPolicyGenerationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a policy generation request within the AgentCore Policy system. Policy generation converts natural language descriptions into Cedar policy statements using AI-powered translation, enabling non-technical users to create policies.</p>
+ * <p>Retrieves information about a policy generation request within the AgentCore Policy system. Policy generation converts natural language descriptions into Dogwood policy statements using AI-powered translation, enabling non-technical users to create policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

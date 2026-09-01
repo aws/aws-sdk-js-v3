@@ -4733,8 +4733,8 @@ export var UpdateCapacityProviderOutput$: StaticStructureSchema = [3, n0, _UCPO,
 ];
 export var UpdateConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _UCBR,
   0,
-  [_bIu, _cT, _bN, _d, _com, _pVI, _bNr, _cM, _cB, _kKA],
-  [[0, 1], [0, 4], 0, [() => ConfigurationBundleDescription, 0], [() => ComponentConfigurationMap, 0], 64 | 0, 0, 0, () => VersionCreatedBySource$, 0], 1
+  [_bIu, _pVI, _cT, _bN, _d, _com, _bNr, _cM, _cB, _kKA],
+  [[0, 1], 64 | 0, [0, 4], 0, [() => ConfigurationBundleDescription, 0], [() => ComponentConfigurationMap, 0], 0, 0, () => VersionCreatedBySource$, 0], 2
 ];
 export var UpdateConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _UCBRp,
   0,

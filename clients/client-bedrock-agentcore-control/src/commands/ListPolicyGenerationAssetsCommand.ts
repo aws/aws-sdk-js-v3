@@ -23,7 +23,7 @@ export interface ListPolicyGenerationAssetsCommandInput extends ListPolicyGenera
 export interface ListPolicyGenerationAssetsCommandOutput extends ListPolicyGenerationAssetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of generated policy assets from a policy generation request within the AgentCore Policy system. This operation returns the actual Cedar policies and related artifacts produced by the AI-powered policy generation process, allowing users to review and select from multiple generated policy options.</p>
+ * <p>Retrieves a list of generated policy assets from a policy generation request within the AgentCore Policy system. This operation returns the actual Dogwood policies and related artifacts produced by the AI-powered policy generation process, allowing users to review and select from multiple generated policy options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
