@@ -270,6 +270,35 @@ export type AgreementStatus = (typeof AgreementStatus)[keyof typeof AgreementSta
  * @public
  * @enum
  */
+export const EndTimeBehaviorReasonCode = {
+  ACCEPTOR_RENEW_OPTED_OUT: "ACCEPTOR_RENEW_OPTED_OUT",
+  NO_RENEWAL_TERM: "NO_RENEWAL_TERM",
+  PROPOSER_RENEW_OPTED_OUT: "PROPOSER_RENEW_OPTED_OUT",
+  RENEWAL_LIMIT_EXHAUSTED: "RENEWAL_LIMIT_EXHAUSTED",
+} as const;
+/**
+ * @public
+ */
+export type EndTimeBehaviorReasonCode = (typeof EndTimeBehaviorReasonCode)[keyof typeof EndTimeBehaviorReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const EndTimeBehaviorType = {
+  EXPIRE: "EXPIRE",
+  RENEW: "RENEW",
+  REPLACE: "REPLACE",
+} as const;
+/**
+ * @public
+ */
+export type EndTimeBehaviorType = (typeof EndTimeBehaviorType)[keyof typeof EndTimeBehaviorType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BillingAdjustmentReasonCode = {
   ALTERNATIVE_PROCUREMENT_CHANNEL: "ALTERNATIVE_PROCUREMENT_CHANNEL",
   BUYER_DISSATISFACTION: "BUYER_DISSATISFACTION",

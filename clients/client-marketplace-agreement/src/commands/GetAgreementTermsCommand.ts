@@ -64,6 +64,32 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  * //         configuration: { // RenewalTermConfiguration
  * //           enableAutoRenew: true || false, // required
  * //         },
+ * //         lockoutPeriod: "STRING_VALUE",
+ * //         maxRenewals: Number("int"),
+ * //         adjustmentDeadline: "STRING_VALUE",
+ * //         priceIncrease: { // PriceIncrease Union: only one key present
+ * //           fixedPercentage: { // FixedPercentage
+ * //             value: "STRING_VALUE",
+ * //           },
+ * //           percentageRange: { // PercentageRange
+ * //             minValue: "STRING_VALUE",
+ * //             maxValue: "STRING_VALUE",
+ * //             defaultValue: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         termTemplates: [ // TermTemplateList
+ * //           { // TermTemplate Union: only one key present
+ * //             paymentScheduleTermTemplate: { // PaymentScheduleTermTemplate
+ * //               schedule: [ // PaymentScheduleEntryList
+ * //                 { // PaymentScheduleEntry
+ * //                   chargeDateOffset: "STRING_VALUE",
+ * //                   chargePercentage: "STRING_VALUE",
+ * //                   dayOfMonth: Number("int"),
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //       usageBasedPricingTerm: { // UsageBasedPricingTerm
  * //         type: "STRING_VALUE",

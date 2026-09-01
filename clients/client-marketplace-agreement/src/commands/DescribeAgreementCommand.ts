@@ -64,6 +64,14 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementOutput,
  * //     offerSetId: "STRING_VALUE",
  * //   },
  * //   status: "ACTIVE" || "ARCHIVED" || "CANCELLED" || "EXPIRED" || "RENEWED" || "REPLACED" || "ROLLED_BACK" || "SUPERSEDED" || "TERMINATED",
+ * //   initialAgreementId: "STRING_VALUE",
+ * //   endTimeBehavior: { // EndTimeBehavior
+ * //     type: "RENEW" || "REPLACE" || "EXPIRE", // required
+ * //     reasonCode: "PROPOSER_RENEW_OPTED_OUT" || "ACCEPTOR_RENEW_OPTED_OUT" || "NO_RENEWAL_TERM" || "RENEWAL_LIMIT_EXHAUSTED",
+ * //     renewalSummary: { // RenewalSummary
+ * //       offerId: "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```

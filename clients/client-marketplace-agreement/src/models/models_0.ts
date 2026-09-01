@@ -8,6 +8,8 @@ import type {
   BillingAdjustmentErrorCode,
   BillingAdjustmentReasonCode,
   BillingAdjustmentStatus,
+  EndTimeBehaviorReasonCode,
+  EndTimeBehaviorType,
   Intent,
   InvoiceType,
   LineItemGroupBy,
@@ -660,14 +662,178 @@ export interface RecurringPaymentTerm {
  */
 export interface RenewalTermConfiguration {
   /**
-   * <p>Defines whether the acceptor has chosen to auto-renew the agreement at the end of its lifecycle. Can be set to <code>True</code> or <code>False</code>.</p>
+   * <p>Defines whether the acceptor has chosen to auto-renew the agreement when it reaches its end date. Can be set to <code>True</code> or <code>False</code>. The acceptor can change this value within the limits set by <code>LockoutPeriod</code> and <code>MaxRenewals</code>.</p>
    * @public
    */
   enableAutoRenew: boolean | undefined;
 }
 
 /**
- * <p>Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. The presence of <code>RenewalTerm</code> in the offer document means that auto-renewal is allowed. Buyers will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. Buyers can also change this flag from <code>True</code> to <code>False</code> or <code>False</code> to <code>True</code> at anytime during the agreement's lifecycle.</p>
+ * <p>A fixed price increase that is applied each time the agreement renews.</p>
+ * @public
+ */
+export interface FixedPercentage {
+  /**
+   * <p>The percentage by which the price increases at each renewal, from <code>0.00</code> to <code>100.00</code> with up to two decimal places. A value of <code>0.00</code> means that the agreement renews at the same price.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>A range of price increase percentages that the proposer can choose from before the adjustment deadline of the agreement.</p> <p> <code>MinValue</code> will be less than <code>MaxValue</code>, and <code>DefaultValue</code> will fall within the range. When the proposer authorizes a single percentage instead of a range, <code>PriceIncrease</code> is a <code>FixedPercentage</code> rather than a <code>PercentageRange</code>.</p>
+ * @public
+ */
+export interface PercentageRange {
+  /**
+   * <p>The lowest percentage that the proposer can choose, from <code>0.00</code> to <code>100.00</code> with up to two decimal places.</p>
+   * @public
+   */
+  minValue?: string | undefined;
+
+  /**
+   * <p>The highest percentage that the proposer can choose, from <code>0.00</code> to <code>100.00</code> with up to two decimal places.</p>
+   * @public
+   */
+  maxValue?: string | undefined;
+
+  /**
+   * <p>The percentage that is applied if the proposer doesn't choose a value before the adjustment deadline. Valid values range from <code>0.00</code> to <code>100.00</code>, with up to two decimal places.</p>
+   * @public
+   */
+  defaultValue?: string | undefined;
+}
+
+/**
+ * <p>The price increase that is applied each time the agreement renews. Exactly one of the following fields is set.</p>
+ * @public
+ */
+export type PriceIncrease =
+  | PriceIncrease.FixedPercentageMember
+  | PriceIncrease.PercentageRangeMember
+  | PriceIncrease.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PriceIncrease {
+  /**
+   * <p>A fixed price increase percentage that is applied at each renewal.</p>
+   * @public
+   */
+  export interface FixedPercentageMember {
+    fixedPercentage: FixedPercentage;
+    percentageRange?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A range of price increase percentages that the proposer can choose from before the adjustment deadline of the agreement.</p>
+   * @public
+   */
+  export interface PercentageRangeMember {
+    fixedPercentage?: never;
+    percentageRange: PercentageRange;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fixedPercentage?: never;
+    percentageRange?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    fixedPercentage: (value: FixedPercentage) => T;
+    percentageRange: (value: PercentageRange) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A single installment in a payment schedule template. Because the start date of the renewed agreement isn't known when the offer is created, the charge date of each installment is expressed as an offset from that start date rather than as an absolute date.</p>
+ * @public
+ */
+export interface PaymentScheduleEntry {
+  /**
+   * <p>The time between the start date of the renewed agreement and the date this installment is charged. The duration is represented in the ISO 8601 format in either whole months or whole days (for example, <code>P1M</code> for 1 month or <code>P30D</code> for 30 days). All installments in a schedule use the same unit.</p>
+   * @public
+   */
+  chargeDateOffset?: string | undefined;
+
+  /**
+   * <p>The percentage of the total contract value of the renewed agreement that is charged in this installment. Valid values range from <code>0.01</code> to <code>100.00</code>, with up to two decimal places.</p>
+   * @public
+   */
+  chargePercentage?: string | undefined;
+
+  /**
+   * <p>The day of the month on which this installment is charged, from <code>1</code> to <code>31</code>. Use this field to anchor the charge to a specific calendar day within the month identified by <code>ChargeDateOffset</code>. This field is supported only when <code>ChargeDateOffset</code> is expressed in months.</p>
+   * @public
+   */
+  dayOfMonth?: number | undefined;
+}
+
+/**
+ * <p>Defines the payment schedule that is applied to the renewed agreement.</p>
+ * @public
+ */
+export interface PaymentScheduleTermTemplate {
+  /**
+   * <p>The installments that make up the payment schedule of the renewed agreement. The <code>ChargePercentage</code> values of all installments add up to <code>100</code>.</p>
+   * @public
+   */
+  schedule?: PaymentScheduleEntry[] | undefined;
+}
+
+/**
+ * <p>Defines how a specific type of term changes each time the agreement renews. Exactly one of the following fields is set.</p>
+ * @public
+ */
+export type TermTemplate =
+  | TermTemplate.PaymentScheduleTermTemplateMember
+  | TermTemplate.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TermTemplate {
+  /**
+   * <p>Defines the payment schedule that is applied to the renewed agreement.</p>
+   * @public
+   */
+  export interface PaymentScheduleTermTemplateMember {
+    paymentScheduleTermTemplate: PaymentScheduleTermTemplate;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    paymentScheduleTermTemplate?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    paymentScheduleTermTemplate: (value: PaymentScheduleTermTemplate) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. Presence of <code>RenewalTerm</code> in the offer document means that auto-renewal is allowed. The acceptor will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. The acceptor can also change this flag from <code>True</code> to <code>False</code> or <code>False</code> to <code>True</code>, within the limits set by <code>LockoutPeriod</code> and <code>MaxRenewals</code>. Setting the flag to <code>True</code> doesn't by itself guarantee that the agreement renews, because the proposer can also opt out.</p>
  * @public
  */
 export interface RenewalTerm {
@@ -688,6 +854,36 @@ export interface RenewalTerm {
    * @public
    */
   configuration?: RenewalTermConfiguration | undefined;
+
+  /**
+   * <p>The renewal decision deadline, measured back from the end date of the agreement. This is the last day either party can opt in to or opt out of the renewal. The duration is represented in the ISO 8601 format in whole days (for example, <code>P30D</code> for 30 days or <code>P60D</code> for 60 days).</p> <p>The field is <code>null</code> when no renewal decision deadline is set. In that case, either party can change the auto-renewal decision up to the end date of the agreement.</p>
+   * @public
+   */
+  lockoutPeriod?: string | undefined;
+
+  /**
+   * <p>The maximum number of times the agreement can be renewed. The field is <code>null</code> when the number of renewals is unlimited.</p> <p>After the agreement reaches this limit, it expires on its end date instead of renewing.</p>
+   * @public
+   */
+  maxRenewals?: number | undefined;
+
+  /**
+   * <p>The date by which the proposer must finalize the price increase for the next renewal, measured back from the end date of the agreement. The duration is represented in the ISO 8601 format in whole days (for example, <code>P30D</code> for 30 days or <code>P60D</code> for 60 days).</p> <p>This field applies only when <code>PriceIncrease</code> is a <code>PercentageRange</code>. The field is <code>null</code> when <code>PriceIncrease</code> is a <code>FixedPercentage</code>, because the price increase is already fixed and there is nothing for the proposer to finalize. If the proposer doesn't finalize a value by the adjustment deadline, the <code>DefaultValue</code> of the range applies.</p> <p> <code>AdjustmentDeadline</code> must be greater than <code>LockoutPeriod</code>.</p>
+   * @public
+   */
+  adjustmentDeadline?: string | undefined;
+
+  /**
+   * <p>The price increase that is applied each time the agreement renews. The field is <code>null</code> when the price doesn't change at renewal.</p>
+   * @public
+   */
+  priceIncrease?: PriceIncrease | undefined;
+
+  /**
+   * <p>Defines how specific terms change each time the agreement renews. The field is <code>null</code> when no terms change at renewal.</p>
+   * @public
+   */
+  termTemplates?: TermTemplate[] | undefined;
 }
 
 /**
@@ -913,7 +1109,7 @@ export namespace AcceptedTerm {
   }
 
   /**
-   * <p>Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. Presence of <code>RenewalTerm</code> in the offer document means that auto-renewal is allowed. Buyers will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. Buyers can also change this flag from <code>True</code> to <code>False</code> or <code>False</code> to <code>True</code> at anytime during the agreement's lifecycle.</p>
+   * <p>Defines that on graceful expiration of the agreement (when the agreement ends on its pre-defined end date), a new agreement will be created using the accepted terms on the existing agreement. In other words, the agreement will be renewed. Presence of <code>RenewalTerm</code> in the offer document means that auto-renewal is allowed. The acceptor will have the option to accept or decline auto-renewal at the offer acceptance/agreement creation. The acceptor can also change this flag from <code>True</code> to <code>False</code> or <code>False</code> to <code>True</code>, within the limits set by <code>LockoutPeriod</code> and <code>MaxRenewals</code>. Setting the flag to <code>True</code> doesn't by itself guarantee that the agreement renews, because the proposer can also opt out.</p>
    * @public
    */
   export interface RenewalTermMember {
@@ -1497,6 +1693,12 @@ export interface AgreementViewSummary {
   endTime?: Date | undefined;
 
   /**
+   * <p>The date and time when the agreement was last updated. An agreement is updated when any of its attributes or accepted terms change. Amendments, renewals, and a party changing whether the agreement renews are all examples.</p> <p>Use the <code>BeforeLastUpdateTime</code> and <code>AfterLastUpdateTime</code> filters to search on this value, and <code>LastUpdateTime</code> as the <code>SortBy</code> value to sort by it. Sorting by <code>LastUpdateTime</code> is supported only when <code>PartyType</code> is <code>Proposer</code>.</p>
+   * @public
+   */
+  lastUpdateTime?: Date | undefined;
+
+  /**
    * <p>The type of agreement.</p>
    * @public
    */
@@ -1531,6 +1733,24 @@ export interface AgreementViewSummary {
    * @public
    */
   entitlements?: Entitlement[] | undefined;
+
+  /**
+   * <p>The unique identifier of the very first agreement in a chain of related agreements, such as renewals or replacements. It stays the same across all agreements in that chain, which lets you trace an agreement back to the original. You can also use it as the <code>InitialAgreementId</code> filter value to return every agreement in the same chain.</p>
+   * @public
+   */
+  initialAgreementId?: string | undefined;
+
+  /**
+   * <p>The behavior of the agreement when it reaches its end date. The field is <code>null</code> for agreements that have no end date, because those agreements never reach an end time.</p> <p>Types include:</p> <ul> <li> <p> <code>RENEW</code> – A new agreement is created from the accepted terms of this agreement.</p> </li> <li> <p> <code>REPLACE</code> – A new agreement is created from a different offer than the one this agreement was created from. This happens, for example, when a private offer reaches its end date and the acceptor transitions to the public offer for the product.</p> </li> <li> <p> <code>EXPIRE</code> – The agreement ends and isn't renewed or replaced.</p> </li> </ul>
+   * @public
+   */
+  endTimeBehaviorType?: EndTimeBehaviorType | undefined;
+
+  /**
+   * <p>The reason why the agreement doesn't renew at its end date. The field is <code>null</code> when the agreement renews.</p> <p>More than one reason can apply to the same agreement. When that happens, the operation returns only one reason code, and <code>PROPOSER_RENEW_OPTED_OUT</code> takes precedence over all others.</p> <p>The <code>EnableAutoRenew</code> field reflects only the acceptor's preference, and doesn't reflect the other reasons an agreement might not renew.</p> <p>Reason codes include:</p> <ul> <li> <p> <code>PROPOSER_RENEW_OPTED_OUT</code> – The proposer opted out of renewing the agreement.</p> </li> <li> <p> <code>ACCEPTOR_RENEW_OPTED_OUT</code> – The acceptor opted out of renewing the agreement.</p> </li> <li> <p> <code>NO_RENEWAL_TERM</code> – The accepted terms of the agreement don't include a renewal term, which is required for an agreement to renew.</p> </li> <li> <p> <code>RENEWAL_LIMIT_EXHAUSTED</code> – The agreement reached the maximum number of renewals allowed by its renewal term.</p> </li> </ul>
+   * @public
+   */
+  endTimeBehaviorReasonCode?: EndTimeBehaviorReasonCode | undefined;
 }
 
 /**
@@ -2156,6 +2376,42 @@ export interface DescribeAgreementInput {
 }
 
 /**
+ * <p>The details of the renewal that applies at the end date of an agreement.</p>
+ * @public
+ */
+export interface RenewalSummary {
+  /**
+   * <p>The unique identifier of the offer that provides the terms for the next renewal cycle. For most renewals, this is the same offer that the agreement was created from.</p>
+   * @public
+   */
+  offerId?: string | undefined;
+}
+
+/**
+ * <p>The behavior of an agreement when it reaches its end date. For example, whether the agreement renews, and if it doesn't, the reason why.</p>
+ * @public
+ */
+export interface EndTimeBehavior {
+  /**
+   * <p>The behavior of the agreement when it reaches its end date.</p> <p>Types include:</p> <ul> <li> <p> <code>RENEW</code> – A new agreement is created from the accepted terms of this agreement.</p> </li> <li> <p> <code>REPLACE</code> – A new agreement is created from a different offer than the one this agreement was created from. This happens, for example, when a private offer reaches its end date and the acceptor transitions to the public offer for the product.</p> </li> <li> <p> <code>EXPIRE</code> – The agreement ends and isn't renewed or replaced.</p> </li> </ul>
+   * @public
+   */
+  type: EndTimeBehaviorType | undefined;
+
+  /**
+   * <p>The reason why the agreement doesn't renew at its end date. The field is <code>null</code> when the agreement renews.</p> <p>More than one reason can apply to the same agreement. When that happens, the operation returns only one reason code, and <code>PROPOSER_RENEW_OPTED_OUT</code> takes precedence over all others.</p> <p>The <code>EnableAutoRenew</code> field reflects only the acceptor's preference, and doesn't reflect the other reasons an agreement might not renew.</p> <p>Reason codes include:</p> <ul> <li> <p> <code>PROPOSER_RENEW_OPTED_OUT</code> – The proposer opted out of renewing the agreement.</p> </li> <li> <p> <code>ACCEPTOR_RENEW_OPTED_OUT</code> – The acceptor opted out of renewing the agreement.</p> </li> <li> <p> <code>NO_RENEWAL_TERM</code> – The accepted terms of the agreement don't include a renewal term, which is required for an agreement to renew.</p> </li> <li> <p> <code>RENEWAL_LIMIT_EXHAUSTED</code> – The agreement reached the maximum number of renewals allowed by its renewal term.</p> </li> </ul>
+   * @public
+   */
+  reasonCode?: EndTimeBehaviorReasonCode | undefined;
+
+  /**
+   * <p>The details of the renewal that applies at the end date of the agreement. This field is present when <code>Type</code> is <code>RENEW</code>. It is also present when <code>ReasonCode</code> is <code>PROPOSER_RENEW_OPTED_OUT</code> or <code>ACCEPTOR_RENEW_OPTED_OUT</code>. In those cases, it identifies the offer that the agreement would otherwise have renewed from. The field is <code>null</code> in all other cases.</p>
+   * @public
+   */
+  renewalSummary?: RenewalSummary | undefined;
+}
+
+/**
  * <p>Estimated cost of the agreement.</p>
  * @public
  */
@@ -2232,10 +2488,22 @@ export interface DescribeAgreementOutput {
   proposalSummary?: ProposalSummary | undefined;
 
   /**
-   * <p>The current status of the agreement.</p> <p>Statuses include:</p> <ul> <li> <p> <code>ACTIVE</code> – The terms of the agreement are active.</p> </li> <li> <p> <code>ARCHIVED</code> – The agreement ended without a specified reason.</p> </li> <li> <p> <code>CANCELLED</code> – The acceptor ended the agreement before the defined end date.</p> </li> <li> <p> <code>EXPIRED</code> – The agreement ended on the defined end date.</p> </li> <li> <p> <code>RENEWED</code> – The agreement was renewed into a new agreement (for example, an auto-renewal).</p> </li> <li> <p> <code>REPLACED</code> – The agreement was replaced using an agreement replacement offer.</p> </li> <li> <p> <code>TERMINATED</code> – The agreement ended before the defined end date because of an AWS termination (for example, a payment failure).</p> </li> </ul>
+   * <p>The current status of the agreement.</p> <p>Statuses include:</p> <ul> <li> <p> <code>ACTIVE</code> – The terms of the agreement are active.</p> </li> <li> <p> <code>CANCELLED</code> – The acceptor ended the agreement before the defined end date.</p> </li> <li> <p> <code>EXPIRED</code> – The agreement ended on the defined end date.</p> </li> <li> <p> <code>RENEWED</code> – The agreement was renewed into a new agreement (for example, an auto-renewal).</p> </li> <li> <p> <code>REPLACED</code> – The agreement was replaced using an agreement replacement offer.</p> </li> <li> <p> <code>TERMINATED</code> – The agreement ended before the defined end date because of an AWS termination (for example, a payment failure).</p> </li> </ul>
    * @public
    */
   status?: AgreementStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the very first agreement in a chain of related agreements, such as renewals or replacements. It stays the same across all agreements in that chain, which lets you trace an agreement back to the original. When an agreement isn't derived from another agreement, its <code>InitialAgreementId</code> is its own <code>AgreementId</code>.</p>
+   * @public
+   */
+  initialAgreementId?: string | undefined;
+
+  /**
+   * <p>The behavior of the agreement when it reaches its end date. For example, whether the agreement renews, and if it doesn't, the reason why.</p> <p>This field is present for every active agreement that has an end date. It is not present for an agreement that has no end date, because such an agreement never reaches an end time. Pay-as-you-go agreements are the most common example. It is also not present for an agreement that is no longer active.</p>
+   * @public
+   */
+  endTimeBehavior?: EndTimeBehavior | undefined;
 }
 
 /**
@@ -3258,13 +3526,13 @@ export interface Filter {
  */
 export interface Sort {
   /**
-   * <p>The attribute on which the data is grouped, which can be by <code>StartTime</code> and <code>EndTime</code>. The default value is <code>EndTime</code>.</p>
+   * <p>The attribute on which the data is grouped, which can be <code>EndTime</code>, <code>StartTime</code>, or <code>LastUpdateTime</code>. <code>StartTime</code> and <code>LastUpdateTime</code> are supported only when <code>PartyType</code> is <code>Proposer</code>. The default value is <code>EndTime</code>.</p>
    * @public
    */
   sortBy?: string | undefined;
 
   /**
-   * <p>The sorting order, which can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
+   * <p>The sorting order, which can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>ASCENDING</code>.</p>
    * @public
    */
   sortOrder?: SortOrder | undefined;
@@ -3281,13 +3549,13 @@ export interface SearchAgreementsInput {
   catalog?: string | undefined;
 
   /**
-   * <p>The filter name and value pair used to return a specific list of results.</p> <p>The following filters are supported:</p> <ul> <li> <p> <code>ResourceIdentifier</code> – The unique identifier of the resource.</p> </li> <li> <p> <code>ResourceType</code> – Type of the resource, which is the product (<code>AmiProduct</code>, <code>ContainerProduct</code>, <code>SaaSProduct</code>, <code>ProfessionalServicesProduct</code>, or <code>MachineLearningProduct</code>).</p> </li> <li> <p> <code>PartyType</code> – The party type of the caller. Use <code>Proposer</code> or <code>Acceptor</code>.</p> </li> <li> <p> <code>AcceptorAccountId</code> – The AWS account ID of the party accepting the agreement terms.</p> </li> <li> <p> <code>OfferId</code> – The unique identifier of the offer in which the terms are registered in the agreement token.</p> </li> <li> <p> <code>Status</code> – The current status of the agreement. Values include <code>ACTIVE</code>, <code>ARCHIVED</code>, <code>CANCELLED</code>, <code>EXPIRED</code>, <code>RENEWED</code>, <code>REPLACED</code>, and <code>TERMINATED</code>.</p> </li> <li> <p> <code>BeforeEndTime</code> – A date used to filter agreements with a date before the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>AfterEndTime</code> – A date used to filter agreements with a date after the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>AgreementType</code> – The type of agreement. Supported value includes <code>PurchaseAgreement</code>.</p> </li> <li> <p> <code>OfferSetId</code> – A unique identifier for the offer set containing this offer. All agreements created from offers in this set include this identifier as context.</p> </li> </ul>
+   * <p>The filter name and value pair used to return a specific list of results.</p> <p>The following filters are supported:</p> <ul> <li> <p> <code>ResourceIdentifier</code> – The unique identifier of the resource.</p> </li> <li> <p> <code>ResourceType</code> – Type of the resource, which is the product (<code>AmiProduct</code>, <code>ContainerProduct</code>, <code>SaaSProduct</code>, <code>ProfessionalServicesProduct</code>, or <code>MachineLearningProduct</code>).</p> </li> <li> <p> <code>PartyType</code> – The party type of the caller. Use <code>Proposer</code> or <code>Acceptor</code>.</p> </li> <li> <p> <code>AcceptorAccountId</code> – The AWS account ID of the party accepting the agreement terms.</p> </li> <li> <p> <code>OfferId</code> – The unique identifier of the offer in which the terms are registered in the agreement token.</p> </li> <li> <p> <code>Status</code> – The current status of the agreement. Values include <code>ACTIVE</code>, <code>CANCELLED</code>, <code>EXPIRED</code>, <code>RENEWED</code>, <code>REPLACED</code>, and <code>TERMINATED</code>.</p> </li> <li> <p> <code>BeforeEndTime</code> – A date used to filter agreements with a date before the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>AfterEndTime</code> – A date used to filter agreements with a date after the <code>endTime</code> of an agreement.</p> </li> <li> <p> <code>BeforeStartTime</code> – A date used to filter agreements with a date before the <code>startTime</code> of an agreement.</p> </li> <li> <p> <code>AfterStartTime</code> – A date used to filter agreements with a date after the <code>startTime</code> of an agreement.</p> </li> <li> <p> <code>BeforeLastUpdateTime</code> – A date used to filter agreements with a date before the <code>lastUpdateTime</code> of an agreement.</p> </li> <li> <p> <code>AfterLastUpdateTime</code> – A date used to filter agreements with a date after the <code>lastUpdateTime</code> of an agreement.</p> </li> <li> <p> <code>AgreementType</code> – The type of agreement. Supported value includes <code>PurchaseAgreement</code>.</p> </li> <li> <p> <code>OfferSetId</code> – A unique identifier for the offer set containing this offer. All agreements created from offers in this set include this identifier as context.</p> </li> <li> <p> <code>EndTimeBehaviorType</code> – What happens to the agreement when it reaches its end date. Values include <code>RENEW</code>, <code>REPLACE</code>, and <code>EXPIRE</code>.</p> </li> <li> <p> <code>EndTimeBehaviorReasonCode</code> – The reason why the agreement doesn't renew at its end date. Values include <code>PROPOSER_RENEW_OPTED_OUT</code>, <code>ACCEPTOR_RENEW_OPTED_OUT</code>, <code>NO_RENEWAL_TERM</code>, and <code>RENEWAL_LIMIT_EXHAUSTED</code>.</p> </li> <li> <p> <code>InitialAgreementId</code> – The unique identifier of the very first agreement in a chain of related agreements. Use this filter to return every agreement in the same chain.</p> </li> <li> <p> <code>LicenseArn</code> – The Amazon Resource Name (ARN) of the AWS License Manager license associated with an entitlement granted by the agreement.</p> </li> </ul> <p>A proposer can use any combination of the preceding filters along with <code>AgreementType</code>, which is required.</p> <p>The following filter combinations are supported when the <code>PartyType</code> is <code>Acceptor</code>:</p> <ul> <li> <p> <code>AgreementType</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceIdentifier</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceType</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>ResourceType</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferId</code> + <code>Status</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>EndTime</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>Status</code> </p> </li> <li> <p> <code>AgreementType</code> + <code>OfferSetId</code> + <code>Status</code> + <code>EndTime</code> </p> </li> </ul> <note> <p>To filter by <code>EndTime</code>, you can use <code>BeforeEndTime</code>, <code>AfterEndTime</code>, or both.</p> </note>
    * @public
    */
   filters?: Filter[] | undefined;
 
   /**
-   * <p>An object that contains the <code>SortBy</code> and <code>SortOrder</code> attributes. Only <code>EndTime</code> is supported for <code>SearchAgreements</code>. The default sort is <code>EndTime</code> descending.</p>
+   * <p>An object that contains the <code>SortBy</code> and <code>SortOrder</code> attributes. For <code>SearchAgreements</code>, <code>SortBy</code> supports <code>EndTime</code> for both party types, and <code>StartTime</code> and <code>LastUpdateTime</code> only when <code>PartyType</code> is <code>Proposer</code>. The default <code>SortBy</code> value is <code>EndTime</code>.</p>
    * @public
    */
   sort?: Sort | undefined;

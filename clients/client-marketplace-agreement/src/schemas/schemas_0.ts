@@ -69,8 +69,10 @@ const _ECL = "ExpectedChargeList";
 const _ECx = "ExpectedCharge";
 const _EL = "EntitlementList";
 const _ET = "EstimatedTaxes";
+const _ETB = "EndTimeBehavior";
 const _F = "Filter";
 const _FL = "FilterList";
+const _FP = "FixedPercentage";
 const _FTPT = "FreeTrialPricingTerm";
 const _FUPT = "FixedUpfrontPricingTerm";
 const _GACR = "GetAgreementCancellationRequest";
@@ -114,13 +116,18 @@ const _LT = "LegalTerm";
 const _NPT = "NetPaymentTerm";
 const _P = "Proposer";
 const _PCA = "PricingCurrencyAmount";
+const _PI = "PriceIncrease";
 const _PO = "PurchaseOrder";
 const _POu = "PurchaseOrders";
+const _PR = "PercentageRange";
 const _PRD = "PaymentRequestDescription";
 const _PRS = "PaymentRequestSummary";
 const _PRSL = "PaymentRequestSummaryList";
 const _PS = "ProposalSummary";
+const _PSE = "PaymentScheduleEntry";
+const _PSEL = "PaymentScheduleEntryList";
 const _PST = "PaymentScheduleTerm";
+const _PSTT = "PaymentScheduleTermTemplate";
 const _R = "Resource";
 const _RACR = "RejectAgreementCancellationRequest";
 const _RACRI = "RejectAgreementCancellationRequestInput";
@@ -132,6 +139,7 @@ const _RCI = "RateCardItem";
 const _RCL = "RateCardList";
 const _RNFE = "ResourceNotFoundException";
 const _RPT = "RecurringPaymentTerm";
+const _RS = "RenewalSummary";
 const _RT = "RenewalTerm";
 const _RTC = "RenewalTermConfiguration";
 const _RTCe = "RequestedTermConfiguration";
@@ -157,6 +165,8 @@ const _TB = "TaxBreakdown";
 const _TBI = "TaxBreakdownItem";
 const _TC = "TaxConfiguration";
 const _TE = "ThrottlingException";
+const _TT = "TermTemplate";
+const _TTL = "TermTemplateList";
 const _UBPT = "UsageBasedPricingTerm";
 const _UBRCI = "UsageBasedRateCardItem";
 const _UBRCL = "UsageBasedRateCardList";
@@ -173,7 +183,8 @@ const _a = "acceptor";
 const _aA = "adjustmentAmount";
 const _aAT = "amountAfterTax";
 const _aCRI = "agreementCancellationRequestId";
-const _aD = "agreementDuration";
+const _aD = "adjustmentDeadline";
+const _aDg = "agreementDuration";
 const _aE = "agreementEntitlements";
 const _aED = "agreementEndDate";
 const _aI = "agreementId";
@@ -204,7 +215,9 @@ const _cAr = "createdAfter";
 const _cB = "createdBefore";
 const _cC = "currencyCode";
 const _cD = "chargeDate";
+const _cDO = "chargeDateOffset";
 const _cI = "chargeId";
+const _cP = "chargePercentage";
 const _cR = "cancellationReason";
 const _cRh = "chargeReference";
 const _cRha = "chargeRevision";
@@ -218,7 +231,9 @@ const _con = "configuration";
 const _cons = "constraints";
 const _d = "description";
 const _dK = "dimensionKey";
+const _dOM = "dayOfMonth";
 const _dV = "dimensionValue";
+const _dVe = "defaultValue";
 const _di = "dimensions";
 const _do = "documents";
 const _du = "duration";
@@ -228,10 +243,14 @@ const _eC = "expectedCharges";
 const _eCs = "estimatedCharges";
 const _eD = "expirationDuration";
 const _eT = "endTime";
+const _eTB = "endTimeBehavior";
+const _eTBRC = "endTimeBehaviorReasonCode";
+const _eTBT = "endTimeBehaviorType";
 const _eTs = "estimatedTaxes";
 const _en = "entitlements";
 const _er = "errors";
 const _f = "fields";
+const _fP = "fixedPercentage";
 const _fTPT = "freeTrialPricingTerm";
 const _fUPT = "fixedUpfrontPricingTerm";
 const _fi = "filters";
@@ -239,6 +258,7 @@ const _g = "grants";
 const _gB = "groupBy";
 const _hE = "httpError";
 const _i = "items";
+const _iAI = "initialAgreementId";
 const _iBP = "invoiceBillingPeriod";
 const _iC = "itemizedCharges";
 const _iCA = "incrementalChargeAmount";
@@ -250,13 +270,18 @@ const _id = "id";
 const _in = "intent";
 const _lA = "licenseArn";
 const _lN = "legalName";
+const _lP = "lockoutPeriod";
 const _lT = "legalTerm";
+const _lUT = "lastUpdateTime";
 const _m = "message";
 const _mAA = "maxAdjustmentAmount";
 const _mDS = "multipleDimensionSelection";
 const _mQ = "maxQuantity";
 const _mR = "maxResults";
+const _mRa = "maxRenewals";
 const _mTCA = "maxTotalChargeAmount";
+const _mV = "minValue";
+const _mVa = "maxValue";
 const _mo = "month";
 const _n = "name";
 const _nAV = "newAgreementValue";
@@ -271,12 +296,15 @@ const _oSI = "offerSetId";
 const _p = "proposer";
 const _pCA = "pricingCurrencyAmount";
 const _pDP = "paymentDuePeriod";
+const _pI = "priceIncrease";
 const _pO = "purchaseOrders";
 const _pOR = "purchaseOrderReference";
+const _pR = "percentageRange";
 const _pRAS = "paymentRequestApprovalStrategy";
 const _pRI = "paymentRequestId";
 const _pS = "proposalSummary";
 const _pST = "paymentScheduleTerm";
+const _pSTT = "paymentScheduleTermTemplate";
 const _pT = "partyType";
 const _pr = "price";
 const _qC = "quotaCode";
@@ -290,6 +318,7 @@ const _rIe = "resourceId";
 const _rP = "refundPolicy";
 const _rPT = "recurringPaymentTerm";
 const _rR = "rejectionReason";
+const _rS = "renewalSummary";
 const _rT = "resourceType";
 const _rTC = "renewalTermConfiguration";
 const _rTe = "registrationToken";
@@ -319,6 +348,7 @@ const _tA = "totalAmount";
 const _tC = "taxConfiguration";
 const _tE = "taxEstimation";
 const _tI = "termId";
+const _tT = "termTemplates";
 const _ti = "time";
 const _tim = "timing";
 const _u = "url";
@@ -468,8 +498,8 @@ export var AgreementInvoiceLineItemGroupSummary$: StaticStructureSchema = [3, n0
 ];
 export var AgreementViewSummary$: StaticStructureSchema = [3, n0, _AVS,
   0,
-  [_aI, _aTc, _sT, _eT, _aT, _a, _p, _pS, _st, _en],
-  [0, 4, 4, 4, 0, () => Acceptor$, () => Proposer$, () => ProposalSummary$, 0, () => EntitlementList]
+  [_aI, _aTc, _sT, _eT, _lUT, _aT, _a, _p, _pS, _st, _en, _iAI, _eTBT, _eTBRC],
+  [0, 4, 4, 4, 4, 0, () => Acceptor$, () => Proposer$, () => ProposalSummary$, 0, () => EntitlementList, 0, 0, 0]
 ];
 export var BatchCreateBillingAdjustmentError$: StaticStructureSchema = [3, n0, _BCBAE,
   0,
@@ -583,8 +613,8 @@ export var DescribeAgreementInput$: StaticStructureSchema = [3, n0, _DAI,
 ];
 export var DescribeAgreementOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
-  [_aI, _a, _p, _sT, _eT, _aTc, _aT, _eCs, _pS, _st],
-  [0, () => Acceptor$, () => Proposer$, 4, 4, 4, 0, () => EstimatedCharges$, () => ProposalSummary$, 0]
+  [_aI, _a, _p, _sT, _eT, _aTc, _aT, _eCs, _pS, _st, _iAI, _eTB],
+  [0, () => Acceptor$, () => Proposer$, 4, 4, 4, 0, () => EstimatedCharges$, () => ProposalSummary$, 0, 0, () => EndTimeBehavior$]
 ];
 export var Dimension$: StaticStructureSchema = [3, n0, _D,
   0,
@@ -595,6 +625,11 @@ export var DocumentItem$: StaticStructureSchema = [3, n0, _DI,
   0,
   [_t, _u, _v],
   [0, 0, 0]
+];
+export var EndTimeBehavior$: StaticStructureSchema = [3, n0, _ETB,
+  0,
+  [_t, _rC, _rS],
+  [0, 0, () => RenewalSummary$], 1
 ];
 export var Entitlement$: StaticStructureSchema = [3, n0, _E,
   0,
@@ -620,6 +655,11 @@ export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_n, _va],
   [0, 64 | 0]
+];
+export var FixedPercentage$: StaticStructureSchema = [3, n0, _FP,
+  0,
+  [_val],
+  [0]
 ];
 export var FixedUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _FUPT,
   0,
@@ -766,10 +806,25 @@ export var PaymentRequestSummary$: StaticStructureSchema = [3, n0, _PRS,
   [_pRI, _aI, _st, _n, _cI, _cAh, _cC, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 0, 4, 4]
 ];
+export var PaymentScheduleEntry$: StaticStructureSchema = [3, n0, _PSE,
+  0,
+  [_cDO, _cP, _dOM],
+  [0, 0, 1]
+];
 export var PaymentScheduleTerm$: StaticStructureSchema = [3, n0, _PST,
   0,
   [_t, _id, _cC, _sc],
   [0, 0, 0, () => ScheduleList]
+];
+export var PaymentScheduleTermTemplate$: StaticStructureSchema = [3, n0, _PSTT,
+  0,
+  [_sc],
+  [() => PaymentScheduleEntryList]
+];
+export var PercentageRange$: StaticStructureSchema = [3, n0, _PR,
+  0,
+  [_mV, _mVa, _dVe],
+  [0, 0, 0]
 ];
 export var PricingCurrencyAmount$: StaticStructureSchema = [3, n0, _PCA,
   0,
@@ -821,10 +876,15 @@ export var RejectAgreementPaymentRequestOutput$: StaticStructureSchema = [3, n0,
   [_pRI, _aI, _st, _sM, _n, _d, _cAh, _cC, _cA, _uA],
   [0, 0, 0, 0, 0, [() => PaymentRequestDescription, 0], 0, 0, 4, 4]
 ];
+export var RenewalSummary$: StaticStructureSchema = [3, n0, _RS,
+  0,
+  [_oI],
+  [0]
+];
 export var RenewalTerm$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_t, _id, _con],
-  [0, 0, () => RenewalTermConfiguration$]
+  [_t, _id, _con, _lP, _mRa, _aD, _pI, _tT],
+  [0, 0, () => RenewalTermConfiguration$, 0, 1, 0, () => PriceIncrease$, () => TermTemplateList]
 ];
 export var RenewalTermConfiguration$: StaticStructureSchema = [3, n0, _RTC,
   0,
@@ -928,7 +988,7 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var ValidityTerm$: StaticStructureSchema = [3, n0, _VT,
   0,
-  [_t, _id, _aD, _aSD, _aED],
+  [_t, _id, _aDg, _aSD, _aED],
   [0, 0, 0, 4, 4]
 ];
 export var VariablePaymentTerm$: StaticStructureSchema = [3, n0, _VPT,
@@ -1000,6 +1060,9 @@ var ItemizedChargeList: StaticListSchema = [1, n0, _ICL,
 var PaymentRequestSummaryList: StaticListSchema = [1, n0, _PRSL,
   0, () => PaymentRequestSummary$
 ];
+var PaymentScheduleEntryList: StaticListSchema = [1, n0, _PSEL,
+  0, () => PaymentScheduleEntry$
+];
 var PurchaseOrders: StaticListSchema = [1, n0, _POu,
   0, () => PurchaseOrder$
 ];
@@ -1018,6 +1081,9 @@ var ScheduleList: StaticListSchema = [1, n0, _SL,
 var TaxBreakdown: StaticListSchema = [1, n0, _TB,
   0, () => TaxBreakdownItem$
 ];
+var TermTemplateList: StaticListSchema = [1, n0, _TTL,
+  0, () => TermTemplate$
+];
 var UsageBasedRateCardList: StaticListSchema = [1, n0, _UBRCL,
   0, () => UsageBasedRateCardItem$
 ];
@@ -1029,10 +1095,20 @@ export var AcceptedTerm$: StaticUnionSchema = [4, n0, _AT,
   [_lT, _sTu, _rTen, _uBPT, _cUPT, _bPT, _rPT, _vT, _pST, _fTPT, _fUPT, _vPT, _nPT],
   [() => LegalTerm$, () => SupportTerm$, () => RenewalTerm$, () => UsageBasedPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => ByolPricingTerm$, () => RecurringPaymentTerm$, () => ValidityTerm$, () => PaymentScheduleTerm$, () => FreeTrialPricingTerm$, () => FixedUpfrontPricingTerm$, () => VariablePaymentTerm$, () => NetPaymentTerm$]
 ];
+export var PriceIncrease$: StaticUnionSchema = [4, n0, _PI,
+  0,
+  [_fP, _pR],
+  [() => FixedPercentage$, () => PercentageRange$]
+];
 export var RequestedTermConfiguration$: StaticUnionSchema = [4, n0, _RTCe,
   0,
   [_cUPTC, _rTC, _vPTC],
   [() => ConfigurableUpfrontPricingTermConfiguration$, () => RenewalTermConfiguration$, () => VariablePaymentTermConfiguration$]
+];
+export var TermTemplate$: StaticUnionSchema = [4, n0, _TT,
+  0,
+  [_pSTT],
+  [() => PaymentScheduleTermTemplate$]
 ];
 export var AcceptAgreementCancellationRequest$: StaticOperationSchema = [9, n0, _AACR,
   0, () => AcceptAgreementCancellationRequestInput$, () => AcceptAgreementCancellationRequestOutput$

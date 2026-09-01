@@ -67,11 +67,15 @@ import {
   DescribeAgreementOutput$,
   Dimension$,
   DocumentItem$,
+  EndTimeBehavior$,
+  EndTimeBehaviorReasonCode,
+  EndTimeBehaviorType,
   Entitlement$,
   EstimatedCharges$,
   EstimatedTaxes$,
   ExpectedCharge$,
   Filter$,
+  FixedPercentage$,
   FixedUpfrontPricingTerm$,
   FreeTrialPricingTerm$,
   GetAgreementCancellationRequest$,
@@ -139,7 +143,11 @@ import {
   PaymentRequestApprovalStrategy,
   PaymentRequestStatus,
   PaymentRequestSummary$,
+  PaymentScheduleEntry$,
   PaymentScheduleTerm$,
+  PaymentScheduleTermTemplate$,
+  PercentageRange$,
+  PriceIncrease$,
   PricingCurrencyAmount$,
   ProposalSummary$,
   Proposer$,
@@ -154,6 +162,7 @@ import {
   RejectAgreementPaymentRequestCommand,
   RejectAgreementPaymentRequestInput$,
   RejectAgreementPaymentRequestOutput$,
+  RenewalSummary$,
   RenewalTerm$,
   RenewalTermConfiguration$,
   RequestedTerm$,
@@ -184,6 +193,7 @@ import {
   TaxBreakdownItem$,
   TaxConfiguration$,
   TaxEstimation,
+  TermTemplate$,
   ThrottlingException,
   ThrottlingException$,
   Timing,
@@ -294,11 +304,13 @@ assert(typeof DescribeAgreementInput$ === "object");
 assert(typeof DescribeAgreementOutput$ === "object");
 assert(typeof Dimension$ === "object");
 assert(typeof DocumentItem$ === "object");
+assert(typeof EndTimeBehavior$ === "object");
 assert(typeof Entitlement$ === "object");
 assert(typeof EstimatedCharges$ === "object");
 assert(typeof EstimatedTaxes$ === "object");
 assert(typeof ExpectedCharge$ === "object");
 assert(typeof Filter$ === "object");
+assert(typeof FixedPercentage$ === "object");
 assert(typeof FixedUpfrontPricingTerm$ === "object");
 assert(typeof FreeTrialPricingTerm$ === "object");
 assert(typeof GetAgreementCancellationRequestInput$ === "object");
@@ -328,7 +340,11 @@ assert(typeof ListBillingAdjustmentRequestsInput$ === "object");
 assert(typeof ListBillingAdjustmentRequestsOutput$ === "object");
 assert(typeof NetPaymentTerm$ === "object");
 assert(typeof PaymentRequestSummary$ === "object");
+assert(typeof PaymentScheduleEntry$ === "object");
 assert(typeof PaymentScheduleTerm$ === "object");
+assert(typeof PaymentScheduleTermTemplate$ === "object");
+assert(typeof PercentageRange$ === "object");
+assert(typeof PriceIncrease$ === "object");
 assert(typeof PricingCurrencyAmount$ === "object");
 assert(typeof ProposalSummary$ === "object");
 assert(typeof Proposer$ === "object");
@@ -339,6 +355,7 @@ assert(typeof RejectAgreementCancellationRequestInput$ === "object");
 assert(typeof RejectAgreementCancellationRequestOutput$ === "object");
 assert(typeof RejectAgreementPaymentRequestInput$ === "object");
 assert(typeof RejectAgreementPaymentRequestOutput$ === "object");
+assert(typeof RenewalSummary$ === "object");
 assert(typeof RenewalTerm$ === "object");
 assert(typeof RenewalTermConfiguration$ === "object");
 assert(typeof RequestedTerm$ === "object");
@@ -356,6 +373,7 @@ assert(typeof Sort$ === "object");
 assert(typeof SupportTerm$ === "object");
 assert(typeof TaxBreakdownItem$ === "object");
 assert(typeof TaxConfiguration$ === "object");
+assert(typeof TermTemplate$ === "object");
 assert(typeof UpdatePurchaseOrdersInput$ === "object");
 assert(typeof UpdatePurchaseOrdersOutput$ === "object");
 assert(typeof UsageBasedPricingTerm$ === "object");
@@ -374,6 +392,8 @@ assert(typeof AgreementStatus === "object");
 assert(typeof BillingAdjustmentErrorCode === "object");
 assert(typeof BillingAdjustmentReasonCode === "object");
 assert(typeof BillingAdjustmentStatus === "object");
+assert(typeof EndTimeBehaviorReasonCode === "object");
+assert(typeof EndTimeBehaviorType === "object");
 assert(typeof Intent === "object");
 assert(typeof InvoiceType === "object");
 assert(typeof LineItemGroupBy === "object");
