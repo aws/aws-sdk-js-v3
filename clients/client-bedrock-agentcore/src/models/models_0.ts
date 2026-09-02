@@ -4434,7 +4434,7 @@ export interface CloudWatchLogsSource {
   serviceNames: string[] | undefined;
 
   /**
-   * <p>The list of CloudWatch log group names to read agent traces from. Maximum of 5 log groups.</p>
+   * <p>The list of CloudWatch log group names to read agent traces from. Maximum of 10 log groups.</p>
    * @public
    */
   logGroupNames: string[] | undefined;
