@@ -823,6 +823,20 @@ describe(
       });
     });
 
+    it("can paginate items (paginateScanItems) yielding unmarshalled items", async () => {
+      const { paginateScanItems } = await import("@aws-sdk/lib-dynamodb");
+      const seen: Record<string, any> = {};
+      for await (const item of paginateScanItems({ client: doc, pageSize: 1 }, { TableName, ConsistentRead: true })) {
+        // each yielded value is an item (native JS object), not a page
+        expect(item).not.toHaveProperty("Items");
+        if (item?.id) {
+          seen[item.id] = item.data;
+        }
+      }
+      expect(seen["map"]).toEqual(data.map);
+      expect(seen["list"]).toEqual(data.list);
+    });
+
     for (const [key, value] of Object.entries(data)) {
       it(`can write data of type ${key}`, async () => {
         throwIfError(log.write[key]);
