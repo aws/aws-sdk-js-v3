@@ -20,6 +20,18 @@ import { Readable } from "node:stream";
 import { Worker } from "node:worker_threads";
 
 /**
+ * Rebuilds an Error from a worker failure with no HTTP response (checksum/length
+ * mismatch, socket error). Non-2xx responses use httpDownloadHttpError instead.
+ * @internal
+ */
+function buildDownloadError(msg: HttpWorkerDownloadErrorMessage): Error {
+  const error = new Error(msg.error) as Error & Record<string, unknown>;
+  if (msg.name) error.name = msg.name;
+  if (msg.code) error.code = msg.code;
+  return error;
+}
+
+/**
  * Creates an empty Readable stream that immediately ends.
  * Used as a placeholder body for UploadPart in threaded uploads.
  * @internal
@@ -167,7 +179,8 @@ export interface HttpWorkerDownloadResultMessage {
 }
 
 /**
- * Worker → Main thread: download part failed.
+ * Worker → Main thread: download failed with no HTTP response
+ * (checksum/length mismatch, socket error).
  * @internal
  */
 export interface HttpWorkerDownloadErrorMessage {
@@ -176,6 +189,20 @@ export interface HttpWorkerDownloadErrorMessage {
   error: string;
   code?: string;
   name?: string;
+}
+
+/**
+ * Worker → Main thread: download GET returned a non-2xx response. Forwards the
+ * raw status/headers/body so handle() can return it as an HttpResponse and let
+ * the SDK deserialize the typed error and retry it.
+ * @internal
+ */
+export interface HttpWorkerDownloadHttpErrorMessage {
+  type: "httpDownloadHttpError";
+  id: number;
+  statusCode: number;
+  headers: Record<string, string>;
+  body?: Uint8Array;
 }
 
 /**
@@ -203,6 +230,7 @@ export type HttpWorkerOutboundMessage =
   | HttpWorkerReadyMessage
   | HttpWorkerDownloadResultMessage
   | HttpWorkerDownloadErrorMessage
+  | HttpWorkerDownloadHttpErrorMessage
   | HttpWorkerDownloadStreamResultMessage;
 
 /** @internal */
@@ -320,6 +348,11 @@ export interface DownloadToFileResult {
   headers: Record<string, string>;
   bytesWritten: number;
   checksum?: string;
+  /**
+   * Set only on non-2xx responses: the raw error body, returned as an
+   * HttpResponse for the SDK to deserialize.
+   */
+  errorBody?: Uint8Array;
 }
 
 /**
@@ -330,13 +363,19 @@ export interface DownloadToFileResult {
 export interface DownloadStreamResult {
   rangeIndex: number;
   /**
-   * The ArrayBuffer transferred from the worker (zero-copy).
+   * The ArrayBuffer transferred from the worker (zero-copy). Empty on non-2xx
+   * responses; see {@link DownloadStreamResult.errorBody}.
    */
   buffer: ArrayBuffer;
   byteLength: number;
   statusCode: number;
   headers: Record<string, string>;
   checksum?: string;
+  /**
+   * Set only on non-2xx responses: the raw error body, returned as an
+   * HttpResponse for the SDK to deserialize.
+   */
+  errorBody?: Uint8Array;
 }
 
 export class WorkerHttpHandler {
@@ -517,11 +556,7 @@ export class WorkerHttpHandler {
             this.inflightDownloads.delete(msg.id);
             if (pending) {
               this.workerInflightCounts[pending.workerIndex]--;
-              const error = Object.assign(new Error(msg.error), {
-                ...(msg.code && { code: msg.code }),
-                ...(msg.name && { name: msg.name }),
-              });
-              pending.reject(error);
+              pending.reject(buildDownloadError(msg));
               return;
             }
             // Check stream downloads if not found in file downloads.
@@ -529,11 +564,38 @@ export class WorkerHttpHandler {
             this.inflightStreamDownloads.delete(msg.id);
             if (pendingTransfer) {
               this.workerInflightCounts[pendingTransfer.workerIndex]--;
-              const error = Object.assign(new Error(msg.error), {
-                ...(msg.code && { code: msg.code }),
-                ...(msg.name && { name: msg.name }),
+              pendingTransfer.reject(buildDownloadError(msg));
+            }
+            return;
+          }
+
+          if (msg.type === "httpDownloadHttpError") {
+            // Resolve (not reject) with the error response; handle() returns it as
+            // an HttpResponse for the SDK to deserialize and retry.
+            const pending = this.inflightDownloads.get(msg.id);
+            this.inflightDownloads.delete(msg.id);
+            if (pending) {
+              this.workerInflightCounts[pending.workerIndex]--;
+              pending.resolve({
+                statusCode: msg.statusCode,
+                headers: msg.headers,
+                bytesWritten: 0,
+                errorBody: msg.body,
               });
-              pendingTransfer.reject(error);
+              return;
+            }
+            const pendingTransfer = this.inflightStreamDownloads.get(msg.id);
+            this.inflightStreamDownloads.delete(msg.id);
+            if (pendingTransfer) {
+              this.workerInflightCounts[pendingTransfer.workerIndex]--;
+              pendingTransfer.resolve({
+                rangeIndex: -1,
+                buffer: new ArrayBuffer(0),
+                byteLength: 0,
+                statusCode: msg.statusCode,
+                headers: msg.headers,
+                errorBody: msg.body,
+              });
             }
             return;
           }
@@ -689,6 +751,18 @@ export class WorkerHttpHandler {
 
       const result = await this.dispatchDownloadToWorker(id, message);
 
+      // Non-2xx: return the error response as-is (nothing was written to disk).
+      // Keep the body/headers intact so the SDK can deserialize and retry it.
+      if (result.errorBody !== undefined) {
+        return {
+          response: new HttpResponse({
+            statusCode: result.statusCode,
+            headers: result.headers,
+            body: Readable.from([Buffer.from(result.errorBody)]),
+          }),
+        };
+      }
+
       // Store the download-specific result (bytesWritten, checksum) in the
       // side-channel map so the TM can retrieve it after s3.send() returns.
       if (downloadDataToFile.resultToken) {
@@ -757,6 +831,18 @@ export class WorkerHttpHandler {
         this.workers[workerIndex].postMessage(message);
       });
 
+      // Non-2xx: return the error response as-is so the SDK can deserialize the
+      // typed error (e.g. SlowDown) and retry it.
+      if (result.errorBody !== undefined) {
+        return {
+          response: new HttpResponse({
+            statusCode: result.statusCode,
+            headers: result.headers,
+            body: Readable.from([Buffer.from(result.errorBody)]),
+          }),
+        };
+      }
+
       // Strip per-part checksum headers (validated inline by the worker)
       const responseHeaders: Record<string, string> = {};
       for (const [key, value] of Object.entries(result.headers)) {
@@ -765,16 +851,8 @@ export class WorkerHttpHandler {
         }
       }
 
-      // For error responses (4xx/5xx), pass the body through so the SDK can
-      // deserialize the proper error type (e.g. PreconditionFailed).
-      let body: Readable | undefined;
-      if (result.statusCode >= 400) {
-        const bodyBuf = Buffer.from(result.buffer, 0, result.byteLength);
-        body = Readable.from([bodyBuf]);
-      }
-
-      // Store the transfer result only for successful responses.
-      if (result.statusCode < 400 && downloadStream.resultToken) {
+      // Store the transfer result for the caller to retrieve after s3.send() returns.
+      if (downloadStream.resultToken) {
         this.completedTransfers.set(downloadStream.resultToken, result);
       }
 
@@ -782,7 +860,7 @@ export class WorkerHttpHandler {
         response: new HttpResponse({
           statusCode: result.statusCode,
           headers: responseHeaders,
-          body: body ?? createEmptyReadable(),
+          body: createEmptyReadable(),
         }),
       };
     }
