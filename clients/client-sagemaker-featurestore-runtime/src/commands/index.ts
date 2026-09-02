@@ -5,3 +5,4 @@ export * from "./DeleteRecordCommand";
 export * from "./GetRecordCommand";
 export * from "./ListRecordsCommand";
 export * from "./PutRecordCommand";
+export * from "./UpdateRecordCommand";

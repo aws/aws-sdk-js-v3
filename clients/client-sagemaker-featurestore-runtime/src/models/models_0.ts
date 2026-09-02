@@ -473,3 +473,53 @@ export interface PutRecordRequest {
    */
   TtlDuration?: TtlDuration | undefined;
 }
+
+/**
+ * @public
+ */
+export interface UpdateRecordRequest {
+  /**
+   * <p>The identifier for the feature group that contains the record to update. You can
+   *          specify one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The feature group name.</p>
+   *             </li>
+   *             <li>
+   *                <p>The feature group Amazon Resource Name (ARN).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The value that uniquely identifies the record in the feature group. This must
+   *          match the value defined by the feature group's record identifier feature.</p>
+   * @public
+   */
+  RecordIdentifierValueAsString: string | undefined;
+
+  /**
+   * <p>The feature values to write to the record.</p>
+   * @public
+   */
+  Features: FeatureValue[] | undefined;
+
+  /**
+   * <p>The target stores for the record update. By default, Amazon SageMaker Feature
+   *          Store updates the record in all stores associated with the
+   *             <code>FeatureGroup</code>.</p>
+   * @public
+   */
+  TargetStores?: TargetStore[] | undefined;
+
+  /**
+   * <p>The time-to-live (TTL) duration for the record. Amazon SageMaker Feature Store
+   *          deletes the record when <code>EventTime</code> + <code>TtlDuration</code>
+   *          elapses. If you omit this parameter, the record's existing TTL setting remains
+   *          unchanged. For information about <code>HardDelete</code>, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> operation in the Amazon SageMaker API Reference.</p>
+   * @public
+   */
+  TtlDuration?: TtlDuration | undefined;
+}

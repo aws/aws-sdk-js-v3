@@ -60,6 +60,7 @@ import type { DeleteRecordCommandInput, DeleteRecordCommandOutput } from "./comm
 import type { GetRecordCommandInput, GetRecordCommandOutput } from "./commands/GetRecordCommand";
 import type { ListRecordsCommandInput, ListRecordsCommandOutput } from "./commands/ListRecordsCommand";
 import type { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
+import type { UpdateRecordCommandInput, UpdateRecordCommandOutput } from "./commands/UpdateRecordCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -80,7 +81,8 @@ export type ServiceInputTypes =
   | DeleteRecordCommandInput
   | GetRecordCommandInput
   | ListRecordsCommandInput
-  | PutRecordCommandInput;
+  | PutRecordCommandInput
+  | UpdateRecordCommandInput;
 
 /**
  * @public
@@ -91,7 +93,8 @@ export type ServiceOutputTypes =
   | DeleteRecordCommandOutput
   | GetRecordCommandOutput
   | ListRecordsCommandOutput
-  | PutRecordCommandOutput;
+  | PutRecordCommandOutput
+  | UpdateRecordCommandOutput;
 
 /**
  * @public

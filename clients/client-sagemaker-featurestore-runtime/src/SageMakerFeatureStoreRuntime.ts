@@ -24,6 +24,11 @@ import {
   ListRecordsCommand,
 } from "./commands/ListRecordsCommand";
 import { type PutRecordCommandInput, type PutRecordCommandOutput, PutRecordCommand } from "./commands/PutRecordCommand";
+import {
+  type UpdateRecordCommandInput,
+  type UpdateRecordCommandOutput,
+  UpdateRecordCommand,
+} from "./commands/UpdateRecordCommand";
 import { paginateListRecords } from "./pagination/ListRecordsPaginator";
 import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
 
@@ -34,6 +39,7 @@ const commands = {
   GetRecordCommand,
   ListRecordsCommand,
   PutRecordCommand,
+  UpdateRecordCommand,
 };
 const paginators = {
   paginateListRecords,
@@ -140,6 +146,23 @@ export interface SageMakerFeatureStoreRuntime {
     args: PutRecordCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutRecordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRecordCommand}
+   */
+  updateRecord(
+    args: UpdateRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecordCommandOutput>;
+  updateRecord(
+    args: UpdateRecordCommandInput,
+    cb: (err: any, data?: UpdateRecordCommandOutput) => void
+  ): void;
+  updateRecord(
+    args: UpdateRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecordCommandOutput) => void
   ): void;
 
   /**

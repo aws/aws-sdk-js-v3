@@ -115,3 +115,28 @@ export class ResourceNotFound extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * <p>The service rejected the update because the provided <code>EventTime</code> is
+ *          older than the record's current <code>EventTime</code>. To persist the update, retrieve
+ *          the record's latest <code>EventTime</code> and resubmit the request with an
+ *             <code>EventTime</code> that is equal to or newer than the current value.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}

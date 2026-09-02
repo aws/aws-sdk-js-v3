@@ -15,6 +15,7 @@ const _BWREat = "BatchWriteRecordEntries";
 const _BWREatc = "BatchWriteRecordErrors";
 const _BWRR = "BatchWriteRecordRequest";
 const _BWRRa = "BatchWriteRecordResponse";
+const _CE = "ConflictException";
 const _DM = "DeletionMode";
 const _DR = "DeleteRecord";
 const _DRR = "DeleteRecordRequest";
@@ -26,6 +27,7 @@ const _ET = "EventTime";
 const _ETR = "ExpirationTimeResponse";
 const _En = "Entry";
 const _Ent = "Entries";
+const _F = "Features";
 const _FGN = "FeatureGroupName";
 const _FN = "FeatureNames";
 const _FNe = "FeatureName";
@@ -57,6 +59,8 @@ const _U = "Unit";
 const _UBWRE = "UnprocessedBatchWriteRecordEntries";
 const _UE = "UnprocessedEntries";
 const _UI = "UnprocessedIdentifiers";
+const _UR = "UpdateRecord";
+const _URR = "UpdateRecordRequest";
 const _V = "Value";
 const _VAS = "ValueAsString";
 const _VASL = "ValueAsStringList";
@@ -76,6 +80,7 @@ import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, Static
 
 import {
   AccessForbidden,
+  ConflictException,
   InternalFailure,
   ResourceNotFound,
   ServiceUnavailable,
@@ -94,6 +99,12 @@ export var AccessForbidden$: StaticErrorSchema = [-3, n0, _AF,
   [0]
 ];
 n0_registry.registerError(AccessForbidden$, AccessForbidden);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
 export var InternalFailure$: StaticErrorSchema = [-3, n0, _IF,
   { [_e]: _se, [_hE]: 500 },
   [_M],
@@ -212,6 +223,11 @@ export var TtlDuration$: StaticStructureSchema = [3, n0, _TD,
   [_U, _V],
   [0, 1], 2
 ];
+export var UpdateRecordRequest$: StaticStructureSchema = [3, n0, _URR,
+  0,
+  [_FGN, _RIVAS, _F, _TS, _TD],
+  [[0, 1], 0, () => _Record, 64 | 0, () => TtlDuration$], 3
+];
 var __Unit = "unit" as const;
 var BatchGetRecordErrors: StaticListSchema = [1, n0, _BGREa,
   0, () => BatchGetRecordError$
@@ -259,4 +275,7 @@ export var ListRecords$: StaticOperationSchema = [9, n0, _LR,
 ];
 export var PutRecord$: StaticOperationSchema = [9, n0, _PR,
   { [_h]: ["PUT", "/FeatureGroup/{FeatureGroupName}", 200] }, () => PutRecordRequest$, () => __Unit
+];
+export var UpdateRecord$: StaticOperationSchema = [9, n0, _UR,
+  { [_h]: ["POST", "/FeatureGroup/{FeatureGroupName}/Record", 200] }, () => UpdateRecordRequest$, () => __Unit
 ];

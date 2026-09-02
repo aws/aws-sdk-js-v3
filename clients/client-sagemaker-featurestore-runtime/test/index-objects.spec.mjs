@@ -14,6 +14,8 @@ import {
   BatchWriteRecordError$,
   BatchWriteRecordRequest$,
   BatchWriteRecordResponse$,
+  ConflictException,
+  ConflictException$,
   DeleteRecord$,
   DeleteRecordCommand,
   DeleteRecordRequest$,
@@ -44,6 +46,9 @@ import {
   TargetStore,
   TtlDuration$,
   TtlDurationUnit,
+  UpdateRecord$,
+  UpdateRecordCommand,
+  UpdateRecordRequest$,
   ValidationError,
   ValidationError$,
 } from "../dist-cjs/index.js";
@@ -64,6 +69,8 @@ assert(typeof ListRecordsCommand === "function");
 assert(typeof ListRecords$ === "object");
 assert(typeof PutRecordCommand === "function");
 assert(typeof PutRecord$ === "object");
+assert(typeof UpdateRecordCommand === "function");
+assert(typeof UpdateRecord$ === "object");
 // structural schemas
 assert(typeof BatchGetRecordError$ === "object");
 assert(typeof BatchGetRecordIdentifier$ === "object");
@@ -82,6 +89,7 @@ assert(typeof ListRecordsRequest$ === "object");
 assert(typeof ListRecordsResponse$ === "object");
 assert(typeof PutRecordRequest$ === "object");
 assert(typeof TtlDuration$ === "object");
+assert(typeof UpdateRecordRequest$ === "object");
 // enums
 assert(typeof DeletionMode === "object");
 assert(typeof ExpirationTimeResponse === "object");
@@ -90,6 +98,8 @@ assert(typeof TtlDurationUnit === "object");
 // errors
 assert(AccessForbidden.prototype instanceof SageMakerFeatureStoreRuntimeServiceException);
 assert(typeof AccessForbidden$ === "object");
+assert(ConflictException.prototype instanceof SageMakerFeatureStoreRuntimeServiceException);
+assert(typeof ConflictException$ === "object");
 assert(InternalFailure.prototype instanceof SageMakerFeatureStoreRuntimeServiceException);
 assert(typeof InternalFailure$ === "object");
 assert(ResourceNotFound.prototype instanceof SageMakerFeatureStoreRuntimeServiceException);
