@@ -2881,6 +2881,7 @@ export type {
   VpnTunnelBandwidth,
   VpnTunnelProvisioningStatus,
   WeekDay,
+  ZeroSizePreference,
   AcceleratorCount,
   AcceleratorCountRequest,
   AcceleratorTotalMemoryMiB,

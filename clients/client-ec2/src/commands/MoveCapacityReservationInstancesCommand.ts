@@ -123,11 +123,13 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //       Status: "pending" || "active" || "updating" || "canceling" || "canceled" || "failed",
  * //       InterruptibleCapacityReservationId: "STRING_VALUE",
  * //       InterruptionType: "adhoc",
+ * //       ZeroSizePreference: "retain" || "default",
  * //     },
  * //     InterruptionInfo: { // InterruptionInfo
  * //       SourceCapacityReservationId: "STRING_VALUE",
  * //       InterruptionType: "adhoc",
  * //     },
+ * //     ZeroSizePreference: "retain" || "default",
  * //   },
  * //   DestinationCapacityReservation: {
  * //     CapacityReservationId: "STRING_VALUE",
@@ -184,11 +186,13 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //       Status: "pending" || "active" || "updating" || "canceling" || "canceled" || "failed",
  * //       InterruptibleCapacityReservationId: "STRING_VALUE",
  * //       InterruptionType: "adhoc",
+ * //       ZeroSizePreference: "retain" || "default",
  * //     },
  * //     InterruptionInfo: {
  * //       SourceCapacityReservationId: "STRING_VALUE",
  * //       InterruptionType: "adhoc",
  * //     },
+ * //     ZeroSizePreference: "retain" || "default",
  * //   },
  * //   InstanceCount: Number("int"),
  * // };

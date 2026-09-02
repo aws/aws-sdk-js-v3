@@ -6992,7 +6992,7 @@ export interface InstanceStatus {
   AttachedEbsStatus?: EbsStatusSummary | undefined;
 
   /**
-   * <p>Reports impaired functionality that stems from issues with applications running on the instance.</p>
+   * <p>Reports the application-level health status for the instance.</p>
    * @public
    */
   ApplicationStatus?: ApplicationStatusSummary | undefined;

@@ -53,6 +53,7 @@ export interface CreateInterruptibleCapacityReservationAllocationCommandOutput e
  *       ],
  *     },
  *   ],
+ *   ZeroSizePreference: "retain" || "default",
  * };
  * const command = new CreateInterruptibleCapacityReservationAllocationCommand(input);
  * const response = await client.send(command);

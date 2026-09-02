@@ -56,6 +56,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <state>
             __State__
         </state>
+        <stateMessage>
+            __StateMessage__
+        </stateMessage>
         <childRequestXml>
             __ChildRequestXml__
         </childRequestXml>
@@ -101,6 +104,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     OrganizationHandle: "__OrganizationHandle__",
     Description: "__Description__",
     State: "__State__",
+    StateMessage: "__StateMessage__",
     ChildRequestXml: "__ChildRequestXml__",
     Tags: [
       {

@@ -121,6 +121,7 @@ import type {
   VpcEncryptionControlState,
   VpcState,
   WeekDay,
+  ZeroSizePreference,
 } from "./enums";
 import type {
   AcceleratorCount,
@@ -6390,6 +6391,14 @@ export interface CreateInterruptibleCapacityReservationAllocationRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>
+   * 			Specifies the behavior for the interruptible Capacity Reservation when you reduce its allocation to zero instances. Specify <code>retain</code> to keep the interruptible Capacity Reservation active at zero capacity so that you can allocate instances to it again later. Specify <code>default</code> to cancel the interruptible Capacity Reservation and return the capacity to your source Capacity Reservation. The default value is <code>default</code>.
+   * 		</p>
+   * @public
+   */
+  ZeroSizePreference?: ZeroSizePreference | undefined;
 }
 
 /**
@@ -6906,6 +6915,12 @@ export interface IpamInternetRegistryAssociation {
    * @public
    */
   State?: IpamInternetRegistryAssociationState | undefined;
+
+  /**
+   * <p>A message describing the current state of the internet registry association, including additional details such as the reason for a failure.</p>
+   * @public
+   */
+  StateMessage?: string | undefined;
 
   /**
    * <p>The XML content for the child request to be submitted to the internet registry to complete the BPKI setup.</p>

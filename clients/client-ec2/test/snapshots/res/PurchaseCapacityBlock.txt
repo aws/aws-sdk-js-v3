@@ -261,6 +261,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <interruptionType>
                 __InterruptionType__
             </interruptionType>
+            <zeroSizePreference>
+                __ZeroSizePreference__
+            </zeroSizePreference>
         </interruptibleCapacityAllocation>
         <interruptionInfo>
             <sourceCapacityReservationId>
@@ -270,6 +273,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __InterruptionType__
             </interruptionType>
         </interruptionInfo>
+        <zeroSizePreference>
+            __ZeroSizePreference__
+        </zeroSizePreference>
     </capacityReservation>
     <capacityBlockSet>
         <item>
@@ -573,12 +579,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       TargetInstanceCount: (number) 0,
       Status: "__Status__",
       InterruptibleCapacityReservationId: "__InterruptibleCapacityReservationId__",
-      InterruptionType: "__InterruptionType__"
+      InterruptionType: "__InterruptionType__",
+      ZeroSizePreference: "__ZeroSizePreference__"
     },
     InterruptionInfo: {
       SourceCapacityReservationId: "__SourceCapacityReservationId__",
       InterruptionType: "__InterruptionType__"
-    }
+    },
+    ZeroSizePreference: "__ZeroSizePreference__"
   },
   CapacityBlocks: [
     {

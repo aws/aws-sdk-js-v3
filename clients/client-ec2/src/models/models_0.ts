@@ -86,6 +86,7 @@ import type {
   VpcPeeringConnectionStateReasonCode,
   VpnTunnelProvisioningStatus,
   WeekDay,
+  ZeroSizePreference,
 } from "./enums";
 
 /**
@@ -9359,6 +9360,14 @@ export interface InterruptibleCapacityAllocation {
    * @public
    */
   InterruptionType?: InterruptionType | undefined;
+
+  /**
+   * <p>
+   * 			Specifies how Amazon EC2 handles the interruptible Capacity Reservation when you reduce its allocation to zero instances. A value of <code>retain</code> keeps the interruptible Capacity Reservation active at zero capacity so that you can allocate instances to it again later. A value of <code>default</code> cancels the interruptible Capacity Reservation and returns the capacity to your source Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  ZeroSizePreference?: ZeroSizePreference | undefined;
 }
 
 /**
@@ -9713,6 +9722,14 @@ export interface CapacityReservation {
    * @public
    */
   InterruptionInfo?: InterruptionInfo | undefined;
+
+  /**
+   * <p>
+   * 			The zero-size preference configured for the interruptible Capacity Reservation. A value of <code>retain</code> keeps the interruptible Capacity Reservation active at zero capacity when you reduce its allocation to zero. A value of <code>default</code> cancels the interruptible Capacity Reservation when you reduce its allocation to zero.
+   * 		</p>
+   * @public
+   */
+  ZeroSizePreference?: ZeroSizePreference | undefined;
 }
 
 /**

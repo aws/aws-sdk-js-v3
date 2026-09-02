@@ -28,6 +28,7 @@ import type {
   SSEType,
   Status,
   TransitGatewayAttachmentResourceType,
+  ZeroSizePreference,
 } from "./enums";
 import type {
   AddressAttribute,
@@ -3551,7 +3552,7 @@ export interface UpdateInterruptibleCapacityReservationAllocationRequest {
    * 		</p>
    * @public
    */
-  TargetInstanceCount: number | undefined;
+  TargetInstanceCount?: number | undefined;
 
   /**
    * <p>
@@ -3560,6 +3561,14 @@ export interface UpdateInterruptibleCapacityReservationAllocationRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * 			Specifies the updated behavior for the interruptible Capacity Reservation when you reduce its allocation to zero instances. Specify <code>retain</code> to keep the interruptible Capacity Reservation active at zero capacity so that you can allocate instances to it again later. Specify <code>default</code> to cancel the interruptible Capacity Reservation and return the capacity to your source Capacity Reservation.
+   * 		</p>
+   * @public
+   */
+  ZeroSizePreference?: ZeroSizePreference | undefined;
 }
 
 /**

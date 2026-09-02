@@ -1521,6 +1521,19 @@ export type InterruptibleCapacityReservationAllocationStatus =
  * @public
  * @enum
  */
+export const ZeroSizePreference = {
+  default: "default",
+  retain: "retain",
+} as const;
+/**
+ * @public
+ */
+export type ZeroSizePreference = (typeof ZeroSizePreference)[keyof typeof ZeroSizePreference];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityReservationType = {
   CAPACITY_BLOCK: "capacity-block",
   DEFAULT: "default",

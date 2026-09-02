@@ -39,8 +39,9 @@ export interface UpdateInterruptibleCapacityReservationAllocationCommandOutput e
  * const client = new EC2Client(config);
  * const input = { // UpdateInterruptibleCapacityReservationAllocationRequest
  *   CapacityReservationId: "STRING_VALUE", // required
- *   TargetInstanceCount: Number("int"), // required
+ *   TargetInstanceCount: Number("int"),
  *   DryRun: true || false,
+ *   ZeroSizePreference: "retain" || "default",
  * };
  * const command = new UpdateInterruptibleCapacityReservationAllocationCommand(input);
  * const response = await client.send(command);

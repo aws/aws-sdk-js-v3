@@ -66,6 +66,7 @@ export interface DescribeIpamInternetRegistryAssociationsCommandOutput extends D
  * //       OrganizationHandle: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       State: "pending-enable" || "create-in-progress" || "create-failed" || "enable-in-progress" || "enable-complete" || "enable-failed" || "delete-in-progress" || "delete-complete" || "delete-failed",
+ * //       StateMessage: "STRING_VALUE",
  * //       ChildRequestXml: "STRING_VALUE",
  * //       Tags: [ // TagList
  * //         { // Tag

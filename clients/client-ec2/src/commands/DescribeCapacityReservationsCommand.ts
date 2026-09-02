@@ -110,11 +110,13 @@ export interface DescribeCapacityReservationsCommandOutput extends DescribeCapac
  * //         Status: "pending" || "active" || "updating" || "canceling" || "canceled" || "failed",
  * //         InterruptibleCapacityReservationId: "STRING_VALUE",
  * //         InterruptionType: "adhoc",
+ * //         ZeroSizePreference: "retain" || "default",
  * //       },
  * //       InterruptionInfo: { // InterruptionInfo
  * //         SourceCapacityReservationId: "STRING_VALUE",
  * //         InterruptionType: "adhoc",
  * //       },
+ * //       ZeroSizePreference: "retain" || "default",
  * //     },
  * //   ],
  * // };

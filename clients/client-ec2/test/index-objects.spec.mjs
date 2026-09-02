@@ -4843,6 +4843,7 @@ import {
   WithdrawByoipCidrCommand,
   WithdrawByoipCidrRequest$,
   WithdrawByoipCidrResult$,
+  ZeroSizePreference,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -9436,6 +9437,7 @@ assert(typeof VpnStaticRouteSource === "object");
 assert(typeof VpnTunnelBandwidth === "object");
 assert(typeof VpnTunnelProvisioningStatus === "object");
 assert(typeof WeekDay === "object");
+assert(typeof ZeroSizePreference === "object");
 // errors
 assert(EC2ServiceException.prototype instanceof Error);
 // waiters

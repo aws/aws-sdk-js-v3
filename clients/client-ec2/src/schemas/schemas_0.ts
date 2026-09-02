@@ -6393,6 +6393,7 @@ const _ZIo = "ZoneIds";
 const _ZN = "ZoneName";
 const _ZNSL = "ZoneNameStringList";
 const _ZNo = "ZoneNames";
+const _ZSP = "ZeroSizePreference";
 const _ZT = "ZoneType";
 const _a = "associations";
 const _aA = "asnAssociation";
@@ -8560,6 +8561,7 @@ const _xN = "xmlName";
 const _zI = "zoneId";
 const _zN = "zoneName";
 const _zS = "zoneState";
+const _zSP = "zeroSizePreference";
 const _zT = "zoneType";
 const n0 = "com.amazonaws.ec2";
 
@@ -10119,7 +10121,7 @@ export var CapacityManagerTagDimension$: StaticStructureSchema = [3, n0, _CMTD,
 ];
 export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
   0,
-  [_CRI, _OI, _CRA, _AZI, _IT, _IPn, _AZ, _Te, _TIC, _AICv, _EO, _ES, _St, _SD, _ED, _EDTn, _IMC, _CD, _T, _OA, _CRFIa, _PGA, _CAap, _RT, _URBOI, _CIom, _DP, _CBI, _Inte, _ICA, _IInt],
+  [_CRI, _OI, _CRA, _AZI, _IT, _IPn, _AZ, _Te, _TIC, _AICv, _EO, _ES, _St, _SD, _ED, _EDTn, _IMC, _CD, _T, _OA, _CRFIa, _PGA, _CAap, _RT, _URBOI, _CIom, _DP, _CBI, _Inte, _ICA, _IInt, _ZSP],
   [[0, { [_eQN]: `CapacityReservationId`
   , [_xN]: _cRI }], [0, { [_eQN]: `OwnerId`
   , [_xN]: _oI }], [0, { [_eQN]: `CapacityReservationArn`
@@ -10151,7 +10153,8 @@ export var CapacityReservation$: StaticStructureSchema = [3, n0, _CRa,
   , [_xN]: _cBI }], [2, { [_eQN]: `Interruptible`
   , [_xN]: _inte }], [() => InterruptibleCapacityAllocation$, { [_eQN]: `InterruptibleCapacityAllocation`
   , [_xN]: _iCA }], [() => InterruptionInfo$, { [_eQN]: `InterruptionInfo`
-  , [_xN]: _iIn }]]
+  , [_xN]: _iIn }], [0, { [_eQN]: `ZeroSizePreference`
+  , [_xN]: _zSP }]]
 ];
 export var CapacityReservationBillingRequest$: StaticStructureSchema = [3, n0, _CRBR,
   0,
@@ -11056,8 +11059,8 @@ export var CreateInternetGatewayResult$: StaticStructureSchema = [3, n0, _CIGRr,
 ];
 export var CreateInterruptibleCapacityReservationAllocationRequest$: StaticStructureSchema = [3, n0, _CICRAR,
   0,
-  [_CRI, _IC, _CT, _DR, _TS],
-  [0, 1, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
+  [_CRI, _IC, _CT, _DR, _TS, _ZSP],
+  [0, 1, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0], 2
 ];
 export var CreateInterruptibleCapacityReservationAllocationResult$: StaticStructureSchema = [3, n0, _CICRARr,
   0,
@@ -19778,13 +19781,14 @@ export var InternetGatewayAttachment$: StaticStructureSchema = [3, n0, _IGA,
 ];
 export var InterruptibleCapacityAllocation$: StaticStructureSchema = [3, n0, _ICA,
   0,
-  [_IC, _TICa, _Sta, _ICRI, _ITn],
+  [_IC, _TICa, _Sta, _ICRI, _ITn, _ZSP],
   [[1, { [_eQN]: `InstanceCount`
   , [_xN]: _iC }], [1, { [_eQN]: `TargetInstanceCount`
   , [_xN]: _tICa }], [0, { [_eQN]: `Status`
   , [_xN]: _sta }], [0, { [_eQN]: `InterruptibleCapacityReservationId`
   , [_xN]: _iCRI }], [0, { [_eQN]: `InterruptionType`
-  , [_xN]: _iTn }]]
+  , [_xN]: _iTn }], [0, { [_eQN]: `ZeroSizePreference`
+  , [_xN]: _zSP }]]
 ];
 export var InterruptionInfo$: StaticStructureSchema = [3, n0, _IInt,
   0,
@@ -19932,7 +19936,7 @@ export var IpamExternalResourceVerificationToken$: StaticStructureSchema = [3, n
 ];
 export var IpamInternetRegistryAssociation$: StaticStructureSchema = [3, n0, _IIRA,
   0,
-  [_OI, _IIRAI, _IIRAAp, _IIp, _IRp, _Ri, _OH, _De, _St, _CRX, _T],
+  [_OI, _IIRAI, _IIRAAp, _IIp, _IRp, _Ri, _OH, _De, _St, _SMta, _CRX, _T],
   [[0, { [_eQN]: `OwnerId`
   , [_xN]: _oI }], [0, { [_eQN]: `IpamInternetRegistryAssociationId`
   , [_xN]: _iIRAI }], [0, { [_eQN]: `IpamInternetRegistryAssociationArn`
@@ -19942,7 +19946,8 @@ export var IpamInternetRegistryAssociation$: StaticStructureSchema = [3, n0, _II
   , [_xN]: _ri }], [0, { [_eQN]: `OrganizationHandle`
   , [_xN]: _oH }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [0, { [_eQN]: `State`
-  , [_xN]: _st }], [0, { [_eQN]: `ChildRequestXml`
+  , [_xN]: _st }], [0, { [_eQN]: `StateMessage`
+  , [_xN]: _sMta }], [0, { [_eQN]: `ChildRequestXml`
   , [_xN]: _cRX }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }]]
 ];
@@ -26123,8 +26128,8 @@ export var UpdateCapacityManagerOrganizationsAccessResult$: StaticStructureSchem
 ];
 export var UpdateInterruptibleCapacityReservationAllocationRequest$: StaticStructureSchema = [3, n0, _UICRAR,
   0,
-  [_CRI, _TICa, _DR],
-  [0, 1, 2], 2
+  [_CRI, _TICa, _DR, _ZSP],
+  [0, 1, 2, 0], 1
 ];
 export var UpdateInterruptibleCapacityReservationAllocationResult$: StaticStructureSchema = [3, n0, _UICRARp,
   0,
