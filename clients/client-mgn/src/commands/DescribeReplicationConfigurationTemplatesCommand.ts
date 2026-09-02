@@ -26,7 +26,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandInput extends D
 export interface DescribeReplicationConfigurationTemplatesCommandOutput extends DescribeReplicationConfigurationTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
+ * <p>Lists all ReplicationConfigurationTemplates, filtered by replication configuration template IDs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

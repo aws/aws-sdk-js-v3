@@ -56,6 +56,7 @@ import type {
   TargetInstanceTypeRightSizingMethod,
   TargetNetworkTopology,
   VolumeType,
+  VpcProvisioningStrategy,
   WaveHealthStatus,
   WaveProgressStatus,
 } from "./enums";
@@ -875,7 +876,7 @@ export interface StartExportRequest {
   s3BucketOwner?: string | undefined;
 
   /**
-   * <p>Start import request tags.</p>
+   * <p>Start export request tags.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -1104,18 +1105,18 @@ export interface ImportTaskSummaryServers {
 }
 
 /**
- * <p>Import task summery waves.</p>
+ * <p>Import task summary waves.</p>
  * @public
  */
 export interface ImportTaskSummaryWaves {
   /**
-   * <p>Import task summery waves created count.</p>
+   * <p>Import task summary waves created count.</p>
    * @public
    */
   createdCount?: number | undefined;
 
   /**
-   * <p>Import task summery waves modified count.</p>
+   * <p>Import task summary waves modified count.</p>
    * @public
    */
   modifiedCount?: number | undefined;
@@ -1561,7 +1562,7 @@ export interface SsmDocument {
  */
 export interface JobPostLaunchActionsLaunchStatus {
   /**
-   * <p>AWS Systems Manager's Document of the of the Job Post Launch Actions.</p>
+   * <p>AWS Systems Manager's Document of the Job Post Launch Actions.</p>
    * @public
    */
   ssmDocument?: SsmDocument | undefined;
@@ -1573,7 +1574,7 @@ export interface JobPostLaunchActionsLaunchStatus {
   ssmDocumentType?: SsmDocumentType | undefined;
 
   /**
-   * <p>AWS Systems Manager Document's execution ID of the of the Job Post Launch Actions.</p>
+   * <p>AWS Systems Manager Document's execution ID of the Job Post Launch Actions.</p>
    * @public
    */
   executionID?: string | undefined;
@@ -1753,7 +1754,7 @@ export interface Licensing {
 }
 
 /**
- * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
+ * <p>Post Launch Actions to be executed on the Test or Cutover instance.</p>
  * @public
  */
 export interface PostLaunchActions {
@@ -2630,6 +2631,24 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * <p>Maps a source CIDR range to the corresponding target CIDR range to use in the target network.</p>
+ * @public
+ */
+export interface CidrMapping {
+  /**
+   * <p>The original CIDR range in the source network.</p>
+   * @public
+   */
+  originalCidr: string | undefined;
+
+  /**
+   * <p>The updated CIDR range to use in the target network.</p>
+   * @public
+   */
+  updatedCidr: string | undefined;
+}
+
+/**
  * <p>S3 configuration for source network data.</p>
  * @public
  */
@@ -2760,6 +2779,18 @@ export interface CreateNetworkMigrationDefinitionRequest {
   targetDeployment?: TargetDeployment | undefined;
 
   /**
+   * <p>Specifies whether to create new target VPCs or use existing ones. Set to <code>CREATE_NEW</code> to provision new target VPCs as part of the migration, or <code>USE_EXISTING</code> to migrate into existing VPCs in the target account.</p>
+   * @public
+   */
+  vpcProvisioningStrategy?: VpcProvisioningStrategy | undefined;
+
+  /**
+   * <p>A list of CIDR mappings that map original source CIDR ranges to updated target CIDR ranges. CIDR mappings can be provided only when <code>vpcProvisioningStrategy</code> is set to <code>USE_EXISTING</code>.</p>
+   * @public
+   */
+  cidrMappings?: CidrMapping[] | undefined;
+
+  /**
    * <p>Tags to assign to the network migration definition.</p>
    * @public
    */
@@ -2823,6 +2854,18 @@ export interface NetworkMigrationDefinition {
    * @public
    */
   targetDeployment?: TargetDeployment | undefined;
+
+  /**
+   * <p>Indicates whether the migration creates new target VPCs or uses existing ones. <code>CREATE_NEW</code> provisions new target VPCs; <code>USE_EXISTING</code> migrates into existing VPCs in the target account.</p>
+   * @public
+   */
+  vpcProvisioningStrategy?: VpcProvisioningStrategy | undefined;
+
+  /**
+   * <p>A list of CIDR mappings that map original source CIDR ranges to updated target CIDR ranges. CIDR mappings apply only when <code>vpcProvisioningStrategy</code> is set to <code>USE_EXISTING</code>.</p>
+   * @public
+   */
+  cidrMappings?: CidrMapping[] | undefined;
 
   /**
    * <p>The timestamp when the network migration definition was created.</p>
@@ -3461,7 +3504,7 @@ export interface NetworkMigrationCodeGenerationArtifact {
   artifactID?: string | undefined;
 
   /**
-   * <p>The type of the artifact, such as CLOUDFORMATION_TEMPLATE or TERRAFORM_MODULE.</p>
+   * <p>The type of the generated artifact.</p>
    * @public
    */
   artifactType?: NetworkMigrationCodeGenerationArtifactType | undefined;
@@ -4168,7 +4211,7 @@ export interface NetworkMigrationMapperSegment {
   segmentID?: string | undefined;
 
   /**
-   * <p>The type of the segment, such as VPC, subnet, or security group.</p>
+   * <p>The category of the network migration segment. A segment groups the network constructs (such as VPCs, subnets, and security groups) that are migrated together. Valid values: <code>WORKLOAD</code>, <code>APPLIANCE</code>.</p>
    * @public
    */
   segmentType?: NetworkMigrationMapperSegmentType | undefined;
@@ -4957,6 +5000,18 @@ export interface UpdateNetworkMigrationDefinitionRequest {
    * @public
    */
   targetDeployment?: TargetDeployment | undefined;
+
+  /**
+   * <p>Updates whether the migration creates new target VPCs or uses existing ones. Set to <code>USE_EXISTING</code> to migrate into existing VPCs in the target account, or to <code>CREATE_NEW</code> to provision new target VPCs.</p>
+   * @public
+   */
+  vpcProvisioningStrategy?: VpcProvisioningStrategy | undefined;
+
+  /**
+   * <p>The updated list of CIDR mappings that map original source CIDR ranges to updated target CIDR ranges. CIDR mappings can be provided only when <code>vpcProvisioningStrategy</code> is set to <code>USE_EXISTING</code>.</p>
+   * @public
+   */
+  cidrMappings?: CidrMapping[] | undefined;
 
   /**
    * <p>The updated scope tags for the network migration definition.</p>
@@ -5772,7 +5827,7 @@ export interface LifeCycleLastCutover {
  */
 export interface LifeCycleLastTestFinalized {
   /**
-   * <p>Lifecycle Test failed API call date and time.</p>
+   * <p>Lifecycle Test finalized API call date and time.</p>
    * @public
    */
   apiCallDateTime?: string | undefined;
@@ -5838,7 +5893,7 @@ export interface LifeCycleLastTest {
  */
 export interface LifeCycle {
   /**
-   * <p>Lifecycle added to service data and time.</p>
+   * <p>Lifecycle added to service date and time.</p>
    * @public
    */
   addedToServiceDateTime?: string | undefined;
@@ -6212,7 +6267,7 @@ export interface DescribeSourceServersRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Request to filter Source Servers list by Accoun ID.</p>
+   * <p>Request to filter Source Servers list by Account ID.</p>
    * @public
    */
   accountID?: string | undefined;
@@ -6223,13 +6278,13 @@ export interface DescribeSourceServersRequest {
  */
 export interface DescribeSourceServersResponse {
   /**
-   * <p>Request to filter Source Servers list by item.</p>
+   * <p>The list of returned Source Servers.</p>
    * @public
    */
   items?: SourceServer[] | undefined;
 
   /**
-   * <p>Request to filter Source Servers next token.</p>
+   * <p>The token of the next Source Server to retrieve.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -6345,7 +6400,7 @@ export interface LaunchConfiguration {
   bootMode?: BootMode | undefined;
 
   /**
-   * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
+   * <p>Post Launch Actions to be executed on the Test or Cutover instance.</p>
    * @public
    */
   postLaunchActions?: PostLaunchActions | undefined;
@@ -7050,7 +7105,7 @@ export interface UpdateLaunchConfigurationRequest {
   bootMode?: BootMode | undefined;
 
   /**
-   * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
+   * <p>Post Launch Actions to be executed on the Test or Cutover instance.</p>
    * @public
    */
   postLaunchActions?: PostLaunchActions | undefined;

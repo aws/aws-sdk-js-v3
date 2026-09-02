@@ -28,6 +28,7 @@ import {
   ChangeServerLifeCycleStateSourceServerLifecycle$,
   ChangeServerLifeCycleStateSourceServerLifecycleState,
   Checksum$,
+  CidrMapping$,
   CodeGenerationOutputFormatStatus,
   CodeGenerationOutputFormatStatusDetails$,
   CodeGenerationOutputFormatType,
@@ -570,6 +571,7 @@ import {
   ValidationExceptionReason,
   VcenterClient$,
   VolumeType,
+  VpcProvisioningStrategy,
   Wave$,
   WaveAggregatedStatus$,
   WaveHealthStatus,
@@ -782,6 +784,7 @@ assert(typeof AssociateSourceServersResponse$ === "object");
 assert(typeof ChangeServerLifeCycleStateRequest$ === "object");
 assert(typeof ChangeServerLifeCycleStateSourceServerLifecycle$ === "object");
 assert(typeof Checksum$ === "object");
+assert(typeof CidrMapping$ === "object");
 assert(typeof CodeGenerationOutputFormatStatusDetails$ === "object");
 assert(typeof Connector$ === "object");
 assert(typeof ConnectorSsmCommandConfig$ === "object");
@@ -1107,6 +1110,7 @@ assert(typeof TargetInstanceTypeRightSizingMethod === "object");
 assert(typeof TargetNetworkTopology === "object");
 assert(typeof ValidationExceptionReason === "object");
 assert(typeof VolumeType === "object");
+assert(typeof VpcProvisioningStrategy === "object");
 assert(typeof WaveHealthStatus === "object");
 assert(typeof WaveProgressStatus === "object");
 // errors

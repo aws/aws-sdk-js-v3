@@ -24,6 +24,8 @@ const _CGOFSDM = "CodeGenerationOutputFormatStatusDetailsMap";
 const _CL = "ConnectorsList";
 const _CLCT = "CreateLaunchConfigurationTemplate";
 const _CLCTR = "CreateLaunchConfigurationTemplateRequest";
+const _CM = "CidrMapping";
+const _CML = "CidrMappingsList";
 const _CNMD = "CreateNetworkMigrationDefinition";
 const _CNMDR = "CreateNetworkMigrationDefinitionRequest";
 const _CPU = "CPU";
@@ -478,6 +480,7 @@ const _cID = "connectorID";
 const _cIDo = "constructID";
 const _cIDon = "connectorIDs";
 const _cIDons = "constructIDs";
+const _cM = "cidrMappings";
 const _cPI = "copyPrivateIp";
 const _cPIP = "createPublicIP";
 const _cSA = "credentialsSecretArn";
@@ -618,7 +621,8 @@ const _nMES = "networkMigrationExecutionStatuses";
 const _nT = "nextToken";
 const _o = "order";
 const _oB = "osByol";
-const _oC = "outboundCidr";
+const _oC = "originalCidr";
+const _oCu = "outboundCidr";
 const _oS = "operatingSystem";
 const _oSBN = "outputS3BucketName";
 const _oSC = "outputS3Configuration";
@@ -736,6 +740,7 @@ const _to = "topology";
 const _ty = "type";
 const _u = "update";
 const _uA = "updatedAt";
+const _uC = "updatedCidr";
 const _uDRS = "useDedicatedReplicationServer";
 const _uFE = "useFipsEndpoint";
 const _uPID = "userProvidedID";
@@ -743,6 +748,7 @@ const _vCID = "vcenterClientID";
 const _vID = "vpcIDs";
 const _vIDp = "vpcID";
 const _vP = "vmPath";
+const _vPS = "vpcProvisioningStrategy";
 const _vT = "volumeType";
 const _vUUID = "vcenterUUID";
 const _vWU = "vmWareUuid";
@@ -893,6 +899,11 @@ export var Checksum$: StaticStructureSchema = [3, n0, _C,
   [_eA, _h],
   [0, 0]
 ];
+export var CidrMapping$: StaticStructureSchema = [3, n0, _CM,
+  0,
+  [_oC, _uC],
+  [0, 0], 2
+];
 export var CodeGenerationOutputFormatStatusDetails$: StaticStructureSchema = [3, n0, _CGOFSD,
   0,
   [_sta, _sDL],
@@ -930,8 +941,8 @@ export var CreateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3
 ];
 export var CreateNetworkMigrationDefinitionRequest$: StaticStructureSchema = [3, n0, _CNMDR,
   0,
-  [_n, _tSC, _tN, _d, _sCo, _tD, _t, _sT],
-  [0, () => TargetS3Configuration$, () => TargetNetwork$, 0, () => SourceConfigurationList, 0, [() => TagsMap, 0], [() => ScopeTagsMap, 0]], 3
+  [_n, _tSC, _tN, _d, _sCo, _tD, _vPS, _cM, _t, _sT],
+  [0, () => TargetS3Configuration$, () => TargetNetwork$, 0, () => SourceConfigurationList, 0, 0, () => CidrMappingsList, [() => TagsMap, 0], [() => ScopeTagsMap, 0]], 3
 ];
 export var CreateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,
@@ -1760,8 +1771,8 @@ export var NetworkMigrationCodeGenerationSegment$: StaticStructureSchema = [3, n
 ];
 export var NetworkMigrationDefinition$: StaticStructureSchema = [3, n0, _NMD,
   0,
-  [_a, _nMDID, _n, _d, _sCo, _tSC, _tN, _tD, _cA, _uA, _t, _sT],
-  [0, 0, 0, 0, () => SourceConfigurationList, () => TargetS3Configuration$, () => TargetNetwork$, 0, 4, 4, [() => TagsMap, 0], [() => ScopeTagsMap, 0]]
+  [_a, _nMDID, _n, _d, _sCo, _tSC, _tN, _tD, _vPS, _cM, _cA, _uA, _t, _sT],
+  [0, 0, 0, 0, () => SourceConfigurationList, () => TargetS3Configuration$, () => TargetNetwork$, 0, 0, () => CidrMappingsList, 4, 4, [() => TagsMap, 0], [() => ScopeTagsMap, 0]]
 ];
 export var NetworkMigrationDefinitionSummary$: StaticStructureSchema = [3, n0, _NMDS,
   0,
@@ -2085,12 +2096,12 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
 ];
 export var TargetNetwork$: StaticStructureSchema = [3, n0, _TN,
   0,
-  [_to, _iC, _oC, _iCn],
+  [_to, _iC, _oCu, _iCn],
   [0, 0, 0, 0], 1
 ];
 export var TargetNetworkUpdate$: StaticStructureSchema = [3, n0, _TNU,
   0,
-  [_to, _iC, _oC, _iCn],
+  [_to, _iC, _oCu, _iCn],
   [0, 0, 0, 0]
 ];
 export var TargetS3Configuration$: StaticStructureSchema = [3, n0, _TSC,
@@ -2160,8 +2171,8 @@ export var UpdateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3
 ];
 export var UpdateNetworkMigrationDefinitionRequest$: StaticStructureSchema = [3, n0, _UNMDR,
   0,
-  [_nMDID, _n, _d, _sCo, _tSC, _tN, _tD, _sT],
-  [0, 0, 0, () => SourceConfigurationList, () => TargetS3ConfigurationUpdate$, () => TargetNetworkUpdate$, 0, [() => ScopeTagsMap, 0]], 1
+  [_nMDID, _n, _d, _sCo, _tSC, _tN, _tD, _vPS, _cM, _sT],
+  [0, 0, 0, () => SourceConfigurationList, () => TargetS3ConfigurationUpdate$, () => TargetNetworkUpdate$, 0, 0, () => CidrMappingsList, [() => ScopeTagsMap, 0]], 1
 ];
 export var UpdateNetworkMigrationMapperSegmentRequest$: StaticStructureSchema = [3, n0, _UNMMSR,
   0,
@@ -2227,6 +2238,9 @@ var ApplicationsList: StaticListSchema = [1, n0, _AL,
     0]
 ];
 var AssociateSourceServersRequestSourceServerIDs = 64 | 0;
+var CidrMappingsList: StaticListSchema = [1, n0, _CML,
+  0, () => CidrMapping$
+];
 var CodeGenerationOutputFormatTypes = 64 | 0;
 var ConflictExceptionErrors: StaticListSchema = [1, n0, _CEE,
   0, () => ErrorDetails$

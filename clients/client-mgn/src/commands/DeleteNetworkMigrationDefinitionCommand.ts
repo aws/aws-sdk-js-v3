@@ -51,7 +51,7 @@ export interface DeleteNetworkMigrationDefinitionCommandOutput extends DeleteNet
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operating denied due to a file permission or access check error.</p>
+ *  <p>Operation denied due to a file permission or access check error.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>

@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript Mgn Client for Node.js, Browser and React Native.
 
-<p>The Application Migration Service service.</p>
+<p>Application Migration Service.</p>
 
 ## Installing
 

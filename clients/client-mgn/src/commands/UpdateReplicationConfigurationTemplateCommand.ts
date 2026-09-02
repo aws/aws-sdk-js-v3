@@ -26,7 +26,7 @@ export interface UpdateReplicationConfigurationTemplateCommandInput extends Upda
 export interface UpdateReplicationConfigurationTemplateCommandOutput extends ReplicationConfigurationTemplate, __MetadataBearer {}
 
 /**
- * <p>Updates multiple ReplicationConfigurationTemplates by ID.</p>
+ * <p>Updates a ReplicationConfigurationTemplate by ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,7 +110,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput extends Rep
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operating denied due to a file permission or access check error.</p>
+ *  <p>Operation denied due to a file permission or access check error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found exception.</p>

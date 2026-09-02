@@ -397,6 +397,19 @@ export type TargetNetworkTopology = (typeof TargetNetworkTopology)[keyof typeof 
  * @public
  * @enum
  */
+export const VpcProvisioningStrategy = {
+  CREATE_NEW: "CREATE_NEW",
+  USE_EXISTING: "USE_EXISTING",
+} as const;
+/**
+ * @public
+ */
+export type VpcProvisioningStrategy = (typeof VpcProvisioningStrategy)[keyof typeof VpcProvisioningStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const NetworkMigrationJobStatus = {
   FAILED: "FAILED",
   PENDING: "PENDING",

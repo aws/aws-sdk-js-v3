@@ -6,7 +6,7 @@ import { MgnServiceException as __BaseException } from "./MgnServiceException";
 import type { ErrorDetails, ValidationExceptionField } from "./models_0";
 
 /**
- * <p>Operating denied due to a file permission or access check error.</p>
+ * <p>Operation denied due to a file permission or access check error.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -107,7 +107,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request could not be completed because its exceeded the service quota.</p>
+ * <p>The request could not be completed because it exceeded the service quota.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {

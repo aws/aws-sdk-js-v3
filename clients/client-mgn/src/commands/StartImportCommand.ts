@@ -93,7 +93,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *  <p>Resource not found exception.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *  <p>The request could not be completed because it exceeded the service quota.</p>
  *
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>

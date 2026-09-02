@@ -63,6 +63,13 @@ export interface GetNetworkMigrationDefinitionCommandOutput extends NetworkMigra
  * //     inspectionCidr: "STRING_VALUE",
  * //   },
  * //   targetDeployment: "STRING_VALUE",
+ * //   vpcProvisioningStrategy: "STRING_VALUE",
+ * //   cidrMappings: [ // CidrMappingsList
+ * //     { // CidrMapping
+ * //       originalCidr: "STRING_VALUE", // required
+ * //       updatedCidr: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   tags: { // TagsMap
@@ -82,7 +89,7 @@ export interface GetNetworkMigrationDefinitionCommandOutput extends NetworkMigra
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operating denied due to a file permission or access check error.</p>
+ *  <p>Operation denied due to a file permission or access check error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found exception.</p>

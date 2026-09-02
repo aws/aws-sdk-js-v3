@@ -73,7 +73,7 @@ export interface StartExportCommandOutput extends StartExportResponse, __Metadat
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *  <p>The request could not be completed because it exceeded the service quota.</p>
  *
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>

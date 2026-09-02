@@ -56,6 +56,13 @@ export interface CreateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  *     inspectionCidr: "STRING_VALUE",
  *   },
  *   targetDeployment: "STRING_VALUE",
+ *   vpcProvisioningStrategy: "STRING_VALUE",
+ *   cidrMappings: [ // CidrMappingsList
+ *     { // CidrMapping
+ *       originalCidr: "STRING_VALUE", // required
+ *       updatedCidr: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -91,6 +98,13 @@ export interface CreateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  * //     inspectionCidr: "STRING_VALUE",
  * //   },
  * //   targetDeployment: "STRING_VALUE",
+ * //   vpcProvisioningStrategy: "STRING_VALUE",
+ * //   cidrMappings: [ // CidrMappingsList
+ * //     { // CidrMapping
+ * //       originalCidr: "STRING_VALUE", // required
+ * //       updatedCidr: "STRING_VALUE", // required
+ * //     },
+ * //   ],
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
  * //   tags: { // TagsMap
@@ -110,7 +124,7 @@ export interface CreateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *  <p>The request could not be completed because it exceeded the service quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Validate exception.</p>

@@ -69,7 +69,7 @@ export interface ListNetworkMigrationMappingsCommandOutput extends ListNetworkMi
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operating denied due to a file permission or access check error.</p>
+ *  <p>Operation denied due to a file permission or access check error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Resource not found exception.</p>

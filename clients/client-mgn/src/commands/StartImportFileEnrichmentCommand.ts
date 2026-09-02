@@ -61,13 +61,13 @@ export interface StartImportFileEnrichmentCommandOutput extends StartImportFileE
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Operating denied due to a file permission or access check error.</p>
+ *  <p>Operation denied due to a file permission or access check error.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *  <p>The request could not be completed because it exceeded the service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Reached throttling quota exception.</p>

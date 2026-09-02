@@ -74,7 +74,7 @@ export interface CreateWaveCommandOutput extends Wave, __MetadataBearer {}
  *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request could not be completed because its exceeded the service quota.</p>
+ *  <p>The request could not be completed because it exceeded the service quota.</p>
  *
  * @throws {@link UninitializedAccountException} (client fault)
  *  <p>Uninitialized account exception.</p>
