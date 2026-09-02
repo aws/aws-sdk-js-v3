@@ -3628,6 +3628,7 @@ export type TableFormat = (typeof TableFormat)[keyof typeof TableFormat];
 export const StorageType = {
   IN_MEMORY: "InMemory",
   STANDARD: "Standard",
+  STANDARD_V2: "Standard_V2",
 } as const;
 /**
  * @public

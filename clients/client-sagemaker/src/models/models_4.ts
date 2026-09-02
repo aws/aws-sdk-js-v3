@@ -106,6 +106,7 @@ import type {
   SpaceSortKey,
   SpaceStatus,
   StepStatus,
+  StorageType,
   StudioLifecycleConfigAppType,
   StudioLifecycleConfigSortKey,
   TagPropagation,
@@ -6873,6 +6874,12 @@ export interface OnlineStoreConfigUpdate {
    * @public
    */
   TtlDuration?: TtlDuration | undefined;
+
+  /**
+   * <p>The online store storage type to migrate the feature group to. Use this parameter to migrate an existing feature group from <code>Standard</code> to <code>Standard_V2</code> storage format, enabling support for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_UpdateRecord.html">UpdateRecord</a> operation. Migration is a one-way operation and cannot be reversed.</p>
+   * @public
+   */
+  StorageType?: StorageType | undefined;
 }
 
 /**

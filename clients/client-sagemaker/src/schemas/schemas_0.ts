@@ -9505,8 +9505,8 @@ export var OnlineStoreConfig$: StaticStructureSchema = [3, n0, _OSC,
 ];
 export var OnlineStoreConfigUpdate$: StaticStructureSchema = [3, n0, _OSCU,
   0,
-  [_TDt],
-  [() => TtlDuration$]
+  [_TDt, _STto],
+  [() => TtlDuration$, 0]
 ];
 export var OnlineStoreSecurityConfig$: StaticStructureSchema = [3, n0, _OSSC,
   0,

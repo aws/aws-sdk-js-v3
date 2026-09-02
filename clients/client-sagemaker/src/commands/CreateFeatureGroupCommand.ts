@@ -57,7 +57,7 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *       Unit: "Seconds" || "Minutes" || "Hours" || "Days" || "Weeks",
  *       Value: Number("int"),
  *     },
- *     StorageType: "Standard" || "InMemory",
+ *     StorageType: "Standard" || "Standard_V2" || "InMemory",
  *   },
  *   OfflineStoreConfig: { // OfflineStoreConfig
  *     S3StorageConfig: { // S3StorageConfig

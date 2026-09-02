@@ -51,6 +51,7 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  *       Unit: "Seconds" || "Minutes" || "Hours" || "Days" || "Weeks",
  *       Value: Number("int"),
  *     },
+ *     StorageType: "Standard" || "Standard_V2" || "InMemory",
  *   },
  *   ThroughputConfig: { // ThroughputConfigUpdate
  *     ThroughputMode: "OnDemand" || "Provisioned",
