@@ -4,6 +4,7 @@ import type { StreamingBlobTypes } from "@smithy/types";
 import type {
   AcceptHeader,
   Algorithm,
+  AvailBlankingState,
   BlackoutSlateNetworkEndBlackout,
   BlackoutSlateState,
   ChannelClass,
@@ -70,11 +71,8 @@ import type {
   UpdateNodeStateShape,
 } from "./enums";
 import type {
-  AccountConfiguration,
-  AnywhereSettings,
   AudioDescription,
   AudioFeedInput,
-  AvailBlanking,
   BatchFailedResultModel,
   BatchSuccessfulResultModel,
   CaptionDescription,
@@ -95,7 +93,6 @@ import type {
   DescribeLinkedChannelSettings,
   DescribeNetworkSummary,
   DescribeNodeSummary,
-  Esam,
   EventBridgeRuleTemplateGroupSummary,
   EventBridgeRuleTemplateSummary,
   EventBridgeRuleTemplateTarget,
@@ -160,6 +157,102 @@ import type {
   VideoDescription,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * Placeholder documentation for AcceptInputDeviceTransferResponse
+ * @public
+ */
+export interface AcceptInputDeviceTransferResponse {}
+
+/**
+ * Placeholder documentation for AccountConfiguration
+ * @public
+ */
+export interface AccountConfiguration {
+  /**
+   * Specifies the KMS key to use for all features that use key encryption. Specify the ARN of a KMS key that you have created. Or leave blank to use the key that MediaLive creates and manages for you.
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+}
+
+/**
+ * Elemental anywhere settings
+ * @public
+ */
+export interface AnywhereSettings {
+  /**
+   * The ID of the channel placement group for the channel.
+   * @public
+   */
+  ChannelPlacementGroupId?: string | undefined;
+
+  /**
+   * The ID of the cluster for the channel.
+   * @public
+   */
+  ClusterId?: string | undefined;
+}
+
+/**
+ * Avail Blanking
+ * @public
+ */
+export interface AvailBlanking {
+  /**
+   * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   * @public
+   */
+  AvailBlankingImage?: InputLocation | undefined;
+
+  /**
+   * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+   * @public
+   */
+  State?: AvailBlankingState | undefined;
+}
+
+/**
+ * Esam
+ * @public
+ */
+export interface Esam {
+  /**
+   * Sent as acquisitionPointIdentity to identify the MediaLive channel to the POIS.
+   * @public
+   */
+  AcquisitionPointId: string | undefined;
+
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  PasswordParam?: string | undefined;
+
+  /**
+   * The URL of the signal conditioner endpoint on the Placement Opportunity Information System (POIS). MediaLive sends SignalProcessingEvents here when SCTE-35 messages are read.
+   * @public
+   */
+  PoisEndpoint: string | undefined;
+
+  /**
+   * Documentation update needed
+   * @public
+   */
+  Username?: string | undefined;
+
+  /**
+   * Optional data sent as zoneIdentity to identify the MediaLive channel to the POIS.
+   * @public
+   */
+  ZoneIdentity?: string | undefined;
+}
 
 /**
  * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.

@@ -7,6 +7,8 @@ import type {
   AacRawFormat,
   AacSpec,
   AacVbrQuality,
+  AbWatermarkerIdLength,
+  AbWatermarkingProfile,
   Ac3AttenuationControl,
   Ac3BitstreamMode,
   Ac3CodingMode,
@@ -35,7 +37,6 @@ import type {
   Av1SpatialAq,
   Av1TemporalAq,
   Av1TimecodeInsertionBehavior,
-  AvailBlankingState,
   BandwidthReductionFilterStrength,
   BandwidthReductionPostFilterSharpening,
   BurnInAlignment,
@@ -6611,6 +6612,97 @@ export interface ArchiveGroupSettings {
 }
 
 /**
+ * The vendor-specified custom profile options
+ * @public
+ */
+export interface AbWatermarkingCustomProfile {
+  /**
+   * The frequency with which watermarks will be embedded, in milliseconds.
+   * @public
+   */
+  EmbeddingFrequency: number | undefined;
+
+  /**
+   * The number of frames after scene-cut to embed the watermark.
+   * @public
+   */
+  SceneCut: number | undefined;
+
+  /**
+   * The target PSNR of the watermarked frame
+   * @public
+   */
+  TargetPsnr: number | undefined;
+}
+
+/**
+ * A/B Watermarker settings for CMAF Ingest output groups.
+ * @public
+ */
+export interface CmafIngestAbWatermarkerIrdetoSettings {
+  /**
+   * The "B" pipeline renditions for the additional destinations.
+   * @public
+   */
+  AdditionalDestinationsAlternateDestinations?: OutputLocationRef[] | undefined;
+
+  /**
+   * The "B" pipeline renditions for the main destination.
+   * @public
+   */
+  AlternateDestination: OutputLocationRef | undefined;
+
+  /**
+   * The vendor-provided custom profile values.
+   * @public
+   */
+  CustomProfile?: AbWatermarkingCustomProfile | undefined;
+
+  /**
+   * The name of the Secrets Manager secret containing the license file.
+   * @public
+   */
+  License?: string | undefined;
+
+  /**
+   * The vendor-provided Operator ID.
+   * @public
+   */
+  OperatorId: number | undefined;
+
+  /**
+   * The number of segments per watermarking bit. The total duration of the watermarking bit
+   * should be the LCM (least common multiple) of all segments sizes emitted by the downstream packager.
+   * @public
+   */
+  PolyPeriod?: number | undefined;
+
+  /**
+   * The vendor-provided profile choice.
+   * @public
+   */
+  Profile: AbWatermarkingProfile | undefined;
+
+  /**
+   * The number of bits that compose the watermarking identifier to be embedded.
+   * @public
+   */
+  WatermarkIdLength?: AbWatermarkerIdLength | undefined;
+}
+
+/**
+ * A/B Watermarker settings for CMAF Ingest output groups.
+ * @public
+ */
+export interface CmafIngestWatermarkingSettings {
+  /**
+   * A/B Watermarker settings for CMAF Ingest output groups.
+   * @public
+   */
+  CmafIngestAbWatermarkerIrdetoSettings?: CmafIngestAbWatermarkerIrdetoSettings | undefined;
+}
+
+/**
  * Cmaf Ingest Group Settings
  * @public
  */
@@ -6716,6 +6808,12 @@ export interface CmafIngestGroupSettings {
    * @public
    */
   AdditionalDestinations?: AdditionalDestinations[] | undefined;
+
+  /**
+   * Specifies the type of watermarking technology to use.
+   * @public
+   */
+  WatermarkingSettings?: CmafIngestWatermarkingSettings | undefined;
 }
 
 /**
@@ -7300,6 +7398,73 @@ export interface MediaConnectRouterGroupSettings {
 }
 
 /**
+ * A/B Watermarker settings for MediaPackage V2 output groups.
+ * @public
+ */
+export interface MediaPackageV2AbWatermarkerIrdetoSettings {
+  /**
+   * The "B" pipeline renditions for the additional destinations.
+   * @public
+   */
+  AdditionalDestinationsAlternateDestinations?: OutputLocationRef[] | undefined;
+
+  /**
+   * The "B" pipeline renditions for the main destination.
+   * @public
+   */
+  AlternateDestination: OutputLocationRef | undefined;
+
+  /**
+   * The vendor-provided custom profile values.
+   * @public
+   */
+  CustomProfile?: AbWatermarkingCustomProfile | undefined;
+
+  /**
+   * The name of the Secrets Manager secret containing the license file.
+   * @public
+   */
+  License?: string | undefined;
+
+  /**
+   * The vendor-provided Operator ID.
+   * @public
+   */
+  OperatorId: number | undefined;
+
+  /**
+   * The number of segments per watermarking bit. The total duration of the watermarking bit
+   * should be the LCM (least common multiple) of all segments sizes emitted by the downstream packager.
+   * @public
+   */
+  PolyPeriod?: number | undefined;
+
+  /**
+   * The vendor-provided profile choice.
+   * @public
+   */
+  Profile: AbWatermarkingProfile | undefined;
+
+  /**
+   * The number of bits that compose the watermarking identifier to be embedded.
+   * @public
+   */
+  WatermarkIdLength?: AbWatermarkerIdLength | undefined;
+}
+
+/**
+ * A/B Watermarker settings for MediaPackage V2 output groups.
+ * @public
+ */
+export interface MediaPackageV2WatermarkingSettings {
+  /**
+   * A/B Watermarker settings for MediaPackage V2 output groups.
+   * @public
+   */
+  MediaPackageV2AbWatermarkerIrdetoSettings?: MediaPackageV2AbWatermarkerIrdetoSettings | undefined;
+}
+
+/**
  * Media Package V2 Group Settings
  * @public
  */
@@ -7369,6 +7534,12 @@ export interface MediaPackageV2GroupSettings {
    * @public
    */
   AdditionalDestinations?: MediaPackageAdditionalDestinations[] | undefined;
+
+  /**
+   * Specifies the type of watermarking technology to use.
+   * @public
+   */
+  WatermarkingSettings?: MediaPackageV2WatermarkingSettings | undefined;
 }
 
 /**
@@ -10333,100 +10504,4 @@ export interface AcceptInputDeviceTransferRequest {
    * @public
    */
   InputDeviceId: string | undefined;
-}
-
-/**
- * Placeholder documentation for AcceptInputDeviceTransferResponse
- * @public
- */
-export interface AcceptInputDeviceTransferResponse {}
-
-/**
- * Placeholder documentation for AccountConfiguration
- * @public
- */
-export interface AccountConfiguration {
-  /**
-   * Specifies the KMS key to use for all features that use key encryption. Specify the ARN of a KMS key that you have created. Or leave blank to use the key that MediaLive creates and manages for you.
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-}
-
-/**
- * Elemental anywhere settings
- * @public
- */
-export interface AnywhereSettings {
-  /**
-   * The ID of the channel placement group for the channel.
-   * @public
-   */
-  ChannelPlacementGroupId?: string | undefined;
-
-  /**
-   * The ID of the cluster for the channel.
-   * @public
-   */
-  ClusterId?: string | undefined;
-}
-
-/**
- * Avail Blanking
- * @public
- */
-export interface AvailBlanking {
-  /**
-   * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
-   * @public
-   */
-  AvailBlankingImage?: InputLocation | undefined;
-
-  /**
-   * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
-   * @public
-   */
-  State?: AvailBlankingState | undefined;
-}
-
-/**
- * Esam
- * @public
- */
-export interface Esam {
-  /**
-   * Sent as acquisitionPointIdentity to identify the MediaLive channel to the POIS.
-   * @public
-   */
-  AcquisitionPointId: string | undefined;
-
-  /**
-   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
-   * @public
-   */
-  AdAvailOffset?: number | undefined;
-
-  /**
-   * Documentation update needed
-   * @public
-   */
-  PasswordParam?: string | undefined;
-
-  /**
-   * The URL of the signal conditioner endpoint on the Placement Opportunity Information System (POIS). MediaLive sends SignalProcessingEvents here when SCTE-35 messages are read.
-   * @public
-   */
-  PoisEndpoint: string | undefined;
-
-  /**
-   * Documentation update needed
-   * @public
-   */
-  Username?: string | undefined;
-
-  /**
-   * Optional data sent as zoneIdentity to identify the MediaLive channel to the POIS.
-   * @public
-   */
-  ZoneIdentity?: string | undefined;
 }

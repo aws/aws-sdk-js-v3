@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { AcceptInputDeviceTransferRequest, AcceptInputDeviceTransferResponse } from "../models/models_0";
+import type { AcceptInputDeviceTransferRequest } from "../models/models_0";
+import type { AcceptInputDeviceTransferResponse } from "../models/models_1";
 import { AcceptInputDeviceTransfer$ } from "../schemas/schemas_0";
 
 /**

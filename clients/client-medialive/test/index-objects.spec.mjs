@@ -7,6 +7,9 @@ import {
   AacSettings$,
   AacSpec,
   AacVbrQuality,
+  AbWatermarkerIdLength,
+  AbWatermarkingCustomProfile$,
+  AbWatermarkingProfile,
   Ac3AttenuationControl,
   Ac3BitstreamMode,
   Ac3CodingMode,
@@ -159,10 +162,12 @@ import {
   ClusterState,
   ClusterType,
   CmafId3Behavior,
+  CmafIngestAbWatermarkerIrdetoSettings$,
   CmafIngestCaptionLanguageMapping$,
   CmafIngestGroupSettings$,
   CmafIngestOutputSettings$,
   CmafIngestSegmentLengthUnits,
+  CmafIngestWatermarkingSettings$,
   CmafKLVBehavior,
   CmafNielsenId3Behavior,
   CmafTimedMetadataId3Frame,
@@ -813,8 +818,10 @@ import {
   MediaPackageGroupSettings$,
   MediaPackageOutputDestinationSettings$,
   MediaPackageOutputSettings$,
+  MediaPackageV2AbWatermarkerIrdetoSettings$,
   MediaPackageV2DestinationSettings$,
   MediaPackageV2GroupSettings$,
+  MediaPackageV2WatermarkingSettings$,
   MediaResource$,
   MediaResourceNeighbor$,
   MonitorDeployment$,
@@ -1524,6 +1531,7 @@ assert(typeof UpdateSdiSourceCommand === "function");
 assert(typeof UpdateSdiSource$ === "object");
 // structural schemas
 assert(typeof AacSettings$ === "object");
+assert(typeof AbWatermarkingCustomProfile$ === "object");
 assert(typeof Ac3Settings$ === "object");
 assert(typeof AcceptInputDeviceTransferRequest$ === "object");
 assert(typeof AcceptInputDeviceTransferResponse$ === "object");
@@ -1602,9 +1610,11 @@ assert(typeof ClusterAlert$ === "object");
 assert(typeof ClusterNetworkSettings$ === "object");
 assert(typeof ClusterNetworkSettingsCreateRequest$ === "object");
 assert(typeof ClusterNetworkSettingsUpdateRequest$ === "object");
+assert(typeof CmafIngestAbWatermarkerIrdetoSettings$ === "object");
 assert(typeof CmafIngestCaptionLanguageMapping$ === "object");
 assert(typeof CmafIngestGroupSettings$ === "object");
 assert(typeof CmafIngestOutputSettings$ === "object");
+assert(typeof CmafIngestWatermarkingSettings$ === "object");
 assert(typeof ColorCorrection$ === "object");
 assert(typeof ColorCorrectionSettings$ === "object");
 assert(typeof ColorSpacePassthroughSettings$ === "object");
@@ -1891,8 +1901,10 @@ assert(typeof MediaPackageAdditionalDestinations$ === "object");
 assert(typeof MediaPackageGroupSettings$ === "object");
 assert(typeof MediaPackageOutputDestinationSettings$ === "object");
 assert(typeof MediaPackageOutputSettings$ === "object");
+assert(typeof MediaPackageV2AbWatermarkerIrdetoSettings$ === "object");
 assert(typeof MediaPackageV2DestinationSettings$ === "object");
 assert(typeof MediaPackageV2GroupSettings$ === "object");
+assert(typeof MediaPackageV2WatermarkingSettings$ === "object");
 assert(typeof MediaResource$ === "object");
 assert(typeof MediaResourceNeighbor$ === "object");
 assert(typeof MonitorDeployment$ === "object");
@@ -2126,6 +2138,8 @@ assert(typeof AacRateControlMode === "object");
 assert(typeof AacRawFormat === "object");
 assert(typeof AacSpec === "object");
 assert(typeof AacVbrQuality === "object");
+assert(typeof AbWatermarkerIdLength === "object");
+assert(typeof AbWatermarkingProfile === "object");
 assert(typeof Ac3AttenuationControl === "object");
 assert(typeof Ac3BitstreamMode === "object");
 assert(typeof Ac3CodingMode === "object");

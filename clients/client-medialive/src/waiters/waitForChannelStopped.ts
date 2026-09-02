@@ -36,16 +36,35 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelCommand
         return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
+    try {
+      const returnComparator = () => {
+        return result.State;
+      }
+      if (returnComparator() === "DELETING") {
+        return { state: WaiterState.SUCCESS, reason };
+      }
+    } catch (e) {}
+    try {
+      const returnComparator = () => {
+        return result.State;
+      }
+      if (returnComparator() === "DELETED") {
+        return { state: WaiterState.SUCCESS, reason };
+      }
+    } catch (e) {}
   } catch (exception) {
     reason = exception;
     if (exception.name === "InternalServerErrorException") {
       return { state: WaiterState.RETRY, reason };
     }
+    if (exception.name === "NotFoundException") {
+      return { state: WaiterState.FAILURE, reason };
+    }
   }
   return { state: WaiterState.RETRY, reason };
 };
 /**
- * Wait until a channel has is stopped
+ * Wait until a channel is not running
  *  @deprecated Use waitUntilChannelStopped instead. waitForChannelStopped does not throw error in non-success cases.
  */
 export const waitForChannelStopped = async (
@@ -56,7 +75,7 @@ export const waitForChannelStopped = async (
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
- * Wait until a channel has is stopped
+ * Wait until a channel is not running
  *  @param params - Waiter configuration options.
  *  @param input - The input to DescribeChannelCommand for polling.
  */

@@ -20,10 +20,12 @@ const _ACl = "AlgorithmControl";
 const _ACt = "AttachedChannels";
 const _ACv = "AvailConfiguration";
 const _AD = "AdditionalDestinations";
+const _ADAD = "AdditionalDestinationsAlternateDestinations";
 const _ADED = "AudioDolbyEDecode";
 const _ADN = "AudioDescriptionNames";
 const _ADR = "AudioDashRoles";
 const _ADS = "AribDestinationSettings";
+const _ADl = "AlternateDestination";
 const _ADu = "AudioDescription";
 const _ADud = "AudioDescriptions";
 const _AFI = "AudioFeedInput";
@@ -86,6 +88,7 @@ const _ATS = "AudioTrackSelection";
 const _ATT = "AudioTrackType";
 const _ATl = "AlertType";
 const _ATu = "AudioTrack";
+const _AWCP = "AbWatermarkingCustomProfile";
 const _AWS = "AudioWatermarkingSettings";
 const _AWSu = "AudioWatermarkSettings";
 const _AZ = "AvailabilityZones";
@@ -197,6 +200,7 @@ const _CFB = "CacheFullBehavior";
 const _CG = "ChannelGroup";
 const _CH = "CopyrightHolder";
 const _CI = "ClusterId";
+const _CIAWIS = "CmafIngestAbWatermarkerIrdetoSettings";
 const _CICLM = "CmafIngestCaptionLanguageMapping";
 const _CIDT = "CancelInputDeviceTransfer";
 const _CIDTR = "CancelInputDeviceTransferRequest";
@@ -210,6 +214,7 @@ const _CISG = "CreateInputSecurityGroup";
 const _CISGR = "CreateInputSecurityGroupRequest";
 const _CISGRr = "CreateInputSecurityGroupResponse";
 const _CIU = "CaptureIntervalUnits";
+const _CIWS = "CmafIngestWatermarkingSettings";
 const _CIa = "CaptureInterval";
 const _CIh = "ChannelIds";
 const _CIha = "ChannelId";
@@ -251,6 +256,7 @@ const _CNr = "CreateNetwork";
 const _CNre = "CreateNode";
 const _CO = "ComparisonOperator";
 const _COh = "ChannelsOut";
+const _CP = "CustomProfile";
 const _CPG = "ChannelPlacementGroups";
 const _CPGI = "ChannelPlacementGroupId";
 const _CPI = "CreatePartnerInput";
@@ -475,6 +481,7 @@ const _ED = "ExpirationDate";
 const _EDS = "EmbeddedDestinationSettings";
 const _EE = "EgressEndpoints";
 const _EEn = "EntropyEncoding";
+const _EF = "EmbeddingFrequency";
 const _EI = "EventId";
 const _EIM = "EventIdMode";
 const _ELM = "EbpLookaheadMs";
@@ -822,6 +829,7 @@ const _LVR = "ListVersionsRequest";
 const _LVRi = "ListVersionsResponse";
 const _La = "Latency";
 const _Lay = "Layer";
+const _Li = "License";
 const _M = "Message";
 const _MA = "ModifiedAt";
 const _MAa = "MacAddress";
@@ -892,8 +900,10 @@ const _MPS = "MultiplexProgramSettings";
 const _MPSD = "MultiplexProgramServiceDescriptor";
 const _MPSe = "MediaPackageSettings";
 const _MPSu = "MultiplexProgramSummary";
+const _MPVAWIS = "MediaPackageV2AbWatermarkerIrdetoSettings";
 const _MPVDS = "MediaPackageV2DestinationSettings";
 const _MPVGS = "MediaPackageV2GroupSettings";
+const _MPVWS = "MediaPackageV2WatermarkingSettings";
 const _MPu = "MultiplexPrograms";
 const _MQ = "MinQp";
 const _MR = "MaxResults";
@@ -979,7 +989,8 @@ const _ODu = "OutputDestination";
 const _OG = "OutputGroups";
 const _OGS = "OutputGroupSettings";
 const _OGu = "OutputGroup";
-const _OI = "OfferingId";
+const _OI = "OperatorId";
+const _OIf = "OfferingId";
 const _OL = "OcrLanguage";
 const _OLM = "OutputLockingMode";
 const _OLR = "OutputLocationRef";
@@ -1041,8 +1052,9 @@ const _PNrov = "ProviderName";
 const _PO = "PurchaseOffering";
 const _POR = "PurchaseOfferingRequest";
 const _PORu = "PurchaseOfferingResponse";
-const _PP = "PasswordParam";
+const _PP = "PolyPeriod";
 const _PPSS = "PipelinePauseStateSettings";
+const _PPa = "PasswordParam";
 const _PPc = "PcrPeriod";
 const _PPcr = "PcrPid";
 const _PPm = "PmtPid";
@@ -1130,7 +1142,7 @@ const _SAch = "ScheduleAction";
 const _SAe = "SecretArn";
 const _SB = "Scte35Behavior";
 const _SBc = "ScalingBehavior";
-const _SC = "ShadowColor";
+const _SC = "SceneCut";
 const _SCD = "SceneChangeDetect";
 const _SCDR = "SrtCallerDecryptionRequest";
 const _SCDr = "SrtCallerDecryption";
@@ -1144,6 +1156,7 @@ const _SCS = "SrtCallerSource";
 const _SCSR = "SrtCallerSourceRequest";
 const _SCSr = "SrtCallerSources";
 const _SCc = "Scte35Control";
+const _SCh = "ShadowColor";
 const _SCt = "StyleControl";
 const _SCta = "StartChannel";
 const _SCto = "StopChannel";
@@ -1358,7 +1371,8 @@ const _TMSAS = "TimedMetadataScheduleActionSettings";
 const _TO = "TopOffset";
 const _TOM = "TimestampOffsetMode";
 const _TOi = "TimestampOffset";
-const _TP = "TilePadding";
+const _TP = "TargetPsnr";
+const _TPi = "TilePadding";
 const _TR = "TargetRegion";
 const _TRT = "TargetResourceType";
 const _TS = "TreeblockSize";
@@ -1479,8 +1493,10 @@ const _Ver = "Versions";
 const _W = "Width";
 const _WDAF = "WebDeliveryAllowedFlag";
 const _WDS = "WebvttDestinationSettings";
+const _WIL = "WatermarkIdLength";
 const _WR = "WhitelistRules";
 const _WS = "WavSettings";
+const _WSa = "WatermarkingSettings";
 const _X = "X";
 const _XP = "XPosition";
 const _Y = "Y";
@@ -1503,10 +1519,12 @@ const _aCc = "accountConfiguration";
 const _aCl = "algorithmControl";
 const _aCt = "attachedChannels";
 const _aCv = "availConfiguration";
-const _aD = "additionalDestinations";
+const _aD = "alternateDestination";
+const _aDAD = "additionalDestinationsAlternateDestinations";
 const _aDN = "audioDescriptionNames";
 const _aDR = "audioDashRoles";
 const _aDS = "aribDestinationSettings";
+const _aDd = "additionalDestinations";
 const _aDu = "audioDescriptions";
 const _aFI = "audioFeedInputs";
 const _aFPP = "audioFramesPerPes";
@@ -1615,6 +1633,7 @@ const _cFB = "cacheFullBehavior";
 const _cG = "channelGroup";
 const _cH = "copyrightHolder";
 const _cI = "clusterId";
+const _cIAWIS = "cmafIngestAbWatermarkerIrdetoSettings";
 const _cIGS = "cmafIngestGroupSettings";
 const _cIOS = "cmafIngestOutputSettings";
 const _cIS = "cdiInputSpecification";
@@ -1638,6 +1657,7 @@ const _cNa = "cardNumber";
 const _cNh = "channelNumber";
 const _cO = "comparisonOperator";
 const _cOh = "channelsOut";
+const _cP = "customProfile";
 const _cPG = "channelPlacementGroups";
 const _cPGI = "channelPlacementGroupId";
 const _cR = "cropRectangle";
@@ -1734,6 +1754,7 @@ const _eD = "expirationDate";
 const _eDS = "embeddedDestinationSettings";
 const _eE = "egressEndpoints";
 const _eEn = "entropyEncoding";
+const _eF = "embeddingFrequency";
 const _eI = "eventId";
 const _eIM = "eventIdMode";
 const _eLM = "ebpLookaheadMs";
@@ -2013,6 +2034,7 @@ const _lOO = "__listOfOffering";
 const _lOOD = "__listOfOutputDestination";
 const _lOODS = "__listOfOutputDestinationSettings";
 const _lOOG = "__listOfOutputGroup";
+const _lOOLR = "__listOfOutputLocationRef";
 const _lOOi = "__listOfOutput";
 const _lOPD = "__listOfPipelineDetail";
 const _lOPPSS = "__listOfPipelinePauseStateSettings";
@@ -2044,6 +2066,7 @@ const _lSMD = "lastSuccessfulMonitorDeployment";
 const _lSP = "languageSelectionPolicy";
 const _la = "latency";
 const _lay = "layer";
+const _li = "license";
 const _m = "message";
 const _mA = "modifiedAt";
 const _mAa = "macAddress";
@@ -2092,6 +2115,7 @@ const _mPOS = "mediaPackageOutputSettings";
 const _mPRN = "mediaPackageRegionName";
 const _mPS = "multiplexProgramSettings";
 const _mPSe = "mediaPackageSettings";
+const _mPVAWIS = "mediaPackageV2AbWatermarkerIrdetoSettings";
 const _mPVDS = "mediaPackageV2DestinationSettings";
 const _mPu = "multiplexPrograms";
 const _mQ = "minQp";
@@ -2157,7 +2181,8 @@ const _oCu = "outlineColor";
 const _oD = "offeringDescription";
 const _oG = "outputGroups";
 const _oGS = "outputGroupSettings";
-const _oI = "offeringId";
+const _oI = "operatorId";
+const _oIf = "offeringId";
 const _oL = "ocrLanguage";
 const _oLM = "outputLockingMode";
 const _oLS = "outputLockingSettings";
@@ -2212,7 +2237,8 @@ const _pNr = "programName";
 const _pNro = "programNum";
 const _pNrog = "programNumber";
 const _pNrov = "providerName";
-const _pP = "passwordParam";
+const _pP = "polyPeriod";
+const _pPa = "passwordParam";
 const _pPc = "pcrPeriod";
 const _pPcr = "pcrPid";
 const _pPm = "pmtPid";
@@ -2281,12 +2307,13 @@ const _sAc = "scheduleActions";
 const _sAe = "secretArn";
 const _sB = "scte35Behavior";
 const _sBc = "scalingBehavior";
-const _sC = "shadowColor";
+const _sC = "sceneCut";
 const _sCD = "sceneChangeDetect";
 const _sCI = "segmentationCancelIndicator";
 const _sCN = "source608ChannelNumber";
 const _sCS = "srtCallerSources";
 const _sCc = "scte35Control";
+const _sCh = "shadowColor";
 const _sCt = "styleControl";
 const _sD = "stereoDownmix";
 const _sDM = "sendDelayMs";
@@ -2446,7 +2473,8 @@ const _tMS = "timedMetadataSettings";
 const _tO = "topOffset";
 const _tOM = "timestampOffsetMode";
 const _tOi = "timestampOffset";
-const _tP = "tilePadding";
+const _tP = "targetPsnr";
+const _tPi = "tilePadding";
 const _tR = "targetRegion";
 const _tRT = "targetResourceType";
 const _tS = "treeblockSize";
@@ -2498,8 +2526,10 @@ const _ver = "versions";
 const _w = "width";
 const _wDAF = "webDeliveryAllowedFlag";
 const _wDS = "webvttDestinationSettings";
+const _wIL = "watermarkIdLength";
 const _wR = "whitelistRules";
 const _wS = "wavSettings";
+const _wSa = "watermarkingSettings";
 const _x = "x";
 const _xP = "xPosition";
 const _y = "y";
@@ -2604,6 +2634,11 @@ export var AacSettings$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_B, _CM, _IT, _P, _RCM, _RF, _SR, _S, _VQ],
   [[1, { [_jN]: _b }], [0, { [_jN]: _cM }], [0, { [_jN]: _iT }], [0, { [_jN]: _p }], [0, { [_jN]: _rCM }], [0, { [_jN]: _rF }], [1, { [_jN]: _sR }], [0, { [_jN]: _sp }], [0, { [_jN]: _vQ }]]
+];
+export var AbWatermarkingCustomProfile$: StaticStructureSchema = [3, n0, _AWCP,
+  0,
+  [_EF, _SC, _TP],
+  [[1, { [_jN]: _eF }], [1, { [_jN]: _sC }], [1, { [_jN]: _tP }]], 3
 ];
 export var Ac3Settings$: StaticStructureSchema = [3, n0, _ASc,
   0,
@@ -2877,8 +2912,8 @@ export var BlackoutSlate$: StaticStructureSchema = [3, n0, _BSl,
 ];
 export var BurnInDestinationSettings$: StaticStructureSchema = [3, n0, _BIDS,
   0,
-  [_Al, _BC, _BO, _Fo, _FCo, _FO, _FR, _FS, _OCu, _OS, _SC, _SO, _SXO, _SYO, _TGC, _XP, _YP, _SRu],
-  [[0, { [_jN]: _al }], [0, { [_jN]: _bC }], [1, { [_jN]: _bO }], [() => InputLocation$, { [_jN]: _fo }], [0, { [_jN]: _fCo }], [1, { [_jN]: _fO }], [1, { [_jN]: _fR }], [0, { [_jN]: _fS }], [0, { [_jN]: _oCu }], [1, { [_jN]: _oS }], [0, { [_jN]: _sC }], [1, { [_jN]: _sO }], [1, { [_jN]: _sXO }], [1, { [_jN]: _sYO }], [0, { [_jN]: _tGC }], [1, { [_jN]: _xP }], [1, { [_jN]: _yP }], [0, { [_jN]: _sRu }]]
+  [_Al, _BC, _BO, _Fo, _FCo, _FO, _FR, _FS, _OCu, _OS, _SCh, _SO, _SXO, _SYO, _TGC, _XP, _YP, _SRu],
+  [[0, { [_jN]: _al }], [0, { [_jN]: _bC }], [1, { [_jN]: _bO }], [() => InputLocation$, { [_jN]: _fo }], [0, { [_jN]: _fCo }], [1, { [_jN]: _fO }], [1, { [_jN]: _fR }], [0, { [_jN]: _fS }], [0, { [_jN]: _oCu }], [1, { [_jN]: _oS }], [0, { [_jN]: _sCh }], [1, { [_jN]: _sO }], [1, { [_jN]: _sXO }], [1, { [_jN]: _sYO }], [0, { [_jN]: _tGC }], [1, { [_jN]: _xP }], [1, { [_jN]: _yP }], [0, { [_jN]: _sRu }]]
 ];
 export var CancelInputDeviceTransferRequest$: StaticStructureSchema = [3, n0, _CIDTR,
   0,
@@ -2995,6 +3030,11 @@ export var ClusterNetworkSettingsUpdateRequest$: StaticStructureSchema = [3, n0,
   [_DR, _IM],
   [[0, { [_jN]: _dR }], [() => __listOfInterfaceMappingUpdateRequest, { [_jN]: _iM }]]
 ];
+export var CmafIngestAbWatermarkerIrdetoSettings$: StaticStructureSchema = [3, n0, _CIAWIS,
+  0,
+  [_ADl, _OI, _P, _ADAD, _CP, _Li, _PP, _WIL],
+  [[() => OutputLocationRef$, { [_jN]: _aD }], [1, { [_jN]: _oI }], [0, { [_jN]: _p }], [() => __listOfOutputLocationRef, { [_jN]: _aDAD }], [() => AbWatermarkingCustomProfile$, { [_jN]: _cP }], [0, { [_jN]: _li }], [1, { [_jN]: _pP }], [0, { [_jN]: _wIL }]], 3
+];
 export var CmafIngestCaptionLanguageMapping$: StaticStructureSchema = [3, n0, _CICLM,
   0,
   [_CC, _LC],
@@ -3002,13 +3042,18 @@ export var CmafIngestCaptionLanguageMapping$: StaticStructureSchema = [3, n0, _C
 ];
 export var CmafIngestGroupSettings$: StaticStructureSchema = [3, n0, _CIGS,
   0,
-  [_De, _NIB, _STc, _SL, _SLU, _SDM, _KB, _KNM, _NINM, _SNM, _IB, _INM, _CLMa, _TMIF, _TMIP, _TMP, _AD],
-  [[() => OutputLocationRef$, { [_jN]: _de }], [0, { [_jN]: _nIB }], [0, { [_jN]: _sTc }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLU }], [1, { [_jN]: _sDM }], [0, { [_jN]: _kB }], [0, { [_jN]: _kNM }], [0, { [_jN]: _nINM }], [0, { [_jN]: _sNM }], [0, { [_jN]: _iB }], [0, { [_jN]: _iNM }], [() => __listOfCmafIngestCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [0, { [_jN]: _tMP }], [() => __listOfAdditionalDestinations, { [_jN]: _aD }]], 1
+  [_De, _NIB, _STc, _SL, _SLU, _SDM, _KB, _KNM, _NINM, _SNM, _IB, _INM, _CLMa, _TMIF, _TMIP, _TMP, _AD, _WSa],
+  [[() => OutputLocationRef$, { [_jN]: _de }], [0, { [_jN]: _nIB }], [0, { [_jN]: _sTc }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLU }], [1, { [_jN]: _sDM }], [0, { [_jN]: _kB }], [0, { [_jN]: _kNM }], [0, { [_jN]: _nINM }], [0, { [_jN]: _sNM }], [0, { [_jN]: _iB }], [0, { [_jN]: _iNM }], [() => __listOfCmafIngestCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [0, { [_jN]: _tMP }], [() => __listOfAdditionalDestinations, { [_jN]: _aDd }], [() => CmafIngestWatermarkingSettings$, { [_jN]: _wSa }]], 1
 ];
 export var CmafIngestOutputSettings$: StaticStructureSchema = [3, n0, _CIOS,
   0,
   [_NM],
   [[0, { [_jN]: _nM }]]
+];
+export var CmafIngestWatermarkingSettings$: StaticStructureSchema = [3, n0, _CIWS,
+  0,
+  [_CIAWIS],
+  [[() => CmafIngestAbWatermarkerIrdetoSettings$, { [_jN]: _cIAWIS }]]
 ];
 export var ColorCorrection$: StaticStructureSchema = [3, n0, _CCo,
   0,
@@ -3317,8 +3362,8 @@ export var DeleteReservationRequest$: StaticStructureSchema = [3, n0, _DRR,
 ];
 export var DeleteReservationResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
-  [_Ar, _Cou, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
-  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
+  [_Ar, _Cou, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OIf, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
+  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oIf }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
 ];
 export var DeleteScheduleRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
@@ -3512,13 +3557,13 @@ export var DescribeNodeSummary$: StaticStructureSchema = [3, n0, _DNSe,
 ];
 export var DescribeOfferingRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
-  [_OI],
+  [_OIf],
   [[0, 1]], 1
 ];
 export var DescribeOfferingResponse$: StaticStructureSchema = [3, n0, _DORe,
   0,
-  [_Ar, _CCu, _Du, _DU, _FP, _OD, _OI, _OT, _Reg, _RSes, _UP],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [1, { [_jN]: _fP }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [1, { [_jN]: _uP }]]
+  [_Ar, _CCu, _Du, _DU, _FP, _OD, _OIf, _OT, _Reg, _RSes, _UP],
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [1, { [_jN]: _fP }], [0, { [_jN]: _oD }], [0, { [_jN]: _oIf }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [1, { [_jN]: _uP }]]
 ];
 export var DescribePrimaryChannelSettings$: StaticStructureSchema = [3, n0, _DPCS,
   0,
@@ -3532,8 +3577,8 @@ export var DescribeReservationRequest$: StaticStructureSchema = [3, n0, _DRRes,
 ];
 export var DescribeReservationResponse$: StaticStructureSchema = [3, n0, _DRResc,
   0,
-  [_Ar, _Cou, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
-  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
+  [_Ar, _Cou, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OIf, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
+  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oIf }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
 ];
 export var DescribeScheduleRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
@@ -3587,8 +3632,8 @@ export var DvbSdtSettings$: StaticStructureSchema = [3, n0, _DSS,
 ];
 export var DvbSubDestinationSettings$: StaticStructureSchema = [3, n0, _DSDS,
   0,
-  [_Al, _BC, _BO, _Fo, _FCo, _FO, _FR, _FS, _OCu, _OS, _SC, _SO, _SXO, _SYO, _TGC, _XP, _YP, _SRu],
-  [[0, { [_jN]: _al }], [0, { [_jN]: _bC }], [1, { [_jN]: _bO }], [() => InputLocation$, { [_jN]: _fo }], [0, { [_jN]: _fCo }], [1, { [_jN]: _fO }], [1, { [_jN]: _fR }], [0, { [_jN]: _fS }], [0, { [_jN]: _oCu }], [1, { [_jN]: _oS }], [0, { [_jN]: _sC }], [1, { [_jN]: _sO }], [1, { [_jN]: _sXO }], [1, { [_jN]: _sYO }], [0, { [_jN]: _tGC }], [1, { [_jN]: _xP }], [1, { [_jN]: _yP }], [0, { [_jN]: _sRu }]]
+  [_Al, _BC, _BO, _Fo, _FCo, _FO, _FR, _FS, _OCu, _OS, _SCh, _SO, _SXO, _SYO, _TGC, _XP, _YP, _SRu],
+  [[0, { [_jN]: _al }], [0, { [_jN]: _bC }], [1, { [_jN]: _bO }], [() => InputLocation$, { [_jN]: _fo }], [0, { [_jN]: _fCo }], [1, { [_jN]: _fO }], [1, { [_jN]: _fR }], [0, { [_jN]: _fS }], [0, { [_jN]: _oCu }], [1, { [_jN]: _oS }], [0, { [_jN]: _sCh }], [1, { [_jN]: _sO }], [1, { [_jN]: _sXO }], [1, { [_jN]: _sYO }], [0, { [_jN]: _tGC }], [1, { [_jN]: _xP }], [1, { [_jN]: _yP }], [0, { [_jN]: _sRu }]]
 ];
 export var DvbSubSourceSettings$: StaticStructureSchema = [3, n0, _DSSS,
   0,
@@ -3642,8 +3687,8 @@ export var EpochLockingSettings$: StaticStructureSchema = [3, n0, _ELS,
 ];
 export var Esam$: StaticStructureSchema = [3, n0, _Es,
   0,
-  [_API, _PE, _AAO, _PP, _Us, _ZI],
-  [[0, { [_jN]: _aPI }], [0, { [_jN]: _pE }], [1, { [_jN]: _aAO }], [0, { [_jN]: _pP }], [0, { [_jN]: _us }], [0, { [_jN]: _zI }]], 2
+  [_API, _PE, _AAO, _PPa, _Us, _ZI],
+  [[0, { [_jN]: _aPI }], [0, { [_jN]: _pE }], [1, { [_jN]: _aAO }], [0, { [_jN]: _pPa }], [0, { [_jN]: _us }], [0, { [_jN]: _zI }]], 2
 ];
 export var EventBridgeRuleTemplateGroupSummary$: StaticStructureSchema = [3, n0, _EBRTGS,
   0,
@@ -3812,8 +3857,8 @@ export var H265FilterSettings$: StaticStructureSchema = [3, n0, _HFSi,
 ];
 export var H265Settings$: StaticStructureSchema = [3, n0, _HSet,
   0,
-  [_FD, _FN, _AQ, _ASf, _ATF, _B, _BS, _CMo, _CSS, _FSi, _FA, _FAl, _GCCo, _GS, _GSU, _L, _LARC, _MB, _MII, _PD, _PN, _P, _QQL, _RCM, _STca, _SCD, _Sl, _Tie, _TI, _TBS, _MOPB, _MTP, _TH, _TP, _TW, _TS, _MQ, _Deb, _GBR, _GNBF, _MBi, _SLu],
-  [[1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _aQ }], [0, { [_jN]: _aSf }], [0, { [_jN]: _aTF }], [1, { [_jN]: _b }], [1, { [_jN]: _bS }], [0, { [_jN]: _cMo }], [() => H265ColorSpaceSettings$, { [_jN]: _cSS }], [() => H265FilterSettings$, { [_jN]: _fSi }], [0, { [_jN]: _fA }], [0, { [_jN]: _fAl }], [1, { [_jN]: _gCCo }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [0, { [_jN]: _l }], [0, { [_jN]: _lARC }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [0, { [_jN]: _p }], [1, { [_jN]: _qQL }], [0, { [_jN]: _rCM }], [0, { [_jN]: _sTca }], [0, { [_jN]: _sCD }], [1, { [_jN]: _sl }], [0, { [_jN]: _tie }], [0, { [_jN]: _tI }], [() => TimecodeBurninSettings$, { [_jN]: _tBS }], [0, { [_jN]: _mOPB }], [0, { [_jN]: _mTP }], [1, { [_jN]: _tH }], [0, { [_jN]: _tP }], [1, { [_jN]: _tW }], [0, { [_jN]: _tS }], [1, { [_jN]: _mQ }], [0, { [_jN]: _deb }], [0, { [_jN]: _gBR }], [1, { [_jN]: _gNBF }], [1, { [_jN]: _mBi }], [0, { [_jN]: _sLu }]], 2
+  [_FD, _FN, _AQ, _ASf, _ATF, _B, _BS, _CMo, _CSS, _FSi, _FA, _FAl, _GCCo, _GS, _GSU, _L, _LARC, _MB, _MII, _PD, _PN, _P, _QQL, _RCM, _STca, _SCD, _Sl, _Tie, _TI, _TBS, _MOPB, _MTP, _TH, _TPi, _TW, _TS, _MQ, _Deb, _GBR, _GNBF, _MBi, _SLu],
+  [[1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [0, { [_jN]: _aQ }], [0, { [_jN]: _aSf }], [0, { [_jN]: _aTF }], [1, { [_jN]: _b }], [1, { [_jN]: _bS }], [0, { [_jN]: _cMo }], [() => H265ColorSpaceSettings$, { [_jN]: _cSS }], [() => H265FilterSettings$, { [_jN]: _fSi }], [0, { [_jN]: _fA }], [0, { [_jN]: _fAl }], [1, { [_jN]: _gCCo }], [1, { [_jN]: _gS }], [0, { [_jN]: _gSU }], [0, { [_jN]: _l }], [0, { [_jN]: _lARC }], [1, { [_jN]: _mB }], [1, { [_jN]: _mII }], [1, { [_jN]: _pD }], [1, { [_jN]: _pN }], [0, { [_jN]: _p }], [1, { [_jN]: _qQL }], [0, { [_jN]: _rCM }], [0, { [_jN]: _sTca }], [0, { [_jN]: _sCD }], [1, { [_jN]: _sl }], [0, { [_jN]: _tie }], [0, { [_jN]: _tI }], [() => TimecodeBurninSettings$, { [_jN]: _tBS }], [0, { [_jN]: _mOPB }], [0, { [_jN]: _mTP }], [1, { [_jN]: _tH }], [0, { [_jN]: _tPi }], [1, { [_jN]: _tW }], [0, { [_jN]: _tS }], [1, { [_jN]: _mQ }], [0, { [_jN]: _deb }], [0, { [_jN]: _gBR }], [1, { [_jN]: _gNBF }], [1, { [_jN]: _mBi }], [0, { [_jN]: _sLu }]], 2
 ];
 export var Hdr10Settings$: StaticStructureSchema = [3, n0, _HS,
   0,
@@ -4002,8 +4047,8 @@ export var InputDeviceUhdSettings$: StaticStructureSchema = [3, n0, _IDUS,
 ];
 export var InputLocation$: StaticStructureSchema = [3, n0, _IL,
   0,
-  [_U, _PP, _Us],
-  [[0, { [_jN]: _u }], [0, { [_jN]: _pP }], [0, { [_jN]: _us }]], 1
+  [_U, _PPa, _Us],
+  [[0, { [_jN]: _u }], [0, { [_jN]: _pPa }], [0, { [_jN]: _us }]], 1
 ];
 export var InputLossBehavior$: StaticStructureSchema = [3, n0, _ILB,
   0,
@@ -4042,13 +4087,13 @@ export var InputSettings$: StaticStructureSchema = [3, n0, _ISnp,
 ];
 export var InputSource$: StaticStructureSchema = [3, n0, _ISnpu,
   0,
-  [_PP, _Ur, _Us],
-  [[0, { [_jN]: _pP }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }]]
+  [_PPa, _Ur, _Us],
+  [[0, { [_jN]: _pPa }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }]]
 ];
 export var InputSourceRequest$: StaticStructureSchema = [3, n0, _ISR,
   0,
-  [_PP, _Ur, _Us],
-  [[0, { [_jN]: _pP }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }]]
+  [_PPa, _Ur, _Us],
+  [[0, { [_jN]: _pPa }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }]]
 ];
 export var InputSpecification$: StaticStructureSchema = [3, n0, _IS,
   0,
@@ -4440,6 +4485,11 @@ export var MediaPackageOutputSettings$: StaticStructureSchema = [3, n0, _MPOS,
   [_MPVDS],
   [[() => MediaPackageV2DestinationSettings$, { [_jN]: _mPVDS }]]
 ];
+export var MediaPackageV2AbWatermarkerIrdetoSettings$: StaticStructureSchema = [3, n0, _MPVAWIS,
+  0,
+  [_ADl, _OI, _P, _ADAD, _CP, _Li, _PP, _WIL],
+  [[() => OutputLocationRef$, { [_jN]: _aD }], [1, { [_jN]: _oI }], [0, { [_jN]: _p }], [() => __listOfOutputLocationRef, { [_jN]: _aDAD }], [() => AbWatermarkingCustomProfile$, { [_jN]: _cP }], [0, { [_jN]: _li }], [1, { [_jN]: _pP }], [0, { [_jN]: _wIL }]], 3
+];
 export var MediaPackageV2DestinationSettings$: StaticStructureSchema = [3, n0, _MPVDS,
   0,
   [_AGI, _ARS, _HASl, _HD],
@@ -4447,8 +4497,13 @@ export var MediaPackageV2DestinationSettings$: StaticStructureSchema = [3, n0, _
 ];
 export var MediaPackageV2GroupSettings$: StaticStructureSchema = [3, n0, _MPVGS,
   0,
-  [_CLMa, _IB, _KB, _NIB, _STc, _SL, _SLU, _TMIF, _TMIP, _TMP, _AD],
-  [[() => __listOfCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _iB }], [0, { [_jN]: _kB }], [0, { [_jN]: _nIB }], [0, { [_jN]: _sTc }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLU }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [0, { [_jN]: _tMP }], [() => __listOfMediaPackageAdditionalDestinations, { [_jN]: _aD }]]
+  [_CLMa, _IB, _KB, _NIB, _STc, _SL, _SLU, _TMIF, _TMIP, _TMP, _AD, _WSa],
+  [[() => __listOfCaptionLanguageMapping, { [_jN]: _cLM }], [0, { [_jN]: _iB }], [0, { [_jN]: _kB }], [0, { [_jN]: _nIB }], [0, { [_jN]: _sTc }], [1, { [_jN]: _sL }], [0, { [_jN]: _sLU }], [0, { [_jN]: _tMIF }], [1, { [_jN]: _tMIP }], [0, { [_jN]: _tMP }], [() => __listOfMediaPackageAdditionalDestinations, { [_jN]: _aDd }], [() => MediaPackageV2WatermarkingSettings$, { [_jN]: _wSa }]]
+];
+export var MediaPackageV2WatermarkingSettings$: StaticStructureSchema = [3, n0, _MPVWS,
+  0,
+  [_MPVAWIS],
+  [[() => MediaPackageV2AbWatermarkerIrdetoSettings$, { [_jN]: _mPVAWIS }]]
 ];
 export var MediaResource$: StaticStructureSchema = [3, n0, _MRe,
   0,
@@ -4467,8 +4522,8 @@ export var MonitorDeployment$: StaticStructureSchema = [3, n0, _MD,
 ];
 export var MotionGraphicsActivateScheduleActionSettings$: StaticStructureSchema = [3, n0, _MGASAS,
   0,
-  [_Du, _PP, _Ur, _Us],
-  [[1, { [_jN]: _du }], [0, { [_jN]: _pP }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }]]
+  [_Du, _PPa, _Ur, _Us],
+  [[1, { [_jN]: _du }], [0, { [_jN]: _pPa }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }]]
 ];
 export var MotionGraphicsConfiguration$: StaticStructureSchema = [3, n0, _MGC,
   0,
@@ -4687,8 +4742,8 @@ export var NodeInterfaceMappingCreateRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var Offering$: StaticStructureSchema = [3, n0, _Of,
   0,
-  [_Ar, _CCu, _Du, _DU, _FP, _OD, _OI, _OT, _Reg, _RSes, _UP],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [1, { [_jN]: _fP }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [1, { [_jN]: _uP }]]
+  [_Ar, _CCu, _Du, _DU, _FP, _OD, _OIf, _OT, _Reg, _RSes, _UP],
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [1, { [_jN]: _fP }], [0, { [_jN]: _oD }], [0, { [_jN]: _oIf }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [1, { [_jN]: _uP }]]
 ];
 export var Output$: StaticStructureSchema = [3, n0, _Ou,
   0,
@@ -4702,8 +4757,8 @@ export var OutputDestination$: StaticStructureSchema = [3, n0, _ODu,
 ];
 export var OutputDestinationSettings$: StaticStructureSchema = [3, n0, _ODS,
   0,
-  [_PP, _SN, _Ur, _Us, _VSA],
-  [[0, { [_jN]: _pP }], [0, { [_jN]: _sN }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }], [0, { [_jN]: _vSA }]]
+  [_PPa, _SN, _Ur, _Us, _VSA],
+  [[0, { [_jN]: _pPa }], [0, { [_jN]: _sN }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }], [0, { [_jN]: _vSA }]]
 ];
 export var OutputGroup$: StaticStructureSchema = [3, n0, _OGu,
   0,
@@ -4762,7 +4817,7 @@ export var PrimaryChannelSettings$: StaticStructureSchema = [3, n0, _PCS,
 ];
 export var PurchaseOfferingRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
-  [_Cou, _OI, _N, _RSen, _RIe, _Star, _Ta],
+  [_Cou, _OIf, _N, _RSen, _RIe, _Star, _Ta],
   [[1, { [_jN]: _cou }], [0, 1], [0, { [_jN]: _n }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_iTd]: 1, [_jN]: _rIe }], [0, { [_jN]: _star }], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var PurchaseOfferingResponse$: StaticStructureSchema = [3, n0, _PORu,
@@ -4817,8 +4872,8 @@ export var RenewalSettings$: StaticStructureSchema = [3, n0, _RSen,
 ];
 export var Reservation$: StaticStructureSchema = [3, n0, _Rese,
   0,
-  [_Ar, _Cou, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
-  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
+  [_Ar, _Cou, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OIf, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
+  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oIf }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
 ];
 export var ReservationResourceSpecification$: StaticStructureSchema = [3, n0, _RRS,
   0,
@@ -5878,6 +5933,10 @@ var __listOfOutputDestinationSettings: StaticListSchema = [1, n0, _lOODS,
 ];
 var __listOfOutputGroup: StaticListSchema = [1, n0, _lOOG,
   0, [() => OutputGroup$,
+    0]
+];
+var __listOfOutputLocationRef: StaticListSchema = [1, n0, _lOOLR,
+  0, [() => OutputLocationRef$,
     0]
 ];
 var __listOfPipelineDetail: StaticListSchema = [1, n0, _lOPD,

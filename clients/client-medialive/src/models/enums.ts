@@ -2713,6 +2713,36 @@ export type CmafTimedMetadataPassthrough =
  * @public
  * @enum
  */
+export const AbWatermarkingProfile = {
+  CAMCORDING: "CAMCORDING",
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+  HQ: "HQ",
+  MEZZANINE: "MEZZANINE",
+  ROBUST: "ROBUST",
+} as const;
+/**
+ * @public
+ */
+export type AbWatermarkingProfile = (typeof AbWatermarkingProfile)[keyof typeof AbWatermarkingProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const AbWatermarkerIdLength = {
+  ID_2048: "ID_2048",
+  ID_512: "ID_512",
+} as const;
+/**
+ * @public
+ */
+export type AbWatermarkerIdLength = (typeof AbWatermarkerIdLength)[keyof typeof AbWatermarkerIdLength];
+
+/**
+ * @public
+ * @enum
+ */
 export const HlsCaptionLanguageSetting = {
   INSERT: "INSERT",
   NONE: "NONE",

@@ -581,6 +581,24 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                     },
  * //                   },
  * //                 ],
+ * //                 WatermarkingSettings: { // MediaPackageV2WatermarkingSettings
+ * //                   MediaPackageV2AbWatermarkerIrdetoSettings: { // MediaPackageV2AbWatermarkerIrdetoSettings
+ * //                     AdditionalDestinationsAlternateDestinations: [ // __listOfOutputLocationRef
+ * //                       "<OutputLocationRef>",
+ * //                     ],
+ * //                     AlternateDestination: "<OutputLocationRef>", // required
+ * //                     CustomProfile: { // AbWatermarkingCustomProfile
+ * //                       EmbeddingFrequency: Number("double"), // required
+ * //                       SceneCut: Number("double"), // required
+ * //                       TargetPsnr: Number("double"), // required
+ * //                     },
+ * //                     License: "STRING_VALUE",
+ * //                     OperatorId: Number("int"), // required
+ * //                     PolyPeriod: Number("int"),
+ * //                     Profile: "CAMCORDING" || "CUSTOM" || "DEFAULT" || "HQ" || "MEZZANINE" || "ROBUST", // required
+ * //                     WatermarkIdLength: "ID_2048" || "ID_512",
+ * //                   },
+ * //                 },
  * //               },
  * //             },
  * //             MsSmoothGroupSettings: { // MsSmoothGroupSettings
@@ -649,6 +667,24 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                   Destination: "<OutputLocationRef>", // required
  * //                 },
  * //               ],
+ * //               WatermarkingSettings: { // CmafIngestWatermarkingSettings
+ * //                 CmafIngestAbWatermarkerIrdetoSettings: { // CmafIngestAbWatermarkerIrdetoSettings
+ * //                   AdditionalDestinationsAlternateDestinations: [
+ * //                     "<OutputLocationRef>",
+ * //                   ],
+ * //                   AlternateDestination: "<OutputLocationRef>", // required
+ * //                   CustomProfile: {
+ * //                     EmbeddingFrequency: Number("double"), // required
+ * //                     SceneCut: Number("double"), // required
+ * //                     TargetPsnr: Number("double"), // required
+ * //                   },
+ * //                   License: "STRING_VALUE",
+ * //                   OperatorId: Number("int"), // required
+ * //                   PolyPeriod: Number("int"),
+ * //                   Profile: "CAMCORDING" || "CUSTOM" || "DEFAULT" || "HQ" || "MEZZANINE" || "ROBUST", // required
+ * //                   WatermarkIdLength: "ID_2048" || "ID_512",
+ * //                 },
+ * //               },
  * //             },
  * //             SrtGroupSettings: { // SrtGroupSettings
  * //               InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
