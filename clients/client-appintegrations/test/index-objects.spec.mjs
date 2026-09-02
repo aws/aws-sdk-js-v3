@@ -9,6 +9,8 @@ import {
   ApplicationSourceConfig$,
   ApplicationSummary$,
   ApplicationType,
+  ConflictException,
+  ConflictException$,
   ContactHandling$,
   ContactHandlingScope,
   CreateApplication$,
@@ -265,6 +267,8 @@ assert(typeof ExecutionStatus === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof AppIntegrationsServiceException);
 assert(typeof AccessDeniedException$ === "object");
+assert(ConflictException.prototype instanceof AppIntegrationsServiceException);
+assert(typeof ConflictException$ === "object");
 assert(DuplicateResourceException.prototype instanceof AppIntegrationsServiceException);
 assert(typeof DuplicateResourceException$ === "object");
 assert(InternalServiceError.prototype instanceof AppIntegrationsServiceException);

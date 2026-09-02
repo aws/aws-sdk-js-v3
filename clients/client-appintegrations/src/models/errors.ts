@@ -178,3 +178,25 @@ export class ResourceNotFoundException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * <p>The request conflicts with the current state of the resource. Verify the application's current state and retry the request.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}

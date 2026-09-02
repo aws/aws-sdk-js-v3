@@ -92,6 +92,9 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request conflicts with the current state of the resource. Verify the application's current state and retry the request.</p>
+ *
  * @throws {@link InternalServiceError} (server fault)
  *  <p>Request processing failed due to an error or failure with the service.</p>
  *

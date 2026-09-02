@@ -141,6 +141,7 @@ export type {
   UpdateEventIntegrationRequest,
   UpdateEventIntegrationResponse,
   AccessDeniedException,
+  ConflictException,
   DuplicateResourceException,
   InternalServiceError,
   InvalidRequestException,

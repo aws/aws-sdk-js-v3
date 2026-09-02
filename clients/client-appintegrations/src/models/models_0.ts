@@ -597,6 +597,19 @@ export interface DeleteApplicationRequest {
    * @public
    */
   Arn: string | undefined;
+
+  /**
+   * <p>Specifies whether to delete the application even if it still has application associations.
+   *       If <code>true</code>, the operation removes the application and its associations. If
+   *       <code>false</code> or absent, the delete fails when associations exist.</p>
+   *          <important>
+   *             <p>Setting this parameter to <code>true</code> permanently removes all of the
+   *         application's associations. Doing so might impact other resources that rely on and
+   *         reference the application. This action can't be undone.</p>
+   *          </important>
+   * @public
+   */
+  Force?: boolean | undefined;
 }
 
 /**

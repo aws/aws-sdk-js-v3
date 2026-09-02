@@ -23,8 +23,9 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the Application. Only Applications that don't have any Application Associations
- *       can be deleted.</p>
+ * <p>Deletes an application. If the application has associations, you must delete them first.
+ *       Alternatively, use the <code>force</code> option to delete the application and remove its
+ *       associations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,6 +36,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * const client = new AppIntegrationsClient(config);
  * const input = { // DeleteApplicationRequest
  *   Arn: "STRING_VALUE", // required
+ *   Force: true || false,
  * };
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);

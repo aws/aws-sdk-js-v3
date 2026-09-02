@@ -25,6 +25,7 @@ const _CDIAR = "CreateDataIntegrationAssociationRequest";
 const _CDIARr = "CreateDataIntegrationAssociationResponse";
 const _CDIR = "CreateDataIntegrationRequest";
 const _CDIRr = "CreateDataIntegrationResponse";
+const _CE = "ConflictException";
 const _CEI = "CreateEventIntegration";
 const _CEIR = "CreateEventIntegrationRequest";
 const _CEIRr = "CreateEventIntegrationResponse";
@@ -74,11 +75,12 @@ const _EM = "ExecutionMode";
 const _ES = "ExecutionStatus";
 const _ET = "EndTime";
 const _EUC = "ExternalUrlConfig";
-const _F = "Folders";
+const _F = "Force";
 const _FC = "FileConfiguration";
 const _FEF = "FirstExecutionFrom";
 const _FM = "FieldsMap";
 const _Fi = "Filters";
+const _Fo = "Folders";
 const _GA = "GetApplication";
 const _GAR = "GetApplicationRequest";
 const _GARe = "GetApplicationResponse";
@@ -170,6 +172,7 @@ const _URRn = "UntagResourceResponse";
 const _aT = "applicationType";
 const _c = "client";
 const _e = "error";
+const _f = "force";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
@@ -195,6 +198,7 @@ import type {
 import { AppIntegrationsServiceException } from "../models/AppIntegrationsServiceException";
 import {
   AccessDeniedException,
+  ConflictException,
   DuplicateResourceException,
   InternalServiceError,
   InvalidRequestException,
@@ -215,6 +219,12 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   [0]
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
 export var DuplicateResourceException$: StaticErrorSchema = [-3, n0, _DRE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
@@ -343,8 +353,8 @@ export var DataIntegrationSummary$: StaticStructureSchema = [3, n0, _DIS,
 ];
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
-  [_A],
-  [[0, 1]], 1
+  [_A, _F],
+  [[0, 1], [2, { [_hQ]: _f }]], 1
 ];
 export var DeleteApplicationResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
@@ -398,7 +408,7 @@ export var ExternalUrlConfig$: StaticStructureSchema = [3, n0, _EUC,
 ];
 export var FileConfiguration$: StaticStructureSchema = [3, n0, _FC,
   0,
-  [_F, _Fi],
+  [_Fo, _Fi],
   [64 | 0, [2, n0, _FM, 0, 0, 64 | 0]], 1
 ];
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
