@@ -973,6 +973,153 @@ describe("url component encoding", () => {
     expect(signedUrl.slice(0, target.length)).toBe(target);
   });
 
+  // https://github.com/aws/aws-sdk-js-v3/issues/8277
+  it("should preserve + in query strings without converting to %20", () => {
+    const url = new URL("http://example.com/path/to/file.pdf");
+    url.searchParams.set("response-content-disposition", "inline; filename*=filename.pdf");
+    const href = url.toString();
+    // URL.searchParams.set encodes space as +
+    expect(href).toContain("inline%3B+filename*%3Dfilename.pdf");
+
+    const signedUrl = getSignedUrl({
+      url: href,
+      keyPairId,
+      privateKey,
+      passphrase,
+      dateLessThan: "2026-01-01",
+    });
+
+    // The + must be preserved in the signed URL, not converted to %20
+    const cfParamStart = signedUrl.search(/[?&]Expires=/);
+    expect(cfParamStart).toBeGreaterThan(0);
+    const baseUrl = signedUrl.slice(0, cfParamStart);
+    expect(baseUrl).toContain("inline%3B+filename*%3Dfilename.pdf");
+    expect(baseUrl).not.toContain("%20");
+
+    // Verify signature matches a policy over the original URL (with +)
+    const parsedUrl = parseUrl(signedUrl);
+    const signature = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: href,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": Math.round(new Date("2026-01-01").getTime() / 1000),
+            },
+          },
+        },
+      ],
+    });
+    expect(verifySignature(signature, policyStr)).toBeTruthy();
+  });
+
+  // https://github.com/aws/aws-sdk-js-v3/issues/8277
+  it("should preserve raw + as literal in query strings", () => {
+    const inputUrl = "http://example.com/file.pdf?q=a+b";
+    const signedUrl = getSignedUrl({
+      url: inputUrl,
+      keyPairId,
+      privateKey,
+      passphrase,
+      dateLessThan: "2026-01-01",
+    });
+
+    const cfParamStart = signedUrl.search(/[?&]Expires=/);
+    expect(cfParamStart).toBeGreaterThan(0);
+    const baseUrl = signedUrl.slice(0, cfParamStart);
+    expect(baseUrl).toBe("http://example.com/file.pdf?q=a+b");
+
+    // Verify signature matches a policy over the original URL (with +)
+    const parsedUrl = parseUrl(signedUrl);
+    const signature = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: inputUrl,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": Math.round(new Date("2026-01-01").getTime() / 1000),
+            },
+          },
+        },
+      ],
+    });
+    expect(verifySignature(signature, policyStr)).toBeTruthy();
+  });
+
+  // https://github.com/aws/aws-sdk-js-v3/issues/8277
+  it("should normalize lowercase %xx hex to uppercase in query", () => {
+    const signedUrl = getSignedUrl({
+      url: "http://example.com/file.pdf?q=c%2b%2b",
+      keyPairId,
+      privateKey,
+      passphrase,
+      dateLessThan: "2026-01-01",
+    });
+
+    const cfParamStart = signedUrl.search(/[?&]Expires=/);
+    expect(cfParamStart).toBeGreaterThan(0);
+    const baseUrl = signedUrl.slice(0, cfParamStart);
+    expect(baseUrl).toBe("http://example.com/file.pdf?q=c%2B%2B");
+  });
+
+  // https://github.com/aws/aws-sdk-js-v3/issues/8277
+  it("should encode a literal % in query without double-encoding existing %XX", () => {
+    const signedUrl = getSignedUrl({
+      url: "http://example.com/file.pdf?q=100%&tag=%E6%96%87",
+      keyPairId,
+      privateKey,
+      passphrase,
+      dateLessThan: "2026-01-01",
+    });
+
+    const cfParamStart = signedUrl.search(/[?&]Expires=/);
+    expect(cfParamStart).toBeGreaterThan(0);
+    const baseUrl = signedUrl.slice(0, cfParamStart);
+    // Bare % gets encoded to %25, existing %E6 stays (uppercased)
+    expect(baseUrl).toContain("q=100%25");
+    expect(baseUrl).toContain("tag=%E6%96%87");
+  });
+
+  // https://github.com/aws/aws-sdk-js-v3/issues/8277
+  it.each([
+    { label: "lone high surrogate", input: "\uD800", expected: "%EF%BF%BD" },
+    { label: "lone low surrogate", input: "\uDC00", expected: "%EF%BF%BD" },
+    { label: "valid surrogate pair", input: "\uD83D\uDE00", expected: "%F0%9F%98%80" },
+  ])("should handle $label in query values", ({ input, expected }) => {
+    const inputUrl = `http://example.com/file.pdf?q=${input}`;
+    const signedUrl = getSignedUrl({
+      url: inputUrl,
+      keyPairId,
+      privateKey,
+      passphrase,
+      dateLessThan: "2026-01-01",
+    });
+
+    const cfParamStart = signedUrl.search(/[?&]Expires=/);
+    expect(cfParamStart).toBeGreaterThan(0);
+    const baseUrl = signedUrl.slice(0, cfParamStart);
+    expect(baseUrl).toContain(`q=${expected}`);
+
+    // Verify the signature matches a policy over the encoded URL
+    const parsedUrl = parseUrl(signedUrl);
+    const signature = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+    const policyStr = JSON.stringify({
+      Statement: [
+        {
+          Resource: baseUrl,
+          Condition: {
+            DateLessThan: {
+              "AWS:EpochTime": Math.round(new Date("2026-01-01").getTime() / 1000),
+            },
+          },
+        },
+      ],
+    });
+    expect(verifySignature(signature, policyStr)).toBeTruthy();
+  });
+
   // https://github.com/aws/aws-sdk-js-v3/issues/8113
   it("should encode single quotes in filename*=UTF-8'' query values", () => {
     const encodedFilename = encodeURIComponent("文件");

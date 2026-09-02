@@ -307,20 +307,42 @@ function encodeUrlPath(url: string): string {
     }
   });
 
-  // Re-encode query parameters if present.
-  // Single quotes must be encoded as %27 because CloudFront normalizes them
-  // before verifying signatures. encodeURIComponent does not encode quotes,
-  // so we replace them explicitly.
+  // Re-encode query without URLSearchParams, which converts + to %20 (#8277).
   let encodedQuery = "";
   if (rawQuery) {
-    for (const [key, value] of new URLSearchParams(rawQuery.slice(1)).entries()) {
-      encodedQuery += `${encodedQuery ? "&" : "?"}${encodeURIComponent(key).replace(/'/g, "%27")}=${encodeURIComponent(
-        value
-      ).replace(/'/g, "%27")}`;
-    }
+    const pairs = rawQuery
+      .slice(1)
+      .split("&")
+      .filter((p) => p.length > 0)
+      .map((pair) => {
+        const eqIdx = pair.indexOf("=");
+        const rawKey = eqIdx === -1 ? pair : pair.slice(0, eqIdx);
+        const rawValue = eqIdx === -1 ? "" : pair.slice(eqIdx + 1);
+        return `${encodeQueryComponent(rawKey)}=${encodeQueryComponent(rawValue)}`;
+      });
+    encodedQuery = pairs.length > 0 ? `?${pairs.join("&")}` : "";
   }
 
   return origin + encodedPath + encodedQuery;
+}
+
+/**
+ * Percent-encodes a query component preserving `+` literally and uppercasing
+ * existing %xx hex. Single quotes become %27 for CloudFront.
+ * @internal
+ */
+function encodeQueryComponent(component: string): string {
+  const wellFormedComponent = component.replace(/[\uD800-\uDFFF]/gu, "\uFFFD");
+  return wellFormedComponent
+    .split(/(%[0-9A-Fa-f]{2}|\+)/g)
+    .map((part, i) => {
+      // Preserved separators (%XX or +); uppercase hex to match prior behavior.
+      if (i % 2 === 1) {
+        return part === "+" ? "+" : part.toUpperCase();
+      }
+      return encodeURIComponent(part).replace(/'/g, "%27");
+    })
+    .join("");
 }
 
 /**
