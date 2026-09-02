@@ -254,6 +254,10 @@ import type {
   ListExascaleDbStorageVaultsCommandOutput,
 } from "./commands/ListExascaleDbStorageVaultsCommand";
 import type {
+  ListFlexComponentsCommandInput,
+  ListFlexComponentsCommandOutput,
+} from "./commands/ListFlexComponentsCommand";
+import type {
   ListGiMinorVersionsCommandInput,
   ListGiMinorVersionsCommandOutput,
 } from "./commands/ListGiMinorVersionsCommand";
@@ -395,6 +399,7 @@ export type ServiceInputTypes =
   | ListDbSystemShapesCommandInput
   | ListExadbVmClustersCommandInput
   | ListExascaleDbStorageVaultsCommandInput
+  | ListFlexComponentsCommandInput
   | ListGiMinorVersionsCommandInput
   | ListGiVersionsCommandInput
   | ListOdbNetworksCommandInput
@@ -479,6 +484,7 @@ export type ServiceOutputTypes =
   | ListDbSystemShapesCommandOutput
   | ListExadbVmClustersCommandOutput
   | ListExascaleDbStorageVaultsCommandOutput
+  | ListFlexComponentsCommandOutput
   | ListGiMinorVersionsCommandOutput
   | ListGiVersionsCommandOutput
   | ListOdbNetworksCommandOutput

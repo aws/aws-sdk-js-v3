@@ -184,6 +184,7 @@ import {
   FailoverAutonomousDatabaseCommand,
   FailoverAutonomousDatabaseInput$,
   FailoverAutonomousDatabaseOutput$,
+  FlexComponentSummary$,
   GetAutonomousDatabase$,
   GetAutonomousDatabaseBackup$,
   GetAutonomousDatabaseBackupCommand,
@@ -243,6 +244,7 @@ import {
   GiMinorVersionSummary$,
   GiVersionSummary$,
   GridImageType,
+  HardwareType,
   IamRole$,
   IamRoleStatus,
   InitializeService$,
@@ -314,6 +316,10 @@ import {
   ListExascaleDbStorageVaultsCommand,
   ListExascaleDbStorageVaultsInput$,
   ListExascaleDbStorageVaultsOutput$,
+  ListFlexComponents$,
+  ListFlexComponentsCommand,
+  ListFlexComponentsInput$,
+  ListFlexComponentsOutput$,
   ListGiMinorVersions$,
   ListGiMinorVersionsCommand,
   ListGiMinorVersionsInput$,
@@ -379,6 +385,7 @@ import {
   paginateListDbSystemShapes,
   paginateListExadbVmClusters,
   paginateListExascaleDbStorageVaults,
+  paginateListFlexComponents,
   paginateListGiMinorVersions,
   paginateListGiVersions,
   paginateListOdbNetworks,
@@ -613,6 +620,8 @@ assert(typeof ListExadbVmClustersCommand === "function");
 assert(typeof ListExadbVmClusters$ === "object");
 assert(typeof ListExascaleDbStorageVaultsCommand === "function");
 assert(typeof ListExascaleDbStorageVaults$ === "object");
+assert(typeof ListFlexComponentsCommand === "function");
+assert(typeof ListFlexComponents$ === "object");
 assert(typeof ListGiMinorVersionsCommand === "function");
 assert(typeof ListGiMinorVersions$ === "object");
 assert(typeof ListGiVersionsCommand === "function");
@@ -768,6 +777,7 @@ assert(typeof ExascaleDbStorageVault$ === "object");
 assert(typeof ExascaleDbStorageVaultSummary$ === "object");
 assert(typeof FailoverAutonomousDatabaseInput$ === "object");
 assert(typeof FailoverAutonomousDatabaseOutput$ === "object");
+assert(typeof FlexComponentSummary$ === "object");
 assert(typeof GetAutonomousDatabaseBackupInput$ === "object");
 assert(typeof GetAutonomousDatabaseBackupOutput$ === "object");
 assert(typeof GetAutonomousDatabaseInput$ === "object");
@@ -832,6 +842,8 @@ assert(typeof ListExadbVmClustersInput$ === "object");
 assert(typeof ListExadbVmClustersOutput$ === "object");
 assert(typeof ListExascaleDbStorageVaultsInput$ === "object");
 assert(typeof ListExascaleDbStorageVaultsOutput$ === "object");
+assert(typeof ListFlexComponentsInput$ === "object");
+assert(typeof ListFlexComponentsOutput$ === "object");
 assert(typeof ListGiMinorVersionsInput$ === "object");
 assert(typeof ListGiMinorVersionsOutput$ === "object");
 assert(typeof ListGiVersionsInput$ === "object");
@@ -937,6 +949,7 @@ assert(typeof EncryptionKeyProvider === "object");
 assert(typeof EncryptionKeyProviderInput === "object");
 assert(typeof ExternalIdType === "object");
 assert(typeof GridImageType === "object");
+assert(typeof HardwareType === "object");
 assert(typeof IamRoleStatus === "object");
 assert(typeof IormLifecycleState === "object");
 assert(typeof LicenseModel === "object");
@@ -998,6 +1011,7 @@ assert(typeof paginateListDbServers === "function");
 assert(typeof paginateListDbSystemShapes === "function");
 assert(typeof paginateListExadbVmClusters === "function");
 assert(typeof paginateListExascaleDbStorageVaults === "function");
+assert(typeof paginateListFlexComponents === "function");
 assert(typeof paginateListGiMinorVersions === "function");
 assert(typeof paginateListGiVersions === "function");
 assert(typeof paginateListOdbNetworks === "function");

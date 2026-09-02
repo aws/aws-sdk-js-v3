@@ -54,6 +54,7 @@ export * from "./ListDbServersCommand";
 export * from "./ListDbSystemShapesCommand";
 export * from "./ListExadbVmClustersCommand";
 export * from "./ListExascaleDbStorageVaultsCommand";
+export * from "./ListFlexComponentsCommand";
 export * from "./ListGiMinorVersionsCommand";
 export * from "./ListGiVersionsCommand";
 export * from "./ListOdbNetworksCommand";

@@ -566,6 +566,13 @@ ListExascaleDbStorageVaults
 </details>
 <details>
 <summary>
+ListFlexComponents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/odb/command/ListFlexComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListFlexComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-odb/Interface/ListFlexComponentsCommandOutput/)
+</details>
+<details>
+<summary>
 ListGiMinorVersions
 </summary>
 

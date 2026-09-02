@@ -15,6 +15,7 @@ export * from "./ListDbServersPaginator";
 export * from "./ListDbSystemShapesPaginator";
 export * from "./ListExadbVmClustersPaginator";
 export * from "./ListExascaleDbStorageVaultsPaginator";
+export * from "./ListFlexComponentsPaginator";
 export * from "./ListGiMinorVersionsPaginator";
 export * from "./ListGiVersionsPaginator";
 export * from "./ListOdbNetworksPaginator";

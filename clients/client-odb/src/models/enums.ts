@@ -785,6 +785,19 @@ export type UpdateAction = (typeof UpdateAction)[keyof typeof UpdateAction];
  * @public
  * @enum
  */
+export const HardwareType = {
+  CELL: "CELL",
+  COMPUTE: "COMPUTE",
+} as const;
+/**
+ * @public
+ */
+export type HardwareType = (typeof HardwareType)[keyof typeof HardwareType];
+
+/**
+ * @public
+ * @enum
+ */
 export const OciAwsIntegration = {
   KmsTde: "KmsTde",
   SecretsManager: "SecretsManager",

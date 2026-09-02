@@ -26,6 +26,7 @@ import type {
   EncryptionKeyProviderInput,
   ExternalIdType,
   GridImageType,
+  HardwareType,
   IamRoleStatus,
   IormLifecycleState,
   LicenseModel,
@@ -7362,13 +7363,13 @@ export interface CreateExadbVmClusterInput {
   licenseModel?: LicenseModel | undefined;
 
   /**
-   * <p>The port number for TCP connections to the single client access name (SCAN) listener.</p>
+   * <p>The port number for TCP connections to the Single Client Access Name (SCAN) listener.</p>
    * @public
    */
   scanListenerPortTcp?: number | undefined;
 
   /**
-   * <p>The port number for TCP connections with SSL to the single client access name (SCAN) listener.</p>
+   * <p>The port number for TCP connections with SSL to the Single Client Access Name (SCAN) listener.</p>
    * @public
    */
   scanListenerPortTcpSsl?: number | undefined;
@@ -7398,7 +7399,7 @@ export interface CreateExadbVmClusterInput {
   timeZone?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, the Amazon Web Services SDK automatically generates one and uses it for the request to ensure idempotency. The client token is valid for up to 24 hours after it's first used.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you submit the same request twice with the same client token, the service ignores the second request and returns the result of the first. If you don't specify a client token, the AWS SDK automatically generates one. The client token is valid for up to 24 hours after it's first used.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -7498,7 +7499,7 @@ export interface CreateExascaleDbStorageVaultInput {
   timeZone?: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, the Amazon Web Services SDK automatically generates one and uses it for the request to ensure idempotency. The client token is valid for up to 24 hours after it's first used.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you submit the same request twice with the same client token, the service ignores the second request and returns the result of the first. If you don't specify a client token, the AWS SDK automatically generates one. The client token is valid for up to 24 hours after it's first used.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -8821,13 +8822,13 @@ export interface ExadbVmCluster {
   scanIpIds?: string[] | undefined;
 
   /**
-   * <p>The port number for TCP connections to the single client access name (SCAN) listener for the Exascale VM cluster.</p>
+   * <p>The port number for TCP connections to the Single Client Access Name (SCAN) listener for the Exascale VM cluster.</p>
    * @public
    */
   scanListenerPortTcp?: number | undefined;
 
   /**
-   * <p>The port number for TCP connections with SSL to the single client access name (SCAN) listener for the Exascale VM cluster.</p>
+   * <p>The port number for TCP connections with SSL to the Single Client Access Name (SCAN) listener for the Exascale VM cluster.</p>
    * @public
    */
   scanListenerPortTcpSsl?: number | undefined;
@@ -9091,13 +9092,13 @@ export interface ExadbVmClusterSummary {
   scanIpIds?: string[] | undefined;
 
   /**
-   * <p>The port number for TCP connections to the single client access name (SCAN) listener for the Exascale VM cluster.</p>
+   * <p>The port number for TCP connections to the Single Client Access Name (SCAN) listener for the Exascale VM cluster.</p>
    * @public
    */
   scanListenerPortTcp?: number | undefined;
 
   /**
-   * <p>The port number for TCP connections with SSL to the single client access name (SCAN) listener for the Exascale VM cluster.</p>
+   * <p>The port number for TCP connections with SSL to the Single Client Access Name (SCAN) listener for the Exascale VM cluster.</p>
    * @public
    */
   scanListenerPortTcpSsl?: number | undefined;
@@ -9761,6 +9762,78 @@ export interface UpdateExascaleDbStorageVaultOutput {
    * @public
    */
   exascaleDbStorageVaultId: string | undefined;
+}
+
+/**
+ * <p>Information about a flex component that's available for an Exadata infrastructure. A flex component defines the hardware resources, such as CPU cores, memory, and storage, that can be allocated to a shape.</p>
+ * @public
+ */
+export interface FlexComponentSummary {
+  /**
+   * <p>The maximum number of CPU cores that can be enabled for the flex component.</p>
+   * @public
+   */
+  availableCoreCount?: number | undefined;
+
+  /**
+   * <p>The maximum amount of database storage, in gigabytes (GB), that can be enabled for the flex component.</p>
+   * @public
+   */
+  availableDbStorageInGBs?: number | undefined;
+
+  /**
+   * <p>The maximum amount of local storage, in gigabytes (GB), that can be enabled for the flex component.</p>
+   * @public
+   */
+  availableLocalStorageInGBs?: number | undefined;
+
+  /**
+   * <p>The maximum amount of memory, in gigabytes (GB), that can be enabled for the flex component.</p>
+   * @public
+   */
+  availableMemoryInGBs?: number | undefined;
+
+  /**
+   * <p>The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled. </p>
+   * @public
+   */
+  computeModel?: ComputeModel | undefined;
+
+  /**
+   * <p>A summary description of the flex component.</p>
+   * @public
+   */
+  descriptionSummary?: string | undefined;
+
+  /**
+   * <p>The type of hardware for the flex component. Valid values are <code>COMPUTE</code> for compute servers and <code>CELL</code> for storage servers.</p>
+   * @public
+   */
+  hardwareType?: HardwareType | undefined;
+
+  /**
+   * <p>The minimum number of CPU cores that can be enabled for the flex component.</p>
+   * @public
+   */
+  minimumCoreCount?: number | undefined;
+
+  /**
+   * <p>The name of the flex component.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The runtime minimum number of CPU cores that can be enabled for the flex component.</p>
+   * @public
+   */
+  runtimeMinimumCoreCount?: number | undefined;
+
+  /**
+   * <p>The shape that uses the flex component.</p>
+   * @public
+   */
+  shape?: string | undefined;
 }
 
 /**
@@ -10569,6 +10642,46 @@ export interface ListDbSystemShapesOutput {
    * @public
    */
   dbSystemShapes: DbSystemShapeSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlexComponentsInput {
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The shape to return flex components for. For a list of valid shapes, use the <code>ListDbSystemShapes</code> operation.</p>
+   * @public
+   */
+  shape?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFlexComponentsOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of flex components along with their properties.</p>
+   * @public
+   */
+  flexComponents: FlexComponentSummary[] | undefined;
 }
 
 /**

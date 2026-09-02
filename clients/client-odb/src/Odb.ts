@@ -274,6 +274,11 @@ import {
   ListExascaleDbStorageVaultsCommand,
 } from "./commands/ListExascaleDbStorageVaultsCommand";
 import {
+  type ListFlexComponentsCommandInput,
+  type ListFlexComponentsCommandOutput,
+  ListFlexComponentsCommand,
+} from "./commands/ListFlexComponentsCommand";
+import {
   type ListGiMinorVersionsCommandInput,
   type ListGiMinorVersionsCommandOutput,
   ListGiMinorVersionsCommand,
@@ -409,6 +414,7 @@ import { paginateListDbServers } from "./pagination/ListDbServersPaginator";
 import { paginateListDbSystemShapes } from "./pagination/ListDbSystemShapesPaginator";
 import { paginateListExadbVmClusters } from "./pagination/ListExadbVmClustersPaginator";
 import { paginateListExascaleDbStorageVaults } from "./pagination/ListExascaleDbStorageVaultsPaginator";
+import { paginateListFlexComponents } from "./pagination/ListFlexComponentsPaginator";
 import { paginateListGiMinorVersions } from "./pagination/ListGiMinorVersionsPaginator";
 import { paginateListGiVersions } from "./pagination/ListGiVersionsPaginator";
 import { paginateListOdbNetworks } from "./pagination/ListOdbNetworksPaginator";
@@ -471,6 +477,7 @@ const commands = {
   ListDbSystemShapesCommand,
   ListExadbVmClustersCommand,
   ListExascaleDbStorageVaultsCommand,
+  ListFlexComponentsCommand,
   ListGiMinorVersionsCommand,
   ListGiVersionsCommand,
   ListOdbNetworksCommand,
@@ -512,6 +519,7 @@ const paginators = {
   paginateListDbSystemShapes,
   paginateListExadbVmClusters,
   paginateListExascaleDbStorageVaults,
+  paginateListFlexComponents,
   paginateListGiMinorVersions,
   paginateListGiVersions,
   paginateListOdbNetworks,
@@ -1469,6 +1477,24 @@ export interface Odb {
   ): void;
 
   /**
+   * @see {@link ListFlexComponentsCommand}
+   */
+  listFlexComponents(): Promise<ListFlexComponentsCommandOutput>;
+  listFlexComponents(
+    args: ListFlexComponentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlexComponentsCommandOutput>;
+  listFlexComponents(
+    args: ListFlexComponentsCommandInput,
+    cb: (err: any, data?: ListFlexComponentsCommandOutput) => void
+  ): void;
+  listFlexComponents(
+    args: ListFlexComponentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlexComponentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListGiMinorVersionsCommand}
    */
   listGiMinorVersions(
@@ -2043,6 +2069,17 @@ export interface Odb {
     args?: ListExascaleDbStorageVaultsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListExascaleDbStorageVaultsCommandOutput>;
+
+  /**
+   * @see {@link ListFlexComponentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFlexComponentsCommandOutput}.
+   */
+  paginateListFlexComponents(
+    args?: ListFlexComponentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFlexComponentsCommandOutput>;
 
   /**
    * @see {@link ListGiMinorVersionsCommand}

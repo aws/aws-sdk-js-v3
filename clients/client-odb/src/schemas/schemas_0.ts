@@ -153,6 +153,8 @@ const _EVCSD = "ExadbVmClusterStorageDetails";
 const _FAD = "FailoverAutonomousDatabase";
 const _FADI = "FailoverAutonomousDatabaseInput";
 const _FADO = "FailoverAutonomousDatabaseOutput";
+const _FCL = "FlexComponentList";
+const _FCS = "FlexComponentSummary";
 const _GAD = "GetAutonomousDatabase";
 const _GADB = "GetAutonomousDatabaseBackup";
 const _GADBI = "GetAutonomousDatabaseBackupInput";
@@ -251,6 +253,9 @@ const _LEDSVO = "ListExascaleDbStorageVaultsOutput";
 const _LEVC = "ListExadbVmClusters";
 const _LEVCI = "ListExadbVmClustersInput";
 const _LEVCO = "ListExadbVmClustersOutput";
+const _LFC = "ListFlexComponents";
+const _LFCI = "ListFlexComponentsInput";
+const _LFCO = "ListFlexComponentsOutput";
 const _LGMV = "ListGiMinorVersions";
 const _LGMVI = "ListGiMinorVersionsInput";
 const _LGMVO = "ListGiMinorVersionsOutput";
@@ -391,6 +396,7 @@ const _aDNSIGB = "availableDbNodeStorageInGBs";
 const _aDOASMI = "autonomousDatabaseOciAwsSecretsManagerIntegration";
 const _aDOIIR = "autonomousDatabaseOciIntegrationIamRoles";
 const _aDP = "autonomousDatabasePeers";
+const _aDSIGB = "availableDbStorageInGBs";
 const _aDSITB = "availableDataStorageInTBs";
 const _aDSP = "autonomousDataStoragePercentage";
 const _aDSPSITB = "availableDataStoragePerServerInTBs";
@@ -407,6 +413,7 @@ const _aFCIP = "additionalFlashCacheInPercent";
 const _aI = "awsIntegration";
 const _aIl = "allowlistedIps";
 const _aLIGB = "autoscaleLimitInGBs";
+const _aLSIGB = "availableLocalStorageInGBs";
 const _aMIGB = "availableMemoryInGBs";
 const _aMPNIGB = "availableMemoryPerNodeInGBs";
 const _aMST = "autonomousMaintenanceScheduleType";
@@ -524,6 +531,7 @@ const _dSSb = "dbSystemShapes";
 const _dST = "databaseServerType";
 const _dSV = "dbServerVersion";
 const _dSb = "dbServer";
+const _dSe = "descriptionSummary";
 const _dT = "databaseType";
 const _dTD = "dbToolsDetails";
 const _dTU = "databaseTransformsUrl";
@@ -554,6 +562,7 @@ const _eVCA = "exadbVmClusterArn";
 const _eVCI = "exadbVmClusterId";
 const _eVCx = "exadbVmClusters";
 const _em = "email";
+const _fC = "flexComponents";
 const _fCL = "flashCacheLimit";
 const _fD = "faultDomain";
 const _fDRIS = "failedDataRecoveryInSeconds";
@@ -574,6 +583,7 @@ const _hH = "httpHeader";
 const _hII = "hostIpId";
 const _hOD = "hoursOfDay";
 const _hQ = "httpQuery";
+const _hT = "hardwareType";
 const _ho = "hostname";
 const _iA = "isAutomatic";
 const _iAE = "isAutoscaleEnabled";
@@ -1468,6 +1478,11 @@ export var FailoverAutonomousDatabaseOutput$: StaticStructureSchema = [3, n0, _F
   [_aDI, _dN, _st, _sR],
   [0, 0, 0, 0], 1
 ];
+export var FlexComponentSummary$: StaticStructureSchema = [3, n0, _FCS,
+  0,
+  [_aCC, _aDSIGB, _aLSIGB, _aMIGB, _cM, _dSe, _hT, _mCCi, _n, _rMCC, _sh],
+  [1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0]
+];
 export var GetAutonomousDatabaseBackupInput$: StaticStructureSchema = [3, n0, _GADBI,
   0,
   [_aDBI],
@@ -1787,6 +1802,16 @@ export var ListExascaleDbStorageVaultsOutput$: StaticStructureSchema = [3, n0, _
   0,
   [_eDSVx, _nT],
   [() => ExascaleDbStorageVaultList, 0], 1
+];
+export var ListFlexComponentsInput$: StaticStructureSchema = [3, n0, _LFCI,
+  0,
+  [_mR, _nT, _sh],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], 0]
+];
+export var ListFlexComponentsOutput$: StaticStructureSchema = [3, n0, _LFCO,
+  0,
+  [_fC, _nT],
+  [() => FlexComponentList, 0], 1
 ];
 export var ListGiMinorVersionsInput$: StaticStructureSchema = [3, n0, _LGMVI,
   0,
@@ -2230,6 +2255,9 @@ var ExadbVmClusterList: StaticListSchema = [1, n0, _EVCL,
 var ExascaleDbStorageVaultList: StaticListSchema = [1, n0, _EDSVL,
   0, () => ExascaleDbStorageVaultSummary$
 ];
+var FlexComponentList: StaticListSchema = [1, n0, _FCL,
+  0, () => FlexComponentSummary$
+];
 var GiMinorVersionList: StaticListSchema = [1, n0, _GMVL,
   0, () => GiMinorVersionSummary$
 ];
@@ -2482,6 +2510,9 @@ export var ListExadbVmClusters$: StaticOperationSchema = [9, n0, _LEVC,
 ];
 export var ListExascaleDbStorageVaults$: StaticOperationSchema = [9, n0, _LEDSV,
   0, () => ListExascaleDbStorageVaultsInput$, () => ListExascaleDbStorageVaultsOutput$
+];
+export var ListFlexComponents$: StaticOperationSchema = [9, n0, _LFC,
+  0, () => ListFlexComponentsInput$, () => ListFlexComponentsOutput$
 ];
 export var ListGiMinorVersions$: StaticOperationSchema = [9, n0, _LGMV,
   0, () => ListGiMinorVersionsInput$, () => ListGiMinorVersionsOutput$
