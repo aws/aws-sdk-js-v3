@@ -28,6 +28,55 @@ const DNS_TTL_MS = 1000;
 const dnsCache = new Map<string, { ips: string[]; ts: number }>();
 
 /**
+ * Drain a small error-response body to text so its S3 error <Code> can be
+ * surfaced. Bounded to avoid buffering large bodies.
+ * @internal
+ */
+const readErrorBody = async (body: any): Promise<string | undefined> => {
+  if (!body) return undefined;
+  try {
+    const chunks: Buffer[] = [];
+    let total = 0;
+    for await (const chunk of body) {
+      const buf = typeof chunk === "string" ? Buffer.from(chunk) : Buffer.from(chunk);
+      chunks.push(buf);
+      total += buf.length;
+      if (total >= 16 * 1024) break;
+    }
+    return Buffer.concat(chunks).toString("utf8");
+  } catch {
+    return undefined;
+  }
+};
+
+/** Extract the S3 error <Code> from an XML error body, if present. @internal */
+const parseS3ErrorCode = (bodyText?: string): string | undefined => {
+  if (!bodyText) return undefined;
+  const m = /<Code>([^<]+)<\/Code>/.exec(bodyText);
+  return m ? m[1] : undefined;
+};
+
+/**
+ * Build the download-error message for a non-2xx response, reading the S3 error
+ * <Code> from the (bounded) error body. Shared by the file and stream handlers.
+ * @internal
+ */
+const buildHttpStatusError = async (
+  id: number,
+  response: { statusCode: number; body?: any }
+): Promise<HttpWorkerDownloadErrorMessage> => {
+  const s3Code = parseS3ErrorCode(await readErrorBody(response.body));
+  return {
+    type: "httpDownloadError",
+    id,
+    error: `S3 responded with HTTP ${response.statusCode}${s3Code ? ` (${s3Code})` : ""}`,
+    code: s3Code,
+    name: s3Code ?? "HttpStatusError",
+    statusCode: response.statusCode,
+  };
+};
+
+/**
  * Resolves all A records for a hostname, picks one at random per connection
  * to spread load across S3's fleet. Falls back to dns.lookup for IPv6 or
  * on resolution failure.
@@ -190,6 +239,7 @@ interface HttpWorkerDownloadErrorMessage {
   error: string;
   code?: string;
   name?: string;
+  statusCode?: number;
 }
 
 /**
@@ -437,6 +487,12 @@ if (parentPort) {
 
       const { response } = await handler!.handle(request);
 
+      // Non-2xx: report the error; its XML body is not object data, so never write it.
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        port.postMessage(await buildHttpStatusError(id, response));
+        return;
+      }
+
       // Resolve where and how much to write from the response's ContentRange.
       //
       // ContentRange is the source of truth since S3 multipart objects can
@@ -586,6 +642,12 @@ if (parentPort) {
       });
 
       const { response } = await handler!.handle(request);
+
+      // Non-2xx: report the error; its XML body is not object data, so never assemble it.
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        port.postMessage(await buildHttpStatusError(id, response));
+        return;
+      }
 
       // 2. Acquire a buffer for assembling the response body
       const ab = acquireTransferBuffer(expectedSize);
