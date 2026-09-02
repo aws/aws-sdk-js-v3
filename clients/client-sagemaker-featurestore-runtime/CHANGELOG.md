@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
+
+
+### Features
+
+* **client-sagemaker-featurestore-runtime:** Amazon SageMaker Feature Store now supports the UpdateRecord API, enabling partial updates to individual feature values in an existing Online Store record without rewriting the entire record. This reduces write payloads and latency for high-frequency feature-level writes . ([7192096](https://github.com/aws/aws-sdk-js-v3/commit/71920960e24c2399ab408bb48c32e1af45e80bf9))
+
+
+
+
+
 # [3.1124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1123.0...v3.1124.0) (2026-09-01)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-featurestore-runtime

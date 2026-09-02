@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
+
+
+### Features
+
+* **client-medialive:** AWS Elemental MediaLive now supports AB forensic video watermarking ([d48e9e1](https://github.com/aws/aws-sdk-js-v3/commit/d48e9e1515040ea6a95361bee682b12ba6814fea))
+
+
+
+
+
 # [3.1124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1123.0...v3.1124.0) (2026-09-01)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

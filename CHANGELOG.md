@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** preserve plus in query strings when signing URLs ([#8283](https://github.com/aws/aws-sdk-js-v3/issues/8283)) ([dd76a0d](https://github.com/aws/aws-sdk-js-v3/commit/dd76a0ddb0440a506442e0a9fc3c16e1502e6e49))
+
+
+### Features
+
+* **client-appintegrations:** This release adds a force parameter to DeleteApplication and a ConflictException to UpdateApplication, letting customers delete applications with existing associations in one call and get a clear error when an update conflicts with the application's current state. ([62b7304](https://github.com/aws/aws-sdk-js-v3/commit/62b7304c2f18940c625ce2fbf8a8446de80f6d6e))
+* **client-bedrock-agentcore:** Batch evaluation now supports up to 10 CloudWatch log groups per CloudWatchLogsSource ([cebd317](https://github.com/aws/aws-sdk-js-v3/commit/cebd317918b8c28a253befaf1207f12005202ed6))
+* **client-ec2:** This release adds support to retain interruptible Capacity Reservations in an active state when all capacity is reclaimed. ([336c789](https://github.com/aws/aws-sdk-js-v3/commit/336c7896d1103fd5ad3d049ac4b18cc30b9295a2))
+* **client-medialive:** AWS Elemental MediaLive now supports AB forensic video watermarking ([d48e9e1](https://github.com/aws/aws-sdk-js-v3/commit/d48e9e1515040ea6a95361bee682b12ba6814fea))
+* **client-mgn:** AWS Transform for migrations adds a second network migration option - apply your source security posture to existing VPCs. Upload a source network file with firewall rules, tag the in-scope VPCs, and AWS Transform matches source subnets to them by CIDR and generates the security groups. ([822144b](https://github.com/aws/aws-sdk-js-v3/commit/822144b21e4ca9bbf41cfd6dc78f1f95c19508d6))
+* **client-mwaa:** Enabled customers to clear optional S3 paths (plugins, requirements, and startup script) for their Amazon MWAA environments by accepting empty strings for the associated fields in UpdateEnvironment requests. ([9fa2e0c](https://github.com/aws/aws-sdk-js-v3/commit/9fa2e0c1413fd814aed07d97e34de2aab8c3f321))
+* **client-odb:** Adds the ListFlexComponents API for listing the flex components available for a given DB system shape. ([551174b](https://github.com/aws/aws-sdk-js-v3/commit/551174bfc63c2f19cb7db7e9a3bd935d0c57e142))
+* **client-sagemaker-featurestore-runtime:** Amazon SageMaker Feature Store now supports the UpdateRecord API, enabling partial updates to individual feature values in an existing Online Store record without rewriting the entire record. This reduces write payloads and latency for high-frequency feature-level writes . ([7192096](https://github.com/aws/aws-sdk-js-v3/commit/71920960e24c2399ab408bb48c32e1af45e80bf9))
+* **client-sagemaker:** Amazon SageMaker Feature Store now supports the Standard V2 online store type, which enables feature-level writes to feature groups. You can select Standard V2 when creating a feature group, and update the storage type of an existing feature group via UpdateFeatureGroup. ([5287db7](https://github.com/aws/aws-sdk-js-v3/commit/5287db7fb3bb7269e2ddff8dbf16445914c6ae7b))
+
+
+
+
+
 # [3.1124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1123.0...v3.1124.0) (2026-09-01)
 
 

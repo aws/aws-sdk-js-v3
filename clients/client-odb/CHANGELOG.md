@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
+
+
+### Features
+
+* **client-odb:** Adds the ListFlexComponents API for listing the flex components available for a given DB system shape. ([551174b](https://github.com/aws/aws-sdk-js-v3/commit/551174bfc63c2f19cb7db7e9a3bd935d0c57e142))
+
+
+
+
+
 # [3.1124.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1123.0...v3.1124.0) (2026-09-01)
 
 **Note:** Version bump only for package @aws-sdk/client-odb
