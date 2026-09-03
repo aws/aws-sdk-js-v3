@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** AgentCore Identity adds Consent Portal APIs to manage portals that let end users grant OAuth authorization for agents to access resources. AgentCore Evaluation adds trace source selection by log group prefix, custom or source log group result destinations, and metrics namespace customization. ([2f82647](https://github.com/aws/aws-sdk-js-v3/commit/2f826477e17f07464f9a8cc1336e9467d9948b37))
+* **client-bedrock-agentcore:** Adds log group name prefix trace source selection, custom or source log group result destinations, and metrics namespace customization ([823b2d3](https://github.com/aws/aws-sdk-js-v3/commit/823b2d337b05368b88a488e988f4fc2b24133fae))
+* **client-connect:** This release enables TagOnCreate for Rule resource on CreateRule API. It also introduces a new field called PreEvaluationFilters to Rule resource, thereby impacting all Create, Update, Describe and Search APIs for Rules ([18bb14b](https://github.com/aws/aws-sdk-js-v3/commit/18bb14bcc83208229fba893ede04a7cb6e77af05))
+* **client-drs:** AWS Elastic Disaster Recovery now includes source server architecture in SourceProperties to identify x86 and ARM64 systems. ([20f19e0](https://github.com/aws/aws-sdk-js-v3/commit/20f19e0e2a30b73cff7dba02f07af83068306657))
+* **client-ecs:** Adds a critical parameter to the Amazon ECS managed daemon APIs that controls whether a daemon task failure drains the container instance. Non-critical daemon failures no longer drain the instance or block instance registration. ([2e6a07d](https://github.com/aws/aws-sdk-js-v3/commit/2e6a07d57083a221355891dfb18e9aa129e5987b))
+* **client-eks:** Deprecate EncryptionConfig resources field. Amazon EKS encrypts all Kubernetes API data with envelope encryption by default for clusters running Kubernetes version 1.28 or higher, so this field no longer affects which resources are encrypted. ([c66ca41](https://github.com/aws/aws-sdk-js-v3/commit/c66ca41b9a97108402d0e3bd8e467babc35a7bac))
+* **client-evs:** Amazon EVS now allows users to set, update, and retrieve values for parameters that apply across all EVS Environments in their account at a regional level, such as the VCF License portability core count. ([803b694](https://github.com/aws/aws-sdk-js-v3/commit/803b694cec8ae130760716bc5d0bb1d531ca67a4))
+* **client-guardduty:** Adding support for Sequence Activities in GuardDuty Findings ([5c12a0e](https://github.com/aws/aws-sdk-js-v3/commit/5c12a0eb1bdd18f3df7be39bb5f0c3e15be438b5))
+* **client-socialmessaging:** Adding support for WhatsApp Flows with endpoints. ([3a3a620](https://github.com/aws/aws-sdk-js-v3/commit/3a3a6205d3d39f6f98b445323359a938ae59ce1a))
+* **client-transcribe:** Amazon Transcribe now supports specifying up to 29 PII entity types in the ContentRedaction configuration of a StartTranscriptionJob request, allowing all supported entity types to be redacted in a single batch transcription job. ([5fb0b9a](https://github.com/aws/aws-sdk-js-v3/commit/5fb0b9a5bbb6cf9c61859a6946034aaf86e9e822))
+* **client-transfer:** AWS Transfer Family SFTP Connectors now support specifying an ordered list of AWS Secrets Manager version stages for secret retrieval. This enables seamless credential rotation workflows where external partners may take time to update their systems with new credentials. ([e4bf3ec](https://github.com/aws/aws-sdk-js-v3/commit/e4bf3ecce921aa42320c6b0d89278443d229b898))
+* **lib-transfer-manager:** add download directory functionality ([#8274](https://github.com/aws/aws-sdk-js-v3/issues/8274)) ([6e591ee](https://github.com/aws/aws-sdk-js-v3/commit/6e591ee8a054e364dda13cb66a800b6afa4aa9ea))
+
+
+
+
+
 # [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
 
 

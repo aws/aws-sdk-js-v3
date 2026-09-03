@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
+
+
+### Features
+
+* **client-ecs:** Adds a critical parameter to the Amazon ECS managed daemon APIs that controls whether a daemon task failure drains the container instance. Non-critical daemon failures no longer drain the instance or block instance registration. ([2e6a07d](https://github.com/aws/aws-sdk-js-v3/commit/2e6a07d57083a221355891dfb18e9aa129e5987b))
+
+
+
+
+
 # [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

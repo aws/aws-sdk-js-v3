@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
+
+
+### Features
+
+* **client-transcribe:** Amazon Transcribe now supports specifying up to 29 PII entity types in the ContentRedaction configuration of a StartTranscriptionJob request, allowing all supported entity types to be redacted in a single batch transcription job. ([5fb0b9a](https://github.com/aws/aws-sdk-js-v3/commit/5fb0b9a5bbb6cf9c61859a6946034aaf86e9e822))
+
+
+
+
+
 # [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe

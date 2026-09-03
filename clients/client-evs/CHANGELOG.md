@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
+
+
+### Features
+
+* **client-evs:** Amazon EVS now allows users to set, update, and retrieve values for parameters that apply across all EVS Environments in their account at a regional level, such as the VCF License portability core count. ([803b694](https://github.com/aws/aws-sdk-js-v3/commit/803b694cec8ae130760716bc5d0bb1d531ca67a4))
+
+
+
+
+
 # [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
 
 **Note:** Version bump only for package @aws-sdk/client-evs

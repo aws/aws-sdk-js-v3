@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Adds log group name prefix trace source selection, custom or source log group result destinations, and metrics namespace customization ([823b2d3](https://github.com/aws/aws-sdk-js-v3/commit/823b2d337b05368b88a488e988f4fc2b24133fae))
+
+
+
+
+
 # [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
+
+
+### Features
+
+* **client-drs:** AWS Elastic Disaster Recovery now includes source server architecture in SourceProperties to identify x86 and ARM64 systems. ([20f19e0](https://github.com/aws/aws-sdk-js-v3/commit/20f19e0e2a30b73cff7dba02f07af83068306657))
+
+
+
+
+
 # [3.1125.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1124.0...v3.1125.0) (2026-09-02)
 
 **Note:** Version bump only for package @aws-sdk/client-drs
