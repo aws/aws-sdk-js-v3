@@ -992,6 +992,12 @@ export interface SftpConnectorConfig {
    * @public
    */
   MaxConcurrentConnections?: number | undefined;
+
+  /**
+   * <p>An ordered list of Amazon Web Services Secrets Manager version stages (staging labels, such as <code>AWSCURRENT</code> and <code>AWSPREVIOUS</code>) for the secret identified by <code>UserSecretId</code>. When establishing a connection, the connector attempts to retrieve the SFTP user's credentials from each version stage in the order listed, and uses the first version it can successfully retrieve. This lets you rotate the user secret without interrupting connector operations.</p>
+   * @public
+   */
+  OrderedUserSecretVersionStages?: string[] | undefined;
 }
 
 /**

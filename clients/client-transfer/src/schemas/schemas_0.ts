@@ -317,6 +317,7 @@ const _OFN = "OutputFileName";
 const _OPU = "OnPartialUpload";
 const _OPUWD = "OnPartialUploadWorkflowDetails";
 const _OU = "OnUpload";
+const _OUSVS = "OrderedUserSecretVersionStages";
 const _OUWD = "OnUploadWorkflowDetails";
 const _P = "Policy";
 const _PALB = "PostAuthenticationLoginBanner";
@@ -1354,8 +1355,8 @@ export var ServiceMetadata$: StaticStructureSchema = [3, n0, _SM,
 ];
 export var SftpConnectorConfig$: StaticStructureSchema = [3, n0, _SCC,
   0,
-  [_USI, _THK, _MCC],
-  [0, 64 | 0, 1]
+  [_USI, _THK, _MCC, _OUSVS],
+  [0, 64 | 0, 1, 64 | 0]
 ];
 export var SftpConnectorConnectionDetails$: StaticStructureSchema = [3, n0, _SCCD,
   0,
@@ -1660,6 +1661,7 @@ var S3Tags: StaticListSchema = [1, n0, _STag,
   0, () => S3Tag$
 ];
 var SecondaryGids = 64 | 1;
+var SecretVersionStageList = 64 | 0;
 var SecurityGroupIds = 64 | 0;
 var SecurityPolicyNames = 64 | 0;
 var SecurityPolicyOptions = 64 | 0;

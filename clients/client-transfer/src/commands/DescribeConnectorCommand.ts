@@ -74,6 +74,9 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //         "STRING_VALUE",
  * //       ],
  * //       MaxConcurrentConnections: Number("int"),
+ * //       OrderedUserSecretVersionStages: [ // SecretVersionStageList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //     ServiceManagedEgressIpAddresses: [ // ServiceManagedEgressIpAddresses
  * //       "STRING_VALUE",

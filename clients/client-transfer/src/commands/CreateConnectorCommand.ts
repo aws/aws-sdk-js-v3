@@ -66,6 +66,9 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *       "STRING_VALUE",
  *     ],
  *     MaxConcurrentConnections: Number("int"),
+ *     OrderedUserSecretVersionStages: [ // SecretVersionStageList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   SecurityPolicyName: "STRING_VALUE",
  *   EgressConfig: { // ConnectorEgressConfig Union: only one key present

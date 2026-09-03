@@ -61,6 +61,9 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *       "STRING_VALUE",
  *     ],
  *     MaxConcurrentConnections: Number("int"),
+ *     OrderedUserSecretVersionStages: [ // SecretVersionStageList
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   SecurityPolicyName: "STRING_VALUE",
  *   EgressConfig: { // UpdateConnectorEgressConfig Union: only one key present
