@@ -249,6 +249,7 @@ export type {
   RecommendationType,
   RegistryRecordStatus,
   ResourceContentType,
+  ResultDestination,
   Role,
   ScreenshotFormat,
   SessionStatus,

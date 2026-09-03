@@ -492,6 +492,7 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResponseChunk$,
+  ResultDestination,
   RetrieveMemoryRecords$,
   RetrieveMemoryRecordsCommand,
   RetrieveMemoryRecordsInput$,
@@ -1199,6 +1200,7 @@ assert(typeof RecommendationStatus === "object");
 assert(typeof RecommendationType === "object");
 assert(typeof RegistryRecordStatus === "object");
 assert(typeof ResourceContentType === "object");
+assert(typeof ResultDestination === "object");
 assert(typeof Role === "object");
 assert(typeof ScreenshotFormat === "object");
 assert(typeof SessionStatus === "object");

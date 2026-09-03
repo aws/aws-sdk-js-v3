@@ -58,7 +58,10 @@ export interface GetBatchEvaluationCommandOutput extends GetBatchEvaluationRespo
  * //       serviceNames: [ // EvaluationStringList // required
  * //         "STRING_VALUE",
  * //       ],
- * //       logGroupNames: [ // required
+ * //       logGroupNames: [ // LogGroupNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       logGroupNamePrefixes: [ // LogGroupNamePrefixList
  * //         "STRING_VALUE",
  * //       ],
  * //       filterConfig: { // CloudWatchFilterConfig
@@ -81,8 +84,10 @@ export interface GetBatchEvaluationCommandOutput extends GetBatchEvaluationRespo
  * //   },
  * //   outputConfig: { // OutputConfig Union: only one key present
  * //     cloudWatchConfig: { // CloudWatchOutputConfig
- * //       logGroupName: "STRING_VALUE", // required
- * //       logStreamName: "STRING_VALUE", // required
+ * //       logGroupName: "STRING_VALUE",
+ * //       logStreamName: "STRING_VALUE",
+ * //       metricsNamespace: "STRING_VALUE",
+ * //       resultDestination: "DEDICATED_LOG_GROUP" || "SOURCE_LOG_GROUP",
  * //     },
  * //   },
  * //   evaluationResults: { // EvaluationJobResults

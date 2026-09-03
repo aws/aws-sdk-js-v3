@@ -277,6 +277,19 @@ export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof Re
  * @public
  * @enum
  */
+export const ResultDestination = {
+  DEDICATED_LOG_GROUP: "DEDICATED_LOG_GROUP",
+  SOURCE_LOG_GROUP: "SOURCE_LOG_GROUP",
+} as const;
+/**
+ * @public
+ */
+export type ResultDestination = (typeof ResultDestination)[keyof typeof ResultDestination];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecommendationType = {
   SYSTEM_PROMPT_RECOMMENDATION: "SYSTEM_PROMPT_RECOMMENDATION",
   TOOL_DESCRIPTION_RECOMMENDATION: "TOOL_DESCRIPTION_RECOMMENDATION",

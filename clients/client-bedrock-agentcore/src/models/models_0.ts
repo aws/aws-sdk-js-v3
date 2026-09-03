@@ -33,6 +33,7 @@ import type {
   RecommendationStatus,
   RecommendationType,
   ResourceContentType,
+  ResultDestination,
   Role,
   ScreenshotFormat,
   SessionStatus,
@@ -4437,7 +4438,13 @@ export interface CloudWatchLogsSource {
    * <p>The list of CloudWatch log group names to read agent traces from. Maximum of 10 log groups.</p>
    * @public
    */
-  logGroupNames: string[] | undefined;
+  logGroupNames?: string[] | undefined;
+
+  /**
+   * <p>The list of CloudWatch log group name prefixes to read agent traces from. Specify this instead of <code>logGroupNames</code> to match log groups by prefix. Maximum of 5 prefixes. Specify either <code>logGroupNames</code> or <code>logGroupNamePrefixes</code>, not both. One of the two is required.</p>
+   * @public
+   */
+  logGroupNamePrefixes?: string[] | undefined;
 
   /**
    * <p>Optional filter configuration to narrow down which sessions to evaluate.</p>
@@ -4829,16 +4836,28 @@ export interface Insight {
  */
 export interface CloudWatchOutputConfig {
   /**
-   * <p>The name of the CloudWatch log group where evaluation results will be written.</p>
+   * <p>The name of the CloudWatch log group where evaluation results will be written. This value doesn't apply when <code>resultDestination</code> is <code>SOURCE_LOG_GROUP</code>, because results are written back to the trace source log group. The name can't be under the service-reserved <code>/aws/bedrock-agentcore/evaluations/</code> namespace, apart from the service-managed default group.</p>
    * @public
    */
-  logGroupName: string | undefined;
+  logGroupName?: string | undefined;
 
   /**
    * <p>The name of the CloudWatch log stream where evaluation results will be written.</p>
    * @public
    */
-  logStreamName: string | undefined;
+  logStreamName?: string | undefined;
+
+  /**
+   * <p>The CloudWatch metrics namespace where evaluation result metrics are published. If you omit this value, the service publishes metrics to <code>Bedrock-AgentCore/Evaluations</code>. This value can't begin with <code>AWS/</code>.</p>
+   * @public
+   */
+  metricsNamespace?: string | undefined;
+
+  /**
+   * <p>The destination where evaluation results are written. Valid values:</p> <ul> <li> <p> <code>DEDICATED_LOG_GROUP</code> (default) – Writes results to a dedicated result log group.</p> </li> <li> <p> <code>SOURCE_LOG_GROUP</code> – Writes results back to the log group that the agent traces were read from. If you use this value, don't specify <code>logGroupName</code>.</p> </li> </ul>
+   * @public
+   */
+  resultDestination?: ResultDestination | undefined;
 }
 
 /**
@@ -6142,6 +6161,12 @@ export interface StartBatchEvaluationRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>Output destination configuration.</p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
 }
 
 /**

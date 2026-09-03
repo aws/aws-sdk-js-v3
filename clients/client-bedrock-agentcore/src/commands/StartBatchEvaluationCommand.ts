@@ -49,7 +49,10 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  *       serviceNames: [ // EvaluationStringList // required
  *         "STRING_VALUE",
  *       ],
- *       logGroupNames: [ // required
+ *       logGroupNames: [ // LogGroupNameList
+ *         "STRING_VALUE",
+ *       ],
+ *       logGroupNamePrefixes: [ // LogGroupNamePrefixList
  *         "STRING_VALUE",
  *       ],
  *       filterConfig: { // CloudWatchFilterConfig
@@ -111,6 +114,14 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  *   },
  *   kmsKeyArn: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   outputConfig: { // OutputConfig Union: only one key present
+ *     cloudWatchConfig: { // CloudWatchOutputConfig
+ *       logGroupName: "STRING_VALUE",
+ *       logStreamName: "STRING_VALUE",
+ *       metricsNamespace: "STRING_VALUE",
+ *       resultDestination: "DEDICATED_LOG_GROUP" || "SOURCE_LOG_GROUP",
+ *     },
+ *   },
  * };
  * const command = new StartBatchEvaluationCommand(input);
  * const response = await client.send(command);
@@ -132,8 +143,10 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   outputConfig: { // OutputConfig Union: only one key present
  * //     cloudWatchConfig: { // CloudWatchOutputConfig
- * //       logGroupName: "STRING_VALUE", // required
- * //       logStreamName: "STRING_VALUE", // required
+ * //       logGroupName: "STRING_VALUE",
+ * //       logStreamName: "STRING_VALUE",
+ * //       metricsNamespace: "STRING_VALUE",
+ * //       resultDestination: "DEDICATED_LOG_GROUP" || "SOURCE_LOG_GROUP",
  * //     },
  * //   },
  * //   tags: { // TagsMap

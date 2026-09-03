@@ -825,6 +825,7 @@ const _l = "location";
 const _lA = "linkedAccounts";
 const _lGA = "logGroupArns";
 const _lGN = "logGroupNames";
+const _lGNP = "logGroupNamePrefixes";
 const _lGNo = "logGroupName";
 const _lLMC = "liteLlmModelConfig";
 const _lM = "latencyMs";
@@ -849,7 +850,8 @@ const _mK = "metadataKey";
 const _mL = "messagesList";
 const _mM = "mcpMethod";
 const _mMo = "mouseMove";
-const _mN = "mcpName";
+const _mN = "metricsNamespace";
+const _mNc = "mcpName";
 const _mP = "mountPath";
 const _mPV = "mcpProtocolVersion";
 const _mR = "memoryRecord";
@@ -946,6 +948,7 @@ const _rCe = "recommendationConfig";
 const _rCea = "reasoningContent";
 const _rCed = "redactedContent";
 const _rCo = "rootCause";
+const _rD = "resultDestination";
 const _rE = "requestExpiry";
 const _rEI = "rootEventId";
 const _rH = "requestHost";
@@ -1450,8 +1453,8 @@ export var CloudWatchLogsRule$: StaticStructureSchema = [3, n0, _CWLR,
 ];
 export var CloudWatchLogsSource$: StaticStructureSchema = [3, n0, _CWLS,
   0,
-  [_sN, _lGN, _fC],
-  [64 | 0, 64 | 0, () => CloudWatchFilterConfig$], 2
+  [_sN, _lGN, _lGNP, _fC],
+  [64 | 0, 64 | 0, 64 | 0, () => CloudWatchFilterConfig$], 1
 ];
 export var CloudWatchLogsTraceConfig$: StaticStructureSchema = [3, n0, _CWLTC,
   0,
@@ -1460,8 +1463,8 @@ export var CloudWatchLogsTraceConfig$: StaticStructureSchema = [3, n0, _CWLTC,
 ];
 export var CloudWatchOutputConfig$: StaticStructureSchema = [3, n0, _CWOC,
   0,
-  [_lGNo, _lSN],
-  [0, 0], 2
+  [_lGNo, _lSN, _mN, _rD],
+  [0, 0, 0, 0]
 ];
 export var CodeInterpreterResult$: StaticStructureSchema = [3, n0, _CIR,
   0,
@@ -2195,7 +2198,7 @@ export var InvokeAgentRuntimeCommandResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var InvokeAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _IARR,
   0,
-  [_aRA, _p, _cTon, _ac, _mSI, _rSI, _mPV, _mM, _mN, _rUI, _tI, _tPr, _tS, _ba, _q, _aIc],
+  [_aRA, _p, _cTon, _ac, _mSI, _rSI, _mPV, _mM, _mNc, _rUI, _tI, _tPr, _tS, _ba, _q, _aIc],
   [[0, 1], [() => Body, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _Ac }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _MM }], [0, { [_hH]: _MN }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _IARRn,
@@ -2715,8 +2718,8 @@ export var SpanContext$: StaticStructureSchema = [3, n0, _SCp,
 ];
 export var StartBatchEvaluationRequest$: StaticStructureSchema = [3, n0, _SBER,
   0,
-  [_bEN, _dSC, _ev, _i, _cT, _eMva, _ta, _kKA, _d],
-  [0, () => DataSourceConfig$, () => EvaluatorList, () => InsightList, [0, 4], () => EvaluationMetadata$, 128 | 0, 0, 0], 2
+  [_bEN, _dSC, _ev, _i, _cT, _eMva, _ta, _kKA, _d, _oC],
+  [0, () => DataSourceConfig$, () => EvaluatorList, () => InsightList, [0, 4], () => EvaluationMetadata$, 128 | 0, 0, 0, () => OutputConfig$], 2
 ];
 export var StartBatchEvaluationResponse$: StaticStructureSchema = [3, n0, _SBERt,
   0,
@@ -3087,6 +3090,8 @@ var LinkedAccountList: StaticListSchema = [1, n0, _LAL,
     0]
 ];
 var LogGroupArnList = 64 | 0;
+var LogGroupNameList = 64 | 0;
+var LogGroupNamePrefixList = 64 | 0;
 var MemoryMetadataFilterList: StaticListSchema = [1, n0, _MMFL,
   0, () => MemoryMetadataFilterExpression$
 ];
