@@ -26,6 +26,21 @@ export type FreeTrialFeatureResult = (typeof FreeTrialFeatureResult)[keyof typeo
  * @public
  * @enum
  */
+export const ActivityType = {
+  /**
+   * <p>The observed activity is an API call.</p>
+   */
+  API_CALL: "API_CALL",
+} as const;
+/**
+ * @public
+ */
+export type ActivityType = (typeof ActivityType)[keyof typeof ActivityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const MfaStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",

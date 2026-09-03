@@ -18,6 +18,8 @@ import {
   AccountLevelPermissions$,
   AccountStatistics$,
   Action$,
+  Activity$,
+  ActivityType,
   Actor$,
   ActorProcess$,
   AdditionalInfo$,
@@ -29,6 +31,7 @@ import {
   Anomaly$,
   AnomalyObject$,
   AnomalyUnusual$,
+  ApiCall$,
   ArchiveFindings$,
   ArchiveFindingsCommand,
   ArchiveFindingsRequest$,
@@ -1017,6 +1020,7 @@ assert(typeof AccountFreeTrialInfo$ === "object");
 assert(typeof AccountLevelPermissions$ === "object");
 assert(typeof AccountStatistics$ === "object");
 assert(typeof Action$ === "object");
+assert(typeof Activity$ === "object");
 assert(typeof Actor$ === "object");
 assert(typeof ActorProcess$ === "object");
 assert(typeof AdditionalInfo$ === "object");
@@ -1027,6 +1031,7 @@ assert(typeof AgentDetails$ === "object");
 assert(typeof Anomaly$ === "object");
 assert(typeof AnomalyObject$ === "object");
 assert(typeof AnomalyUnusual$ === "object");
+assert(typeof ApiCall$ === "object");
 assert(typeof ArchiveFindingsRequest$ === "object");
 assert(typeof ArchiveFindingsResponse$ === "object");
 assert(typeof AssociationDetail$ === "object");
@@ -1476,6 +1481,7 @@ assert(typeof VolumeDetail$ === "object");
 assert(typeof VolumeMount$ === "object");
 assert(typeof VpcConfig$ === "object");
 // enums
+assert(typeof ActivityType === "object");
 assert(typeof AdminStatus === "object");
 assert(typeof AssociationMode === "object");
 assert(typeof AutoEnableMembers === "object");

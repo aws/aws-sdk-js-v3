@@ -1084,6 +1084,17 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                     Title: "STRING_VALUE",
  * //                   },
  * //                 ],
+ * //                 Activities: [ // Activities
+ * //                   { // Activity
+ * //                     Type: "API_CALL", // required
+ * //                     Api: { // ApiCall
+ * //                       Operation: "STRING_VALUE",
+ * //                       Service: "STRING_VALUE",
+ * //                       Error: "STRING_VALUE",
+ * //                       UserAgent: "STRING_VALUE",
+ * //                     },
+ * //                   },
+ * //                 ],
  * //               },
  * //             ],
  * //             SequenceIndicators: [

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  ActivityType,
   AdminStatus,
   AssociationMode,
   AutoEnableMembers,
@@ -21,7 +22,6 @@ import type {
   DetectionRuleSeverity,
   DetectorFeature,
   DetectorFeatureResult,
-  DetectorStatus,
   EcsClusterStatus,
   EcsLaunchType,
   FeatureAdditionalConfiguration,
@@ -1089,6 +1089,54 @@ export interface Action {
    * @public
    */
   RdsLoginAttemptAction?: RdsLoginAttemptAction | undefined;
+}
+
+/**
+ * <p>Contains information about an API call that was observed as part of an activity.</p>
+ * @public
+ */
+export interface ApiCall {
+  /**
+   * <p>The name of the API operation that was invoked.</p>
+   * @public
+   */
+  Operation?: string | undefined;
+
+  /**
+   * <p>The service that the API operation was invoked against.</p>
+   * @public
+   */
+  Service?: string | undefined;
+
+  /**
+   * <p>The error code that was returned, if the API call failed.</p>
+   * @public
+   */
+  Error?: string | undefined;
+
+  /**
+   * <p>User agent in the request to the API operation</p>
+   * @public
+   */
+  UserAgent?: string | undefined;
+}
+
+/**
+ * <p>Contains information about an activity, such as an API call, that was observed for a signal.</p>
+ * @public
+ */
+export interface Activity {
+  /**
+   * <p>The type of the observed activity.</p>
+   * @public
+   */
+  Type: ActivityType | undefined;
+
+  /**
+   * <p>Contains information about the API call that was observed, when the activity type is <code>API_CALL</code>.</p>
+   * @public
+   */
+  Api?: ApiCall | undefined;
 }
 
 /**
@@ -5018,6 +5066,12 @@ export interface Signal {
    * @public
    */
   SignalIndicators?: Indicator[] | undefined;
+
+  /**
+   * <p>Contains information about the activities, such as API calls, that were observed for this signal.</p>
+   * @public
+   */
+  Activities?: Activity[] | undefined;
 }
 
 /**
@@ -7792,70 +7846,4 @@ export interface GetCustomDetectionRuleOrgConfigurationResponse {
    * @public
    */
   Configuration: DetectionRuleOrgConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDetectorRequest {
-  /**
-   * <p>The unique ID of the detector that you want to get.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
-   * @public
-   */
-  DetectorId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDetectorResponse {
-  /**
-   * <p>The timestamp of when the detector was created.</p>
-   * @public
-   */
-  CreatedAt?: string | undefined;
-
-  /**
-   * <p>The publishing frequency of the finding.</p>
-   * @public
-   */
-  FindingPublishingFrequency?: FindingPublishingFrequency | undefined;
-
-  /**
-   * <p>The GuardDuty service role.</p>
-   * @public
-   */
-  ServiceRole: string | undefined;
-
-  /**
-   * <p>The detector status.</p>
-   * @public
-   */
-  Status: DetectorStatus | undefined;
-
-  /**
-   * <p>The last-updated timestamp for the detector.</p>
-   * @public
-   */
-  UpdatedAt?: string | undefined;
-
-  /**
-   * <p>Describes which data sources are enabled for the detector.</p>
-   *
-   * @deprecated This parameter is deprecated, use Features instead.
-   * @public
-   */
-  DataSources?: DataSourceConfigurationsResult | undefined;
-
-  /**
-   * <p>The tags of the detector resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>Describes the features that have been enabled for the detector.</p>
-   * @public
-   */
-  Features?: DetectorFeatureConfigurationResult[] | undefined;
 }

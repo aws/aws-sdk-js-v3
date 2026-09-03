@@ -8,6 +8,7 @@ import type {
   DetectionRuleDataSource,
   DetectionRuleSeverity,
   DetectionSource,
+  DetectorStatus,
   EbsSnapshotPreservation,
   FeatureStatus,
   Feedback,
@@ -61,6 +62,7 @@ import type {
   DetectionRuleFilter,
   DetectionRuleOrgConfigurationSummary,
   DetectorFeatureConfiguration,
+  DetectorFeatureConfigurationResult,
   EbsSnapshot,
   FilterCondition,
   Finding,
@@ -75,6 +77,72 @@ import type {
   UnprocessedAccount,
   VolumeDetail,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetDetectorRequest {
+  /**
+   * <p>The unique ID of the detector that you want to get.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html">ListDetectors</a> API.</p>
+   * @public
+   */
+  DetectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDetectorResponse {
+  /**
+   * <p>The timestamp of when the detector was created.</p>
+   * @public
+   */
+  CreatedAt?: string | undefined;
+
+  /**
+   * <p>The publishing frequency of the finding.</p>
+   * @public
+   */
+  FindingPublishingFrequency?: FindingPublishingFrequency | undefined;
+
+  /**
+   * <p>The GuardDuty service role.</p>
+   * @public
+   */
+  ServiceRole: string | undefined;
+
+  /**
+   * <p>The detector status.</p>
+   * @public
+   */
+  Status: DetectorStatus | undefined;
+
+  /**
+   * <p>The last-updated timestamp for the detector.</p>
+   * @public
+   */
+  UpdatedAt?: string | undefined;
+
+  /**
+   * <p>Describes which data sources are enabled for the detector.</p>
+   *
+   * @deprecated This parameter is deprecated, use Features instead.
+   * @public
+   */
+  DataSources?: DataSourceConfigurationsResult | undefined;
+
+  /**
+   * <p>The tags of the detector resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Describes the features that have been enabled for the detector.</p>
+   * @public
+   */
+  Features?: DetectorFeatureConfigurationResult[] | undefined;
+}
 
 /**
  * @public

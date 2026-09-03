@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetDetectorRequest, GetDetectorResponse } from "../models/models_0";
+import type { GetDetectorRequest, GetDetectorResponse } from "../models/models_1";
 import { GetDetector$ } from "../schemas/schemas_0";
 
 /**
