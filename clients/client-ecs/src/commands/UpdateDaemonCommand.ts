@@ -51,6 +51,7 @@ export interface UpdateDaemonCommandOutput extends UpdateDaemonResponse, __Metad
  *   propagateTags: "DAEMON" || "NONE",
  *   enableECSManagedTags: true || false,
  *   enableExecuteCommand: true || false,
+ *   critical: true || false,
  * };
  * const command = new UpdateDaemonCommand(input);
  * const response = await client.send(command);

@@ -59,6 +59,7 @@ export interface CreateDaemonCommandOutput extends CreateDaemonResponse, __Metad
  *   enableECSManagedTags: true || false,
  *   enableExecuteCommand: true || false,
  *   clientToken: "STRING_VALUE",
+ *   critical: true || false,
  * };
  * const command = new CreateDaemonCommand(input);
  * const response = await client.send(command);

@@ -676,6 +676,7 @@ const _cont = "container";
 const _conta = "containers";
 const _cou = "count";
 const _cp = "cpu";
+const _cr = "critical";
 const _d = "details";
 const _dA = "daemonArn";
 const _dAe = "deploymentArn";
@@ -1103,6 +1104,8 @@ const _tT = "targetType";
 const _tTR = "testTrafficRules";
 const _tV = "targetValue";
 const _tVo = "tokenValue";
+const _tWDC = "totalWithoutDaemonCount";
+const _tWDIC = "totalWithoutDaemonInstanceCount";
 const _ta = "tags";
 const _tas = "tasks";
 const _task = "task";
@@ -1132,6 +1135,8 @@ const _ve = "version";
 const _vo = "volumes";
 const _w = "weight";
 const _wD = "workingDirectory";
+const _wDC = "withoutDaemonCount";
+const _wDIC = "withoutDaemonInstanceCount";
 const _xN = "xmlName";
 const n0 = "com.amazonaws.ecs";
 
@@ -1552,8 +1557,8 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateDaemonRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_dNa, _dTDA, _cPAa, _cA, _dC, _ta, _pTr, _eECSMT, _eEC, _cT],
-  [0, 0, 64 | 0, 0, () => DaemonDeploymentConfiguration$, () => Tags, 0, 2, 2, 0], 3
+  [_dNa, _dTDA, _cPAa, _cA, _dC, _ta, _pTr, _eECSMT, _eEC, _cT, _cr],
+  [0, 0, 64 | 0, 0, () => DaemonDeploymentConfiguration$, () => Tags, 0, 2, 2, 0, 2], 3
 ];
 export var CreateDaemonResponse$: StaticStructureSchema = [3, n0, _CDRr,
   0,
@@ -1607,8 +1612,8 @@ export var DaemonAlarmConfiguration$: StaticStructureSchema = [3, n0, _DAC,
 ];
 export var DaemonCapacityProvider$: StaticStructureSchema = [3, n0, _DCP,
   0,
-  [_ar, _rCu],
-  [0, 1]
+  [_ar, _rCu, _wDC],
+  [0, 1, 1]
 ];
 export var DaemonCircuitBreaker$: StaticStructureSchema = [3, n0, _DCB,
   0,
@@ -1637,8 +1642,8 @@ export var DaemonDeploymentAlarms$: StaticStructureSchema = [3, n0, _DDA,
 ];
 export var DaemonDeploymentCapacityProvider$: StaticStructureSchema = [3, n0, _DDCP,
   0,
-  [_ar, _rIC, _dIC],
-  [0, 1, 1]
+  [_ar, _rIC, _wDIC, _dIC],
+  [0, 1, 1, 1]
 ];
 export var DaemonDeploymentConfiguration$: StaticStructureSchema = [3, n0, _DDC,
   0,
@@ -1647,8 +1652,8 @@ export var DaemonDeploymentConfiguration$: StaticStructureSchema = [3, n0, _DDC,
 ];
 export var DaemonDeploymentRevisionDetail$: StaticStructureSchema = [3, n0, _DDRD,
   0,
-  [_ar, _cPap, _tRIC, _tDIC],
-  [0, () => DaemonDeploymentCapacityProviderList, 1, 1]
+  [_ar, _cPap, _tRIC, _tWDIC, _tDIC],
+  [0, () => DaemonDeploymentCapacityProviderList, 1, 1, 1]
 ];
 export var DaemonDeploymentSummary$: StaticStructureSchema = [3, n0, _DDS,
   0,
@@ -1667,13 +1672,13 @@ export var DaemonLinuxParameters$: StaticStructureSchema = [3, n0, _DLP,
 ];
 export var DaemonRevision$: StaticStructureSchema = [3, n0, _DR,
   0,
-  [_dRA, _cA, _dA, _dTDA, _cAr, _cI, _pTr, _eECSMT, _eEC],
-  [0, 0, 0, 0, 4, () => DaemonContainerImages, 0, 2, 2]
+  [_dRA, _cA, _dA, _dTDA, _cAr, _cI, _pTr, _eECSMT, _eEC, _cr],
+  [0, 0, 0, 0, 4, () => DaemonContainerImages, 0, 2, 2, 2]
 ];
 export var DaemonRevisionDetail$: StaticStructureSchema = [3, n0, _DRD,
   0,
-  [_ar, _cPap, _tRC],
-  [0, () => DaemonCapacityProviderList, 1]
+  [_ar, _cPap, _tRC, _tWDC],
+  [0, () => DaemonCapacityProviderList, 1, 1]
 ];
 export var DaemonRollback$: StaticStructureSchema = [3, n0, _DRa,
   0,
@@ -3027,8 +3032,8 @@ export var UpdateContainerInstancesStateResponse$: StaticStructureSchema = [3, n
 ];
 export var UpdateDaemonRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_dA, _dTDA, _cPAa, _dC, _pTr, _eECSMT, _eEC],
-  [0, 0, 64 | 0, () => DaemonDeploymentConfiguration$, 0, 2, 2], 3
+  [_dA, _dTDA, _cPAa, _dC, _pTr, _eECSMT, _eEC, _cr],
+  [0, 0, 64 | 0, () => DaemonDeploymentConfiguration$, 0, 2, 2, 2], 3
 ];
 export var UpdateDaemonResponse$: StaticStructureSchema = [3, n0, _UDRp,
   0,

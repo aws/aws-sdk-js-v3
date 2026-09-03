@@ -59,10 +59,12 @@ export interface DescribeDaemonDeploymentsCommandOutput extends DescribeDaemonDe
  * //           { // DaemonDeploymentCapacityProvider
  * //             arn: "STRING_VALUE",
  * //             runningInstanceCount: Number("int"),
+ * //             withoutDaemonInstanceCount: Number("int"),
  * //             drainingInstanceCount: Number("int"),
  * //           },
  * //         ],
  * //         totalRunningInstanceCount: Number("int"),
+ * //         totalWithoutDaemonInstanceCount: Number("int"),
  * //         totalDrainingInstanceCount: Number("int"),
  * //       },
  * //       sourceDaemonRevisions: [ // DaemonDeploymentRevisionDetailList
@@ -72,10 +74,12 @@ export interface DescribeDaemonDeploymentsCommandOutput extends DescribeDaemonDe
  * //             {
  * //               arn: "STRING_VALUE",
  * //               runningInstanceCount: Number("int"),
+ * //               withoutDaemonInstanceCount: Number("int"),
  * //               drainingInstanceCount: Number("int"),
  * //             },
  * //           ],
  * //           totalRunningInstanceCount: Number("int"),
+ * //           totalWithoutDaemonInstanceCount: Number("int"),
  * //           totalDrainingInstanceCount: Number("int"),
  * //         },
  * //       ],

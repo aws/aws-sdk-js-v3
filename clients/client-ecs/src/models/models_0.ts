@@ -3054,6 +3054,12 @@ export interface DaemonDeploymentCapacityProvider {
   runningInstanceCount?: number | undefined;
 
   /**
+   * <p>The number of instances on this capacity provider that are running without the daemon task. This applies to daemons that aren't critical, where the instance remains available for your other tasks even if the daemon task can't start or stops. These instances aren't included in <code>runningInstanceCount</code>.</p>
+   * @public
+   */
+  withoutDaemonInstanceCount?: number | undefined;
+
+  /**
    * <p>The number of instances being drained on this capacity provider during the deployment.</p>
    * @public
    */
@@ -3082,6 +3088,12 @@ export interface DaemonDeploymentRevisionDetail {
    * @public
    */
   totalRunningInstanceCount?: number | undefined;
+
+  /**
+   * <p>The total number of instances running without the daemon task for this revision, across all capacity providers. These instances aren't included in <code>totalRunningInstanceCount</code>.</p>
+   * @public
+   */
+  totalWithoutDaemonInstanceCount?: number | undefined;
 
   /**
    * <p>The total number of instances being drained for this revision during the deployment.</p>
@@ -3260,6 +3272,12 @@ export interface CreateDaemonRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>If the <code>critical</code> parameter of a daemon is <code>true</code>, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the <code>critical</code> parameter is <code>false</code>, the daemon task failure doesn't affect the other tasks on the instance. The default value is <code>true</code>.</p> <p>A non-critical daemon doesn't block instance registration. The container instance becomes active and continues to run your other tasks, whether the daemon task fails during scale-out or during a deployment.</p> <p>Amazon ECS emits an EventBridge event when a daemon task fails to start, for both critical and non-critical daemons.</p> <p>Daemon task launch failures during a deployment are still counted by the deployment circuit breaker. The circuit breaker can roll back an unstable target revision.</p>
+   * @public
+   */
+  critical?: boolean | undefined;
 }
 
 /**
@@ -3364,6 +3382,12 @@ export interface DaemonCapacityProvider {
    * @public
    */
   runningCount?: number | undefined;
+
+  /**
+   * <p>The number of instances on this capacity provider that are running without the daemon task. This applies to daemons that aren't critical, where the instance remains available for your other tasks even if the daemon task can't start or stops. These instances aren't included in <code>runningCount</code>.</p>
+   * @public
+   */
+  withoutDaemonCount?: number | undefined;
 }
 
 /**
@@ -3388,6 +3412,12 @@ export interface DaemonRevisionDetail {
    * @public
    */
   totalRunningCount?: number | undefined;
+
+  /**
+   * <p>The total number of instances running without the daemon task for this revision, across all capacity providers. These instances aren't included in <code>totalRunningCount</code>.</p>
+   * @public
+   */
+  totalWithoutDaemonCount?: number | undefined;
 }
 
 /**
@@ -3706,6 +3736,12 @@ export interface UpdateDaemonRequest {
    * @public
    */
   enableExecuteCommand?: boolean | undefined;
+
+  /**
+   * <p>If the <code>critical</code> parameter of a daemon is <code>true</code>, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the <code>critical</code> parameter is <code>false</code>, the daemon task failure doesn't affect the other tasks on the instance. The default value is <code>true</code>.</p> <p>A non-critical daemon doesn't block instance registration. The container instance becomes active and continues to run your other tasks, whether the daemon task fails during scale-out or during a deployment.</p> <p>Amazon ECS emits an EventBridge event when a daemon task fails to start, for both critical and non-critical daemons.</p> <p>Daemon task launch failures during a deployment are still counted by the deployment circuit breaker. The circuit breaker can roll back an unstable target revision.</p>
+   * @public
+   */
+  critical?: boolean | undefined;
 }
 
 /**
@@ -3836,6 +3872,12 @@ export interface DaemonRevision {
    * @public
    */
   enableExecuteCommand?: boolean | undefined;
+
+  /**
+   * <p>If the <code>critical</code> parameter of this daemon revision is <code>true</code>, and the daemon task fails, stops, or becomes unhealthy, Amazon ECS drains the container instance and stops the other tasks running on it. If the parameter is <code>false</code>, the daemon task failure doesn't affect the other tasks on the instance, and doesn't block instance registration. The default value is <code>true</code>.</p>
+   * @public
+   */
+  critical?: boolean | undefined;
 }
 
 /**

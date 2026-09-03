@@ -57,6 +57,7 @@ export interface DescribeDaemonRevisionsCommandOutput extends DescribeDaemonRevi
  * //       propagateTags: "DAEMON" || "NONE",
  * //       enableECSManagedTags: true || false,
  * //       enableExecuteCommand: true || false,
+ * //       critical: true || false,
  * //     },
  * //   ],
  * //   failures: [ // Failures

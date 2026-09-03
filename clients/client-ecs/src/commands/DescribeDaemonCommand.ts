@@ -49,9 +49,11 @@ export interface DescribeDaemonCommandOutput extends DescribeDaemonResponse, __M
  * //           { // DaemonCapacityProvider
  * //             arn: "STRING_VALUE",
  * //             runningCount: Number("int"),
+ * //             withoutDaemonCount: Number("int"),
  * //           },
  * //         ],
  * //         totalRunningCount: Number("int"),
+ * //         totalWithoutDaemonCount: Number("int"),
  * //       },
  * //     ],
  * //     deploymentArn: "STRING_VALUE",
