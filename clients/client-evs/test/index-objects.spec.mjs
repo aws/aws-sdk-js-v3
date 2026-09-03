@@ -1,5 +1,6 @@
 import {
   _InstanceType,
+  AccountSetting$,
   AssociateEipToVlan$,
   AssociateEipToVlanCommand,
   AssociateEipToVlanRequest$,
@@ -58,6 +59,10 @@ import {
   Evs,
   EvsClient,
   EvsServiceException,
+  GetAccountSettings$,
+  GetAccountSettingsCommand,
+  GetAccountSettingsRequest$,
+  GetAccountSettingsResponse$,
   GetDepotUrl$,
   GetDepotUrlCommand,
   GetDepotUrlRequest$,
@@ -109,6 +114,10 @@ import {
   paginateListEnvironments,
   paginateListEnvironmentVlans,
   paginateListVmEntitlements,
+  PutAccountSettings$,
+  PutAccountSettingsCommand,
+  PutAccountSettingsRequest$,
+  PutAccountSettingsResponse$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   Secret$,
@@ -169,6 +178,8 @@ assert(typeof DeleteEnvironmentHostCommand === "function");
 assert(typeof DeleteEnvironmentHost$ === "object");
 assert(typeof DisassociateEipFromVlanCommand === "function");
 assert(typeof DisassociateEipFromVlan$ === "object");
+assert(typeof GetAccountSettingsCommand === "function");
+assert(typeof GetAccountSettings$ === "object");
 assert(typeof GetDepotUrlCommand === "function");
 assert(typeof GetDepotUrl$ === "object");
 assert(typeof GetEnvironmentCommand === "function");
@@ -187,6 +198,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof ListVmEntitlementsCommand === "function");
 assert(typeof ListVmEntitlements$ === "object");
+assert(typeof PutAccountSettingsCommand === "function");
+assert(typeof PutAccountSettings$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -194,6 +207,7 @@ assert(typeof UntagResource$ === "object");
 assert(typeof UpdateEnvironmentConnectorCommand === "function");
 assert(typeof UpdateEnvironmentConnector$ === "object");
 // structural schemas
+assert(typeof AccountSetting$ === "object");
 assert(typeof AssociateEipToVlanRequest$ === "object");
 assert(typeof AssociateEipToVlanResponse$ === "object");
 assert(typeof Check$ === "object");
@@ -222,6 +236,8 @@ assert(typeof EipAssociation$ === "object");
 assert(typeof Environment$ === "object");
 assert(typeof EnvironmentSummary$ === "object");
 assert(typeof ErrorDetail$ === "object");
+assert(typeof GetAccountSettingsRequest$ === "object");
+assert(typeof GetAccountSettingsResponse$ === "object");
 assert(typeof GetDepotUrlRequest$ === "object");
 assert(typeof GetDepotUrlResponse$ === "object");
 assert(typeof GetEnvironmentRequest$ === "object");
@@ -247,6 +263,8 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListVmEntitlementsRequest$ === "object");
 assert(typeof ListVmEntitlementsResponse$ === "object");
 assert(typeof NetworkInterface$ === "object");
+assert(typeof PutAccountSettingsRequest$ === "object");
+assert(typeof PutAccountSettingsResponse$ === "object");
 assert(typeof Secret$ === "object");
 assert(typeof ServiceAccessSecurityGroups$ === "object");
 assert(typeof TagResourceRequest$ === "object");

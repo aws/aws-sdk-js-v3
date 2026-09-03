@@ -1,6 +1,8 @@
 const _AETV = "AssociateEipToVlan";
 const _AETVR = "AssociateEipToVlanRequest";
 const _AETVRs = "AssociateEipToVlanResponse";
+const _AS = "AccountSetting";
+const _ASL = "AccountSettingList";
 const _C = "Check";
 const _CC = "ConnectorCheck";
 const _CCL = "ConnectorsChecksList";
@@ -41,6 +43,9 @@ const _EAL = "EipAssociationList";
 const _ED = "ErrorDetail";
 const _ES = "EnvironmentSummary";
 const _ESL = "EnvironmentSummaryList";
+const _GAS = "GetAccountSettings";
+const _GASR = "GetAccountSettingsRequest";
+const _GASRe = "GetAccountSettingsResponse";
 const _GDU = "GetDepotUrl";
 const _GDUR = "GetDepotUrlRequest";
 const _GDURe = "GetDepotUrlResponse";
@@ -81,6 +86,9 @@ const _LVER = "ListVmEntitlementsRequest";
 const _LVERi = "ListVmEntitlementsResponse";
 const _NI = "NetworkInterface";
 const _NIL = "NetworkInterfaceList";
+const _PAS = "PutAccountSettings";
+const _PASR = "PutAccountSettingsRequest";
+const _PASRu = "PutAccountSettingsResponse";
 const _RA = "Retry-After";
 const _RNFE = "ResourceNotFoundException";
 const _S = "Secret";
@@ -215,6 +223,7 @@ const _sIu = "subnetId";
 const _sK = "solutionKey";
 const _sM = "sddcManager";
 const _se = "server";
+const _set = "settings";
 const _st = "state";
 const _sta = "status";
 const _t = "type";
@@ -222,7 +231,7 @@ const _tA = "termsAccepted";
 const _tK = "tagKeys";
 const _ta = "tags";
 const _to = "token";
-const _v = "vlan";
+const _v = "value";
 const _vC = "vCenter";
 const _vH = "vcfHostnames";
 const _vI = "vmIds";
@@ -240,6 +249,7 @@ const _vSl = "vlanState";
 const _vT = "vTep";
 const _vV = "vcfVersion";
 const _vVc = "vcfVersions";
+const _vl = "vlan";
 const n0 = "com.amazonaws.evs";
 
 // smithy-typescript generated code
@@ -322,6 +332,11 @@ export const errorTypeRegistries = [
 ]
 var SolutionKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
 var VSanLicenseKey: StaticSimpleSchema = [0, n0, _VSLK, 8, 0];
+export var AccountSetting$: StaticStructureSchema = [3, n0, _AS,
+  0,
+  [_n, _v],
+  [0, 0], 2
+];
 export var AssociateEipToVlanRequest$: StaticStructureSchema = [3, n0, _AETVR,
   0,
   [_eI, _vN, _aI, _cT],
@@ -329,7 +344,7 @@ export var AssociateEipToVlanRequest$: StaticStructureSchema = [3, n0, _AETVR,
 ];
 export var AssociateEipToVlanResponse$: StaticStructureSchema = [3, n0, _AETVRs,
   0,
-  [_v],
+  [_vl],
   [() => Vlan$]
 ];
 export var Check$: StaticStructureSchema = [3, n0, _C,
@@ -439,7 +454,7 @@ export var DisassociateEipFromVlanRequest$: StaticStructureSchema = [3, n0, _DEF
 ];
 export var DisassociateEipFromVlanResponse$: StaticStructureSchema = [3, n0, _DEFVRi,
   0,
-  [_v],
+  [_vl],
   [() => Vlan$]
 ];
 export var EipAssociation$: StaticStructureSchema = [3, n0, _EA,
@@ -461,6 +476,16 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_eC, _eM],
   [0, 0], 2
+];
+export var GetAccountSettingsRequest$: StaticStructureSchema = [3, n0, _GASR,
+  0,
+  [],
+  []
+];
+export var GetAccountSettingsResponse$: StaticStructureSchema = [3, n0, _GASRe,
+  0,
+  [_set],
+  [() => AccountSettingList]
 ];
 export var GetDepotUrlRequest$: StaticStructureSchema = [3, n0, _GDUR,
   0,
@@ -587,6 +612,16 @@ export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   [_nII],
   [0]
 ];
+export var PutAccountSettingsRequest$: StaticStructureSchema = [3, n0, _PASR,
+  0,
+  [_set],
+  [() => AccountSettingList], 1
+];
+export var PutAccountSettingsResponse$: StaticStructureSchema = [3, n0, _PASRu,
+  0,
+  [_set],
+  [() => AccountSettingList]
+];
 export var Secret$: StaticStructureSchema = [3, n0, _S,
   0,
   [_sA],
@@ -651,6 +686,9 @@ export var VmEntitlement$: StaticStructureSchema = [3, n0, _VEm,
   0,
   [_vIm, _eI, _cI, _vNm, _t, _sta, _lSA, _sAt, _sAto, _eD],
   [0, 0, 0, 0, 0, 0, 4, 4, 4, () => ErrorDetail$]
+];
+var AccountSettingList: StaticListSchema = [1, n0, _ASL,
+  0, () => AccountSetting$
 ];
 var ChecksList: StaticListSchema = [1, n0, _CL,
   0, () => Check$
@@ -737,6 +775,9 @@ export var DeleteEnvironmentHost$: StaticOperationSchema = [9, n0, _DEH,
 export var DisassociateEipFromVlan$: StaticOperationSchema = [9, n0, _DEFV,
   2, () => DisassociateEipFromVlanRequest$, () => DisassociateEipFromVlanResponse$
 ];
+export var GetAccountSettings$: StaticOperationSchema = [9, n0, _GAS,
+  0, () => GetAccountSettingsRequest$, () => GetAccountSettingsResponse$
+];
 export var GetDepotUrl$: StaticOperationSchema = [9, n0, _GDU,
   0, () => GetDepotUrlRequest$, () => GetDepotUrlResponse$
 ];
@@ -763,6 +804,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var ListVmEntitlements$: StaticOperationSchema = [9, n0, _LVE,
   0, () => ListVmEntitlementsRequest$, () => ListVmEntitlementsResponse$
+];
+export var PutAccountSettings$: StaticOperationSchema = [9, n0, _PAS,
+  2, () => PutAccountSettingsRequest$, () => PutAccountSettingsResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   2, () => TagResourceRequest$, () => TagResourceResponse$

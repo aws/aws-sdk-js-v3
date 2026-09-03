@@ -53,6 +53,11 @@ import {
   DisassociateEipFromVlanCommand,
 } from "./commands/DisassociateEipFromVlanCommand";
 import {
+  type GetAccountSettingsCommandInput,
+  type GetAccountSettingsCommandOutput,
+  GetAccountSettingsCommand,
+} from "./commands/GetAccountSettingsCommand";
+import {
   type GetDepotUrlCommandInput,
   type GetDepotUrlCommandOutput,
   GetDepotUrlCommand,
@@ -98,6 +103,11 @@ import {
   ListVmEntitlementsCommand,
 } from "./commands/ListVmEntitlementsCommand";
 import {
+  type PutAccountSettingsCommandInput,
+  type PutAccountSettingsCommandOutput,
+  PutAccountSettingsCommand,
+} from "./commands/PutAccountSettingsCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -130,6 +140,7 @@ const commands = {
   DeleteEnvironmentConnectorCommand,
   DeleteEnvironmentHostCommand,
   DisassociateEipFromVlanCommand,
+  GetAccountSettingsCommand,
   GetDepotUrlCommand,
   GetEnvironmentCommand,
   GetVersionsCommand,
@@ -139,6 +150,7 @@ const commands = {
   ListEnvironmentVlansCommand,
   ListTagsForResourceCommand,
   ListVmEntitlementsCommand,
+  PutAccountSettingsCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateEnvironmentConnectorCommand,
@@ -323,6 +335,24 @@ export interface Evs {
   ): void;
 
   /**
+   * @see {@link GetAccountSettingsCommand}
+   */
+  getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountSettingsCommandOutput>;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+  getAccountSettings(
+    args: GetAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDepotUrlCommand}
    */
   getDepotUrl(
@@ -475,6 +505,23 @@ export interface Evs {
     args: ListVmEntitlementsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVmEntitlementsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountSettingsCommand}
+   */
+  putAccountSettings(
+    args: PutAccountSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountSettingsCommandOutput>;
+  putAccountSettings(
+    args: PutAccountSettingsCommandInput,
+    cb: (err: any, data?: PutAccountSettingsCommandOutput) => void
+  ): void;
+  putAccountSettings(
+    args: PutAccountSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountSettingsCommandOutput) => void
   ): void;
 
   /**

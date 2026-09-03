@@ -94,6 +94,10 @@ import type {
   DisassociateEipFromVlanCommandInput,
   DisassociateEipFromVlanCommandOutput,
 } from "./commands/DisassociateEipFromVlanCommand";
+import type {
+  GetAccountSettingsCommandInput,
+  GetAccountSettingsCommandOutput,
+} from "./commands/GetAccountSettingsCommand";
 import type { GetDepotUrlCommandInput, GetDepotUrlCommandOutput } from "./commands/GetDepotUrlCommand";
 import type { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
 import type { GetVersionsCommandInput, GetVersionsCommandOutput } from "./commands/GetVersionsCommand";
@@ -118,6 +122,10 @@ import type {
   ListVmEntitlementsCommandInput,
   ListVmEntitlementsCommandOutput,
 } from "./commands/ListVmEntitlementsCommand";
+import type {
+  PutAccountSettingsCommandInput,
+  PutAccountSettingsCommandOutput,
+} from "./commands/PutAccountSettingsCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
@@ -149,6 +157,7 @@ export type ServiceInputTypes =
   | DeleteEnvironmentConnectorCommandInput
   | DeleteEnvironmentHostCommandInput
   | DisassociateEipFromVlanCommandInput
+  | GetAccountSettingsCommandInput
   | GetDepotUrlCommandInput
   | GetEnvironmentCommandInput
   | GetVersionsCommandInput
@@ -158,6 +167,7 @@ export type ServiceInputTypes =
   | ListEnvironmentsCommandInput
   | ListTagsForResourceCommandInput
   | ListVmEntitlementsCommandInput
+  | PutAccountSettingsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateEnvironmentConnectorCommandInput;
@@ -176,6 +186,7 @@ export type ServiceOutputTypes =
   | DeleteEnvironmentConnectorCommandOutput
   | DeleteEnvironmentHostCommandOutput
   | DisassociateEipFromVlanCommandOutput
+  | GetAccountSettingsCommandOutput
   | GetDepotUrlCommandOutput
   | GetEnvironmentCommandOutput
   | GetVersionsCommandOutput
@@ -185,6 +196,7 @@ export type ServiceOutputTypes =
   | ListEnvironmentsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVmEntitlementsCommandOutput
+  | PutAccountSettingsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateEnvironmentConnectorCommandOutput;

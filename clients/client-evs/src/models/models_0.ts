@@ -14,6 +14,24 @@ import type {
 } from "./enums";
 
 /**
+ * <p>A regional account-level EVS setting, represented as a name and value pair.</p>
+ * @public
+ */
+export interface AccountSetting {
+  /**
+   * <p>The name of the EVS setting. Valid values are:</p> <ul> <li> <p> <code>vcfPortedCoreCount</code> (type: numeric string) - The total number of VCF license cores ported to Amazon EVS for the account in that Region. The maximum value is 1,000,000 cores. This setting value is shared with Broadcom for record-keeping.</p> </li> </ul>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The value of the EVS setting.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
  * @public
  */
 export interface AssociateEipToVlanRequest {
@@ -1652,6 +1670,24 @@ export interface UpdateEnvironmentConnectorResponse {
 }
 
 /**
+ * <p>The request for the GetAccountSettings operation.</p>
+ * @public
+ */
+export interface GetAccountSettingsRequest {}
+
+/**
+ * <p>The response for the GetAccountSettings operation.</p>
+ * @public
+ */
+export interface GetAccountSettingsResponse {
+  /**
+   * <p>A list of regional account-level EVS settings for the account. EVS settings that have never been explicitly set are omitted from the response.</p>
+   * @public
+   */
+  settings?: AccountSetting[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetVersionsRequest {}
@@ -1741,6 +1777,30 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The request for the PutAccountSettings operation.</p>
+ * @public
+ */
+export interface PutAccountSettingsRequest {
+  /**
+   * <p>A list of regional account-level EVS settings to create or update. Only the settings included in this list are modified.</p>
+   * @public
+   */
+  settings: AccountSetting[] | undefined;
+}
+
+/**
+ * <p>The response for the PutAccountSettings operation.</p>
+ * @public
+ */
+export interface PutAccountSettingsResponse {
+  /**
+   * <p>A list of regional account-level EVS settings, and their values, that were modified in this request.</p>
+   * @public
+   */
+  settings?: AccountSetting[] | undefined;
 }
 
 /**
