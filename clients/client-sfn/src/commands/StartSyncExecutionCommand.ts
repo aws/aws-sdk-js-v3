@@ -33,9 +33,6 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  *         as permissions errors, limit errors, or issues with your state machine code and
  *         configuration. </p>
  *          </note>
- *          <note>
- *             <p>This API action isn't logged in CloudTrail.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

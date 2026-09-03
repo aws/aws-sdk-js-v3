@@ -280,9 +280,7 @@ export interface Tag {
  */
 export interface CreateActivityInput {
   /**
-   * <p>The name of the activity to create. This name must be unique for your Amazon Web Services account and region for 90 days. For more information,
-   *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
-   *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
+   * <p>The name of the activity to create. This name must be unique for your Amazon Web Services account and region.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
    *             <li>
@@ -3293,8 +3291,10 @@ export interface StartExecutionInput {
   stateMachineArn: string | undefined;
 
   /**
-   * <p>Optional name of the execution. This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information,
-   *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
+   * <p>Optional name of the execution. For STANDARD workflows, this name must be unique for your Amazon Web Services account, region, and state machine.
+   *     If a previous execution with the same name exists, you can reuse the name 90 days after it closes.  For EXPRESS workflows, execution names
+   *     can be reused immediately.
+   *     For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
    *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>If you don't provide a name for the execution, Step Functions automatically generates a universally unique identifier (UUID) as the execution name.</p>
    *          <p>A name must <i>not</i> contain:</p>

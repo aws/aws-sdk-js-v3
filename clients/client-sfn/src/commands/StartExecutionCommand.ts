@@ -61,7 +61,7 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  *           <code>STANDARD</code> workflow, if you call <code>StartExecution</code> with the same name
  *         and input as a running execution, the call succeeds and return the same response as the
  *         original request. If the execution is closed or if the input is different, it returns a
- *           <code>400 ExecutionAlreadyExists</code> error. You can reuse names after 90 days. </p>
+ *           <code>400 ExecutionAlreadyExists</code> error. You can reuse the name 90 days after it closes. </p>
  *             <p>
  *                <code>StartExecution</code> isn't idempotent for <code>EXPRESS</code> workflows. </p>
  *          </note>
