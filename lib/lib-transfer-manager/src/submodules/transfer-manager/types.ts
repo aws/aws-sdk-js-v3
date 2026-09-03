@@ -499,11 +499,12 @@ export interface DownloadDirectoryRequest {
    */
   s3Prefix?: string;
   /**
-   * A callback to allow users to filter out unwanted S3 objects.
-   * Return true to include the object for download, false to skip.
+   * Filter to control which S3 objects are downloaded.
+   * Can be a callback (return true to include the object, false to skip) or a
+   * RegExp (matched against the S3 object key, matches are included).
    * By default, if no filter is specified, all objects will be downloaded.
    */
-  filter?: (object: S3Object) => boolean;
+  filter?: ((object: S3Object) => boolean) | RegExp;
   /**
    * Modifier invoked per download request.
    * MUST return a new copy.
