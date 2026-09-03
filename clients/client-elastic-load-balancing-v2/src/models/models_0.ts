@@ -2654,6 +2654,17 @@ export interface ListenerAttribute {
    *           valid range is 60-6000 seconds. The default is 350 seconds.</p>
    *             </li>
    *          </ul>
+   *          <p>The following attribute is only supported by Gateway Load Balancers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>send_tcp_reset.on_idle_timeout.enabled</code> – Specifies whether the Gateway
+   *           Load Balancer sends a TCP Reset to the sender of traffic when a TCP flow's idle timeout
+   *           expires. This attribute also applies to non-SYN TCP packets received for flows that are
+   *           not in the flow table. The value is <code>true</code> or <code>false</code>. The default
+   *           is <code>false</code>.</p>
+   *             </li>
+   *          </ul>
    *          <p>The following attributes are only supported by Application Load Balancers.</p>
    *          <ul>
    *             <li>
@@ -3547,6 +3558,28 @@ export interface TargetGroupAttribute {
    *             (<code>target_failover.on_deregistration</code> and
    *             <code>target_failover.on_unhealthy</code>) can't be set independently. The value you
    *           set for both attributes must be the same.  </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>send_tcp_reset.on_unhealthy.enabled</code> – Specifies whether the Gateway Load
+   *           Balancer sends a TCP Reset to the sender of traffic when a target becomes unhealthy. After
+   *           sending the reset, the Gateway Load Balancer removes the flow entry from its flow table.
+   *           The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.
+   *           This attribute does not apply when <code>target_failover.on_unhealthy</code> is set to
+   *             <code>rebalance</code>. This feature requires 5-tuple flow stickiness, which the target
+   *           group uses by default when <code>stickiness.enabled</code> is set to
+   *             <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>send_tcp_reset.on_deregistration.enabled</code> – Specifies whether the Gateway
+   *           Load Balancer sends a TCP Reset to the sender of traffic when a target is deregistered.
+   *           The reset occurs after the connection drain time has elapsed. The value is
+   *             <code>true</code> or <code>false</code>. The default is <code>false</code>. This
+   *           attribute does not apply when <code>target_failover.on_deregistration</code> is set to
+   *           <code>rebalance</code>. This feature requires 5-tuple flow stickiness, which the target
+   *           group uses by default when <code>stickiness.enabled</code> is set to
+   *           <code>false</code>.</p>
    *             </li>
    *          </ul>
    * @public
