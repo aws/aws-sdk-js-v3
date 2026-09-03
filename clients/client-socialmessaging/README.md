@@ -297,6 +297,13 @@ GetLinkedWhatsAppBusinessAccountPhoneNumber
 </details>
 <details>
 <summary>
+GetWhatsAppBusinessPublicKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/GetWhatsAppBusinessPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppBusinessPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppBusinessPublicKeyCommandOutput/)
+</details>
+<details>
+<summary>
 GetWhatsAppFlow
 </summary>
 
@@ -385,6 +392,13 @@ PutWhatsAppBusinessAccountEventDestinations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/PutWhatsAppBusinessAccountEventDestinationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PutWhatsAppBusinessAccountEventDestinationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PutWhatsAppBusinessAccountEventDestinationsCommandOutput/)
+</details>
+<details>
+<summary>
+PutWhatsAppBusinessPublicKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/PutWhatsAppBusinessPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PutWhatsAppBusinessPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PutWhatsAppBusinessPublicKeyCommandOutput/)
 </details>
 <details>
 <summary>

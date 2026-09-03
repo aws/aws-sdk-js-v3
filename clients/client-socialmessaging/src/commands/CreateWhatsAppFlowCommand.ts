@@ -43,6 +43,7 @@ export interface CreateWhatsAppFlowCommandOutput extends CreateWhatsAppFlowOutpu
  *   flowJson: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   publish: true || false,
  *   cloneFlowId: "STRING_VALUE",
+ *   endpointUri: "STRING_VALUE",
  * };
  * const command = new CreateWhatsAppFlowCommand(input);
  * const response = await client.send(command);

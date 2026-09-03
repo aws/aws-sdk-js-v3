@@ -106,6 +106,10 @@ import type {
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput,
 } from "./commands/GetLinkedWhatsAppBusinessAccountPhoneNumberCommand";
+import type {
+  GetWhatsAppBusinessPublicKeyCommandInput,
+  GetWhatsAppBusinessPublicKeyCommandOutput,
+} from "./commands/GetWhatsAppBusinessPublicKeyCommand";
 import type { GetWhatsAppFlowCommandInput, GetWhatsAppFlowCommandOutput } from "./commands/GetWhatsAppFlowCommand";
 import type {
   GetWhatsAppFlowPreviewCommandInput,
@@ -156,6 +160,10 @@ import type {
   PutWhatsAppBusinessAccountEventDestinationsCommandOutput,
 } from "./commands/PutWhatsAppBusinessAccountEventDestinationsCommand";
 import type {
+  PutWhatsAppBusinessPublicKeyCommandInput,
+  PutWhatsAppBusinessPublicKeyCommandOutput,
+} from "./commands/PutWhatsAppBusinessPublicKeyCommand";
+import type {
   SendWhatsAppConversionEventCommandInput,
   SendWhatsAppConversionEventCommandOutput,
 } from "./commands/SendWhatsAppConversionEventCommand";
@@ -205,6 +213,7 @@ export type ServiceInputTypes =
   | DisassociateWhatsAppBusinessAccountCommandInput
   | GetLinkedWhatsAppBusinessAccountCommandInput
   | GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput
+  | GetWhatsAppBusinessPublicKeyCommandInput
   | GetWhatsAppFlowCommandInput
   | GetWhatsAppFlowPreviewCommandInput
   | GetWhatsAppMessageMediaCommandInput
@@ -218,6 +227,7 @@ export type ServiceInputTypes =
   | PostWhatsAppMessageMediaCommandInput
   | PublishWhatsAppFlowCommandInput
   | PutWhatsAppBusinessAccountEventDestinationsCommandInput
+  | PutWhatsAppBusinessPublicKeyCommandInput
   | SendWhatsAppConversionEventCommandInput
   | SendWhatsAppMessageCommandInput
   | TagResourceCommandInput
@@ -243,6 +253,7 @@ export type ServiceOutputTypes =
   | DisassociateWhatsAppBusinessAccountCommandOutput
   | GetLinkedWhatsAppBusinessAccountCommandOutput
   | GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput
+  | GetWhatsAppBusinessPublicKeyCommandOutput
   | GetWhatsAppFlowCommandOutput
   | GetWhatsAppFlowPreviewCommandOutput
   | GetWhatsAppMessageMediaCommandOutput
@@ -256,6 +267,7 @@ export type ServiceOutputTypes =
   | PostWhatsAppMessageMediaCommandOutput
   | PublishWhatsAppFlowCommandOutput
   | PutWhatsAppBusinessAccountEventDestinationsCommandOutput
+  | PutWhatsAppBusinessPublicKeyCommandOutput
   | SendWhatsAppConversionEventCommandOutput
   | SendWhatsAppMessageCommandOutput
   | TagResourceCommandOutput

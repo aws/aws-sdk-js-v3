@@ -57,6 +57,10 @@ import {
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
   GetLinkedWhatsAppBusinessAccountPhoneNumberInput$,
   GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$,
+  GetWhatsAppBusinessPublicKey$,
+  GetWhatsAppBusinessPublicKeyCommand,
+  GetWhatsAppBusinessPublicKeyInput$,
+  GetWhatsAppBusinessPublicKeyOutput$,
   GetWhatsAppFlow$,
   GetWhatsAppFlowCommand,
   GetWhatsAppFlowInput$,
@@ -136,6 +140,10 @@ import {
   PutWhatsAppBusinessAccountEventDestinationsCommand,
   PutWhatsAppBusinessAccountEventDestinationsInput$,
   PutWhatsAppBusinessAccountEventDestinationsOutput$,
+  PutWhatsAppBusinessPublicKey$,
+  PutWhatsAppBusinessPublicKeyCommand,
+  PutWhatsAppBusinessPublicKeyInput$,
+  PutWhatsAppBusinessPublicKeyOutput$,
   RegistrationStatus,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -218,6 +226,8 @@ assert(typeof GetLinkedWhatsAppBusinessAccountCommand === "function");
 assert(typeof GetLinkedWhatsAppBusinessAccount$ === "object");
 assert(typeof GetLinkedWhatsAppBusinessAccountPhoneNumberCommand === "function");
 assert(typeof GetLinkedWhatsAppBusinessAccountPhoneNumber$ === "object");
+assert(typeof GetWhatsAppBusinessPublicKeyCommand === "function");
+assert(typeof GetWhatsAppBusinessPublicKey$ === "object");
 assert(typeof GetWhatsAppFlowCommand === "function");
 assert(typeof GetWhatsAppFlow$ === "object");
 assert(typeof GetWhatsAppFlowPreviewCommand === "function");
@@ -244,6 +254,8 @@ assert(typeof PublishWhatsAppFlowCommand === "function");
 assert(typeof PublishWhatsAppFlow$ === "object");
 assert(typeof PutWhatsAppBusinessAccountEventDestinationsCommand === "function");
 assert(typeof PutWhatsAppBusinessAccountEventDestinations$ === "object");
+assert(typeof PutWhatsAppBusinessPublicKeyCommand === "function");
+assert(typeof PutWhatsAppBusinessPublicKey$ === "object");
 assert(typeof SendWhatsAppConversionEventCommand === "function");
 assert(typeof SendWhatsAppConversionEvent$ === "object");
 assert(typeof SendWhatsAppMessageCommand === "function");
@@ -285,6 +297,8 @@ assert(typeof GetLinkedWhatsAppBusinessAccountInput$ === "object");
 assert(typeof GetLinkedWhatsAppBusinessAccountOutput$ === "object");
 assert(typeof GetLinkedWhatsAppBusinessAccountPhoneNumberInput$ === "object");
 assert(typeof GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$ === "object");
+assert(typeof GetWhatsAppBusinessPublicKeyInput$ === "object");
+assert(typeof GetWhatsAppBusinessPublicKeyOutput$ === "object");
 assert(typeof GetWhatsAppFlowInput$ === "object");
 assert(typeof GetWhatsAppFlowOutput$ === "object");
 assert(typeof GetWhatsAppFlowPreviewInput$ === "object");
@@ -326,6 +340,8 @@ assert(typeof PublishWhatsAppFlowInput$ === "object");
 assert(typeof PublishWhatsAppFlowOutput$ === "object");
 assert(typeof PutWhatsAppBusinessAccountEventDestinationsInput$ === "object");
 assert(typeof PutWhatsAppBusinessAccountEventDestinationsOutput$ === "object");
+assert(typeof PutWhatsAppBusinessPublicKeyInput$ === "object");
+assert(typeof PutWhatsAppBusinessPublicKeyOutput$ === "object");
 assert(typeof S3File$ === "object");
 assert(typeof S3PresignedUrl$ === "object");
 assert(typeof SendWhatsAppConversionEventInput$ === "object");

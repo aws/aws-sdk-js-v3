@@ -39,6 +39,8 @@ export interface UpdateWhatsAppFlowCommandOutput extends UpdateWhatsAppFlowOutpu
  *   categories: [ // MetaFlowCategoryList
  *     "SIGN_UP" || "SIGN_IN" || "APPOINTMENT_BOOKING" || "LEAD_GENERATION" || "SHOPPING" || "CONTACT_US" || "CUSTOMER_SUPPORT" || "SURVEY" || "OTHER",
  *   ],
+ *   endpointUri: "STRING_VALUE",
+ *   metaAppId: "STRING_VALUE",
  * };
  * const command = new UpdateWhatsAppFlowCommand(input);
  * const response = await client.send(command);

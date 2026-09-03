@@ -431,6 +431,16 @@ export interface CreateWhatsAppFlowInput {
    * @public
    */
   cloneFlowId?: string | undefined;
+
+  /**
+   * Optional HTTPS endpoint for a dynamic Flow, registered with Meta as the
+   * Flow's endpoint_uri and called by Meta directly. When omitted, the Flow
+   * has no endpoint (static Flow). Meta only calls the endpoint when the
+   * Flow JSON also declares data_api_version. To verify that requests
+   * originate from Meta, attach your own Meta app via UpdateWhatsAppFlow.
+   * @public
+   */
+  endpointUri?: string | undefined;
 }
 
 /**
@@ -1004,6 +1014,34 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberOutput {
    * @public
    */
   linkedWhatsAppBusinessAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppBusinessPublicKeyInput {
+  /**
+   * The unique identifier of the phone number whose business public key to retrieve.
+   * @public
+   */
+  originationPhoneNumberId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppBusinessPublicKeyOutput {
+  /**
+   * The stored RSA business public key (PEM), if present.
+   * @public
+   */
+  businessPublicKey?: string | undefined;
+
+  /**
+   * Meta's signing status: "VALID" | "MISMATCH".
+   * @public
+   */
+  businessPublicKeySignatureStatus?: string | undefined;
 }
 
 /**
@@ -1972,6 +2010,27 @@ export interface UpdateWhatsAppFlowInput {
    * @public
    */
   categories?: MetaFlowCategory[] | undefined;
+
+  /**
+   * Optional HTTPS endpoint for a dynamic Flow, registered with Meta as the
+   * Flow's endpoint_uri and called by Meta directly. When omitted, the
+   * Flow's endpoint is unchanged.
+   * @public
+   */
+  endpointUri?: string | undefined;
+
+  /**
+   * Optional Meta app ID to attach to the Flow. Meta signs data-exchange
+   * requests with the attached app's secret, so attaching your own app is
+   * what enables X-Hub-Signature-256 and flow_token_signature verification
+   * at your endpoint. Meta requires the app to be owned by the same business
+   * that owns the WABA. Attaching your own app is one-way: the service's
+   * app cannot be re-attached afterwards. When omitted, the attached app is
+   * unchanged. (Set via update because Meta ignores application_id at
+   * creation time.)
+   * @public
+   */
+  metaAppId?: string | undefined;
 }
 
 /**
@@ -2107,6 +2166,34 @@ export interface PostWhatsAppMessageMediaOutput {
    */
   mediaId?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface PutWhatsAppBusinessPublicKeyInput {
+  /**
+   * The unique identifier of the phone number to associate with the business public key.
+   * @public
+   */
+  originationPhoneNumberId: string | undefined;
+
+  /**
+   * PEM-encoded RSA public key. Mutually exclusive with kmsKeyArn.
+   * @public
+   */
+  businessPublicKey?: string | undefined;
+
+  /**
+   * Customer-managed KMS asymmetric RSA key ARN. Mutually exclusive with businessPublicKey.
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutWhatsAppBusinessPublicKeyOutput {}
 
 /**
  * @public

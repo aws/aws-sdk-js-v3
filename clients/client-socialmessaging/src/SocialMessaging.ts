@@ -68,6 +68,11 @@ import {
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
 } from "./commands/GetLinkedWhatsAppBusinessAccountPhoneNumberCommand";
 import {
+  type GetWhatsAppBusinessPublicKeyCommandInput,
+  type GetWhatsAppBusinessPublicKeyCommandOutput,
+  GetWhatsAppBusinessPublicKeyCommand,
+} from "./commands/GetWhatsAppBusinessPublicKeyCommand";
+import {
   type GetWhatsAppFlowCommandInput,
   type GetWhatsAppFlowCommandOutput,
   GetWhatsAppFlowCommand,
@@ -133,6 +138,11 @@ import {
   PutWhatsAppBusinessAccountEventDestinationsCommand,
 } from "./commands/PutWhatsAppBusinessAccountEventDestinationsCommand";
 import {
+  type PutWhatsAppBusinessPublicKeyCommandInput,
+  type PutWhatsAppBusinessPublicKeyCommandOutput,
+  PutWhatsAppBusinessPublicKeyCommand,
+} from "./commands/PutWhatsAppBusinessPublicKeyCommand";
+import {
   type SendWhatsAppConversionEventCommandInput,
   type SendWhatsAppConversionEventCommandOutput,
   SendWhatsAppConversionEventCommand,
@@ -188,6 +198,7 @@ const commands = {
   DisassociateWhatsAppBusinessAccountCommand,
   GetLinkedWhatsAppBusinessAccountCommand,
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
+  GetWhatsAppBusinessPublicKeyCommand,
   GetWhatsAppFlowCommand,
   GetWhatsAppFlowPreviewCommand,
   GetWhatsAppMessageMediaCommand,
@@ -201,6 +212,7 @@ const commands = {
   PostWhatsAppMessageMediaCommand,
   PublishWhatsAppFlowCommand,
   PutWhatsAppBusinessAccountEventDestinationsCommand,
+  PutWhatsAppBusinessPublicKeyCommand,
   SendWhatsAppConversionEventCommand,
   SendWhatsAppMessageCommand,
   TagResourceCommand,
@@ -441,6 +453,23 @@ export interface SocialMessaging {
   ): void;
 
   /**
+   * @see {@link GetWhatsAppBusinessPublicKeyCommand}
+   */
+  getWhatsAppBusinessPublicKey(
+    args: GetWhatsAppBusinessPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWhatsAppBusinessPublicKeyCommandOutput>;
+  getWhatsAppBusinessPublicKey(
+    args: GetWhatsAppBusinessPublicKeyCommandInput,
+    cb: (err: any, data?: GetWhatsAppBusinessPublicKeyCommandOutput) => void
+  ): void;
+  getWhatsAppBusinessPublicKey(
+    args: GetWhatsAppBusinessPublicKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWhatsAppBusinessPublicKeyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetWhatsAppFlowCommand}
    */
   getWhatsAppFlow(
@@ -660,6 +689,23 @@ export interface SocialMessaging {
     args: PutWhatsAppBusinessAccountEventDestinationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutWhatsAppBusinessAccountEventDestinationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutWhatsAppBusinessPublicKeyCommand}
+   */
+  putWhatsAppBusinessPublicKey(
+    args: PutWhatsAppBusinessPublicKeyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutWhatsAppBusinessPublicKeyCommandOutput>;
+  putWhatsAppBusinessPublicKey(
+    args: PutWhatsAppBusinessPublicKeyCommandInput,
+    cb: (err: any, data?: PutWhatsAppBusinessPublicKeyCommandOutput) => void
+  ): void;
+  putWhatsAppBusinessPublicKey(
+    args: PutWhatsAppBusinessPublicKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutWhatsAppBusinessPublicKeyCommandOutput) => void
   ): void;
 
   /**

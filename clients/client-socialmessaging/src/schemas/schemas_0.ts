@@ -41,6 +41,9 @@ const _GLWABAO = "GetLinkedWhatsAppBusinessAccountOutput";
 const _GLWABAPN = "GetLinkedWhatsAppBusinessAccountPhoneNumber";
 const _GLWABAPNI = "GetLinkedWhatsAppBusinessAccountPhoneNumberInput";
 const _GLWABAPNO = "GetLinkedWhatsAppBusinessAccountPhoneNumberOutput";
+const _GWABPK = "GetWhatsAppBusinessPublicKey";
+const _GWABPKI = "GetWhatsAppBusinessPublicKeyInput";
+const _GWABPKO = "GetWhatsAppBusinessPublicKeyOutput";
 const _GWAF = "GetWhatsAppFlow";
 const _GWAFI = "GetWhatsAppFlowInput";
 const _GWAFO = "GetWhatsAppFlowOutput";
@@ -100,6 +103,9 @@ const _MLTL = "MetaLibraryTemplatesList";
 const _PWABAED = "PutWhatsAppBusinessAccountEventDestinations";
 const _PWABAEDI = "PutWhatsAppBusinessAccountEventDestinationsInput";
 const _PWABAEDO = "PutWhatsAppBusinessAccountEventDestinationsOutput";
+const _PWABPK = "PutWhatsAppBusinessPublicKey";
+const _PWABPKI = "PutWhatsAppBusinessPublicKeyInput";
+const _PWABPKO = "PutWhatsAppBusinessPublicKeyOutput";
 const _PWAF = "PublishWhatsAppFlow";
 const _PWAFI = "PublishWhatsAppFlowInput";
 const _PWAFO = "PublishWhatsAppFlowOutput";
@@ -164,6 +170,8 @@ const _aTc = "accessToken";
 const _ap = "application";
 const _ar = "arn";
 const _bN = "bucketName";
+const _bPK = "businessPublicKey";
+const _bPKSS = "businessPublicKeySignatureStatus";
 const _c = "client";
 const _cEM = "codeExpirationMinutes";
 const _cFI = "cloneFlowId";
@@ -209,6 +217,7 @@ const _i = "id";
 const _in = "invalidate";
 const _jV = "jsonVersion";
 const _k = "key";
+const _kKA = "kmsKeyArn";
 const _l = "link";
 const _lA = "linkedAccounts";
 const _lAWIS = "linkedAccountsWithIncompleteSetup";
@@ -218,6 +227,7 @@ const _lTBIi = "libraryTemplateBodyInputs";
 const _lTN = "libraryTemplateName";
 const _lWABAI = "linkedWhatsAppBusinessAccountId";
 const _m = "message";
+const _mAI = "metaAppId";
 const _mAV = "metaApiVersion";
 const _mHH = "metaHeaderHandle";
 const _mI = "mediaId";
@@ -411,8 +421,8 @@ export var CreateWhatsAppDatasetOutput$: StaticStructureSchema = [3, n0, _CWADO,
 ];
 export var CreateWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _CWAFI,
   0,
-  [_i, _fN, _ca, _fJ, _p, _cFI],
-  [0, 0, 64 | 0, 21, 2, 0], 3
+  [_i, _fN, _ca, _fJ, _p, _cFI, _eU],
+  [0, 0, 64 | 0, 21, 2, 0, 0], 3
 ];
 export var CreateWhatsAppFlowOutput$: StaticStructureSchema = [3, n0, _CWAFO,
   0,
@@ -518,6 +528,16 @@ export var GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$: StaticStructureSc
   0,
   [_pN, _lWABAI],
   [() => WhatsAppPhoneNumberDetail$, 0]
+];
+export var GetWhatsAppBusinessPublicKeyInput$: StaticStructureSchema = [3, n0, _GWABPKI,
+  0,
+  [_oPNI],
+  [[0, { [_hQ]: _oPNI }]], 1
+];
+export var GetWhatsAppBusinessPublicKeyOutput$: StaticStructureSchema = [3, n0, _GWABPKO,
+  0,
+  [_bPK, _bPKSS],
+  [0, 0]
 ];
 export var GetWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _GWAFI,
   0,
@@ -724,6 +744,16 @@ export var PutWhatsAppBusinessAccountEventDestinationsOutput$: StaticStructureSc
   [],
   []
 ];
+export var PutWhatsAppBusinessPublicKeyInput$: StaticStructureSchema = [3, n0, _PWABPKI,
+  0,
+  [_oPNI, _bPK, _kKA],
+  [0, 0, 0], 1
+];
+export var PutWhatsAppBusinessPublicKeyOutput$: StaticStructureSchema = [3, n0, _PWABPKO,
+  0,
+  [],
+  []
+];
 export var S3File$: StaticStructureSchema = [3, n0, _SF,
   8,
   [_bN, _k],
@@ -796,8 +826,8 @@ export var UpdateWhatsAppFlowAssetsOutput$: StaticStructureSchema = [3, n0, _UWA
 ];
 export var UpdateWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _UWAFI,
   0,
-  [_i, _fI, _fN, _ca],
-  [0, 0, 0, 64 | 0], 2
+  [_i, _fI, _fN, _ca, _eU, _mAI],
+  [0, 0, 0, 64 | 0, 0, 0], 2
 ];
 export var UpdateWhatsAppFlowOutput$: StaticStructureSchema = [3, n0, _UWAFO,
   0,
@@ -948,6 +978,9 @@ export var GetLinkedWhatsAppBusinessAccount$: StaticOperationSchema = [9, n0, _G
 export var GetLinkedWhatsAppBusinessAccountPhoneNumber$: StaticOperationSchema = [9, n0, _GLWABAPN,
   { [_ht]: ["GET", "/v1/whatsapp/waba/phone/details", 200] }, () => GetLinkedWhatsAppBusinessAccountPhoneNumberInput$, () => GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$
 ];
+export var GetWhatsAppBusinessPublicKey$: StaticOperationSchema = [9, n0, _GWABPK,
+  { [_ht]: ["GET", "/v1/whatsapp/business-public-key", 200] }, () => GetWhatsAppBusinessPublicKeyInput$, () => GetWhatsAppBusinessPublicKeyOutput$
+];
 export var GetWhatsAppFlow$: StaticOperationSchema = [9, n0, _GWAF,
   { [_ht]: ["GET", "/v1/whatsapp/flow", 200] }, () => GetWhatsAppFlowInput$, () => GetWhatsAppFlowOutput$
 ];
@@ -986,6 +1019,9 @@ export var PublishWhatsAppFlow$: StaticOperationSchema = [9, n0, _PWAF,
 ];
 export var PutWhatsAppBusinessAccountEventDestinations$: StaticOperationSchema = [9, n0, _PWABAED,
   { [_ht]: ["PUT", "/v1/whatsapp/waba/eventdestinations", 200] }, () => PutWhatsAppBusinessAccountEventDestinationsInput$, () => PutWhatsAppBusinessAccountEventDestinationsOutput$
+];
+export var PutWhatsAppBusinessPublicKey$: StaticOperationSchema = [9, n0, _PWABPK,
+  { [_ht]: ["PUT", "/v1/whatsapp/business-public-key", 200] }, () => PutWhatsAppBusinessPublicKeyInput$, () => PutWhatsAppBusinessPublicKeyOutput$
 ];
 export var SendWhatsAppConversionEvent$: StaticOperationSchema = [9, n0, _SWACE,
   { [_ht]: ["POST", "/v1/whatsapp/waba/dataset/events", 200] }, () => SendWhatsAppConversionEventInput$, () => SendWhatsAppConversionEventOutput$
