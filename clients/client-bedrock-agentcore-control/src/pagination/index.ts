@@ -11,6 +11,7 @@ export * from "./ListCapacityProvidersPaginator";
 export * from "./ListCodeInterpretersPaginator";
 export * from "./ListConfigurationBundlesPaginator";
 export * from "./ListConfigurationBundleVersionsPaginator";
+export * from "./ListConsentPortalsPaginator";
 export * from "./ListDatasetExamplesPaginator";
 export * from "./ListDatasetsPaginator";
 export * from "./ListDatasetVersionsPaginator";

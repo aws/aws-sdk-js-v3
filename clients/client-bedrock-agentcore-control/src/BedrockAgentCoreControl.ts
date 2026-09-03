@@ -59,6 +59,11 @@ import {
   CreateConfigurationBundleCommand,
 } from "./commands/CreateConfigurationBundleCommand";
 import {
+  type CreateConsentPortalCommandInput,
+  type CreateConsentPortalCommandOutput,
+  CreateConsentPortalCommand,
+} from "./commands/CreateConsentPortalCommand";
+import {
   type CreateDatasetCommandInput,
   type CreateDatasetCommandOutput,
   CreateDatasetCommand,
@@ -198,6 +203,11 @@ import {
   type DeleteConfigurationBundleCommandOutput,
   DeleteConfigurationBundleCommand,
 } from "./commands/DeleteConfigurationBundleCommand";
+import {
+  type DeleteConsentPortalCommandInput,
+  type DeleteConsentPortalCommandOutput,
+  DeleteConsentPortalCommand,
+} from "./commands/DeleteConsentPortalCommand";
 import {
   type DeleteDatasetCommandInput,
   type DeleteDatasetCommandOutput,
@@ -348,6 +358,11 @@ import {
   type GetConfigurationBundleVersionCommandOutput,
   GetConfigurationBundleVersionCommand,
 } from "./commands/GetConfigurationBundleVersionCommand";
+import {
+  type GetConsentPortalCommandInput,
+  type GetConsentPortalCommandOutput,
+  GetConsentPortalCommand,
+} from "./commands/GetConsentPortalCommand";
 import {
   type GetDatasetCommandInput,
   type GetDatasetCommandOutput,
@@ -520,6 +535,11 @@ import {
   type ListConfigurationBundleVersionsCommandOutput,
   ListConfigurationBundleVersionsCommand,
 } from "./commands/ListConfigurationBundleVersionsCommand";
+import {
+  type ListConsentPortalsCommandInput,
+  type ListConsentPortalsCommandOutput,
+  ListConsentPortalsCommand,
+} from "./commands/ListConsentPortalsCommand";
 import {
   type ListDatasetExamplesCommandInput,
   type ListDatasetExamplesCommandOutput,
@@ -721,6 +741,11 @@ import {
   UpdateConfigurationBundleCommand,
 } from "./commands/UpdateConfigurationBundleCommand";
 import {
+  type UpdateConsentPortalCommandInput,
+  type UpdateConsentPortalCommandOutput,
+  UpdateConsentPortalCommand,
+} from "./commands/UpdateConsentPortalCommand";
+import {
   type UpdateDatasetCommandInput,
   type UpdateDatasetCommandOutput,
   UpdateDatasetCommand,
@@ -840,6 +865,7 @@ import { paginateListCapacityProviders } from "./pagination/ListCapacityProvider
 import { paginateListCodeInterpreters } from "./pagination/ListCodeInterpretersPaginator";
 import { paginateListConfigurationBundles } from "./pagination/ListConfigurationBundlesPaginator";
 import { paginateListConfigurationBundleVersions } from "./pagination/ListConfigurationBundleVersionsPaginator";
+import { paginateListConsentPortals } from "./pagination/ListConsentPortalsPaginator";
 import { paginateListDatasetExamples } from "./pagination/ListDatasetExamplesPaginator";
 import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
 import { paginateListDatasetVersions } from "./pagination/ListDatasetVersionsPaginator";
@@ -885,6 +911,7 @@ const commands = {
   CreateCapacityProviderCommand,
   CreateCodeInterpreterCommand,
   CreateConfigurationBundleCommand,
+  CreateConsentPortalCommand,
   CreateDatasetCommand,
   CreateDatasetVersionCommand,
   CreateEvaluatorCommand,
@@ -913,6 +940,7 @@ const commands = {
   DeleteCapacityProviderCommand,
   DeleteCodeInterpreterCommand,
   DeleteConfigurationBundleCommand,
+  DeleteConsentPortalCommand,
   DeleteDatasetCommand,
   DeleteDatasetExamplesCommand,
   DeleteEvaluatorCommand,
@@ -943,6 +971,7 @@ const commands = {
   GetCodeInterpreterCommand,
   GetConfigurationBundleCommand,
   GetConfigurationBundleVersionCommand,
+  GetConsentPortalCommand,
   GetDatasetCommand,
   GetEvaluatorCommand,
   GetGatewayCommand,
@@ -979,6 +1008,7 @@ const commands = {
   ListCodeInterpretersCommand,
   ListConfigurationBundlesCommand,
   ListConfigurationBundleVersionsCommand,
+  ListConsentPortalsCommand,
   ListDatasetExamplesCommand,
   ListDatasetsCommand,
   ListDatasetVersionsCommand,
@@ -1019,6 +1049,7 @@ const commands = {
   UpdateApiKeyCredentialProviderCommand,
   UpdateCapacityProviderCommand,
   UpdateConfigurationBundleCommand,
+  UpdateConsentPortalCommand,
   UpdateDatasetCommand,
   UpdateDatasetExamplesCommand,
   UpdateEvaluatorCommand,
@@ -1053,6 +1084,7 @@ const paginators = {
   paginateListCodeInterpreters,
   paginateListConfigurationBundles,
   paginateListConfigurationBundleVersions,
+  paginateListConsentPortals,
   paginateListDatasetExamples,
   paginateListDatasets,
   paginateListDatasetVersions,
@@ -1259,6 +1291,23 @@ export interface BedrockAgentCoreControl {
     args: CreateConfigurationBundleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateConfigurationBundleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateConsentPortalCommand}
+   */
+  createConsentPortal(
+    args: CreateConsentPortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConsentPortalCommandOutput>;
+  createConsentPortal(
+    args: CreateConsentPortalCommandInput,
+    cb: (err: any, data?: CreateConsentPortalCommandOutput) => void
+  ): void;
+  createConsentPortal(
+    args: CreateConsentPortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConsentPortalCommandOutput) => void
   ): void;
 
   /**
@@ -1735,6 +1784,23 @@ export interface BedrockAgentCoreControl {
     args: DeleteConfigurationBundleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConfigurationBundleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConsentPortalCommand}
+   */
+  deleteConsentPortal(
+    args: DeleteConsentPortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConsentPortalCommandOutput>;
+  deleteConsentPortal(
+    args: DeleteConsentPortalCommandInput,
+    cb: (err: any, data?: DeleteConsentPortalCommandOutput) => void
+  ): void;
+  deleteConsentPortal(
+    args: DeleteConsentPortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConsentPortalCommandOutput) => void
   ): void;
 
   /**
@@ -2245,6 +2311,23 @@ export interface BedrockAgentCoreControl {
     args: GetConfigurationBundleVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetConfigurationBundleVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConsentPortalCommand}
+   */
+  getConsentPortal(
+    args: GetConsentPortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConsentPortalCommandOutput>;
+  getConsentPortal(
+    args: GetConsentPortalCommandInput,
+    cb: (err: any, data?: GetConsentPortalCommandOutput) => void
+  ): void;
+  getConsentPortal(
+    args: GetConsentPortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConsentPortalCommandOutput) => void
   ): void;
 
   /**
@@ -2865,6 +2948,24 @@ export interface BedrockAgentCoreControl {
     args: ListConfigurationBundleVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListConfigurationBundleVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConsentPortalsCommand}
+   */
+  listConsentPortals(): Promise<ListConsentPortalsCommandOutput>;
+  listConsentPortals(
+    args: ListConsentPortalsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConsentPortalsCommandOutput>;
+  listConsentPortals(
+    args: ListConsentPortalsCommandInput,
+    cb: (err: any, data?: ListConsentPortalsCommandOutput) => void
+  ): void;
+  listConsentPortals(
+    args: ListConsentPortalsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConsentPortalsCommandOutput) => void
   ): void;
 
   /**
@@ -3561,6 +3662,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link UpdateConsentPortalCommand}
+   */
+  updateConsentPortal(
+    args: UpdateConsentPortalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConsentPortalCommandOutput>;
+  updateConsentPortal(
+    args: UpdateConsentPortalCommandInput,
+    cb: (err: any, data?: UpdateConsentPortalCommandOutput) => void
+  ): void;
+  updateConsentPortal(
+    args: UpdateConsentPortalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConsentPortalCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDatasetCommand}
    */
   updateDataset(
@@ -4037,6 +4155,17 @@ export interface BedrockAgentCoreControl {
     args: ListConfigurationBundleVersionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListConfigurationBundleVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListConsentPortalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConsentPortalsCommandOutput}.
+   */
+  paginateListConsentPortals(
+    args?: ListConsentPortalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConsentPortalsCommandOutput>;
 
   /**
    * @see {@link ListDatasetExamplesCommand}

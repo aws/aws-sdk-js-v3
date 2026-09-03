@@ -20,27 +20,460 @@ import type {
 import type {
   A2aDescriptor,
   AgentSkillsDescriptor,
-  ApiSchemaConfiguration,
   AuthorizerConfiguration,
-  CredentialProviderConfiguration,
-  HttpTargetConfiguration,
-  MetadataConfiguration,
   PrivateEndpoint,
-  S3Configuration,
   SkillDefinition,
   SkillMdDefinition,
   UpdatedDescription,
 } from "./models_0";
 import type {
   ApiGatewayTargetConfiguration,
+  ApiSchemaConfiguration,
   AuthorizationData,
   ConnectorTargetConfiguration,
+  CredentialProviderConfiguration,
+  HttpTargetConfiguration,
   InferenceTargetConfiguration,
   KmsConfiguration,
   ManagedResourceDetails,
   McpServerTargetConfiguration,
+  MetadataConfiguration,
+  S3Configuration,
   UpdatedAuthorizerConfiguration,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreatePolicyEngineResponse {
+  /**
+   * <p>The unique identifier for the created policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and is used for all subsequent policy engine operations.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the created policy engine. This matches the name provided in the request and serves as the human-readable identifier.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last updated. For newly created policy engines, this matches the <code>createdAt</code> timestamp.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine. A status of <code>ACTIVE</code> indicates the policy engine is ready for use.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the policy engine's purpose.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine creation process.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyEngineRequest {
+  /**
+   * <p>The unique identifier of the policy engine to be deleted. This must be a valid policy engine ID that exists within the account.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyEngineResponse {
+  /**
+   * <p>The unique identifier of the policy engine being deleted. This confirms which policy engine the deletion operation targets.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the deleted policy engine.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the deleted policy engine was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the deleted policy engine was last modified before deletion. This tracks the final state of the policy engine before it was removed from the system.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted policy engine. This globally unique identifier confirms which policy engine resource was successfully removed.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The status of the policy engine deletion operation. This provides status about any issues that occurred during the deletion process.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>The human-readable description of the deleted policy engine.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyEngineRequest {
+  /**
+   * <p>The unique identifier of the policy engine to be retrieved. This must be a valid policy engine ID that exists within the account.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyEngineResponse {
+  /**
+   * <p>The unique identifier of the retrieved policy engine. This matches the policy engine ID provided in the request and serves as the system identifier.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the policy engine. This is the human-readable identifier that was specified when the policy engine was created.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>The human-readable description of the policy engine's purpose and scope. This helps administrators understand the policy engine's role in governance.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyEngineSummaryRequest {
+  /**
+   * <p>The unique identifier of the policy engine to retrieve the summary for. This must be a valid policy engine ID that exists within the account.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyEngineSummaryResponse {
+  /**
+   * <p>The unique identifier of the policy engine.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the policy engine.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last modified.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy engine.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEnginesRequest {
+  /**
+   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of policy engines to return in a single response. If not specified, the default is 10 policy engines per page, with a maximum of 100 per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Represents a policy engine resource within the AgentCore Policy system. Policy engines serve as containers for grouping related policies and provide the execution context for policy evaluation and management. Each policy engine can be associated with one Gateway (one engine per Gateway), where it intercepts all agent tool calls and evaluates them against the contained policies before allowing tools to execute. The policy engine maintains the Cedar schema generated from the Gateway's tool manifest, ensuring that policies are validated against the actual tools and parameters available. Policy engines support two enforcement modes that can be configured when associating with a Gateway: log-only mode for testing (evaluates decisions without blocking) and enforce mode for production (actively allows or denies based on policy evaluation).</p>
+ * @public
+ */
+export interface PolicyEngine {
+  /**
+   * <p>The unique identifier for the policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy engine operations.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned immutable name for the policy engine. This human-readable identifier must be unique within the account and cannot exceed 48 characters.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was originally created. This is automatically set by the service and used for auditing and lifecycle management.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration or metadata.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the policy engine's purpose and scope. Limited to 4,096 characters, this helps administrators understand the policy engine's role in the overall governance strategy.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine lifecycle.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEnginesResponse {
+  /**
+   * <p>An array of policy engine objects that exist in the account. Each policy engine object contains the engine metadata, status, and key identifiers for further operations.</p>
+   * @public
+   */
+  policyEngines: PolicyEngine[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> calls to retrieve additional results. This token is only present when there are more results available. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEngineSummariesRequest {
+  /**
+   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html">ListPolicyEngineSummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of policy engine summaries to return in a single response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Represents a metadata-only summary of a policy engine resource. This structure contains resource identifiers, status, and timestamps without customer-encrypted fields such as description or status reasons. Policy engine summaries are returned by operations that do not require access to the customer's KMS key.</p>
+ * @public
+ */
+export interface PolicyEngineSummary {
+  /**
+   * <p>The unique identifier for the policy engine.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name of the policy engine.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was originally created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last modified.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy engine.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEngineSummariesResponse {
+  /**
+   * <p>An array of policy engine summary objects that exist in the account. Each summary contains resource identifiers, status, and timestamps without customer-encrypted content.</p>
+   * @public
+   */
+  policyEngines: PolicyEngineSummary[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html">ListPolicyEngineSummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public

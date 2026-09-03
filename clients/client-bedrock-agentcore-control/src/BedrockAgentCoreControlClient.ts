@@ -91,6 +91,10 @@ import type {
   CreateConfigurationBundleCommandInput,
   CreateConfigurationBundleCommandOutput,
 } from "./commands/CreateConfigurationBundleCommand";
+import type {
+  CreateConsentPortalCommandInput,
+  CreateConsentPortalCommandOutput,
+} from "./commands/CreateConsentPortalCommand";
 import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import type {
   CreateDatasetVersionCommandInput,
@@ -179,6 +183,10 @@ import type {
   DeleteConfigurationBundleCommandInput,
   DeleteConfigurationBundleCommandOutput,
 } from "./commands/DeleteConfigurationBundleCommand";
+import type {
+  DeleteConsentPortalCommandInput,
+  DeleteConsentPortalCommandOutput,
+} from "./commands/DeleteConsentPortalCommand";
 import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import type {
   DeleteDatasetExamplesCommandInput,
@@ -272,6 +280,7 @@ import type {
   GetConfigurationBundleVersionCommandInput,
   GetConfigurationBundleVersionCommandOutput,
 } from "./commands/GetConfigurationBundleVersionCommand";
+import type { GetConsentPortalCommandInput, GetConsentPortalCommandOutput } from "./commands/GetConsentPortalCommand";
 import type { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import type { GetEvaluatorCommandInput, GetEvaluatorCommandOutput } from "./commands/GetEvaluatorCommand";
 import type { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
@@ -377,6 +386,10 @@ import type {
   ListConfigurationBundleVersionsCommandInput,
   ListConfigurationBundleVersionsCommandOutput,
 } from "./commands/ListConfigurationBundleVersionsCommand";
+import type {
+  ListConsentPortalsCommandInput,
+  ListConsentPortalsCommandOutput,
+} from "./commands/ListConsentPortalsCommand";
 import type {
   ListDatasetExamplesCommandInput,
   ListDatasetExamplesCommandOutput,
@@ -504,6 +517,10 @@ import type {
   UpdateConfigurationBundleCommandInput,
   UpdateConfigurationBundleCommandOutput,
 } from "./commands/UpdateConfigurationBundleCommand";
+import type {
+  UpdateConsentPortalCommandInput,
+  UpdateConsentPortalCommandOutput,
+} from "./commands/UpdateConsentPortalCommand";
 import type { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
 import type {
   UpdateDatasetExamplesCommandInput,
@@ -592,6 +609,7 @@ export type ServiceInputTypes =
   | CreateCapacityProviderCommandInput
   | CreateCodeInterpreterCommandInput
   | CreateConfigurationBundleCommandInput
+  | CreateConsentPortalCommandInput
   | CreateDatasetCommandInput
   | CreateDatasetVersionCommandInput
   | CreateEvaluatorCommandInput
@@ -620,6 +638,7 @@ export type ServiceInputTypes =
   | DeleteCapacityProviderCommandInput
   | DeleteCodeInterpreterCommandInput
   | DeleteConfigurationBundleCommandInput
+  | DeleteConsentPortalCommandInput
   | DeleteDatasetCommandInput
   | DeleteDatasetExamplesCommandInput
   | DeleteEvaluatorCommandInput
@@ -650,6 +669,7 @@ export type ServiceInputTypes =
   | GetCodeInterpreterCommandInput
   | GetConfigurationBundleCommandInput
   | GetConfigurationBundleVersionCommandInput
+  | GetConsentPortalCommandInput
   | GetDatasetCommandInput
   | GetEvaluatorCommandInput
   | GetGatewayCommandInput
@@ -686,6 +706,7 @@ export type ServiceInputTypes =
   | ListCodeInterpretersCommandInput
   | ListConfigurationBundleVersionsCommandInput
   | ListConfigurationBundlesCommandInput
+  | ListConsentPortalsCommandInput
   | ListDatasetExamplesCommandInput
   | ListDatasetVersionsCommandInput
   | ListDatasetsCommandInput
@@ -726,6 +747,7 @@ export type ServiceInputTypes =
   | UpdateApiKeyCredentialProviderCommandInput
   | UpdateCapacityProviderCommandInput
   | UpdateConfigurationBundleCommandInput
+  | UpdateConsentPortalCommandInput
   | UpdateDatasetCommandInput
   | UpdateDatasetExamplesCommandInput
   | UpdateEvaluatorCommandInput
@@ -762,6 +784,7 @@ export type ServiceOutputTypes =
   | CreateCapacityProviderCommandOutput
   | CreateCodeInterpreterCommandOutput
   | CreateConfigurationBundleCommandOutput
+  | CreateConsentPortalCommandOutput
   | CreateDatasetCommandOutput
   | CreateDatasetVersionCommandOutput
   | CreateEvaluatorCommandOutput
@@ -790,6 +813,7 @@ export type ServiceOutputTypes =
   | DeleteCapacityProviderCommandOutput
   | DeleteCodeInterpreterCommandOutput
   | DeleteConfigurationBundleCommandOutput
+  | DeleteConsentPortalCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteDatasetExamplesCommandOutput
   | DeleteEvaluatorCommandOutput
@@ -820,6 +844,7 @@ export type ServiceOutputTypes =
   | GetCodeInterpreterCommandOutput
   | GetConfigurationBundleCommandOutput
   | GetConfigurationBundleVersionCommandOutput
+  | GetConsentPortalCommandOutput
   | GetDatasetCommandOutput
   | GetEvaluatorCommandOutput
   | GetGatewayCommandOutput
@@ -856,6 +881,7 @@ export type ServiceOutputTypes =
   | ListCodeInterpretersCommandOutput
   | ListConfigurationBundleVersionsCommandOutput
   | ListConfigurationBundlesCommandOutput
+  | ListConsentPortalsCommandOutput
   | ListDatasetExamplesCommandOutput
   | ListDatasetVersionsCommandOutput
   | ListDatasetsCommandOutput
@@ -896,6 +922,7 @@ export type ServiceOutputTypes =
   | UpdateApiKeyCredentialProviderCommandOutput
   | UpdateCapacityProviderCommandOutput
   | UpdateConfigurationBundleCommandOutput
+  | UpdateConsentPortalCommandOutput
   | UpdateDatasetCommandOutput
   | UpdateDatasetExamplesCommandOutput
   | UpdateEvaluatorCommandOutput

@@ -417,6 +417,35 @@ export type ConfigurationBundleStatus = (typeof ConfigurationBundleStatus)[keyof
  * @public
  * @enum
  */
+export const ConsentPortalSourceType = {
+  AGENTCORE_GATEWAY: "agentcore-gateway",
+} as const;
+/**
+ * @public
+ */
+export type ConsentPortalSourceType = (typeof ConsentPortalSourceType)[keyof typeof ConsentPortalSourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConsentPortalStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ConsentPortalStatus = (typeof ConsentPortalStatus)[keyof typeof ConsentPortalStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DatasetSchemaType = {
   /**
    * <p> AgentCore predefined evaluation schema, version 1. Dataset with pre-written inputs per conversation turn. </p>
@@ -1265,6 +1294,19 @@ export const ClusteringFrequency = {
  * @public
  */
 export type ClusteringFrequency = (typeof ClusteringFrequency)[keyof typeof ClusteringFrequency];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResultDestination = {
+  DEDICATED_LOG_GROUP: "DEDICATED_LOG_GROUP",
+  SOURCE_LOG_GROUP: "SOURCE_LOG_GROUP",
+} as const;
+/**
+ * @public
+ */
+export type ResultDestination = (typeof ResultDestination)[keyof typeof ResultDestination];
 
 /**
  * @public

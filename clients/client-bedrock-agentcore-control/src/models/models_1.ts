@@ -7,6 +7,7 @@ import type {
   ClusteringFrequency,
   ContentLevel,
   ContentType,
+  CredentialProviderType,
   CredentialProviderVendorType,
   ExtractionType,
   FilterOperator,
@@ -28,16 +29,18 @@ import type {
   OnlineEvaluationConfigStatus,
   OnlineEvaluationExecutionStatus,
   OverrideType,
+  PassthroughProtocolType,
   PaymentConnectorProvisionMode,
   PaymentConnectorStatus,
   PaymentConnectorType,
   PaymentCredentialProviderVendorType,
   PaymentManagerStatus,
   PaymentsAuthorizerType,
-  PolicyEngineStatus,
   RestApiMethod,
+  ResultDestination,
   SecretSourceType,
   SigningAlgorithm,
+  StaticQueryParameterConflictResolution,
   Status,
   TargetStatus,
   TargetType,
@@ -46,18 +49,413 @@ import type {
   AuthorizerConfiguration,
   ContainerConfiguration,
   FilesystemConfiguration,
-  InferenceConnectorSource,
+  GatewayApiKeyCredentialProvider,
+  IamCredentialProvider,
   LifecycleConfiguration,
   NetworkConfiguration,
   OAuthCredentialProvider,
   PrivateEndpoint,
   PrivateEndpointOverride,
-  S3Configuration,
   Secret,
   SecretReference,
   Unit,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>A credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint.</p>
+ * @public
+ */
+export type CredentialProvider =
+  | CredentialProvider.ApiKeyCredentialProviderMember
+  | CredentialProvider.IamCredentialProviderMember
+  | CredentialProvider.OauthCredentialProviderMember
+  | CredentialProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CredentialProvider {
+  /**
+   * <p>The OAuth credential provider. This provider uses OAuth authentication to access the target endpoint.</p>
+   * @public
+   */
+  export interface OauthCredentialProviderMember {
+    oauthCredentialProvider: OAuthCredentialProvider;
+    apiKeyCredentialProvider?: never;
+    iamCredentialProvider?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The API key credential provider. This provider uses an API key to authenticate with the target endpoint.</p>
+   * @public
+   */
+  export interface ApiKeyCredentialProviderMember {
+    oauthCredentialProvider?: never;
+    apiKeyCredentialProvider: GatewayApiKeyCredentialProvider;
+    iamCredentialProvider?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The IAM credential provider. This provider uses IAM authentication with SigV4 signing to access the target endpoint.</p>
+   * @public
+   */
+  export interface IamCredentialProviderMember {
+    oauthCredentialProvider?: never;
+    apiKeyCredentialProvider?: never;
+    iamCredentialProvider: IamCredentialProvider;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    oauthCredentialProvider?: never;
+    apiKeyCredentialProvider?: never;
+    iamCredentialProvider?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    oauthCredentialProvider: (value: OAuthCredentialProvider) => T;
+    apiKeyCredentialProvider: (value: GatewayApiKeyCredentialProvider) => T;
+    iamCredentialProvider: (value: IamCredentialProvider) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration for a credential provider. This structure defines how the gateway authenticates with the target endpoint.</p>
+ * @public
+ */
+export interface CredentialProviderConfiguration {
+  /**
+   * <p>The type of credential provider. This field specifies which authentication method the gateway uses.</p>
+   * @public
+   */
+  credentialProviderType: CredentialProviderType | undefined;
+
+  /**
+   * <p>The credential provider. This field contains the specific configuration for the credential provider type.</p>
+   * @public
+   */
+  credentialProvider?: CredentialProvider | undefined;
+}
+
+/**
+ * <p>Configuration for HTTP header and query parameter propagation between the gateway and target servers.</p>
+ * @public
+ */
+export interface MetadataConfiguration {
+  /**
+   * <p>A list of HTTP headers that are allowed to be propagated from incoming client requests to the target.</p>
+   * @public
+   */
+  allowedRequestHeaders?: string[] | undefined;
+
+  /**
+   * <p>A list of URL query parameters that are allowed to be propagated from incoming gateway URL to the target.</p>
+   * @public
+   */
+  allowedQueryParameters?: string[] | undefined;
+
+  /**
+   * <p>A list of HTTP headers that are allowed to be propagated from the target response back to the client.</p>
+   * @public
+   */
+  allowedResponseHeaders?: string[] | undefined;
+}
+
+/**
+ * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
+ * @public
+ */
+export interface S3Configuration {
+  /**
+   * <p>The URI of the Amazon S3 object. This URI specifies the location of the object in Amazon S3.</p>
+   * @public
+   */
+  uri?: string | undefined;
+
+  /**
+   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
+   * @public
+   */
+  bucketOwnerAccountId?: string | undefined;
+}
+
+/**
+ * <p>Configuration for API schema.</p>
+ * @public
+ */
+export type ApiSchemaConfiguration =
+  | ApiSchemaConfiguration.InlinePayloadMember
+  | ApiSchemaConfiguration.S3Member
+  | ApiSchemaConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ApiSchemaConfiguration {
+  /**
+   * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Configuration;
+    inlinePayload?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The inline payload containing the API schema definition.</p>
+   * @public
+   */
+  export interface InlinePayloadMember {
+    s3?: never;
+    inlinePayload: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    inlinePayload?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3Configuration) => T;
+    inlinePayload: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The API schema configuration for an HTTP target. This schema defines the API structure that the target exposes.</p>
+ * @public
+ */
+export interface HttpApiSchemaConfiguration {
+  /**
+   * <p>Configuration for API schema.</p>
+   * @public
+   */
+  source: ApiSchemaConfiguration | undefined;
+}
+
+/**
+ * <p>Configuration for an AgentCore Runtime target. Specifies the agent runtime to route requests to via HTTP.</p>
+ * @public
+ */
+export interface RuntimeTargetConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime to route requests to.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The qualifier for the agent runtime, used to target a specific endpoint version. If not specified, the default endpoint is used.</p>
+   * @public
+   */
+  qualifier?: string | undefined;
+
+  /**
+   * <p>The API schema configuration that defines the structure of the runtime target's API.</p>
+   * @public
+   */
+  schema?: HttpApiSchemaConfiguration | undefined;
+}
+
+/**
+ * <p>The source identifying the HTTP connector integration.</p>
+ * @public
+ */
+export interface HttpConnectorSource {
+  /**
+   * <p>The identifier for the HTTP connector integration.</p>
+   * @public
+   */
+  connectorId: string | undefined;
+}
+
+/**
+ * <p>The configuration for an HTTP connector target. Use this configuration when you want to route HTTP requests through a managed connector.</p>
+ * @public
+ */
+export interface HttpConnectorTargetConfiguration {
+  /**
+   * <p>The source configuration identifying which HTTP connector to use.</p>
+   * @public
+   */
+  source: HttpConnectorSource | undefined;
+
+  /**
+   * <p>The resource parameters for this connector (for example, <code>memoryId</code>). The service validates these parameters against the request path at runtime.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The configuration for session-sticky routing to a target. Session stickiness routes requests that share a session identifier to the same target.</p>
+ * @public
+ */
+export interface StickinessConfiguration {
+  /**
+   * <p>The expression that identifies where to extract the session identifier from the request (for example, <code>$context.header.x-session-id</code>).</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The session stickiness timeout, in seconds. After this duration of inactivity, the session affinity expires. Valid values range from 1 to 86400.</p>
+   * @public
+   */
+  timeout?: number | undefined;
+
+  /**
+   * <p>Additional headers to include in session affinity routing. When set, requests are only considered part of the same session if both the <code>identifier</code> and all composite identifier values match.</p>
+   * @public
+   */
+  compositeIdentifier?: string[] | undefined;
+}
+
+/**
+ * <p>The configuration for an HTTP passthrough target. A passthrough target forwards requests directly to an external HTTP endpoint.</p>
+ * @public
+ */
+export interface PassthroughTargetConfiguration {
+  /**
+   * <p>The HTTPS endpoint that the gateway forwards requests to for this passthrough target.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The application protocol that the passthrough target implements. This value is required for passthrough targets:</p> <ul> <li> <p> <code>MCP</code> - The Model Context Protocol.</p> </li> <li> <p> <code>A2A</code> - The Agent-to-Agent protocol.</p> </li> <li> <p> <code>INFERENCE</code> - The protocol for routing requests to a large language model (LLM) provider.</p> </li> <li> <p> <code>CUSTOM</code> - A custom application protocol.</p> </li> </ul>
+   * @public
+   */
+  protocolType: PassthroughProtocolType | undefined;
+
+  /**
+   * <p>The API schema configuration that defines the structure of the passthrough target's API.</p>
+   * @public
+   */
+  schema?: HttpApiSchemaConfiguration | undefined;
+
+  /**
+   * <p>The session stickiness configuration for the passthrough target. This configuration routes requests within the same session to the same target.</p>
+   * @public
+   */
+  stickinessConfiguration?: StickinessConfiguration | undefined;
+
+  /**
+   * <p>A map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target. The total outbound URL length, which includes the endpoint and the percent-encoded query parameters, is enforced by the service.</p>
+   * @public
+   */
+  staticQueryParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. If not set, defaults to <code>CLIENT_OVERRIDE</code>:</p> <ul> <li> <p> <code>CLIENT_OVERRIDE</code> - The client-supplied value overrides the configured static value for that parameter name.</p> </li> <li> <p> <code>STATIC_OVERRIDE</code> - The configured static value is retained, overriding the client-supplied value for that parameter name.</p> </li> </ul>
+   * @public
+   */
+  staticQueryParameterConflictResolution?: StaticQueryParameterConflictResolution | undefined;
+}
+
+/**
+ * <p>The HTTP target configuration for a gateway target. Contains the configuration for HTTP-based target endpoints.</p>
+ * @public
+ */
+export type HttpTargetConfiguration =
+  | HttpTargetConfiguration.AgentcoreRuntimeMember
+  | HttpTargetConfiguration.ConnectorMember
+  | HttpTargetConfiguration.PassthroughMember
+  | HttpTargetConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HttpTargetConfiguration {
+  /**
+   * <p>The AgentCore Runtime target configuration for HTTP-based communication with an agent runtime.</p>
+   * @public
+   */
+  export interface AgentcoreRuntimeMember {
+    agentcoreRuntime: RuntimeTargetConfiguration;
+    passthrough?: never;
+    connector?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The passthrough configuration for the HTTP target. A passthrough target forwards requests directly to an external HTTP endpoint.</p>
+   * @public
+   */
+  export interface PassthroughMember {
+    agentcoreRuntime?: never;
+    passthrough: PassthroughTargetConfiguration;
+    connector?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The connector-based configuration for the HTTP target. Use this configuration when you want to route HTTP requests through a managed connector.</p>
+   * @public
+   */
+  export interface ConnectorMember {
+    agentcoreRuntime?: never;
+    passthrough?: never;
+    connector: HttpConnectorTargetConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentcoreRuntime?: never;
+    passthrough?: never;
+    connector?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentcoreRuntime: (value: RuntimeTargetConfiguration) => T;
+    passthrough: (value: PassthroughTargetConfiguration) => T;
+    connector: (value: HttpConnectorTargetConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The source identifying the inference connector.</p>
+ * @public
+ */
+export interface InferenceConnectorSource {
+  /**
+   * <p>The identifier for the inference connector (for example, <code>bedrock-mantle</code>, <code>openai</code>, or <code>anthropic</code>).</p>
+   * @public
+   */
+  connectorId: string | undefined;
+}
 
 /**
  * <p>The configuration for a connector-based inference target. This configuration uses a built-in connector that provides predefined rules for a large language model (LLM) provider.</p>
@@ -7320,7 +7718,13 @@ export interface CloudWatchLogsInputConfig {
    * <p> The list of CloudWatch log group names to monitor for agent traces.</p>
    * @public
    */
-  logGroupNames: string[] | undefined;
+  logGroupNames?: string[] | undefined;
+
+  /**
+   * <p> The list of CloudWatch log group name prefixes to monitor for agent traces. Specify this instead of <code>logGroupNames</code> to match log groups by prefix. Specify either <code>logGroupNames</code> or <code>logGroupNamePrefixes</code>, not both. One of the two is required. </p>
+   * @public
+   */
+  logGroupNamePrefixes?: string[] | undefined;
 
   /**
    * <p> The list of service names to filter traces within the specified log groups. Used to identify relevant agent sessions. </p>
@@ -7417,6 +7821,42 @@ export interface Insight {
    * @public
    */
   insightId: string | undefined;
+}
+
+/**
+ * <p> The configuration for writing evaluation results to CloudWatch logs with embedded metric format (EMF) for monitoring. </p>
+ * @public
+ */
+export interface CloudWatchOutputConfig {
+  /**
+   * <p> The name of the CloudWatch log group where evaluation results will be written. An existing log group is used as-is; otherwise the service creates it, which requires the evaluation execution role to grant <code>logs:CreateLogGroup</code> on the log group. Don't specify this value when <code>resultDestination</code> is <code>SOURCE_LOG_GROUP</code>. The name can't be under the service-reserved <code>/aws/bedrock-agentcore/evaluations/</code> namespace, apart from this configuration's own service-managed default group. </p>
+   * @public
+   */
+  logGroupName?: string | undefined;
+
+  /**
+   * <p> The CloudWatch metrics namespace where evaluation result metrics are published. If you omit this value, the service publishes metrics to <code>Bedrock-AgentCore/Evaluations</code>. This value can't begin with <code>AWS/</code>. </p>
+   * @public
+   */
+  metricsNamespace?: string | undefined;
+
+  /**
+   * <p> The destination where evaluation results are written. Valid values: </p> <ul> <li> <p> <code>DEDICATED_LOG_GROUP</code> (default) – Writes results to a dedicated result log group.</p> </li> <li> <p> <code>SOURCE_LOG_GROUP</code> – Writes results back to the log group that the agent traces were read from. If you use this value, don't specify <code>logGroupName</code>.</p> </li> </ul>
+   * @public
+   */
+  resultDestination?: ResultDestination | undefined;
+}
+
+/**
+ * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+ * @public
+ */
+export interface OutputConfig {
+  /**
+   * <p> The CloudWatch configuration for writing evaluation results to CloudWatch logs with embedded metric format. </p>
+   * @public
+   */
+  cloudWatchConfig: CloudWatchOutputConfig | undefined;
 }
 
 /**
@@ -7613,6 +8053,12 @@ export interface CreateOnlineEvaluationConfigRequest {
   clusteringConfig?: ClusteringConfig | undefined;
 
   /**
+   * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
+
+  /**
    * <p> The Amazon Resource Name (ARN) of the IAM role that grants permissions to read from CloudWatch logs, write evaluation results, and invoke Amazon Bedrock models for evaluation. If the configuration references evaluators encrypted with a customer managed KMS key, this role must also have <code>kms:Decrypt</code> permission on the KMS key. The service validates this permission at configuration creation time. For more information, see <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations-encryption.html">Encryption at rest for AgentCore Evaluations</a>. </p>
    * @public
    */
@@ -7629,30 +8075,6 @@ export interface CreateOnlineEvaluationConfigRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p> The configuration for writing evaluation results to CloudWatch logs with embedded metric format (EMF) for monitoring. </p>
- * @public
- */
-export interface CloudWatchOutputConfig {
-  /**
-   * <p> The name of the CloudWatch log group where evaluation results will be written. The log group will be created if it doesn't exist. </p>
-   * @public
-   */
-  logGroupName: string | undefined;
-}
-
-/**
- * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
- * @public
- */
-export interface OutputConfig {
-  /**
-   * <p> The CloudWatch configuration for writing evaluation results to CloudWatch logs with embedded metric format. </p>
-   * @public
-   */
-  cloudWatchConfig: CloudWatchOutputConfig | undefined;
 }
 
 /**
@@ -8005,6 +8427,12 @@ export interface UpdateOnlineEvaluationConfigRequest {
    * @public
    */
   clusteringConfig?: ClusteringConfig | undefined;
+
+  /**
+   * <p> The configuration that specifies where evaluation results should be written for monitoring and analysis. </p>
+   * @public
+   */
+  outputConfig?: OutputConfig | undefined;
 
   /**
    * <p> The updated Amazon Resource Name (ARN) of the IAM role used for evaluation execution. </p>
@@ -9578,437 +10006,4 @@ export interface CreatePolicyEngineRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePolicyEngineResponse {
-  /**
-   * <p>The unique identifier for the created policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and is used for all subsequent policy engine operations.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the created policy engine. This matches the name provided in the request and serves as the human-readable identifier.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last updated. For newly created policy engines, this matches the <code>createdAt</code> timestamp.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy engine. A status of <code>ACTIVE</code> indicates the policy engine is ready for use.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>A human-readable description of the policy engine's purpose.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine creation process.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePolicyEngineRequest {
-  /**
-   * <p>The unique identifier of the policy engine to be deleted. This must be a valid policy engine ID that exists within the account.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePolicyEngineResponse {
-  /**
-   * <p>The unique identifier of the policy engine being deleted. This confirms which policy engine the deletion operation targets.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the deleted policy engine.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timestamp when the deleted policy engine was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the deleted policy engine was last modified before deletion. This tracks the final state of the policy engine before it was removed from the system.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted policy engine. This globally unique identifier confirms which policy engine resource was successfully removed.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The status of the policy engine deletion operation. This provides status about any issues that occurred during the deletion process.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The human-readable description of the deleted policy engine.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyEngineRequest {
-  /**
-   * <p>The unique identifier of the policy engine to be retrieved. This must be a valid policy engine ID that exists within the account.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyEngineResponse {
-  /**
-   * <p>The unique identifier of the retrieved policy engine. This matches the policy engine ID provided in the request and serves as the system identifier.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the policy engine. This is the human-readable identifier that was specified when the policy engine was created.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy engine.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The human-readable description of the policy engine's purpose and scope. This helps administrators understand the policy engine's role in governance.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyEngineSummaryRequest {
-  /**
-   * <p>The unique identifier of the policy engine to retrieve the summary for. This must be a valid policy engine ID that exists within the account.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyEngineSummaryResponse {
-  /**
-   * <p>The unique identifier of the policy engine.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the policy engine.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last modified.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy engine.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyEnginesRequest {
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policy engines to return in a single response. If not specified, the default is 10 policy engines per page, with a maximum of 100 per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Represents a policy engine resource within the AgentCore Policy system. Policy engines serve as containers for grouping related policies and provide the execution context for policy evaluation and management. Each policy engine can be associated with one Gateway (one engine per Gateway), where it intercepts all agent tool calls and evaluates them against the contained policies before allowing tools to execute. The policy engine maintains the Cedar schema generated from the Gateway's tool manifest, ensuring that policies are validated against the actual tools and parameters available. Policy engines support two enforcement modes that can be configured when associating with a Gateway: log-only mode for testing (evaluates decisions without blocking) and enforce mode for production (actively allows or denies based on policy evaluation).</p>
- * @public
- */
-export interface PolicyEngine {
-  /**
-   * <p>The unique identifier for the policy engine. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy engine operations.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned immutable name for the policy engine. This human-readable identifier must be unique within the account and cannot exceed 48 characters.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was originally created. This is automatically set by the service and used for auditing and lifecycle management.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last modified. This tracks the most recent changes to the policy engine configuration or metadata.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy engine.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>A human-readable description of the policy engine's purpose and scope. Limited to 4,096 characters, this helps administrators understand the policy engine's role in the overall governance strategy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the policy engine status. This provides details about any failures or the current state of the policy engine lifecycle.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyEnginesResponse {
-  /**
-   * <p>An array of policy engine objects that exist in the account. Each policy engine object contains the engine metadata, status, and key identifiers for further operations.</p>
-   * @public
-   */
-  policyEngines: PolicyEngine[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngines.html">ListPolicyEngines</a> calls to retrieve additional results. This token is only present when there are more results available. </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyEngineSummariesRequest {
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html">ListPolicyEngineSummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policy engine summaries to return in a single response.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Represents a metadata-only summary of a policy engine resource. This structure contains resource identifiers, status, and timestamps without customer-encrypted fields such as description or status reasons. Policy engine summaries are returned by operations that do not require access to the customer's KMS key.</p>
- * @public
- */
-export interface PolicyEngineSummary {
-  /**
-   * <p>The unique identifier for the policy engine.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the policy engine.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last modified.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy engine.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy engine.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyEngineSummariesResponse {
-  /**
-   * <p>An array of policy engine summary objects that exist in the account. Each summary contains resource identifiers, status, and timestamps without customer-encrypted content.</p>
-   * @public
-   */
-  policyEngines: PolicyEngineSummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyEngineSummaries.html">ListPolicyEngineSummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

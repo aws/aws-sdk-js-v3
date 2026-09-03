@@ -95,6 +95,11 @@ import {
   ConnectorParameterOverride$,
   ConnectorSource$,
   ConnectorTargetConfiguration$,
+  ConsentPortalIdpConfig$,
+  ConsentPortalSource$,
+  ConsentPortalSourceType,
+  ConsentPortalStatus,
+  ConsentPortalSummary$,
   ConsolidationConfiguration$,
   ContainerConfiguration$,
   Content$,
@@ -133,6 +138,10 @@ import {
   CreateConfigurationBundleCommand,
   CreateConfigurationBundleRequest$,
   CreateConfigurationBundleResponse$,
+  CreateConsentPortal$,
+  CreateConsentPortalCommand,
+  CreateConsentPortalRequest$,
+  CreateConsentPortalResponse$,
   CreateDataset$,
   CreateDatasetCommand,
   CreateDatasetRequest$,
@@ -272,6 +281,10 @@ import {
   DeleteConfigurationBundleCommand,
   DeleteConfigurationBundleRequest$,
   DeleteConfigurationBundleResponse$,
+  DeleteConsentPortal$,
+  DeleteConsentPortalCommand,
+  DeleteConsentPortalRequest$,
+  DeleteConsentPortalResponse$,
   DeleteDataset$,
   DeleteDatasetCommand,
   DeleteDatasetExamples$,
@@ -450,6 +463,10 @@ import {
   GetConfigurationBundleVersionCommand,
   GetConfigurationBundleVersionRequest$,
   GetConfigurationBundleVersionResponse$,
+  GetConsentPortal$,
+  GetConsentPortalCommand,
+  GetConsentPortalRequest$,
+  GetConsentPortalResponse$,
   GetDataset$,
   GetDatasetCommand,
   GetDatasetRequest$,
@@ -687,6 +704,10 @@ import {
   ListConfigurationBundleVersionsCommand,
   ListConfigurationBundleVersionsRequest$,
   ListConfigurationBundleVersionsResponse$,
+  ListConsentPortals$,
+  ListConsentPortalsCommand,
+  ListConsentPortalsRequest$,
+  ListConsentPortalsResponse$,
   ListDatasetExamples$,
   ListDatasetExamplesCommand,
   ListDatasetExamplesRequest$,
@@ -874,6 +895,7 @@ import {
   paginateListCodeInterpreters,
   paginateListConfigurationBundles,
   paginateListConfigurationBundleVersions,
+  paginateListConsentPortals,
   paginateListDatasetExamples,
   paginateListDatasets,
   paginateListDatasetVersions,
@@ -968,6 +990,7 @@ import {
   ResourceNotFoundException$,
   ResourceType,
   RestApiMethod,
+  ResultDestination,
   RetryableConflictException,
   RetryableConflictException$,
   RootVolumeConfiguration$,
@@ -1103,6 +1126,10 @@ import {
   UpdateConfigurationBundleCommand,
   UpdateConfigurationBundleRequest$,
   UpdateConfigurationBundleResponse$,
+  UpdateConsentPortal$,
+  UpdateConsentPortalCommand,
+  UpdateConsentPortalRequest$,
+  UpdateConsentPortalResponse$,
   UpdatedA2aDescriptor$,
   UpdatedAgentSkillsDescriptor$,
   UpdatedAgentSkillsDescriptorFields$,
@@ -1267,6 +1294,8 @@ assert(typeof CreateCodeInterpreterCommand === "function");
 assert(typeof CreateCodeInterpreter$ === "object");
 assert(typeof CreateConfigurationBundleCommand === "function");
 assert(typeof CreateConfigurationBundle$ === "object");
+assert(typeof CreateConsentPortalCommand === "function");
+assert(typeof CreateConsentPortal$ === "object");
 assert(typeof CreateDatasetCommand === "function");
 assert(typeof CreateDataset$ === "object");
 assert(typeof CreateDatasetVersionCommand === "function");
@@ -1323,6 +1352,8 @@ assert(typeof DeleteCodeInterpreterCommand === "function");
 assert(typeof DeleteCodeInterpreter$ === "object");
 assert(typeof DeleteConfigurationBundleCommand === "function");
 assert(typeof DeleteConfigurationBundle$ === "object");
+assert(typeof DeleteConsentPortalCommand === "function");
+assert(typeof DeleteConsentPortal$ === "object");
 assert(typeof DeleteDatasetCommand === "function");
 assert(typeof DeleteDataset$ === "object");
 assert(typeof DeleteDatasetExamplesCommand === "function");
@@ -1383,6 +1414,8 @@ assert(typeof GetConfigurationBundleCommand === "function");
 assert(typeof GetConfigurationBundle$ === "object");
 assert(typeof GetConfigurationBundleVersionCommand === "function");
 assert(typeof GetConfigurationBundleVersion$ === "object");
+assert(typeof GetConsentPortalCommand === "function");
+assert(typeof GetConsentPortal$ === "object");
 assert(typeof GetDatasetCommand === "function");
 assert(typeof GetDataset$ === "object");
 assert(typeof GetEvaluatorCommand === "function");
@@ -1455,6 +1488,8 @@ assert(typeof ListConfigurationBundlesCommand === "function");
 assert(typeof ListConfigurationBundles$ === "object");
 assert(typeof ListConfigurationBundleVersionsCommand === "function");
 assert(typeof ListConfigurationBundleVersions$ === "object");
+assert(typeof ListConsentPortalsCommand === "function");
+assert(typeof ListConsentPortals$ === "object");
 assert(typeof ListDatasetExamplesCommand === "function");
 assert(typeof ListDatasetExamples$ === "object");
 assert(typeof ListDatasetsCommand === "function");
@@ -1535,6 +1570,8 @@ assert(typeof UpdateCapacityProviderCommand === "function");
 assert(typeof UpdateCapacityProvider$ === "object");
 assert(typeof UpdateConfigurationBundleCommand === "function");
 assert(typeof UpdateConfigurationBundle$ === "object");
+assert(typeof UpdateConsentPortalCommand === "function");
+assert(typeof UpdateConsentPortal$ === "object");
 assert(typeof UpdateDatasetCommand === "function");
 assert(typeof UpdateDataset$ === "object");
 assert(typeof UpdateDatasetExamplesCommand === "function");
@@ -1642,6 +1679,9 @@ assert(typeof ConnectorConfiguration$ === "object");
 assert(typeof ConnectorParameterOverride$ === "object");
 assert(typeof ConnectorSource$ === "object");
 assert(typeof ConnectorTargetConfiguration$ === "object");
+assert(typeof ConsentPortalIdpConfig$ === "object");
+assert(typeof ConsentPortalSource$ === "object");
+assert(typeof ConsentPortalSummary$ === "object");
 assert(typeof ConsolidationConfiguration$ === "object");
 assert(typeof ContainerConfiguration$ === "object");
 assert(typeof Content$ === "object");
@@ -1662,6 +1702,8 @@ assert(typeof CreateCodeInterpreterRequest$ === "object");
 assert(typeof CreateCodeInterpreterResponse$ === "object");
 assert(typeof CreateConfigurationBundleRequest$ === "object");
 assert(typeof CreateConfigurationBundleResponse$ === "object");
+assert(typeof CreateConsentPortalRequest$ === "object");
+assert(typeof CreateConsentPortalResponse$ === "object");
 assert(typeof CreateDatasetRequest$ === "object");
 assert(typeof CreateDatasetResponse$ === "object");
 assert(typeof CreateDatasetVersionRequest$ === "object");
@@ -1739,6 +1781,8 @@ assert(typeof DeleteCodeInterpreterRequest$ === "object");
 assert(typeof DeleteCodeInterpreterResponse$ === "object");
 assert(typeof DeleteConfigurationBundleRequest$ === "object");
 assert(typeof DeleteConfigurationBundleResponse$ === "object");
+assert(typeof DeleteConsentPortalRequest$ === "object");
+assert(typeof DeleteConsentPortalResponse$ === "object");
 assert(typeof DeleteDatasetExamplesRequest$ === "object");
 assert(typeof DeleteDatasetExamplesResponse$ === "object");
 assert(typeof DeleteDatasetRequest$ === "object");
@@ -1837,6 +1881,8 @@ assert(typeof GetConfigurationBundleRequest$ === "object");
 assert(typeof GetConfigurationBundleResponse$ === "object");
 assert(typeof GetConfigurationBundleVersionRequest$ === "object");
 assert(typeof GetConfigurationBundleVersionResponse$ === "object");
+assert(typeof GetConsentPortalRequest$ === "object");
+assert(typeof GetConsentPortalResponse$ === "object");
 assert(typeof GetDatasetRequest$ === "object");
 assert(typeof GetDatasetResponse$ === "object");
 assert(typeof GetEvaluatorRequest$ === "object");
@@ -1989,6 +2035,8 @@ assert(typeof ListConfigurationBundlesRequest$ === "object");
 assert(typeof ListConfigurationBundlesResponse$ === "object");
 assert(typeof ListConfigurationBundleVersionsRequest$ === "object");
 assert(typeof ListConfigurationBundleVersionsResponse$ === "object");
+assert(typeof ListConsentPortalsRequest$ === "object");
+assert(typeof ListConsentPortalsResponse$ === "object");
 assert(typeof ListDatasetExamplesRequest$ === "object");
 assert(typeof ListDatasetExamplesResponse$ === "object");
 assert(typeof ListDatasetsRequest$ === "object");
@@ -2223,6 +2271,8 @@ assert(typeof UpdateCapacityProviderInput$ === "object");
 assert(typeof UpdateCapacityProviderOutput$ === "object");
 assert(typeof UpdateConfigurationBundleRequest$ === "object");
 assert(typeof UpdateConfigurationBundleResponse$ === "object");
+assert(typeof UpdateConsentPortalRequest$ === "object");
+assert(typeof UpdateConsentPortalResponse$ === "object");
 assert(typeof UpdatedA2aDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsDescriptor$ === "object");
 assert(typeof UpdatedAgentSkillsDescriptorFields$ === "object");
@@ -2323,6 +2373,8 @@ assert(typeof ClusteringFrequency === "object");
 assert(typeof CodeInterpreterNetworkMode === "object");
 assert(typeof CodeInterpreterStatus === "object");
 assert(typeof ConfigurationBundleStatus === "object");
+assert(typeof ConsentPortalSourceType === "object");
+assert(typeof ConsentPortalStatus === "object");
 assert(typeof ContentLevel === "object");
 assert(typeof ContentType === "object");
 assert(typeof CredentialProviderType === "object");
@@ -2393,6 +2445,7 @@ assert(typeof RegistryRecordStatus === "object");
 assert(typeof RegistryStatus === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RestApiMethod === "object");
+assert(typeof ResultDestination === "object");
 assert(typeof SchemaType === "object");
 assert(typeof SearchType === "object");
 assert(typeof SecretSourceType === "object");
@@ -2465,6 +2518,7 @@ assert(typeof paginateListCapacityProviders === "function");
 assert(typeof paginateListCodeInterpreters === "function");
 assert(typeof paginateListConfigurationBundleVersions === "function");
 assert(typeof paginateListConfigurationBundles === "function");
+assert(typeof paginateListConsentPortals === "function");
 assert(typeof paginateListDatasetExamples === "function");
 assert(typeof paginateListDatasetVersions === "function");
 assert(typeof paginateListDatasets === "function");

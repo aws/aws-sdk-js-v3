@@ -63,7 +63,10 @@ export interface GetOnlineEvaluationConfigCommandOutput extends GetOnlineEvaluat
  * //   },
  * //   dataSourceConfig: { // DataSourceConfig Union: only one key present
  * //     cloudWatchLogs: { // CloudWatchLogsInputConfig
- * //       logGroupNames: [ // LogGroupNamesList // required
+ * //       logGroupNames: [ // LogGroupNamesList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       logGroupNamePrefixes: [ // LogGroupNamePrefixList
  * //         "STRING_VALUE",
  * //       ],
  * //       serviceNames: [ // ServiceNamesList // required
@@ -88,7 +91,9 @@ export interface GetOnlineEvaluationConfigCommandOutput extends GetOnlineEvaluat
  * //   },
  * //   outputConfig: { // OutputConfig
  * //     cloudWatchConfig: { // CloudWatchOutputConfig
- * //       logGroupName: "STRING_VALUE", // required
+ * //       logGroupName: "STRING_VALUE",
+ * //       metricsNamespace: "STRING_VALUE",
+ * //       resultDestination: "DEDICATED_LOG_GROUP" || "SOURCE_LOG_GROUP",
  * //     },
  * //   },
  * //   evaluationExecutionRoleArn: "STRING_VALUE",

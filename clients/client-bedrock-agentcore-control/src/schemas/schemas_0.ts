@@ -88,6 +88,9 @@ const _CCM = "ComponentConfigurationMap";
 const _CCP = "CreateCapacityProvider";
 const _CCPI = "CreateCapacityProviderInput";
 const _CCPO = "CreateCapacityProviderOutput";
+const _CCPR = "CreateConsentPortalRequest";
+const _CCPRr = "CreateConsentPortalResponse";
+const _CCPr = "CreateConsentPortal";
 const _CCVT = "CustomClaimValidationType";
 const _CCVTu = "CustomClaimValidationsType";
 const _CCo = "CodeConfiguration";
@@ -163,6 +166,7 @@ const _CPCrede = "CredentialsProviderConfiguration";
 const _CPE = "CreatePolicyEngine";
 const _CPER = "CreatePolicyEngineRequest";
 const _CPERr = "CreatePolicyEngineResponse";
+const _CPIC = "ConsentPortalIdpConfig";
 const _CPL = "CapacityProviderList";
 const _CPM = "CreatePaymentManager";
 const _CPMR = "CreatePaymentManagerRequest";
@@ -172,6 +176,10 @@ const _CPOo = "ConnectorParameterOverrides";
 const _CPR = "CreatePolicyRequest";
 const _CPRr = "CreatePolicyResponse";
 const _CPS = "CapacityProviderSummary";
+const _CPSo = "ConsentPortalSource";
+const _CPSon = "ConsentPortalSummary";
+const _CPSons = "ConsentPortalSources";
+const _CPSonse = "ConsentPortalSummaries";
 const _CPVC = "CapacityProviderVolumeConfiguration";
 const _CPr = "CredentialProvider";
 const _CPre = "CreatePolicy";
@@ -228,6 +236,9 @@ const _DCIRe = "DeleteCodeInterpreterResponse";
 const _DCP = "DeleteCapacityProvider";
 const _DCPI = "DeleteCapacityProviderInput";
 const _DCPO = "DeleteCapacityProviderOutput";
+const _DCPR = "DeleteConsentPortalRequest";
+const _DCPRe = "DeleteConsentPortalResponse";
+const _DCPe = "DeleteConsentPortal";
 const _DCST = "DefaultClientSecretType";
 const _DD = "DeleteDataset";
 const _DDE = "DeleteDatasetExamples";
@@ -375,6 +386,9 @@ const _GCIRe = "GetCodeInterpreterResponse";
 const _GCP = "GetCapacityProvider";
 const _GCPI = "GetCapacityProviderInput";
 const _GCPO = "GetCapacityProviderOutput";
+const _GCPR = "GetConsentPortalRequest";
+const _GCPRe = "GetConsentPortalResponse";
+const _GCPe = "GetConsentPortal";
 const _GD = "GatewayDescription";
 const _GDR = "GetDatasetRequest";
 const _GDRe = "GetDatasetResponse";
@@ -586,6 +600,9 @@ const _LCIRi = "ListCodeInterpretersResponse";
 const _LCP = "ListCapacityProviders";
 const _LCPI = "ListCapacityProvidersInput";
 const _LCPO = "ListCapacityProvidersOutput";
+const _LCPR = "ListConsentPortalsRequest";
+const _LCPRi = "ListConsentPortalsResponse";
+const _LCPi = "ListConsentPortals";
 const _LD = "ListDatasets";
 const _LDE = "ListDatasetExamples";
 const _LDER = "ListDatasetExamplesRequest";
@@ -928,6 +945,9 @@ const _UCD = "UpdatedCustomDescriptor";
 const _UCP = "UpdateCapacityProvider";
 const _UCPI = "UpdateCapacityProviderInput";
 const _UCPO = "UpdateCapacityProviderOutput";
+const _UCPR = "UpdateConsentPortalRequest";
+const _UCPRp = "UpdateConsentPortalResponse";
+const _UCPp = "UpdateConsentPortal";
 const _UD = "UpdatedDescription";
 const _UDE = "UpdateDatasetExamples";
 const _UDER = "UpdateDatasetExamplesRequest";
@@ -1031,7 +1051,7 @@ const _WIL = "WorkloadIdentityList";
 const _WIT = "WorkloadIdentityType";
 const _WO = "WeightedOverride";
 const _WR = "WeightedRoute";
-const _a = "actions";
+const _a = "audience";
 const _aA = "autoApproval";
 const _aAl = "allowedAudience";
 const _aB = "apiBase";
@@ -1110,6 +1130,7 @@ const _aU = "authorizationUrl";
 const _aV = "allowedValues";
 const _aWC = "allowedWorkloadConfiguration";
 const _aa = "a2a";
+const _ac = "actions";
 const _ar = "arn";
 const _au = "auth";
 const _b = "bundles";
@@ -1162,15 +1183,19 @@ const _cOPC = "customOauth2ProviderConfig";
 const _cP = "credentialProvider";
 const _cPA = "credentialProviderArn";
 const _cPAa = "capacityProviderArn";
+const _cPAo = "consentPortalArn";
 const _cPC = "capacityProviderConfiguration";
 const _cPCr = "credentialProviderConfigurations";
 const _cPI = "capacityProviderId";
+const _cPIo = "consentPortalId";
+const _cPIon = "consentPortalIdentifier";
 const _cPN = "credentialParameterName";
 const _cPORA = "capacityProviderOperatorRoleArn";
 const _cPT = "credentialProviderType";
 const _cPV = "credentialProviderVendor";
 const _cPVa = "capacityProviderVolume";
 const _cPa = "capacityProviders";
+const _cPo = "consentPortals";
 const _cPr = "credentialPrefix";
 const _cPre = "credentialProviders";
 const _cPu = "customParameters";
@@ -1319,6 +1344,7 @@ const _ht = "http";
 const _i = "id";
 const _iC = "inlineContent";
 const _iCP = "iamCredentialProvider";
+const _iCd = "idpConfig";
 const _iCn = "inferenceConfig";
 const _iCnp = "inputConfiguration";
 const _iCnt = "interceptorConfigurations";
@@ -1367,6 +1393,7 @@ const _lEC = "llmExtractionConfig";
 const _lEI = "llmExtractionInstruction";
 const _lFM = "lockedForModification";
 const _lGN = "logGroupNames";
+const _lGNP = "logGroupNamePrefixes";
 const _lGNo = "logGroupName";
 const _lLMC = "liteLlmModelConfig";
 const _lM = "lineageMetadata";
@@ -1405,6 +1432,7 @@ const _mL = "maxLifetime";
 const _mM = "modelMapping";
 const _mMC = "managedMemoryConfiguration";
 const _mMS = "modifyMemoryStrategies";
+const _mN = "metricsNamespace";
 const _mOPC = "microsoftOauth2ProviderConfig";
 const _mOT = "maxOutputTokens";
 const _mP = "mountPath";
@@ -1506,6 +1534,7 @@ const _pRM = "preserveRecentMessages";
 const _pS = "profileSummaries";
 const _pT = "protocolType";
 const _pTr = "propagatedTags";
+const _pU = "portalUrl";
 const _pV = "parameterValues";
 const _pVI = "parentVersionIds";
 const _pVr = "protocolVersion";
@@ -1530,7 +1559,8 @@ const _rAes = "resourceArn";
 const _rC = "reflectionConfiguration";
 const _rCI = "resourceConfigurationIdentifier";
 const _rCe = "retrievalConfig";
-const _rD = "routingDomain";
+const _rD = "resultDestination";
+const _rDo = "routingDomain";
 const _rE = "runtimeEndpoints";
 const _rEMC = "responsesEvaluatorModelConfig";
 const _rGA = "resourceGatewayArn";
@@ -1614,8 +1644,8 @@ const _sPe = "serverProtocol";
 const _sPt = "stripePrivy";
 const _sQP = "staticQueryParameters";
 const _sQPCR = "staticQueryParameterConflictResolution";
-const _sR = "statusReasons";
-const _sRt = "statusReason";
+const _sR = "statusReason";
+const _sRt = "statusReasons";
 const _sRta = "staticRoute";
 const _sRu = "summaryRatio";
 const _sS = "stopSequences";
@@ -1642,6 +1672,7 @@ const _sep = "separator";
 const _ser = "service";
 const _sk = "skills";
 const _so = "source";
+const _sou = "sources";
 const _st = "status";
 const _sta = "stage";
 const _stat = "statement";
@@ -2083,13 +2114,13 @@ export var Certificate$: StaticStructureSchema = [3, n0, _C,
 ];
 export var CloudWatchLogsInputConfig$: StaticStructureSchema = [3, n0, _CWLIC,
   0,
-  [_lGN, _sN],
-  [64 | 0, 64 | 0], 2
+  [_sN, _lGN, _lGNP],
+  [64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var CloudWatchOutputConfig$: StaticStructureSchema = [3, n0, _CWOC,
   0,
-  [_lGNo],
-  [0], 1
+  [_lGNo, _mN, _rD],
+  [0, 0, 0]
 ];
 export var ClusteringConfig$: StaticStructureSchema = [3, n0, _CC,
   0,
@@ -2160,6 +2191,21 @@ export var ConnectorTargetConfiguration$: StaticStructureSchema = [3, n0, _CTC,
   0,
   [_so, _ena, _conf],
   [() => ConnectorSource$, 64 | 0, () => ConnectorConfigurations], 1
+];
+export var ConsentPortalIdpConfig$: StaticStructureSchema = [3, n0, _CPIC,
+  0,
+  [_cPA, _sc, _a],
+  [0, 64 | 0, 0], 2
+];
+export var ConsentPortalSource$: StaticStructureSchema = [3, n0, _CPSo,
+  0,
+  [_id, _t],
+  [0, 0], 2
+];
+export var ConsentPortalSummary$: StaticStructureSchema = [3, n0, _CPSon,
+  0,
+  [_sou, _cPAo, _cPIo, _cA, _n, _st, _uA, _d, _pU],
+  [() => ConsentPortalSources, 0, 0, 4, 0, 0, 4, 0, 0], 7
 ];
 export var ContainerConfiguration$: StaticStructureSchema = [3, n0, _CCont,
   0,
@@ -2251,6 +2297,16 @@ export var CreateConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _
   [_bAu, _bIu, _vI, _cA],
   [0, 0, 0, 4], 4
 ];
+export var CreateConsentPortalRequest$: StaticStructureSchema = [3, n0, _CCPR,
+  0,
+  [_eRA, _iCd, _n, _sou, _d, _ta],
+  [0, () => ConsentPortalIdpConfig$, 0, () => ConsentPortalSources, 0, 128 | 0], 4
+];
+export var CreateConsentPortalResponse$: StaticStructureSchema = [3, n0, _CCPRr,
+  0,
+  [_sou, _cPAo, _cPIo, _cA, _eRA, _iCd, _n, _st, _uA, _d, _pU, _sR],
+  [() => ConsentPortalSources, 0, 0, 4, 0, () => ConsentPortalIdpConfig$, 0, 0, 4, 0, 0, 0], 9
+];
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_dN, _so, _sT, _cT, _d, _kKA, _ta],
@@ -2298,17 +2354,17 @@ export var CreateGatewayRequest$: StaticStructureSchema = [3, n0, _CGR,
 ];
 export var CreateGatewayResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
-  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sR, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
+  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sRt, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
   [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$], 7
 ];
 export var CreateGatewayRuleRequest$: StaticStructureSchema = [3, n0, _CGRR,
   0,
-  [_gI, _pr, _a, _cT, _cond, _d],
+  [_gI, _pr, _ac, _cT, _cond, _d],
   [[0, 1], 1, [() => Actions, 0], [0, 4], () => Conditions, 0], 3
 ];
 export var CreateGatewayRuleResponse$: StaticStructureSchema = [3, n0, _CGRRr,
   0,
-  [_rI, _gA, _pr, _a, _cA, _st, _cond, _d, _sy],
+  [_rI, _gA, _pr, _ac, _cA, _st, _cond, _d, _sy],
   [0, 0, 1, [() => Actions, 0], 5, 0, () => Conditions, 0, () => SystemManagedBlock$], 6
 ];
 export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
@@ -2318,7 +2374,7 @@ export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
 ];
 export var CreateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _CGTRr,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
 ];
 export var CreateHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _CHER,
@@ -2363,8 +2419,8 @@ export var CreateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, 
 ];
 export var CreateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _COECR,
   0,
-  [_oECN, _rul, _dSC, _eERA, _eOC, _cT, _d, _ev, _in, _cCl, _ta],
-  [0, () => Rule$, () => DataSourceConfig$, 0, 2, [0, 4], [() => EvaluationConfigDescription, 0], () => EvaluatorList, () => InsightList, () => ClusteringConfig$, 128 | 0], 5
+  [_oECN, _rul, _dSC, _eERA, _eOC, _cT, _d, _ev, _in, _cCl, _oC, _ta],
+  [0, () => Rule$, () => DataSourceConfig$, 0, 2, [0, 4], [() => EvaluationConfigDescription, 0], () => EvaluatorList, () => InsightList, () => ClusteringConfig$, () => OutputConfig$, 128 | 0], 5
 ];
 export var CreateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _COECRr,
   0,
@@ -2408,7 +2464,7 @@ export var CreatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _CPER,
 ];
 export var CreatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _CPERr,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sRt, _eKA, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
 ];
 export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
@@ -2418,7 +2474,7 @@ export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
 ];
 export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sRt, _eM, _d],
   [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var CreateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _CRRR,
@@ -2581,6 +2637,16 @@ export var DeleteConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _
   [_bIu, _st],
   [0, 0], 2
 ];
+export var DeleteConsentPortalRequest$: StaticStructureSchema = [3, n0, _DCPR,
+  0,
+  [_cPIon],
+  [0], 1
+];
+export var DeleteConsentPortalResponse$: StaticStructureSchema = [3, n0, _DCPRe,
+  0,
+  [],
+  []
+];
 export var DeleteDatasetExamplesRequest$: StaticStructureSchema = [3, n0, _DDER,
   0,
   [_dI, _eI, _cT],
@@ -2628,7 +2694,7 @@ export var DeleteGatewayRequest$: StaticStructureSchema = [3, n0, _DGR,
 ];
 export var DeleteGatewayResponse$: StaticStructureSchema = [3, n0, _DGRe,
   0,
-  [_gIa, _st, _sR],
+  [_gIa, _st, _sRt],
   [0, 0, 64 | 0], 2
 ];
 export var DeleteGatewayRuleRequest$: StaticStructureSchema = [3, n0, _DGRR,
@@ -2648,7 +2714,7 @@ export var DeleteGatewayTargetRequest$: StaticStructureSchema = [3, n0, _DGTR,
 ];
 export var DeleteGatewayTargetResponse$: StaticStructureSchema = [3, n0, _DGTRe,
   0,
-  [_gA, _tI, _st, _sR],
+  [_gA, _tI, _st, _sRt],
   [0, 0, 0, 64 | 0], 3
 ];
 export var DeleteHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _DHER,
@@ -2743,7 +2809,7 @@ export var DeletePolicyEngineRequest$: StaticStructureSchema = [3, n0, _DPER,
 ];
 export var DeletePolicyEngineResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sRt, _eKA, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
 ];
 export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
@@ -2753,7 +2819,7 @@ export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
 ];
 export var DeletePolicyResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sRt, _eM, _d],
   [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var DeleteRegistryRecordRequest$: StaticStructureSchema = [3, n0, _DRRR,
@@ -2928,7 +2994,7 @@ export var GatewayRateLimitDetail$: StaticStructureSchema = [3, n0, _GRLD,
 ];
 export var GatewayRuleDetail$: StaticStructureSchema = [3, n0, _GRD,
   0,
-  [_rI, _gA, _pr, _a, _cA, _st, _cond, _d, _sy, _uA],
+  [_rI, _gA, _pr, _ac, _cA, _st, _cond, _d, _sy, _uA],
   [0, 0, 1, [() => Actions, 0], 5, 0, () => Conditions, 0, () => SystemManagedBlock$, 5], 6
 ];
 export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
@@ -2938,7 +3004,7 @@ export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
 ];
 export var GatewayTarget$: StaticStructureSchema = [3, n0, _GT,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
 ];
 export var GetAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _GARER,
@@ -2998,7 +3064,7 @@ export var GetCapacityProviderInput$: StaticStructureSchema = [3, n0, _GCPI,
 ];
 export var GetCapacityProviderOutput$: StaticStructureSchema = [3, n0, _GCPO,
   0,
-  [_cPI, _cPAa, _n, _st, _pCe, _cC, _cA, _lUA, _d, _sCt, _sRt],
+  [_cPI, _cPAa, _n, _st, _pCe, _cC, _cA, _lUA, _d, _sCt, _sR],
   [0, 0, 0, 0, () => PermissionsConfiguration$, () => ComputeConfiguration$, 5, 5, [() => Description, 0], 0, 0], 8
 ];
 export var GetCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _GCIR,
@@ -3030,6 +3096,16 @@ export var GetConfigurationBundleVersionResponse$: StaticStructureSchema = [3, n
   0,
   [_bAu, _bIu, _bN, _vI, _com, _cA, _vCA, _d, _lM, _kKA],
   [0, 0, 0, 0, [() => ComponentConfigurationMap, 0], 4, 4, [() => ConfigurationBundleDescription, 0], () => VersionLineageMetadata$, 0], 7
+];
+export var GetConsentPortalRequest$: StaticStructureSchema = [3, n0, _GCPR,
+  0,
+  [_cPIon],
+  [0], 1
+];
+export var GetConsentPortalResponse$: StaticStructureSchema = [3, n0, _GCPRe,
+  0,
+  [_sou, _cPAo, _cPIo, _cA, _eRA, _iCd, _n, _st, _uA, _d, _pU, _sR],
+  [() => ConsentPortalSources, 0, 0, 4, 0, () => ConsentPortalIdpConfig$, 0, 0, 4, 0, 0, 0], 9
 ];
 export var GetDatasetRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
@@ -3068,7 +3144,7 @@ export var GetGatewayRequest$: StaticStructureSchema = [3, n0, _GGR,
 ];
 export var GetGatewayResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
-  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sR, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
+  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sRt, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
   [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$], 7
 ];
 export var GetGatewayRuleRequest$: StaticStructureSchema = [3, n0, _GGRR,
@@ -3078,7 +3154,7 @@ export var GetGatewayRuleRequest$: StaticStructureSchema = [3, n0, _GGRR,
 ];
 export var GetGatewayRuleResponse$: StaticStructureSchema = [3, n0, _GGRRe,
   0,
-  [_rI, _gA, _pr, _a, _cA, _st, _cond, _d, _sy, _uA],
+  [_rI, _gA, _pr, _ac, _cA, _st, _cond, _d, _sy, _uA],
   [0, 0, 1, [() => Actions, 0], 5, 0, () => Conditions, 0, () => SystemManagedBlock$, 5], 6
 ];
 export var GetGatewayTargetRequest$: StaticStructureSchema = [3, n0, _GGTR,
@@ -3088,7 +3164,7 @@ export var GetGatewayTargetRequest$: StaticStructureSchema = [3, n0, _GGTR,
 ];
 export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
 ];
 export var GetHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _GHER,
@@ -3178,7 +3254,7 @@ export var GetPolicyEngineRequest$: StaticStructureSchema = [3, n0, _GPER,
 ];
 export var GetPolicyEngineResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sRt, _eKA, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
 ];
 export var GetPolicyEngineSummaryRequest$: StaticStructureSchema = [3, n0, _GPESR,
@@ -3198,7 +3274,7 @@ export var GetPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _GPGR,
 ];
 export var GetPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _GPGRe,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _fi],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sRt, _fi],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
 export var GetPolicyGenerationSummaryRequest$: StaticStructureSchema = [3, n0, _GPGSR,
@@ -3218,7 +3294,7 @@ export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
 ];
 export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sRt, _eM, _d],
   [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var GetPolicySummaryRequest$: StaticStructureSchema = [3, n0, _GPSR,
@@ -3238,7 +3314,7 @@ export var GetRegistryRecordRequest$: StaticStructureSchema = [3, n0, _GRRR,
 ];
 export var GetRegistryRecordResponse$: StaticStructureSchema = [3, n0, _GRRRe,
   0,
-  [_rAeg, _rAe, _rIec, _n, _dT, _des, _st, _cA, _uA, _d, _rV, _sRt, _sTy, _sC],
+  [_rAeg, _rAe, _rIec, _n, _dT, _des, _st, _cA, _uA, _d, _rV, _sR, _sTy, _sC],
   [0, 0, 0, 0, 0, () => Descriptors$, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => SynchronizationConfiguration$], 9
 ];
 export var GetRegistryRequest$: StaticStructureSchema = [3, n0, _GRR,
@@ -3248,7 +3324,7 @@ export var GetRegistryRequest$: StaticStructureSchema = [3, n0, _GRR,
 ];
 export var GetRegistryResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_n, _rIe, _rAeg, _st, _cA, _uA, _d, _aT, _aCu, _aCp, _sRt],
+  [_n, _rIe, _rAeg, _st, _cA, _uA, _d, _aT, _aCu, _aCp, _sR],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], 0, () => AuthorizerConfiguration$, () => ApprovalConfiguration$, 0], 6
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
@@ -3716,6 +3792,16 @@ export var ListConfigurationBundleVersionsResponse$: StaticStructureSchema = [3,
   [_ver, _nTe],
   [() => ConfigurationBundleVersionSummaryList, 0], 1
 ];
+export var ListConsentPortalsRequest$: StaticStructureSchema = [3, n0, _LCPR,
+  0,
+  [_mR, _nTe],
+  [1, 0]
+];
+export var ListConsentPortalsResponse$: StaticStructureSchema = [3, n0, _LCPRi,
+  0,
+  [_cPo, _nTe],
+  [() => ConsentPortalSummaries, 0], 1
+];
 export var ListDatasetExamplesRequest$: StaticStructureSchema = [3, n0, _LDER,
   0,
   [_dI, _dV, _mR, _nTe],
@@ -4013,7 +4099,7 @@ export var ManagedResourceDetails$: StaticStructureSchema = [3, n0, _MRD,
 ];
 export var ManagedVpcResource$: StaticStructureSchema = [3, n0, _MVR,
   0,
-  [_vIp, _sIu, _eIAT, _sGI, _ta, _rD],
+  [_vIp, _sIu, _eIAT, _sGI, _ta, _rDo],
   [0, 64 | 0, 0, 64 | 0, 128 | 0, 0], 3
 ];
 export var MatchPaths$: StaticStructureSchema = [3, n0, _MP,
@@ -4228,12 +4314,12 @@ export var PermissionsConfiguration$: StaticStructureSchema = [3, n0, _PC,
 ];
 export var Policy$: StaticStructureSchema = [3, n0, _Po,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sRt, _eM, _d],
   [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var PolicyEngine$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sRt, _eKA, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
 ];
 export var PolicyEngineSummary$: StaticStructureSchema = [3, n0, _PES,
@@ -4243,7 +4329,7 @@ export var PolicyEngineSummary$: StaticStructureSchema = [3, n0, _PES,
 ];
 export var PolicyGeneration$: StaticStructureSchema = [3, n0, _PG,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _fi],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sRt, _fi],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
 export var PolicyGenerationAsset$: StaticStructureSchema = [3, n0, _PGA,
@@ -4338,7 +4424,7 @@ export var RegistryRecordSummary$: StaticStructureSchema = [3, n0, _RRS,
 ];
 export var RegistrySummary$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_n, _rIe, _rAeg, _st, _cA, _uA, _d, _aT, _sRt],
+  [_n, _rIe, _rAeg, _st, _cA, _uA, _d, _aT, _sR],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], 0, 0], 6
 ];
 export var RootVolumeConfiguration$: StaticStructureSchema = [3, n0, _RVC,
@@ -4518,7 +4604,7 @@ export var StartPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _SPGR,
 ];
 export var StartPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _SPGRt,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _fi],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sRt, _fi],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
 export var StaticOverride$: StaticStructureSchema = [3, n0, _SO,
@@ -4741,6 +4827,16 @@ export var UpdateConfigurationBundleResponse$: StaticStructureSchema = [3, n0, _
   [_bAu, _bIu, _vI, _uA],
   [0, 0, 0, 4], 4
 ];
+export var UpdateConsentPortalRequest$: StaticStructureSchema = [3, n0, _UCPR,
+  0,
+  [_cPIon, _eRA, _iCd, _d],
+  [0, 0, () => ConsentPortalIdpConfig$, 0], 1
+];
+export var UpdateConsentPortalResponse$: StaticStructureSchema = [3, n0, _UCPRp,
+  0,
+  [_sou, _cPAo, _cPIo, _cA, _eRA, _iCd, _n, _st, _uA, _d, _pU, _sR],
+  [() => ConsentPortalSources, 0, 0, 4, 0, () => ConsentPortalIdpConfig$, 0, 0, 4, 0, 0, 0], 9
+];
 export var UpdatedA2aDescriptor$: StaticStructureSchema = [3, n0, _UAD,
   0,
   [_oV],
@@ -4883,17 +4979,17 @@ export var UpdateGatewayRequest$: StaticStructureSchema = [3, n0, _UGR,
 ];
 export var UpdateGatewayResponse$: StaticStructureSchema = [3, n0, _UGRp,
   0,
-  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sR, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
+  [_gA, _gIa, _cA, _uA, _st, _n, _aT, _gU, _sRt, _d, _rA, _pT, _pC, _aCu, _kKA, _cTC, _iCnt, _pEC, _wID, _eL, _wAA, _wC],
   [0, 0, 5, 5, 0, 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, 0, [() => GatewayProtocolConfiguration$, 0], () => AuthorizerConfiguration$, 0, () => CustomTransformConfiguration$, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0, 0, () => WafConfiguration$], 7
 ];
 export var UpdateGatewayRuleRequest$: StaticStructureSchema = [3, n0, _UGRR,
   0,
-  [_gI, _rI, _pr, _cond, _a, _d],
+  [_gI, _rI, _pr, _cond, _ac, _d],
   [[0, 1], [0, 1], 1, () => Conditions, [() => Actions, 0], 0], 2
 ];
 export var UpdateGatewayRuleResponse$: StaticStructureSchema = [3, n0, _UGRRp,
   0,
-  [_rI, _gA, _pr, _a, _cA, _st, _cond, _d, _sy, _uA],
+  [_rI, _gA, _pr, _ac, _cA, _st, _cond, _d, _sy, _uA],
   [0, 0, 1, [() => Actions, 0], 5, 0, () => Conditions, 0, () => SystemManagedBlock$, 5], 6
 ];
 export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
@@ -4903,7 +4999,7 @@ export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
 ];
 export var UpdateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _UGTRp,
   0,
-  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sR, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPCr, _sRt, _d, _lSAa, _mC, _pE, _pEMR, _aD, _pT],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$, () => PrivateEndpoint$, () => PrivateEndpointManagedResources, () => AuthorizationData$, 0], 8
 ];
 export var UpdateHarnessEndpointRequest$: StaticStructureSchema = [3, n0, _UHER,
@@ -4948,8 +5044,8 @@ export var UpdateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, 
 ];
 export var UpdateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _UOECR,
   0,
-  [_oECI, _cT, _d, _rul, _dSC, _ev, _in, _cCl, _eERA, _eS],
-  [[0, 1], [0, 4], [() => EvaluationConfigDescription, 0], () => Rule$, () => DataSourceConfig$, () => EvaluatorList, () => InsightList, () => ClusteringConfig$, 0, 0], 1
+  [_oECI, _cT, _d, _rul, _dSC, _ev, _in, _cCl, _oC, _eERA, _eS],
+  [[0, 1], [0, 4], [() => EvaluationConfigDescription, 0], () => Rule$, () => DataSourceConfig$, () => EvaluatorList, () => InsightList, () => ClusteringConfig$, () => OutputConfig$, 0, 0], 1
 ];
 export var UpdateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _UOECRp,
   0,
@@ -4993,7 +5089,7 @@ export var UpdatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _UPER,
 ];
 export var UpdatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _UPERp,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _eKA, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sRt, _eKA, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, 0, [() => Description, 0]], 7
 ];
 export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
@@ -5003,7 +5099,7 @@ export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
 ];
 export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
-  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sR, _eM, _d],
+  [_pIo, _n, _pEI, _cA, _uA, _pAo, _st, _de, _sRt, _eM, _d],
   [0, 0, 0, 5, 5, 0, 0, () => PolicyDefinition$, 64 | 0, 0, [() => Description, 0]], 9
 ];
 export var UpdateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _URRR,
@@ -5013,17 +5109,17 @@ export var UpdateRegistryRecordRequest$: StaticStructureSchema = [3, n0, _URRR,
 ];
 export var UpdateRegistryRecordResponse$: StaticStructureSchema = [3, n0, _URRRp,
   0,
-  [_rAeg, _rAe, _rIec, _n, _dT, _des, _st, _cA, _uA, _d, _rV, _sRt, _sTy, _sC],
+  [_rAeg, _rAe, _rIec, _n, _dT, _des, _st, _cA, _uA, _d, _rV, _sR, _sTy, _sC],
   [0, 0, 0, 0, 0, () => Descriptors$, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => SynchronizationConfiguration$], 9
 ];
 export var UpdateRegistryRecordStatusRequest$: StaticStructureSchema = [3, n0, _URRSR,
   0,
-  [_rIe, _rIec, _st, _sRt],
+  [_rIe, _rIec, _st, _sR],
   [[0, 1], [0, 1], 0, 0], 4
 ];
 export var UpdateRegistryRecordStatusResponse$: StaticStructureSchema = [3, n0, _URRSRp,
   0,
-  [_rAeg, _rAe, _rIec, _st, _sRt, _uA],
+  [_rAeg, _rAe, _rIec, _st, _sR, _uA],
   [0, 0, 0, 0, 0, 5], 6
 ];
 export var UpdateRegistryRequest$: StaticStructureSchema = [3, n0, _URRp,
@@ -5033,7 +5129,7 @@ export var UpdateRegistryRequest$: StaticStructureSchema = [3, n0, _URRp,
 ];
 export var UpdateRegistryResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
-  [_n, _rIe, _rAeg, _st, _cA, _uA, _d, _aT, _aCu, _aCp, _sRt],
+  [_n, _rIe, _rAeg, _st, _cA, _uA, _d, _aT, _aCu, _aCp, _sR],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], 0, () => AuthorizerConfiguration$, () => ApprovalConfiguration$, 0], 6
 ];
 export var UpdateWorkloadIdentityRequest$: StaticStructureSchema = [3, n0, _UWIR,
@@ -5210,6 +5306,12 @@ var ConnectorConfigurations: StaticListSchema = [1, n0, _CConn,
 var ConnectorParameterOverrides: StaticListSchema = [1, n0, _CPOo,
   0, () => ConnectorParameterOverride$
 ];
+var ConsentPortalSources: StaticListSchema = [1, n0, _CPSons,
+  0, () => ConsentPortalSource$
+];
+var ConsentPortalSummaries: StaticListSchema = [1, n0, _CPSonse,
+  0, () => ConsentPortalSummary$
+];
 var ContentConfigurationList: StaticListSchema = [1, n0, _CCL,
   0, () => ContentConfiguration$
 ];
@@ -5323,6 +5425,7 @@ var LicenseSpecificationList: StaticListSchema = [1, n0, _LSL,
 var LimitEntries: StaticListSchema = [1, n0, _LEi,
   0, () => LimitEntry$
 ];
+var LogGroupNamePrefixList = 64 | 0;
 var LogGroupNamesList = 64 | 0;
 var MatchPathPatterns = 64 | 0;
 var MatchPrincipalEntries: StaticListSchema = [1, n0, _MPE,
@@ -5944,6 +6047,9 @@ export var CreateCodeInterpreter$: StaticOperationSchema = [9, n0, _CCIr,
 export var CreateConfigurationBundle$: StaticOperationSchema = [9, n0, _CCB,
   { [_ht]: ["POST", "/configuration-bundles/create", 201] }, () => CreateConfigurationBundleRequest$, () => CreateConfigurationBundleResponse$
 ];
+export var CreateConsentPortal$: StaticOperationSchema = [9, n0, _CCPr,
+  { [_ht]: ["POST", "/identities/CreateConsentPortal", 202] }, () => CreateConsentPortalRequest$, () => CreateConsentPortalResponse$
+];
 export var CreateDataset$: StaticOperationSchema = [9, n0, _CDr,
   { [_ht]: ["POST", "/datasets", 202] }, () => CreateDatasetRequest$, () => CreateDatasetResponse$
 ];
@@ -6027,6 +6133,9 @@ export var DeleteCodeInterpreter$: StaticOperationSchema = [9, n0, _DCI,
 ];
 export var DeleteConfigurationBundle$: StaticOperationSchema = [9, n0, _DCB,
   { [_ht]: ["DELETE", "/configuration-bundles/{bundleId}", 202] }, () => DeleteConfigurationBundleRequest$, () => DeleteConfigurationBundleResponse$
+];
+export var DeleteConsentPortal$: StaticOperationSchema = [9, n0, _DCPe,
+  { [_ht]: ["POST", "/identities/DeleteConsentPortal", 204] }, () => DeleteConsentPortalRequest$, () => DeleteConsentPortalResponse$
 ];
 export var DeleteDataset$: StaticOperationSchema = [9, n0, _DD,
   { [_ht]: ["DELETE", "/datasets/{datasetId}", 202] }, () => DeleteDatasetRequest$, () => DeleteDatasetResponse$
@@ -6117,6 +6226,9 @@ export var GetConfigurationBundle$: StaticOperationSchema = [9, n0, _GCB,
 ];
 export var GetConfigurationBundleVersion$: StaticOperationSchema = [9, n0, _GCBV,
   { [_ht]: ["GET", "/configuration-bundles/{bundleId}/versions/{versionId}", 200] }, () => GetConfigurationBundleVersionRequest$, () => GetConfigurationBundleVersionResponse$
+];
+export var GetConsentPortal$: StaticOperationSchema = [9, n0, _GCPe,
+  { [_ht]: ["POST", "/identities/GetConsentPortal", 200] }, () => GetConsentPortalRequest$, () => GetConsentPortalResponse$
 ];
 export var GetDataset$: StaticOperationSchema = [9, n0, _GDe,
   { [_ht]: ["GET", "/datasets/{datasetId}", 200] }, () => GetDatasetRequest$, () => GetDatasetResponse$
@@ -6225,6 +6337,9 @@ export var ListConfigurationBundles$: StaticOperationSchema = [9, n0, _LCB,
 ];
 export var ListConfigurationBundleVersions$: StaticOperationSchema = [9, n0, _LCBV,
   { [_ht]: ["POST", "/configuration-bundles/{bundleId}/versions", 200] }, () => ListConfigurationBundleVersionsRequest$, () => ListConfigurationBundleVersionsResponse$
+];
+export var ListConsentPortals$: StaticOperationSchema = [9, n0, _LCPi,
+  { [_ht]: ["POST", "/identities/ListConsentPortals", 200] }, () => ListConsentPortalsRequest$, () => ListConsentPortalsResponse$
 ];
 export var ListDatasetExamples$: StaticOperationSchema = [9, n0, _LDE,
   { [_ht]: ["GET", "/datasets/{datasetId}/examples", 200] }, () => ListDatasetExamplesRequest$, () => ListDatasetExamplesResponse$
@@ -6345,6 +6460,9 @@ export var UpdateCapacityProvider$: StaticOperationSchema = [9, n0, _UCP,
 ];
 export var UpdateConfigurationBundle$: StaticOperationSchema = [9, n0, _UCB,
   { [_ht]: ["PUT", "/configuration-bundles/{bundleId}", 200] }, () => UpdateConfigurationBundleRequest$, () => UpdateConfigurationBundleResponse$
+];
+export var UpdateConsentPortal$: StaticOperationSchema = [9, n0, _UCPp,
+  { [_ht]: ["POST", "/identities/UpdateConsentPortal", 202] }, () => UpdateConsentPortalRequest$, () => UpdateConsentPortalResponse$
 ];
 export var UpdateDataset$: StaticOperationSchema = [9, n0, _UDpd,
   { [_ht]: ["PUT", "/datasets/{datasetId}", 200] }, () => UpdateDatasetRequest$, () => UpdateDatasetResponse$

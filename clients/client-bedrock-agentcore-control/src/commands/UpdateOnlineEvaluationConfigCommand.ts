@@ -57,7 +57,10 @@ export interface UpdateOnlineEvaluationConfigCommandOutput extends UpdateOnlineE
  *   },
  *   dataSourceConfig: { // DataSourceConfig Union: only one key present
  *     cloudWatchLogs: { // CloudWatchLogsInputConfig
- *       logGroupNames: [ // LogGroupNamesList // required
+ *       logGroupNames: [ // LogGroupNamesList
+ *         "STRING_VALUE",
+ *       ],
+ *       logGroupNamePrefixes: [ // LogGroupNamePrefixList
  *         "STRING_VALUE",
  *       ],
  *       serviceNames: [ // ServiceNamesList // required
@@ -79,6 +82,13 @@ export interface UpdateOnlineEvaluationConfigCommandOutput extends UpdateOnlineE
  *     frequencies: [ // ClusteringFrequencyList // required
  *       "DAILY" || "WEEKLY" || "MONTHLY",
  *     ],
+ *   },
+ *   outputConfig: { // OutputConfig
+ *     cloudWatchConfig: { // CloudWatchOutputConfig
+ *       logGroupName: "STRING_VALUE",
+ *       metricsNamespace: "STRING_VALUE",
+ *       resultDestination: "DEDICATED_LOG_GROUP" || "SOURCE_LOG_GROUP",
+ *     },
  *   },
  *   evaluationExecutionRoleArn: "STRING_VALUE",
  *   executionStatus: "ENABLED" || "DISABLED",

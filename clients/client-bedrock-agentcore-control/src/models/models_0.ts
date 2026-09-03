@@ -18,7 +18,8 @@ import type {
   CodeInterpreterNetworkMode,
   CodeInterpreterStatus,
   ConfigurationBundleStatus,
-  CredentialProviderType,
+  ConsentPortalSourceType,
+  ConsentPortalStatus,
   DatasetSchemaType,
   DatasetStatus,
   DraftStatus,
@@ -41,7 +42,6 @@ import type {
   NetworkMode,
   OAuthGrantType,
   OperatingSystem,
-  PassthroughProtocolType,
   Period,
   PrincipalMatchOperator,
   Provider,
@@ -49,7 +49,6 @@ import type {
   SearchType,
   SecretSourceType,
   ServerProtocol,
-  StaticQueryParameterConflictResolution,
   WafFailureMode,
 } from "./enums";
 
@@ -5458,6 +5457,470 @@ export interface UpdateConfigurationBundleResponse {
 }
 
 /**
+ * <p>The identity provider configuration used to authenticate end users to the consent portal.</p>
+ * @public
+ */
+export interface ConsentPortalIdpConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuth2 credential provider used to authenticate end users to the consent portal.</p>
+   * @public
+   */
+  credentialProviderArn: string | undefined;
+
+  /**
+   * <p>The OAuth2 scopes that the consent portal requests when authenticating end users.</p>
+   * @public
+   */
+  scopes: string[] | undefined;
+
+  /**
+   * <p>The audience value that the consent portal includes when requesting tokens from the identity provider.</p>
+   * @public
+   */
+  audience?: string | undefined;
+}
+
+/**
+ * <p>A resource served by the consent portal.</p>
+ * @public
+ */
+export interface ConsentPortalSource {
+  /**
+   * <p>The identifier of the source resource. For an <code>agentcore-gateway</code> source, this is the gateway ID or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The type of the source resource.</p>
+   * @public
+   */
+  type: ConsentPortalSourceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConsentPortalRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * @public
+   */
+  idpConfig: ConsentPortalIdpConfig | undefined;
+
+  /**
+   * <p>The name of the consent portal. The name must be unique within your account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The resources served by the consent portal. Currently, we only support type <code>agentcore-gateway</code>.</p>
+   * @public
+   */
+  sources: ConsentPortalSource[] | undefined;
+
+  /**
+   * <p>The description of the consent portal.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to the consent portal. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConsentPortalResponse {
+  /**
+   * <p>The resources served by the consent portal.</p>
+   * @public
+   */
+  sources: ConsentPortalSource[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consent portal.</p>
+   * @public
+   */
+  consentPortalArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the consent portal.</p>
+   * @public
+   */
+  consentPortalId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the consent portal was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The description of the consent portal.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * @public
+   */
+  idpConfig: ConsentPortalIdpConfig | undefined;
+
+  /**
+   * <p>The name of the consent portal.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The URL used to access the consent portal.</p>
+   * @public
+   */
+  portalUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the consent portal.</p>
+   * @public
+   */
+  status: ConsentPortalStatus | undefined;
+
+  /**
+   * <p>A message that provides additional information about the current status of the consent portal.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The timestamp for when the consent portal was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConsentPortalRequest {
+  /**
+   * <p>The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  consentPortalIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConsentPortalResponse {}
+
+/**
+ * @public
+ */
+export interface GetConsentPortalRequest {
+  /**
+   * <p>The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  consentPortalIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConsentPortalResponse {
+  /**
+   * <p>The resources served by the consent portal.</p>
+   * @public
+   */
+  sources: ConsentPortalSource[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consent portal.</p>
+   * @public
+   */
+  consentPortalArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the consent portal.</p>
+   * @public
+   */
+  consentPortalId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the consent portal was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The description of the consent portal.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * @public
+   */
+  idpConfig: ConsentPortalIdpConfig | undefined;
+
+  /**
+   * <p>The name of the consent portal.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The URL used to access the consent portal.</p>
+   * @public
+   */
+  portalUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the consent portal.</p>
+   * @public
+   */
+  status: ConsentPortalStatus | undefined;
+
+  /**
+   * <p>A message that provides additional information about the current status of the consent portal.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The timestamp for when the consent portal was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConsentPortalsRequest {
+  /**
+   * <p>The maximum number of consent portals to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to retrieve the next page of results. Use the value returned in a previous response to request the next page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a consent portal.</p>
+ * @public
+ */
+export interface ConsentPortalSummary {
+  /**
+   * <p>The resources served by the consent portal.</p>
+   * @public
+   */
+  sources: ConsentPortalSource[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consent portal.</p>
+   * @public
+   */
+  consentPortalArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the consent portal.</p>
+   * @public
+   */
+  consentPortalId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the consent portal was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The description of the consent portal.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The name of the consent portal.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The URL used to access the consent portal.</p>
+   * @public
+   */
+  portalUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the consent portal.</p>
+   * @public
+   */
+  status: ConsentPortalStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the consent portal was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConsentPortalsResponse {
+  /**
+   * <p>The list of consent portals.</p>
+   * @public
+   */
+  consentPortals: ConsentPortalSummary[] | undefined;
+
+  /**
+   * <p>The token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConsentPortalRequest {
+  /**
+   * <p>The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  consentPortalIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * @public
+   */
+  idpConfig?: ConsentPortalIdpConfig | undefined;
+
+  /**
+   * <p>The description of the consent portal.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConsentPortalResponse {
+  /**
+   * <p>The resources served by the consent portal.</p>
+   * @public
+   */
+  sources: ConsentPortalSource[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the consent portal.</p>
+   * @public
+   */
+  consentPortalArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the consent portal.</p>
+   * @public
+   */
+  consentPortalId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the consent portal was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The description of the consent portal.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the consent portal assumes to access the resources defined in its sources.</p>
+   * @public
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The identity provider configuration that the consent portal uses to authenticate end users.</p>
+   * @public
+   */
+  idpConfig: ConsentPortalIdpConfig | undefined;
+
+  /**
+   * <p>The name of the consent portal.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The URL used to access the consent portal.</p>
+   * @public
+   */
+  portalUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the consent portal.</p>
+   * @public
+   */
+  status: ConsentPortalStatus | undefined;
+
+  /**
+   * <p>A message that provides additional information about the current status of the consent portal.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The timestamp for when the consent portal was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateDatasetRequest {
@@ -9133,401 +9596,6 @@ export interface OAuthCredentialProvider {
    * @public
    */
   defaultReturnUrl?: string | undefined;
-}
-
-/**
- * <p>A credential provider for gateway authentication. This structure contains the configuration for authenticating with the target endpoint.</p>
- * @public
- */
-export type CredentialProvider =
-  | CredentialProvider.ApiKeyCredentialProviderMember
-  | CredentialProvider.IamCredentialProviderMember
-  | CredentialProvider.OauthCredentialProviderMember
-  | CredentialProvider.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CredentialProvider {
-  /**
-   * <p>The OAuth credential provider. This provider uses OAuth authentication to access the target endpoint.</p>
-   * @public
-   */
-  export interface OauthCredentialProviderMember {
-    oauthCredentialProvider: OAuthCredentialProvider;
-    apiKeyCredentialProvider?: never;
-    iamCredentialProvider?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The API key credential provider. This provider uses an API key to authenticate with the target endpoint.</p>
-   * @public
-   */
-  export interface ApiKeyCredentialProviderMember {
-    oauthCredentialProvider?: never;
-    apiKeyCredentialProvider: GatewayApiKeyCredentialProvider;
-    iamCredentialProvider?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The IAM credential provider. This provider uses IAM authentication with SigV4 signing to access the target endpoint.</p>
-   * @public
-   */
-  export interface IamCredentialProviderMember {
-    oauthCredentialProvider?: never;
-    apiKeyCredentialProvider?: never;
-    iamCredentialProvider: IamCredentialProvider;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    oauthCredentialProvider?: never;
-    apiKeyCredentialProvider?: never;
-    iamCredentialProvider?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    oauthCredentialProvider: (value: OAuthCredentialProvider) => T;
-    apiKeyCredentialProvider: (value: GatewayApiKeyCredentialProvider) => T;
-    iamCredentialProvider: (value: IamCredentialProvider) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The configuration for a credential provider. This structure defines how the gateway authenticates with the target endpoint.</p>
- * @public
- */
-export interface CredentialProviderConfiguration {
-  /**
-   * <p>The type of credential provider. This field specifies which authentication method the gateway uses.</p>
-   * @public
-   */
-  credentialProviderType: CredentialProviderType | undefined;
-
-  /**
-   * <p>The credential provider. This field contains the specific configuration for the credential provider type.</p>
-   * @public
-   */
-  credentialProvider?: CredentialProvider | undefined;
-}
-
-/**
- * <p>Configuration for HTTP header and query parameter propagation between the gateway and target servers.</p>
- * @public
- */
-export interface MetadataConfiguration {
-  /**
-   * <p>A list of HTTP headers that are allowed to be propagated from incoming client requests to the target.</p>
-   * @public
-   */
-  allowedRequestHeaders?: string[] | undefined;
-
-  /**
-   * <p>A list of URL query parameters that are allowed to be propagated from incoming gateway URL to the target.</p>
-   * @public
-   */
-  allowedQueryParameters?: string[] | undefined;
-
-  /**
-   * <p>A list of HTTP headers that are allowed to be propagated from the target response back to the client.</p>
-   * @public
-   */
-  allowedResponseHeaders?: string[] | undefined;
-}
-
-/**
- * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
- * @public
- */
-export interface S3Configuration {
-  /**
-   * <p>The URI of the Amazon S3 object. This URI specifies the location of the object in Amazon S3.</p>
-   * @public
-   */
-  uri?: string | undefined;
-
-  /**
-   * <p>The account ID of the Amazon S3 bucket owner. This ID is used for cross-account access to the bucket.</p>
-   * @public
-   */
-  bucketOwnerAccountId?: string | undefined;
-}
-
-/**
- * <p>Configuration for API schema.</p>
- * @public
- */
-export type ApiSchemaConfiguration =
-  | ApiSchemaConfiguration.InlinePayloadMember
-  | ApiSchemaConfiguration.S3Member
-  | ApiSchemaConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ApiSchemaConfiguration {
-  /**
-   * <p>The Amazon S3 configuration for a gateway. This structure defines how the gateway accesses files in Amazon S3.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: S3Configuration;
-    inlinePayload?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The inline payload containing the API schema definition.</p>
-   * @public
-   */
-  export interface InlinePayloadMember {
-    s3?: never;
-    inlinePayload: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    inlinePayload?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: S3Configuration) => T;
-    inlinePayload: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The API schema configuration for an HTTP target. This schema defines the API structure that the target exposes.</p>
- * @public
- */
-export interface HttpApiSchemaConfiguration {
-  /**
-   * <p>Configuration for API schema.</p>
-   * @public
-   */
-  source: ApiSchemaConfiguration | undefined;
-}
-
-/**
- * <p>Configuration for an AgentCore Runtime target. Specifies the agent runtime to route requests to via HTTP.</p>
- * @public
- */
-export interface RuntimeTargetConfiguration {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AgentCore Runtime to route requests to.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The qualifier for the agent runtime, used to target a specific endpoint version. If not specified, the default endpoint is used.</p>
-   * @public
-   */
-  qualifier?: string | undefined;
-
-  /**
-   * <p>The API schema configuration that defines the structure of the runtime target's API.</p>
-   * @public
-   */
-  schema?: HttpApiSchemaConfiguration | undefined;
-}
-
-/**
- * <p>The source identifying the HTTP connector integration.</p>
- * @public
- */
-export interface HttpConnectorSource {
-  /**
-   * <p>The identifier for the HTTP connector integration.</p>
-   * @public
-   */
-  connectorId: string | undefined;
-}
-
-/**
- * <p>The configuration for an HTTP connector target. Use this configuration when you want to route HTTP requests through a managed connector.</p>
- * @public
- */
-export interface HttpConnectorTargetConfiguration {
-  /**
-   * <p>The source configuration identifying which HTTP connector to use.</p>
-   * @public
-   */
-  source: HttpConnectorSource | undefined;
-
-  /**
-   * <p>The resource parameters for this connector (for example, <code>memoryId</code>). The service validates these parameters against the request path at runtime.</p>
-   * @public
-   */
-  parameters?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The configuration for session-sticky routing to a target. Session stickiness routes requests that share a session identifier to the same target.</p>
- * @public
- */
-export interface StickinessConfiguration {
-  /**
-   * <p>The expression that identifies where to extract the session identifier from the request (for example, <code>$context.header.x-session-id</code>).</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The session stickiness timeout, in seconds. After this duration of inactivity, the session affinity expires. Valid values range from 1 to 86400.</p>
-   * @public
-   */
-  timeout?: number | undefined;
-
-  /**
-   * <p>Additional headers to include in session affinity routing. When set, requests are only considered part of the same session if both the <code>identifier</code> and all composite identifier values match.</p>
-   * @public
-   */
-  compositeIdentifier?: string[] | undefined;
-}
-
-/**
- * <p>The configuration for an HTTP passthrough target. A passthrough target forwards requests directly to an external HTTP endpoint.</p>
- * @public
- */
-export interface PassthroughTargetConfiguration {
-  /**
-   * <p>The HTTPS endpoint that the gateway forwards requests to for this passthrough target.</p>
-   * @public
-   */
-  endpoint: string | undefined;
-
-  /**
-   * <p>The application protocol that the passthrough target implements. This value is required for passthrough targets:</p> <ul> <li> <p> <code>MCP</code> - The Model Context Protocol.</p> </li> <li> <p> <code>A2A</code> - The Agent-to-Agent protocol.</p> </li> <li> <p> <code>INFERENCE</code> - The protocol for routing requests to a large language model (LLM) provider.</p> </li> <li> <p> <code>CUSTOM</code> - A custom application protocol.</p> </li> </ul>
-   * @public
-   */
-  protocolType: PassthroughProtocolType | undefined;
-
-  /**
-   * <p>The API schema configuration that defines the structure of the passthrough target's API.</p>
-   * @public
-   */
-  schema?: HttpApiSchemaConfiguration | undefined;
-
-  /**
-   * <p>The session stickiness configuration for the passthrough target. This configuration routes requests within the same session to the same target.</p>
-   * @public
-   */
-  stickinessConfiguration?: StickinessConfiguration | undefined;
-
-  /**
-   * <p>A map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target. The total outbound URL length, which includes the endpoint and the percent-encoded query parameters, is enforced by the service.</p>
-   * @public
-   */
-  staticQueryParameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. If not set, defaults to <code>CLIENT_OVERRIDE</code>:</p> <ul> <li> <p> <code>CLIENT_OVERRIDE</code> - The client-supplied value overrides the configured static value for that parameter name.</p> </li> <li> <p> <code>STATIC_OVERRIDE</code> - The configured static value is retained, overriding the client-supplied value for that parameter name.</p> </li> </ul>
-   * @public
-   */
-  staticQueryParameterConflictResolution?: StaticQueryParameterConflictResolution | undefined;
-}
-
-/**
- * <p>The HTTP target configuration for a gateway target. Contains the configuration for HTTP-based target endpoints.</p>
- * @public
- */
-export type HttpTargetConfiguration =
-  | HttpTargetConfiguration.AgentcoreRuntimeMember
-  | HttpTargetConfiguration.ConnectorMember
-  | HttpTargetConfiguration.PassthroughMember
-  | HttpTargetConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HttpTargetConfiguration {
-  /**
-   * <p>The AgentCore Runtime target configuration for HTTP-based communication with an agent runtime.</p>
-   * @public
-   */
-  export interface AgentcoreRuntimeMember {
-    agentcoreRuntime: RuntimeTargetConfiguration;
-    passthrough?: never;
-    connector?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The passthrough configuration for the HTTP target. A passthrough target forwards requests directly to an external HTTP endpoint.</p>
-   * @public
-   */
-  export interface PassthroughMember {
-    agentcoreRuntime?: never;
-    passthrough: PassthroughTargetConfiguration;
-    connector?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The connector-based configuration for the HTTP target. Use this configuration when you want to route HTTP requests through a managed connector.</p>
-   * @public
-   */
-  export interface ConnectorMember {
-    agentcoreRuntime?: never;
-    passthrough?: never;
-    connector: HttpConnectorTargetConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    agentcoreRuntime?: never;
-    passthrough?: never;
-    connector?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    agentcoreRuntime: (value: RuntimeTargetConfiguration) => T;
-    passthrough: (value: PassthroughTargetConfiguration) => T;
-    connector: (value: HttpConnectorTargetConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The source identifying the inference connector.</p>
- * @public
- */
-export interface InferenceConnectorSource {
-  /**
-   * <p>The identifier for the inference connector (for example, <code>bedrock-mantle</code>, <code>openai</code>, or <code>anthropic</code>).</p>
-   * @public
-   */
-  connectorId: string | undefined;
 }
 
 /**

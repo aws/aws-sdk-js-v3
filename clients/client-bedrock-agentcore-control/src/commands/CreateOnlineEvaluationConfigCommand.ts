@@ -57,7 +57,10 @@ export interface CreateOnlineEvaluationConfigCommandOutput extends CreateOnlineE
  *   },
  *   dataSourceConfig: { // DataSourceConfig Union: only one key present
  *     cloudWatchLogs: { // CloudWatchLogsInputConfig
- *       logGroupNames: [ // LogGroupNamesList // required
+ *       logGroupNames: [ // LogGroupNamesList
+ *         "STRING_VALUE",
+ *       ],
+ *       logGroupNamePrefixes: [ // LogGroupNamePrefixList
  *         "STRING_VALUE",
  *       ],
  *       serviceNames: [ // ServiceNamesList // required
@@ -80,6 +83,13 @@ export interface CreateOnlineEvaluationConfigCommandOutput extends CreateOnlineE
  *       "DAILY" || "WEEKLY" || "MONTHLY",
  *     ],
  *   },
+ *   outputConfig: { // OutputConfig
+ *     cloudWatchConfig: { // CloudWatchOutputConfig
+ *       logGroupName: "STRING_VALUE",
+ *       metricsNamespace: "STRING_VALUE",
+ *       resultDestination: "DEDICATED_LOG_GROUP" || "SOURCE_LOG_GROUP",
+ *     },
+ *   },
  *   evaluationExecutionRoleArn: "STRING_VALUE", // required
  *   enableOnCreate: true || false, // required
  *   tags: { // TagsMap
@@ -94,7 +104,9 @@ export interface CreateOnlineEvaluationConfigCommandOutput extends CreateOnlineE
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   outputConfig: { // OutputConfig
  * //     cloudWatchConfig: { // CloudWatchOutputConfig
- * //       logGroupName: "STRING_VALUE", // required
+ * //       logGroupName: "STRING_VALUE",
+ * //       metricsNamespace: "STRING_VALUE",
+ * //       resultDestination: "DEDICATED_LOG_GROUP" || "SOURCE_LOG_GROUP",
  * //     },
  * //   },
  * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING" || "ERROR", // required
