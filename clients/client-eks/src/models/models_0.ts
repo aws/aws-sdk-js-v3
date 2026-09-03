@@ -1132,8 +1132,15 @@ export interface Provider {
  */
 export interface EncryptionConfig {
   /**
-   * <p>Specifies the resources to be encrypted. The only supported value is
+   * <important>
+   *             <p>Amazon EKS encrypts all Kubernetes API data with envelope encryption by default for
+   *                 clusters running Kubernetes version 1.28 or higher, so this field no longer affects which
+   *                 resources are encrypted.</p>
+   *          </important>
+   *          <p>Specifies the resources to be encrypted. The only supported value is
    *                 <code>secrets</code>.</p>
+   *
+   * @deprecated (since 2025-03-05) Deprecated. Amazon EKS encrypts all Kubernetes API data by default, so this value no longer determines which resources are encrypted.
    * @public
    */
   resources?: string[] | undefined;
