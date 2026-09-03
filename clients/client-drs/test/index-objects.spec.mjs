@@ -335,6 +335,7 @@ import {
   SourceNetworkData$,
   SourceProperties$,
   SourceServer$,
+  SourceServerArchitecture,
   StagingArea$,
   StagingSourceServer$,
   StartFailbackLaunch$,
@@ -818,6 +819,7 @@ assert(typeof ReplicationConfigurationEbsEncryption === "object");
 assert(typeof ReplicationConfigurationReplicatedDiskStagingDiskType === "object");
 assert(typeof ReplicationDirection === "object");
 assert(typeof ReplicationStatus === "object");
+assert(typeof SourceServerArchitecture === "object");
 assert(typeof TargetInstanceTypeRightSizingMethod === "object");
 assert(typeof ValidationExceptionReason === "object");
 assert(typeof VolumeStatus === "object");

@@ -125,6 +125,7 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  * //       fullString: "STRING_VALUE",
  * //     },
  * //     supportsNitroInstances: true || false,
+ * //     architecture: "STRING_VALUE",
  * //   },
  * //   stagingArea: { // StagingArea
  * //     status: "STRING_VALUE",

@@ -254,6 +254,7 @@ export type {
   ReplicationConfigurationReplicatedDiskStagingDiskType,
   ReplicationDirection,
   ReplicationStatus,
+  SourceServerArchitecture,
   TargetInstanceTypeRightSizingMethod,
   ValidationExceptionReason,
   VolumeStatus,

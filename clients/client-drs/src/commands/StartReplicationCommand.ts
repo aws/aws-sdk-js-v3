@@ -126,6 +126,7 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * //         fullString: "STRING_VALUE",
  * //       },
  * //       supportsNitroInstances: true || false,
+ * //       architecture: "STRING_VALUE",
  * //     },
  * //     stagingArea: { // StagingArea
  * //       status: "STRING_VALUE",

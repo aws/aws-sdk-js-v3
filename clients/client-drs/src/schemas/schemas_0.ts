@@ -341,6 +341,7 @@ const _aVg = "agentVersion";
 const _ac = "active";
 const _acc = "accounts";
 const _act = "action";
+const _ar = "architecture";
 const _at = "attempt";
 const _b = "bytes";
 const _bSB = "backloggedStorageBytes";
@@ -1484,8 +1485,8 @@ export var SourceNetworkData$: StaticStructureSchema = [3, n0, _SND,
 ];
 export var SourceProperties$: StaticStructureSchema = [3, n0, _SP,
   0,
-  [_lUDT, _rIT, _iH, _nI, _di, _cp, _rB, _os, _sNI],
-  [0, 0, () => IdentificationHints$, () => NetworkInterfaces, () => Disks, () => Cpus, 1, () => OS$, 2]
+  [_lUDT, _rIT, _iH, _nI, _di, _cp, _rB, _os, _sNI, _ar],
+  [0, 0, () => IdentificationHints$, () => NetworkInterfaces, () => Disks, () => Cpus, 1, () => OS$, 2, 0]
 ];
 export var SourceServer$: StaticStructureSchema = [3, n0, _SS,
   0,

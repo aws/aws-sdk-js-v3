@@ -126,6 +126,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * //         fullString: "STRING_VALUE",
  * //       },
  * //       supportsNitroInstances: true || false,
+ * //       architecture: "STRING_VALUE",
  * //     },
  * //     stagingArea: { // StagingArea
  * //       status: "STRING_VALUE",

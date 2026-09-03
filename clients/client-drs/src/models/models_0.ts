@@ -42,6 +42,7 @@ import type {
   ReplicationConfigurationReplicatedDiskStagingDiskType,
   ReplicationDirection,
   ReplicationStatus,
+  SourceServerArchitecture,
   TargetInstanceTypeRightSizingMethod,
   VolumeStatus,
 } from "./enums";
@@ -990,6 +991,12 @@ export interface SourceProperties {
    * @public
    */
   supportsNitroInstances?: boolean | undefined;
+
+  /**
+   * <p>The architecture of the Source Server.</p>
+   * @public
+   */
+  architecture?: SourceServerArchitecture | undefined;
 }
 
 /**

@@ -325,6 +325,19 @@ export type ReplicationDirection = (typeof ReplicationDirection)[keyof typeof Re
  * @public
  * @enum
  */
+export const SourceServerArchitecture = {
+  ARM64: "arm64",
+  X86_64: "x86_64",
+} as const;
+/**
+ * @public
+ */
+export type SourceServerArchitecture = (typeof SourceServerArchitecture)[keyof typeof SourceServerArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExtensionStatus = {
   EXTENDED: "EXTENDED",
   EXTENSION_ERROR: "EXTENSION_ERROR",
