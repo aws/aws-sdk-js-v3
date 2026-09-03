@@ -61,6 +61,7 @@ import type {
   QueueInfo,
   RecordingInfo,
   TaskTemplateInfoV2,
+  UserPhoneConfig,
   View,
   ViewInputContent,
   WisdomInfo,
@@ -111,6 +112,35 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * <p>The response from updating a user's notification status.</p>
+ * @public
+ */
+export interface UpdateUserNotificationStatusResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateUserPhoneConfigRequest {
+  /**
+   * <p>Information about phone configuration settings for the user.</p>
+   * @public
+   */
+  PhoneConfig: UserPhoneConfig | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
 
 /**
  * @public

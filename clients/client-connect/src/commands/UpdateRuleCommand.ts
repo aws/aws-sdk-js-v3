@@ -140,6 +140,17 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *     },
  *   ],
  *   PublishStatus: "DRAFT" || "PUBLISHED", // required
+ *   PreEvaluationFilters: { // PreEvaluationFilters
+ *     AndConditions: [ // PreEvaluationFilterList
+ *       { // PreEvaluationFilter
+ *         ResourceType: "CONTACT", // required
+ *         FilterType: "TAG", // required
+ *         FilterKey: "STRING_VALUE", // required
+ *         FilterValue: "STRING_VALUE", // required
+ *         Operator: "EQUALS", // required
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);

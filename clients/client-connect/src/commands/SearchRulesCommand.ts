@@ -107,6 +107,17 @@ export interface SearchRulesCommandOutput extends SearchRulesResponse, __Metadat
  * //         "GenerativeAI",
  * //       ],
  * //       PublishStatus: "DRAFT" || "PUBLISHED", // required
+ * //       PreEvaluationFilters: { // PreEvaluationFilters
+ * //         AndConditions: [ // PreEvaluationFilterList
+ * //           { // PreEvaluationFilter
+ * //             ResourceType: "CONTACT", // required
+ * //             FilterType: "TAG", // required
+ * //             FilterKey: "STRING_VALUE", // required
+ * //             FilterValue: "STRING_VALUE", // required
+ * //             Operator: "EQUALS", // required
+ * //           },
+ * //         ],
+ * //       },
  * //       CreatedTime: new Date("TIMESTAMP"), // required
  * //       LastUpdatedTime: new Date("TIMESTAMP"), // required
  * //       LastUpdatedBy: "STRING_VALUE", // required

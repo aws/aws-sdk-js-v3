@@ -1214,6 +1214,7 @@ const _FSIB = "FileSizeInBytes";
 const _FSN = "FragmentStartNumber";
 const _FSNr = "FragmentStopNumber";
 const _FSU = "FileSourceUri";
+const _FT = "FilterType";
 const _FUCT = "FileUseCaseType";
 const _FV = "FieldValue";
 const _FVL = "FiltersV2List";
@@ -1222,6 +1223,7 @@ const _FVU = "FieldValueUnion";
 const _FVi = "FilterV2";
 const _FVie = "FieldValues";
 const _FVil = "FilterValues";
+const _FVilt = "FilterValue";
 const _Fa = "Favicon";
 const _Fi = "Files";
 const _Fie = "Fields";
@@ -1907,6 +1909,9 @@ const _PD = "ParticipantDetails";
 const _PDI = "PotentialDisconnectIssue";
 const _PDTA = "ParticipantDetailsToAdd";
 const _PDr = "ProblemDetail";
+const _PEF = "PreEvaluationFilters";
+const _PEFL = "PreEvaluationFilterList";
+const _PEFr = "PreEvaluationFilter";
 const _PES = "PrimaryEventSource";
 const _PESETT = "PrimaryEventSourceEffectiveTimestampType";
 const _PET = "PreviewEndTimestamp";
@@ -4406,8 +4411,8 @@ export var CreateRoutingProfileResponse$: StaticStructureSchema = [3, n0, _CRPRr
 ];
 export var CreateRuleRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_II, _N, _TES, _Fu, _Ac, _PS, _CT],
-  [[0, 1], 0, () => RuleTriggerEventSource$, 0, () => RuleActions, 0, [0, 4]], 6
+  [_II, _N, _TES, _Fu, _Ac, _PS, _PEF, _CT, _Ta],
+  [[0, 1], 0, () => RuleTriggerEventSource$, 0, () => RuleActions, 0, () => PreEvaluationFilters$, [0, 4], 128 | 0], 6
 ];
 export var CreateRuleResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -7494,6 +7499,16 @@ export var PredefinedAttributeSummary$: StaticStructureSchema = [3, n0, _PAS,
   [_N, _LMT, _LMR],
   [0, 4, 0]
 ];
+export var PreEvaluationFilter$: StaticStructureSchema = [3, n0, _PEFr,
+  0,
+  [_RT, _FT, _FK, _FVilt, _Ope],
+  [0, 0, 0, 0, 0], 5
+];
+export var PreEvaluationFilters$: StaticStructureSchema = [3, n0, _PEF,
+  0,
+  [_ACn],
+  [() => PreEvaluationFilterList]
+];
 export var Preview$: StaticStructureSchema = [3, n0, _Pr,
   0,
   [_PATC, _AUA],
@@ -7901,8 +7916,8 @@ export var RoutingProfileSummary$: StaticStructureSchema = [3, n0, _RPS,
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _Ru,
   0,
-  [_N, _RIu, _RAu, _TES, _Fu, _Ac, _PS, _CTre, _LUTa, _LUB, _RCT, _Ta],
-  [0, 0, 0, () => RuleTriggerEventSource$, 0, () => RuleActions, 0, 4, 4, 0, 64 | 0, 128 | 0], 10
+  [_N, _RIu, _RAu, _TES, _Fu, _Ac, _PS, _CTre, _LUTa, _LUB, _RCT, _PEF, _Ta],
+  [0, 0, 0, () => RuleTriggerEventSource$, 0, () => RuleActions, 0, 4, 4, 0, 64 | 0, () => PreEvaluationFilters$, 128 | 0], 10
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAul,
   0,
@@ -7926,8 +7941,8 @@ export var RulesConfiguration$: StaticStructureSchema = [3, n0, _RCu,
 ];
 export var RuleSearchSummary$: StaticStructureSchema = [3, n0, _RSSu,
   0,
-  [_N, _RIu, _RAu, _TES, _ASc, _PS, _CTre, _LUTa, _LUB, _RCT, _Ta],
-  [0, 0, 0, () => RuleTriggerEventSource$, () => ActionSummaries, 0, 4, 4, 0, 64 | 0, 128 | 0], 9
+  [_N, _RIu, _RAu, _TES, _ASc, _PS, _CTre, _LUTa, _LUB, _RCT, _PEF, _Ta],
+  [0, 0, 0, () => RuleTriggerEventSource$, () => ActionSummaries, 0, 4, 4, 0, 64 | 0, () => PreEvaluationFilters$, 128 | 0], 9
 ];
 export var RulesExtractionDefinitionIdentifier$: StaticStructureSchema = [3, n0, _REDI,
   0,
@@ -9246,8 +9261,8 @@ export var UpdateRoutingProfileQueuesRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdateRuleRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_RIu, _II, _N, _Fu, _Ac, _PS],
-  [[0, 1], [0, 1], 0, 0, () => RuleActions, 0], 6
+  [_RIu, _II, _N, _Fu, _Ac, _PS, _PEF],
+  [[0, 1], [0, 1], 0, 0, () => RuleActions, 0, () => PreEvaluationFilters$], 6
 ];
 export var UpdateSecurityProfileRequest$: StaticStructureSchema = [3, n0, _USPR,
   0,
@@ -10175,6 +10190,9 @@ var PredefinedAttributeSearchSummaryList: StaticListSchema = [1, n0, _PASSL,
 var PredefinedAttributeStringValuesList = 64 | 0;
 var PredefinedAttributeSummaryList: StaticListSchema = [1, n0, _PASL,
   0, () => PredefinedAttributeSummary$
+];
+var PreEvaluationFilterList: StaticListSchema = [1, n0, _PEFL,
+  0, () => PreEvaluationFilter$
 ];
 var PrimaryAttributeValueFilters: StaticListSchema = [1, n0, _PAVFr,
   0, () => PrimaryAttributeValueFilter$

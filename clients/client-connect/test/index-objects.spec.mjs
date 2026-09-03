@@ -1646,6 +1646,11 @@ import {
   PredefinedAttributeSearchCriteria$,
   PredefinedAttributeSummary$,
   PredefinedAttributeValues$,
+  PreEvaluationFilter$,
+  PreEvaluationFilterOperator,
+  PreEvaluationFilterResourceType,
+  PreEvaluationFilters$,
+  PreEvaluationFilterType,
   Preview$,
   PrimaryAttributeAccessControlConfigurationItem$,
   PrimaryAttributeValue$,
@@ -4083,6 +4088,8 @@ assert(typeof PredefinedAttributeConfiguration$ === "object");
 assert(typeof PredefinedAttributeSearchCriteria$ === "object");
 assert(typeof PredefinedAttributeSummary$ === "object");
 assert(typeof PredefinedAttributeValues$ === "object");
+assert(typeof PreEvaluationFilter$ === "object");
+assert(typeof PreEvaluationFilters$ === "object");
 assert(typeof Preview$ === "object");
 assert(typeof PrimaryAttributeAccessControlConfigurationItem$ === "object");
 assert(typeof PrimaryAttributeValue$ === "object");
@@ -4660,6 +4667,9 @@ assert(typeof PhoneNumberType === "object");
 assert(typeof PhoneNumberWorkflowStatus === "object");
 assert(typeof PhoneType === "object");
 assert(typeof Policy === "object");
+assert(typeof PreEvaluationFilterOperator === "object");
+assert(typeof PreEvaluationFilterResourceType === "object");
+assert(typeof PreEvaluationFilterType === "object");
 assert(typeof PropertyValidationExceptionReason === "object");
 assert(typeof QuestionRuleCategoryAutomationCondition === "object");
 assert(typeof QueueStatus === "object");

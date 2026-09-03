@@ -64,6 +64,9 @@ import type {
   ParticipantRole,
   ParticipantState,
   PerformanceCategoryName,
+  PreEvaluationFilterOperator,
+  PreEvaluationFilterResourceType,
+  PreEvaluationFilterType,
   PropertyValidationExceptionReason,
   QuickConnectType,
   RecurrenceFrequency,
@@ -7318,6 +7321,58 @@ export interface RuleAction {
 }
 
 /**
+ * <p>A single pre-evaluation filter condition. Specifies a resource type, filter type, key, value, and operator
+ *    to match against a resource attribute.</p>
+ * @public
+ */
+export interface PreEvaluationFilter {
+  /**
+   * <p>The type of resource to filter on. Valid values: <code>CONTACT</code>.</p>
+   * @public
+   */
+  ResourceType: PreEvaluationFilterResourceType | undefined;
+
+  /**
+   * <p>The type of filter to apply. Valid values: <code>TAG</code>.</p>
+   * @public
+   */
+  FilterType: PreEvaluationFilterType | undefined;
+
+  /**
+   * <p>The key of the attribute to filter on. For tag filters, this is the tag key.</p>
+   * @public
+   */
+  FilterKey: string | undefined;
+
+  /**
+   * <p>The value to match against. For tag filters, this is the tag value.</p>
+   * @public
+   */
+  FilterValue: string | undefined;
+
+  /**
+   * <p>The comparison operator for the filter condition. Valid values: <code>EQUALS</code>.</p>
+   * @public
+   */
+  Operator: PreEvaluationFilterOperator | undefined;
+}
+
+/**
+ * <p>The pre-evaluation filters for a rule, that restrict a rule to be applied to only certain resources based on
+ *    the resource's attributes, such as tags assigned to a contact. The pre-evaluation filters are applied even before
+ *    rule conditions are evaluated and are used to enforce tag-based-access-control while applying rules.</p>
+ * @public
+ */
+export interface PreEvaluationFilters {
+  /**
+   * <p>A list of conditions that the rule evaluates together using AND logic. All conditions must be met for
+   *    the event to be evaluated by the rule.</p>
+   * @public
+   */
+  AndConditions?: PreEvaluationFilter[] | undefined;
+}
+
+/**
  * <p>The name of the event source. This field is required if <code>TriggerEventSource</code> is one of the following values:
  *     <code>OnZendeskTicketCreate</code> | <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
  *    | <code>OnContactEvaluationSubmit</code> | <code>OnMetricDataUpdate</code>.</p>
@@ -7378,6 +7433,14 @@ export interface CreateRuleRequest {
   PublishStatus: RulePublishStatus | undefined;
 
   /**
+   * <p>The pre-evaluation filters for the rule, that restrict the rule to be applied to only certain resources based
+   *    on the resource's attributes, such as tags assigned to a contact. The pre-evaluation filters are applied even before
+   *    rule conditions are evaluated and are used to enforce tag-based-access-control while applying rules.</p>
+   * @public
+   */
+  PreEvaluationFilters?: PreEvaluationFilters | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
@@ -7385,6 +7448,12 @@ export interface CreateRuleRequest {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -7832,40 +7901,4 @@ export interface PropertyValidationExceptionProperty {
    * @public
    */
   Message: string | undefined;
-}
-
-/**
- * <p>Parameters for initiating a chat test.</p>
- * @public
- */
-export interface ChatEntryPointParameters {
-  /**
-   * <p>The flow identifier for the test.</p>
-   * @public
-   */
-  FlowId?: string | undefined;
-}
-
-/**
- * <p>Parameters for initiating a voice call test.</p>
- * @public
- */
-export interface VoiceCallEntryPointParameters {
-  /**
-   * <p>The source phone number for the test.</p>
-   * @public
-   */
-  SourcePhoneNumber?: string | undefined;
-
-  /**
-   * <p>The destination phone number for the test.</p>
-   * @public
-   */
-  DestinationPhoneNumber?: string | undefined;
-
-  /**
-   * <p>The flow identifier for the test.</p>
-   * @public
-   */
-  FlowId?: string | undefined;
 }

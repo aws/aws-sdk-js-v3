@@ -13,7 +13,6 @@ import type {
   ContactFlowType,
   ContactMetricName,
   ContactParticipantRole,
-  CurrentMetricName,
   DataTableAttributeValueType,
   DataTableLockLevel,
   DataTableStatus,
@@ -60,7 +59,6 @@ import type {
   TestCaseStatus,
   TrafficDistributionGroupStatus,
   TrendIndicator,
-  Unit,
   UseCaseType,
   ViewStatus,
   ViewType,
@@ -79,7 +77,6 @@ import type {
   AliasConfiguration,
   AllowedExtension,
   AudioQualityMetricsInfo,
-  ChatEntryPointParameters,
   CreatedByInfo,
   DataTableLockVersion,
   DeviceInfo,
@@ -99,6 +96,7 @@ import type {
   OutboundEmailConfig,
   ParticipantCapabilities,
   PredefinedAttributeValues,
+  PreEvaluationFilters,
   PrimaryValue,
   QuickConnectConfig,
   RecurrenceConfig,
@@ -108,8 +106,43 @@ import type {
   SecurityProfileItem,
   SuccessfulBatchAssociationSummary,
   Validation,
-  VoiceCallEntryPointParameters,
 } from "./models_0";
+
+/**
+ * <p>Parameters for initiating a chat test.</p>
+ * @public
+ */
+export interface ChatEntryPointParameters {
+  /**
+   * <p>The flow identifier for the test.</p>
+   * @public
+   */
+  FlowId?: string | undefined;
+}
+
+/**
+ * <p>Parameters for initiating a voice call test.</p>
+ * @public
+ */
+export interface VoiceCallEntryPointParameters {
+  /**
+   * <p>The source phone number for the test.</p>
+   * @public
+   */
+  SourcePhoneNumber?: string | undefined;
+
+  /**
+   * <p>The destination phone number for the test.</p>
+   * @public
+   */
+  DestinationPhoneNumber?: string | undefined;
+
+  /**
+   * <p>The flow identifier for the test.</p>
+   * @public
+   */
+  FlowId?: string | undefined;
+}
 
 /**
  * <p>Defines the starting point for a test case.</p>
@@ -6200,6 +6233,14 @@ export interface Rule {
   PublishStatus: RulePublishStatus | undefined;
 
   /**
+   * <p>The pre-evaluation filters for the rule, that restrict the rule to be applied to only certain resources based
+   *    on the resource's attributes, such as tags assigned to a contact. The pre-evaluation filters are applied even before
+   *    rule conditions are evaluated and are used to enforce tag-based-access-control while applying rules.</p>
+   * @public
+   */
+  PreEvaluationFilters?: PreEvaluationFilters | undefined;
+
+  /**
    * <p>The timestamp for when the rule was created.</p>
    * @public
    */
@@ -8173,47 +8214,4 @@ export interface GetCrossRegionRoutingRequest {
    * @public
    */
   InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrossRegionRoutingResponse {
-  /**
-   * <p>The list of Regions for which cross-region routing is currently disabled (isolated). When a Region
-   *    appears in this list, contacts originating in that Region will not be routed to agents in other Regions,
-   *    and agents in that Region will not receive contacts from other Regions.</p>
-   * @public
-   */
-  IsolatedRegions?: string[] | undefined;
-}
-
-/**
- * <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
- *          <important>
- *             <p>Only one of either the Name or MetricId is required.</p>
- *          </important>
- * @public
- */
-export interface CurrentMetric {
-  /**
-   * <p>The name of the metric.</p>
-   * @public
-   */
-  Name?: CurrentMetricName | undefined;
-
-  /**
-   * <p>Out of the box current metrics or custom metrics can be referenced via this field. This field is a valid AWS Connect Arn or a UUID.</p>
-   * @public
-   */
-  MetricId?: string | undefined;
-
-  /**
-   * <note>
-   *             <p>The Unit parameter is not supported for custom metrics.</p>
-   *          </note>
-   *          <p>The unit for the metric.</p>
-   * @public
-   */
-  Unit?: Unit | undefined;
 }

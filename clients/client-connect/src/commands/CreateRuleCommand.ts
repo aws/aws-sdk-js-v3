@@ -143,7 +143,21 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *     },
  *   ],
  *   PublishStatus: "DRAFT" || "PUBLISHED", // required
+ *   PreEvaluationFilters: { // PreEvaluationFilters
+ *     AndConditions: [ // PreEvaluationFilterList
+ *       { // PreEvaluationFilter
+ *         ResourceType: "CONTACT", // required
+ *         FilterType: "TAG", // required
+ *         FilterKey: "STRING_VALUE", // required
+ *         FilterValue: "STRING_VALUE", // required
+ *         Operator: "EQUALS", // required
+ *       },
+ *     ],
+ *   },
  *   ClientToken: "STRING_VALUE",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);

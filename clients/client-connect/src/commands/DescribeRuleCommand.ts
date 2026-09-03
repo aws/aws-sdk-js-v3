@@ -152,6 +152,17 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //       },
  * //     ],
  * //     PublishStatus: "DRAFT" || "PUBLISHED", // required
+ * //     PreEvaluationFilters: { // PreEvaluationFilters
+ * //       AndConditions: [ // PreEvaluationFilterList
+ * //         { // PreEvaluationFilter
+ * //           ResourceType: "CONTACT", // required
+ * //           FilterType: "TAG", // required
+ * //           FilterKey: "STRING_VALUE", // required
+ * //           FilterValue: "STRING_VALUE", // required
+ * //           Operator: "EQUALS", // required
+ * //         },
+ * //       ],
+ * //     },
  * //     CreatedTime: new Date("TIMESTAMP"), // required
  * //     LastUpdatedTime: new Date("TIMESTAMP"), // required
  * //     LastUpdatedBy: "STRING_VALUE", // required

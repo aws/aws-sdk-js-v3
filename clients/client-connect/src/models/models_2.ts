@@ -101,7 +101,6 @@ import type {
 } from "./models_0";
 import type {
   Attribute,
-  CurrentMetric,
   DataTableAttribute,
   EvaluationContactParticipant,
   EvaluationScore,
@@ -111,6 +110,49 @@ import type {
   HoursOfOperationsIdentifier,
   Notification,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetCrossRegionRoutingResponse {
+  /**
+   * <p>The list of Regions for which cross-region routing is currently disabled (isolated). When a Region
+   *    appears in this list, contacts originating in that Region will not be routed to agents in other Regions,
+   *    and agents in that Region will not receive contacts from other Regions.</p>
+   * @public
+   */
+  IsolatedRegions?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
+ *          <important>
+ *             <p>Only one of either the Name or MetricId is required.</p>
+ *          </important>
+ * @public
+ */
+export interface CurrentMetric {
+  /**
+   * <p>The name of the metric.</p>
+   * @public
+   */
+  Name?: CurrentMetricName | undefined;
+
+  /**
+   * <p>Out of the box current metrics or custom metrics can be referenced via this field. This field is a valid AWS Connect Arn or a UUID.</p>
+   * @public
+   */
+  MetricId?: string | undefined;
+
+  /**
+   * <note>
+   *             <p>The Unit parameter is not supported for custom metrics.</p>
+   *          </note>
+   *          <p>The unit for the metric.</p>
+   * @public
+   */
+  Unit?: Unit | undefined;
+}
 
 /**
  * <p>Contains the filter to apply when retrieving metrics.</p>
@@ -11089,45 +11131,4 @@ export interface SearchAvailablePhoneNumbersRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>Information about available phone numbers.</p>
- * @public
- */
-export interface AvailableNumberSummary {
-  /**
-   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
-   * @public
-   */
-  PhoneNumber?: string | undefined;
-
-  /**
-   * <p>The ISO country code.</p>
-   * @public
-   */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode | undefined;
-
-  /**
-   * <p>The type of phone number.</p>
-   * @public
-   */
-  PhoneNumberType?: PhoneNumberType | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchAvailablePhoneNumbersResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of available phone numbers that you can claim to your Connect Customer instance or traffic distribution group.</p>
-   * @public
-   */
-  AvailableNumbersList?: AvailableNumberSummary[] | undefined;
 }

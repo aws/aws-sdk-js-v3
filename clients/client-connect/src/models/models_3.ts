@@ -51,6 +51,8 @@ import type {
   ParticipantTimerAction,
   ParticipantTimerType,
   PerformanceCategoryName,
+  PhoneNumberCountryCode,
+  PhoneNumberType,
   Policy,
   QueueStatus,
   RehydrationType,
@@ -102,6 +104,7 @@ import type {
   OutboundEmailConfig,
   OutboundStrategy,
   PredefinedAttributeValues,
+  PreEvaluationFilters,
   PrimaryValue,
   QuickConnectConfig,
   RecurrenceConfig,
@@ -143,6 +146,47 @@ import type {
   VoiceEnhancementConfig,
 } from "./models_1";
 import type { SignInConfig, TelephonyConfig } from "./models_2";
+
+/**
+ * <p>Information about available phone numbers.</p>
+ * @public
+ */
+export interface AvailableNumberSummary {
+  /**
+   * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
+   * @public
+   */
+  PhoneNumber?: string | undefined;
+
+  /**
+   * <p>The ISO country code.</p>
+   * @public
+   */
+  PhoneNumberCountryCode?: PhoneNumberCountryCode | undefined;
+
+  /**
+   * <p>The type of phone number.</p>
+   * @public
+   */
+  PhoneNumberType?: PhoneNumberType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAvailablePhoneNumbersResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of available phone numbers that you can claim to your Connect Customer instance or traffic distribution group.</p>
+   * @public
+   */
+  AvailableNumbersList?: AvailableNumberSummary[] | undefined;
+}
 
 /**
  * <p>A boolean search condition for Search APIs.</p>
@@ -2259,6 +2303,14 @@ export interface RuleSearchSummary {
    * @public
    */
   PublishStatus: RulePublishStatus | undefined;
+
+  /**
+   * <p>The pre-evaluation filters for the rule, that restrict the rule to be applied to only certain resources based
+   *    on the resource's attributes, such as tags assigned to a contact. The pre-evaluation filters are applied even before
+   *    rule conditions are evaluated and are used to enforce tag-based-access-control while applying rules.</p>
+   * @public
+   */
+  PreEvaluationFilters?: PreEvaluationFilters | undefined;
 
   /**
    * <p>The timestamp for when the rule was created.</p>
@@ -7441,6 +7493,14 @@ export interface UpdateRuleRequest {
    * @public
    */
   PublishStatus: RulePublishStatus | undefined;
+
+  /**
+   * <p>The pre-evaluation filters for the rule, that restrict the rule to be applied to only certain resources based
+   *    on the resource's attributes, such as tags assigned to a contact. The pre-evaluation filters are applied even before
+   *    rule conditions are evaluated and are used to enforce tag-based-access-control while applying rules.</p>
+   * @public
+   */
+  PreEvaluationFilters?: PreEvaluationFilters | undefined;
 }
 
 /**
@@ -8003,33 +8063,4 @@ export interface UpdateUserNotificationStatusRequest {
    * @public
    */
   LastModifiedRegion?: string | undefined;
-}
-
-/**
- * <p>The response from updating a user's notification status.</p>
- * @public
- */
-export interface UpdateUserNotificationStatusResponse {}
-
-/**
- * @public
- */
-export interface UpdateUserPhoneConfigRequest {
-  /**
-   * <p>Information about phone configuration settings for the user.</p>
-   * @public
-   */
-  PhoneConfig: UserPhoneConfig | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
 }

@@ -1292,6 +1292,44 @@ export type NotificationDeliveryType = (typeof NotificationDeliveryType)[keyof t
  * @public
  * @enum
  */
+export const PreEvaluationFilterType = {
+  TAG: "TAG",
+} as const;
+/**
+ * @public
+ */
+export type PreEvaluationFilterType = (typeof PreEvaluationFilterType)[keyof typeof PreEvaluationFilterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreEvaluationFilterOperator = {
+  EQUALS: "EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type PreEvaluationFilterOperator =
+  (typeof PreEvaluationFilterOperator)[keyof typeof PreEvaluationFilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreEvaluationFilterResourceType = {
+  CONTACT: "CONTACT",
+} as const;
+/**
+ * @public
+ */
+export type PreEvaluationFilterResourceType =
+  (typeof PreEvaluationFilterResourceType)[keyof typeof PreEvaluationFilterResourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RulePublishStatus = {
   DRAFT: "DRAFT",
   PUBLISHED: "PUBLISHED",
