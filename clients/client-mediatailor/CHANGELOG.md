@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
+
+
+### Features
+
+* **client-mediatailor:** Elemental MediaTailor now supports two new Monetization Functions lifecycle hooks, Post Ads Response and Pre Manifest Insertion, and a VAST Request function type that calls a VAST or VMAP ad server. This release also adds Yield Optimization with demand from Amazon Publisher Services. ([c238a69](https://github.com/aws/aws-sdk-js-v3/commit/c238a693cf4e9e9fa4bd5ad76f83caa35279ad46))
+
+
+
+
+
 # [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

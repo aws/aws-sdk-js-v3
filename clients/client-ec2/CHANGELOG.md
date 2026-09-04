@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
+
+
+### Features
+
+* **client-ec2:** Adds support for ValidateSecurityGroupQuotasForInterface, an API that specifically authorized AWS services use to validate security group rule quotas before creating an elastic network interface. ([f51c3b3](https://github.com/aws/aws-sdk-js-v3/commit/f51c3b3e30327dd6fa45a9b8398422c7078d905d))
+
+
+
+
+
 # [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

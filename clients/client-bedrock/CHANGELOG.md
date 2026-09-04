@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
+
+
+### Features
+
+* **client-bedrock:** New AWS REVIEW mode as supported data retention mode for Bedrock models ([cbd9ea9](https://github.com/aws/aws-sdk-js-v3/commit/cbd9ea9a4262cb007ed74da234d52e8feef0402f))
+
+
+
+
+
 # [3.1126.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1125.0...v3.1126.0) (2026-09-03)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock
