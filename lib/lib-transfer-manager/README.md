@@ -5,15 +5,15 @@
 
 ## Overview
 
-The S3 Transfer Manager is a high-level transfer utility built on top of the S3 client. It provides a simple API to allow you to transfer files and directories between your application and Amazon S3. The S3 Transfer Manager also enables you to monitor a transfer's progress in real-time.
+Transfer Manager for S3 is a high-level data transfer utility built on top of the S3 client. It provides an API to transfer files and directories between your application and Amazon S3, and enables you to monitor a transfer's progress in real time. The Transfer Manager improves throughput by using parallel multipart transfers, dispatching work across worker threads when available, and optimizing DNS resolution to Amazon S3.
 
 The following transfer operations are supported:
 
-- automatic [multipart upload](#upload-an-object) to S3
-- automatic [multipart download](#download-an-object) from S3
-- upload all files in a directory to an S3 bucket recursively or non-recursively (see [upload a directory](#upload-a-directory))
-- download all objects in a bucket to a local directory recursively or non-recursively (see [download a directory](#download-a-directory))
-- transfer progress listener (see [monitor transfer progress](#monitor-transfer-progress))
+- [Upload an object](#upload-an-object) — seamlessly transitions between a single `PutObject` and a multipart upload (`CreateMultipartUpload` + `UploadPart`s + `CompleteMultipartUpload`) based on the object size.
+- [Download an object](#download-an-object) — downloads large objects in parallel, by part or by byte-range.
+- [Upload a directory](#upload-a-directory) — uploads all files under a local directory, recursively or non-recursively.
+- [Download a directory](#download-a-directory) — downloads all objects under a key prefix into a local directory, mapping the `/` key delimiter to subdirectories.
+- [Transfer progress listeners](#monitor-transfer-progress) — monitor transfer lifecycle events in real time.
 
 ## ⚠️ Developer Preview
 
@@ -30,7 +30,7 @@ npm install @aws-sdk/lib-transfer-manager
 
 ### Instantiate the S3 Transfer Manager
 
-You can instantiate the transfer manager easily using the default settings:
+You can instantiate the transfer manager using the default settings:
 
 ```js
 import { S3TransferManager } from "@aws-sdk/lib-transfer-manager";
@@ -153,8 +153,7 @@ console.log(`Wrote ${result.bytesWritten} bytes`);
 
 ### Upload a directory
 
-Provide the destination `bucket` and the local `source` directory. By default the directory is not
-traversed recursively; set `recursive: true` to include subdirectories.
+Provide the destination `bucket` and the local `source` directory. Each file is uploaded as an object whose key is its path relative to `source`, using `/` as the separator, so subdirectory separators become part of the S3 object key. By default the directory is not traversed recursively; set `recursive: true` to include subdirectories.
 
 ```js
 const result = await tm.uploadDirectory({
@@ -185,8 +184,7 @@ const result = await tm.uploadDirectory({
 
 ### Download a directory
 
-Download the objects under a bucket to a local `destination` directory. Provide the source
-`bucket` and the destination directory; optionally filter which objects are downloaded with
+Download the objects under a bucket to a local `destination` directory. The `/` delimiter in each object key is mapped to local subdirectories. Provide the source `bucket` and the destination directory; optionally filter which objects are downloaded with
 `s3Prefix` or a `filter` callback.
 
 ```js
