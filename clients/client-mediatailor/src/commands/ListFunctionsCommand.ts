@@ -42,7 +42,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //   Items: [ // __listOfFunctionsResponse
  * //     { // Function
  * //       FunctionId: "STRING_VALUE", // required
- * //       FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR", // required
+ * //       FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
  * //       Description: "STRING_VALUE",
  * //       HttpRequestConfiguration: { // HttpRequestConfiguration
  * //         Runtime: "JSONATA", // required
@@ -91,6 +91,15 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //           },
  * //         ],
  * //         TimeoutMilliseconds: Number("int"), // required
+ * //       },
+ * //       VastRequestConfiguration: { // VastRequestConfiguration
+ * //         Runtime: "JSONATA", // required
+ * //         Output: "<__mapOf__string>",
+ * //         MethodType: "GET" || "POST", // required
+ * //         RequestTimeoutMilliseconds: Number("int"), // required
+ * //         Url: "STRING_VALUE", // required
+ * //         Body: "STRING_VALUE",
+ * //         Headers: "<__mapOf__string>",
  * //       },
  * //       Tags: "<__mapOf__string>",
  * //       Arn: "STRING_VALUE",

@@ -16,6 +16,7 @@ import {
   Alert$,
   AlertCategory,
   AlternateMedia$,
+  ApsRegion,
   AudienceMedia$,
   AvailMatchingCriteria$,
   AvailSuppression$,
@@ -303,8 +304,10 @@ import {
   UpdateVodSourceCommand,
   UpdateVodSourceRequest$,
   UpdateVodSourceResponse$,
+  VastRequestConfiguration$,
   VastResponse$,
   VodSource$,
+  YieldOptimizationConfiguration$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -569,8 +572,10 @@ assert(typeof UpdateSourceLocationRequest$ === "object");
 assert(typeof UpdateSourceLocationResponse$ === "object");
 assert(typeof UpdateVodSourceRequest$ === "object");
 assert(typeof UpdateVodSourceResponse$ === "object");
+assert(typeof VastRequestConfiguration$ === "object");
 assert(typeof VastResponse$ === "object");
 assert(typeof VodSource$ === "object");
+assert(typeof YieldOptimizationConfiguration$ === "object");
 // enums
 assert(typeof AccessType === "object");
 assert(typeof AdMarkupType === "object");
@@ -578,6 +583,7 @@ assert(typeof AdSequencingMode === "object");
 assert(typeof AdsInteractionExcludeEventType === "object");
 assert(typeof AdsInteractionPublishOptInEventType === "object");
 assert(typeof AlertCategory === "object");
+assert(typeof ApsRegion === "object");
 assert(typeof ChannelState === "object");
 assert(typeof CompressionMethod === "object");
 assert(typeof EventName === "object");

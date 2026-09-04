@@ -34,7 +34,7 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * const client = new MediaTailorClient(config);
  * const input = { // PutFunctionRequest
  *   FunctionId: "STRING_VALUE", // required
- *   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR", // required
+ *   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
  *   Description: "STRING_VALUE",
  *   HttpRequestConfiguration: { // HttpRequestConfiguration
  *     Runtime: "JSONATA", // required
@@ -84,13 +84,22 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  *     ],
  *     TimeoutMilliseconds: Number("int"), // required
  *   },
+ *   VastRequestConfiguration: { // VastRequestConfiguration
+ *     Runtime: "JSONATA", // required
+ *     Output: "<__mapOf__string>",
+ *     MethodType: "GET" || "POST", // required
+ *     RequestTimeoutMilliseconds: Number("int"), // required
+ *     Url: "STRING_VALUE", // required
+ *     Body: "STRING_VALUE",
+ *     Headers: "<__mapOf__string>",
+ *   },
  *   Tags: "<__mapOf__string>",
  * };
  * const command = new PutFunctionCommand(input);
  * const response = await client.send(command);
  * // { // PutFunctionResponse
  * //   FunctionId: "STRING_VALUE", // required
- * //   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR", // required
+ * //   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
  * //   Description: "STRING_VALUE",
  * //   HttpRequestConfiguration: { // HttpRequestConfiguration
  * //     Runtime: "JSONATA", // required
@@ -139,6 +148,15 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * //       },
  * //     ],
  * //     TimeoutMilliseconds: Number("int"), // required
+ * //   },
+ * //   VastRequestConfiguration: { // VastRequestConfiguration
+ * //     Runtime: "JSONATA", // required
+ * //     Output: "<__mapOf__string>",
+ * //     MethodType: "GET" || "POST", // required
+ * //     RequestTimeoutMilliseconds: Number("int"), // required
+ * //     Url: "STRING_VALUE", // required
+ * //     Body: "STRING_VALUE",
+ * //     Headers: "<__mapOf__string>",
  * //   },
  * //   Tags: "<__mapOf__string>",
  * //   Arn: "STRING_VALUE",

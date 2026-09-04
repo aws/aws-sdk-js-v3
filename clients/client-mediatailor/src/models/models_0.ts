@@ -6,6 +6,7 @@ import type {
   AdsInteractionExcludeEventType,
   AdsInteractionPublishOptInEventType,
   AlertCategory,
+  ApsRegion,
   ChannelState,
   CompressionMethod,
   EventName,
@@ -690,6 +691,54 @@ export interface SequentialExecutorConfiguration {
 }
 
 /**
+ * <p>The configuration for a <code>VAST_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for a request to a VAST endpoint. MediaTailor parses the response as VAST and resolves wrapper redirects, then makes the parsed ads available to the function's output expressions. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+ * @public
+ */
+export interface VastRequestConfiguration {
+  /**
+   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * @public
+   */
+  Runtime: RuntimeType | undefined;
+
+  /**
+   * <p>A map of output bindings. Each key is a namespaced output path (such as <code>temp.wrappedAds</code>), and each value is an expression that MediaTailor evaluates at runtime. Output expressions in a <code>VAST_REQUEST</code> function can reference the <code>response</code> object, which exposes <code>response.parsedAds</code> — the ads parsed from the VAST response after schema validation and wrapper resolution — and <code>response.statusCode</code>. For more information about expression syntax, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata expression reference</a> in the <i>MediaTailor User Guide</i>.</p>
+   * @public
+   */
+  Output?: Record<string, string> | undefined;
+
+  /**
+   * <p>The HTTP method for the request to the VAST endpoint. Valid values: <code>GET</code> and <code>POST</code>. Use <code>POST</code> to send a bid request body, such as an OpenRTB payload.</p>
+   * @public
+   */
+  MethodType: MethodType | undefined;
+
+  /**
+   * <p>The maximum time, in milliseconds, that MediaTailor waits for a response from the VAST endpoint. The timeout covers the entire response, including any wrapper redirects that MediaTailor follows. If the call exceeds this timeout, MediaTailor proceeds with an empty ad list and continues output expression evaluation. Valid values: <code>100</code> to <code>2000</code>.</p>
+   * @public
+   */
+  RequestTimeoutMilliseconds: number | undefined;
+
+  /**
+   * <p>An expression that evaluates to the VAST endpoint URL. Use <code>\{%...%\}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The maximum length is 25,000 characters.</p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>An expression that evaluates to the request body. Used with <code>POST</code> requests, for example to send an OpenRTB bid request. The maximum length is 100,000 characters.</p>
+   * @public
+   */
+  Body?: string | undefined;
+
+  /**
+   * <p>A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request. Headers beginning with <code>X-Amz-</code> are reserved by the service, and method override headers are not allowed.</p>
+   * @public
+   */
+  Headers?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Defines reusable logic that MediaTailor executes at lifecycle hooks during ad insertion. The <code>FunctionType</code> determines the function's runtime behavior. For more information about functions, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working with functions</a> in the <i>MediaTailor User Guide</i>.</p>
  * @public
  */
@@ -735,6 +784,12 @@ export interface Function {
    * @public
    */
   SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>VAST_REQUEST</code> function.</p>
+   * @public
+   */
+  VastRequestConfiguration?: VastRequestConfiguration | undefined;
 
   /**
    * <p>The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
@@ -1109,7 +1164,7 @@ export interface LivePreRollConfiguration {
  */
 export interface AdsInteractionLog {
   /**
-   * <p>Indicates that MediaTailor emits <code>RAW_ADS_RESPONSE</code> logs for playback sessions that are initialized with this configuration.</p>
+   * <p>Indicates that MediaTailor will emit the selected events in the logs for playback sessions that are initialized with this configuration. These events are not emitted by default and must be explicitly opted in. For descriptions of each event type, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/ads-log-format.html">MediaTailor ADS logs description and event types</a> in Elemental MediaTailor User Guide.</p>
    * @public
    */
   PublishOptInEventTypes?: AdsInteractionPublishOptInEventType[] | undefined;
@@ -1191,6 +1246,36 @@ export interface ManifestProcessingRules {
    * @public
    */
   AdMarkerPassthrough?: AdMarkerPassthrough | undefined;
+}
+
+/**
+ * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+ * @public
+ */
+export interface YieldOptimizationConfiguration {
+  /**
+   * <p>The minimum unfilled duration, in seconds, that must remain in an ad break before MediaTailor requests additional ads from Amazon Publisher Services (APS). For example, if set to 6 seconds, yield optimization triggers only when at least 6 seconds of unfilled time remains after the primary ad server response.</p>
+   * @public
+   */
+  MinimumUnfilledDuration: number | undefined;
+
+  /**
+   * <p>Publisher ID for an existing Amazon Publisher Services configuration. This ID must be obtained by registering with APS prior to using the Yield Optimization feature. The Publisher ID identifies your account in the APS system and is required for all bid requests.</p>
+   * @public
+   */
+  PublisherId: string | undefined;
+
+  /**
+   * <p>The Amazon Publisher Services (APS) region that MediaTailor sends bid requests to. Choose the region closest to your primary audience, because the selection affects both latency and the ad inventory available to you. This setting applies to the entire playback configuration, not to individual viewers. If you serve traffic across multiple regions, create a separate playback configuration for each APS region.</p>
+   * @public
+   */
+  Region: ApsRegion | undefined;
+
+  /**
+   * <p>The OpenRTB bid request template, in JSON, that MediaTailor sends to Amazon Publisher Services (APS). The template must include an <code>imp</code> array with one impression specifying <code>bidfloor</code>, an <code>app</code> object specifying <code>bundle</code> and <code>storeurl</code>, and a <code>device</code> object specifying <code>ua</code> and <code>ip</code>. Use double curly braces (for example, <code>\{\{player_params.user_agent\}\}</code>) to insert session variables and player parameters.</p>
+   * @public
+   */
+  OpenRtbTemplate: string | undefined;
 }
 
 /**
@@ -1343,7 +1428,13 @@ export interface PlaybackConfiguration {
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 
   /**
-   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+   * @public
+   */
+  YieldOptimizationConfiguration?: YieldOptimizationConfiguration | undefined;
+
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code>, <code>PRE_ADS_REQUEST</code>, <code>POST_ADS_RESPONSE</code>, and <code>PRE_MANIFEST_INSERTION</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
@@ -3816,6 +3907,12 @@ export interface GetFunctionResponse {
   SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
 
   /**
+   * <p>The configuration for a <code>VAST_REQUEST</code> function.</p>
+   * @public
+   */
+  VastRequestConfiguration?: VastRequestConfiguration | undefined;
+
+  /**
    * <p>The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
    * @public
    */
@@ -3874,7 +3971,7 @@ export interface PutFunctionRequest {
   FunctionId: string | undefined;
 
   /**
-   * <p>The type of the function. The function type determines what the function can do at runtime. Valid values: <code>CUSTOM_OUTPUT</code> evaluates expressions and produces output bindings with no external calls. <code>HTTP_REQUEST</code> makes an HTTP call to an external service and evaluates output expressions that can reference the response. <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+   * <p>The type of the function. The function type determines what the function can do at runtime. Valid values: <code>CUSTOM_OUTPUT</code> evaluates expressions and produces output bindings with no external calls. <code>HTTP_REQUEST</code> makes an HTTP call to an external service and evaluates output expressions that can reference the response. <code>VAST_REQUEST</code> calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions. <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
    * @public
    */
   FunctionType: FunctionType | undefined;
@@ -3908,6 +4005,12 @@ export interface PutFunctionRequest {
    * @public
    */
   SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>VAST_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions. Required when <code>FunctionType</code> is <code>VAST_REQUEST</code>.</p>
+   * @public
+   */
+  VastRequestConfiguration?: VastRequestConfiguration | undefined;
 
   /**
    * <p>The tags to assign to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
@@ -3962,6 +4065,12 @@ export interface PutFunctionResponse {
    * @public
    */
   SequentialExecutorConfiguration?: SequentialExecutorConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>VAST_REQUEST</code> function.</p>
+   * @public
+   */
+  VastRequestConfiguration?: VastRequestConfiguration | undefined;
 
   /**
    * <p>The tags assigned to the function. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging AWS Elemental MediaTailor Resources</a>.</p>
@@ -4136,7 +4245,13 @@ export interface GetPlaybackConfigurationResponse {
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 
   /**
-   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+   * @public
+   */
+  YieldOptimizationConfiguration?: YieldOptimizationConfiguration | undefined;
+
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code>, <code>PRE_ADS_REQUEST</code>, <code>POST_ADS_RESPONSE</code>, and <code>PRE_MANIFEST_INSERTION</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
@@ -4669,7 +4784,13 @@ export interface PutPlaybackConfigurationRequest {
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 
   /**
-   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+   * @public
+   */
+  YieldOptimizationConfiguration?: YieldOptimizationConfiguration | undefined;
+
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code>, <code>PRE_ADS_REQUEST</code>, <code>POST_ADS_RESPONSE</code>, and <code>PRE_MANIFEST_INSERTION</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
@@ -4836,7 +4957,13 @@ export interface PutPlaybackConfigurationResponse {
   AdDecisionServerConfiguration?: AdDecisionServerConfiguration | undefined;
 
   /**
-   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code> and <code>PRE_ADS_REQUEST</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
+   * <p>Configuration for Yield Optimization, which fills unsold ad inventory in ad breaks with programmatic ads from Amazon Publisher Services (APS).</p>
+   * @public
+   */
+  YieldOptimizationConfiguration?: YieldOptimizationConfiguration | undefined;
+
+  /**
+   * <p>A map of lifecycle hook event names to function identifiers. The function mapping specifies which function MediaTailor executes at each lifecycle hook during ad insertion. Valid keys are <code>PRE_SESSION_INITIALIZATION</code>, <code>PRE_ADS_REQUEST</code>, <code>POST_ADS_RESPONSE</code>, and <code>PRE_MANIFEST_INSERTION</code>. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-hooks.html">Functions lifecycle hooks</a> in the <i>MediaTailor User Guide</i>.</p>
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;

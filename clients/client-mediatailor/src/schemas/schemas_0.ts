@@ -223,6 +223,7 @@ const _MSIL = "ManifestServiceInteractionLog";
 const _MT = "MessageType";
 const _MTDS = "MaxTimeDelaySeconds";
 const _MTe = "MethodType";
+const _MUD = "MinimumUnfilledDuration";
 const _MUPS = "MinUpdatePeriodSeconds";
 const _MWS = "ManifestWindowSeconds";
 const _Me = "Method";
@@ -232,6 +233,7 @@ const _NT = "NextToken";
 const _O = "Operator";
 const _OM = "OffsetMillis";
 const _OMT = "OriginManifestType";
+const _ORT = "OpenRtbTemplate";
 const _Ou = "Outputs";
 const _Out = "Output";
 const _P = "Policy";
@@ -249,6 +251,7 @@ const _PEP = "PlaybackEndpointPrefix";
 const _PF = "PutFunction";
 const _PFR = "PutFunctionRequest";
 const _PFRu = "PutFunctionResponse";
+const _PI = "PublisherId";
 const _PM = "PlaybackMode";
 const _PMAPTM = "PrefetchMaximumAdsPersonalizationTimeMilliseconds";
 const _PN = "ProgramName";
@@ -281,6 +284,7 @@ const _RRA = "RelatedResourceArns";
 const _RTM = "RequestTimeoutMilliseconds";
 const _RWDS = "RetrievalWindowDurationSeconds";
 const _Re = "Retrieval";
+const _Reg = "Region";
 const _S = "Slate";
 const _SA = "SecretArn";
 const _SAB = "ScheduleAdBreak";
@@ -366,8 +370,10 @@ const _V = "Value";
 const _VCSU = "VideoContentSourceUrl";
 const _VMAPTM = "VodMaximumAdsPersonalizationTimeMilliseconds";
 const _VR = "VastResponse";
+const _VRC = "VastRequestConfiguration";
 const _VS = "VodSource";
 const _VSN = "VodSourceName";
+const _YOC = "YieldOptimizationConfiguration";
 const _a = "audience";
 const _c = "client";
 const _dM = "durationMinutes";
@@ -775,8 +781,8 @@ export var DescribeVodSourceResponse$: StaticStructureSchema = [3, n0, _DVSResc,
 ];
 export var Function$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _Ta, _Ar],
-  [0, 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
+  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
+  [0, 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
 ];
 export var FunctionRef$: StaticStructureSchema = [3, n0, _FR,
   0,
@@ -810,8 +816,8 @@ export var GetFunctionRequest$: StaticStructureSchema = [3, n0, _GFR,
 ];
 export var GetFunctionResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _Ta, _Ar],
-  [0, 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
+  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
+  [0, 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
 ];
 export var GetPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _GPCR,
   0,
@@ -820,8 +826,8 @@ export var GetPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _GP
 ];
 export var GetPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _GPCRe,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM, _APT, _APC],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
+  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, () => YieldOptimizationConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
 ];
 export var GetPrefetchScheduleRequest$: StaticStructureSchema = [3, n0, _GPSR,
   0,
@@ -990,8 +996,8 @@ export var ManifestServiceInteractionLog$: StaticStructureSchema = [3, n0, _MSIL
 ];
 export var PlaybackConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM, _APT, _APC],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
+  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, () => YieldOptimizationConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
 ];
 export var PrefetchConsumption$: StaticStructureSchema = [3, n0, _PCr,
   0,
@@ -1030,23 +1036,23 @@ export var PutChannelPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
 ];
 export var PutFunctionRequest$: StaticStructureSchema = [3, n0, _PFR,
   0,
-  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _Ta],
-  [[0, 1], 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, [128 | 0, { [_jN]: _t }]], 2
+  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _VRC, _Ta],
+  [[0, 1], 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }]], 2
 ];
 export var PutFunctionResponse$: StaticStructureSchema = [3, n0, _PFRu,
   0,
-  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _Ta, _Ar],
-  [0, 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
+  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
+  [0, 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
 ];
 export var PutPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _PPCR,
   0,
-  [_N, _ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _PTS, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM, _APT, _APC],
-  [0, 0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CARo, 0, 0, 128 | 0], () => DashConfigurationForPut$, 0, () => LivePreRollConfiguration$, () => ManifestProcessingRules$, 1, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$], 1
+  [_N, _ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _PTS, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
+  [0, 0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CARo, 0, 0, 128 | 0], () => DashConfigurationForPut$, 0, () => LivePreRollConfiguration$, () => ManifestProcessingRules$, 1, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, () => YieldOptimizationConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$], 1
 ];
 export var PutPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _PPCRu,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM, _APT, _APC],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
+  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, () => YieldOptimizationConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
 ];
 export var RecurringConsumption$: StaticStructureSchema = [3, n0, _RCe,
   0,
@@ -1238,6 +1244,11 @@ export var UpdateVodSourceResponse$: StaticStructureSchema = [3, n0, _UVSRp,
   [_Ar, _CT, _HPC, _LMT, _SLN, _Ta, _VSN],
   [0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0]
 ];
+export var VastRequestConfiguration$: StaticStructureSchema = [3, n0, _VRC,
+  0,
+  [_R, _MTe, _RTM, _U, _Out, _Bo, _H],
+  [0, 0, 1, 0, 128 | 0, 0, 128 | 0], 4
+];
 export var VastResponse$: StaticStructureSchema = [3, n0, _VR,
   0,
   [_ASM],
@@ -1247,6 +1258,11 @@ export var VodSource$: StaticStructureSchema = [3, n0, _VS,
   0,
   [_Ar, _HPC, _SLN, _VSN, _CT, _LMT, _Ta],
   [0, () => HttpPackageConfigurations, 0, 0, 7, 7, [128 | 0, { [_jN]: _t }]], 4
+];
+export var YieldOptimizationConfiguration$: StaticStructureSchema = [3, n0, _YOC,
+  0,
+  [_MUD, _PI, _Reg, _ORT],
+  [1, 0, 0, 0], 4
 ];
 var __Unit = "unit" as const;
 var __adsInteractionExcludeEventTypesList = 64 | 0;
