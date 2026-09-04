@@ -3996,6 +3996,11 @@ import {
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsIngressCommand";
 import {
+  type ValidateSecurityGroupQuotasForInterfaceCommandInput,
+  type ValidateSecurityGroupQuotasForInterfaceCommandOutput,
+  ValidateSecurityGroupQuotasForInterfaceCommand,
+} from "./commands/ValidateSecurityGroupQuotasForInterfaceCommand";
+import {
   type WithdrawByoipCidrCommandInput,
   type WithdrawByoipCidrCommandOutput,
   WithdrawByoipCidrCommand,
@@ -5087,6 +5092,7 @@ const commands = {
   UpdateInterruptibleCapacityReservationAllocationCommand,
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
+  ValidateSecurityGroupQuotasForInterfaceCommand,
   WithdrawByoipCidrCommand,
 };
 const paginators = {
@@ -19148,6 +19154,23 @@ export interface EC2 {
     args: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidateSecurityGroupQuotasForInterfaceCommand}
+   */
+  validateSecurityGroupQuotasForInterface(
+    args: ValidateSecurityGroupQuotasForInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateSecurityGroupQuotasForInterfaceCommandOutput>;
+  validateSecurityGroupQuotasForInterface(
+    args: ValidateSecurityGroupQuotasForInterfaceCommandInput,
+    cb: (err: any, data?: ValidateSecurityGroupQuotasForInterfaceCommandOutput) => void
+  ): void;
+  validateSecurityGroupQuotasForInterface(
+    args: ValidateSecurityGroupQuotasForInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateSecurityGroupQuotasForInterfaceCommandOutput) => void
   ): void;
 
   /**

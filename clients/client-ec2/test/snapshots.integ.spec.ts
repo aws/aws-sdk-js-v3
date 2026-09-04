@@ -1605,6 +1605,8 @@ import {
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsIngress$,
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
+  ValidateSecurityGroupQuotasForInterface$,
+  ValidateSecurityGroupQuotasForInterfaceCommand,
   WithdrawByoipCidr$,
   WithdrawByoipCidrCommand,
 } from "../src";
@@ -2427,6 +2429,7 @@ describe("EC2Client" + ` (${mode})`, () => {
       [UpdateInterruptibleCapacityReservationAllocation$, UpdateInterruptibleCapacityReservationAllocationCommand],
       [UpdateSecurityGroupRuleDescriptionsEgress$, UpdateSecurityGroupRuleDescriptionsEgressCommand],
       [UpdateSecurityGroupRuleDescriptionsIngress$, UpdateSecurityGroupRuleDescriptionsIngressCommand],
+      [ValidateSecurityGroupQuotasForInterface$, ValidateSecurityGroupQuotasForInterfaceCommand],
       [WithdrawByoipCidr$, WithdrawByoipCidrCommand],
     ]),
     errors: [

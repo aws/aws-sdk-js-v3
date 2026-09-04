@@ -5833,6 +5833,13 @@ UpdateSecurityGroupRuleDescriptionsIngress
 </details>
 <details>
 <summary>
+ValidateSecurityGroupQuotasForInterface
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ValidateSecurityGroupQuotasForInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ValidateSecurityGroupQuotasForInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ValidateSecurityGroupQuotasForInterfaceCommandOutput/)
+</details>
+<details>
+<summary>
 WithdrawByoipCidr
 </summary>
 

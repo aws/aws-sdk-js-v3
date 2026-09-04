@@ -3753,6 +3753,41 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
 /**
  * @public
  */
+export interface ValidateSecurityGroupQuotasForInterfaceRequest {
+  /**
+   * <p>The IDs of the security groups to validate for association with a single network
+   *             interface. You must specify at least one ID, and each ID must be unique. The number
+   *             of IDs cannot exceed the maximum number of security groups allowed per network
+   *             interface.</p>
+   * @public
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ValidateSecurityGroupQuotasForInterfaceResult {
+  /**
+   * <p>The operation returns <code>true</code> if the specified security groups can be
+   *             associated with a single network interface without exceeding the quotas. It returns
+   *             an error if associating the security groups would exceed a quota.</p>
+   * @public
+   */
+  Valid?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface WithdrawByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation.</p>

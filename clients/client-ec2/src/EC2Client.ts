@@ -2925,6 +2925,10 @@ import type {
   UpdateSecurityGroupRuleDescriptionsIngressCommandOutput,
 } from "./commands/UpdateSecurityGroupRuleDescriptionsIngressCommand";
 import type {
+  ValidateSecurityGroupQuotasForInterfaceCommandInput,
+  ValidateSecurityGroupQuotasForInterfaceCommandOutput,
+} from "./commands/ValidateSecurityGroupQuotasForInterfaceCommand";
+import type {
   WithdrawByoipCidrCommandInput,
   WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
@@ -3743,6 +3747,7 @@ export type ServiceInputTypes =
   | UpdateInterruptibleCapacityReservationAllocationCommandInput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandInput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandInput
+  | ValidateSecurityGroupQuotasForInterfaceCommandInput
   | WithdrawByoipCidrCommandInput;
 
 /**
@@ -4549,6 +4554,7 @@ export type ServiceOutputTypes =
   | UpdateInterruptibleCapacityReservationAllocationCommandOutput
   | UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
   | UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
+  | ValidateSecurityGroupQuotasForInterfaceCommandOutput
   | WithdrawByoipCidrCommandOutput;
 
 /**

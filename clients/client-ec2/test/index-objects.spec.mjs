@@ -4643,6 +4643,10 @@ import {
   UserData$,
   UserIdGroupPair$,
   UserTrustProviderType,
+  ValidateSecurityGroupQuotasForInterface$,
+  ValidateSecurityGroupQuotasForInterfaceCommand,
+  ValidateSecurityGroupQuotasForInterfaceRequest$,
+  ValidateSecurityGroupQuotasForInterfaceResult$,
   ValidationError$,
   ValidationWarning$,
   VCpuCountRange$,
@@ -6450,6 +6454,8 @@ assert(typeof UpdateSecurityGroupRuleDescriptionsEgressCommand === "function");
 assert(typeof UpdateSecurityGroupRuleDescriptionsEgress$ === "object");
 assert(typeof UpdateSecurityGroupRuleDescriptionsIngressCommand === "function");
 assert(typeof UpdateSecurityGroupRuleDescriptionsIngress$ === "object");
+assert(typeof ValidateSecurityGroupQuotasForInterfaceCommand === "function");
+assert(typeof ValidateSecurityGroupQuotasForInterface$ === "object");
 assert(typeof WithdrawByoipCidrCommand === "function");
 assert(typeof WithdrawByoipCidr$ === "object");
 // structural schemas
@@ -8883,6 +8889,8 @@ assert(typeof UserBucket$ === "object");
 assert(typeof UserBucketDetails$ === "object");
 assert(typeof UserData$ === "object");
 assert(typeof UserIdGroupPair$ === "object");
+assert(typeof ValidateSecurityGroupQuotasForInterfaceRequest$ === "object");
+assert(typeof ValidateSecurityGroupQuotasForInterfaceResult$ === "object");
 assert(typeof ValidationError$ === "object");
 assert(typeof ValidationWarning$ === "object");
 assert(typeof VCpuCountRange$ === "object");

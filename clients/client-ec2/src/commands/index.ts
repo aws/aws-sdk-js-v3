@@ -799,4 +799,5 @@ export * from "./UpdateCapacityManagerOrganizationsAccessCommand";
 export * from "./UpdateInterruptibleCapacityReservationAllocationCommand";
 export * from "./UpdateSecurityGroupRuleDescriptionsEgressCommand";
 export * from "./UpdateSecurityGroupRuleDescriptionsIngressCommand";
+export * from "./ValidateSecurityGroupQuotasForInterfaceCommand";
 export * from "./WithdrawByoipCidrCommand";

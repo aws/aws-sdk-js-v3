@@ -6339,6 +6339,9 @@ const _VSD = "VolumeStatusDetails";
 const _VSDL = "VolumeStatusDetailsList";
 const _VSE = "VolumeStatusEvent";
 const _VSEL = "VolumeStatusEventsList";
+const _VSGQFI = "ValidateSecurityGroupQuotasForInterface";
+const _VSGQFIR = "ValidateSecurityGroupQuotasForInterfaceRequest";
+const _VSGQFIRa = "ValidateSecurityGroupQuotasForInterfaceResult";
 const _VSI = "VolumeStatusInfo";
 const _VSIo = "VolumeStatusItem";
 const _VSL = "ValueStringList";
@@ -6364,6 +6367,7 @@ const _VTir = "VirtualizationType";
 const _VU = "ValidUntil";
 const _VW = "ValidationWarning";
 const _Va = "Values";
+const _Val = "Valid";
 const _Ve = "Versions";
 const _Ven = "Vendor";
 const _Ver = "Version";
@@ -8542,6 +8546,7 @@ const _vTPC = "validThreadsPerCore";
 const _vTg = "vgwTelemetry";
 const _vTi = "virtualizationType";
 const _vU = "validUntil";
+const _va = "valid";
 const _ve = "version";
 const _ven = "vendor";
 const _vi = "visibility";
@@ -26194,6 +26199,17 @@ export var UserIdGroupPair$: StaticStructureSchema = [3, n0, _UIGPs,
   , [_xN]: _vPCI }], [0, { [_eQN]: `PeeringStatus`
   , [_xN]: _pSee }]]
 ];
+export var ValidateSecurityGroupQuotasForInterfaceRequest$: StaticStructureSchema = [3, n0, _VSGQFIR,
+  0,
+  [_SGIe, _DR],
+  [[() => SecurityGroupIdList, { [_xN]: _SGI }], 2], 1
+];
+export var ValidateSecurityGroupQuotasForInterfaceResult$: StaticStructureSchema = [3, n0, _VSGQFIRa,
+  0,
+  [_Val],
+  [[2, { [_eQN]: `Valid`
+  , [_xN]: _va }]]
+];
 export var ValidationError$: StaticStructureSchema = [3, n0, _VEa,
   0,
   [_Co, _Me],
@@ -32427,6 +32443,9 @@ export var UpdateSecurityGroupRuleDescriptionsEgress$: StaticOperationSchema = [
 ];
 export var UpdateSecurityGroupRuleDescriptionsIngress$: StaticOperationSchema = [9, n0, _USGRDI,
   0, () => UpdateSecurityGroupRuleDescriptionsIngressRequest$, () => UpdateSecurityGroupRuleDescriptionsIngressResult$
+];
+export var ValidateSecurityGroupQuotasForInterface$: StaticOperationSchema = [9, n0, _VSGQFI,
+  0, () => ValidateSecurityGroupQuotasForInterfaceRequest$, () => ValidateSecurityGroupQuotasForInterfaceResult$
 ];
 export var WithdrawByoipCidr$: StaticOperationSchema = [9, n0, _WBC,
   0, () => WithdrawByoipCidrRequest$, () => WithdrawByoipCidrResult$
