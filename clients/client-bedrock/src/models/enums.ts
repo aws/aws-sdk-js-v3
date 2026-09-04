@@ -369,6 +369,7 @@ export type ModelStatus = (typeof ModelStatus)[keyof typeof ModelStatus];
  * @enum
  */
 export const DataRetentionMode = {
+  AWS_REVIEW: "aws_review",
   DEFAULT: "default",
   INHERIT: "inherit",
   NONE: "none",

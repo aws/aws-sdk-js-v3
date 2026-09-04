@@ -33,12 +33,12 @@ export interface PutAccountDataRetentionCommandOutput extends PutAccountDataRete
  * const config = {}; // type is BedrockClientConfig
  * const client = new BedrockClient(config);
  * const input = { // PutAccountDataRetentionRequest
- *   mode: "default" || "none" || "provider_data_share" || "inherit", // required
+ *   mode: "default" || "none" || "aws_review" || "provider_data_share" || "inherit", // required
  * };
  * const command = new PutAccountDataRetentionCommand(input);
  * const response = await client.send(command);
  * // { // PutAccountDataRetentionResponse
- * //   mode: "default" || "none" || "provider_data_share" || "inherit", // required
+ * //   mode: "default" || "none" || "aws_review" || "provider_data_share" || "inherit", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * // };
  *

@@ -36,7 +36,7 @@ export interface GetAccountDataRetentionCommandOutput extends GetAccountDataRete
  * const command = new GetAccountDataRetentionCommand(input);
  * const response = await client.send(command);
  * // { // GetAccountDataRetentionResponse
- * //   mode: "default" || "none" || "provider_data_share" || "inherit", // required
+ * //   mode: "default" || "none" || "aws_review" || "provider_data_share" || "inherit", // required
  * //   updatedAt: new Date("TIMESTAMP"),
  * // };
  *
