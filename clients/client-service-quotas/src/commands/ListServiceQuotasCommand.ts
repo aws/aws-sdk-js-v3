@@ -78,6 +78,7 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * //         ContextScope: "RESOURCE" || "ACCOUNT",
  * //         ContextScopeType: "STRING_VALUE",
  * //         ContextId: "STRING_VALUE",
+ * //         AdjustableAtLevel: "ACCOUNT" || "PER_RESOURCE" || "ALL",
  * //       },
  * //       Description: "STRING_VALUE",
  * //     },

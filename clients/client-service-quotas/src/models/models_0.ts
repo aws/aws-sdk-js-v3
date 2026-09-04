@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  AdjustableAtLevelEnum,
   AppliedLevelEnum,
   ErrorCode,
   OptInLevel,
@@ -262,6 +263,26 @@ export interface QuotaContextInfo {
    * @public
    */
   ContextId?: string | undefined;
+
+  /**
+   * <p>Specifies the level at which you can request an increase for this quota:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT</code> – You can request an increase only at the account level.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PER_RESOURCE</code> – You can request an increase only for an individual resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> – You can request an increase at either the account level or for an individual resource.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AdjustableAtLevel?: AdjustableAtLevelEnum | undefined;
 }
 
 /**

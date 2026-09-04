@@ -3,6 +3,20 @@
  * @public
  * @enum
  */
+export const AdjustableAtLevelEnum = {
+  ACCOUNT: "ACCOUNT",
+  ALL: "ALL",
+  PER_RESOURCE: "PER_RESOURCE",
+} as const;
+/**
+ * @public
+ */
+export type AdjustableAtLevelEnum = (typeof AdjustableAtLevelEnum)[keyof typeof AdjustableAtLevelEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const AppliedLevelEnum = {
   ACCOUNT: "ACCOUNT",
   ALL: "ALL",

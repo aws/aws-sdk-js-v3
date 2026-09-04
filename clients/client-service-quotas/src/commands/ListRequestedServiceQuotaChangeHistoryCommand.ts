@@ -70,6 +70,7 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput extends Lis
  * //         ContextScope: "RESOURCE" || "ACCOUNT",
  * //         ContextScopeType: "STRING_VALUE",
  * //         ContextId: "STRING_VALUE",
+ * //         AdjustableAtLevel: "ACCOUNT" || "PER_RESOURCE" || "ALL",
  * //       },
  * //     },
  * //   ],

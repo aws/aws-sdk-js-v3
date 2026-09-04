@@ -70,6 +70,7 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput exte
  * //         ContextScope: "RESOURCE" || "ACCOUNT",
  * //         ContextScopeType: "STRING_VALUE",
  * //         ContextId: "STRING_VALUE",
+ * //         AdjustableAtLevel: "ACCOUNT" || "PER_RESOURCE" || "ALL",
  * //       },
  * //     },
  * //   ],

@@ -1,4 +1,5 @@
 const _A = "Adjustable";
+const _AAL = "AdjustableAtLevel";
 const _ADE = "AccessDeniedException";
 const _AR = "AwsRegion";
 const _ASQT = "AssociateServiceQuotaTemplate";
@@ -531,8 +532,8 @@ export var PutServiceQuotaIncreaseRequestIntoTemplateResponse$: StaticStructureS
 ];
 export var QuotaContextInfo$: StaticStructureSchema = [3, n0, _QCI,
   0,
-  [_CS, _CST, _CI],
-  [0, 0, 0]
+  [_CS, _CST, _CI, _AAL],
+  [0, 0, 0, 0]
 ];
 export var QuotaInfo$: StaticStructureSchema = [3, n0, _QI,
   0,

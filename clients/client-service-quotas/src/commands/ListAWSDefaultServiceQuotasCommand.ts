@@ -74,6 +74,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput extends ListAWSDefault
  * //         ContextScope: "RESOURCE" || "ACCOUNT",
  * //         ContextScopeType: "STRING_VALUE",
  * //         ContextId: "STRING_VALUE",
+ * //         AdjustableAtLevel: "ACCOUNT" || "PER_RESOURCE" || "ALL",
  * //       },
  * //       Description: "STRING_VALUE",
  * //     },

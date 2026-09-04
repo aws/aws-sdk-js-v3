@@ -85,6 +85,9 @@ export interface GetQuotaUtilizationReportCommandOutput extends GetQuotaUtilizat
  * @throws {@link IllegalArgumentException} (client fault)
  *  <p>Invalid input was provided.</p>
  *
+ * @throws {@link InvalidPaginationTokenException} (client fault)
+ *  <p>Invalid input was provided.</p>
+ *
  * @throws {@link NoSuchResourceException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *

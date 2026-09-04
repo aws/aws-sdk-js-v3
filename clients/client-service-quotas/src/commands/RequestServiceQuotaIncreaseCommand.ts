@@ -64,6 +64,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput extends RequestService
  * //       ContextScope: "RESOURCE" || "ACCOUNT",
  * //       ContextScopeType: "STRING_VALUE",
  * //       ContextId: "STRING_VALUE",
+ * //       AdjustableAtLevel: "ACCOUNT" || "PER_RESOURCE" || "ALL",
  * //     },
  * //   },
  * // };

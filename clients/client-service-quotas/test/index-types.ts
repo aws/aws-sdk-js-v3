@@ -80,6 +80,7 @@ export type {
   UpdateAutoManagementCommand,
   UpdateAutoManagementCommandInput,
   UpdateAutoManagementCommandOutput,
+  AdjustableAtLevelEnum,
   AppliedLevelEnum,
   ErrorCode,
   OptInLevel,

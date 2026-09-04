@@ -1,6 +1,7 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  AdjustableAtLevelEnum,
   AppliedLevelEnum,
   AssociateServiceQuotaTemplate$,
   AssociateServiceQuotaTemplateCommand,
@@ -291,6 +292,7 @@ assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAutoManagementRequest$ === "object");
 assert(typeof UpdateAutoManagementResponse$ === "object");
 // enums
+assert(typeof AdjustableAtLevelEnum === "object");
 assert(typeof AppliedLevelEnum === "object");
 assert(typeof ErrorCode === "object");
 assert(typeof OptInLevel === "object");
