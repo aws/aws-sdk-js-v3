@@ -40,9 +40,7 @@ export interface ClientBuildInputs {
   protocolSettings: ProtocolSettings;
   endpointProvider: EndpointProvider;
   /**
-   * Runtime typecheck (RTTC) behavior. Because the dynamic client emits no
-   * static types, RTTC is installed to validate request inputs and response
-   * outputs against the schemas at runtime.
+   * Runtime typecheck (RTTC) behavior.
    */
   typecheck: RuntimeTypecheckOptions;
   /**
@@ -55,9 +53,6 @@ export interface ClientBuildInputs {
  * Builds a `Client` subclass wired with the generic, model-independent
  * middleware stack: schema (de)serialization, retry, content-length, endpoint
  * resolution, and HTTP auth/signing (NoAuth by default).
- *
- * The base `Client` instantiates the protocol constructor from
- * `protocolSettings`, so the subclass only assembles configuration and plugins.
  *
  * @param inputs - the protocol, its settings, and the endpoint provider.
  *

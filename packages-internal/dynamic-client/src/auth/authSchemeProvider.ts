@@ -8,9 +8,7 @@ import type {
 } from "@smithy/types";
 
 /**
- * The auth scheme parameters provider. It surfaces the operation name from the
- * smithy context so that per-operation auth could be derived; at this checkpoint
- * all operations resolve to NoAuth.
+ * The auth scheme parameters provider.
  *
  * @internal
  */
@@ -26,8 +24,7 @@ export const authSchemeParametersProvider: HttpAuthSchemeParametersProvider<
 };
 
 /**
- * The default auth scheme provider. Without model auth traits, every operation
- * resolves to `smithy.api#noAuth`.
+ * The default auth scheme provider.
  *
  * @internal
  */

@@ -20,9 +20,6 @@ export function parseShapeId(shapeId: string): { namespace: string; name: string
 /**
  * Indexes a Smithy JSON AST for random access during schema construction.
  *
- * The index resolves the single service shape, looks up shapes by ID, and
- * translates AST trait maps into the runtime trait form.
- *
  * @internal
  */
 export class ModelIndex {
@@ -80,10 +77,7 @@ export class ModelIndex {
 
   /**
    * Protocol traits are service traits whose definition carries
-   * `smithy.api#protocolDefinition`. When the trait definition shape is not
-   * present in the AST (the common case for prelude/external protocol traits),
-   * the trait ID is still returned so that protocol selection can match it
-   * against candidate protocol shape IDs.
+   * `smithy.api#protocolDefinition`.
    *
    * @returns the list of candidate protocol trait shape IDs on the service.
    */

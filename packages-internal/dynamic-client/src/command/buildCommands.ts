@@ -5,9 +5,7 @@ import type { EndpointParameterInstructions, Pluggable, StaticOperationSchema } 
 import { parseShapeId } from "../ast/ModelIndex";
 
 /**
- * Endpoint built-in parameter instructions shared by every command. Mirrors the
- * `commonParams` emitted by the code generator. The endpoint middleware resolves
- * these from the client config (handling both static values and async providers).
+ * Endpoint built-in parameter instructions shared by every command.
  *
  * @internal
  */

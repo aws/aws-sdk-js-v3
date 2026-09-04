@@ -48,6 +48,24 @@ describe("createDynamicClient", () => {
     }
   });
 
+  it("exports modeled error classes and the service base exception, mirroring a generated client", () => {
+    const exports = createDynamicClient(rpcv2CborAst);
+
+    const base = exports["RpcV2ProtocolServiceException"];
+    expect(typeof base).toBe("function");
+
+    for (const errorName of ["InvalidGreeting", "ComplexError"]) {
+      const ErrorClass = exports[errorName];
+      expect(typeof ErrorClass, errorName).toBe("function");
+      const instance = new ErrorClass({ $metadata: {} });
+      // Reports its modeled identity, not the generic base name.
+      expect(instance.name).toBe(errorName);
+      expect(instance.$fault).toBe("client");
+      // Extends the service base exception.
+      expect(instance instanceof base).toBe(true);
+    }
+  });
+
   it("exports an aggregated client with lowercased operation methods", () => {
     const exports = createDynamicClient(rpcv2CborAst);
     const AggregatedClass = exports["RpcV2Protocol"] as any;

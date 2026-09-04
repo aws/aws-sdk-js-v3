@@ -5,9 +5,7 @@ import type { AstTraits } from "./types";
 
 /**
  * Smithy trait shape IDs whose presence maps to a runtime trait key with a
- * unit value (`1`). The runtime only inspects a fixed set of traits when
- * (de)serializing; traits outside this set are irrelevant to the schema
- * runtime and are dropped to keep trait objects small.
+ * unit value (`1`).
  *
  * @internal
  */
@@ -44,10 +42,6 @@ const STRING_TRAITS: Record<string, keyof SchemaTraitsObject> = {
 /**
  * Converts an AST trait map (keyed by absolute trait shape ID) into the
  * runtime {@link SchemaTraitsObject} form consumed by `@smithy/core` schemas.
- *
- * Only traits that affect runtime (de)serialization are retained. The
- * `timestampFormat` trait is intentionally not translated here: it is encoded
- * as a schema sentinel value instead (see the simple-shape mapping).
  *
  * @param traits - AST trait map, or `undefined`.
  * @returns a runtime trait object, or `0` when no relevant traits are present.

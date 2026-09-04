@@ -3,10 +3,7 @@ import { SCHEMA } from "@smithy/core/schema";
 import type { AstShape, ShapeType } from "../ast/types";
 
 /**
- * Maps a Smithy simple shape type to its numeric schema sentinel. Enum and
- * intEnum shapes are represented by their base string/numeric sentinels at
- * runtime. Timestamp shapes default here; a more specific timestamp format is
- * applied by {@link timestampSentinel}.
+ * Maps a Smithy simple shape type to its numeric schema sentinel.
  *
  * @internal
  */
@@ -59,14 +56,19 @@ export function timestampSentinel(shape: AstShape): number {
 }
 
 /**
- * @returns the schema sentinel for a simple shape, honoring timestamp formats,
- *   or `undefined` when the shape is not a simple shape.
+ * @returns the schema sentinel for a simple shape, honoring timestamp formats
+ *   and streaming blobs, or `undefined` when the shape is not a simple shape.
  *
  * @internal
  */
 export function sentinelForSimpleShape(shape: AstShape): number | undefined {
   if (shape.type === "timestamp") {
     return timestampSentinel(shape);
+  }
+  if (shape.type === "blob" && shape.traits?.["smithy.api#streaming"] !== undefined) {
+    // A streaming blob resolves to the STREAMING_BLOB sentinel so the protocol
+    // treats the payload as a raw stream rather than a buffered/parsed body.
+    return SCHEMA.STREAMING_BLOB;
   }
   return SIMPLE_SENTINELS[shape.type];
 }
