@@ -8,6 +8,5 @@
     "noCheck": true
   },
   "extends": "../../tsconfig.cjs.json",
-  "include": ["src/"],
-  "exclude": ["src/**/*.fixture.ts", "src/**/*.spec.ts"]
+  "include": ["src/"]
 }
