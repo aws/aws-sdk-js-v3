@@ -1,9 +1,6 @@
 /**
  * Minimal type definitions for the Smithy JSON AST.
  *
- * These describe only the subset of the AST consumed by the dynamic client.
- * See https://smithy.io/2.0/spec/json-ast.html for the full specification.
- *
  * @public
  */
 export interface SmithyAst {
@@ -40,9 +37,6 @@ export interface AstMember {
 
 /**
  * A single shape node in the AST.
- *
- * The union is intentionally wide: the AST uses one object form whose relevant
- * fields depend on {@link AstShape.type}. Consumers must branch on `type`.
  *
  * @public
  */

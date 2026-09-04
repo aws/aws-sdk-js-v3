@@ -11,11 +11,12 @@ import type {
 } from "@smithy/types";
 import { SCHEMA, TypeRegistry } from "@smithy/core/schema";
 import { ServiceException } from "@smithy/core/client";
+import type { ServiceExceptionOptions } from "@smithy/core/client";
 
 import type { ModelIndex } from "../ast/ModelIndex";
 import { parseShapeId } from "../ast/ModelIndex";
 import type { AstMember, AstShape } from "../ast/types";
-import { sentinelForSimpleShape } from "./simpleShapes";
+import { sentinelForSimpleShape, timestampSentinel } from "./simpleShapes";
 
 /**
  * The unit shape sentinel understood by the schema runtime.
@@ -49,6 +50,11 @@ export interface BuiltSchemas {
    */
   baseException: StaticErrorSchema;
   /**
+   * Runtime exception classes to export from the client, mirroring a
+   * code-generated client's error class exports.
+   */
+  errorClasses: Record<string, typeof ServiceException>;
+  /**
    * Registries containing modeled errors, for protocol error resolution.
    */
   errorTypeRegistries: TypeRegistry[];
@@ -59,18 +65,23 @@ export interface BuiltSchemas {
  * aggregate shape and operation, registering them in per-namespace
  * {@link TypeRegistry} instances.
  *
- * Schemas reference each other lazily through `() => schema` thunks so that
- * recursive and forward references resolve without ordering constraints. Simple
- * shapes without runtime-relevant traits are represented inline by their
- * numeric sentinel rather than a named schema.
- *
  * @internal
  */
 export class SchemaBuilder {
+  // Internal schema/operation storage is keyed by full shape ID (`ns#Name`),
+  // not the unqualified export symbol, so shapes that share an unqualified name
+  // across namespaces (e.g. `a#Shared` and `b#Shared`) do not alias. Export
+  // symbols are derived from these at the `build()` boundary.
   private readonly schemas: Record<string, StaticSchema> = {};
   private readonly operations: Record<string, StaticOperationSchema> = {};
   private readonly errorRegistries = new Map<string, TypeRegistry>();
   private readonly visiting = new Set<string>();
+  // Exception classes to export, keyed by class name (base + one per modeled
+  // error), mirroring a code-generated client's error class exports.
+  private readonly errorClasses: Record<string, typeof ServiceException> = {};
+  // The synthetic `<Service>ServiceException` base class that all modeled error
+  // classes extend. Set by buildBaseException before any modeled error is built.
+  private baseExceptionClass: typeof ServiceException = ServiceException;
 
   /**
    * @param index - the AST model index.
@@ -100,9 +111,10 @@ export class SchemaBuilder {
     }
 
     return {
-      schemas: this.schemas,
-      operations: this.operations,
+      schemas: exportKeyed(this.schemas),
+      operations: exportKeyed(this.operations),
       baseException,
+      errorClasses: this.errorClasses,
       errorTypeRegistries: [...this.errorRegistries.values()],
     };
   }
@@ -134,11 +146,10 @@ export class SchemaBuilder {
     }
 
     // Named aggregate or trait-bearing shape: ensure it is built and refer to
-    // it lazily to support recursion.
+    // it lazily (by full shape ID) to support recursion.
     this.ensureNamed(shapeId, shape);
-    const symbol = symbolOf(shapeId);
     const schemas = this.schemas;
-    return (() => schemas[symbol]) as $SchemaRef;
+    return (() => schemas[shapeId]) as $SchemaRef;
   }
 
   /**
@@ -201,11 +212,10 @@ export class SchemaBuilder {
    * Ensures a named static schema exists for the given shape, building it once.
    */
   private ensureNamed(shapeId: string, shape: AstShape): void {
-    const symbol = symbolOf(shapeId);
-    if (this.schemas[symbol] || this.visiting.has(symbol)) {
+    if (this.schemas[shapeId] || this.visiting.has(shapeId)) {
       return;
     }
-    this.visiting.add(symbol);
+    this.visiting.add(shapeId);
 
     const { namespace, name } = parseShapeId(shapeId);
     const traits = this.index.getTraits(shape);
@@ -242,13 +252,12 @@ export class SchemaBuilder {
       }
     }
 
-    this.schemas[symbol] = schema;
+    this.schemas[shapeId] = schema;
     TypeRegistry.for(namespace).register(shapeId, schema as unknown as Parameters<TypeRegistry["register"]>[1]);
   }
 
   /**
-   * Builds a structure or error schema. Required members are front-loaded and
-   * their count recorded as the trailing tuple element.
+   * Builds a structure or error schema.
    */
   private buildStruct(
     namespace: string,
@@ -282,7 +291,7 @@ export class SchemaBuilder {
   }
 
   /**
-   * Builds a union schema. Union members are never required.
+   * Builds a union schema.
    */
   private buildUnion(namespace: string, name: string, traits: SchemaTraits, shape: AstShape): StaticUnionSchema {
     const members = shape.members ?? {};
@@ -295,16 +304,38 @@ export class SchemaBuilder {
   }
 
   /**
-   * @returns the schema ref for an aggregate member, wrapping it as a
-   *   `[ref, memberTraits]` pair only when the member carries its own traits.
+   * @returns the schema ref for an aggregate member.
    */
   private memberRef(member: AstMember): $SchemaRef {
-    const targetRef = this.ref(member.target);
     const memberTraits = this.index.getTraits(member);
+    const timestamp = this.timestampSentinelForMember(member);
+    if (timestamp !== undefined) {
+      return (memberTraits === 0 ? timestamp : [timestamp, memberTraits]) as unknown as $SchemaRef;
+    }
+    const targetRef = this.ref(member.target);
     if (memberTraits === 0) {
       return targetRef;
     }
     return [targetRef, memberTraits] as unknown as $SchemaRef;
+  }
+
+  /**
+   * @returns the timestamp sentinel (4/5/6/7) for a member whose target is a
+   *   timestamp, honoring a member-level `timestampFormat` over the target
+   *   shape's, or `undefined` when the member does not target a timestamp.
+   */
+  private timestampSentinelForMember(member: AstMember): number | undefined {
+    const isPreludeTimestamp = member.target === "smithy.api#Timestamp";
+    const targetShape = isPreludeTimestamp ? undefined : this.index.getShape(member.target);
+    if (!isPreludeTimestamp && targetShape?.type !== "timestamp") {
+      return undefined;
+    }
+    // Member-level timestampFormat overrides the target shape's format; the
+    // helper reads `smithy.api#timestampFormat` from the traits it is given and
+    // defaults to TIMESTAMP_DEFAULT when absent.
+    const memberFormat = member.traits?.["smithy.api#timestampFormat"];
+    const traits = memberFormat !== undefined ? member.traits : targetShape?.traits;
+    return timestampSentinel({ type: "timestamp", traits });
   }
 
   /**
@@ -327,7 +358,7 @@ export class SchemaBuilder {
     }
 
     const operation: StaticOperationSchema = [9, namespace, name, traits, input, output];
-    this.operations[symbolOf(operationId)] = operation;
+    this.operations[operationId] = operation;
   }
 
   /**
@@ -344,8 +375,7 @@ export class SchemaBuilder {
    * Builds and registers an error schema and its constructor association.
    */
   private buildError(shapeId: string): void {
-    const symbol = symbolOf(shapeId);
-    if (this.schemas[symbol]) {
+    if (this.schemas[shapeId]) {
       return;
     }
     const shape = this.index.getShape(shapeId);
@@ -355,8 +385,15 @@ export class SchemaBuilder {
     const { namespace, name } = parseShapeId(shapeId);
     const traits = this.index.getTraits(shape);
     const error = this.buildStruct(namespace, name, traits, shape, -3) as StaticErrorSchema;
-    this.schemas[symbol] = error;
-    this.registerError(namespace, error);
+    this.schemas[shapeId] = error;
+
+    // Synthesize a per-error class extending the service base exception,
+    // stamping the modeled name and $fault, mirroring a code-generated client's
+    // error classes. Register it as the runtime constructor and export it.
+    const fault = faultOf(error[3]);
+    const errorClass = makeErrorClass(name, fault, this.baseExceptionClass);
+    this.errorClasses[name] = errorClass;
+    this.registerError(namespace, error, errorClass);
   }
 
   /**
@@ -367,28 +404,116 @@ export class SchemaBuilder {
     const syntheticNs = SYNTHETIC_PREFIX + namespace;
     const exceptionName = `${name}ServiceException`;
     const baseException: StaticErrorSchema = [-3, syntheticNs, exceptionName, 0, [], []];
-    this.schemas[symbolOf(`${syntheticNs}#${exceptionName}`)] = baseException;
-    this.registerError(syntheticNs, baseException);
+    this.schemas[`${syntheticNs}#${exceptionName}`] = baseException;
+
+    // The base class extends the runtime ServiceException; it passes options
+    // through unchanged (no name/$fault stamping — that is per-error).
+    this.baseExceptionClass = makeBaseExceptionClass(exceptionName);
+    this.errorClasses[exceptionName] = this.baseExceptionClass;
+    this.registerError(syntheticNs, baseException, this.baseExceptionClass);
     return baseException;
   }
 
   /**
-   * Registers an error schema in its namespace's registry, tracking the
-   * registry for later protocol error resolution.
+   * Registers an error schema in its namespace's registry against a runtime
+   * exception constructor, tracking the registry for later protocol error
+   * resolution.
    */
-  private registerError(namespace: string, error: StaticErrorSchema): void {
+  private registerError(namespace: string, error: StaticErrorSchema, ctor: typeof ServiceException): void {
     const registry = TypeRegistry.for(namespace);
-    registry.registerError(error, ServiceException);
+    registry.registerError(error, ctor);
     this.errorRegistries.set(namespace, registry);
   }
 }
 
 /**
- * @returns the `<Name>$` export symbol for a shape id.
+ * Extracts the SigV4-style `$fault` (`"client"` / `"server"`) from a schema's
+ * runtime traits.
+ *
  * @internal
  */
-export function symbolOf(shapeId: string): string {
-  return parseShapeId(shapeId).name + "$";
+function faultOf(traits: SchemaTraits): "client" | "server" | undefined {
+  if (traits && typeof traits === "object" && !Array.isArray(traits)) {
+    const fault = (traits as { error?: unknown }).error;
+    if (fault === "client" || fault === "server") {
+      return fault;
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Synthesizes the service base exception class, mirroring a code-generated
+ * client's `<Service>ServiceException`: it extends `@smithy/core`'s
+ * `ServiceException` and passes options through unchanged (it does not stamp a
+ * name or `$fault` — those are per-error concerns set by the leaf classes).
+ *
+ * @internal
+ */
+function makeBaseExceptionClass(name: string): typeof ServiceException {
+  const BaseException = class extends ServiceException {
+    public constructor(options: ServiceExceptionOptions) {
+      super(options);
+      Object.setPrototypeOf(this, BaseException.prototype);
+    }
+  };
+  Object.defineProperty(BaseException, "name", { value: name, configurable: true });
+  return BaseException as unknown as typeof ServiceException;
+}
+
+/**
+ * Synthesizes a modeled error class, mirroring a code-generated client's error
+ * classes: the class extends `base` and stamps the modeled `name` and `$fault`
+ * into the `ServiceException` options, so a thrown error reports its modeled
+ * identity (`error.name === "NoSuchKey"`) rather than the generic base name.
+ *
+ * @param name - the modeled exception name.
+ * @param fault - the `$fault` value, or `undefined` when the model omits it.
+ * @param base - the base exception class to extend.
+ *
+ * @internal
+ */
+function makeErrorClass(
+  name: string,
+  fault: "client" | "server" | undefined,
+  base: typeof ServiceException
+): typeof ServiceException {
+  const ErrorClass = class extends base {
+    public constructor(options: ServiceExceptionOptions) {
+      super({
+        ...options,
+        name,
+        ...(fault ? { $fault: fault } : {}),
+      } as ServiceExceptionOptions);
+      Object.setPrototypeOf(this, ErrorClass.prototype);
+    }
+  };
+  Object.defineProperty(ErrorClass, "name", { value: name, configurable: true });
+  return ErrorClass as unknown as typeof ServiceException;
+}
+
+/**
+ * Re-keys an internal, full-shape-id-keyed map by export symbol.
+ *
+ * @internal
+ */
+export function exportKeyed<T>(byShapeId: Record<string, T>): Record<string, T> {
+  const seen = new Set<string>();
+  const out: Record<string, T> = {};
+  for (const shapeId in byShapeId) {
+    if (!Object.prototype.hasOwnProperty.call(byShapeId, shapeId)) continue;
+    const { namespace, name } = parseShapeId(shapeId);
+    let symbol = name + "$";
+    if (seen.has(symbol)) {
+      // Rare: another namespace already claimed this unqualified name. Suffix
+      // with the namespace (dots → underscores) to deconflict, e.g.
+      // `Shared_com_example_b$`.
+      symbol = `${name}_${namespace.replace(/\./g, "_")}$`;
+    }
+    seen.add(symbol);
+    out[symbol] = byShapeId[shapeId];
+  }
+  return out;
 }
 
 /**

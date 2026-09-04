@@ -27,19 +27,14 @@ import { customEndpointFunctions } from "@smithy/core/endpoints";
 export type { ClientProtocolCtor };
 
 /**
- * The runtime export surface produced from an AST. Mirrors the symbol export
- * surface of a code-generated schema-based client (types excepted): the client
- * class (keyed by `<Service>Client`), one `<Op>Command` constructor per
- * operation, and one `<Shape>$` static schema per named shape.
+ * The runtime export surface produced from an AST.
  *
  * @public
  */
 export type DynamicClientExports = Record<string, any>;
 
 /**
- * The default runtime typecheck behavior: throw on input mismatches. Because
- * the dynamic client produces no static types, runtime validation is the only
- * safety net — fail loudly by default.
+ * The default runtime typecheck behavior: throw on input mismatches.
  *
  * @internal
  */
@@ -47,18 +42,6 @@ const DEFAULT_TYPECHECK: RuntimeTypecheckOptions = { input: "throw", output: "wa
 
 /**
  * Converts a Smithy JSON AST into a runtime schema-based client.
- *
- * The returned object mirrors the export surface of a generated client. The
- * protocol is selected from the service's protocol traits, choosing from the
- * supplied `protocols` list (default: the in-repo RPCv2 CBOR protocol). A
- * higher-level factory can wrap this function with a larger `protocols` array
- * to support additional protocols.
- *
- * Because no static types are produced, a runtime typecheck (RTTC) middleware
- * is installed automatically to validate inputs and outputs against the
- * schemas. Defaults to logging mismatches as warnings; pass
- * `{ input: false, output: false }` to disable, or a logger channel / `"throw"`
- * to change severity.
  *
  * @param ast - the Smithy JSON AST.
  * @param protocols - candidate client protocol constructors, in caller
@@ -118,17 +101,18 @@ export function createDynamicClient(
     if (!hasOwn(built.operations, operationSymbol)) continue;
     exports[operationSymbol] = built.operations[operationSymbol];
   }
+  // Export synthesized error classes (base + one per modeled error), keyed by
+  // class name, mirroring a code-generated client's error class exports.
+  for (const errorClassName in built.errorClasses) {
+    if (!hasOwn(built.errorClasses, errorClassName)) continue;
+    exports[errorClassName] = built.errorClasses[errorClassName];
+  }
 
   return exports;
 }
 
 /**
  * Derives the service name used for client/command naming.
- *
- * Prefers the `sdkId` from the `aws.api#service` trait (split on spaces,
- * capitalize each word, join), which mirrors the smithy-typescript codegen
- * behavior via `AwsServiceIdIntegration`. Falls back to the shape name
- * (the portion after `#` in the shape ID).
  *
  * @internal
  */

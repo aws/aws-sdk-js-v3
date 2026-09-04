@@ -51,8 +51,7 @@ interface SigV4AuthSchemeParameters extends HttpAuthSchemeParameters {
 
 /**
  * Detects the `aws.auth#sigv4` trait on the service and returns the SigV4 auth
- * configuration for the dynamic client. Returns `undefined` if the trait is not
- * present.
+ * configuration for the dynamic client.
  *
  * @internal
  */

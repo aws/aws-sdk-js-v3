@@ -2,8 +2,7 @@ import type { TypeRegistry } from "@smithy/core/schema";
 
 /**
  * A client protocol instance, narrowed to the members the dynamic client relies
- * on. Concrete protocols (e.g. `SmithyRpcV2CborProtocol`) implement much more,
- * but only the shape ID is needed for selection.
+ * on.
  *
  * @internal
  */

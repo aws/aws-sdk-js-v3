@@ -32,10 +32,6 @@ export interface SelectedProtocol {
  * Selects the protocol for a service by matching the service's protocol trait
  * shape IDs against the shape ID reported by each candidate protocol.
  *
- * Candidates are considered in the service's trait order first (model
- * preference), falling back to the order of the `protocols` array. The first
- * match wins.
- *
  * @param index - the AST model index.
  * @param protocols - candidate protocol constructors in caller preference order.
  * @param errorTypeRegistries - registries of modeled errors for the protocol.
@@ -98,8 +94,7 @@ export function selectProtocol(
 
 /**
  * Reads a protocol constructor's shape ID by instantiating it with inert
- * settings. Protocol shape IDs are constants, so the throwaway instance is
- * only used to read {@link getShapeId}.
+ * settings.
  *
  * @internal
  */
@@ -116,7 +111,6 @@ function shapeIdOf(ctor: ClientProtocolCtor): string {
 
 /**
  * Extracts the service name (the part after `#`) from an absolute shape ID.
- * For example, `com.amazonaws.dynamodb#DynamoDB_20120810` → `DynamoDB_20120810`.
  *
  * @internal
  */
