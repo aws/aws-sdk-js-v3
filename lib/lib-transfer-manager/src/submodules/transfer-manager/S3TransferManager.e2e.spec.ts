@@ -155,6 +155,42 @@ describe(S3TransferManager.name, () => {
         expect(handleEventCalled).toEqual(true);
       }, 60_000);
     }
+
+    // a multipart download must report a single cumulative bytesTransferred stream,
+    // not per-part sizes against the whole-object.
+    it("should report only cumulative progress for a multipart download", async () => {
+      const Key = FIXTURES.multipart_19mb;
+      const totalBytes = SIZE_19MB;
+
+      const observed: number[] = [];
+      const download = await tmPart.download(
+        { Bucket, Key },
+        {
+          eventListeners: {
+            bytesTransferred: [
+              ({ snapshot }) => {
+                observed.push(snapshot.transferredBytes);
+                // Every reading is against the whole-object total.
+                expect(snapshot.totalBytes).toEqual(totalBytes);
+                // No reading exceeds the total.
+                expect(snapshot.transferredBytes).toBeLessThanOrEqual(totalBytes);
+              },
+            ],
+          },
+        }
+      );
+
+      // Consume the body so joinStreams reports progress through completion.
+      const downloaded = await download.Body?.transformToByteArray();
+      check(downloaded!);
+
+      expect(observed.length).toBeGreaterThan(0);
+      for (let i = 1; i < observed.length; i++) {
+        expect(observed[i]).toBeGreaterThanOrEqual(observed[i - 1]);
+      }
+      // The final reading reaches the whole object size.
+      expect(observed[observed.length - 1]).toEqual(totalBytes);
+    }, 60_000);
   });
 
   describe("RANGE tests", () => {
@@ -808,6 +844,44 @@ describe(S3TransferManager.name, () => {
       }
     }, 60_000);
 
+    it("should emit only directory-level progress events (no per-file events)", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
+      await writeFile(join(tmpDir, "file1.txt"), data(1024));
+      await writeFile(join(tmpDir, "file2.txt"), data(2048));
+      await writeFile(join(tmpDir, "file3.txt"), data(4096));
+
+      const s3Prefix = `${prefix}/dir-only`;
+      const tm = new S3TransferManager({ s3: client });
+
+      let initiated = 0;
+      let byteEvents = 0;
+      let completed = 0;
+      try {
+        await tm.uploadDirectory(
+          {
+            bucket: Bucket,
+            source: tmpDir,
+            s3Prefix,
+          },
+          {
+            eventListeners: {
+              transferInitiated: [() => initiated++],
+              bytesTransferred: [() => byteEvents++],
+              transferComplete: [() => completed++],
+            },
+          }
+        );
+
+        // Exactly the directory-level events: 1 initiated, 3 byte updates (one per file), 1 complete.
+        expect(initiated).toBe(1);
+        expect(byteEvents).toBe(3);
+        expect(completed).toBe(1);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    }, 60_000);
+
     it("should report transferFailed event on terminate policy", async () => {
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-uploaddir-"));
       await writeFile(join(tmpDir, "file1.txt"), data(1024));
@@ -1080,6 +1154,46 @@ describe(S3TransferManager.name, () => {
         const downloadedRoot = join(dest, s3Prefix);
         expect(await readdir(downloadedRoot)).toEqual(["keep.jpg"]);
         check(await readFile(join(downloadedRoot, "keep.jpg")));
+      } finally {
+        await rm(source, { recursive: true });
+        await rm(dest, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    }, 180_000);
+
+    // only directory-level events fire (per-file downloadToFile
+    // events are suppressed).
+    it("should emit only directory-level progress events (no per-file events)", async () => {
+      const s3Prefix = `${prefix}/dir-only`;
+      const source = await mkdtemp(join(tmpdir(), "tm-e2e-src-"));
+      const dest = await mkdtemp(join(tmpdir(), "tm-e2e-dst-"));
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        await writeFile(join(source, "a.bin"), data(1024));
+        await writeFile(join(source, "b.bin"), data(2048));
+        await writeFile(join(source, "c.bin"), data(4096));
+
+        await tm.uploadDirectory({ bucket: Bucket, source, recursive: true, s3Prefix });
+
+        let initiated = 0;
+        let byteEvents = 0;
+        let completed = 0;
+        const down = await tm.downloadDirectory(
+          { bucket: Bucket, destination: dest, s3Prefix },
+          {
+            eventListeners: {
+              transferInitiated: [() => initiated++],
+              bytesTransferred: [() => byteEvents++],
+              transferComplete: [() => completed++],
+            },
+          }
+        );
+
+        expect(down.objectsDownloaded).toBe(3);
+        expect(initiated).toBe(1);
+        expect(byteEvents).toBe(3);
+        expect(completed).toBe(1);
       } finally {
         await rm(source, { recursive: true });
         await rm(dest, { recursive: true });
