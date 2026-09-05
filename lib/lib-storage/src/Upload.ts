@@ -306,15 +306,31 @@ export class Upload extends EventEmitter {
 
       this.__validateUploadPart(dataPart);
 
+      // Forward only fields valid on UploadPart with the same semantic meaning
+      // as on PutObject. Two classes are intentionally excluded:
+      //   - PUT-only fields S3 rejects on UploadPart (IfNoneMatch, ContentType,
+      //     Metadata, ACL, StorageClass, ObjectLock*, etc.).
+      //   - Object-level checksums whose value is a whole-object hash and is
+      //     wrong as a per-part value: ContentMD5 and the precomputed Checksum*
+      //     family (ChecksumSHA*/CRC*/CRC64NVME). See #6742.
+      // ChecksumAlgorithm is a directive (e.g. "SHA256"), not a precomputed
+      // hash; the SDK checksum middleware computes per-part hashes from it.
       const partResult = await this.client.send(
         new UploadPartCommand({
-          ...this.params,
+          Bucket: this.params.Bucket,
+          Key: this.params.Key,
+          ChecksumAlgorithm: this.params.ChecksumAlgorithm,
+          SSECustomerAlgorithm: this.params.SSECustomerAlgorithm,
+          SSECustomerKey: this.params.SSECustomerKey,
+          SSECustomerKeyMD5: this.params.SSECustomerKeyMD5,
+          RequestPayer: this.params.RequestPayer,
+          ExpectedBucketOwner: this.params.ExpectedBucketOwner,
+          Body: dataPart.data,
+          PartNumber: dataPart.partNumber,
+          UploadId: this.uploadId,
           // dataPart.data is chunked into a non-streaming buffer
           // so the ContentLength from the input should not be used for MPU.
           ContentLength: undefined,
-          UploadId: this.uploadId,
-          Body: dataPart.data,
-          PartNumber: dataPart.partNumber,
         })
       );
 
