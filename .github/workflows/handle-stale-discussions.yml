@@ -1,4 +1,4 @@
-name: HandleStaleDiscussions
+https://github.com/aws/aws-sdk-js-v3/actions/workflows/handle-stale-discussions.yml/badge.svgname: HandleStaleDiscussions
 on:
   schedule:
     - cron: '0 */4 * * *'
