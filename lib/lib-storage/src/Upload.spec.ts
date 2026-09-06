@@ -998,6 +998,28 @@ describe(Upload.name, () => {
       await expect(upload.done()).rejects.toThrow(/Expected \d+ part\(s\) but uploaded \d+ part\(s\)\./);
     });
 
+    it("should abort the multipart upload when the parts count check fails (leavePartsOnError=false)", async () => {
+      const client = new S3({});
+      const upload = new Upload({
+        params: { ...params, Body: Buffer.from("#".repeat(MOCK_PART_SIZE * 2 + 100)) },
+        client,
+      });
+
+      // Uploads happened (uploadId + prepared abort command) but the part count disagrees.
+      const abortCommand = { input: { UploadId: "mockuploadId" } };
+      Object.assign(upload as any, {
+        __doConcurrentUpload: vi.fn().mockResolvedValue(undefined),
+        uploadedParts: [{ PartNumber: 1, ETag: "etag1" }],
+        isMultiPart: true,
+        uploadId: "mockuploadId",
+        abortMultipartUploadCommand: abortCommand,
+      });
+
+      await expect(upload.done()).rejects.toThrow(/Expected \d+ part\(s\) but uploaded \d+ part\(s\)\./);
+
+      expect(client.send).toHaveBeenCalledWith(abortCommand);
+    });
+
     it("should throw error when part size doesn't match expected size except for last part", () => {
       const upload = new Upload({
         params,

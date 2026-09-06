@@ -11,7 +11,7 @@ export enum BYTE_LENGTH_SOURCE {
   LENGTH = "the value of Body.length",
   SIZE = "the value of Body.size",
   START_END_DIFF = "the numeric difference between Body.start and Body.end",
-  LSTAT = "the size of the file given by Body.path on disk as reported by lstatSync",
+  STAT = "the size of the file given by Body.path on disk as reported by statSync",
 }
 
 /**
@@ -44,8 +44,8 @@ export const byteLengthSource = (input: any, override?: number): BYTE_LENGTH_SOU
     return BYTE_LENGTH_SOURCE.START_END_DIFF;
   } else if (runtimeConfig.isFileReadStream(input)) {
     try {
-      runtimeConfig.lstatSync(input.path).size;
-      return BYTE_LENGTH_SOURCE.LSTAT;
+      runtimeConfig.statSync(input.path).size;
+      return BYTE_LENGTH_SOURCE.STAT;
     } catch (error) {
       return undefined;
     }

@@ -41,12 +41,12 @@ describe("byteLengthSource", () => {
     expect(byteLengthSource(input)).toBe(BYTE_LENGTH_SOURCE.START_END_DIFF);
   });
 
-  it("should return LSTAT for input with path that exists", () => {
+  it("should return STAT for input with path that exists", () => {
     const input = fs.createReadStream(__filename);
-    vi.spyOn(runtimeConfig, "lstatSync");
+    vi.spyOn(runtimeConfig, "statSync");
 
-    expect(byteLengthSource(input)).toBe(BYTE_LENGTH_SOURCE.LSTAT);
-    expect(runtimeConfig.lstatSync).toHaveBeenCalledWith(__filename);
+    expect(byteLengthSource(input)).toBe(BYTE_LENGTH_SOURCE.STAT);
+    expect(runtimeConfig.statSync).toHaveBeenCalledWith(__filename);
   });
 
   it("ignores objects with a path property that aren't fs.ReadStream objects", () => {

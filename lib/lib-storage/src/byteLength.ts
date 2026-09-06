@@ -32,7 +32,7 @@ export const byteLength = (input: any): number | undefined => {
     return input.end + 1 - input.start;
   } else if (runtimeConfig.isFileReadStream(input)) {
     try {
-      return runtimeConfig.lstatSync(input.path).size;
+      return runtimeConfig.statSync(input.path).size;
     } catch (error) {
       return undefined;
     }

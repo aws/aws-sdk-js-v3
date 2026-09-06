@@ -1,4 +1,6 @@
 import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { byteLength } from "./byteLength";
@@ -72,7 +74,23 @@ describe("byteLength", () => {
   describe("filestreams", () => {
     it("should handle readable streams", () => {
       const stream = fs.createReadStream(__filename);
-      expect(byteLength(stream)).toBe(fs.lstatSync(__filename).size);
+      expect(byteLength(stream)).toBe(fs.statSync(__filename).size);
+    });
+
+    it("should follow symlinks and report the target file size", () => {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), "lib-storage-byte-length-"));
+      const target = path.join(dir, "target.bin");
+      const link = path.join(dir, "link.bin");
+      fs.writeFileSync(target, Buffer.alloc(5 * 1024 * 1024));
+      fs.symlinkSync(target, link);
+
+      const stream = fs.createReadStream(link);
+      try {
+        expect(byteLength(stream)).toBe(5 * 1024 * 1024);
+        expect(byteLength(stream)).toBe(fs.statSync(link).size);
+      } finally {
+        stream.destroy();
+      }
     });
   });
 });

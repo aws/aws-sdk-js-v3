@@ -242,7 +242,7 @@ describe("@aws-sdk/lib-storage", () => {
       expect(error).toBeInstanceOf(Error);
       expect(error.message).toEqual(`Expected 0 part(s) but uploaded 2 part(s).
 The expected part count is based on the byte-count of the input.params.Body,
-which was read from the size of the file given by Body.path on disk as reported by lstatSync and is 0.
+which was read from the size of the file given by Body.path on disk as reported by statSync and is 0.
 If this is not correct, provide an override value by setting a number
 to input.params.ContentLength in bytes.
 `);
