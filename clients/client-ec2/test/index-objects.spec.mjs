@@ -3719,6 +3719,7 @@ import {
   NetworkBandwidthGbps$,
   NetworkBandwidthGbpsRequest$,
   NetworkCardInfo$,
+  NetworkCardInterfaceType,
   NetworkInfo$,
   NetworkInsightsAccessScope$,
   NetworkInsightsAccessScopeAnalysis$,
@@ -9258,6 +9259,7 @@ assert(typeof NatGatewayApplianceState === "object");
 assert(typeof NatGatewayApplianceType === "object");
 assert(typeof NatGatewayState === "object");
 assert(typeof NestedVirtualizationSpecification === "object");
+assert(typeof NetworkCardInterfaceType === "object");
 assert(typeof NetworkInterfaceAttribute === "object");
 assert(typeof NetworkInterfaceCreationType === "object");
 assert(typeof NetworkInterfacePermissionStateCode === "object");

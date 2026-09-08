@@ -61,6 +61,7 @@ import type {
   MonitoringState,
   MoveStatus,
   NestedVirtualizationSpecification,
+  NetworkCardInterfaceType,
   NetworkInterfaceAttribute,
   NetworkInterfaceStatus,
   NitroEnclavesSupport,
@@ -8201,6 +8202,12 @@ export interface NetworkCardInfo {
    * @public
    */
   MaximumEnaQueueCountPerInterface?: number | undefined;
+
+  /**
+   * <p>The supported interface types for the network card.</p>
+   * @public
+   */
+  InterfaceTypes?: NetworkCardInterfaceType[] | undefined;
 }
 
 /**

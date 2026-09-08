@@ -7125,6 +7125,21 @@ export type FlexibleEnaQueuesSupport = (typeof FlexibleEnaQueuesSupport)[keyof t
  * @public
  * @enum
  */
+export const NetworkCardInterfaceType = {
+  efa: "efa",
+  efa_only: "efa-only",
+  interface: "interface",
+  secondary: "secondary",
+} as const;
+/**
+ * @public
+ */
+export type NetworkCardInterfaceType = (typeof NetworkCardInterfaceType)[keyof typeof NetworkCardInterfaceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const NitroEnclavesSupport = {
   SUPPORTED: "supported",
   UNSUPPORTED: "unsupported",

@@ -151,6 +151,9 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //             DefaultEnaQueueCountPerInterface: Number("int"),
  * //             MaximumEnaQueueCount: Number("int"),
  * //             MaximumEnaQueueCountPerInterface: Number("int"),
+ * //             InterfaceTypes: [ // NetworkCardInterfaceTypeList
+ * //               "interface" || "efa" || "efa-only" || "secondary",
+ * //             ],
  * //           },
  * //         ],
  * //         Ipv4AddressesPerInterface: Number("int"),

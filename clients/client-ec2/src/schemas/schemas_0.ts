@@ -3663,6 +3663,7 @@ const _ITnsta = "InstanceTags";
 const _ITnstan = "InstanceTag";
 const _ITnstanc = "InstanceTopology";
 const _ITnt = "InterfaceType";
+const _ITnte = "InterfaceTypes";
 const _IU = "InstanceUsages";
 const _IUDR = "ImageUefiDataRequest";
 const _IUIR = "IncludeUnsupportedInRegion";
@@ -4399,6 +4400,7 @@ const _NBGe = "NetworkBandwidthGbps";
 const _NC = "NetworkCards";
 const _NCI = "NetworkCardIndex";
 const _NCIL = "NetworkCardInfoList";
+const _NCITL = "NetworkCardInterfaceTypeList";
 const _NCIe = "NetworkCardInfo";
 const _NCR = "NonCompliantResources";
 const _ND = "NoDevice";
@@ -7342,6 +7344,7 @@ const _iTOS = "instanceTypeOfferingSet";
 const _iTS = "instanceTypeSet";
 const _iTSS = "instanceTypeSpecificationSet";
 const _iTSn = "instanceTypeSpecification";
+const _iTSnt = "interfaceTypeSet";
 const _iTd = "idempotencyToken";
 const _iTm = "imageType";
 const _iTn = "interruptionType";
@@ -22342,7 +22345,7 @@ export var NetworkBandwidthGbpsRequest$: StaticStructureSchema = [3, n0, _NBGR,
 ];
 export var NetworkCardInfo$: StaticStructureSchema = [3, n0, _NCIe,
   0,
-  [_NCI, _NPe, _MNI, _AFNI, _BBIG, _PBIG, _DEQCPI, _MEQC, _MEQCPI],
+  [_NCI, _NPe, _MNI, _AFNI, _BBIG, _PBIG, _DEQCPI, _MEQC, _MEQCPI, _ITnte],
   [[1, { [_eQN]: `NetworkCardIndex`
   , [_xN]: _nCI }], [0, { [_eQN]: `NetworkPerformance`
   , [_xN]: _nPe }], [1, { [_eQN]: `MaximumNetworkInterfaces`
@@ -22352,7 +22355,8 @@ export var NetworkCardInfo$: StaticStructureSchema = [3, n0, _NCIe,
   , [_xN]: _pBIG }], [1, { [_eQN]: `DefaultEnaQueueCountPerInterface`
   , [_xN]: _dEQCPI }], [1, { [_eQN]: `MaximumEnaQueueCount`
   , [_xN]: _mEQC }], [1, { [_eQN]: `MaximumEnaQueueCountPerInterface`
-  , [_xN]: _mEQCPI }]]
+  , [_xN]: _mEQCPI }], [() => NetworkCardInterfaceTypeList, { [_eQN]: `InterfaceTypeSet`
+  , [_xN]: _iTSnt }]]
 ];
 export var NetworkInfo$: StaticStructureSchema = [3, n0, _NIetw,
   0,
@@ -28683,6 +28687,10 @@ var NetworkAclList: StaticListSchema = [1, n0, _NAL,
 ];
 var NetworkCardInfoList: StaticListSchema = [1, n0, _NCIL,
   0, [() => NetworkCardInfo$,
+    { [_xN]: _it }]
+];
+var NetworkCardInterfaceTypeList: StaticListSchema = [1, n0, _NCITL,
+  0, [0,
     { [_xN]: _it }]
 ];
 var NetworkInsightsAccessScopeAnalysisIdList: StaticListSchema = [1, n0, _NIASAIL,

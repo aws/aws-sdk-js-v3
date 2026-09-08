@@ -42548,7 +42548,7 @@
                 "target": "com.amazonaws.ec2#DescribeInstanceCreditSpecificationsResult"
             },
             "traits": {
-                "smithy.api#documentation": "<p>Describes the credit option for CPU usage of the specified burstable performance\n            instances. The credit options are <code>standard</code> and\n            <code>unlimited</code>.</p>\n         <p>If you do not specify an instance ID, Amazon EC2 returns burstable performance\n            instances with the <code>unlimited</code> credit option, as well as instances that were\n            previously configured as T2, T3, and T3a with the <code>unlimited</code> credit option.\n            For example, if you resize a T2 instance, while it is configured as\n                <code>unlimited</code>, to an M4 instance, Amazon EC2 returns the M4\n            instance.</p>\n         <p>If you specify one or more instance IDs, Amazon EC2 returns the credit option\n                (<code>standard</code> or <code>unlimited</code>) of those instances. If you specify\n            an instance ID that is not valid, such as an instance that is not a burstable\n            performance instance, an error is returned.</p>\n         <p>Recently terminated instances might appear in the returned results. This interval is\n            usually less than one hour.</p>\n         <p>If an Availability Zone is experiencing a service disruption and you specify instance\n            IDs in the affected zone, or do not specify any instance IDs at all, the call fails. If\n            you specify only instance IDs in an unaffected zone, the call works normally.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable\n                performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+                "smithy.api#documentation": "<p>Describes the credit option for CPU usage of the specified burstable performance\n            instances. The credit options are <code>standard</code> and\n            <code>unlimited</code>.</p>\n         <p>If you do not specify an instance ID, Amazon EC2 returns burstable performance\n            instances with the <code>unlimited</code> credit option, as well as instances that were\n            previously configured as T2, T3, and T3a with the <code>unlimited</code> credit option.\n            For example, if you resize a T2 instance, while it is configured as\n                <code>unlimited</code>, to an M4 instance, Amazon EC2 returns the M4\n            instance.</p>\n         <p>If you specify one or more instance IDs, Amazon EC2 returns the credit option\n                (<code>standard</code> or <code>unlimited</code>) of those instances. If you specify\n            an instance ID that is not a burstable performance instance, Amazon EC2 returns the\n            <code>standard</code> credit option.</p>\n         <p>Recently terminated instances might appear in the returned results. This interval is\n            usually less than one hour.</p>\n         <p>If an Availability Zone is experiencing a service disruption and you specify instance\n            IDs in the affected zone, or do not specify any instance IDs at all, the call fails. If\n            you specify only instance IDs in an unaffected zone, the call works normally.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable\n                performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>",
                 "smithy.api#paginated": {
                     "inputToken": "NextToken",
                     "outputToken": "NextToken",
@@ -110794,6 +110794,14 @@
                         "smithy.api#documentation": "<p>The maximum number of the ENA queues for each interface.</p>",
                         "smithy.api#xmlName": "maximumEnaQueueCountPerInterface"
                     }
+                },
+                "InterfaceTypes": {
+                    "target": "com.amazonaws.ec2#NetworkCardInterfaceTypeList",
+                    "traits": {
+                        "aws.protocols#ec2QueryName": "InterfaceTypeSet",
+                        "smithy.api#documentation": "<p>The supported interface types for the network card.</p>",
+                        "smithy.api#xmlName": "interfaceTypeSet"
+                    }
                 }
             },
             "traits": {
@@ -110804,6 +110812,44 @@
             "type": "list",
             "member": {
                 "target": "com.amazonaws.ec2#NetworkCardInfo",
+                "traits": {
+                    "smithy.api#xmlName": "item"
+                }
+            }
+        },
+        "com.amazonaws.ec2#NetworkCardInterfaceType": {
+            "type": "enum",
+            "members": {
+                "interface": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "interface"
+                    }
+                },
+                "efa": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "efa"
+                    }
+                },
+                "efa_only": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "efa-only"
+                    }
+                },
+                "secondary": {
+                    "target": "smithy.api#Unit",
+                    "traits": {
+                        "smithy.api#enumValue": "secondary"
+                    }
+                }
+            }
+        },
+        "com.amazonaws.ec2#NetworkCardInterfaceTypeList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.ec2#NetworkCardInterfaceType",
                 "traits": {
                     "smithy.api#xmlName": "item"
                 }

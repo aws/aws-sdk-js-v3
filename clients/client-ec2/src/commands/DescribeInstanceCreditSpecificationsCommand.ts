@@ -37,8 +37,8 @@ export interface DescribeInstanceCreditSpecificationsCommandOutput extends Descr
  *             instance.</p>
  *          <p>If you specify one or more instance IDs, Amazon EC2 returns the credit option
  *                 (<code>standard</code> or <code>unlimited</code>) of those instances. If you specify
- *             an instance ID that is not valid, such as an instance that is not a burstable
- *             performance instance, an error is returned.</p>
+ *             an instance ID that is not a burstable performance instance, Amazon EC2 returns the
+ *             <code>standard</code> credit option.</p>
  *          <p>Recently terminated instances might appear in the returned results. This interval is
  *             usually less than one hour.</p>
  *          <p>If an Availability Zone is experiencing a service disruption and you specify instance

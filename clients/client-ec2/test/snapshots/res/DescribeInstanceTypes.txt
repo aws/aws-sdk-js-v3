@@ -348,6 +348,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <maximumEnaQueueCountPerInterface>
                             0
                         </maximumEnaQueueCountPerInterface>
+                        <interfaceTypeSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </interfaceTypeSet>
                     </item>
                     <item>
                         <networkCardIndex>
@@ -377,6 +388,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <maximumEnaQueueCountPerInterface>
                             0
                         </maximumEnaQueueCountPerInterface>
+                        <interfaceTypeSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </interfaceTypeSet>
                     </item>
                     <item>
                         <networkCardIndex>
@@ -406,6 +428,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <maximumEnaQueueCountPerInterface>
                             0
                         </maximumEnaQueueCountPerInterface>
+                        <interfaceTypeSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </interfaceTypeSet>
                     </item>
                 </networkCards>
                 <ipv4AddressesPerInterface>
@@ -1194,6 +1227,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <maximumEnaQueueCountPerInterface>
                             0
                         </maximumEnaQueueCountPerInterface>
+                        <interfaceTypeSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </interfaceTypeSet>
                     </item>
                     <item>
                         <networkCardIndex>
@@ -1223,6 +1267,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <maximumEnaQueueCountPerInterface>
                             0
                         </maximumEnaQueueCountPerInterface>
+                        <interfaceTypeSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </interfaceTypeSet>
                     </item>
                     <item>
                         <networkCardIndex>
@@ -1252,6 +1307,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <maximumEnaQueueCountPerInterface>
                             0
                         </maximumEnaQueueCountPerInterface>
+                        <interfaceTypeSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </interfaceTypeSet>
                     </item>
                 </networkCards>
                 <ipv4AddressesPerInterface>
@@ -2040,6 +2106,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <maximumEnaQueueCountPerInterface>
                             0
                         </maximumEnaQueueCountPerInterface>
+                        <interfaceTypeSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </interfaceTypeSet>
                     </item>
                     <item>
                         <networkCardIndex>
@@ -2069,6 +2146,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <maximumEnaQueueCountPerInterface>
                             0
                         </maximumEnaQueueCountPerInterface>
+                        <interfaceTypeSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </interfaceTypeSet>
                     </item>
                     <item>
                         <networkCardIndex>
@@ -2098,6 +2186,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         <maximumEnaQueueCountPerInterface>
                             0
                         </maximumEnaQueueCountPerInterface>
+                        <interfaceTypeSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </interfaceTypeSet>
                     </item>
                 </networkCards>
                 <ipv4AddressesPerInterface>
@@ -2713,7 +2812,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             PeakBandwidthInGbps: (number) 0,
             DefaultEnaQueueCountPerInterface: (number) 0,
             MaximumEnaQueueCount: (number) 0,
-            MaximumEnaQueueCountPerInterface: (number) 0
+            MaximumEnaQueueCountPerInterface: (number) 0,
+            InterfaceTypes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
           },
           {
             NetworkCardIndex: (number) 0,
@@ -2724,7 +2828,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             PeakBandwidthInGbps: (number) 0,
             DefaultEnaQueueCountPerInterface: (number) 0,
             MaximumEnaQueueCount: (number) 0,
-            MaximumEnaQueueCountPerInterface: (number) 0
+            MaximumEnaQueueCountPerInterface: (number) 0,
+            InterfaceTypes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
           },
           {
             NetworkCardIndex: (number) 0,
@@ -2735,7 +2844,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             PeakBandwidthInGbps: (number) 0,
             DefaultEnaQueueCountPerInterface: (number) 0,
             MaximumEnaQueueCount: (number) 0,
-            MaximumEnaQueueCountPerInterface: (number) 0
+            MaximumEnaQueueCountPerInterface: (number) 0,
+            InterfaceTypes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
           }
         ],
         Ipv4AddressesPerInterface: (number) 0,
@@ -3103,7 +3217,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             PeakBandwidthInGbps: (number) 0,
             DefaultEnaQueueCountPerInterface: (number) 0,
             MaximumEnaQueueCount: (number) 0,
-            MaximumEnaQueueCountPerInterface: (number) 0
+            MaximumEnaQueueCountPerInterface: (number) 0,
+            InterfaceTypes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
           },
           {
             NetworkCardIndex: (number) 0,
@@ -3114,7 +3233,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             PeakBandwidthInGbps: (number) 0,
             DefaultEnaQueueCountPerInterface: (number) 0,
             MaximumEnaQueueCount: (number) 0,
-            MaximumEnaQueueCountPerInterface: (number) 0
+            MaximumEnaQueueCountPerInterface: (number) 0,
+            InterfaceTypes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
           },
           {
             NetworkCardIndex: (number) 0,
@@ -3125,7 +3249,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             PeakBandwidthInGbps: (number) 0,
             DefaultEnaQueueCountPerInterface: (number) 0,
             MaximumEnaQueueCount: (number) 0,
-            MaximumEnaQueueCountPerInterface: (number) 0
+            MaximumEnaQueueCountPerInterface: (number) 0,
+            InterfaceTypes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
           }
         ],
         Ipv4AddressesPerInterface: (number) 0,
@@ -3493,7 +3622,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             PeakBandwidthInGbps: (number) 0,
             DefaultEnaQueueCountPerInterface: (number) 0,
             MaximumEnaQueueCount: (number) 0,
-            MaximumEnaQueueCountPerInterface: (number) 0
+            MaximumEnaQueueCountPerInterface: (number) 0,
+            InterfaceTypes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
           },
           {
             NetworkCardIndex: (number) 0,
@@ -3504,7 +3638,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             PeakBandwidthInGbps: (number) 0,
             DefaultEnaQueueCountPerInterface: (number) 0,
             MaximumEnaQueueCount: (number) 0,
-            MaximumEnaQueueCountPerInterface: (number) 0
+            MaximumEnaQueueCountPerInterface: (number) 0,
+            InterfaceTypes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
           },
           {
             NetworkCardIndex: (number) 0,
@@ -3515,7 +3654,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             PeakBandwidthInGbps: (number) 0,
             DefaultEnaQueueCountPerInterface: (number) 0,
             MaximumEnaQueueCount: (number) 0,
-            MaximumEnaQueueCountPerInterface: (number) 0
+            MaximumEnaQueueCountPerInterface: (number) 0,
+            InterfaceTypes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
           }
         ],
         Ipv4AddressesPerInterface: (number) 0,
