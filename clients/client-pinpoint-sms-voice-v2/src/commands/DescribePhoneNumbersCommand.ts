@@ -73,6 +73,14 @@ export interface DescribePhoneNumbersCommandOutput extends DescribePhoneNumbersR
  * //       DeletionProtectionEnabled: true || false, // required
  * //       PoolId: "STRING_VALUE",
  * //       RegistrationId: "STRING_VALUE",
+ * //       MessagingLimits: { // MessagingLimits
+ * //         RateLimits: { // LongMap
+ * //           "<keys>": Number("long"),
+ * //         },
+ * //         DailyMessageCaps: {
+ * //           "<keys>": Number("long"),
+ * //         },
+ * //       },
  * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],

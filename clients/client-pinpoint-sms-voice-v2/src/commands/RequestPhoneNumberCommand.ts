@@ -42,6 +42,16 @@ export interface RequestPhoneNumberCommandOutput extends RequestPhoneNumberResul
  *   OptOutListName: "STRING_VALUE",
  *   PoolId: "STRING_VALUE",
  *   RegistrationId: "STRING_VALUE",
+ *   NumberPreference: [ // NumberPreferenceList
+ *     { // NumberPreferenceItem
+ *       PreferenceType: [ // PreferenceTypeList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       Filter: [ // NumberFilterList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  *   InternationalSendingEnabled: true || false,
  *   DeletionProtectionEnabled: true || false,
  *   Tags: [ // TagList

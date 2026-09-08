@@ -289,6 +289,10 @@ import type {
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import type {
+  ListAvailablePhoneNumbersCommandInput,
+  ListAvailablePhoneNumbersCommandOutput,
+} from "./commands/ListAvailablePhoneNumbersCommand";
+import type {
   ListNotifyCountriesCommandInput,
   ListNotifyCountriesCommandOutput,
 } from "./commands/ListNotifyCountriesCommand";
@@ -505,6 +509,7 @@ export type ServiceInputTypes =
   | DiscardRegistrationVersionCommandInput
   | GetProtectConfigurationCountryRuleSetCommandInput
   | GetResourcePolicyCommandInput
+  | ListAvailablePhoneNumbersCommandInput
   | ListNotifyCountriesCommandInput
   | ListPoolOriginationIdentitiesCommandInput
   | ListProtectConfigurationRuleSetNumberOverridesCommandInput
@@ -619,6 +624,7 @@ export type ServiceOutputTypes =
   | DiscardRegistrationVersionCommandOutput
   | GetProtectConfigurationCountryRuleSetCommandOutput
   | GetResourcePolicyCommandOutput
+  | ListAvailablePhoneNumbersCommandOutput
   | ListNotifyCountriesCommandOutput
   | ListPoolOriginationIdentitiesCommandOutput
   | ListProtectConfigurationRuleSetNumberOverridesCommandOutput

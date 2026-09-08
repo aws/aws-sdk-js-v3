@@ -333,6 +333,11 @@ import {
   GetResourcePolicyCommand,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type ListAvailablePhoneNumbersCommandInput,
+  type ListAvailablePhoneNumbersCommandOutput,
+  ListAvailablePhoneNumbersCommand,
+} from "./commands/ListAvailablePhoneNumbersCommand";
+import {
   type ListNotifyCountriesCommandInput,
   type ListNotifyCountriesCommandOutput,
   ListNotifyCountriesCommand,
@@ -574,6 +579,7 @@ import { paginateDescribeRegistrationVersions } from "./pagination/DescribeRegis
 import { paginateDescribeSenderIds } from "./pagination/DescribeSenderIdsPaginator";
 import { paginateDescribeSpendLimits } from "./pagination/DescribeSpendLimitsPaginator";
 import { paginateDescribeVerifiedDestinationNumbers } from "./pagination/DescribeVerifiedDestinationNumbersPaginator";
+import { paginateListAvailablePhoneNumbers } from "./pagination/ListAvailablePhoneNumbersPaginator";
 import { paginateListNotifyCountries } from "./pagination/ListNotifyCountriesPaginator";
 import { paginateListPoolOriginationIdentities } from "./pagination/ListPoolOriginationIdentitiesPaginator";
 import {
@@ -649,6 +655,7 @@ const commands = {
   DiscardRegistrationVersionCommand,
   GetProtectConfigurationCountryRuleSetCommand,
   GetResourcePolicyCommand,
+  ListAvailablePhoneNumbersCommand,
   ListNotifyCountriesCommand,
   ListPoolOriginationIdentitiesCommand,
   ListProtectConfigurationRuleSetNumberOverridesCommand,
@@ -717,6 +724,7 @@ const paginators = {
   paginateDescribeSenderIds,
   paginateDescribeSpendLimits,
   paginateDescribeVerifiedDestinationNumbers,
+  paginateListAvailablePhoneNumbers,
   paginateListNotifyCountries,
   paginateListPoolOriginationIdentities,
   paginateListProtectConfigurationRuleSetNumberOverrides,
@@ -1872,6 +1880,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link ListAvailablePhoneNumbersCommand}
+   */
+  listAvailablePhoneNumbers(
+    args: ListAvailablePhoneNumbersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAvailablePhoneNumbersCommandOutput>;
+  listAvailablePhoneNumbers(
+    args: ListAvailablePhoneNumbersCommandInput,
+    cb: (err: any, data?: ListAvailablePhoneNumbersCommandOutput) => void
+  ): void;
+  listAvailablePhoneNumbers(
+    args: ListAvailablePhoneNumbersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAvailablePhoneNumbersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNotifyCountriesCommand}
    */
   listNotifyCountries(): Promise<ListNotifyCountriesCommandOutput>;
@@ -2855,6 +2880,17 @@ export interface PinpointSMSVoiceV2 {
     args?: DescribeVerifiedDestinationNumbersCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeVerifiedDestinationNumbersCommandOutput>;
+
+  /**
+   * @see {@link ListAvailablePhoneNumbersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAvailablePhoneNumbersCommandOutput}.
+   */
+  paginateListAvailablePhoneNumbers(
+    args: ListAvailablePhoneNumbersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAvailablePhoneNumbersCommandOutput>;
 
   /**
    * @see {@link ListNotifyCountriesCommand}

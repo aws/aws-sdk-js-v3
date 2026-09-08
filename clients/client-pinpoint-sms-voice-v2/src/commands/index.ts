@@ -65,6 +65,7 @@ export * from "./DisassociateProtectConfigurationCommand";
 export * from "./DiscardRegistrationVersionCommand";
 export * from "./GetProtectConfigurationCountryRuleSetCommand";
 export * from "./GetResourcePolicyCommand";
+export * from "./ListAvailablePhoneNumbersCommand";
 export * from "./ListNotifyCountriesCommand";
 export * from "./ListPoolOriginationIdentitiesCommand";
 export * from "./ListProtectConfigurationRuleSetNumberOverridesCommand";

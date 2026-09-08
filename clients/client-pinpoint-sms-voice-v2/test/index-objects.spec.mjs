@@ -302,6 +302,10 @@ import {
   KeywordInformation$,
   KinesisFirehoseDestination$,
   LanguageCode,
+  ListAvailablePhoneNumbers$,
+  ListAvailablePhoneNumbersCommand,
+  ListAvailablePhoneNumbersRequest$,
+  ListAvailablePhoneNumbersResult$,
   ListNotifyCountries$,
   ListNotifyCountriesCommand,
   ListNotifyCountriesRequest$,
@@ -324,6 +328,7 @@ import {
   ListTagsForResourceResult$,
   MessageFeedbackStatus,
   MessageType,
+  MessagingLimits$,
   NotifyConfigurationFilter$,
   NotifyConfigurationFilterName,
   NotifyConfigurationInformation$,
@@ -337,6 +342,7 @@ import {
   NotifyTemplateStatus,
   NotifyTemplateType,
   NumberCapability,
+  NumberPreferenceItem$,
   NumberStatus,
   NumberType,
   OptedOutFilter$,
@@ -368,6 +374,7 @@ import {
   paginateDescribeSenderIds,
   paginateDescribeSpendLimits,
   paginateDescribeVerifiedDestinationNumbers,
+  paginateListAvailablePhoneNumbers,
   paginateListNotifyCountries,
   paginateListPoolOriginationIdentities,
   paginateListProtectConfigurationRuleSetNumberOverrides,
@@ -385,6 +392,7 @@ import {
   PoolOriginationIdentitiesFilter$,
   PoolOriginationIdentitiesFilterName,
   PoolStatus,
+  PreferenceType,
   ProtectConfigurationCountryRuleSetInformation$,
   ProtectConfigurationFilter$,
   ProtectConfigurationFilterName,
@@ -488,6 +496,7 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceType,
+  SearchableNumberType,
   SelectOptionDescription$,
   SelectValidation$,
   SendDestinationNumberVerificationCode$,
@@ -772,6 +781,8 @@ assert(typeof GetProtectConfigurationCountryRuleSetCommand === "function");
 assert(typeof GetProtectConfigurationCountryRuleSet$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
+assert(typeof ListAvailablePhoneNumbersCommand === "function");
+assert(typeof ListAvailablePhoneNumbers$ === "object");
 assert(typeof ListNotifyCountriesCommand === "function");
 assert(typeof ListNotifyCountries$ === "object");
 assert(typeof ListPoolOriginationIdentitiesCommand === "function");
@@ -1007,6 +1018,8 @@ assert(typeof GetResourcePolicyResult$ === "object");
 assert(typeof KeywordFilter$ === "object");
 assert(typeof KeywordInformation$ === "object");
 assert(typeof KinesisFirehoseDestination$ === "object");
+assert(typeof ListAvailablePhoneNumbersRequest$ === "object");
+assert(typeof ListAvailablePhoneNumbersResult$ === "object");
 assert(typeof ListNotifyCountriesRequest$ === "object");
 assert(typeof ListNotifyCountriesResult$ === "object");
 assert(typeof ListPoolOriginationIdentitiesRequest$ === "object");
@@ -1017,11 +1030,13 @@ assert(typeof ListRegistrationAssociationsRequest$ === "object");
 assert(typeof ListRegistrationAssociationsResult$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResult$ === "object");
+assert(typeof MessagingLimits$ === "object");
 assert(typeof NotifyConfigurationFilter$ === "object");
 assert(typeof NotifyConfigurationInformation$ === "object");
 assert(typeof NotifyCountryInformation$ === "object");
 assert(typeof NotifyTemplateFilter$ === "object");
 assert(typeof NotifyTemplateInformation$ === "object");
+assert(typeof NumberPreferenceItem$ === "object");
 assert(typeof OptedOutFilter$ === "object");
 assert(typeof OptedOutNumberInformation$ === "object");
 assert(typeof OptOutListInformation$ === "object");
@@ -1202,6 +1217,7 @@ assert(typeof PhoneNumberType === "object");
 assert(typeof PoolFilterName === "object");
 assert(typeof PoolOriginationIdentitiesFilterName === "object");
 assert(typeof PoolStatus === "object");
+assert(typeof PreferenceType === "object");
 assert(typeof ProtectConfigurationFilterName === "object");
 assert(typeof ProtectConfigurationRuleOverrideAction === "object");
 assert(typeof ProtectConfigurationRuleSetNumberOverrideFilterName === "object");
@@ -1220,6 +1236,7 @@ assert(typeof RegistrationVersionFilterName === "object");
 assert(typeof RegistrationVersionStatus === "object");
 assert(typeof RequestableNumberType === "object");
 assert(typeof ResourceType === "object");
+assert(typeof SearchableNumberType === "object");
 assert(typeof SenderIdFilterName === "object");
 assert(typeof ServiceQuotaExceededExceptionReason === "object");
 assert(typeof SpendLimitName === "object");
@@ -1273,6 +1290,7 @@ assert(typeof paginateDescribeRegistrations === "function");
 assert(typeof paginateDescribeSenderIds === "function");
 assert(typeof paginateDescribeSpendLimits === "function");
 assert(typeof paginateDescribeVerifiedDestinationNumbers === "function");
+assert(typeof paginateListAvailablePhoneNumbers === "function");
 assert(typeof paginateListNotifyCountries === "function");
 assert(typeof paginateListPoolOriginationIdentities === "function");
 assert(typeof paginateListProtectConfigurationRuleSetNumberOverrides === "function");

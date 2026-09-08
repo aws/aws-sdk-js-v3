@@ -1,5 +1,110 @@
 // smithy-typescript generated code
-import type { MessageType, RcsAgentStatus, VerificationStatus } from "./enums";
+import type { MessageType, NumberCapability, RcsAgentStatus, VerificationStatus } from "./enums";
+import type { ProtectConfigurationCountryRuleSetInformation } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateProtectConfigurationRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
+   * @public
+   */
+  DeletionProtectionEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProtectConfigurationResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The time when the protect configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>This is true if the protect configuration is set as your account default protect configuration.</p>
+   * @public
+   */
+  AccountDefault: boolean | undefined;
+
+  /**
+   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false. </p>
+   * @public
+   */
+  DeletionProtectionEnabled: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProtectConfigurationCountryRuleSetRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The number capability to apply the CountryRuleSetUpdates updates to.</p>
+   * @public
+   */
+  NumberCapability: NumberCapability | undefined;
+
+  /**
+   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the End User Messaging SMS User Guide.</p> <p>For example, to set the United States as allowed and Canada as blocked, the <code>CountryRuleSetUpdates</code> would be formatted as: <code>"CountryRuleSetUpdates": \{ "US" : \{ "ProtectStatus": "ALLOW" \} "CA" : \{ "ProtectStatus": "BLOCK" \} \}</code> </p>
+   * @public
+   */
+  CountryRuleSetUpdates: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProtectConfigurationCountryRuleSetResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The number capability that was updated</p>
+   * @public
+   */
+  NumberCapability: NumberCapability | undefined;
+
+  /**
+   * <p>An array of ProtectConfigurationCountryRuleSetInformation containing the rules for the NumberCapability.</p>
+   * @public
+   */
+  CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
+}
 
 /**
  * @public

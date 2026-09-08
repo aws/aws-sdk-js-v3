@@ -75,6 +75,14 @@ export interface DescribeRcsAgentsCommandOutput extends DescribeRcsAgentsResult,
  * //         TestingAgentId: "STRING_VALUE",
  * //         RegistrationId: "STRING_VALUE", // required
  * //       },
+ * //       MessagingLimits: { // MessagingLimits
+ * //         RateLimits: { // LongMap
+ * //           "<keys>": Number("long"),
+ * //         },
+ * //         DailyMessageCaps: {
+ * //           "<keys>": Number("long"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

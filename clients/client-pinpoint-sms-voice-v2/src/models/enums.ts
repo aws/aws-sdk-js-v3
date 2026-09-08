@@ -1113,6 +1113,33 @@ export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
  * @public
  * @enum
  */
+export const PreferenceType = {
+  CONTAINS: "Contains",
+  ENDS_WITH: "EndsWith",
+  EXACT_MATCH: "ExactMatch",
+  STARTS_WITH: "StartsWith",
+} as const;
+/**
+ * @public
+ */
+export type PreferenceType = (typeof PreferenceType)[keyof typeof PreferenceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchableNumberType = {
+  TEN_DLC: "TEN_DLC",
+} as const;
+/**
+ * @public
+ */
+export type SearchableNumberType = (typeof SearchableNumberType)[keyof typeof SearchableNumberType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PoolOriginationIdentitiesFilterName = {
   ISO_COUNTRY_CODE: "iso-country-code",
   NUMBER_CAPABILITY: "number-capability",

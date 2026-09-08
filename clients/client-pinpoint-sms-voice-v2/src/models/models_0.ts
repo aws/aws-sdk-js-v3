@@ -34,6 +34,7 @@ import type {
   PoolFilterName,
   PoolOriginationIdentitiesFilterName,
   PoolStatus,
+  PreferenceType,
   ProtectConfigurationFilterName,
   ProtectConfigurationRuleOverrideAction,
   ProtectConfigurationRuleSetNumberOverrideFilterName,
@@ -51,6 +52,7 @@ import type {
   RegistrationVersionFilterName,
   RegistrationVersionStatus,
   RequestableNumberType,
+  SearchableNumberType,
   SenderIdFilterName,
   SpendLimitName,
   TemplateVariableSource,
@@ -3530,6 +3532,24 @@ export interface DescribePhoneNumbersRequest {
 }
 
 /**
+ * <p>The messaging limits that apply to an origination identity, such as a phone number, sender ID, or RCS agent. Includes the per-capability send rates and, for supported origination identities, advisory per-provider daily message caps.</p>
+ * @public
+ */
+export interface MessagingLimits {
+  /**
+   * <p>The maximum send rate for each supported capability, in messages per second. The map is keyed by capability, such as <code>SMS</code>, <code>MMS</code>, <code>VOICE</code>, or <code>RCS</code>.</p>
+   * @public
+   */
+  RateLimits?: Record<string, number> | undefined;
+
+  /**
+   * <p>The advisory maximum number of messages that can be sent per day, keyed by provider (for example, <code>T-MOBILE</code>). Applies to 10DLC phone numbers and is omitted when no daily cap applies.</p>
+   * @public
+   */
+  DailyMessageCaps?: Record<string, number> | undefined;
+}
+
+/**
  * <p>The information for a phone number, in E.164 format, in an Amazon Web Services account.</p>
  * @public
  */
@@ -3641,6 +3661,12 @@ export interface PhoneNumberInformation {
    * @public
    */
   RegistrationId?: string | undefined;
+
+  /**
+   * <p>The messaging limits that apply to the phone number, including the per-capability send rates and any advisory per-provider daily message caps.</p>
+   * @public
+   */
+  MessagingLimits?: MessagingLimits | undefined;
 
   /**
    * <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -4155,6 +4181,12 @@ export interface RcsAgentInformation {
    * @public
    */
   TestingAgent?: TestingAgentInformation | undefined;
+
+  /**
+   * <p>The messaging limits that apply to the RCS agent, including the per-capability send rates.</p>
+   * @public
+   */
+  MessagingLimits?: MessagingLimits | undefined;
 }
 
 /**
@@ -5297,6 +5329,12 @@ export interface SenderIdInformation {
    * @public
    */
   RegistrationId?: string | undefined;
+
+  /**
+   * <p>The messaging limits that apply to the sender ID, including the per-capability send rates.</p>
+   * @public
+   */
+  MessagingLimits?: MessagingLimits | undefined;
 }
 
 /**
@@ -5738,6 +5776,89 @@ export interface GetResourcePolicyResult {
    * @public
    */
   CreatedTimestamp?: Date | undefined;
+}
+
+/**
+ * A single number preference — specifies a pattern type and filter value.
+ * @public
+ */
+export interface NumberPreferenceItem {
+  /**
+   * <p>The type of match to apply to the filter values.</p> <ul> <li> <p> <code>StartsWith</code>: Returns numbers that begin with the filter value.</p> </li> <li> <p> <code>EndsWith</code>: Returns numbers that end with the filter value.</p> </li> <li> <p> <code>Contains</code>: Returns numbers that contain the filter value.</p> </li> <li> <p> <code>ExactMatch</code>: Returns the number that exactly matches the filter value.</p> </li> </ul>
+   * @public
+   */
+  PreferenceType: PreferenceType[] | undefined;
+
+  /**
+   * <p>The digit pattern values to match against available phone numbers, using the specified preference type.</p>
+   * @public
+   */
+  Filter: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAvailablePhoneNumbersRequest {
+  /**
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region in which to search for available phone numbers. This operation currently supports only <code>US</code>.</p>
+   * @public
+   */
+  IsoCountryCode: string | undefined;
+
+  /**
+   * <p>The capabilities to filter by, such as SMS. Only phone numbers that support all of the specified capabilities are returned.</p>
+   * @public
+   */
+  NumberCapabilities: NumberCapability[] | undefined;
+
+  /**
+   * <p>The type of phone number to search for.</p>
+   * @public
+   */
+  NumberType: SearchableNumberType | undefined;
+
+  /**
+   * <p>The registration associated with the request. A registration is required for regulated number types. You can specify either:</p> <ul> <li> <p>The unique identifier of the registration.</p> </li> <li> <p>The Amazon Resource Name (ARN) of the registration.</p> </li> </ul>
+   * @public
+   */
+  RegistrationId?: string | undefined;
+
+  /**
+   * Optional. If omitted, returns unfiltered available numbers.
+   * Max 1 element for List API.
+   * @public
+   */
+  NumberPreference?: NumberPreferenceItem[] | undefined;
+
+  /**
+   * <p>The token returned from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. If you don't specify a value, the default is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAvailablePhoneNumbersResult {
+  /**
+   * <p>An array of phone numbers, in E.164 format, that are available to request based on the specified filters.</p>
+   * @public
+   */
+  AvailablePhoneNumbers: string[] | undefined;
+
+  /**
+   * <p>The token to include in the next request to retrieve the next page of results. This value is null when there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6779,6 +6900,12 @@ export interface RequestPhoneNumberRequest {
    * @public
    */
   RegistrationId?: string | undefined;
+
+  /**
+   * <p>An optional selection preference used to request a specific phone number, such as a number that starts with, ends with, or contains a particular digit pattern. You can specify at most one preference. Number preferences apply only to <code>TEN_DLC</code> requests in the <code>US</code>.</p>
+   * @public
+   */
+  NumberPreference?: NumberPreferenceItem[] | undefined;
 
   /**
    * <p>By default this is set to false. When set to true the international sending of phone number is Enabled. </p>
@@ -9076,108 +9203,4 @@ export interface UpdatePoolResult {
    * @public
    */
   CreatedTimestamp?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProtectConfigurationRequest {
-  /**
-   * <p>The unique identifier for the protect configuration.</p>
-   * @public
-   */
-  ProtectConfigurationId: string | undefined;
-
-  /**
-   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
-   * @public
-   */
-  DeletionProtectionEnabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProtectConfigurationResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
-   * @public
-   */
-  ProtectConfigurationArn: string | undefined;
-
-  /**
-   * <p>The unique identifier for the protect configuration.</p>
-   * @public
-   */
-  ProtectConfigurationId: string | undefined;
-
-  /**
-   * <p>The time when the protect configuration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
-   * @public
-   */
-  CreatedTimestamp: Date | undefined;
-
-  /**
-   * <p>This is true if the protect configuration is set as your account default protect configuration.</p>
-   * @public
-   */
-  AccountDefault: boolean | undefined;
-
-  /**
-   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false. </p>
-   * @public
-   */
-  DeletionProtectionEnabled: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProtectConfigurationCountryRuleSetRequest {
-  /**
-   * <p>The unique identifier for the protect configuration.</p>
-   * @public
-   */
-  ProtectConfigurationId: string | undefined;
-
-  /**
-   * <p>The number capability to apply the CountryRuleSetUpdates updates to.</p>
-   * @public
-   */
-  NumberCapability: NumberCapability | undefined;
-
-  /**
-   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the End User Messaging SMS User Guide.</p> <p>For example, to set the United States as allowed and Canada as blocked, the <code>CountryRuleSetUpdates</code> would be formatted as: <code>"CountryRuleSetUpdates": \{ "US" : \{ "ProtectStatus": "ALLOW" \} "CA" : \{ "ProtectStatus": "BLOCK" \} \}</code> </p>
-   * @public
-   */
-  CountryRuleSetUpdates: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateProtectConfigurationCountryRuleSetResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
-   * @public
-   */
-  ProtectConfigurationArn: string | undefined;
-
-  /**
-   * <p>The unique identifier for the protect configuration.</p>
-   * @public
-   */
-  ProtectConfigurationId: string | undefined;
-
-  /**
-   * <p>The number capability that was updated</p>
-   * @public
-   */
-  NumberCapability: NumberCapability | undefined;
-
-  /**
-   * <p>An array of ProtectConfigurationCountryRuleSetInformation containing the rules for the NumberCapability.</p>
-   * @public
-   */
-  CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
 }

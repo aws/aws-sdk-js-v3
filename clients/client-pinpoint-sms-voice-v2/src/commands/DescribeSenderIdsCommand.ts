@@ -66,6 +66,14 @@ export interface DescribeSenderIdsCommandOutput extends DescribeSenderIdsResult,
  * //       DeletionProtectionEnabled: true || false, // required
  * //       Registered: true || false, // required
  * //       RegistrationId: "STRING_VALUE",
+ * //       MessagingLimits: { // MessagingLimits
+ * //         RateLimits: { // LongMap
+ * //           "<keys>": Number("long"),
+ * //         },
+ * //         DailyMessageCaps: {
+ * //           "<keys>": Number("long"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

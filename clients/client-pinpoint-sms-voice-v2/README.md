@@ -643,6 +643,13 @@ GetResourcePolicy
 </details>
 <details>
 <summary>
+ListAvailablePhoneNumbers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/ListAvailablePhoneNumbersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListAvailablePhoneNumbersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListAvailablePhoneNumbersCommandOutput/)
+</details>
+<details>
+<summary>
 ListNotifyCountries
 </summary>
 

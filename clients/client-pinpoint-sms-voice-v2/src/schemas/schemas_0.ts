@@ -16,6 +16,7 @@ const _AOIRs = "AssociateOriginationIdentityResult";
 const _APC = "AssociateProtectConfiguration";
 const _APCR = "AssociateProtectConfigurationRequest";
 const _APCRs = "AssociateProtectConfigurationResult";
+const _APN = "AvailablePhoneNumbers";
 const _AR = "AwsReview";
 const _ART = "AwsReviewingTimestamp";
 const _AS = "AttachmentStatus";
@@ -146,6 +147,7 @@ const _DKRes = "DescribeKeywordsRequest";
 const _DKResc = "DescribeKeywordsResult";
 const _DKe = "DescribeKeywords";
 const _DL = "DocumentationLink";
+const _DMC = "DailyMessageCaps";
 const _DMFE = "DefaultMessageFeedbackEnabled";
 const _DMMSLO = "DeleteMediaMessageSpendLimitOverride";
 const _DMMSLOR = "DeleteMediaMessageSpendLimitOverrideRequest";
@@ -309,6 +311,7 @@ const _FT = "FieldType";
 const _FU = "FileUrl";
 const _Fe = "Feedback";
 const _Fi = "Filters";
+const _Fil = "Filter";
 const _GPCCRS = "GetProtectConfigurationCountryRuleSet";
 const _GPCCRSR = "GetProtectConfigurationCountryRuleSetRequest";
 const _GPCCRSRe = "GetProtectConfigurationCountryRuleSetResult";
@@ -332,6 +335,9 @@ const _KM = "KeywordMessage";
 const _Ke = "Keywords";
 const _Key = "Key";
 const _L = "Latitude";
+const _LAPN = "ListAvailablePhoneNumbers";
+const _LAPNR = "ListAvailablePhoneNumbersRequest";
+const _LAPNRi = "ListAvailablePhoneNumbersResult";
 const _LC = "LanguageCode";
 const _LD = "LongDescription";
 const _LDVN = "LatestDeniedVersionNumber";
@@ -368,6 +374,7 @@ const _ML = "MinLength";
 const _MLP = "MonthlyLeasingPrice";
 const _MLa = "MaxLength";
 const _MLax = "MaxLimit";
+const _MLe = "MessagingLimits";
 const _MLo = "MonthlyLimit";
 const _MNC = "MNC";
 const _MP = "MaxPrice";
@@ -396,6 +403,9 @@ const _NCo = "NotifyCountries";
 const _NCu = "NumberCapability";
 const _NCum = "NumberCapabilities";
 const _NETL = "NonEmptyTagList";
+const _NP = "NumberPreference";
+const _NPI = "NumberPreferenceItem";
+const _NPL = "NumberPreferenceList";
 const _NT = "NextToken";
 const _NTF = "NotifyTemplateFilter";
 const _NTFL = "NotifyTemplateFilterList";
@@ -480,6 +490,7 @@ const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResult";
 const _PS = "ProtectStatus";
+const _PT = "PreferenceType";
 const _Po = "Policy";
 const _Poo = "Pools";
 const _R = "Reason";
@@ -538,7 +549,8 @@ const _RIe = "RequestId";
 const _RIeg = "RegistrationId";
 const _RIegi = "RegistrationIds";
 const _RIegis = "RegistrationInformation";
-const _RL = "RequestLocation";
+const _RL = "RateLimits";
+const _RLe = "RequestLocation";
 const _RMB = "ResolvedMessageBody";
 const _RMC = "RcsMessageContent";
 const _RNFE = "ResourceNotFoundException";
@@ -1600,6 +1612,16 @@ export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD,
   [_IRA, _DSA],
   [0, 0], 2
 ];
+export var ListAvailablePhoneNumbersRequest$: StaticStructureSchema = [3, n0, _LAPNR,
+  0,
+  [_ICC, _NCum, _NTu, _RIeg, _NP, _NT, _MR],
+  [0, 64 | 0, 0, 0, () => NumberPreferenceList, 0, 1], 3
+];
+export var ListAvailablePhoneNumbersResult$: StaticStructureSchema = [3, n0, _LAPNRi,
+  0,
+  [_APN, _NT],
+  [64 | 0, 0], 1
+];
 export var ListNotifyCountriesRequest$: StaticStructureSchema = [3, n0, _LNCR,
   0,
   [_Ch, _UCs, _Ti, _NT, _MR],
@@ -1650,6 +1672,11 @@ export var ListTagsForResourceResult$: StaticStructureSchema = [3, n0, _LTFRRi,
   [_RAe, _T],
   [0, () => TagList]
 ];
+export var MessagingLimits$: StaticStructureSchema = [3, n0, _MLe,
+  0,
+  [_RL, _DMC],
+  [128 | 1, 128 | 1]
+];
 export var NotifyConfigurationFilter$: StaticStructureSchema = [3, n0, _NCF,
   0,
   [_N, _Va],
@@ -1674,6 +1701,11 @@ export var NotifyTemplateInformation$: StaticStructureSchema = [3, n0, _NTI,
   0,
   [_TIe, _Ve, _TT, _Ch, _CTr, _TA, _S, _SCup, _LC, _Con, _Var, _SVI],
   [0, 1, 0, 64 | 0, 4, 64 | 0, 0, 64 | 0, 0, 0, () => TemplateVariablesMap, 64 | 0], 5
+];
+export var NumberPreferenceItem$: StaticStructureSchema = [3, n0, _NPI,
+  0,
+  [_PT, _Fil],
+  [64 | 0, 64 | 0], 2
 ];
 export var OptedOutFilter$: StaticStructureSchema = [3, n0, _OOF,
   0,
@@ -1702,8 +1734,8 @@ export var PhoneNumberFilter$: StaticStructureSchema = [3, n0, _PNF,
 ];
 export var PhoneNumberInformation$: StaticStructureSchema = [3, n0, _PNIh,
   0,
-  [_PNA, _PN, _S, _ICC, _MT, _NCum, _NTu, _MLP, _TWE, _SMOOE, _OOLN, _DPE, _CTr, _PNIho, _TWCA, _TWCR, _ISEn, _PI, _RIeg],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 2, 0, 2, 4, 0, 0, 0, 2, 0, 0], 13
+  [_PNA, _PN, _S, _ICC, _MT, _NCum, _NTu, _MLP, _TWE, _SMOOE, _OOLN, _DPE, _CTr, _PNIho, _TWCA, _TWCR, _ISEn, _PI, _RIeg, _MLe],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 2, 0, 2, 4, 0, 0, 0, 2, 0, 0, () => MessagingLimits$], 13
 ];
 export var PoolFilter$: StaticStructureSchema = [3, n0, _PF,
   0,
@@ -1812,8 +1844,8 @@ export var RcsAgentFilter$: StaticStructureSchema = [3, n0, _RAF,
 ];
 export var RcsAgentInformation$: StaticStructureSchema = [3, n0, _RAIcs,
   0,
-  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _PI, _TWMSBN, _TWMSKP, _TWMSR, _TWREE, _TAe],
-  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => TestingAgentInformation$], 7
+  [_RAA, _RAI, _S, _CTr, _DPE, _SMOOE, _TWE, _OOLN, _TWCA, _TWCR, _PI, _TWMSBN, _TWMSKP, _TWMSR, _TWREE, _TAe, _MLe],
+  [0, 0, 0, 4, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => TestingAgentInformation$, () => MessagingLimits$], 7
 ];
 export var RcsCardContent$: StaticStructureSchema = [3, n0, _RCC,
   0,
@@ -2007,8 +2039,8 @@ export var ReleaseSenderIdResult$: StaticStructureSchema = [3, n0, _RSIRe,
 ];
 export var RequestPhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNReq,
   0,
-  [_ICC, _MT, _NCum, _NTu, _OOLN, _PI, _RIeg, _ISEn, _DPE, _T, _CT],
-  [0, 0, 64 | 0, 0, 0, 0, 0, 2, 2, () => TagList, [0, 4]], 4
+  [_ICC, _MT, _NCum, _NTu, _OOLN, _PI, _RIeg, _NP, _ISEn, _DPE, _T, _CT],
+  [0, 0, 64 | 0, 0, 0, 0, 0, () => NumberPreferenceList, 2, 2, () => TagList, [0, 4]], 4
 ];
 export var RequestPhoneNumberResult$: StaticStructureSchema = [3, n0, _RPNRequ,
   0,
@@ -2057,8 +2089,8 @@ export var SenderIdFilter$: StaticStructureSchema = [3, n0, _SIF,
 ];
 export var SenderIdInformation$: StaticStructureSchema = [3, n0, _SII,
   0,
-  [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _RIeg],
-  [0, 0, 0, 64 | 0, 0, 2, 2, 0], 7
+  [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _RIeg, _MLe],
+  [0, 0, 0, 64 | 0, 0, 2, 2, 0, () => MessagingLimits$], 7
 ];
 export var SendMediaMessageRequest$: StaticStructureSchema = [3, n0, _SMMR,
   0,
@@ -2386,6 +2418,7 @@ var AccountAttributeList: StaticListSchema = [1, n0, _AAL,
 var AccountLimitList: StaticListSchema = [1, n0, _ALL,
   0, () => AccountLimit$
 ];
+var AvailablePhoneNumberList = 64 | 0;
 var CarrierStatusInformationList: StaticListSchema = [1, n0, _CSIL,
   0, () => CarrierStatusInformation$
 ];
@@ -2454,6 +2487,10 @@ var NotifyTemplateInformationList: StaticListSchema = [1, n0, _NTIL,
 var NotifyTierList = 64 | 0;
 var NotifyUseCaseList = 64 | 0;
 var NumberCapabilityList = 64 | 0;
+var NumberFilterList = 64 | 0;
+var NumberPreferenceList: StaticListSchema = [1, n0, _NPL,
+  0, () => NumberPreferenceItem$
+];
 var OptedOutFilterList: StaticListSchema = [1, n0, _OOFL,
   0, () => OptedOutFilter$
 ];
@@ -2485,6 +2522,7 @@ var PoolInformationList: StaticListSchema = [1, n0, _PIL,
 var PoolOriginationIdentitiesFilterList: StaticListSchema = [1, n0, _POIFL,
   0, () => PoolOriginationIdentitiesFilter$
 ];
+var PreferenceTypeList = 64 | 0;
 var ProtectConfigurationFilterList: StaticListSchema = [1, n0, _PCFL,
   0, () => ProtectConfigurationFilter$
 ];
@@ -2596,6 +2634,7 @@ var VerifiedDestinationNumberInformationList: StaticListSchema = [1, n0, _VDNIL,
 var VoiceIdList = 64 | 0;
 var ContextMap = 128 | 0;
 var DestinationCountryParameters = 128 | 0;
+var LongMap = 128 | 1;
 var ProtectConfigurationCountryRuleSet: StaticMapSchema = [2, n0, _PCCRS,
   0, 0, () => ProtectConfigurationCountryRuleSetInformation$
 ];
@@ -2611,7 +2650,7 @@ export var RcsContent$: StaticUnionSchema = [4, n0, _RCc,
 ];
 export var RcsSuggestedAction$: StaticUnionSchema = [4, n0, _RSA,
   0,
-  [_Rep, _OU, _DP, _SLh, _RL, _CCE],
+  [_Rep, _OU, _DP, _SLh, _RLe, _CCE],
   [() => RcsReplyAction$, () => RcsOpenUrlAction$, () => RcsDialPhoneAction$, () => RcsShowLocationAction$, () => RcsRequestLocationAction$, () => RcsCreateCalendarEventAction$]
 ];
 export var AssociateOriginationIdentity$: StaticOperationSchema = [9, n0, _AOI,
@@ -2811,6 +2850,9 @@ export var GetProtectConfigurationCountryRuleSet$: StaticOperationSchema = [9, n
 ];
 export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
   0, () => GetResourcePolicyRequest$, () => GetResourcePolicyResult$
+];
+export var ListAvailablePhoneNumbers$: StaticOperationSchema = [9, n0, _LAPN,
+  0, () => ListAvailablePhoneNumbersRequest$, () => ListAvailablePhoneNumbersResult$
 ];
 export var ListNotifyCountries$: StaticOperationSchema = [9, n0, _LNC,
   0, () => ListNotifyCountriesRequest$, () => ListNotifyCountriesResult$

@@ -23,6 +23,7 @@ export * from "./DescribeRegistrationVersionsPaginator";
 export * from "./DescribeSenderIdsPaginator";
 export * from "./DescribeSpendLimitsPaginator";
 export * from "./DescribeVerifiedDestinationNumbersPaginator";
+export * from "./ListAvailablePhoneNumbersPaginator";
 export * from "./ListNotifyCountriesPaginator";
 export * from "./ListPoolOriginationIdentitiesPaginator";
 export * from "./ListProtectConfigurationRuleSetNumberOverridesPaginator";
