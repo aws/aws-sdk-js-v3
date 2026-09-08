@@ -13,6 +13,7 @@ import type {
   AuthCodeEntityType,
   BehaviorType,
   Channel,
+  ChannelWorkloadBehaviorType,
   ConfigurableNotificationPriority,
   ContactFlowStatus,
   ContactFlowType,
@@ -67,7 +68,6 @@ import type {
   PreEvaluationFilterOperator,
   PreEvaluationFilterResourceType,
   PreEvaluationFilterType,
-  PropertyValidationExceptionReason,
   QuickConnectType,
   RecurrenceFrequency,
   ReferenceStatus,
@@ -6803,6 +6803,49 @@ export interface CrossChannelBehavior {
 }
 
 /**
+ * <p>Defines the cross-channel and workload type routing behavior that allows an agent working on a contact to be
+ *    offered a contact from a different channel or workload type.</p>
+ * @public
+ */
+export interface CrossChannelWorkloadBehavior {
+  /**
+   * <p>Specifies the routing behavior for an agent handling their current channel and workload type.</p>
+   * @public
+   */
+  ChannelWorkloadBehaviorType?: ChannelWorkloadBehaviorType | undefined;
+}
+
+/**
+ * <p>Defines the maximum number of contacts an agent can handle simultaneously for a specific channel and workload
+ *    type combination.</p>
+ * @public
+ */
+export interface WorkloadTypeConcurrency {
+  /**
+   * <p>The value of the workload type.</p>
+   * @public
+   */
+  WorkloadType: string | undefined;
+
+  /**
+   * <p>The maximum number of contacts an agent can handle simultaneously for a specific channel and workload type
+   *    combination.</p>
+   *          <p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p>
+   *          <p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 10.</p>
+   *          <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>
+   * @public
+   */
+  Concurrency: number | undefined;
+
+  /**
+   * <p>Defines the cross-channel and workload type routing behavior for each channel and workload type combination
+   *    that is enabled for this Routing Profile.</p>
+   * @public
+   */
+  CrossChannelWorkloadBehavior?: CrossChannelWorkloadBehavior | undefined;
+}
+
+/**
  * <p>Contains information about which channels are supported, and how many contacts an agent can have on a channel
  *    simultaneously.</p>
  * @public
@@ -6821,7 +6864,7 @@ export interface MediaConcurrency {
    *          <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>
    * @public
    */
-  Concurrency: number | undefined;
+  Concurrency?: number | undefined;
 
   /**
    * <p>Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For
@@ -6830,6 +6873,13 @@ export interface MediaConcurrency {
    * @public
    */
   CrossChannelBehavior?: CrossChannelBehavior | undefined;
+
+  /**
+   * <p>Defines the list of workload type concurrency configurations for a channel. When provided, enables granular
+   *    concurrency control based on workload type values.</p>
+   * @public
+   */
+  WorkloadTypeConcurrencies?: WorkloadTypeConcurrency[] | undefined;
 }
 
 /**
@@ -7860,45 +7910,4 @@ export interface CreateTaskTemplateRequest {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTaskTemplateResponse {
-  /**
-   * <p>The identifier of the task template resource.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the task template resource.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * <p>Contains information about why a property is not valid.</p>
- * @public
- */
-export interface PropertyValidationExceptionProperty {
-  /**
-   * <p>The full property path.</p>
-   * @public
-   */
-  PropertyPath: string | undefined;
-
-  /**
-   * <p>Why the property is not valid.</p>
-   * @public
-   */
-  Reason: PropertyValidationExceptionReason | undefined;
-
-  /**
-   * <p>A message describing why the property is not valid.</p>
-   * @public
-   */
-  Message: string | undefined;
 }

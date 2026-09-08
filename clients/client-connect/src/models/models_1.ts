@@ -47,6 +47,7 @@ import type {
   PhoneNumberType,
   PhoneNumberWorkflowStatus,
   PhoneType,
+  PropertyValidationExceptionReason,
   QuestionRuleCategoryAutomationCondition,
   QueueStatus,
   QuickConnectType,
@@ -107,6 +108,47 @@ import type {
   SuccessfulBatchAssociationSummary,
   Validation,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateTaskTemplateResponse {
+  /**
+   * <p>The identifier of the task template resource.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the task template resource.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * <p>Contains information about why a property is not valid.</p>
+ * @public
+ */
+export interface PropertyValidationExceptionProperty {
+  /**
+   * <p>The full property path.</p>
+   * @public
+   */
+  PropertyPath: string | undefined;
+
+  /**
+   * <p>Why the property is not valid.</p>
+   * @public
+   */
+  Reason: PropertyValidationExceptionReason | undefined;
+
+  /**
+   * <p>A message describing why the property is not valid.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
 
 /**
  * <p>Parameters for initiating a chat test.</p>
@@ -8177,41 +8219,4 @@ export interface ContactMetricResult {
    * @public
    */
   Value: ContactMetricValue | undefined;
-}
-
-/**
- * @public
- */
-export interface GetContactMetricsResponse {
-  /**
-   * <p>A list of metric results containing the calculated values for each requested metric. Each result includes
-   *    the metric name and its corresponding value. For example, POSITION_IN_QUEUE returns a numeric value representing
-   *    the contact's position in queue, and ESTIMATED_WAIT_TIME returns the predicted wait time in seconds.</p>
-   * @public
-   */
-  MetricResults?: ContactMetricResult[] | undefined;
-
-  /**
-   * <p>The unique identifier of the contact for which metrics were retrieved. This matches the ContactId provided
-   *    in the request.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The ARN of the contact for which metrics were retrieved.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrossRegionRoutingRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
 }

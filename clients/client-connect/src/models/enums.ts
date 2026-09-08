@@ -1244,6 +1244,21 @@ export type BehaviorType = (typeof BehaviorType)[keyof typeof BehaviorType];
  * @public
  * @enum
  */
+export const ChannelWorkloadBehaviorType = {
+  ROUTE_ANY_CHANNEL_ANY_WORKLOAD_TYPE: "ROUTE_ANY_CHANNEL_ANY_WORKLOAD_TYPE",
+  ROUTE_CURRENT_CHANNEL_ANY_WORKLOADTYPE_ONLY: "ROUTE_CURRENT_CHANNEL_ANY_WORKLOADTYPE_ONLY",
+  ROUTE_CURRENT_CHANNEL_CURRENT_WORKLOADTYPE_ONLY: "ROUTE_CURRENT_CHANNEL_CURRENT_WORKLOADTYPE_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type ChannelWorkloadBehaviorType =
+  (typeof ChannelWorkloadBehaviorType)[keyof typeof ChannelWorkloadBehaviorType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SlaType = {
   CASE_FIELD: "CaseField",
 } as const;

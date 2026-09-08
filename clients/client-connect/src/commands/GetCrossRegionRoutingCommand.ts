@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetCrossRegionRoutingRequest } from "../models/models_1";
-import type { GetCrossRegionRoutingResponse } from "../models/models_2";
+import type { GetCrossRegionRoutingRequest, GetCrossRegionRoutingResponse } from "../models/models_2";
 import { GetCrossRegionRouting$ } from "../schemas/schemas_0";
 
 /**

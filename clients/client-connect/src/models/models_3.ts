@@ -42,7 +42,6 @@ import type {
   MeetingFeatureStatus,
   MetricUnit,
   NotificationPriority,
-  NotificationStatus,
   NotificationType,
   NumberComparisonType,
   OutboundMessageSourceType,
@@ -83,6 +82,7 @@ import type {
   AfterContactWorkConfigPerChannel,
   AgentConfig,
   AgentHierarchyGroups,
+  AgentStatus,
   AiAgentInput,
   AiAgentsCriteria,
   AliasConfiguration,
@@ -140,12 +140,84 @@ import type {
   RoutingProfile,
   TestCase,
   TestCaseEntryPoint,
-  UserIdentityInfo,
   UserPhoneConfig,
   View,
   VoiceEnhancementConfig,
 } from "./models_1";
 import type { SignInConfig, TelephonyConfig } from "./models_2";
+
+/**
+ * @public
+ */
+export interface SearchAgentStatusesResponse {
+  /**
+   * <p>The search criteria to be used to return agent statuses.</p>
+   * @public
+   */
+  AgentStatuses?: AgentStatus[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of agent statuses which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAvailablePhoneNumbersRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   * @public
+   */
+  TargetArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance that phone numbers are claimed to. You
+   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
+   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The ISO country code.</p>
+   * @public
+   */
+  PhoneNumberCountryCode: PhoneNumberCountryCode | undefined;
+
+  /**
+   * <p>The type of phone number.</p>
+   * @public
+   */
+  PhoneNumberType: PhoneNumberType | undefined;
+
+  /**
+   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
+   * @public
+   */
+  PhoneNumberPrefix?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>Information about available phone numbers.</p>
@@ -7999,68 +8071,4 @@ export interface UpdateUserHierarchyStructureRequest {
    * @public
    */
   InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserIdentityInfoRequest {
-  /**
-   * <p>The identity information for the user.</p>
-   * @public
-   */
-  IdentityInfo: UserIdentityInfo | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserNotificationStatusRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the notification.</p>
-   * @public
-   */
-  NotificationId: string | undefined;
-
-  /**
-   * <p>The identifier of the user whose notification status is being updated.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The new status for the notification. Valid values are READ, UNREAD, and HIDDEN.</p>
-   * @public
-   */
-  Status: NotificationStatus | undefined;
-
-  /**
-   * <p>The timestamp when the notification status was last modified. Used for cross-region replication and optimistic locking.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The AWS Region where the notification status was last modified. Used for cross-region replication.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
 }

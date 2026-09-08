@@ -77,7 +77,6 @@ import type {
   ActionSummary,
   AgentConfig,
   AgentContactReference,
-  AgentStatus,
   AgentStatusIdentifier,
   AgentStatusReference,
   AgentStatusSummary,
@@ -101,6 +100,7 @@ import type {
 } from "./models_0";
 import type {
   Attribute,
+  ContactMetricResult,
   DataTableAttribute,
   EvaluationContactParticipant,
   EvaluationScore,
@@ -110,6 +110,43 @@ import type {
   HoursOfOperationsIdentifier,
   Notification,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetContactMetricsResponse {
+  /**
+   * <p>A list of metric results containing the calculated values for each requested metric. Each result includes
+   *    the metric name and its corresponding value. For example, POSITION_IN_QUEUE returns a numeric value representing
+   *    the contact's position in queue, and ESTIMATED_WAIT_TIME returns the predicted wait time in seconds.</p>
+   * @public
+   */
+  MetricResults?: ContactMetricResult[] | undefined;
+
+  /**
+   * <p>The unique identifier of the contact for which metrics were retrieved. This matches the ContactId provided
+   *    in the request.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The ARN of the contact for which metrics were retrieved.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCrossRegionRoutingRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
 
 /**
  * @public
@@ -11059,76 +11096,3 @@ export interface ResumeContactRecordingRequest {
  * @public
  */
 export interface ResumeContactRecordingResponse {}
-
-/**
- * @public
- */
-export interface SearchAgentStatusesResponse {
-  /**
-   * <p>The search criteria to be used to return agent statuses.</p>
-   * @public
-   */
-  AgentStatuses?: AgentStatus[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of agent statuses which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchAvailablePhoneNumbersRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
-   * @public
-   */
-  TargetArn?: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance that phone numbers are claimed to. You
-   *    can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the
-   *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The ISO country code.</p>
-   * @public
-   */
-  PhoneNumberCountryCode: PhoneNumberCountryCode | undefined;
-
-  /**
-   * <p>The type of phone number.</p>
-   * @public
-   */
-  PhoneNumberType: PhoneNumberType | undefined;
-
-  /**
-   * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
-   * @public
-   */
-  PhoneNumberPrefix?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}

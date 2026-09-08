@@ -54,10 +54,19 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
  * //     MediaConcurrencies: [ // MediaConcurrencies
  * //       { // MediaConcurrency
  * //         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
- * //         Concurrency: Number("int"), // required
+ * //         Concurrency: Number("int"),
  * //         CrossChannelBehavior: { // CrossChannelBehavior
  * //           BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
  * //         },
+ * //         WorkloadTypeConcurrencies: [ // WorkloadTypeConcurrencies
+ * //           { // WorkloadTypeConcurrency
+ * //             WorkloadType: "STRING_VALUE", // required
+ * //             Concurrency: Number("int"), // required
+ * //             CrossChannelWorkloadBehavior: { // CrossChannelWorkloadBehavior
+ * //               ChannelWorkloadBehaviorType: "ROUTE_CURRENT_CHANNEL_CURRENT_WORKLOADTYPE_ONLY" || "ROUTE_CURRENT_CHANNEL_ANY_WORKLOADTYPE_ONLY" || "ROUTE_ANY_CHANNEL_ANY_WORKLOAD_TYPE",
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     DefaultOutboundQueueId: "STRING_VALUE",

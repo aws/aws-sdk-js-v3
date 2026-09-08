@@ -15,6 +15,7 @@ import type {
   EvaluationFormValidationStatus,
   EvaluationFormVersionStatus,
   InitiateAs,
+  NotificationStatus,
   RoutingCriteriaStepStatus,
   SearchableQueueType,
   TestCaseStatus,
@@ -61,6 +62,7 @@ import type {
   QueueInfo,
   RecordingInfo,
   TaskTemplateInfoV2,
+  UserIdentityInfo,
   UserPhoneConfig,
   View,
   ViewInputContent,
@@ -112,6 +114,70 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateUserIdentityInfoRequest {
+  /**
+   * <p>The identity information for the user.</p>
+   * @public
+   */
+  IdentityInfo: UserIdentityInfo | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserNotificationStatusRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the notification.</p>
+   * @public
+   */
+  NotificationId: string | undefined;
+
+  /**
+   * <p>The identifier of the user whose notification status is being updated.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The new status for the notification. Valid values are READ, UNREAD, and HIDDEN.</p>
+   * @public
+   */
+  Status: NotificationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the notification status was last modified. Used for cross-region replication and optimistic locking.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The AWS Region where the notification status was last modified. Used for cross-region replication.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
 
 /**
  * <p>The response from updating a user's notification status.</p>

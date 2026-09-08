@@ -3,12 +3,8 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 import type { ResourceType } from "./enums";
-import type {
-  InvalidRequestExceptionReason,
-  ProblemDetail,
-  PropertyValidationExceptionProperty,
-  ServiceQuotaExceededExceptionReason,
-} from "./models_0";
+import type { InvalidRequestExceptionReason, ProblemDetail, ServiceQuotaExceededExceptionReason } from "./models_0";
+import type { PropertyValidationExceptionProperty } from "./models_1";
 
 /**
  * <p>You do not have sufficient permissions to perform this action.</p>

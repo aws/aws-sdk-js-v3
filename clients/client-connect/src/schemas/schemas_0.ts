@@ -358,6 +358,7 @@ const _CCM = "ChatContactMetrics";
 const _CCR = "CreateContactRequest";
 const _CCRr = "CreateContactResponse";
 const _CCTIM = "ConversationCloseTimeInMillis";
+const _CCWB = "CrossChannelWorkloadBehavior";
 const _CCa = "CalculationComponents";
 const _CCh = "ChannelConfiguration";
 const _CCo = "ContactConfiguration";
@@ -587,6 +588,7 @@ const _CVVR = "CreateViewVersionRequest";
 const _CVVRr = "CreateViewVersionResponse";
 const _CVr = "CreateVocabulary";
 const _CW = "CreateWorkspace";
+const _CWBT = "ChannelWorkloadBehaviorType";
 const _CWP = "CreateWorkspacePage";
 const _CWPR = "CreateWorkspacePageRequest";
 const _CWPRr = "CreateWorkspacePageResponse";
@@ -2970,11 +2972,14 @@ const _WSF = "WorkspaceSearchFilter";
 const _WSL = "WorkspaceSummaryList";
 const _WSS = "WorkspaceSearchSummary";
 const _WSSL = "WorkspaceSearchSummaryList";
-const _WT = "WorkspaceTheme";
-const _WTC = "WorkspaceThemeConfig";
+const _WT = "WorkloadType";
+const _WTC = "WorkloadTypeConcurrencies";
+const _WTCo = "WorkloadTypeConcurrency";
+const _WTCor = "WorkspaceThemeConfig";
 const _WTI = "WorkspaceThemeImages";
 const _WTP = "WorkspaceThemePalette";
 const _WTT = "WorkspaceThemeTypography";
+const _WTo = "WorkspaceTheme";
 const _We = "Weight";
 const _Wo = "Workspaces";
 const _aQE = "awsQueryError";
@@ -4548,6 +4553,11 @@ export var CrossChannelBehavior$: StaticStructureSchema = [3, n0, _CCB,
   0,
   [_BT],
   [0], 1
+];
+export var CrossChannelWorkloadBehavior$: StaticStructureSchema = [3, n0, _CCWB,
+  0,
+  [_CWBT],
+  [0]
 ];
 export var CurrentMetric$: StaticStructureSchema = [3, n0, _CMur,
   0,
@@ -7156,8 +7166,8 @@ export var MatchCriteria$: StaticStructureSchema = [3, n0, _MC,
 ];
 export var MediaConcurrency$: StaticStructureSchema = [3, n0, _MCedi,
   0,
-  [_C, _Conc, _CCB],
-  [0, 1, () => CrossChannelBehavior$], 2
+  [_C, _Conc, _CCB, _WTC],
+  [0, 1, () => CrossChannelBehavior$, () => WorkloadTypeConcurrencies], 1
 ];
 export var MediaItem$: StaticStructureSchema = [3, n0, _MIe,
   0,
@@ -9609,6 +9619,11 @@ export var WisdomInfo$: StaticStructureSchema = [3, n0, _WIi,
   [_SAes, _AAi],
   [0, () => AiAgents]
 ];
+export var WorkloadTypeConcurrency$: StaticStructureSchema = [3, n0, _WTCo,
+  0,
+  [_WT, _Conc, _CCWB],
+  [0, 1, () => CrossChannelWorkloadBehavior$], 2
+];
 export var Workspace$: StaticStructureSchema = [3, n0, _W,
   0,
   [_I, _N, _A, _LMT, _Vis, _D, _Th, _Ti, _LMR, _Ta],
@@ -9654,12 +9669,12 @@ export var WorkspaceSummary$: StaticStructureSchema = [3, n0, _WS,
   [_I, _N, _A, _LMT, _LMR],
   [0, 0, 0, 4, 0]
 ];
-export var WorkspaceTheme$: StaticStructureSchema = [3, n0, _WT,
+export var WorkspaceTheme$: StaticStructureSchema = [3, n0, _WTo,
   0,
   [_Li, _Dar],
   [() => WorkspaceThemeConfig$, () => WorkspaceThemeConfig$]
 ];
-export var WorkspaceThemeConfig$: StaticStructureSchema = [3, n0, _WTC,
+export var WorkspaceThemeConfig$: StaticStructureSchema = [3, n0, _WTCor,
   0,
   [_Pal, _Im, _Ty],
   [() => WorkspaceThemePalette$, () => WorkspaceThemeImages$, () => WorkspaceThemeTypography$]
@@ -10524,6 +10539,9 @@ var VoiceEnhancementConfigs: StaticListSchema = [1, n0, _VEC,
   0, () => VoiceEnhancementConfig$
 ];
 var WeekdayOccurrenceList = 64 | 1;
+var WorkloadTypeConcurrencies: StaticListSchema = [1, n0, _WTC,
+  0, () => WorkloadTypeConcurrency$
+];
 var WorkspaceAssociationSearchConditionList: StaticListSchema = [1, n0, _WASCL,
   0, () => WorkspaceAssociationSearchCriteria$
 ];

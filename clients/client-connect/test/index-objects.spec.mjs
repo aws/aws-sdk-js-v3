@@ -196,6 +196,7 @@ import {
   Campaign$,
   CaseSlaConfiguration$,
   Channel,
+  ChannelWorkloadBehaviorType,
   ChatContactMetrics$,
   ChatEntryPointParameters$,
   ChatEvent$,
@@ -451,6 +452,7 @@ import {
   CreateWorkspaceResponse$,
   Credentials$,
   CrossChannelBehavior$,
+  CrossChannelWorkloadBehavior$,
   CurrentMetric$,
   CurrentMetricData$,
   CurrentMetricName,
@@ -2421,6 +2423,7 @@ import {
   WebNotificationSource$,
   WidgetDestination$,
   WisdomInfo$,
+  WorkloadTypeConcurrency$,
   Workspace$,
   WorkspaceAssociationSearchCriteria$,
   WorkspaceAssociationSearchFilter$,
@@ -3485,6 +3488,7 @@ assert(typeof CreateWorkspaceRequest$ === "object");
 assert(typeof CreateWorkspaceResponse$ === "object");
 assert(typeof Credentials$ === "object");
 assert(typeof CrossChannelBehavior$ === "object");
+assert(typeof CrossChannelWorkloadBehavior$ === "object");
 assert(typeof CurrentMetric$ === "object");
 assert(typeof CurrentMetricData$ === "object");
 assert(typeof CurrentMetricResult$ === "object");
@@ -4515,6 +4519,7 @@ assert(typeof WebNotificationContent$ === "object");
 assert(typeof WebNotificationSource$ === "object");
 assert(typeof WidgetDestination$ === "object");
 assert(typeof WisdomInfo$ === "object");
+assert(typeof WorkloadTypeConcurrency$ === "object");
 assert(typeof Workspace$ === "object");
 assert(typeof WorkspaceAssociationSearchCriteria$ === "object");
 assert(typeof WorkspaceAssociationSearchFilter$ === "object");
@@ -4551,6 +4556,7 @@ assert(typeof Behavior === "object");
 assert(typeof BehaviorType === "object");
 assert(typeof BooleanComparisonType === "object");
 assert(typeof Channel === "object");
+assert(typeof ChannelWorkloadBehaviorType === "object");
 assert(typeof ChatEventType === "object");
 assert(typeof Comparison === "object");
 assert(typeof ConfigurableNotificationPriority === "object");
