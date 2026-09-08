@@ -145,6 +145,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *         oAuthRequest: { // ConnectorOAuthRequest
  *           authCode: "STRING_VALUE",
  *           redirectUri: "STRING_VALUE",
+ *           codeVerifier: "STRING_VALUE",
  *         },
  *       },
  *       Honeycode: { // HoneycodeConnectorProfileCredentials
@@ -153,6 +154,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *         oAuthRequest: {
  *           authCode: "STRING_VALUE",
  *           redirectUri: "STRING_VALUE",
+ *           codeVerifier: "STRING_VALUE",
  *         },
  *       },
  *       InforNexus: { // InforNexusConnectorProfileCredentials
@@ -168,6 +170,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *         oAuthRequest: {
  *           authCode: "STRING_VALUE",
  *           redirectUri: "STRING_VALUE",
+ *           codeVerifier: "STRING_VALUE",
  *         },
  *       },
  *       Redshift: { // RedshiftConnectorProfileCredentials
@@ -180,6 +183,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *         oAuthRequest: {
  *           authCode: "STRING_VALUE",
  *           redirectUri: "STRING_VALUE",
+ *           codeVerifier: "STRING_VALUE",
  *         },
  *         clientCredentialsArn: "STRING_VALUE",
  *         oAuth2GrantType: "CLIENT_CREDENTIALS" || "AUTHORIZATION_CODE" || "JWT_BEARER",
@@ -196,6 +200,7 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *           oAuthRequest: {
  *             authCode: "STRING_VALUE",
  *             redirectUri: "STRING_VALUE",
+ *             codeVerifier: "STRING_VALUE",
  *           },
  *         },
  *       },
@@ -210,7 +215,8 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *       },
  *       Snowflake: { // SnowflakeConnectorProfileCredentials
  *         username: "STRING_VALUE", // required
- *         password: "STRING_VALUE", // required
+ *         password: "STRING_VALUE",
+ *         privateKey: "STRING_VALUE",
  *       },
  *       Trendmicro: { // TrendmicroConnectorProfileCredentials
  *         apiSecretKey: "STRING_VALUE", // required

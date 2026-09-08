@@ -1371,6 +1371,12 @@ export interface ConnectorOAuthRequest {
    * @public
    */
   redirectUri?: string | undefined;
+
+  /**
+   * <p> The code verifier used in the PKCE (Proof Key for Code Exchange) OAuth flow. </p>
+   * @public
+   */
+  codeVerifier?: string | undefined;
 }
 
 /**
@@ -2670,7 +2676,14 @@ export interface SnowflakeConnectorProfileCredentials {
    * <p> The password that corresponds to the user name. </p>
    * @public
    */
-  password: string | undefined;
+  password?: string | undefined;
+
+  /**
+   * <p> The RSA private key used for key pair authentication with Snowflake. Provide this
+   *       instead of a password when your Snowflake account uses key pair authentication. </p>
+   * @public
+   */
+  privateKey?: string | undefined;
 }
 
 /**

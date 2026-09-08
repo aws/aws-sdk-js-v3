@@ -62,6 +62,7 @@ const _CRS = "ConnectorRuntimeSetting";
 const _CRSL = "ConnectorRuntimeSettingList";
 const _CS = "ClientSecret";
 const _CSE = "ConnectorServerException";
+const _CV = "CodeVerifier";
 const _D = "Datadog";
 const _DC = "DescribeConnector";
 const _DCE = "DescribeConnectorEntity";
@@ -169,6 +170,7 @@ const _PC = "PrefixConfig";
 const _PCPC = "PardotConnectorProfileCredentials";
 const _PCPP = "PardotConnectorProfileProperties";
 const _PCPS = "PrivateConnectionProvisioningState";
+const _PK = "PrivateKey";
 const _PM = "PardotMetadata";
 const _PSP = "PardotSourceProperties";
 const _Pa = "Pardot";
@@ -360,6 +362,7 @@ const _cTo = "connectorTypes";
 const _cUAD = "canUseAsDestination";
 const _cUAS = "canUseAsSource";
 const _cV = "connectorVersion";
+const _cVo = "codeVerifier";
 const _co = "connectors";
 const _cu = "custom";
 const _d = "description";
@@ -496,6 +499,7 @@ const _pCag = "paginationConfig";
 const _pF = "prefixFormat";
 const _pFC = "putFailuresCount";
 const _pI = "parentIdentifier";
+const _pK = "privateKey";
 const _pLSN = "privateLinkServiceName";
 const _pN = "portNumber";
 const _pP = "profileProperties";
@@ -679,10 +683,12 @@ var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
 var ApiSecretKey: StaticSimpleSchema = [0, n0, _ASK, 8, 0];
 var ClientCredentialsArn: StaticSimpleSchema = [0, n0, _CCA, 8, 0];
 var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
+var CodeVerifier: StaticSimpleSchema = [0, n0, _CV, 8, 0];
 var CredentialsMapKey: StaticSimpleSchema = [0, n0, _CMK, 8, 0];
 var CredentialsMapValue: StaticSimpleSchema = [0, n0, _CMV, 8, 0];
 var JwtToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
+var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
 var SecretKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
 export var AggregationConfig$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -766,8 +772,8 @@ export var ConnectorMetadata$: StaticStructureSchema = [3, n0, _CM,
 ];
 export var ConnectorOAuthRequest$: StaticStructureSchema = [3, n0, _COAR,
   0,
-  [_aCu, _rU],
-  [0, 0]
+  [_aCu, _rU, _cVo],
+  [0, 0, [() => CodeVerifier, 0]]
 ];
 export var ConnectorOperator$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -1057,7 +1063,7 @@ export var GlueDataCatalogConfig$: StaticStructureSchema = [3, n0, _GDCC,
 export var GoogleAnalyticsConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _GACPC,
   0,
   [_cI, _cS, _aTc, _rT, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, () => ConnectorOAuthRequest$], 2
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, [() => ConnectorOAuthRequest$, 0]], 2
 ];
 export var GoogleAnalyticsConnectorProfileProperties$: StaticStructureSchema = [3, n0, _GACPP,
   0,
@@ -1077,7 +1083,7 @@ export var GoogleAnalyticsSourceProperties$: StaticStructureSchema = [3, n0, _GA
 export var HoneycodeConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _HCPC,
   0,
   [_aTc, _rT, _oAR],
-  [[() => AccessToken, 0], 0, () => ConnectorOAuthRequest$]
+  [[() => AccessToken, 0], 0, [() => ConnectorOAuthRequest$, 0]]
 ];
 export var HoneycodeConnectorProfileProperties$: StaticStructureSchema = [3, n0, _HCPP,
   0,
@@ -1172,7 +1178,7 @@ export var LookoutMetricsDestinationProperties$: StaticStructureSchema = [3, n0,
 export var MarketoConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _MCPC,
   0,
   [_cI, _cS, _aTc, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], () => ConnectorOAuthRequest$], 2
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], [() => ConnectorOAuthRequest$, 0]], 2
 ];
 export var MarketoConnectorProfileProperties$: StaticStructureSchema = [3, n0, _MCPP,
   0,
@@ -1207,7 +1213,7 @@ export var MetadataCatalogDetail$: StaticStructureSchema = [3, n0, _MCD,
 export var OAuth2Credentials$: StaticStructureSchema = [3, n0, _OAC,
   0,
   [_cI, _cS, _aTc, _rT, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, () => ConnectorOAuthRequest$]
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, [() => ConnectorOAuthRequest$, 0]]
 ];
 export var OAuth2CustomParameter$: StaticStructureSchema = [3, n0, _OACP,
   0,
@@ -1227,7 +1233,7 @@ export var OAuth2Properties$: StaticStructureSchema = [3, n0, _OAP,
 export var OAuthCredentials$: StaticStructureSchema = [3, n0, _OACu,
   0,
   [_cI, _cS, _aTc, _rT, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, () => ConnectorOAuthRequest$], 2
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], 0, [() => ConnectorOAuthRequest$, 0]], 2
 ];
 export var OAuthProperties$: StaticStructureSchema = [3, n0, _OAPu,
   0,
@@ -1237,7 +1243,7 @@ export var OAuthProperties$: StaticStructureSchema = [3, n0, _OAPu,
 export var PardotConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _PCPC,
   0,
   [_aTc, _rT, _oAR, _cCA],
-  [[() => AccessToken, 0], 0, () => ConnectorOAuthRequest$, [() => ClientCredentialsArn, 0]]
+  [[() => AccessToken, 0], 0, [() => ConnectorOAuthRequest$, 0], [() => ClientCredentialsArn, 0]]
 ];
 export var PardotConnectorProfileProperties$: StaticStructureSchema = [3, n0, _PCPP,
   0,
@@ -1342,7 +1348,7 @@ export var S3SourceProperties$: StaticStructureSchema = [3, n0, _SSP,
 export var SalesforceConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SCPC,
   0,
   [_aTc, _rT, _oAR, _cCA, _oAGT, _jT],
-  [[() => AccessToken, 0], 0, () => ConnectorOAuthRequest$, [() => ClientCredentialsArn, 0], 0, [() => JwtToken, 0]]
+  [[() => AccessToken, 0], 0, [() => ConnectorOAuthRequest$, 0], [() => ClientCredentialsArn, 0], 0, [() => JwtToken, 0]]
 ];
 export var SalesforceConnectorProfileProperties$: StaticStructureSchema = [3, n0, _SCPP,
   0,
@@ -1447,7 +1453,7 @@ export var SingularSourceProperties$: StaticStructureSchema = [3, n0, _SSPi,
 export var SlackConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SCPCl,
   0,
   [_cI, _cS, _aTc, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], () => ConnectorOAuthRequest$], 2
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], [() => ConnectorOAuthRequest$, 0]], 2
 ];
 export var SlackConnectorProfileProperties$: StaticStructureSchema = [3, n0, _SCPPl,
   0,
@@ -1466,8 +1472,8 @@ export var SlackSourceProperties$: StaticStructureSchema = [3, n0, _SSPl,
 ];
 export var SnowflakeConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SCPCn,
   0,
-  [_u, _p],
-  [0, [() => Password, 0]], 2
+  [_u, _p, _pK],
+  [0, [() => Password, 0], [() => PrivateKey, 0]], 1
 ];
 export var SnowflakeConnectorProfileProperties$: StaticStructureSchema = [3, n0, _SCPPn,
   0,
@@ -1662,7 +1668,7 @@ export var VeevaSourceProperties$: StaticStructureSchema = [3, n0, _VSP,
 export var ZendeskConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _ZCPC,
   0,
   [_cI, _cS, _aTc, _oAR],
-  [0, [() => ClientSecret, 0], [() => AccessToken, 0], () => ConnectorOAuthRequest$], 2
+  [0, [() => ClientSecret, 0], [() => AccessToken, 0], [() => ConnectorOAuthRequest$, 0]], 2
 ];
 export var ZendeskConnectorProfileProperties$: StaticStructureSchema = [3, n0, _ZCPP,
   0,
