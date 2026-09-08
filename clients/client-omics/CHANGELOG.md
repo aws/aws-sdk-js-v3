@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
+
+
+### Features
+
+* **client-omics:** Added support for session policies in AWS HealthOmics Workflows, allowing customers to scope down IAM permissions for individual workflow runs without modifying the service role. ([ad55dcd](https://github.com/aws/aws-sdk-js-v3/commit/ad55dcd6e323df20f9add4d38e0f3b70eca8348e))
+
+
+
+
+
 # [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

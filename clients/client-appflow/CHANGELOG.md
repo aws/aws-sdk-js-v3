@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
+
+
+### Features
+
+* **client-appflow:** Amazon AppFlow now supports key pair (RSA private key) authentication for the Snowflake connector. You can provide a privateKey in SnowflakeConnectorProfileCredentials, and password is no longer required. This is a non-breaking, additive change available via the AWS SDK and CLI. ([ec8753a](https://github.com/aws/aws-sdk-js-v3/commit/ec8753ad6f2305daca3d8679a8438dceaee9b4b9))
+
+
+
+
+
 # [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-appflow

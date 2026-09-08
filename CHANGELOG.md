@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
+
+
+### Bug Fixes
+
+* **lib-storage:** fix symlink stream sizing and abort on part-count mismatch ([#8300](https://github.com/aws/aws-sdk-js-v3/issues/8300)) ([aa58831](https://github.com/aws/aws-sdk-js-v3/commit/aa58831cf57d789884e4163dcba19fb22a71851f))
+
+
+### Features
+
+* **client-appflow:** Amazon AppFlow now supports key pair (RSA private key) authentication for the Snowflake connector. You can provide a privateKey in SnowflakeConnectorProfileCredentials, and password is no longer required. This is a non-breaking, additive change available via the AWS SDK and CLI. ([ec8753a](https://github.com/aws/aws-sdk-js-v3/commit/ec8753ad6f2305daca3d8679a8438dceaee9b4b9))
+* **client-cloudtrail:** Adds support for the RecursiveLogging trail setting, which suppresses recursive events generated when CloudTrail delivers logs to a trail's destinations. ([62a43c7](https://github.com/aws/aws-sdk-js-v3/commit/62a43c78602be4b20d64a11380ee03163c32ae60))
+* **client-connect:** Releasing workload types feature. A proper launch announcement or details will follow up. ([63ded7a](https://github.com/aws/aws-sdk-js-v3/commit/63ded7ae8188e0b48d0d76258964a9027b57c453))
+* **client-ec2:** Adds the InterfaceTypes field to NetworkCardInfo in the DescribeInstanceTypes response. This field identifies the network interface types supported by each network card. ([9336e68](https://github.com/aws/aws-sdk-js-v3/commit/9336e689cde8ef1f4501c7739a445328ce2ef52d))
+* **client-mgn:** This release adds support for configuring the EBS volume initialization rate and delete on termination behavior in launch configuration template ([bb78067](https://github.com/aws/aws-sdk-js-v3/commit/bb780670c3305dc44168aa18cfea57262c24287c))
+* **client-omics:** Added support for session policies in AWS HealthOmics Workflows, allowing customers to scope down IAM permissions for individual workflow runs without modifying the service role. ([ad55dcd](https://github.com/aws/aws-sdk-js-v3/commit/ad55dcd6e323df20f9add4d38e0f3b70eca8348e))
+* **client-pinpoint-sms-voice-v2:** This feature will allow customers to specify an area-code when requesting a 10DLC number. Why it matters- Customers can now select a number that matches where their business is located. ([7aac344](https://github.com/aws/aws-sdk-js-v3/commit/7aac3447f181a72b79ab473d97e0797962fed13d))
+* **client-s3-control:** Adds support for Amazon S3 Object Lock variable retention.  Existing S3 APIs that support S3 Object Lock parameters now support two new parameters EventHold and EventHoldDuration at the object level, and DefaultEventHoldDuration at the bucket level. ([5765b68](https://github.com/aws/aws-sdk-js-v3/commit/5765b68b0ef990f91ae49d0eae48e1958991498a))
+* **client-s3:** Adds support for Amazon S3 Object Lock variable retention.  Existing S3 APIs that support S3 Object Lock parameters now support two new parameters EventHold and EventHoldDuration at the object level, and DefaultEventHoldDuration at the bucket level. ([8b58987](https://github.com/aws/aws-sdk-js-v3/commit/8b5898753d091cf7647df0a65418430e5c0ce55f))
+* **client-sagemaker:** Add support for InstancePreferences list for multiple instance type input support on SageMaker Training and Processing ([45153f6](https://github.com/aws/aws-sdk-js-v3/commit/45153f6cf19c4a8bc1c567ff1e7323b0c27caba4))
+* **clients:** update client endpoints as of 2026-09-08 ([bdcc40a](https://github.com/aws/aws-sdk-js-v3/commit/bdcc40a79ef0a6acbca6db93dd9561731b12a55a))
+
+
+
+
+
 # [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
 
 

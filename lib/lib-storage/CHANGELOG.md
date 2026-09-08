@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
+
+
+### Bug Fixes
+
+* **lib-storage:** fix symlink stream sizing and abort on part-count mismatch ([#8300](https://github.com/aws/aws-sdk-js-v3/issues/8300)) ([aa58831](https://github.com/aws/aws-sdk-js-v3/commit/aa58831cf57d789884e4163dcba19fb22a71851f))
+
+
+
+
+
 # [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

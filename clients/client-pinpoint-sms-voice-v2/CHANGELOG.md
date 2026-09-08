@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
+
+
+### Features
+
+* **client-pinpoint-sms-voice-v2:** This feature will allow customers to specify an area-code when requesting a 10DLC number. Why it matters- Customers can now select a number that matches where their business is located. ([7aac344](https://github.com/aws/aws-sdk-js-v3/commit/7aac3447f181a72b79ab473d97e0797962fed13d))
+
+
+
+
+
 # [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-pinpoint-sms-voice-v2

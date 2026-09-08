@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
+
+
+### Features
+
+* **client-sagemaker:** Add support for InstancePreferences list for multiple instance type input support on SageMaker Training and Processing ([45153f6](https://github.com/aws/aws-sdk-js-v3/commit/45153f6cf19c4a8bc1c567ff1e7323b0c27caba4))
+
+
+
+
+
 # [3.1127.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1126.0...v3.1127.0) (2026-09-04)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
