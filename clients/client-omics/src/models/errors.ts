@@ -148,7 +148,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  * @public
  */
 export class ValidationException extends __BaseException {

@@ -1859,13 +1859,13 @@ export interface InlineSetting {
   parameters?: __DocumentType | undefined;
 
   /**
-   * <p>The expected AWS account ID of the owner of the output S3 bucket for this run.</p>
+   * <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket for this run.</p>
    * @public
    */
   outputBucketOwnerId?: string | undefined;
 
   /**
-   * <p>Per-run AWS tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
+   * <p>Per-run Amazon Web Services tags. Merged with <code>defaultRunSetting.runTags</code>; values in this object take precedence when keys overlap.</p>
    * @public
    */
   runTags?: Record<string, string> | undefined;
@@ -3482,7 +3482,7 @@ export interface DefaultRunSetting {
   workflowType?: WorkflowType | undefined;
 
   /**
-   * <p>The IAM role ARN that grants HealthOmics permissions to access required AWS resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
+   * <p>The IAM role ARN that grants HealthOmics permissions to access required Amazon Web Services resources such as Amazon S3 and CloudWatch. The role must have the same permissions required for individual <code>StartRun</code> calls.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -3542,7 +3542,7 @@ export interface DefaultRunSetting {
   logLevel?: RunLogLevel | undefined;
 
   /**
-   * <p>AWS tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
+   * <p>Amazon Web Services tags to associate with each workflow run. Merged with per-run <code>runTags</code>; run-specific values take precedence when keys overlap.</p>
    * @public
    */
   runTags?: Record<string, string> | undefined;
@@ -3560,13 +3560,13 @@ export interface DefaultRunSetting {
   storageType?: StorageType | undefined;
 
   /**
-   * <p>The AWS account ID of the workflow owner, used for cross-account workflow sharing.</p>
+   * <p>The Amazon Web Services account ID of the workflow owner, used for cross-account workflow sharing.</p>
    * @public
    */
   workflowOwnerId?: string | undefined;
 
   /**
-   * <p>The expected AWS account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
+   * <p>The expected Amazon Web Services account ID of the owner of the output S3 bucket. Can be overridden per run.</p>
    * @public
    */
   outputBucketOwnerId?: string | undefined;
@@ -3588,6 +3588,12 @@ export interface DefaultRunSetting {
    * @public
    */
   configurationName?: string | undefined;
+
+  /**
+   * Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+   * @public
+   */
+  sessionPolicy?: string | undefined;
 
   /**
    * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>
@@ -4180,13 +4186,13 @@ export interface GetBatchResponse {
   name?: string | undefined;
 
   /**
-   * <p>The current status of the run batch. Possible values: <code>CREATING</code> (initial setup), <code>PENDING</code> (ready to submit runs), <code>SUBMITTING</code> (submitting runs), <code>INPROGRESS</code> (runs executing), <code>STOPPING</code> (cancellation in progress), <code>PROCESSED</code> (all runs completed), <code>CANCELLED</code> (batch cancelled), <code>FAILED</code> (batch failed), <code>RUNS_DELETING</code> (deleting runs), <code>RUNS_DELETED</code> (runs deleted).</p>
+   * <p>The current status of the run batch. Possible values: <code>CREATING</code> (initial setup), <code>PENDING</code> (ready to submit runs), <code>SUBMITTING</code> (submitting runs), <code>INPROGRESS</code> (runs executing), <code>STOPPING</code> (cancellation in progress), <code>PROCESSED</code> (all runs completed), <code>CANCELLED</code> (batch cancelled), <code>FAILED</code> (batch failed), <code>RUNS_DELETING</code> (deleting runs), <code>RUNS_DELETE_FAILED</code> (run deletion failed for some or all runs), <code>RUNS_DELETED</code> (runs deleted).</p>
    * @public
    */
   status?: BatchStatus | undefined;
 
   /**
-   * <p>AWS tags associated with the run batch.</p>
+   * <p>Amazon Web Services tags associated with the run batch.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -5382,6 +5388,12 @@ export interface GetRunResponse {
    * @public
    */
   engineSettings?: __DocumentType | undefined;
+
+  /**
+   * Inline policy json for scoping down permissions via a session policy on the IAM role.
+   * @public
+   */
+  sessionPolicy?: string | undefined;
 }
 
 /**
@@ -8921,7 +8933,7 @@ export interface StartRunBatchRequest {
   requestId?: string | undefined;
 
   /**
-   * <p>AWS tags to associate with the batch resource. These tags are not inherited by individual runs. To tag individual runs, use <code>defaultRunSetting.runTags</code>.</p>
+   * <p>Amazon Web Services tags to associate with the batch resource. These tags are not inherited by individual runs. To tag individual runs, use <code>defaultRunSetting.runTags</code>.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -8968,7 +8980,7 @@ export interface StartRunBatchResponse {
   uuid?: string | undefined;
 
   /**
-   * <p>AWS tags associated with the run batch.</p>
+   * <p>Amazon Web Services tags associated with the run batch.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -9067,7 +9079,7 @@ export interface StartRunRequest {
   runId?: string | undefined;
 
   /**
-   * <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the AWS account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
+   * <p>A service role for the run. The <code>roleArn</code> requires access to Amazon Web Services HealthOmics, S3, Cloudwatch logs, and EC2. An example <code>roleArn</code> is <code>arn:aws:iam::123456789012:role/omics-service-role-serviceRole-W8O1XMPL7QZ</code>. In this example, the Amazon Web Services account ID is <code>123456789012</code> and the role name is <code>omics-service-role-serviceRole-W8O1XMPL7QZ</code>.</p>
    * @public
    */
   roleArn: string | undefined;
@@ -9179,6 +9191,12 @@ export interface StartRunRequest {
    * @public
    */
   configurationName?: string | undefined;
+
+  /**
+   * Optional inline policy json for scoping down permissions via a session policy on the IAM role provided in the roleArn parameter.
+   * @public
+   */
+  sessionPolicy?: string | undefined;
 
   /**
    * <p>Engine-specific settings for the workflow run. Use this field to specify configuration options that are specific to the workflow engine (for example, Nextflow profiles).</p>

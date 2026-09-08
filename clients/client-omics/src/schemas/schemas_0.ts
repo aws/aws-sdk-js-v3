@@ -682,6 +682,7 @@ const _sM = "statusMessage";
 const _sN = "shareName";
 const _sNt = "storeName";
 const _sO = "storeOptions";
+const _sP = "sessionPolicy";
 const _sR = "sourceReference";
 const _sRC = "startingRunCount";
 const _sRCt = "stoppingRunCount";
@@ -1118,8 +1119,8 @@ export var CreateWorkflowVersionResponse$: StaticStructureSchema = [3, n0, _CWVR
 ];
 export var DefaultRunSetting$: StaticStructureSchema = [3, n0, _DRS,
   0,
-  [_wI, _rA, _wT, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _oU, _lL, _rT, _rMet, _sT, _wOI, _oBOI, _wVN, _nM, _cN, _eS, _sSM],
-  [0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 0, 128 | 0, 0, 0, 0, 0, 0, 0, 0, 15, 0], 2
+  [_wI, _rA, _wT, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _oU, _lL, _rT, _rMet, _sT, _wOI, _oBOI, _wVN, _nM, _cN, _sP, _eS, _sSM],
+  [0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 0, 128 | 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0], 2
 ];
 export var DefinitionRepository$: StaticStructureSchema = [3, n0, _DR,
   0,
@@ -1458,8 +1459,8 @@ export var GetRunRequest$: StaticStructureSchema = [3, n0, _GRRet,
 ];
 export var GetRunResponse$: StaticStructureSchema = [3, n0, _GRRetu,
   0,
-  [_ar, _i, _cI, _cBa, _eV, _sta, _wI, _wT, _rIu, _rA, _n, _rGI, _bI, _pr, _def, _di, _pa, _sCt, _oU, _lL, _rD, _sB, _cT, _sTt, _sTto, _sM, _ta, _ac, _rMet, _fR, _lLo, _u, _rOU, _sT, _wOI, _wVN, _wU, _nM, _sSM, _co, _vC, _eS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 15, 1, 0, 0, 128 | 0, 0, 5, 5, 5, 0, 128 | 0, 0, 0, 0, () => RunLogLocation$, 0, 0, 0, 0, 0, 0, 0, 0, () => ConfigurationDetails$, () => VpcConfigResponse$, 15]
+  [_ar, _i, _cI, _cBa, _eV, _sta, _wI, _wT, _rIu, _rA, _n, _rGI, _bI, _pr, _def, _di, _pa, _sCt, _oU, _lL, _rD, _sB, _cT, _sTt, _sTto, _sM, _ta, _ac, _rMet, _fR, _lLo, _u, _rOU, _sT, _wOI, _wVN, _wU, _nM, _sSM, _co, _vC, _eS, _sP],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 15, 1, 0, 0, 128 | 0, 0, 5, 5, 5, 0, 128 | 0, 0, 0, 0, () => RunLogLocation$, 0, 0, 0, 0, 0, 0, 0, 0, () => ConfigurationDetails$, () => VpcConfigResponse$, 15, 0]
 ];
 export var GetRunTaskRequest$: StaticStructureSchema = [3, n0, _GRTR,
   0,
@@ -2118,8 +2119,8 @@ export var StartRunBatchResponse$: StaticStructureSchema = [3, n0, _SRBRt,
 ];
 export var StartRunRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
-  [_rA, _oU, _wI, _wT, _rIu, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _lL, _ta, _rI, _rMet, _sT, _wOI, _wVN, _nM, _sSM, _cN, _eS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 128 | 0, [0, 4], 0, 0, 0, 0, 0, 0, 0, 15], 2
+  [_rA, _oU, _wI, _wT, _rIu, _n, _cI, _cBa, _rGI, _pr, _pa, _sCt, _lL, _ta, _rI, _rMet, _sT, _wOI, _wVN, _nM, _sSM, _cN, _sP, _eS],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15, 1, 0, 128 | 0, [0, 4], 0, 0, 0, 0, 0, 0, 0, 0, 15], 2
 ];
 export var StartRunResponse$: StaticStructureSchema = [3, n0, _SRRt,
   0,

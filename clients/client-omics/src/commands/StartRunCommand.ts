@@ -57,6 +57,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   networkingMode: "STRING_VALUE",
  *   scratchStorageMode: "STRING_VALUE",
  *   configurationName: "STRING_VALUE",
+ *   sessionPolicy: "STRING_VALUE",
  *   engineSettings: "DOCUMENT_VALUE",
  * };
  * const command = new StartRunCommand(input);
@@ -108,7 +109,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
