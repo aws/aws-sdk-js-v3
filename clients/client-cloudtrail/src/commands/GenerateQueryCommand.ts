@@ -23,7 +23,10 @@ export interface GenerateQueryCommandInput extends GenerateQueryRequest {}
 export interface GenerateQueryCommandOutput extends GenerateQueryResponse, __MetadataBearer {}
 
 /**
- * <p>
+ * <important>
+ *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+ *          </important>
+ *          <p>
  *          Generates a query from a natural language prompt. This operation uses generative artificial intelligence
  *          (generative AI) to produce a ready-to-use SQL query from the prompt.
  *       </p>

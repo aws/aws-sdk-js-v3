@@ -23,7 +23,10 @@ export interface EnableFederationCommandInput extends EnableFederationRequest {}
 export interface EnableFederationCommandOutput extends EnableFederationResponse, __MetadataBearer {}
 
 /**
- * <p>
+ * <important>
+ *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+ *          </important>
+ *          <p>
  *          Enables Lake query federation on the specified event data store. Federating an event data store lets you view the metadata associated with the event data store in the Glue
  *          <a href="https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro">Data Catalog</a> and run
  *          SQL queries against your event data using Amazon Athena. The table metadata stored in the Glue Data Catalog

@@ -372,7 +372,8 @@ const _REDSRe = "RestoreEventDataStoreResponse";
 const _RI = "ResourceId";
 const _RIL = "ResourceIdList";
 const _RIe = "RefreshId";
-const _RL = "ResourceList";
+const _RL = "RecursiveLogging";
+const _RLe = "ResourceList";
 const _RN = "ResourceName";
 const _RNFE = "ResourceNotFoundException";
 const _RO = "ReadOnly";
@@ -1212,13 +1213,13 @@ export var CreateEventDataStoreResponse$: StaticStructureSchema = [3, n0, _CEDSR
 ];
 export var CreateTrailRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_N, _SBN, _SKP, _STN, _IGSE, _IMRT, _ELFV, _CWLLGA, _CWLRA, _KKI, _IOT, _TL],
-  [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, () => TagsList], 2
+  [_N, _SBN, _SKP, _STN, _IGSE, _IMRT, _ELFV, _CWLLGA, _CWLRA, _KKI, _IOT, _TL, _RL],
+  [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, () => TagsList, 2], 2
 ];
 export var CreateTrailResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
-  [_N, _SBN, _SKP, _STN, _STARN, _IGSE, _IMRT, _TARN, _LFVE, _CWLLGA, _CWLRA, _KKI, _IOT],
-  [0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 2]
+  [_N, _SBN, _SKP, _STN, _STARN, _IGSE, _IMRT, _TARN, _LFVE, _CWLLGA, _CWLRA, _KKI, _IOT, _RL],
+  [0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 2, 2]
 ];
 export var DashboardDetail$: StaticStructureSchema = [3, n0, _DD,
   0,
@@ -1857,8 +1858,8 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
 ];
 export var Trail$: StaticStructureSchema = [3, n0, _Tr,
   0,
-  [_N, _SBN, _SKP, _STN, _STARN, _IGSE, _IMRT, _HR, _TARN, _LFVE, _CWLLGA, _CWLRA, _KKI, _HCES, _HIS, _IOT],
-  [0, 0, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2]
+  [_N, _SBN, _SKP, _STN, _STARN, _IGSE, _IMRT, _HR, _TARN, _LFVE, _CWLLGA, _CWLRA, _KKI, _HCES, _HIS, _IOT, _RL],
+  [0, 0, 0, 0, 0, 2, 2, 0, 0, 2, 0, 0, 0, 2, 2, 2, 2]
 ];
 export var TrailInfo$: StaticStructureSchema = [3, n0, _TI,
   0,
@@ -1897,13 +1898,13 @@ export var UpdateEventDataStoreResponse$: StaticStructureSchema = [3, n0, _UEDSR
 ];
 export var UpdateTrailRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_N, _SBN, _SKP, _STN, _IGSE, _IMRT, _ELFV, _CWLLGA, _CWLRA, _KKI, _IOT],
-  [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2], 1
+  [_N, _SBN, _SKP, _STN, _IGSE, _IMRT, _ELFV, _CWLLGA, _CWLRA, _KKI, _IOT, _RL],
+  [0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 2, 2], 1
 ];
 export var UpdateTrailResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
-  [_N, _SBN, _SKP, _STN, _STARN, _IGSE, _IMRT, _TARN, _LFVE, _CWLLGA, _CWLRA, _KKI, _IOT],
-  [0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 2]
+  [_N, _SBN, _SKP, _STN, _STARN, _IGSE, _IMRT, _TARN, _LFVE, _CWLLGA, _CWLRA, _KKI, _IOT, _RL],
+  [0, 0, 0, 0, 0, 2, 2, 0, 2, 0, 0, 0, 2, 2]
 ];
 export var Widget$: StaticStructureSchema = [3, n0, _Wi,
   0,
@@ -1982,7 +1983,7 @@ var RequestWidgetList: StaticListSchema = [1, n0, _RWL,
   0, () => RequestWidget$
 ];
 var ResourceIdList = 64 | 0;
-var ResourceList: StaticListSchema = [1, n0, _RL,
+var ResourceList: StaticListSchema = [1, n0, _RLe,
   0, () => Resource$
 ];
 var ResourceTagList: StaticListSchema = [1, n0, _RTL,

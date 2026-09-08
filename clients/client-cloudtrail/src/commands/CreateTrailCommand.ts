@@ -51,6 +51,7 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   RecursiveLogging: true || false,
  * };
  * const command = new CreateTrailCommand(input);
  * const response = await client.send(command);
@@ -68,6 +69,7 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * //   CloudWatchLogsRoleArn: "STRING_VALUE",
  * //   KmsKeyId: "STRING_VALUE",
  * //   IsOrganizationTrail: true || false,
+ * //   RecursiveLogging: true || false,
  * // };
  *
  * ```

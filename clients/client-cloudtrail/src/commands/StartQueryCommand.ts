@@ -23,7 +23,10 @@ export interface StartQueryCommandInput extends StartQueryRequest {}
 export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a CloudTrail Lake query. Use the <code>QueryStatement</code>
+ * <important>
+ *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+ *          </important>
+ *          <p>Starts a CloudTrail Lake query. Use the <code>QueryStatement</code>
  *          parameter to provide your SQL query, enclosed in single quotation marks. Use the optional
  *             <code>DeliveryS3Uri</code> parameter to deliver the query results to an S3
  *          bucket.</p>

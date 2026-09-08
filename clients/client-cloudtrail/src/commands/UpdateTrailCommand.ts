@@ -49,6 +49,7 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  *   CloudWatchLogsRoleArn: "STRING_VALUE",
  *   KmsKeyId: "STRING_VALUE",
  *   IsOrganizationTrail: true || false,
+ *   RecursiveLogging: true || false,
  * };
  * const command = new UpdateTrailCommand(input);
  * const response = await client.send(command);
@@ -66,6 +67,7 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * //   CloudWatchLogsRoleArn: "STRING_VALUE",
  * //   KmsKeyId: "STRING_VALUE",
  * //   IsOrganizationTrail: true || false,
+ * //   RecursiveLogging: true || false,
  * // };
  *
  * ```

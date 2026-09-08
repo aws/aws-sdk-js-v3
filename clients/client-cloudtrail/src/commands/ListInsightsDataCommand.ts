@@ -41,6 +41,12 @@ export interface ListInsightsDataCommandOutput extends ListInsightsDataResponse,
  *          of results.</p>
  *          <p>The rate of ListInsightsData requests is limited to two per second, per account, per Region. If
  *             this limit is exceeded, a throttling error occurs.</p>
+ *          <note>
+ *             <p>For data event Insights on organization trails, only the management account and delegated
+ *             administrator accounts can call <code>ListInsightsData</code>. For these callers, the API returns
+ *             Insights events only for the caller's own account. Member accounts cannot call this API on
+ *             organization trails.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

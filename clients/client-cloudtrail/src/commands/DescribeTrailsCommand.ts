@@ -60,6 +60,7 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  * //       HasCustomEventSelectors: true || false,
  * //       HasInsightSelectors: true || false,
  * //       IsOrganizationTrail: true || false,
+ * //       RecursiveLogging: true || false,
  * //     },
  * //   ],
  * // };

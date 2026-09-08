@@ -23,7 +23,10 @@ export interface DisableFederationCommandInput extends DisableFederationRequest 
 export interface DisableFederationCommandOutput extends DisableFederationResponse, __MetadataBearer {}
 
 /**
- * <p>
+ * <important>
+ *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+ *          </important>
+ *          <p>
  *          Disables Lake query federation on the specified event data store. When you disable federation, CloudTrail disables
  *          the integration with Glue, Lake Formation, and Amazon Athena.
  *          After disabling Lake query federation, you can no longer query your event data in Amazon Athena.</p>

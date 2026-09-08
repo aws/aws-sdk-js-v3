@@ -23,7 +23,10 @@ export interface UpdateEventDataStoreCommandInput extends UpdateEventDataStoreRe
 export interface UpdateEventDataStoreCommandOutput extends UpdateEventDataStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
+ * <important>
+ *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+ *          </important>
+ *          <p>Updates an event data store. The required <code>EventDataStore</code> value is an ARN or
  *          the ID portion of the ARN. Other parameters are optional, but at least one optional
  *          parameter must be specified, or CloudTrail throws an error.
  *             <code>RetentionPeriod</code> is in days, and valid values are integers between 7 and

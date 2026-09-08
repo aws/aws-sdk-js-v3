@@ -23,7 +23,10 @@ export interface CancelQueryCommandInput extends CancelQueryRequest {}
 export interface CancelQueryCommandOutput extends CancelQueryResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels a query if the query is not in a terminated state, such as
+ * <important>
+ *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+ *          </important>
+ *          <p>Cancels a query if the query is not in a terminated state, such as
  *             <code>CANCELLED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
  *             <code>FINISHED</code>. You must specify an ARN value for <code>EventDataStore</code>.
  *          The ID of the query that you want to cancel is also required. When you run

@@ -23,7 +23,10 @@ export interface ListQueriesCommandInput extends ListQueriesRequest {}
 export interface ListQueriesCommandOutput extends ListQueriesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of queries and query statuses for the past seven days. You must specify
+ * <important>
+ *             <p>CloudTrail Lake will no longer be open to new customers starting May 31, 2026. If you would like to use CloudTrail Lake, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-service-availability-change.html">CloudTrail Lake availability change</a>.</p>
+ *          </important>
+ *          <p>Returns a list of queries and query statuses for the past seven days. You must specify
  *          an ARN value for <code>EventDataStore</code>. Optionally, to shorten the list of results,
  *          you can specify a time range, formatted as timestamps, by adding <code>StartTime</code> and
  *             <code>EndTime</code> parameters, and a <code>QueryStatus</code> value. Valid values for

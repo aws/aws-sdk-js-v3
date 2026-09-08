@@ -55,6 +55,7 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
  * //     HasCustomEventSelectors: true || false,
  * //     HasInsightSelectors: true || false,
  * //     IsOrganizationTrail: true || false,
+ * //     RecursiveLogging: true || false,
  * //   },
  * // };
  *

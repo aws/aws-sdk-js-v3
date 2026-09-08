@@ -49,6 +49,12 @@ export interface ListInsightsMetricDataCommandOutput extends ListInsightsMetricD
  *          you must have permissions to perform the <code>cloudtrail:LookupEvents</code> action.</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>For data event Insights on organization trails, only the management account and delegated
+ *             administrator accounts can call <code>ListInsightsMetricData</code>. For these callers, the API returns
+ *             Insights metrics only for the caller's own account. Member accounts cannot call this API on
+ *             organization trails.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
