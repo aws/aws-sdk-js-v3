@@ -1739,6 +1739,18 @@ export interface LaunchTemplateDiskConf {
    * @public
    */
   throughput?: number | undefined;
+
+  /**
+   * <p>Launch template disk volume initialization rate configuration.</p>
+   * @public
+   */
+  volumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>Launch template disk delete on termination configuration.</p>
+   * @public
+   */
+  deleteOnTermination?: boolean | undefined;
 }
 
 /**

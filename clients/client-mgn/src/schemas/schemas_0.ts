@@ -503,6 +503,7 @@ const _dI = "documentIdentifier";
 const _dLSDT = "defaultLargeStagingDiskType";
 const _dN = "deviceName";
 const _dNa = "datacenterName";
+const _dOT = "deleteOnTermination";
 const _dP = "dynamicPath";
 const _dPR = "dataPlaneRouting";
 const _dRE = "dataReplicationError";
@@ -747,6 +748,7 @@ const _uPID = "userProvidedID";
 const _vCID = "vcenterClientID";
 const _vID = "vpcIDs";
 const _vIDp = "vpcID";
+const _vIR = "volumeInitializationRate";
 const _vP = "vmPath";
 const _vPS = "vpcProvisioningStrategy";
 const _vT = "volumeType";
@@ -1331,8 +1333,8 @@ export var LaunchedInstance$: StaticStructureSchema = [3, n0, _LI,
 ];
 export var LaunchTemplateDiskConf$: StaticStructureSchema = [3, n0, _LTDC,
   0,
-  [_vT, _io, _th],
-  [0, 1, 1]
+  [_vT, _io, _th, _vIR, _dOT],
+  [0, 1, 1, 1, 2]
 ];
 export var Licensing$: StaticStructureSchema = [3, n0, _L,
   0,
