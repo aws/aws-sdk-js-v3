@@ -488,6 +488,7 @@ import {
   RequestedJobStatus,
   S3AccessControlList$,
   S3AccessControlPolicy$,
+  S3AnnotationDirective,
   S3BucketDestination$,
   S3CannedAccessControlList,
   S3ChecksumAlgorithm,
@@ -506,9 +507,13 @@ import {
   S3JobManifestGenerator$,
   S3ManifestOutputLocation$,
   S3MetadataDirective,
+  S3ObjectLockEventHold,
+  S3ObjectLockEventHoldDuration$,
   S3ObjectLockLegalHold$,
   S3ObjectLockLegalHoldStatus,
   S3ObjectLockMode,
+  S3ObjectLockRetentionEventHold,
+  S3ObjectLockRetentionEventHoldDuration$,
   S3ObjectLockRetentionMode,
   S3ObjectMetadata$,
   S3ObjectOwner$,
@@ -1040,7 +1045,9 @@ assert(typeof S3Grantee$ === "object");
 assert(typeof S3InitiateRestoreObjectOperation$ === "object");
 assert(typeof S3JobManifestGenerator$ === "object");
 assert(typeof S3ManifestOutputLocation$ === "object");
+assert(typeof S3ObjectLockEventHoldDuration$ === "object");
 assert(typeof S3ObjectLockLegalHold$ === "object");
+assert(typeof S3ObjectLockRetentionEventHoldDuration$ === "object");
 assert(typeof S3ObjectMetadata$ === "object");
 assert(typeof S3ObjectOwner$ === "object");
 assert(typeof S3ReplicateObjectOperation$ === "object");
@@ -1131,13 +1138,16 @@ assert(typeof ReplicationStatus === "object");
 assert(typeof ReplicationStorageClass === "object");
 assert(typeof ReplicationTimeStatus === "object");
 assert(typeof RequestedJobStatus === "object");
+assert(typeof S3AnnotationDirective === "object");
 assert(typeof S3CannedAccessControlList === "object");
 assert(typeof S3ChecksumAlgorithm === "object");
 assert(typeof S3GlacierJobTier === "object");
 assert(typeof S3GranteeTypeIdentifier === "object");
 assert(typeof S3MetadataDirective === "object");
+assert(typeof S3ObjectLockEventHold === "object");
 assert(typeof S3ObjectLockLegalHoldStatus === "object");
 assert(typeof S3ObjectLockMode === "object");
+assert(typeof S3ObjectLockRetentionEventHold === "object");
 assert(typeof S3ObjectLockRetentionMode === "object");
 assert(typeof S3Permission === "object");
 assert(typeof S3PrefixType === "object");

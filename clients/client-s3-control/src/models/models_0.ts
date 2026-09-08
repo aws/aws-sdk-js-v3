@@ -35,13 +35,16 @@ import type {
   ReplicationStatus,
   ReplicationStorageClass,
   ReplicationTimeStatus,
+  S3AnnotationDirective,
   S3CannedAccessControlList,
   S3ChecksumAlgorithm,
   S3GlacierJobTier,
   S3GranteeTypeIdentifier,
   S3MetadataDirective,
+  S3ObjectLockEventHold,
   S3ObjectLockLegalHoldStatus,
   S3ObjectLockMode,
+  S3ObjectLockRetentionEventHold,
   S3ObjectLockRetentionMode,
   S3Permission,
   S3PrefixType,
@@ -458,10 +461,7 @@ export interface SelectionCriteria {
   MaxDepth?: number | undefined;
 
   /**
-   * <p>The minimum number of storage bytes percentage whose metrics will be selected.</p>
-   *          <note>
-   *             <p>You must choose a value greater than or equal to <code>1.0</code>.</p>
-   *          </note>
+   * <p>The minimum percentage of total bucket storage that a prefix must hold for its metrics to be included.</p>
    * @public
    */
   MinStorageBytesPercentage?: number | undefined;
@@ -2055,8 +2055,8 @@ export interface S3ManifestOutputLocation {
  */
 export interface S3JobManifestGenerator {
   /**
-   * <p>The Amazon Web Services account ID that owns the bucket the generated manifest is written to. If
-   *          provided the generated manifest bucket's owner Amazon Web Services account ID must match this value, else
+   * <p>The Amazon Web Services account ID that owns the source bucket specified in <code>SourceBucket</code>. If
+   *          provided, the manifest source bucket owner's Amazon Web Services account ID must match this value, else
    *          the job fails.</p>
    * @public
    */
@@ -2463,6 +2463,27 @@ export interface S3Tag {
 }
 
 /**
+ * <p>Contains the duration configuration for an event hold, specified in either days or
+ *          years.</p>
+ * @public
+ */
+export interface S3ObjectLockEventHoldDuration {
+  /**
+   * <p>The number of days for the event hold duration. The minimum value is 1 and the maximum
+   *          value is 36,500.</p>
+   * @public
+   */
+  Days?: number | undefined;
+
+  /**
+   * <p>The number of years for the event hold duration. The minimum value is 1 and the maximum
+   *          value is 100.</p>
+   * @public
+   */
+  Years?: number | undefined;
+}
+
+/**
  * <p>Contains
  *          the configuration parameters for a PUT Copy object operation. S3 Batch Operations passes every
  *          object to the underlying
@@ -2523,6 +2544,19 @@ export interface S3CopyObjectOperation {
    * @public
    */
   MetadataDirective?: S3MetadataDirective | undefined;
+
+  /**
+   * <p>Specifies whether the Batch Operations copy job copies object annotations from the source
+   *          object or skips them. If this property isn't specified, <code>COPY</code> is the default
+   *          behavior.</p>
+   *          <p>Valid Values: <code>COPY | EXCLUDE</code>
+   *          </p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  AnnotationDirective?: S3AnnotationDirective | undefined;
 
   /**
    * <p></p>
@@ -2673,6 +2707,27 @@ export interface S3CopyObjectOperation {
    * @public
    */
   ChecksumAlgorithm?: S3ChecksumAlgorithm | undefined;
+
+  /**
+   * <p>The event hold status to be applied to all objects in the Batch Operations copy job. Set to
+   *          <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHold?: S3ObjectLockEventHold | undefined;
+
+  /**
+   * <p>The event hold duration to be applied to all objects in the Batch Operations copy job. The
+   *          duration specifies how long the object remains protected after the event hold is
+   *          released.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDuration?: S3ObjectLockEventHoldDuration | undefined;
 }
 
 /**
@@ -2713,6 +2768,27 @@ export interface S3SetObjectLegalHoldOperation {
 }
 
 /**
+ * <p>Contains the duration configuration for an event hold, specified in either days or
+ *          years.</p>
+ * @public
+ */
+export interface S3ObjectLockRetentionEventHoldDuration {
+  /**
+   * <p>The number of days for the event hold duration. The minimum value is 1 and the maximum
+   *          value is 36,500.</p>
+   * @public
+   */
+  Days?: number | undefined;
+
+  /**
+   * <p>The number of years for the event hold duration. The minimum value is 1 and the maximum
+   *          value is 100.</p>
+   * @public
+   */
+  Years?: number | undefined;
+}
+
+/**
  * <p>Contains the S3 Object Lock retention mode to be applied to all objects in the
  *          S3 Batch Operations job. If you don't provide <code>Mode</code> and <code>RetainUntilDate</code>
  *          data types in your operation, you will remove the retention from your objects. For more
@@ -2734,6 +2810,20 @@ export interface S3Retention {
    * @public
    */
   Mode?: S3ObjectLockRetentionMode | undefined;
+
+  /**
+   * <p>The event hold status to be applied to all objects in the Batch Operations job. Set to
+   *          <code>ON</code> to enable an event hold or <code>OFF</code> to disable it.</p>
+   * @public
+   */
+  EventHold?: S3ObjectLockRetentionEventHold | undefined;
+
+  /**
+   * <p>The event hold duration to be applied to all objects in the Batch Operations job. The duration
+   *          specifies how long the object remains protected after the event hold is released.</p>
+   * @public
+   */
+  EventHoldDuration?: S3ObjectLockRetentionEventHoldDuration | undefined;
 }
 
 /**
@@ -7953,63 +8043,3 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResult {}
-
-/**
- * @public
- */
-export interface UpdateAccessGrantsLocationRequest {
-  /**
-   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The ID of the registered location that you are updating. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
-   *          <p>The ID of the registered location to which you are granting access. S3 Access Grants assigned this ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
-   *          <p>If you are passing the <code>default</code> location, you cannot create an access grant for the entire default location. You must also specify a bucket or a bucket and prefix in the <code>Subprefix</code> field. </p>
-   * @public
-   */
-  AccessGrantsLocationId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
-   * @public
-   */
-  IAMRoleArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAccessGrantsLocationResult {
-  /**
-   * <p>The date and time when you registered the location. </p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigned this ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
-   * @public
-   */
-  AccessGrantsLocationId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registered location that you are updating. </p>
-   * @public
-   */
-  AccessGrantsLocationArn?: string | undefined;
-
-  /**
-   * <p>The S3 URI path of the location that you are updating. You cannot update the scope of the registered location. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></code>, or the S3 path to a bucket and prefix <code>s3://<bucket>/<prefix></code>. </p>
-   * @public
-   */
-  LocationScope?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role of the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
-   * @public
-   */
-  IAMRoleArn?: string | undefined;
-}

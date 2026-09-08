@@ -10,6 +10,7 @@ const _ACLc = "AccessControlList";
 const _ACOM = "AdvancedCostOptimizationMetrics";
 const _ACP = "AccessControlPolicy";
 const _ACT = "AccessControlTranslation";
+const _AD = "AnnotationDirective";
 const _ADPM = "AdvancedDataProtectionMetrics";
 const _AED = "AsyncErrorDetails";
 const _AF = "AllowedFeatures";
@@ -194,6 +195,8 @@ const _EBO = "ExpectedBucketOwner";
 const _EC = "EncryptionConfiguration";
 const _ED = "ErrorDetails";
 const _EFR = "EligibleForReplication";
+const _EH = "EventHold";
+const _EHD = "EventHoldDuration";
 const _EID = "ExpirationInDays";
 const _EMBO = "ExpectedManifestBucketOwner";
 const _EMO = "EnableManifestOutput";
@@ -486,6 +489,8 @@ const _OLAPL = "ObjectLambdaAccessPointList";
 const _OLC = "ObjectLambdaConfiguration";
 const _OLCT = "ObjectLambdaContentTransformation";
 const _OLEFB = "ObjectLockEnabledForBucket";
+const _OLEH = "ObjectLockEventHold";
+const _OLEHD = "ObjectLockEventHoldDuration";
 const _OLLHS = "ObjectLockLegalHoldStatus";
 const _OLM = "ObjectLockMode";
 const _OLRUD = "ObjectLockRetainUntilDate";
@@ -646,7 +651,9 @@ const _SMOL = "S3ManifestOutputLocation";
 const _SMRAPR = "SubmitMultiRegionAccessPointRoutes";
 const _SMRAPRR = "SubmitMultiRegionAccessPointRoutesRequest";
 const _SMRAPRRu = "SubmitMultiRegionAccessPointRoutesResult";
+const _SOLEHD = "S3ObjectLockEventHoldDuration";
 const _SOLLH = "S3ObjectLockLegalHold";
+const _SOLREHD = "S3ObjectLockRetentionEventHoldDuration";
 const _SOM = "S3ObjectMetadata";
 const _SOO = "S3ObjectOwner";
 const _SP = "S3Prefix";
@@ -734,6 +741,7 @@ const _V = "Value";
 const _VC = "VpcConfiguration";
 const _VCe = "VersioningConfiguration";
 const _VI = "VpcId";
+const _Y = "Years";
 const _aBA = "allowedByApplication";
 const _aC = "auditContext";
 const _aa = "application_arn";
@@ -2103,8 +2111,8 @@ export var S3ComputeObjectChecksumOperation$: StaticStructureSchema = [3, n0, _S
 ];
 export var S3CopyObjectOperation$: StaticStructureSchema = [3, n0, _SCOO,
   0,
-  [_TR, _CACL, _ACG, _MDe, _MSC, _NOM, _NOT, _RL, _RPe, _SC, _UMSC, _SSEAKKI, _TKP, _OLLHS, _OLM, _OLRUD, _BKE, _CAh],
-  [0, 0, () => S3GrantList, 0, 4, () => S3ObjectMetadata$, () => S3TagSet, 0, 2, 0, 4, 0, 0, 0, 0, 4, 2, 0]
+  [_TR, _CACL, _ACG, _MDe, _AD, _MSC, _NOM, _NOT, _RL, _RPe, _SC, _UMSC, _SSEAKKI, _TKP, _OLLHS, _OLM, _OLRUD, _BKE, _CAh, _OLEH, _OLEHD],
+  [0, 0, () => S3GrantList, 0, 0, 4, () => S3ObjectMetadata$, () => S3TagSet, 0, 2, 0, 4, 0, 0, 0, 0, 4, 2, 0, 0, () => S3ObjectLockEventHoldDuration$]
 ];
 export var S3DeleteObjectTaggingOperation$: StaticStructureSchema = [3, n0, _SDOTO,
   0,
@@ -2141,10 +2149,20 @@ export var S3ManifestOutputLocation$: StaticStructureSchema = [3, n0, _SMOL,
   [_B, _MF, _EMBO, _MP, _ME],
   [0, 0, 0, 0, [() => GeneratedManifestEncryption$, 0]], 2
 ];
+export var S3ObjectLockEventHoldDuration$: StaticStructureSchema = [3, n0, _SOLEHD,
+  0,
+  [_Day, _Y],
+  [1, 1]
+];
 export var S3ObjectLockLegalHold$: StaticStructureSchema = [3, n0, _SOLLH,
   0,
   [_St],
   [0], 1
+];
+export var S3ObjectLockRetentionEventHoldDuration$: StaticStructureSchema = [3, n0, _SOLREHD,
+  0,
+  [_Day, _Y],
+  [1, 1]
 ];
 export var S3ObjectMetadata$: StaticStructureSchema = [3, n0, _SOM,
   0,
@@ -2163,8 +2181,8 @@ export var S3ReplicateObjectOperation$: StaticStructureSchema = [3, n0, _SROO,
 ];
 export var S3Retention$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_RUD, _Mo],
-  [4, 0]
+  [_RUD, _Mo, _EH, _EHD],
+  [4, 0, 0, () => S3ObjectLockRetentionEventHoldDuration$]
 ];
 export var S3SetObjectAclOperation$: StaticStructureSchema = [3, n0, _SSOAO,
   0,

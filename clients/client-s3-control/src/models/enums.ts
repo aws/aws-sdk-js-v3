@@ -352,6 +352,19 @@ export type S3CannedAccessControlList = (typeof S3CannedAccessControlList)[keyof
  * @public
  * @enum
  */
+export const S3AnnotationDirective = {
+  COPY: "COPY",
+  EXCLUDE: "EXCLUDE",
+} as const;
+/**
+ * @public
+ */
+export type S3AnnotationDirective = (typeof S3AnnotationDirective)[keyof typeof S3AnnotationDirective];
+
+/**
+ * @public
+ * @enum
+ */
 export const S3ChecksumAlgorithm = {
   CRC32: "CRC32",
   CRC32C: "CRC32C",
@@ -399,6 +412,19 @@ export type S3SSEAlgorithm = (typeof S3SSEAlgorithm)[keyof typeof S3SSEAlgorithm
  * @public
  * @enum
  */
+export const S3ObjectLockEventHold = {
+  OFF: "OFF",
+  ON: "ON",
+} as const;
+/**
+ * @public
+ */
+export type S3ObjectLockEventHold = (typeof S3ObjectLockEventHold)[keyof typeof S3ObjectLockEventHold];
+
+/**
+ * @public
+ * @enum
+ */
 export const S3ObjectLockLegalHoldStatus = {
   OFF: "OFF",
   ON: "ON",
@@ -421,6 +447,20 @@ export const S3ObjectLockMode = {
  * @public
  */
 export type S3ObjectLockMode = (typeof S3ObjectLockMode)[keyof typeof S3ObjectLockMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ObjectLockRetentionEventHold = {
+  OFF: "OFF",
+  ON: "ON",
+} as const;
+/**
+ * @public
+ */
+export type S3ObjectLockRetentionEventHold =
+  (typeof S3ObjectLockRetentionEventHold)[keyof typeof S3ObjectLockRetentionEventHold];
 
 /**
  * @public

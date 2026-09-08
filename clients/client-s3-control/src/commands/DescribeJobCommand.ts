@@ -110,6 +110,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //           },
  * //         ],
  * //         MetadataDirective: "COPY" || "REPLACE",
+ * //         AnnotationDirective: "COPY" || "EXCLUDE",
  * //         ModifiedSinceConstraint: new Date("TIMESTAMP"),
  * //         NewObjectMetadata: { // S3ObjectMetadata
  * //           CacheControl: "STRING_VALUE",
@@ -143,6 +144,11 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //         ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  * //         BucketKeyEnabled: true || false,
  * //         ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME" || "SHA512" || "MD5" || "XXHASH64" || "XXHASH3" || "XXHASH128",
+ * //         ObjectLockEventHold: "ON" || "OFF",
+ * //         ObjectLockEventHoldDuration: { // S3ObjectLockEventHoldDuration
+ * //           Days: Number("int"),
+ * //           Years: Number("int"),
+ * //         },
  * //       },
  * //       S3PutObjectAcl: { // S3SetObjectAclOperation
  * //         AccessControlPolicy: { // S3AccessControlPolicy
@@ -188,6 +194,11 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * //         Retention: { // S3Retention
  * //           RetainUntilDate: new Date("TIMESTAMP"),
  * //           Mode: "COMPLIANCE" || "GOVERNANCE",
+ * //           EventHold: "ON" || "OFF",
+ * //           EventHoldDuration: { // S3ObjectLockRetentionEventHoldDuration
+ * //             Days: Number("int"),
+ * //             Years: Number("int"),
+ * //           },
  * //         },
  * //       },
  * //       S3ReplicateObject: {},
