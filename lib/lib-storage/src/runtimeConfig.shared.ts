@@ -2,7 +2,7 @@
  * @internal
  */
 export const runtimeConfigShared = {
-  lstatSync: () => {},
+  statSync: () => {},
   isFileReadStream(f: unknown) {
     return false;
   },

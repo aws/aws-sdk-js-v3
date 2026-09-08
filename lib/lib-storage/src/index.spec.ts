@@ -17,7 +17,7 @@ describe("runtimeConfig", () => {
     const configs = [runtimeConfig, runtimeConfigBrowser, runtimeConfigNative];
 
     for (const config of configs) {
-      expect(typeof config.lstatSync).toBe("function");
+      expect(typeof config.statSync).toBe("function");
       expect(typeof config.isFileReadStream).toBe("function");
     }
 

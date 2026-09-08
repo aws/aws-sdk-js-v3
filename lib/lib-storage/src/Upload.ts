@@ -390,6 +390,7 @@ export class Upload extends EventEmitter {
     if (this.isMultiPart) {
       const { expectedPartsCount, uploadedParts, totalBytes, totalBytesSource } = this;
       if (totalBytes !== undefined && expectedPartsCount !== undefined && uploadedParts.length !== expectedPartsCount) {
+        await this.markUploadAsAborted();
         throw new Error(`Expected ${expectedPartsCount} part(s) but uploaded ${uploadedParts.length} part(s).
 The expected part count is based on the byte-count of the input.params.Body,
 which was read from ${totalBytesSource} and is ${totalBytes}.
