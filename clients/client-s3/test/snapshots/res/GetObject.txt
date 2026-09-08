@@ -73,6 +73,9 @@ x-amz-tagging-count: 0
 x-amz-object-lock-mode: __ObjectLockMode__
 x-amz-object-lock-retain-until-date: 2000-01-01T04:59:59.999Z
 x-amz-object-lock-legal-hold: __ObjectLockLegalHoldStatus__
+x-amz-object-lock-event-hold: __ObjectLockEventHold__
+x-amz-object-lock-event-hold-duration-days: 0
+x-amz-object-lock-event-hold-duration-years: 0
 
 [async_iterable (Readable)]
 
@@ -138,6 +141,9 @@ MQo=
   ObjectLockMode: "__ObjectLockMode__",
   ObjectLockRetainUntilDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   ObjectLockLegalHoldStatus: "__ObjectLockLegalHoldStatus__",
+  ObjectLockEventHold: "__ObjectLockEventHold__",
+  ObjectLockEventHoldDurationDays: (number) 0,
+  ObjectLockEventHoldDurationYears: (number) 0,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

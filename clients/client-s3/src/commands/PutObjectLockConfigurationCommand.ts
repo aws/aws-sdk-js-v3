@@ -66,6 +66,10 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  *         Mode: "GOVERNANCE" || "COMPLIANCE",
  *         Days: Number("int"),
  *         Years: Number("int"),
+ *         DefaultEventHold: { // EventHoldDuration
+ *           Days: Number("int"),
+ *           Years: Number("int"),
+ *         },
  *       },
  *     },
  *   },

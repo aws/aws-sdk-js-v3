@@ -275,6 +275,9 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * //   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
  * //   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  * //   ObjectLockLegalHoldStatus: "ON" || "OFF",
+ * //   ObjectLockEventHold: "ON" || "OFF",
+ * //   ObjectLockEventHoldDurationDays: Number("int"),
+ * //   ObjectLockEventHoldDurationYears: Number("int"),
  * // };
  *
  * ```

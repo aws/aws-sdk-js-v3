@@ -189,6 +189,19 @@ export type MetadataDirective = (typeof MetadataDirective)[keyof typeof Metadata
  * @public
  * @enum
  */
+export const ObjectLockEventHold = {
+  OFF: "OFF",
+  ON: "ON",
+} as const;
+/**
+ * @public
+ */
+export type ObjectLockEventHold = (typeof ObjectLockEventHold)[keyof typeof ObjectLockEventHold];
+
+/**
+ * @public
+ * @enum
+ */
 export const ObjectLockLegalHoldStatus = {
   OFF: "OFF",
   ON: "ON",
@@ -554,6 +567,8 @@ export const InventoryOptionalField = {
   LastModifiedDate: "LastModifiedDate",
   LifecycleExpirationDate: "LifecycleExpirationDate",
   ObjectAccessControlList: "ObjectAccessControlList",
+  ObjectLockEventHoldDuration: "ObjectLockEventHoldDuration",
+  ObjectLockEventHoldStatus: "ObjectLockEventHoldStatus",
   ObjectLockLegalHoldStatus: "ObjectLockLegalHoldStatus",
   ObjectLockMode: "ObjectLockMode",
   ObjectLockRetainUntilDate: "ObjectLockRetainUntilDate",
@@ -690,6 +705,7 @@ export const Event = {
   s3_ObjectRestore_Completed: "s3:ObjectRestore:Completed",
   s3_ObjectRestore_Delete: "s3:ObjectRestore:Delete",
   s3_ObjectRestore_Post: "s3:ObjectRestore:Post",
+  s3_ObjectRetention_Put: "s3:ObjectRetention:Put",
   s3_ObjectTagging_: "s3:ObjectTagging:*",
   s3_ObjectTagging_Delete: "s3:ObjectTagging:Delete",
   s3_ObjectTagging_Put: "s3:ObjectTagging:Put",

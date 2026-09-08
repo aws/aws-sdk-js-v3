@@ -48,6 +48,11 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  *   Retention: { // ObjectLockRetention
  *     Mode: "GOVERNANCE" || "COMPLIANCE",
  *     RetainUntilDate: new Date("TIMESTAMP"),
+ *     EventHold: "ON" || "OFF",
+ *     EventHoldDuration: { // EventHoldDuration
+ *       Days: Number("int"),
+ *       Years: Number("int"),
+ *     },
  *   },
  *   RequestPayer: "requester",
  *   VersionId: "STRING_VALUE",

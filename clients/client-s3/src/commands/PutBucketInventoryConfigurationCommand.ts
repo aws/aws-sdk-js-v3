@@ -168,7 +168,7 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
  *     Id: "STRING_VALUE", // required
  *     IncludedObjectVersions: "All" || "Current", // required
  *     OptionalFields: [ // InventoryOptionalFields
- *       "Size" || "LastModifiedDate" || "StorageClass" || "ETag" || "IsMultipartUploaded" || "ReplicationStatus" || "EncryptionStatus" || "ObjectLockRetainUntilDate" || "ObjectLockMode" || "ObjectLockLegalHoldStatus" || "IntelligentTieringAccessTier" || "BucketKeyStatus" || "ChecksumAlgorithm" || "ObjectAccessControlList" || "ObjectOwner" || "LifecycleExpirationDate",
+ *       "Size" || "LastModifiedDate" || "StorageClass" || "ETag" || "IsMultipartUploaded" || "ReplicationStatus" || "EncryptionStatus" || "ObjectLockRetainUntilDate" || "ObjectLockMode" || "ObjectLockLegalHoldStatus" || "ObjectLockEventHoldStatus" || "ObjectLockEventHoldDuration" || "IntelligentTieringAccessTier" || "BucketKeyStatus" || "ChecksumAlgorithm" || "ObjectAccessControlList" || "ObjectOwner" || "LifecycleExpirationDate",
  *     ],
  *     Schedule: { // InventorySchedule
  *       Frequency: "Daily" || "Weekly", // required

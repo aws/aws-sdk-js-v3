@@ -262,6 +262,9 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
  *   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  *   ObjectLockLegalHoldStatus: "ON" || "OFF",
+ *   ObjectLockEventHold: "ON" || "OFF",
+ *   ObjectLockEventHoldDurationDays: Number("int"),
+ *   ObjectLockEventHoldDurationYears: Number("int"),
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new PutObjectCommand(input);

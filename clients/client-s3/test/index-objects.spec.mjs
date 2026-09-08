@@ -173,6 +173,7 @@ import {
   ErrorDocument$,
   Event,
   EventBridgeConfiguration$,
+  EventHoldDuration$,
   ExistingObjectReplication$,
   ExistingObjectReplicationStatus,
   ExpirationState,
@@ -459,6 +460,7 @@ import {
   ObjectIdentifier$,
   ObjectLockConfiguration$,
   ObjectLockEnabled,
+  ObjectLockEventHold,
   ObjectLockLegalHold$,
   ObjectLockLegalHoldStatus,
   ObjectLockMode,
@@ -1017,6 +1019,7 @@ assert(typeof _Error$ === "object");
 assert(typeof ErrorDetails$ === "object");
 assert(typeof ErrorDocument$ === "object");
 assert(typeof EventBridgeConfiguration$ === "object");
+assert(typeof EventHoldDuration$ === "object");
 assert(typeof ExistingObjectReplication$ === "object");
 assert(typeof FilterRule$ === "object");
 assert(typeof GetBucketAbacOutput$ === "object");
@@ -1323,6 +1326,7 @@ assert(typeof MFADeleteStatus === "object");
 assert(typeof ObjectAttributes === "object");
 assert(typeof ObjectCannedACL === "object");
 assert(typeof ObjectLockEnabled === "object");
+assert(typeof ObjectLockEventHold === "object");
 assert(typeof ObjectLockLegalHoldStatus === "object");
 assert(typeof ObjectLockMode === "object");
 assert(typeof ObjectLockRetentionMode === "object");

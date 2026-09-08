@@ -33,6 +33,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     <RetainUntilDate>
         2000-01-01T04:59:59.999Z
     </RetainUntilDate>
+    <EventHold>
+        __EventHold__
+    </EventHold>
+    <EventHoldDuration>
+        <Days>
+            0
+        </Days>
+        <Years>
+            0
+        </Years>
+    </EventHoldDuration>
 </Retention>
 
 
@@ -40,7 +51,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 {
   Retention: {
     Mode: "__Mode__",
-    RetainUntilDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    RetainUntilDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EventHold: "__EventHold__",
+    EventHoldDuration: {
+      Days: (number) 0,
+      Years: (number) 0
+    }
   },
   $metadata: {
     httpStatusCode: (number) 200,

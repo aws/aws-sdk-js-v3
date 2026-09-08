@@ -62,6 +62,10 @@ export interface GetObjectLockConfigurationCommandOutput extends GetObjectLockCo
  * //         Mode: "GOVERNANCE" || "COMPLIANCE",
  * //         Days: Number("int"),
  * //         Years: Number("int"),
+ * //         DefaultEventHold: { // EventHoldDuration
+ * //           Days: Number("int"),
+ * //           Years: Number("int"),
+ * //         },
  * //       },
  * //     },
  * //   },

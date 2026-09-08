@@ -41,6 +41,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <Years>
                 0
             </Years>
+            <DefaultEventHold>
+                <Days>
+                    0
+                </Days>
+                <Years>
+                    0
+                </Years>
+            </DefaultEventHold>
         </DefaultRetention>
     </Rule>
 </ObjectLockConfiguration>
@@ -54,7 +62,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       DefaultRetention: {
         Mode: "__Mode__",
         Days: (number) 0,
-        Years: (number) 0
+        Years: (number) 0,
+        DefaultEventHold: {
+          Days: (number) 0,
+          Years: (number) 0
+        }
       }
     }
   },

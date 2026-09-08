@@ -257,6 +257,9 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  * //   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
  * //   ObjectLockRetainUntilDate: new Date("TIMESTAMP"),
  * //   ObjectLockLegalHoldStatus: "ON" || "OFF",
+ * //   ObjectLockEventHold: "ON" || "OFF",
+ * //   ObjectLockEventHoldDurationDays: Number("int"),
+ * //   ObjectLockEventHoldDurationYears: Number("int"),
  * // };
  *
  * ```

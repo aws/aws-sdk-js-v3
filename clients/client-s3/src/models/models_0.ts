@@ -41,6 +41,7 @@ import type {
   ObjectAttributes,
   ObjectCannedACL,
   ObjectLockEnabled,
+  ObjectLockEventHold,
   ObjectLockLegalHoldStatus,
   ObjectLockMode,
   ObjectLockRetentionMode,
@@ -901,7 +902,7 @@ export interface CopyObjectResult {
   ChecksumType?: ChecksumType | undefined;
 
   /**
-   * <p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. This checksum is only present if the object was uploaded
+   * <p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. This checksum is only present if the checksum was uploaded
    *     with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -1867,6 +1868,34 @@ export interface CopyObjectRequest {
    * @public
    */
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | undefined;
+
+  /**
+   * <p>The event hold status to apply to the object copy. Set to <code>ON</code> to enable or
+   *       <code>OFF</code> to disable.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHold?: ObjectLockEventHold | undefined;
+
+  /**
+   * <p>The event hold duration in days to apply to the object copy.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationDays?: number | undefined;
+
+  /**
+   * <p>The event hold duration in years to apply to the object copy.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationYears?: number | undefined;
 
   /**
    * <p>The account ID of the expected destination bucket owner. If the account ID that you provide does not match the actual owner of the destination bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -3179,6 +3208,34 @@ export interface CreateMultipartUploadRequest {
    * @public
    */
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | undefined;
+
+  /**
+   * <p>Specifies the event hold status to apply to the uploaded object. Set to <code>ON</code> to enable
+   *       or <code>OFF</code> to disable.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHold?: ObjectLockEventHold | undefined;
+
+  /**
+   * <p>Specifies the event hold duration in days to apply to the uploaded object.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationDays?: number | undefined;
+
+  /**
+   * <p>Specifies the event hold duration in years to apply to the uploaded object.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationYears?: number | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
@@ -10032,7 +10089,7 @@ export interface GetObjectOutput {
   ETag?: string | undefined;
 
   /**
-   * <p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. This checksum is only present if the object was uploaded
+   * <p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. This checksum is only present if the checksum was uploaded
    *     with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -10332,6 +10389,36 @@ export interface GetObjectOutput {
    * @public
    */
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | undefined;
+
+  /**
+   * <p>The event hold status for this object. This header is only returned if the requester has the
+   *       <code>s3:GetObjectRetention</code> permission.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHold?: ObjectLockEventHold | undefined;
+
+  /**
+   * <p>The event hold duration in days for this object. Only returned when the event hold is
+   *       enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationDays?: number | undefined;
+
+  /**
+   * <p>The event hold duration in years for this object. Only returned when the event hold is
+   *       enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationYears?: number | undefined;
 }
 
 /**
@@ -11428,6 +11515,26 @@ export interface GetObjectLegalHoldRequest {
 }
 
 /**
+ * <p>Contains the event hold duration configuration, specified in either days or years.</p>
+ * @public
+ */
+export interface EventHoldDuration {
+  /**
+   * <p>The number of days for the event hold duration. The minimum value is 1 and the maximum value is
+   *       36,500.</p>
+   * @public
+   */
+  Days?: number | undefined;
+
+  /**
+   * <p>The number of years for the event hold duration. The minimum value is 1 and the maximum value is
+   *       100.</p>
+   * @public
+   */
+  Years?: number | undefined;
+}
+
+/**
  * <p>The container element for optionally specifying the default Object Lock retention settings for new
  *       objects placed in the specified bucket.</p>
  *          <note>
@@ -11465,6 +11572,13 @@ export interface DefaultRetention {
    * @public
    */
   Years?: number | undefined;
+
+  /**
+   * <p>The default event hold duration to be applied to new objects placed in the specified bucket. When
+   *       configured, new objects will automatically have an event hold enabled with this duration.</p>
+   * @public
+   */
+  DefaultEventHold?: EventHoldDuration | undefined;
 }
 
 /**
@@ -11553,6 +11667,20 @@ export interface ObjectLockRetention {
    * @public
    */
   RetainUntilDate?: Date | undefined;
+
+  /**
+   * <p>The event hold status for the object. Set to <code>ON</code> to enable an event hold or
+   *       <code>OFF</code> to disable it.</p>
+   * @public
+   */
+  EventHold?: ObjectLockEventHold | undefined;
+
+  /**
+   * <p>The event hold duration for the object. Specifies how long the object remains protected after the
+   *       event hold is released.</p>
+   * @public
+   */
+  EventHoldDuration?: EventHoldDuration | undefined;
 }
 
 /**
@@ -12347,6 +12475,36 @@ export interface HeadObjectOutput {
    * @public
    */
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | undefined;
+
+  /**
+   * <p>The event hold status for this object. This header is only returned if the requester has the
+   *       <code>s3:GetObjectRetention</code> permission.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHold?: ObjectLockEventHold | undefined;
+
+  /**
+   * <p>The event hold duration in days for this object. Only returned when the event hold is
+   *       enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationDays?: number | undefined;
+
+  /**
+   * <p>The event hold duration in years for this object. Only returned when the event hold is
+   *       enabled.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationYears?: number | undefined;
 }
 
 /**
@@ -16900,6 +17058,34 @@ export interface PutObjectRequest {
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | undefined;
 
   /**
+   * <p>Specifies the event hold status to apply to this object. Set to <code>ON</code> to enable or
+   *       <code>OFF</code> to disable.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHold?: ObjectLockEventHold | undefined;
+
+  /**
+   * <p>Specifies the event hold duration in days to apply to this object.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationDays?: number | undefined;
+
+  /**
+   * <p>Specifies the event hold duration in years to apply to this object.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  ObjectLockEventHoldDurationYears?: number | undefined;
+
+  /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
@@ -17632,51 +17818,4 @@ export interface PutObjectTaggingRequest {
    * @public
    */
   RequestPayer?: RequestPayer | undefined;
-}
-
-/**
- * @public
- */
-export interface PutPublicAccessBlockRequest {
-  /**
-   * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to
-   *       set.</p>
-   * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
-   * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
-   * @public
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The MD5 hash of the <code>PutPublicAccessBlock</code> request body. </p>
-   *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-   * @public
-   */
-  ContentMD5?: string | undefined;
-
-  /**
-   * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
-   *     additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or
-   *     <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more
-   *     information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in
-   *     the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code>
-   *       parameter.</p>
-   * @public
-   */
-  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
-
-  /**
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
-   *       bucket. You can enable the configuration options in any combination. For more information
-   *       about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
-   * @public
-   */
-  PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
-
-  /**
-   * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-   * @public
-   */
-  ExpectedBucketOwner?: string | undefined;
 }

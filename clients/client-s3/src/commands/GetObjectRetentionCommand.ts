@@ -60,6 +60,11 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  * //   Retention: { // ObjectLockRetention
  * //     Mode: "GOVERNANCE" || "COMPLIANCE",
  * //     RetainUntilDate: new Date("TIMESTAMP"),
+ * //     EventHold: "ON" || "OFF",
+ * //     EventHoldDuration: { // EventHoldDuration
+ * //       Days: Number("int"),
+ * //       Years: Number("int"),
+ * //     },
  * //   },
  * // };
  *
