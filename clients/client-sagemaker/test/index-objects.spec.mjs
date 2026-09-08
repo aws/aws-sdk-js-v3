@@ -1451,6 +1451,7 @@ import {
   InstancePlacementConfig$,
   InstancePool$,
   InstancePoolSummary$,
+  InstancePreference$,
   InstanceRequirementsEniConfiguration$,
   IntegerParameterRange$,
   IntegerParameterRangeSpecification$,
@@ -2187,6 +2188,7 @@ import {
   ProcessingClusterConfig$,
   ProcessingFeatureStoreOutput$,
   ProcessingInput$,
+  ProcessingInstancePreference$,
   ProcessingInstanceType,
   ProcessingJob$,
   ProcessingJobStatus,
@@ -4480,6 +4482,7 @@ assert(typeof InstanceMetadataServiceConfiguration$ === "object");
 assert(typeof InstancePlacementConfig$ === "object");
 assert(typeof InstancePool$ === "object");
 assert(typeof InstancePoolSummary$ === "object");
+assert(typeof InstancePreference$ === "object");
 assert(typeof InstanceRequirementsEniConfiguration$ === "object");
 assert(typeof IntegerParameterRange$ === "object");
 assert(typeof IntegerParameterRangeSpecification$ === "object");
@@ -4857,6 +4860,7 @@ assert(typeof PriorityClass$ === "object");
 assert(typeof ProcessingClusterConfig$ === "object");
 assert(typeof ProcessingFeatureStoreOutput$ === "object");
 assert(typeof ProcessingInput$ === "object");
+assert(typeof ProcessingInstancePreference$ === "object");
 assert(typeof ProcessingJob$ === "object");
 assert(typeof ProcessingJobStepMetadata$ === "object");
 assert(typeof ProcessingJobSummary$ === "object");

@@ -1819,6 +1819,7 @@ const _IPC = "IamPolicyConstraints";
 const _IPCn = "InstancePlacementConfig";
 const _IPI = "InvocationsPerInstance";
 const _IPL = "InstancePoolList";
+const _IPLn = "InstancePreferenceList";
 const _IPOAS = "IdentityProviderOAuthSettings";
 const _IPOASd = "IdentityProviderOAuthSetting";
 const _IPR = "IntegerParameterRange";
@@ -1826,8 +1827,10 @@ const _IPRS = "IntegerParameterRangeSpecification";
 const _IPRn = "IntegerParameterRanges";
 const _IPS = "InstancePoolSummary";
 const _IPSL = "InstancePoolSummaryList";
-const _IPn = "InstancePools";
+const _IPn = "InstancePreference";
 const _IPnr = "InProgress";
+const _IPns = "InstancePools";
+const _IPnst = "InstancePreferences";
 const _IR = "IsRequired";
 const _IRA = "IotRoleAlias";
 const _IREC = "InstanceRequirementsEniConfigurations";
@@ -2735,6 +2738,8 @@ const _PHPTJa = "ParentHyperParameterTuningJob";
 const _PHTLA = "PreHumanTaskLambdaArn";
 const _PI = "ProbabilityIndex";
 const _PIIM = "ProfilingIntervalInMilliseconds";
+const _PIP = "ProcessingInstancePreference";
+const _PIPL = "ProcessingInstancePreferenceList";
 const _PIa = "PathId";
 const _PIl = "PlatformIdentifier";
 const _PIr = "ProcessingInputs";
@@ -3103,6 +3108,7 @@ const _SI = "SourceId";
 const _SIC = "SourceIpConfig";
 const _SICPUS = "SpareInstanceCountPerUltraServer";
 const _SICc = "ScaleInCooldown";
+const _SICe = "SelectedInstanceCount";
 const _SIE = "StartInferenceExperiment";
 const _SIER = "StartInferenceExperimentRequest";
 const _SIERt = "StartInferenceExperimentResponse";
@@ -3117,6 +3123,7 @@ const _SIRJ = "StopInferenceRecommendationsJob";
 const _SIRJR = "StopInferenceRecommendationsJobRequest";
 const _SIS = "SpaceIdleSettings";
 const _SIT = "SourceIdType";
+const _SITe = "SelectedInstanceType";
 const _SITu = "SupportedInstanceTypes";
 const _SIe = "SessionId";
 const _SIn = "S3Input";
@@ -7853,6 +7860,11 @@ export var InstancePoolSummary$: StaticStructureSchema = [3, n0, _IPS,
   [_ITn, _CICu],
   [0, 1], 2
 ];
+export var InstancePreference$: StaticStructureSchema = [3, n0, _IPn,
+  0,
+  [_ITn, _ICn, _TPAr],
+  [0, 1, 64 | 0], 1
+];
 export var InstanceRequirementsEniConfiguration$: StaticStructureSchema = [3, n0, _IRECn,
   0,
   [_CEu, _AE],
@@ -9630,7 +9642,7 @@ export var PendingDeploymentSummary$: StaticStructureSchema = [3, n0, _PDS,
 ];
 export var PendingProductionVariantSummary$: StaticStructureSchema = [3, n0, _PPVS,
   0,
-  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _ITn, _IPn, _ATcc, _VSar, _CSCu, _DSCes, _MIS, _RCo],
+  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _ITn, _IPns, _ATcc, _VSar, _CSCu, _DSCes, _MIS, _RCo],
   [0, () => DeployedImages, 1, 1, 1, 1, 0, () => InstancePoolSummaryList, 0, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$], 1
 ];
 export var Phase$: StaticStructureSchema = [3, n0, _Ph,
@@ -9715,8 +9727,8 @@ export var PriorityClass$: StaticStructureSchema = [3, n0, _PCri,
 ];
 export var ProcessingClusterConfig$: StaticStructureSchema = [3, n0, _PCC,
   0,
-  [_VSIGB, _ICn, _ITn, _VKKI],
-  [1, 1, 0, 0], 1
+  [_VSIGB, _ICn, _ITn, _VKKI, _IPnst, _SITe, _SICe],
+  [1, 1, 0, 0, () => ProcessingInstancePreferenceList, 0, 1], 1
 ];
 export var ProcessingFeatureStoreOutput$: StaticStructureSchema = [3, n0, _PFSO,
   0,
@@ -9727,6 +9739,11 @@ export var ProcessingInput$: StaticStructureSchema = [3, n0, _PIroc,
   0,
   [_INn, _AMp, _SIn, _DD],
   [0, 2, () => ProcessingS3Input$, () => DatasetDefinition$], 1
+];
+export var ProcessingInstancePreference$: StaticStructureSchema = [3, n0, _PIP,
+  0,
+  [_ITn, _ICn],
+  [0, 1], 1
 ];
 export var ProcessingJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
@@ -9775,7 +9792,7 @@ export var ProcessingStoppingCondition$: StaticStructureSchema = [3, n0, _PSC,
 ];
 export var ProductionVariant$: StaticStructureSchema = [3, n0, _PVr,
   0,
-  [_VN, _MNod, _IIC, _ITn, _IPn, _VIPTIS, _IVW, _ATcc, _CDCo, _SCe, _VSIGB, _MDDTIS, _CSHCTIS, _ESSMA, _MIS, _RCo, _IAV, _CRC],
+  [_VN, _MNod, _IIC, _ITn, _IPns, _VIPTIS, _IVW, _ATcc, _CDCo, _SCe, _VSIGB, _MDDTIS, _CSHCTIS, _ESSMA, _MIS, _RCo, _IAV, _CRC],
   [0, 0, 1, 0, () => InstancePoolList, 1, 1, 0, () => ProductionVariantCoreDumpConfig$, () => ProductionVariantServerlessConfig$, 1, 1, 1, 2, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, 0, () => ProductionVariantCapacityReservationConfig$], 1
 ];
 export var ProductionVariantCapacityReservationConfig$: StaticStructureSchema = [3, n0, _PVCRC,
@@ -9825,7 +9842,7 @@ export var ProductionVariantStatus$: StaticStructureSchema = [3, n0, _PVSr,
 ];
 export var ProductionVariantSummary$: StaticStructureSchema = [3, n0, _PVSro,
   0,
-  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _IPn, _VSar, _CSCu, _DSCes, _MIS, _RCo, _CRC],
+  [_VN, _DIep, _CW, _DW, _CICu, _DIC, _IPns, _VSar, _CSCu, _DSCes, _MIS, _RCo, _CRC],
   [0, () => DeployedImages, 1, 1, 1, 1, () => InstancePoolSummaryList, () => ProductionVariantStatusList, () => ProductionVariantServerlessConfig$, () => ProductionVariantServerlessConfig$, () => ProductionVariantManagedInstanceScaling$, () => ProductionVariantRoutingConfig$, () => ProductionVariantCapacityReservationSummary$], 1
 ];
 export var ProfilerConfig$: StaticStructureSchema = [3, n0, _PCr,
@@ -10040,8 +10057,8 @@ export var ResourceCatalog$: StaticStructureSchema = [3, n0, _RCeso,
 ];
 export var ResourceConfig$: StaticStructureSchema = [3, n0, _RCe,
   0,
-  [_ITn, _ICn, _VSIGB, _VKKI, _KAPIS, _IG, _TPA, _IPCn],
-  [0, 1, 1, 0, 1, () => InstanceGroups, 0, () => InstancePlacementConfig$]
+  [_ITn, _ICn, _VSIGB, _VKKI, _KAPIS, _IG, _TPA, _IPCn, _IPnst, _SITe, _SICe],
+  [0, 1, 1, 0, 1, () => InstanceGroups, 0, () => InstancePlacementConfig$, () => InstancePreferenceList, 0, 1]
 ];
 export var ResourceConfigForUpdate$: StaticStructureSchema = [3, n0, _RCFU,
   0,
@@ -11907,6 +11924,9 @@ var InstancePoolList: StaticListSchema = [1, n0, _IPL,
 var InstancePoolSummaryList: StaticListSchema = [1, n0, _IPSL,
   0, () => InstancePoolSummary$
 ];
+var InstancePreferenceList: StaticListSchema = [1, n0, _IPLn,
+  0, () => InstancePreference$
+];
 var InstanceRequirementsEniConfigurations: StaticListSchema = [1, n0, _IREC,
   0, () => InstanceRequirementsEniConfiguration$
 ];
@@ -12100,6 +12120,9 @@ var PriorityClassList: StaticListSchema = [1, n0, _PCL,
 var ProcessingInputs: StaticListSchema = [1, n0, _PIr,
   0, () => ProcessingInput$
 ];
+var ProcessingInstancePreferenceList: StaticListSchema = [1, n0, _PIPL,
+  0, () => ProcessingInstancePreference$
+];
 var ProcessingJobSummaries: StaticListSchema = [1, n0, _PJSr,
   0, () => ProcessingJobSummary$
 ];
@@ -12212,6 +12235,7 @@ var TrainingInstanceTypes = 64 | 0;
 var TrainingJobSummaries: StaticListSchema = [1, n0, _TJSra,
   0, () => TrainingJobSummary$
 ];
+var TrainingPlanArnList = 64 | 0;
 var TrainingPlanArns = 64 | 0;
 var TrainingPlanExtensionOfferings: StaticListSchema = [1, n0, _TPEO,
   0, () => TrainingPlanExtensionOffering$

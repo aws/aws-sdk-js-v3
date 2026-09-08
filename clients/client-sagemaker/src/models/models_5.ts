@@ -24,14 +24,18 @@ import type {
   Tag,
 } from "./models_0";
 import type {
-  InstanceMetadataServiceConfiguration,
+  InferenceExperimentDataStorageConfig,
+  InferenceExperimentSchedule,
   ModelLifeCycle,
   ModelPackageModelCard,
+  ModelVariantConfig,
   MonitoringScheduleConfig,
+  ShadowModeConfig,
   UserSettings,
 } from "./models_1";
 import type {
   IdcConfigInput,
+  InstanceMetadataServiceConfiguration,
   MemberDefinition,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
@@ -58,6 +62,58 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateInferenceExperimentRequest {
+  /**
+   * <p>The name of the inference experiment to be updated.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p> The duration for which the inference experiment will run. If the status of the inference experiment is <code>Created</code>, then you can update both the start and end dates. If the status of the inference experiment is <code>Running</code>, then you can update only the end date. </p>
+   * @public
+   */
+  Schedule?: InferenceExperimentSchedule | undefined;
+
+  /**
+   * <p>The description of the inference experiment.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p> An array of <code>ModelVariantConfig</code> objects. There is one for each variant, whose infrastructure configuration you want to update. </p>
+   * @public
+   */
+  ModelVariants?: ModelVariantConfig[] | undefined;
+
+  /**
+   * <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
+   * @public
+   */
+  DataStorageConfig?: InferenceExperimentDataStorageConfig | undefined;
+
+  /**
+   * <p> The configuration of <code>ShadowMode</code> inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates. </p>
+   * @public
+   */
+  ShadowModeConfig?: ShadowModeConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInferenceExperimentResponse {
+  /**
+   * <p>The ARN of the updated inference experiment.</p>
+   * @public
+   */
+  InferenceExperimentArn: string | undefined;
+}
 
 /**
  * @public

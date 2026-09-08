@@ -177,8 +177,6 @@ import type {
   InferenceComponentRuntimeConfig,
   InferenceComponentSpecification,
   InferenceExecutionConfig,
-  InferenceExperimentDataStorageConfig,
-  InferenceExperimentSchedule,
   ManagedConfiguration,
   MetadataProperties,
   ModelCardSecurityConfig,
@@ -192,7 +190,6 @@ import type {
   NetworkConfig,
   RetryStrategy,
   SchedulerConfig,
-  ShadowModeConfig,
   SourceAlgorithmSpecification,
   TtlDuration,
   UiTemplate,
@@ -239,6 +236,7 @@ import type {
   FeatureMetadata,
   Filter,
   GitConfigForUpdate,
+  HubInfo,
   HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobSearchEntity,
@@ -278,6 +276,58 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListHubsResponse {
+  /**
+   * <p>The summaries of the listed hubs.</p>
+   * @public
+   */
+  HubSummaries: HubInfo[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of hubs, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHumanTaskUisRequest {
+  /**
+   * <p>A filter that returns only human task user interfaces with a creation time greater than or equal to the specified timestamp.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only human task user interfaces that were created before the specified timestamp.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * @public
@@ -10447,56 +10497,4 @@ export interface UpdateInferenceComponentRuntimeConfigOutput {
    * @public
    */
   InferenceComponentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInferenceExperimentRequest {
-  /**
-   * <p>The name of the inference experiment to be updated.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p> The duration for which the inference experiment will run. If the status of the inference experiment is <code>Created</code>, then you can update both the start and end dates. If the status of the inference experiment is <code>Running</code>, then you can update only the end date. </p>
-   * @public
-   */
-  Schedule?: InferenceExperimentSchedule | undefined;
-
-  /**
-   * <p>The description of the inference experiment.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p> An array of <code>ModelVariantConfig</code> objects. There is one for each variant, whose infrastructure configuration you want to update. </p>
-   * @public
-   */
-  ModelVariants?: ModelVariantConfig[] | undefined;
-
-  /**
-   * <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
-   * @public
-   */
-  DataStorageConfig?: InferenceExperimentDataStorageConfig | undefined;
-
-  /**
-   * <p> The configuration of <code>ShadowMode</code> inference experiment type. Use this field to specify a production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant also specify the percentage of requests that Amazon SageMaker replicates. </p>
-   * @public
-   */
-  ShadowModeConfig?: ShadowModeConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInferenceExperimentResponse {
-  /**
-   * <p>The ARN of the updated inference experiment.</p>
-   * @public
-   */
-  InferenceExperimentArn: string | undefined;
 }

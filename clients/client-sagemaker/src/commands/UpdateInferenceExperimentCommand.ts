@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateInferenceExperimentRequest, UpdateInferenceExperimentResponse } from "../models/models_4";
+import type { UpdateInferenceExperimentRequest, UpdateInferenceExperimentResponse } from "../models/models_5";
 import { UpdateInferenceExperiment$ } from "../schemas/schemas_0";
 
 /**

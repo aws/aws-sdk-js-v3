@@ -176,6 +176,42 @@ import type {
 } from "./models_0";
 
 /**
+ * <p>Specifies summary information about a Git repository.</p>
+ * @public
+ */
+export interface CodeRepositorySummary {
+  /**
+   * <p>The name of the Git repository.</p>
+   * @public
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
+   * @public
+   */
+  CodeRepositoryArn: string | undefined;
+
+  /**
+   * <p>The date and time that the Git repository was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the Git repository was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Configuration details for the Git repository, including the URL where it is located and the ARN of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p>
+   * @public
+   */
+  GitConfig?: GitConfig | undefined;
+}
+
+/**
  * <p>Use this parameter to configure your Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p>
  * @public
  */
@@ -8484,16 +8520,4 @@ export interface CreateMonitoringScheduleResponse {
    * @public
    */
   MonitoringScheduleArn: string | undefined;
-}
-
-/**
- * <p>Information on the IMDS configuration of the notebook instance</p>
- * @public
- */
-export interface InstanceMetadataServiceConfiguration {
-  /**
-   * <p>Indicates the minimum IMDS version that the notebook instance supports. When passed as part of <code>CreateNotebookInstance</code>, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of <code>UpdateNotebookInstance</code>, there is no default.</p>
-   * @public
-   */
-  MinimumInstanceMetadataServiceVersion: string | undefined;
 }

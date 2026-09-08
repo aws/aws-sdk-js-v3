@@ -41,6 +41,7 @@ import type {
   HubContentType,
   HubSortBy,
   HubStatus,
+  HumanTaskUiStatus,
   HyperParameterTuningJobObjectiveType,
   HyperParameterTuningJobStatus,
   HyperParameterTuningJobStrategyType,
@@ -164,7 +165,6 @@ import type {
   ClusterNodeSummary,
   ClusterSchedulerConfigSummary,
   ClusterSummary,
-  CodeRepositorySummary,
   InferenceSpecification,
   OutputDataConfig,
   OutputParameter,
@@ -179,6 +179,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  CodeRepositorySummary,
   CognitoConfig,
   CompilationJobSummary,
   ComputeQuotaSummary,
@@ -200,7 +201,6 @@ import type {
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
-  InstanceMetadataServiceConfiguration,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
@@ -256,6 +256,7 @@ import type {
   ExperimentSource,
   FeatureParameter,
   InfraCheckConfig,
+  InstanceMetadataServiceConfiguration,
   LastUpdateStatus,
   MemberDefinition,
   MlflowConfig,
@@ -292,6 +293,59 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>Container for user interface template information.</p>
+ * @public
+ */
+export interface UiTemplateInfo {
+  /**
+   * <p>The URL for the user interface template.</p>
+   * @public
+   */
+  Url?: string | undefined;
+
+  /**
+   * <p>The SHA-256 digest of the contents of the template.</p>
+   * @public
+   */
+  ContentSha256?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHumanTaskUiResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human task user interface (worker task template).</p>
+   * @public
+   */
+  HumanTaskUiArn: string | undefined;
+
+  /**
+   * <p>The name of the human task user interface (worker task template).</p>
+   * @public
+   */
+  HumanTaskUiName: string | undefined;
+
+  /**
+   * <p>The status of the human task user interface (worker task template). Valid values are listed below.</p>
+   * @public
+   */
+  HumanTaskUiStatus?: HumanTaskUiStatus | undefined;
+
+  /**
+   * <p>The timestamp when the human task user interface was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Container for user interface template information.</p>
+   * @public
+   */
+  UiTemplate: UiTemplateInfo | undefined;
+}
 
 /**
  * @public
@@ -11738,56 +11792,4 @@ export interface ListHubsRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHubsResponse {
-  /**
-   * <p>The summaries of the listed hubs.</p>
-   * @public
-   */
-  HubSummaries: HubInfo[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of hubs, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHumanTaskUisRequest {
-  /**
-   * <p>A filter that returns only human task user interfaces with a creation time greater than or equal to the specified timestamp.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only human task user interfaces that were created before the specified timestamp.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of items to return. If the total number of available items is more than the value specified in <code>MaxResults</code>, then a <code>NextToken</code> will be provided in the output that you can use to resume pagination.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }

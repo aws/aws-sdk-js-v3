@@ -1453,7 +1453,38 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "UltraServerId": "__UltraServerId__"
           }
         ]
-      }
+      },
+      "InstancePreferences": [
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "TrainingPlanArns": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "TrainingPlanArns": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "TrainingPlanArns": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      "SelectedInstanceType": "__SelectedInstanceType__",
+      "SelectedInstanceCount": 0
     },
     "HyperParameterTuningResourceConfig": {
       "InstanceType": "__InstanceType__",
@@ -1799,7 +1830,38 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "UltraServerId": "__UltraServerId__"
             }
           ]
-        }
+        },
+        "InstancePreferences": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        "SelectedInstanceType": "__SelectedInstanceType__",
+        "SelectedInstanceCount": 0
       },
       "HyperParameterTuningResourceConfig": {
         "InstanceType": "__InstanceType__",
@@ -2144,7 +2206,38 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "UltraServerId": "__UltraServerId__"
             }
           ]
-        }
+        },
+        "InstancePreferences": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        "SelectedInstanceType": "__SelectedInstanceType__",
+        "SelectedInstanceCount": 0
       },
       "HyperParameterTuningResourceConfig": {
         "InstanceType": "__InstanceType__",
@@ -2489,7 +2582,38 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               "UltraServerId": "__UltraServerId__"
             }
           ]
-        }
+        },
+        "InstancePreferences": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        "SelectedInstanceType": "__SelectedInstanceType__",
+        "SelectedInstanceCount": 0
       },
       "HyperParameterTuningResourceConfig": {
         "InstanceType": "__InstanceType__",
@@ -3038,7 +3162,38 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             UltraServerId: "__UltraServerId__"
           }
         ]
-      }
+      },
+      InstancePreferences: [
+        {
+          InstanceType: "__InstanceType__",
+          InstanceCount: (number) 0,
+          TrainingPlanArns: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          InstanceType: "__InstanceType__",
+          InstanceCount: (number) 0,
+          TrainingPlanArns: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          InstanceType: "__InstanceType__",
+          InstanceCount: (number) 0,
+          TrainingPlanArns: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      SelectedInstanceType: "__SelectedInstanceType__",
+      SelectedInstanceCount: (number) 0
     },
     HyperParameterTuningResourceConfig: {
       InstanceType: "__InstanceType__",
@@ -3384,7 +3539,38 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               UltraServerId: "__UltraServerId__"
             }
           ]
-        }
+        },
+        InstancePreferences: [
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            TrainingPlanArns: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            TrainingPlanArns: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            TrainingPlanArns: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        SelectedInstanceType: "__SelectedInstanceType__",
+        SelectedInstanceCount: (number) 0
       },
       HyperParameterTuningResourceConfig: {
         InstanceType: "__InstanceType__",
@@ -3729,7 +3915,38 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               UltraServerId: "__UltraServerId__"
             }
           ]
-        }
+        },
+        InstancePreferences: [
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            TrainingPlanArns: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            TrainingPlanArns: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            TrainingPlanArns: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        SelectedInstanceType: "__SelectedInstanceType__",
+        SelectedInstanceCount: (number) 0
       },
       HyperParameterTuningResourceConfig: {
         InstanceType: "__InstanceType__",
@@ -4074,7 +4291,38 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               UltraServerId: "__UltraServerId__"
             }
           ]
-        }
+        },
+        InstancePreferences: [
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            TrainingPlanArns: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            TrainingPlanArns: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            InstanceType: "__InstanceType__",
+            InstanceCount: (number) 0,
+            TrainingPlanArns: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        SelectedInstanceType: "__SelectedInstanceType__",
+        SelectedInstanceCount: (number) 0
       },
       HyperParameterTuningResourceConfig: {
         InstanceType: "__InstanceType__",

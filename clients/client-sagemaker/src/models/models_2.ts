@@ -41,7 +41,6 @@ import type {
   HubContentSupportStatus,
   HubContentType,
   HubStatus,
-  HumanTaskUiStatus,
   InputMode,
   IPAddressType,
   JobCategory,
@@ -173,7 +172,6 @@ import type {
   HumanLoopConfig,
   HumanLoopRequestSource,
   InputConfig,
-  InstanceMetadataServiceConfiguration,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
@@ -197,6 +195,18 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Information on the IMDS configuration of the notebook instance</p>
+ * @public
+ */
+export interface InstanceMetadataServiceConfiguration {
+  /**
+   * <p>Indicates the minimum IMDS version that the notebook instance supports. When passed as part of <code>CreateNotebookInstance</code>, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of <code>UpdateNotebookInstance</code>, there is no default.</p>
+   * @public
+   */
+  MinimumInstanceMetadataServiceVersion: string | undefined;
+}
 
 /**
  * @public
@@ -1472,6 +1482,24 @@ export interface ProcessingOutputConfig {
 }
 
 /**
+ * <p>A candidate instance type preference in a processing <code>InstancePreferences</code> list.</p>
+ * @public
+ */
+export interface ProcessingInstancePreference {
+  /**
+   * <p>The ML compute instance type. An instance type can appear only once in an <code>InstancePreferences</code> list.</p>
+   * @public
+   */
+  InstanceType: ProcessingInstanceType | undefined;
+
+  /**
+   * <p>The number of instances to launch if this instance type is selected. Specify the instance count for the processing job in one of the following two ways:</p> <ol> <li> <p> <b>Per preference</b> – Set <code>InstanceCount</code> on every preference in the <code>InstancePreferences</code> list and don't set <code>ProcessingClusterConfig$InstanceCount</code>. Use this when each instance type needs a different number of instances to deliver equivalent compute.</p> </li> <li> <p> <b>One count for the job</b> – Set <code>ProcessingClusterConfig$InstanceCount</code> and omit it from every preference. Amazon SageMaker applies this to all instance types in the list.</p> </li> </ol> <p>For example, in a list of five preferences, either all five specify <code>InstanceCount</code> or none of them do. Amazon SageMaker rejects requests that set <code>InstanceCount</code> on only some preferences, that set it both per preference and in <code>ProcessingClusterConfig</code>, or that omit it in both places.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+}
+
+/**
  * <p>Configuration for the cluster used to run a processing job.</p>
  * @public
  */
@@ -1499,6 +1527,24 @@ export interface ProcessingClusterConfig {
    * @public
    */
   VolumeKmsKeyId?: string | undefined;
+
+  /**
+   * <p>An ordered list of ML compute instance types for the processing job, in priority order. Amazon SageMaker launches the job on the first instance type in the list that has available capacity. If capacity is insufficient, Amazon SageMaker evaluates the next instance type in the list. Exactly one instance type is selected for the job.</p> <p> <code>InstancePreferences</code> is mutually exclusive with <code>InstanceType</code>.</p>
+   * @public
+   */
+  InstancePreferences?: ProcessingInstancePreference[] | undefined;
+
+  /**
+   * <p>The instance type that Amazon SageMaker selected for the job from <code>InstancePreferences</code>. Returned by <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeProcessingJob.html">DescribeProcessingJob</a> </code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+   * @public
+   */
+  SelectedInstanceType?: ProcessingInstanceType | undefined;
+
+  /**
+   * <p>The number of instances of <code>SelectedInstanceType</code> that the job launched with. The job is billed for this instance type and count. Returned by <code>DescribeProcessingJob</code> after an instance type is selected. This field is read-only and isn't accepted in <code>CreateProcessingJob</code> requests.</p>
+   * @public
+   */
+  SelectedInstanceCount?: number | undefined;
 }
 
 /**
@@ -8257,57 +8303,4 @@ export interface DescribeHumanTaskUiRequest {
    * @public
    */
   HumanTaskUiName: string | undefined;
-}
-
-/**
- * <p>Container for user interface template information.</p>
- * @public
- */
-export interface UiTemplateInfo {
-  /**
-   * <p>The URL for the user interface template.</p>
-   * @public
-   */
-  Url?: string | undefined;
-
-  /**
-   * <p>The SHA-256 digest of the contents of the template.</p>
-   * @public
-   */
-  ContentSha256?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHumanTaskUiResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the human task user interface (worker task template).</p>
-   * @public
-   */
-  HumanTaskUiArn: string | undefined;
-
-  /**
-   * <p>The name of the human task user interface (worker task template).</p>
-   * @public
-   */
-  HumanTaskUiName: string | undefined;
-
-  /**
-   * <p>The status of the human task user interface (worker task template). Valid values are listed below.</p>
-   * @public
-   */
-  HumanTaskUiStatus?: HumanTaskUiStatus | undefined;
-
-  /**
-   * <p>The timestamp when the human task user interface was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Container for user interface template information.</p>
-   * @public
-   */
-  UiTemplate: UiTemplateInfo | undefined;
 }

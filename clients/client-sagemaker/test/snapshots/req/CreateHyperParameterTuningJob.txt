@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateHyperParameterTuningJob
-content-length: 25605
+content-length: 27373
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: a0b3023b6a03497ea406ef1edd165c7e40a1285bc64c1470d3a9940c0d1f8926
+x-amz-content-sha256: b7190219216ccfe793cc88c602298283866005d22440a963545273682f4d8d8e
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [Uint8Array (json)]
@@ -430,7 +430,38 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
             "UltraServerId": "__UltraServerId__"
           }
         ]
-      }
+      },
+      "InstancePreferences": [
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "TrainingPlanArns": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "TrainingPlanArns": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "TrainingPlanArns": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      "SelectedInstanceType": "__SelectedInstanceType__",
+      "SelectedInstanceCount": 0
     },
     "HyperParameterTuningResourceConfig": {
       "InstanceType": "__InstanceType__",
@@ -776,7 +807,38 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
               "UltraServerId": "__UltraServerId__"
             }
           ]
-        }
+        },
+        "InstancePreferences": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        "SelectedInstanceType": "__SelectedInstanceType__",
+        "SelectedInstanceCount": 0
       },
       "HyperParameterTuningResourceConfig": {
         "InstanceType": "__InstanceType__",
@@ -1121,7 +1183,38 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
               "UltraServerId": "__UltraServerId__"
             }
           ]
-        }
+        },
+        "InstancePreferences": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        "SelectedInstanceType": "__SelectedInstanceType__",
+        "SelectedInstanceCount": 0
       },
       "HyperParameterTuningResourceConfig": {
         "InstanceType": "__InstanceType__",
@@ -1466,7 +1559,38 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
               "UltraServerId": "__UltraServerId__"
             }
           ]
-        }
+        },
+        "InstancePreferences": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "TrainingPlanArns": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        "SelectedInstanceType": "__SelectedInstanceType__",
+        "SelectedInstanceCount": 0
       },
       "HyperParameterTuningResourceConfig": {
         "InstanceType": "__InstanceType__",
