@@ -508,6 +508,122 @@ describe(Upload.name, () => {
     });
   });
 
+  // Regression tests for https://github.com/aws/aws-sdk-js-v3/issues/6742
+  describe("precomputed checksum + multipart validation", () => {
+    const MOCK_PART_SIZE = 24;
+    beforeEach(() => {
+      (Upload as any).MIN_PART_SIZE = MOCK_PART_SIZE;
+    });
+
+    afterAll(() => {
+      (Upload as any).MIN_PART_SIZE = 1024 * 1024 * 5;
+    });
+
+    it("rejects multipart Upload when caller supplies a precomputed ChecksumSHA256", async () => {
+      const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE + 10));
+      const actionParams = {
+        ...params,
+        Body: largeBuffer,
+        ChecksumSHA256: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+      };
+
+      const upload = new Upload({
+        params: actionParams,
+        partSize: MOCK_PART_SIZE,
+        client: new S3({}),
+      });
+
+      await expect(upload.done()).rejects.toThrow(/ChecksumSHA256/);
+      await expect(
+        new Upload({
+          params: actionParams,
+          partSize: MOCK_PART_SIZE,
+          client: new S3({}),
+        }).done()
+      ).rejects.toThrow(/issues\/6742/);
+
+      // The upload must fail before any S3 multipart side-effects.
+      expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(0);
+      expect(UploadPartCommand).toHaveBeenCalledTimes(0);
+      expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(0);
+    });
+
+    it.each(["ChecksumSHA1", "ChecksumCRC32", "ChecksumCRC32C", "ChecksumCRC64NVME"])(
+      "rejects multipart Upload when caller supplies precomputed %s",
+      async (checksumKey) => {
+        const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE + 10));
+        const actionParams = {
+          ...params,
+          Body: largeBuffer,
+          [checksumKey]: "AAAAAAAA",
+        };
+
+        const upload = new Upload({
+          params: actionParams,
+          partSize: MOCK_PART_SIZE,
+          client: new S3({}),
+        });
+
+        await expect(upload.done()).rejects.toThrow(new RegExp(checksumKey));
+        expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(0);
+      }
+    );
+
+    it("accepts multipart Upload with ChecksumAlgorithm only (no precomputed value)", async () => {
+      const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE + 10));
+      const actionParams = {
+        ...params,
+        Body: largeBuffer,
+        ChecksumAlgorithm: "SHA256" as const,
+      };
+
+      const upload = new Upload({
+        params: actionParams,
+        partSize: MOCK_PART_SIZE,
+        client: new S3({}),
+      });
+
+      await upload.done();
+
+      expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(1);
+      expect(CreateMultipartUploadCommand).toHaveBeenCalledWith({
+        ...actionParams,
+        Body: undefined,
+        ChecksumAlgorithm: "SHA256",
+      });
+      expect(UploadPartCommand).toHaveBeenCalledTimes(2);
+      expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(1);
+    });
+
+    it("does not reject single-part Upload when caller supplies a precomputed ChecksumSHA256", async () => {
+      // Body smaller than partSize -> __uploadUsingPut path, not multipart.
+      const smallBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE - 1));
+      const actionParams = {
+        ...params,
+        Body: smallBuffer,
+        ChecksumSHA256: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+      };
+
+      const upload = new Upload({
+        params: actionParams,
+        partSize: MOCK_PART_SIZE,
+        client: new S3({}),
+      });
+
+      await upload.done();
+
+      // Single PUT path: no multipart commands issued.
+      expect(CreateMultipartUploadCommand).toHaveBeenCalledTimes(0);
+      expect(UploadPartCommand).toHaveBeenCalledTimes(0);
+      expect(CompleteMultipartUploadCommand).toHaveBeenCalledTimes(0);
+      expect(PutObjectCommand).toHaveBeenCalledTimes(1);
+      expect(PutObjectCommand).toHaveBeenCalledWith({
+        ...actionParams,
+        Body: smallBuffer,
+      });
+    });
+  });
+
   it("should add tags to the object if tags have been added PUT", async () => {
     const tags = [
       {
