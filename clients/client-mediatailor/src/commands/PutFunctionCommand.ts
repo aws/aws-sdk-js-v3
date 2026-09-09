@@ -34,7 +34,7 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * const client = new MediaTailorClient(config);
  * const input = { // PutFunctionRequest
  *   FunctionId: "STRING_VALUE", // required
- *   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
+ *   FunctionType: "HTTP_REQUEST" || "AWS_SERVICE_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
  *   Description: "STRING_VALUE",
  *   HttpRequestConfiguration: { // HttpRequestConfiguration
  *     Runtime: "JSONATA", // required
@@ -49,6 +49,21 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
+ *   AwsServiceRequestConfiguration: { // AwsServiceRequestConfiguration
+ *     Runtime: "JSONATA", // required
+ *     Output: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     MethodType: "GET" || "POST", // required
+ *     RequestTimeoutMilliseconds: Number("int"), // required
+ *     Url: "STRING_VALUE", // required
+ *     Body: "STRING_VALUE",
+ *     Headers: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     TargetService: "STRING_VALUE", // required
+ *     TargetRegion: "STRING_VALUE", // required
+ *   },
  *   CustomOutputConfiguration: { // CustomOutputConfiguration
  *     Runtime: "JSONATA", // required
  *     Output: {
@@ -57,9 +72,7 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  *   },
  *   ConcurrentExecutorConfiguration: { // ConcurrentExecutorConfiguration
  *     Runtime: "JSONATA", // required
- *     Output: { // required
- *       "<keys>": "STRING_VALUE",
- *     },
+ *     Output: "<__mapOf__string>", // required
  *     FunctionList: [ // __listOfFunctionsRef // required
  *       { // FunctionRef
  *         RunCondition: "STRING_VALUE",
@@ -72,9 +85,7 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  *   },
  *   SequentialExecutorConfiguration: { // SequentialExecutorConfiguration
  *     Runtime: "JSONATA", // required
- *     Output: {
- *       "<keys>": "STRING_VALUE",
- *     },
+ *     Output: "<__mapOf__string>",
  *     FunctionList: [ // required
  *       {
  *         RunCondition: "STRING_VALUE",
@@ -99,7 +110,7 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * const response = await client.send(command);
  * // { // PutFunctionResponse
  * //   FunctionId: "STRING_VALUE", // required
- * //   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
+ * //   FunctionType: "HTTP_REQUEST" || "AWS_SERVICE_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR" || "VAST_REQUEST", // required
  * //   Description: "STRING_VALUE",
  * //   HttpRequestConfiguration: { // HttpRequestConfiguration
  * //     Runtime: "JSONATA", // required
@@ -114,6 +125,21 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
+ * //   AwsServiceRequestConfiguration: { // AwsServiceRequestConfiguration
+ * //     Runtime: "JSONATA", // required
+ * //     Output: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     MethodType: "GET" || "POST", // required
+ * //     RequestTimeoutMilliseconds: Number("int"), // required
+ * //     Url: "STRING_VALUE", // required
+ * //     Body: "STRING_VALUE",
+ * //     Headers: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     TargetService: "STRING_VALUE", // required
+ * //     TargetRegion: "STRING_VALUE", // required
+ * //   },
  * //   CustomOutputConfiguration: { // CustomOutputConfiguration
  * //     Runtime: "JSONATA", // required
  * //     Output: {
@@ -122,9 +148,7 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * //   },
  * //   ConcurrentExecutorConfiguration: { // ConcurrentExecutorConfiguration
  * //     Runtime: "JSONATA", // required
- * //     Output: { // required
- * //       "<keys>": "STRING_VALUE",
- * //     },
+ * //     Output: "<__mapOf__string>", // required
  * //     FunctionList: [ // __listOfFunctionsRef // required
  * //       { // FunctionRef
  * //         RunCondition: "STRING_VALUE",
@@ -137,9 +161,7 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * //   },
  * //   SequentialExecutorConfiguration: { // SequentialExecutorConfiguration
  * //     Runtime: "JSONATA", // required
- * //     Output: {
- * //       "<keys>": "STRING_VALUE",
- * //     },
+ * //     Output: "<__mapOf__string>",
  * //     FunctionList: [ // required
  * //       {
  * //         RunCondition: "STRING_VALUE",

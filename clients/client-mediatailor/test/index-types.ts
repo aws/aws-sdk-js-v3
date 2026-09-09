@@ -194,6 +194,7 @@ export type {
   AudienceMedia,
   AvailMatchingCriteria,
   AvailSuppression,
+  AwsServiceRequestConfiguration,
   Bumper,
   CdnConfiguration,
   Channel,

@@ -559,6 +559,66 @@ export interface FunctionRef {
 }
 
 /**
+ * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Contains the target service, target Region, and request parameters that the function uses to call an AWS service API. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-aws-service-request.html">AWS_SERVICE_REQUEST</a> in the <i>MediaTailor User Guide</i>.</p>
+ * @public
+ */
+export interface AwsServiceRequestConfiguration {
+  /**
+   * <p>The expression language used to evaluate expressions in the function configuration. The only supported value is <code>JSONata</code>.</p>
+   * @public
+   */
+  Runtime: RuntimeType | undefined;
+
+  /**
+   * <p>A map of output bindings. Each key is a namespaced output path, such as <code>player_params.device_type</code>. Each value is an expression that MediaTailor evaluates at runtime and can reference the <code>response</code> object from the target service. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-jsonata.html">JSONata expression reference</a> in the <i>MediaTailor User Guide</i>.</p>
+   * @public
+   */
+  Output?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies how the function sends the request to the target service. The value must match what the target service operation requires. Valid values:</p> <ul> <li> <p> <code>GET</code> – Retrieves data from the target service.</p> </li> <li> <p> <code>POST</code> – Submits a request body to the target service.</p> </li> </ul>
+   * @public
+   */
+  MethodType: MethodType | undefined;
+
+  /**
+   * <p>The maximum time, in milliseconds, that MediaTailor waits for a response from the AWS service. If the call exceeds this timeout, MediaTailor sets the response status code to <code>null</code> and proceeds with output expression evaluation. Valid values: <code>100</code> to <code>2000</code>.</p>
+   * @public
+   */
+  RequestTimeoutMilliseconds: number | undefined;
+
+  /**
+   * <p>An expression that evaluates to the endpoint URL for the target AWS service API operation. Use <code>\{%...%\}</code> delimiters for dynamic expressions. The URL must correspond to a valid endpoint for the service specified in <code>TargetService</code>. The maximum length after evaluation is 2,048 characters.</p>
+   * @public
+   */
+  Url: string | undefined;
+
+  /**
+   * <p>An expression that evaluates to the request body for the AWS service API call. The body must conform to the input format that the target service operation expects. Applies only when the target operation accepts a request body. The maximum size after evaluation is 64 KB.</p>
+   * @public
+   */
+  Body?: string | undefined;
+
+  /**
+   * <p>A map of HTTP header names to expression values. MediaTailor evaluates each header value expression at runtime and includes the result in the outbound request to the AWS service. Use this to pass any headers required by the target service operation. You can include a maximum of 50 headers.</p>
+   * @public
+   */
+  Headers?: Record<string, string> | undefined;
+
+  /**
+   * <p>The AWS service to call. Valid value: <code>elemental-inference</code> (AWS Elemental Inference).</p>
+   * @public
+   */
+  TargetService: string | undefined;
+
+  /**
+   * <p>The AWS Region for the target service. Specify a static Region code (for example, <code>us-east-1</code>) or a JSONata expression that resolves to a Region code at runtime (for example, <code>\{%inference.region%\}</code>).</p>
+   * @public
+   */
+  TargetRegion: string | undefined;
+}
+
+/**
  * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function. A <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working with functions</a> in the <i>MediaTailor User Guide</i>.</p>
  * @public
  */
@@ -720,13 +780,13 @@ export interface VastRequestConfiguration {
   RequestTimeoutMilliseconds: number | undefined;
 
   /**
-   * <p>An expression that evaluates to the VAST endpoint URL. Use <code>\{%...%\}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The maximum length is 25,000 characters.</p>
+   * <p>An expression that evaluates to the VAST endpoint URL. Use <code>\{%...%\}</code> delimiters for dynamic expressions. A literal value must be an <code>https://</code> URL. The expression can be up to 25,000 characters, and the URL after evaluation can be up to 2,048 characters.</p>
    * @public
    */
   Url: string | undefined;
 
   /**
-   * <p>An expression that evaluates to the request body. Used with <code>POST</code> requests, for example to send an OpenRTB bid request. The maximum length is 100,000 characters.</p>
+   * <p>An expression that evaluates to the request body, for example to send an OpenRTB bid request. The expression can be up to 100,000 characters, and the body after evaluation can be up to 64 KB.</p>
    * @public
    */
   Body?: string | undefined;
@@ -766,6 +826,12 @@ export interface Function {
    * @public
    */
   HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
+
+  /**
+   * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+   * @public
+   */
+  AwsServiceRequestConfiguration?: AwsServiceRequestConfiguration | undefined;
 
   /**
    * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
@@ -3889,6 +3955,12 @@ export interface GetFunctionResponse {
   HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
 
   /**
+   * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+   * @public
+   */
+  AwsServiceRequestConfiguration?: AwsServiceRequestConfiguration | undefined;
+
+  /**
    * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>
    * @public
    */
@@ -3971,7 +4043,7 @@ export interface PutFunctionRequest {
   FunctionId: string | undefined;
 
   /**
-   * <p>The type of the function. The function type determines what the function can do at runtime. Valid values: <code>CUSTOM_OUTPUT</code> evaluates expressions and produces output bindings with no external calls. <code>HTTP_REQUEST</code> makes an HTTP call to an external service and evaluates output expressions that can reference the response. <code>VAST_REQUEST</code> calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions. <code>SEQUENTIAL_EXECUTOR</code> runs a sequence of child functions in order, passing data between steps through temporary data. <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
+   * <p>The type of the function, which determines what the function can do at runtime. Valid values:</p> <ul> <li> <p> <code>CUSTOM_OUTPUT</code> – Evaluates expressions and produces output bindings with no external calls.</p> </li> <li> <p> <code>HTTP_REQUEST</code> – Makes an HTTP call to an external service and evaluates output expressions that can reference the response.</p> </li> <li> <p> <code>AWS_SERVICE_REQUEST</code> – Makes an authenticated request to a supported AWS service API and evaluates output expressions that can reference the response.</p> </li> <li> <p> <code>VAST_REQUEST</code> – Calls a VAST endpoint, parses the response as VAST, and makes the parsed ads available to output expressions.</p> </li> <li> <p> <code>SEQUENTIAL_EXECUTOR</code> – Runs a sequence of child functions in order, passing data between steps through temporary data.</p> </li> <li> <p> <code>CONCURRENT_EXECUTOR</code> – Runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types.html">Function types and composition</a> in the <i>MediaTailor User Guide</i>.</p>
    * @public
    */
   FunctionType: FunctionType | undefined;
@@ -3987,6 +4059,12 @@ export interface PutFunctionRequest {
    * @public
    */
   HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
+
+  /**
+   * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. You must specify this parameter when <code>FunctionType</code> is <code>AWS_SERVICE_REQUEST</code>.</p>
+   * @public
+   */
+  AwsServiceRequestConfiguration?: AwsServiceRequestConfiguration | undefined;
 
   /**
    * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function. Specifies the runtime and output expressions. Required when <code>FunctionType</code> is <code>CUSTOM_OUTPUT</code>.</p>
@@ -4047,6 +4125,12 @@ export interface PutFunctionResponse {
    * @public
    */
   HttpRequestConfiguration?: HttpRequestConfiguration | undefined;
+
+  /**
+   * <p>The configuration for an <code>AWS_SERVICE_REQUEST</code> function. Specifies the target service, target Region, and request parameters.</p>
+   * @public
+   */
+  AwsServiceRequestConfiguration?: AwsServiceRequestConfiguration | undefined;
 
   /**
    * <p>The configuration for a <code>CUSTOM_OUTPUT</code> function.</p>

@@ -20,6 +20,7 @@ import {
   AudienceMedia$,
   AvailMatchingCriteria$,
   AvailSuppression$,
+  AwsServiceRequestConfiguration$,
   BadRequestException,
   BadRequestException$,
   Bumper$,
@@ -425,6 +426,7 @@ assert(typeof AlternateMedia$ === "object");
 assert(typeof AudienceMedia$ === "object");
 assert(typeof AvailMatchingCriteria$ === "object");
 assert(typeof AvailSuppression$ === "object");
+assert(typeof AwsServiceRequestConfiguration$ === "object");
 assert(typeof Bumper$ === "object");
 assert(typeof CdnConfiguration$ === "object");
 assert(typeof Channel$ === "object");

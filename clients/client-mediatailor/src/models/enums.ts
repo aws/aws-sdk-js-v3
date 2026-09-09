@@ -148,6 +148,19 @@ export type AdMarkupType = (typeof AdMarkupType)[keyof typeof AdMarkupType];
  * @public
  * @enum
  */
+export const MethodType = {
+  GET: "GET",
+  POST: "POST",
+} as const;
+/**
+ * @public
+ */
+export type MethodType = (typeof MethodType)[keyof typeof MethodType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RuntimeType = {
   JSONATA: "JSONATA",
 } as const;
@@ -161,6 +174,7 @@ export type RuntimeType = (typeof RuntimeType)[keyof typeof RuntimeType];
  * @enum
  */
 export const FunctionType = {
+  AWS_SERVICE_REQUEST: "AWS_SERVICE_REQUEST",
   CONCURRENT_EXECUTOR: "CONCURRENT_EXECUTOR",
   CUSTOM_OUTPUT: "CUSTOM_OUTPUT",
   HTTP_REQUEST: "HTTP_REQUEST",
@@ -171,19 +185,6 @@ export const FunctionType = {
  * @public
  */
 export type FunctionType = (typeof FunctionType)[keyof typeof FunctionType];
-
-/**
- * @public
- * @enum
- */
-export const MethodType = {
-  GET: "GET",
-  POST: "POST",
-} as const;
-/**
- * @public
- */
-export type MethodType = (typeof MethodType)[keyof typeof MethodType];
 
 /**
  * @public

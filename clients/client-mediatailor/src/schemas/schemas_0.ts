@@ -25,6 +25,7 @@ const _APT = "AdsPersonalizationTimeouts";
 const _ARTM = "AdsRequestTimeoutMilliseconds";
 const _AS = "AvailSuppression";
 const _ASM = "AdSequencingMode";
+const _ASRC = "AwsServiceRequestConfiguration";
 const _AST = "ApproximateStartTime";
 const _ASUP = "AdSegmentUrlPrefix";
 const _AT = "AccessType";
@@ -32,10 +33,10 @@ const _Al = "Alias";
 const _Ar = "Arn";
 const _Au = "Audience";
 const _Aud = "Audiences";
-const _B = "Bumper";
+const _B = "Body";
 const _BRE = "BadRequestException";
 const _BU = "BaseUrl";
-const _Bo = "Body";
+const _Bu = "Bumper";
 const _C = "Category";
 const _CA = "ConfigurationAliases";
 const _CAR = "ConfigurationAliasesResponse";
@@ -234,8 +235,8 @@ const _O = "Operator";
 const _OM = "OffsetMillis";
 const _OMT = "OriginManifestType";
 const _ORT = "OpenRtbTemplate";
-const _Ou = "Outputs";
-const _Out = "Output";
+const _Ou = "Output";
+const _Out = "Outputs";
 const _P = "Policy";
 const _PARTM = "PrefetchAdsRequestTimeoutMilliseconds";
 const _PC = "PlaybackConfiguration";
@@ -335,8 +336,10 @@ const _T = "Tier";
 const _TK = "TagKeys";
 const _TM = "TimeoutMilliseconds";
 const _TPN = "TranscodeProfileName";
-const _TR = "TagResource";
+const _TR = "TargetRegion";
 const _TRR = "TagResourceRequest";
+const _TRa = "TagResource";
+const _TS = "TargetService";
 const _TSC = "TimeShiftConfiguration";
 const _TSM = "TimeSignalMessage";
 const _TSRW = "TrafficShapingRetrievalWindow";
@@ -509,7 +512,12 @@ export var AvailSuppression$: StaticStructureSchema = [3, n0, _AS,
   [_Mo, _V, _FP],
   [0, 0, 0]
 ];
-export var Bumper$: StaticStructureSchema = [3, n0, _B,
+export var AwsServiceRequestConfiguration$: StaticStructureSchema = [3, n0, _ASRC,
+  0,
+  [_R, _MTe, _RTM, _U, _TS, _TR, _Ou, _B, _H],
+  [0, 0, 1, 0, 0, 0, 128 | 0, 0, 128 | 0], 6
+];
+export var Bumper$: StaticStructureSchema = [3, n0, _Bu,
   0,
   [_EU, _SU],
   [0, 0]
@@ -521,7 +529,7 @@ export var CdnConfiguration$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var Channel$: StaticStructureSchema = [3, n0, _Ch,
   0,
-  [_Ar, _CN, _CS, _Ou, _PM, _T, _LC, _CT, _FS, _LMT, _Ta, _Aud],
+  [_Ar, _CN, _CS, _Out, _PM, _T, _LC, _CT, _FS, _LMT, _Ta, _Aud],
   [0, 0, 0, () => ResponseOutputs, 0, 0, () => LogConfigurationForChannel$, 7, () => SlateSource$, 7, [128 | 0, { [_jN]: _t }], 64 | 0], 7
 ];
 export var ClipRange$: StaticStructureSchema = [3, n0, _CR,
@@ -531,7 +539,7 @@ export var ClipRange$: StaticStructureSchema = [3, n0, _CR,
 ];
 export var ConcurrentExecutorConfiguration$: StaticStructureSchema = [3, n0, _CEC,
   0,
-  [_R, _Out, _FL, _TM, _MC],
+  [_R, _Ou, _FL, _TM, _MC],
   [0, 128 | 0, () => __listOfFunctionsRef, 1, 1], 5
 ];
 export var ConfigureLogsForChannelRequest$: StaticStructureSchema = [3, n0, _CLFCR,
@@ -556,12 +564,12 @@ export var ConfigureLogsForPlaybackConfigurationResponse$: StaticStructureSchema
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_CN, _Ou, _PM, _FS, _Ta, _T, _TSC, _Aud],
+  [_CN, _Out, _PM, _FS, _Ta, _T, _TSC, _Aud],
   [[0, 1], () => RequestOutputs, 0, () => SlateSource$, [128 | 0, { [_jN]: _t }], 0, () => TimeShiftConfiguration$, 64 | 0], 3
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _Ta, _T, _TSC, _Aud],
+  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Out, _PM, _Ta, _T, _TSC, _Aud],
   [0, 0, 0, 7, () => SlateSource$, 7, () => ResponseOutputs, 0, [128 | 0, { [_jN]: _t }], 0, () => TimeShiftConfiguration$, 64 | 0]
 ];
 export var CreateLiveSourceRequest$: StaticStructureSchema = [3, n0, _CLSR,
@@ -616,7 +624,7 @@ export var CreateVodSourceResponse$: StaticStructureSchema = [3, n0, _CVSRr,
 ];
 export var CustomOutputConfiguration$: StaticStructureSchema = [3, n0, _COC,
   0,
-  [_R, _Out],
+  [_R, _Ou],
   [0, 128 | 0], 1
 ];
 export var DashConfiguration$: StaticStructureSchema = [3, n0, _DC,
@@ -736,7 +744,7 @@ export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
 ];
 export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
-  [_LC, _Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _Ta, _T, _TSC, _Aud],
+  [_LC, _Ar, _CN, _CS, _CT, _FS, _LMT, _Out, _PM, _Ta, _T, _TSC, _Aud],
   [() => LogConfigurationForChannel$, 0, 0, 0, 7, () => SlateSource$, 7, () => ResponseOutputs, 0, [128 | 0, { [_jN]: _t }], 0, () => TimeShiftConfiguration$, 64 | 0], 1
 ];
 export var DescribeLiveSourceRequest$: StaticStructureSchema = [3, n0, _DLSRes,
@@ -781,8 +789,8 @@ export var DescribeVodSourceResponse$: StaticStructureSchema = [3, n0, _DVSResc,
 ];
 export var Function$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
-  [0, 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
+  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
+  [0, 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
 ];
 export var FunctionRef$: StaticStructureSchema = [3, n0, _FR,
   0,
@@ -816,8 +824,8 @@ export var GetFunctionRequest$: StaticStructureSchema = [3, n0, _GFR,
 ];
 export var GetFunctionResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
-  [0, 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
+  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
+  [0, 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
 ];
 export var GetPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _GPCR,
   0,
@@ -826,7 +834,7 @@ export var GetPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _GP
 ];
 export var GetPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _GPCRe,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
+  [_ADSU, _AS, _Bu, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
   [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, () => YieldOptimizationConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
 ];
 export var GetPrefetchScheduleRequest$: StaticStructureSchema = [3, n0, _GPSR,
@@ -861,12 +869,12 @@ export var HttpPackageConfiguration$: StaticStructureSchema = [3, n0, _HPCt,
 ];
 export var HttpRequest$: StaticStructureSchema = [3, n0, _HR,
   0,
-  [_Me, _Bo, _H, _CRo],
+  [_Me, _B, _H, _CRo],
   [0, 0, 128 | 0, 0]
 ];
 export var HttpRequestConfiguration$: StaticStructureSchema = [3, n0, _HRC,
   0,
-  [_R, _MTe, _RTM, _U, _Out, _Bo, _H],
+  [_R, _MTe, _RTM, _U, _Ou, _B, _H],
   [0, 0, 1, 0, 128 | 0, 0, 128 | 0], 4
 ];
 export var KeyValuePair$: StaticStructureSchema = [3, n0, _KVP,
@@ -996,7 +1004,7 @@ export var ManifestServiceInteractionLog$: StaticStructureSchema = [3, n0, _MSIL
 ];
 export var PlaybackConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
+  [_ADSU, _AS, _Bu, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
   [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, () => YieldOptimizationConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
 ];
 export var PrefetchConsumption$: StaticStructureSchema = [3, n0, _PCr,
@@ -1036,22 +1044,22 @@ export var PutChannelPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
 ];
 export var PutFunctionRequest$: StaticStructureSchema = [3, n0, _PFR,
   0,
-  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _VRC, _Ta],
-  [[0, 1], 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }]], 2
+  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _Ta],
+  [[0, 1], 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }]], 2
 ];
 export var PutFunctionResponse$: StaticStructureSchema = [3, n0, _PFRu,
   0,
-  [_FI, _FT, _D, _HRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
-  [0, 0, 0, () => HttpRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
+  [_FI, _FT, _D, _HRC, _ASRC, _COC, _CEC, _SEC, _VRC, _Ta, _Ar],
+  [0, 0, 0, () => HttpRequestConfiguration$, () => AwsServiceRequestConfiguration$, () => CustomOutputConfiguration$, () => ConcurrentExecutorConfiguration$, () => SequentialExecutorConfiguration$, () => VastRequestConfiguration$, [128 | 0, { [_jN]: _t }], 0], 2
 ];
 export var PutPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _PPCR,
   0,
-  [_N, _ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _PTS, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
+  [_N, _ADSU, _AS, _Bu, _CC, _CA, _DC, _IM, _LPRC, _MPR, _PTS, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
   [0, 0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CARo, 0, 0, 128 | 0], () => DashConfigurationForPut$, 0, () => LivePreRollConfiguration$, () => ManifestProcessingRules$, 1, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, () => YieldOptimizationConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$], 1
 ];
 export var PutPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _PPCRu,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
+  [_ADSU, _AS, _Bu, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _YOC, _FM, _APT, _APC],
   [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, () => YieldOptimizationConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
 ];
 export var RecurringConsumption$: StaticStructureSchema = [3, n0, _RCe,
@@ -1111,7 +1119,7 @@ export var SegmentDeliveryConfiguration$: StaticStructureSchema = [3, n0, _SDCe,
 ];
 export var SequentialExecutorConfiguration$: StaticStructureSchema = [3, n0, _SEC,
   0,
-  [_R, _FL, _TM, _Out],
+  [_R, _FL, _TM, _Ou],
   [0, () => __listOfFunctionsRef, 1, 128 | 0], 3
 ];
 export var SlateSource$: StaticStructureSchema = [3, n0, _SS,
@@ -1186,12 +1194,12 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_CN, _Ou, _FS, _TSC, _Aud],
+  [_CN, _Out, _FS, _TSC, _Aud],
   [[0, 1], () => RequestOutputs, () => SlateSource$, () => TimeShiftConfiguration$, 64 | 0], 2
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
-  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Ou, _PM, _Ta, _T, _TSC, _Aud],
+  [_Ar, _CN, _CS, _CT, _FS, _LMT, _Out, _PM, _Ta, _T, _TSC, _Aud],
   [0, 0, 0, 7, () => SlateSource$, 7, () => ResponseOutputs, 0, [128 | 0, { [_jN]: _t }], 0, () => TimeShiftConfiguration$, 64 | 0]
 ];
 export var UpdateLiveSourceRequest$: StaticStructureSchema = [3, n0, _ULSR,
@@ -1246,7 +1254,7 @@ export var UpdateVodSourceResponse$: StaticStructureSchema = [3, n0, _UVSRp,
 ];
 export var VastRequestConfiguration$: StaticStructureSchema = [3, n0, _VRC,
   0,
-  [_R, _MTe, _RTM, _U, _Out, _Bo, _H],
+  [_R, _MTe, _RTM, _U, _Ou, _B, _H],
   [0, 0, 1, 0, 128 | 0, 0, 128 | 0], 4
 ];
 export var VastResponse$: StaticStructureSchema = [3, n0, _VR,
@@ -1479,7 +1487,7 @@ export var StartChannel$: StaticOperationSchema = [9, n0, _SCt,
 export var StopChannel$: StaticOperationSchema = [9, n0, _SCto,
   { [_h]: ["PUT", "/channel/{ChannelName}/stop", 200] }, () => StopChannelRequest$, () => StopChannelResponse$
 ];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
   { [_h]: ["POST", "/tags/{ResourceArn}", 204] }, () => TagResourceRequest$, () => __Unit
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
