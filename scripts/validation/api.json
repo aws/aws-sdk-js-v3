@@ -382,6 +382,7 @@
     "ARN": "type(interface)",
     "build": "function",
     "formatUrl": "function",
+    "hasOwn": "function",
     "parse": "function",
     "validate": "function"
   },
@@ -505,6 +506,17 @@
   "@aws-sdk/dsql-signer": {
     "DsqlSigner": "function",
     "DsqlSignerConfig": "type(interface)"
+  },
+  "@aws-sdk/dynamic-client": {
+    "AstMember": "type(interface)",
+    "AstReference": "type(interface)",
+    "AstShape": "type(interface)",
+    "AstTraits": "type(object)",
+    "ClientProtocolCtor": "type(interface)",
+    "createDynamicClient": "function",
+    "DynamicClientExports": "type(object)",
+    "ShapeType": "type(union)",
+    "SmithyAst": "type(interface)"
   },
   "@aws-sdk/dynamodb-codec": {
     "DynamoDBJsonCodec": "function",

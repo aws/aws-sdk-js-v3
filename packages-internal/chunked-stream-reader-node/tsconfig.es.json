@@ -5,6 +5,5 @@
     "noCheck": true
   },
   "extends": "../../tsconfig.es.json",
-  "include": ["src/"],
-  "exclude": ["src/**/*.fixture.ts", "src/**/*.spec.ts"]
+  "include": ["src/"]
 }

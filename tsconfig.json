@@ -23,5 +23,5 @@
     "jsxFragmentFactory": "JSX.Fragment"
   },
   "include": ["packages/", "packages-internal/", "lib/"],
-  "exclude": ["node_modules/", "**/*.spec.ts", "vitest.*.ts"]
+  "exclude": ["node_modules/", "**/*.spec.ts", "**/*.fixture.ts", "vitest.*.ts"]
 }
