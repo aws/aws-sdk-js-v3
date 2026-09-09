@@ -55,6 +55,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.53 (2026-09-09)
+### Chores
+* **middleware-websocket:** update dependencies.
+
+
+
 # 3.972.52 (2026-08-20)
 ### Chores
 * **codegen:** update to sync with the latest smithy-ts ([#8272](https://github.com/aws/aws-sdk-js-v3/issues/8272)) ([8369ada](https://github.com/aws/aws-sdk-js-v3/commit/8369ada75d60056e24e1ee8bca20f16ce2faea93))

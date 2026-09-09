@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/dynamic-client",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "description": "Runtime factory that converts a Smithy JSON AST into a schema-based client with AWS auth support",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/dynamic-client",
@@ -45,8 +45,8 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.977.9",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.82",
+    "@aws-sdk/core": "workspace:^3.978.0",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.83",
     "@smithy/core": "^3.33.3",
     "@smithy/node-http-handler": "^4.11.3",
     "@smithy/typecheck": "^1.2.16",

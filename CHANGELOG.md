@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1128.0...v3.1129.0) (2026-09-09)
+
+
+### Features
+
+* **client-connect:** Add metric configuration field to evaluation forms and ListEvaluationFormAIVersions API for retrieving AI-generated evaluation form versions ([abf73c4](https://github.com/aws/aws-sdk-js-v3/commit/abf73c4a5d997721630224c14b66702f1ec183bb))
+* **client-ec2:** This release adds support for sharing Amazon EBS volumes across AWS accounts using AWS Resource Access Manager (RAM). Consuming accounts can view shared volume metadata and create copies of shared volumes within the same Availability Zone, with optional re-encryption using their own KMS key. ([2fd8923](https://github.com/aws/aws-sdk-js-v3/commit/2fd8923f32c751562094cb79611cd8cc99c74b77))
+* **client-elementalinference:** This release adds contextual metadata, a feed output type that generates a descriptive summary of your media content along with IAB taxonomy and GARM suitability classifications. It also adds feed resource policies for granting cross-account access to a feed. ([249639c](https://github.com/aws/aws-sdk-js-v3/commit/249639c6fcbeb093613f06f5ff9d4b5bc330b81c))
+* **client-lambda:** Updates documentation for lambda function timeout. ([f268e06](https://github.com/aws/aws-sdk-js-v3/commit/f268e0669444be8e7938ee27138605537c707826))
+* **client-medialive:** MediaLive now supports Manual Style Control for vertical caption positioning in TTML, WebVTT, and Embedded captions, Contextual Metadata Enrichment via Elemental Inference, and an Output Usage field on MediaPackage v2 for Dynamic Multiview validation. ([a546f70](https://github.com/aws/aws-sdk-js-v3/commit/a546f70b5763c8a2fa4724eda58da5412dfd9572))
+* **client-mediapackagev2:** Dynamic Multiview enables viewers to watch multiple live video streams in a single combined output. Viewers can select from 6 preset tiled layouts. Create MediaPackage channels with Input Type MULTIVIEW and configure Available Layouts and Available Sources. See the API Documentation for details. ([db6626c](https://github.com/aws/aws-sdk-js-v3/commit/db6626cef27a0e027e242f82ba66bc4e7675027b))
+* **client-mediatailor:** Added the AWS Service Request function type for MediaTailor Functions, enabling authenticated requests to AWS Elemental Inference for contextual ad targeting during ad insertion. ([92f39ad](https://github.com/aws/aws-sdk-js-v3/commit/92f39ade7cdc9ef8151c69822cbca01d3a15f21a))
+* **client-pcs:** This release adds support for custom Gres.conf configuration and Slurm version 26.05 in AWS PCS. Customers can now specify generic resource (GRES) settings to control how GPUs and other resources are configured and shared on their compute node groups. ([dd8afaa](https://github.com/aws/aws-sdk-js-v3/commit/dd8afaa532b7d7d6b1b822bc33c21f150720bee7))
+* **dynamic-client:** create untyped clients from Smithy JSON AST ([#8270](https://github.com/aws/aws-sdk-js-v3/issues/8270)) ([4334050](https://github.com/aws/aws-sdk-js-v3/commit/4334050c57723aac9e54611e1778f25454688e15))
+
+
+
+
+
 # [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
 
 

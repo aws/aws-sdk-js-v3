@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1128.0...v3.1129.0) (2026-09-09)
+
+
+### Features
+
+* **client-mediatailor:** Added the AWS Service Request function type for MediaTailor Functions, enabling authenticated requests to AWS Elemental Inference for contextual ad targeting during ad insertion. ([92f39ad](https://github.com/aws/aws-sdk-js-v3/commit/92f39ade7cdc9ef8151c69822cbca01d3a15f21a))
+
+
+
+
+
 # [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

@@ -85,6 +85,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.83 (2026-09-09)
+### Chores
+* **credential-provider-node:** update dependencies.
+
+
+
 # 3.972.82 (2026-08-31)
 ### Bug Fixes
 * **credential-provider-node:** handle passive credential refresh rejection ([#8281](https://github.com/aws/aws-sdk-js-v3/issues/8281)) ([f36843d](https://github.com/aws/aws-sdk-js-v3/commit/f36843d44080477ce9b677df75d33240d909c653))

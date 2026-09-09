@@ -13,6 +13,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.0 (2026-09-09)
+### Features
+* **dynamic-client:** create untyped clients from Smithy JSON AST ([#8270](https://github.com/aws/aws-sdk-js-v3/issues/8270)) ([4334050](https://github.com/aws/aws-sdk-js-v3/commit/4334050c57723aac9e54611e1778f25454688e15))
+
+
+
 # 3.972.10 (2026-08-14)
 ### Chores
 * upgrade to typescript 7 ([#8264](https://github.com/aws/aws-sdk-js-v3/issues/8264)) ([ca81fbb](https://github.com/aws/aws-sdk-js-v3/commit/ca81fbb7398345aa31482dd7aa1971bccf278989))

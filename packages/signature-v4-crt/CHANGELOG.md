@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1128.0...v3.1129.0) (2026-09-09)
+
+
+### Features
+
+* **dynamic-client:** create untyped clients from Smithy JSON AST ([#8270](https://github.com/aws/aws-sdk-js-v3/issues/8270)) ([4334050](https://github.com/aws/aws-sdk-js-v3/commit/4334050c57723aac9e54611e1778f25454688e15))
+
+
+
+
+
 # [3.1128.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1127.0...v3.1128.0) (2026-09-08)
 
 **Note:** Version bump only for package @aws-sdk/signature-v4-crt

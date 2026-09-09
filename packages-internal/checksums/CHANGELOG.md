@@ -30,6 +30,13 @@
 
 
 
+
+# 3.1001.0 (2026-09-09)
+### Features
+* **dynamic-client:** create untyped clients from Smithy JSON AST ([#8270](https://github.com/aws/aws-sdk-js-v3/issues/8270)) ([4334050](https://github.com/aws/aws-sdk-js-v3/commit/4334050c57723aac9e54611e1778f25454688e15))
+
+
+
 # 3.1000.29 (2026-08-20)
 ### Chores
 * **codegen:** update to sync with the latest smithy-ts ([#8272](https://github.com/aws/aws-sdk-js-v3/issues/8272)) ([8369ada](https://github.com/aws/aws-sdk-js-v3/commit/8369ada75d60056e24e1ee8bca20f16ce2faea93))

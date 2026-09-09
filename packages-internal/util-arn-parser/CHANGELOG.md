@@ -42,6 +42,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.40 (2026-09-09)
+### Chores
+* **util-arn-parser:** update dependencies.
+
+
+
 # 3.972.39 (2026-08-21)
 ### Chores
 * **util-arn-parser:** update dependencies.
