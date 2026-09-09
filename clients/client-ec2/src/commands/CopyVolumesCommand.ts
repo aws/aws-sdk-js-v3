@@ -54,6 +54,8 @@ export interface CopyVolumesCommandOutput extends CopyVolumesResult, __MetadataB
  *   MultiAttachEnabled: true || false,
  *   Throughput: Number("int"),
  *   ClientToken: "STRING_VALUE",
+ *   Encrypted: true || false,
+ *   KmsKeyId: "STRING_VALUE",
  * };
  * const command = new CopyVolumesCommand(input);
  * const response = await client.send(command);
@@ -81,6 +83,8 @@ export interface CopyVolumesCommandOutput extends CopyVolumesResult, __MetadataB
  * //         HiddenByDefault: true || false,
  * //       },
  * //       VolumeInitializationRate: Number("int"),
+ * //       VolumeArn: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
  * //       VolumeId: "STRING_VALUE",
  * //       Size: Number("int"),
  * //       SnapshotId: "STRING_VALUE",

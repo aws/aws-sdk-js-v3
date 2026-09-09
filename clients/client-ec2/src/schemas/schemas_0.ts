@@ -6208,7 +6208,8 @@ const _VATPIL = "VerifiedAccessTrustProviderIdList";
 const _VATPIe = "VerifiedAccessTrustProviderIds";
 const _VATPL = "VerifiedAccessTrustProviderList";
 const _VATPe = "VerifiedAccessTrustProviders";
-const _VAo = "VolumeAttachment";
+const _VAo = "VolumeArn";
+const _VAol = "VolumeAttachment";
 const _VAp = "VpcAttachments";
 const _VBPAE = "VpcBlockPublicAccessExclusion";
 const _VBPAEIL = "VpcBlockPublicAccessExclusionIdList";
@@ -8465,6 +8466,7 @@ const _uTl = "ultraserverType";
 const _ur = "url";
 const _us = "username";
 const _v = "value";
+const _vA = "volumeArn";
 const _vAE = "verifiedAccessEndpoint";
 const _vAEI = "verifiedAccessEndpointId";
 const _vAES = "verifiedAccessEndpointSet";
@@ -10688,8 +10690,8 @@ export var CopySnapshotResult$: StaticStructureSchema = [3, n0, _CSRo,
 ];
 export var CopyVolumesRequest$: StaticStructureSchema = [3, n0, _CVRo,
   0,
-  [_SVI, _Io, _Siz, _VT, _DR, _TS, _MAE, _Th, _CT],
-  [0, 1, 1, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 2, 1, [0, 4]], 1
+  [_SVI, _Io, _Siz, _VT, _DR, _TS, _MAE, _Th, _CT, _Enc, _KKI],
+  [0, 1, 1, 0, 2, [() => TagSpecificationList, { [_xN]: _TSa }], 2, 1, [0, 4], 2, 0], 1
 ];
 export var CopyVolumesResult$: StaticStructureSchema = [3, n0, _CVRop,
   0,
@@ -26523,7 +26525,7 @@ export var VgwTelemetry$: StaticStructureSchema = [3, n0, _VTg,
 ];
 export var Volume$: StaticStructureSchema = [3, n0, _Vol,
   0,
-  [_AZI, _OA, _SVI, _Io, _T, _VT, _FRa, _MAE, _Th, _STs, _Op, _VIR, _VIo, _Siz, _SIn, _AZ, _St, _CTre, _Atta, _Enc, _KKI],
+  [_AZI, _OA, _SVI, _Io, _T, _VT, _FRa, _MAE, _Th, _STs, _Op, _VIR, _VAo, _OI, _VIo, _Siz, _SIn, _AZ, _St, _CTre, _Atta, _Enc, _KKI],
   [[0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }], [0, { [_eQN]: `OutpostArn`
   , [_xN]: _oA }], [0, { [_eQN]: `SourceVolumeId`
@@ -26536,7 +26538,9 @@ export var Volume$: StaticStructureSchema = [3, n0, _Vol,
   , [_xN]: _th }], [0, { [_eQN]: `SseType`
   , [_xN]: _sTs }], [() => OperatorResponse$, { [_eQN]: `Operator`
   , [_xN]: _ope }], [1, { [_eQN]: `VolumeInitializationRate`
-  , [_xN]: _vIR }], [0, { [_eQN]: `VolumeId`
+  , [_xN]: _vIR }], [0, { [_eQN]: `VolumeArn`
+  , [_xN]: _vA }], [0, { [_eQN]: `OwnerId`
+  , [_xN]: _oI }], [0, { [_eQN]: `VolumeId`
   , [_xN]: _vIo }], [1, { [_eQN]: `Size`
   , [_xN]: _si }], [0, { [_eQN]: `SnapshotId`
   , [_xN]: _sIn }], [0, { [_eQN]: `AvailabilityZone`
@@ -26547,7 +26551,7 @@ export var Volume$: StaticStructureSchema = [3, n0, _Vol,
   , [_xN]: _enc }], [0, { [_eQN]: `KmsKeyId`
   , [_xN]: _kKI }]]
 ];
-export var VolumeAttachment$: StaticStructureSchema = [3, n0, _VAo,
+export var VolumeAttachment$: StaticStructureSchema = [3, n0, _VAol,
   0,
   [_DOT, _ARss, _IOS, _ECI, _VIo, _II, _Dev, _St, _ATtt],
   [[2, { [_eQN]: `DeleteOnTermination`

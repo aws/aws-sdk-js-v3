@@ -97,6 +97,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <volumeInitializationRate>
                 0
             </volumeInitializationRate>
+            <volumeArn>
+                __VolumeArn__
+            </volumeArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
             <volumeId>
                 __VolumeId__
             </volumeId>
@@ -279,6 +285,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <volumeInitializationRate>
                 0
             </volumeInitializationRate>
+            <volumeArn>
+                __VolumeArn__
+            </volumeArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
             <volumeId>
                 __VolumeId__
             </volumeId>
@@ -461,6 +473,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <volumeInitializationRate>
                 0
             </volumeInitializationRate>
+            <volumeArn>
+                __VolumeArn__
+            </volumeArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
             <volumeId>
                 __VolumeId__
             </volumeId>
@@ -612,6 +630,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         HiddenByDefault: (boolean) false
       },
       VolumeInitializationRate: (number) 0,
+      VolumeArn: "__VolumeArn__",
+      OwnerId: "__OwnerId__",
       VolumeId: "__VolumeId__",
       Size: (number) 0,
       SnapshotId: "__SnapshotId__",
@@ -686,6 +706,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         HiddenByDefault: (boolean) false
       },
       VolumeInitializationRate: (number) 0,
+      VolumeArn: "__VolumeArn__",
+      OwnerId: "__OwnerId__",
       VolumeId: "__VolumeId__",
       Size: (number) 0,
       SnapshotId: "__SnapshotId__",
@@ -760,6 +782,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         HiddenByDefault: (boolean) false
       },
       VolumeInitializationRate: (number) 0,
+      VolumeArn: "__VolumeArn__",
+      OwnerId: "__OwnerId__",
       VolumeId: "__VolumeId__",
       Size: (number) 0,
       SnapshotId: "__SnapshotId__",

@@ -88,6 +88,8 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * //         HiddenByDefault: true || false,
  * //       },
  * //       VolumeInitializationRate: Number("int"),
+ * //       VolumeArn: "STRING_VALUE",
+ * //       OwnerId: "STRING_VALUE",
  * //       VolumeId: "STRING_VALUE",
  * //       Size: Number("int"),
  * //       SnapshotId: "STRING_VALUE",
