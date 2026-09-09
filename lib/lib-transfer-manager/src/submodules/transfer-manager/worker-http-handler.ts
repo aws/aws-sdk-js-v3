@@ -20,6 +20,24 @@ import { Readable } from "node:stream";
 import { Worker } from "node:worker_threads";
 
 /**
+ * Build an Error from a worker download-error message. For non-2xx responses
+ * (statusCode present), attach `$response`/`$metadata`/`$fault` so the SDK's
+ * retry middleware can classify and retry it.
+ * @internal
+ */
+function buildDownloadError(msg: HttpWorkerDownloadErrorMessage): Error {
+  const error = new Error(msg.error) as Error & Record<string, unknown>;
+  if (msg.name) error.name = msg.name;
+  if (msg.code) error.code = msg.code;
+  if (typeof msg.statusCode === "number") {
+    error.$response = { statusCode: msg.statusCode };
+    error.$metadata = { httpStatusCode: msg.statusCode };
+    error.$fault = msg.statusCode >= 500 ? "server" : "client";
+  }
+  return error;
+}
+
+/**
  * Creates an empty Readable stream that immediately ends.
  * Used as a placeholder body for UploadPart in threaded uploads.
  * @internal
@@ -176,6 +194,7 @@ export interface HttpWorkerDownloadErrorMessage {
   error: string;
   code?: string;
   name?: string;
+  statusCode?: number;
 }
 
 /**
@@ -517,11 +536,7 @@ export class WorkerHttpHandler {
             this.inflightDownloads.delete(msg.id);
             if (pending) {
               this.workerInflightCounts[pending.workerIndex]--;
-              const error = Object.assign(new Error(msg.error), {
-                ...(msg.code && { code: msg.code }),
-                ...(msg.name && { name: msg.name }),
-              });
-              pending.reject(error);
+              pending.reject(buildDownloadError(msg));
               return;
             }
             // Check stream downloads if not found in file downloads.
@@ -529,11 +544,7 @@ export class WorkerHttpHandler {
             this.inflightStreamDownloads.delete(msg.id);
             if (pendingTransfer) {
               this.workerInflightCounts[pendingTransfer.workerIndex]--;
-              const error = Object.assign(new Error(msg.error), {
-                ...(msg.code && { code: msg.code }),
-                ...(msg.name && { name: msg.name }),
-              });
-              pendingTransfer.reject(error);
+              pendingTransfer.reject(buildDownloadError(msg));
             }
             return;
           }
