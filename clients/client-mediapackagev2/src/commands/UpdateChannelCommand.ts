@@ -44,10 +44,29 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   OutputHeaderConfiguration: { // OutputHeaderConfiguration
  *     PublishMQCS: true || false,
  *   },
+ *   MultiviewConfiguration: { // MultiviewConfiguration
+ *     AvailableSources: [ // MultiviewSourceList // required
+ *       "STRING_VALUE",
+ *     ],
+ *     AvailableLayouts: [ // MultiviewLayoutList // required
+ *       "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL",
+ *     ],
+ *   },
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
  * // { // UpdateChannelResponse
+ * //   MultiviewConfiguration: { // MultiviewConfiguration
+ * //     AvailableSources: [ // MultiviewSourceList // required
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AvailableLayouts: [ // MultiviewLayoutList // required
+ * //       "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL",
+ * //     ],
+ * //   },
+ * //   AttachedMultiviewChannels: [ // AttachedMultiviewChannelList
+ * //     "STRING_VALUE",
+ * //   ],
  * //   Arn: "STRING_VALUE", // required
  * //   ChannelName: "STRING_VALUE", // required
  * //   ChannelGroupName: "STRING_VALUE", // required
@@ -60,7 +79,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       Url: "STRING_VALUE",
  * //     },
  * //   ],
- * //   InputType: "HLS" || "CMAF",
+ * //   InputType: "HLS" || "CMAF" || "MULTIVIEW",
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

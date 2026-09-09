@@ -1,7 +1,10 @@
 const _A = "Arn";
 const _ADE = "AccessDeniedException";
+const _AL = "AvailableLayouts";
+const _AMC = "AttachedMultiviewChannels";
 const _AMD = "AdMarkerDash";
 const _AMH = "AdMarkerHls";
+const _AS = "AvailableSources";
 const _ASTC = "AvailabilityStartTimeConfiguration";
 const _ATP = "AudioTimelinePattern";
 const _BN = "BucketName";
@@ -179,6 +182,7 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _M = "Message";
 const _MA = "ModifiedAt";
 const _MBTS = "MinBufferTimeSeconds";
+const _MC = "MultiviewConfiguration";
 const _MF = "ManifestFilter";
 const _MIU = "MoreInformationUrl";
 const _ML = "ManifestLayout";
@@ -406,8 +410,8 @@ export var ChannelGroupListConfiguration$: StaticStructureSchema = [3, n0, _CGLC
 ];
 export var ChannelListConfiguration$: StaticStructureSchema = [3, n0, _CLC,
   0,
-  [_A, _CN, _CGN, _CA, _MA, _D, _IT, _OLM],
-  [0, 0, 0, 4, 4, 0, 0, 0], 5
+  [_A, _CN, _CGN, _CA, _MA, _D, _IT, _OLM, _MC, _AMC],
+  [0, 0, 0, 4, 4, 0, 0, 0, () => MultiviewConfiguration$, 64 | 0], 5
 ];
 export var CreateChannelGroupRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
@@ -421,13 +425,13 @@ export var CreateChannelGroupResponse$: StaticStructureSchema = [3, n0, _CCGRr,
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_CGN, _CN, _CT, _IT, _D, _ISC, _OHC, _OLM, _T],
-  [[0, 1], 0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0, [128 | 0, { [_jN]: _t }]], 2
+  [_CGN, _CN, _CT, _IT, _D, _ISC, _OHC, _MC, _OLM, _T],
+  [[0, 1], 0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, () => MultiviewConfiguration$, 0, [128 | 0, { [_jN]: _t }]], 2
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_A, _CN, _CGN, _CA, _MA, _D, _IE, _IT, _ET, _T, _ISC, _OHC, _OLM],
-  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0], 5
+  [_A, _CN, _CGN, _CA, _MA, _MC, _AMC, _D, _IE, _IT, _ET, _T, _ISC, _OHC, _OLM],
+  [0, 0, 0, 4, 4, () => MultiviewConfiguration$, 64 | 0, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0], 5
 ];
 export var CreateDashManifestConfiguration$: StaticStructureSchema = [3, n0, _CDMC,
   0,
@@ -616,8 +620,8 @@ export var GetChannelRequest$: StaticStructureSchema = [3, n0, _GCR,
 ];
 export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
-  [_A, _CN, _CGN, _CA, _MA, _RA, _D, _IE, _IT, _ET, _T, _ISC, _OHC, _OLM],
-  [0, 0, 0, 4, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0], 5
+  [_A, _CN, _CGN, _CA, _MA, _MC, _AMC, _RA, _D, _IE, _IT, _ET, _T, _ISC, _OHC, _OLM],
+  [0, 0, 0, 4, 4, () => MultiviewConfiguration$, 64 | 0, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0], 5
 ];
 export var GetDashManifestConfiguration$: StaticStructureSchema = [3, n0, _GDMC,
   0,
@@ -779,6 +783,11 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_T],
   [[128 | 0, { [_jN]: _t }]]
 ];
+export var MultiviewConfiguration$: StaticStructureSchema = [3, n0, _MC,
+  0,
+  [_AS, _AL],
+  [64 | 0, 64 | 0], 2
+];
 export var OriginEndpointListConfiguration$: StaticStructureSchema = [3, n0, _OELC,
   0,
   [_A, _CGN, _CN, _OEN, _CTo, _D, _CA, _MA, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _SNOM],
@@ -886,13 +895,13 @@ export var UpdateChannelGroupResponse$: StaticStructureSchema = [3, n0, _UCGRp,
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_CGN, _CN, _ET, _D, _ISC, _OHC],
-  [[0, 1], [0, 1], [0, { [_hH]: _xauim }], 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$], 2
+  [_CGN, _CN, _ET, _D, _ISC, _OHC, _MC],
+  [[0, 1], [0, 1], [0, { [_hH]: _xauim }], 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, () => MultiviewConfiguration$], 2
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
-  [_A, _CN, _CGN, _CA, _MA, _D, _IE, _IT, _ET, _T, _ISC, _OHC, _OLM],
-  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, [128 | 0, { [_jN]: _t }], () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0], 5
+  [_A, _CN, _CGN, _CA, _MA, _MC, _AMC, _D, _IE, _IT, _ET, _T, _ISC, _OHC, _OLM],
+  [0, 0, 0, 4, 4, () => MultiviewConfiguration$, 64 | 0, 0, () => IngestEndpointList, 0, 0, [128 | 0, { [_jN]: _t }], () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0], 5
 ];
 export var UpdateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _UOER,
   0,
@@ -905,6 +914,7 @@ export var UpdateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _UOERp
   [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, 0, [128 | 0, { [_jN]: _t }], () => GetDashManifests], 8
 ];
 var __Unit = "unit" as const;
+var AttachedMultiviewChannelList = 64 | 0;
 var CdnIdentifierSecretArns = 64 | 0;
 var ChannelGroupsList: StaticListSchema = [1, n0, _CGL,
   0, () => ChannelGroupListConfiguration$
@@ -974,6 +984,8 @@ var ListLowLatencyHlsManifests: StaticListSchema = [1, n0, _LLLHM,
 var ListMssManifests: StaticListSchema = [1, n0, _LMM,
   0, () => ListMssManifestConfiguration$
 ];
+var MultiviewLayoutList = 64 | 0;
+var MultiviewSourceList = 64 | 0;
 var OriginEndpointsList: StaticListSchema = [1, n0, _OEL,
   0, () => OriginEndpointListConfiguration$
 ];

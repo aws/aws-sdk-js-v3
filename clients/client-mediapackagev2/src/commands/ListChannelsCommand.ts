@@ -48,8 +48,19 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //       CreatedAt: new Date("TIMESTAMP"), // required
  * //       ModifiedAt: new Date("TIMESTAMP"), // required
  * //       Description: "STRING_VALUE",
- * //       InputType: "HLS" || "CMAF",
+ * //       InputType: "HLS" || "CMAF" || "MULTIVIEW",
  * //       OutputLockingMode: "EPOCH_LOCKED" || "NON_EPOCH_LOCKED",
+ * //       MultiviewConfiguration: { // MultiviewConfiguration
+ * //         AvailableSources: [ // MultiviewSourceList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         AvailableLayouts: [ // MultiviewLayoutList // required
+ * //           "LAYOUT_2EH" || "LAYOUT_2PL" || "LAYOUT_3EL" || "LAYOUT_3PL" || "LAYOUT_4E" || "LAYOUT_4PL",
+ * //         ],
+ * //       },
+ * //       AttachedMultiviewChannels: [ // AttachedMultiviewChannelList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

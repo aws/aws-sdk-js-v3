@@ -19,6 +19,7 @@ import type {
   InputType,
   IsmEncryptionMethod,
   MssManifestLayout,
+  MultiviewLayoutType,
   OutputLockingMode,
   OutputTimestampMode,
   PresetSpeke20Audio,
@@ -235,6 +236,24 @@ export interface InputSwitchConfiguration {
 }
 
 /**
+ * <p>The multiview configuration for a channel. A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+ * @public
+ */
+export interface MultiviewConfiguration {
+  /**
+   * <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+   * @public
+   */
+  AvailableSources: string[] | undefined;
+
+  /**
+   * <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+   * @public
+   */
+  AvailableLayouts: MultiviewLayoutType[] | undefined;
+}
+
+/**
  * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
  * @public
  */
@@ -269,7 +288,7 @@ export interface CreateChannelRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
+   * <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> <li> <p> <code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;
@@ -291,6 +310,12 @@ export interface CreateChannelRequest {
    * @public
    */
   OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
+
+  /**
+   * <p>The multiview configuration for the channel. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+   * @public
+   */
+  MultiviewConfiguration?: MultiviewConfiguration | undefined;
 
   /**
    * <p>The output locking mode for the channel. This setting is only valid when <code>InputType</code> is <code>CMAF</code>. This value is immutable after channel creation. If you don't specify a value, the default is <code>EPOCH_LOCKED</code>.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time. This mode supports cross-region synchronization and failover.</p> </li> <li> <p> <code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0. This mode does not support cross-region synchronization or failover.</p> </li> </ul>
@@ -327,6 +352,18 @@ export interface IngestEndpoint {
  * @public
  */
 export interface CreateChannelResponse {
+  /**
+   * <p>The multiview configuration for the channel. This is present only when <code>InputType</code> is <code>MULTIVIEW</code>.</p>
+   * @public
+   */
+  MultiviewConfiguration?: MultiviewConfiguration | undefined;
+
+  /**
+   * <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+   * @public
+   */
+  AttachedMultiviewChannels?: string[] | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
    * @public
@@ -370,7 +407,7 @@ export interface CreateChannelResponse {
   IngestEndpoints?: IngestEndpoint[] | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
+   * <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> <li> <p> <code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;
@@ -450,6 +487,18 @@ export interface GetChannelRequest {
  */
 export interface GetChannelResponse {
   /**
+   * <p>The multiview configuration for the channel. This is present only when <code>InputType</code> is <code>MULTIVIEW</code>.</p>
+   * @public
+   */
+  MultiviewConfiguration?: MultiviewConfiguration | undefined;
+
+  /**
+   * <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+   * @public
+   */
+  AttachedMultiviewChannels?: string[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
    * @public
    */
@@ -498,7 +547,7 @@ export interface GetChannelResponse {
   IngestEndpoints?: IngestEndpoint[] | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
+   * <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> <li> <p> <code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;
@@ -599,7 +648,7 @@ export interface ChannelListConfiguration {
   Description?: string | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
+   * <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> <li> <p> <code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;
@@ -609,6 +658,18 @@ export interface ChannelListConfiguration {
    * @public
    */
   OutputLockingMode?: OutputLockingMode | undefined;
+
+  /**
+   * <p>The multiview configuration for the channel. This is present only when <code>InputType</code> is <code>MULTIVIEW</code>.</p>
+   * @public
+   */
+  MultiviewConfiguration?: MultiviewConfiguration | undefined;
+
+  /**
+   * <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field.</p>
+   * @public
+   */
+  AttachedMultiviewChannels?: string[] | undefined;
 }
 
 /**
@@ -2822,12 +2883,30 @@ export interface UpdateChannelRequest {
    * @public
    */
   OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
+
+  /**
+   * <p>The multiview configuration for the channel. This setting is required when the channel's <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type. Because <code>InputType</code> is immutable, you can change a multiview channel's sources and layouts. You can't add or remove the multiview configuration itself.</p>
+   * @public
+   */
+  MultiviewConfiguration?: MultiviewConfiguration | undefined;
 }
 
 /**
  * @public
  */
 export interface UpdateChannelResponse {
+  /**
+   * <p>The multiview configuration for the channel. This is present only when <code>InputType</code> is <code>MULTIVIEW</code>.</p>
+   * @public
+   */
+  MultiviewConfiguration?: MultiviewConfiguration | undefined;
+
+  /**
+   * <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+   * @public
+   */
+  AttachedMultiviewChannels?: string[] | undefined;
+
   /**
    * <p>The Amazon Resource Name (ARN) associated with the resource.</p>
    * @public
@@ -2871,7 +2950,7 @@ export interface UpdateChannelResponse {
   IngestEndpoints?: IngestEndpoint[] | undefined;
 
   /**
-   * <p>The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> </ul>
+   * <p>The input type is an immutable field. It defines whether the channel allows CMAF ingest, HLS ingest, or server-side multiview output. Multiview channels receive no ingest of their own. If unprovided, the value defaults to HLS.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>HLS</code> - The HLS streaming specification (which defines M3U8 manifests and TS segments).</p> </li> <li> <p> <code>CMAF</code> - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).</p> </li> <li> <p> <code>MULTIVIEW</code> – Server-side multiview. The channel receives no ingest of its own. Instead, it composites video from the source channels in its <code>MultiviewConfiguration</code> into a single tiled output stream.</p> </li> </ul>
    * @public
    */
   InputType?: InputType | undefined;

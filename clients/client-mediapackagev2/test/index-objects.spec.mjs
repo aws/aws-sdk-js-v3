@@ -150,6 +150,8 @@ import {
   MediaPackageV2Client,
   MediaPackageV2ServiceException,
   MssManifestLayout,
+  MultiviewConfiguration$,
+  MultiviewLayoutType,
   OriginEndpointListConfiguration$,
   OutputHeaderConfiguration$,
   OutputLockingMode,
@@ -367,6 +369,7 @@ assert(typeof ListOriginEndpointsRequest$ === "object");
 assert(typeof ListOriginEndpointsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof MultiviewConfiguration$ === "object");
 assert(typeof OriginEndpointListConfiguration$ === "object");
 assert(typeof OutputHeaderConfiguration$ === "object");
 assert(typeof PutChannelPolicyRequest$ === "object");
@@ -413,6 +416,7 @@ assert(typeof HarvestJobStatus === "object");
 assert(typeof InputType === "object");
 assert(typeof IsmEncryptionMethod === "object");
 assert(typeof MssManifestLayout === "object");
+assert(typeof MultiviewLayoutType === "object");
 assert(typeof OutputLockingMode === "object");
 assert(typeof OutputTimestampMode === "object");
 assert(typeof PresetSpeke20Audio === "object");
