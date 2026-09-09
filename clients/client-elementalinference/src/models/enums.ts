@@ -3,6 +3,19 @@
  * @public
  * @enum
  */
+export const SummaryGenerationMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type SummaryGenerationMode = (typeof SummaryGenerationMode)[keyof typeof SummaryGenerationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const TranscriptionLanguage = {
   DEU: "deu",
   ENG: "eng",

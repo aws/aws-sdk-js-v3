@@ -7,6 +7,7 @@ import type {
   FilterName,
   OutputStatus,
   ProfanityFilterMode,
+  SummaryGenerationMode,
   TranscriptionLanguage,
 } from "./enums";
 
@@ -56,6 +57,18 @@ export interface ClippingConfig {
    * @public
    */
   dataSourceConfiguration?: DataSourceConfiguration | undefined;
+}
+
+/**
+ * <p>The output configuration settings for the contextual metadata feature. Use this structure when the feed output generates metadata that describes the media content. </p>
+ * @public
+ */
+export interface ContextualMetadataConfig {
+  /**
+   * <p>Specifies whether Elemental Inference generates a descriptive summary of the media content for this output. </p> <p>Valid values:</p> <ul> <li> <p>ENABLED (default) – Elemental Inference generates a descriptive summary along with IAB taxonomy and GARM suitability classifications. </p> </li> <li> <p>DISABLED – No descriptive summary is generated.</p> </li> </ul>
+   * @public
+   */
+  summaryGeneration?: SummaryGenerationMode | undefined;
 }
 
 /**
@@ -124,6 +137,7 @@ export interface SubtitlingConfig {
  */
 export type OutputConfig =
   | OutputConfig.ClippingMember
+  | OutputConfig.ContextualMetadataMember
   | OutputConfig.CroppingMember
   | OutputConfig.SubtitlingMember
   | OutputConfig.$UnknownMember;
@@ -140,6 +154,7 @@ export namespace OutputConfig {
     cropping: CroppingConfig;
     clipping?: never;
     subtitling?: never;
+    contextualMetadata?: never;
     $unknown?: never;
   }
 
@@ -151,6 +166,7 @@ export namespace OutputConfig {
     cropping?: never;
     clipping: ClippingConfig;
     subtitling?: never;
+    contextualMetadata?: never;
     $unknown?: never;
   }
 
@@ -162,6 +178,19 @@ export namespace OutputConfig {
     cropping?: never;
     clipping?: never;
     subtitling: SubtitlingConfig;
+    contextualMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The output config type that applies to the contextual metadata feature.</p>
+   * @public
+   */
+  export interface ContextualMetadataMember {
+    cropping?: never;
+    clipping?: never;
+    subtitling?: never;
+    contextualMetadata: ContextualMetadataConfig;
     $unknown?: never;
   }
 
@@ -172,6 +201,7 @@ export namespace OutputConfig {
     cropping?: never;
     clipping?: never;
     subtitling?: never;
+    contextualMetadata?: never;
     $unknown: [string, any];
   }
 
@@ -183,6 +213,7 @@ export namespace OutputConfig {
     cropping: (value: CroppingConfig) => T;
     clipping: (value: ClippingConfig) => T;
     subtitling: (value: SubtitlingConfig) => T;
+    contextualMetadata: (value: ContextualMetadataConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -564,6 +595,17 @@ export interface DeleteFeedResponse {
 /**
  * @public
  */
+export interface DeleteFeedPolicyRequest {
+  /**
+   * <p>The ID of the feed whose policy you want to delete.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ExportDictionaryEntriesRequest {
   /**
    * <p>The ID of the dictionary whose entries you want to export.</p>
@@ -900,6 +942,28 @@ export interface GetFeedResponse {
 /**
  * @public
  */
+export interface GetFeedPolicyRequest {
+  /**
+   * <p>The ID of the feed whose policy you want to retrieve.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFeedPolicyResponse {
+  /**
+   * <p>The resource-based policy document attached to the feed.</p>
+   * @public
+   */
+  policy: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListFeedsRequest {
   /**
    * <p>The maximum number of results to return per API request.</p> <p>For example, you submit a list request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page. </p> <p>Valid Range: Minimum value of 1. Maximum value of 1000.</p>
@@ -966,6 +1030,28 @@ export interface ListFeedsResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface PutFeedPolicyRequest {
+  /**
+   * <p>The ID of the feed to attach the policy to.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The resource-based policy document to attach to the feed.</p>
+   * @public
+   */
+  policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutFeedPolicyResponse {}
 
 /**
  * <p>Contains configuration information about one output in a feed. It is used in the UpdateFeed action. </p>

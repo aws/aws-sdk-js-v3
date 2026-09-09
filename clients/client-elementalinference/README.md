@@ -216,6 +216,13 @@ DeleteFeed
 </details>
 <details>
 <summary>
+DeleteFeedPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/DeleteFeedPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/DeleteFeedPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/DeleteFeedPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 DisassociateFeed
 </summary>
 
@@ -244,6 +251,13 @@ GetFeed
 </details>
 <details>
 <summary>
+GetFeedPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/GetFeedPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/GetFeedPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/GetFeedPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 GetFixture
 </summary>
 
@@ -269,6 +283,13 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/ListTagsForResourceCommandOutput/)
+</details>
+<details>
+<summary>
+PutFeedPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/PutFeedPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/PutFeedPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/PutFeedPolicyCommandOutput/)
 </details>
 <details>
 <summary>

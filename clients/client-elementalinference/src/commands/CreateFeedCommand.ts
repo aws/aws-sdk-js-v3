@@ -64,6 +64,9 @@ export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataB
  *           dictionary: "STRING_VALUE",
  *           profanityFilter: "DISABLED" || "CENSOR" || "DROP",
  *         },
+ *         contextualMetadata: { // ContextualMetadataConfig
+ *           summaryGeneration: "ENABLED" || "DISABLED",
+ *         },
  *       },
  *       status: "ENABLED" || "DISABLED", // required
  *       description: "STRING_VALUE",
@@ -110,6 +113,9 @@ export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataB
  * //           },
  * //           dictionary: "STRING_VALUE",
  * //           profanityFilter: "DISABLED" || "CENSOR" || "DROP",
+ * //         },
+ * //         contextualMetadata: { // ContextualMetadataConfig
+ * //           summaryGeneration: "ENABLED" || "DISABLED",
  * //         },
  * //       },
  * //       status: "ENABLED" || "DISABLED", // required

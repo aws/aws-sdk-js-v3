@@ -14,12 +14,15 @@ const _CF = "CreateFeed";
 const _CFR = "CreateFeedRequest";
 const _CFRr = "CreateFeedResponse";
 const _CL = "CompetitorList";
+const _CMC = "ContextualMetadataConfig";
 const _CO = "CreateOutput";
 const _COL = "CreateOutputList";
 const _DD = "DeleteDictionary";
 const _DDR = "DeleteDictionaryRequest";
 const _DDRe = "DeleteDictionaryResponse";
 const _DF = "DeleteFeed";
+const _DFP = "DeleteFeedPolicy";
+const _DFPR = "DeleteFeedPolicyRequest";
 const _DFR = "DeleteFeedRequest";
 const _DFRe = "DeleteFeedResponse";
 const _DFRi = "DisassociateFeedRequest";
@@ -40,6 +43,9 @@ const _GD = "GetDictionary";
 const _GDR = "GetDictionaryRequest";
 const _GDRe = "GetDictionaryResponse";
 const _GF = "GetFeed";
+const _GFP = "GetFeedPolicy";
+const _GFPR = "GetFeedPolicyRequest";
+const _GFPRe = "GetFeedPolicyResponse";
 const _GFR = "GetFeedRequest";
 const _GFRe = "GetFeedResponse";
 const _GFRet = "GetFixtureRequest";
@@ -59,6 +65,9 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _OC = "OutputConfig";
+const _PFP = "PutFeedPolicy";
+const _PFPR = "PutFeedPolicyRequest";
+const _PFPRu = "PutFeedPolicyResponse";
 const _RNFE = "ResourceNotFoundException";
 const _SC = "SubtitlingConfig";
 const _SF = "SearchFilter";
@@ -91,6 +100,7 @@ const _aRN = "associatedResourceName";
 const _as = "association";
 const _c = "client";
 const _cM = "callbackMetadata";
+const _cMo = "contextualMetadata";
 const _cl = "clipping";
 const _co = "competitors";
 const _cr = "cropping";
@@ -122,11 +132,13 @@ const _n = "name";
 const _nT = "nextToken";
 const _o = "outputs";
 const _oC = "outputConfig";
+const _p = "policy";
 const _pF = "profanityFilter";
 const _r = "references";
 const _rA = "resourceArn";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.elementalinference";
 const _sD = "startDate";
+const _sG = "summaryGeneration";
 const _sS = "scheduledStart";
 const _se = "server";
 const _sp = "sport";
@@ -257,6 +269,11 @@ export var Competitor$: StaticStructureSchema = [3, n0, _C,
   [_n, _iH],
   [0, 2]
 ];
+export var ContextualMetadataConfig$: StaticStructureSchema = [3, n0, _CMC,
+  0,
+  [_sG],
+  [0]
+];
 export var CreateDictionaryRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_n, _l, _en, _t],
@@ -301,6 +318,11 @@ export var DeleteDictionaryResponse$: StaticStructureSchema = [3, n0, _DDRe,
   0,
   [_a, _i, _st],
   [0, 0, 0], 3
+];
+export var DeleteFeedPolicyRequest$: StaticStructureSchema = [3, n0, _DFPR,
+  0,
+  [_i],
+  [[0, 1]], 1
 ];
 export var DeleteFeedRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
@@ -362,6 +384,16 @@ export var GetDictionaryResponse$: StaticStructureSchema = [3, n0, _GDRe,
   [_n, _a, _i, _l, _st, _r, _t],
   [0, 0, 0, 0, 0, 64 | 0, 128 | 0], 5
 ];
+export var GetFeedPolicyRequest$: StaticStructureSchema = [3, n0, _GFPR,
+  0,
+  [_i],
+  [[0, 1]], 1
+];
+export var GetFeedPolicyResponse$: StaticStructureSchema = [3, n0, _GFPRe,
+  0,
+  [_p],
+  [0], 1
+];
 export var GetFeedRequest$: StaticStructureSchema = [3, n0, _GFR,
   0,
   [_i],
@@ -416,6 +448,16 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   0,
   [_t],
   [128 | 0]
+];
+export var PutFeedPolicyRequest$: StaticStructureSchema = [3, n0, _PFPR,
+  0,
+  [_i, _p],
+  [[0, 1], 0], 2
+];
+export var PutFeedPolicyResponse$: StaticStructureSchema = [3, n0, _PFPRu,
+  0,
+  [],
+  []
 ];
 export var SearchFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
@@ -513,8 +555,8 @@ var UpdateOutputList: StaticListSchema = [1, n0, _UOL,
 var TagMap = 128 | 0;
 export var OutputConfig$: StaticUnionSchema = [4, n0, _OC,
   0,
-  [_cr, _cl, _su],
-  [() => CroppingConfig$, () => ClippingConfig$, () => SubtitlingConfig$]
+  [_cr, _cl, _su, _cMo],
+  [() => CroppingConfig$, () => ClippingConfig$, () => SubtitlingConfig$, () => ContextualMetadataConfig$]
 ];
 export var AssociateFeed$: StaticOperationSchema = [9, n0, _AF,
   { [_ht]: ["POST", "/v1/feed/{id}/associate", 200] }, () => AssociateFeedRequest$, () => AssociateFeedResponse$
@@ -531,6 +573,9 @@ export var DeleteDictionary$: StaticOperationSchema = [9, n0, _DD,
 export var DeleteFeed$: StaticOperationSchema = [9, n0, _DF,
   { [_ht]: ["DELETE", "/v1/feed/{id}", 202] }, () => DeleteFeedRequest$, () => DeleteFeedResponse$
 ];
+export var DeleteFeedPolicy$: StaticOperationSchema = [9, n0, _DFP,
+  { [_ht]: ["DELETE", "/v1/feed/{id}/policy", 204] }, () => DeleteFeedPolicyRequest$, () => __Unit
+];
 export var DisassociateFeed$: StaticOperationSchema = [9, n0, _DFi,
   { [_ht]: ["POST", "/v1/feed/{id}/disassociate", 200] }, () => DisassociateFeedRequest$, () => DisassociateFeedResponse$
 ];
@@ -543,6 +588,9 @@ export var GetDictionary$: StaticOperationSchema = [9, n0, _GD,
 export var GetFeed$: StaticOperationSchema = [9, n0, _GF,
   { [_ht]: ["GET", "/v1/feed/{id}", 200] }, () => GetFeedRequest$, () => GetFeedResponse$
 ];
+export var GetFeedPolicy$: StaticOperationSchema = [9, n0, _GFP,
+  { [_ht]: ["GET", "/v1/feed/{id}/policy", 200] }, () => GetFeedPolicyRequest$, () => GetFeedPolicyResponse$
+];
 export var GetFixture$: StaticOperationSchema = [9, n0, _GFe,
   { [_ht]: ["GET", "/v1/fixtures/{fixtureId}", 200] }, () => GetFixtureRequest$, () => GetFixtureResponse$
 ];
@@ -554,6 +602,9 @@ export var ListFeeds$: StaticOperationSchema = [9, n0, _LF,
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_ht]: ["GET", "/v1/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var PutFeedPolicy$: StaticOperationSchema = [9, n0, _PFP,
+  { [_ht]: ["PUT", "/v1/feed/{id}/policy", 200] }, () => PutFeedPolicyRequest$, () => PutFeedPolicyResponse$
 ];
 export var SearchFixtures$: StaticOperationSchema = [9, n0, _SFe,
   { [_ht]: ["POST", "/v1/fixtures", 200] }, () => SearchFixturesRequest$, () => SearchFixturesResponse$

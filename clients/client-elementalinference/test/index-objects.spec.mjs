@@ -10,6 +10,7 @@ import {
   Competitor$,
   ConflictException,
   ConflictException$,
+  ContextualMetadataConfig$,
   CreateDictionary$,
   CreateDictionaryCommand,
   CreateDictionaryRequest$,
@@ -28,6 +29,9 @@ import {
   DeleteDictionaryResponse$,
   DeleteFeed$,
   DeleteFeedCommand,
+  DeleteFeedPolicy$,
+  DeleteFeedPolicyCommand,
+  DeleteFeedPolicyRequest$,
   DeleteFeedRequest$,
   DeleteFeedResponse$,
   DictionaryLanguage,
@@ -57,6 +61,10 @@ import {
   GetDictionaryResponse$,
   GetFeed$,
   GetFeedCommand,
+  GetFeedPolicy$,
+  GetFeedPolicyCommand,
+  GetFeedPolicyRequest$,
+  GetFeedPolicyResponse$,
   GetFeedRequest$,
   GetFeedResponse$,
   GetFixture$,
@@ -84,6 +92,10 @@ import {
   paginateListFeeds,
   paginateSearchFixtures,
   ProfanityFilterMode,
+  PutFeedPolicy$,
+  PutFeedPolicyCommand,
+  PutFeedPolicyRequest$,
+  PutFeedPolicyResponse$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   SearchFilter$,
@@ -96,6 +108,7 @@ import {
   ServiceUnavailableException,
   ServiceUnavailableException$,
   SubtitlingConfig$,
+  SummaryGenerationMode,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -135,6 +148,8 @@ assert(typeof DeleteDictionaryCommand === "function");
 assert(typeof DeleteDictionary$ === "object");
 assert(typeof DeleteFeedCommand === "function");
 assert(typeof DeleteFeed$ === "object");
+assert(typeof DeleteFeedPolicyCommand === "function");
+assert(typeof DeleteFeedPolicy$ === "object");
 assert(typeof DisassociateFeedCommand === "function");
 assert(typeof DisassociateFeed$ === "object");
 assert(typeof ExportDictionaryEntriesCommand === "function");
@@ -143,6 +158,8 @@ assert(typeof GetDictionaryCommand === "function");
 assert(typeof GetDictionary$ === "object");
 assert(typeof GetFeedCommand === "function");
 assert(typeof GetFeed$ === "object");
+assert(typeof GetFeedPolicyCommand === "function");
+assert(typeof GetFeedPolicy$ === "object");
 assert(typeof GetFixtureCommand === "function");
 assert(typeof GetFixture$ === "object");
 assert(typeof ListDictionariesCommand === "function");
@@ -151,6 +168,8 @@ assert(typeof ListFeedsCommand === "function");
 assert(typeof ListFeeds$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof PutFeedPolicyCommand === "function");
+assert(typeof PutFeedPolicy$ === "object");
 assert(typeof SearchFixturesCommand === "function");
 assert(typeof SearchFixtures$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -167,6 +186,7 @@ assert(typeof AssociateFeedRequest$ === "object");
 assert(typeof AssociateFeedResponse$ === "object");
 assert(typeof ClippingConfig$ === "object");
 assert(typeof Competitor$ === "object");
+assert(typeof ContextualMetadataConfig$ === "object");
 assert(typeof CreateDictionaryRequest$ === "object");
 assert(typeof CreateDictionaryResponse$ === "object");
 assert(typeof CreateFeedRequest$ === "object");
@@ -176,6 +196,7 @@ assert(typeof CroppingConfig$ === "object");
 assert(typeof DataSourceConfiguration$ === "object");
 assert(typeof DeleteDictionaryRequest$ === "object");
 assert(typeof DeleteDictionaryResponse$ === "object");
+assert(typeof DeleteFeedPolicyRequest$ === "object");
 assert(typeof DeleteFeedRequest$ === "object");
 assert(typeof DeleteFeedResponse$ === "object");
 assert(typeof DictionarySummary$ === "object");
@@ -188,6 +209,8 @@ assert(typeof FeedSummary$ === "object");
 assert(typeof FixtureSummary$ === "object");
 assert(typeof GetDictionaryRequest$ === "object");
 assert(typeof GetDictionaryResponse$ === "object");
+assert(typeof GetFeedPolicyRequest$ === "object");
+assert(typeof GetFeedPolicyResponse$ === "object");
 assert(typeof GetFeedRequest$ === "object");
 assert(typeof GetFeedResponse$ === "object");
 assert(typeof GetFixtureRequest$ === "object");
@@ -200,6 +223,8 @@ assert(typeof ListFeedsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof OutputConfig$ === "object");
+assert(typeof PutFeedPolicyRequest$ === "object");
+assert(typeof PutFeedPolicyResponse$ === "object");
 assert(typeof SearchFilter$ === "object");
 assert(typeof SearchFixturesRequest$ === "object");
 assert(typeof SearchFixturesResponse$ === "object");
@@ -220,6 +245,7 @@ assert(typeof FeedStatus === "object");
 assert(typeof FilterName === "object");
 assert(typeof OutputStatus === "object");
 assert(typeof ProfanityFilterMode === "object");
+assert(typeof SummaryGenerationMode === "object");
 assert(typeof TranscriptionLanguage === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ElementalInferenceServiceException);

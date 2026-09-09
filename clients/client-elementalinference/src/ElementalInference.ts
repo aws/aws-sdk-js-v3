@@ -33,6 +33,11 @@ import {
   DeleteFeedCommand,
 } from "./commands/DeleteFeedCommand";
 import {
+  type DeleteFeedPolicyCommandInput,
+  type DeleteFeedPolicyCommandOutput,
+  DeleteFeedPolicyCommand,
+} from "./commands/DeleteFeedPolicyCommand";
+import {
   type DisassociateFeedCommandInput,
   type DisassociateFeedCommandOutput,
   DisassociateFeedCommand,
@@ -49,6 +54,11 @@ import {
 } from "./commands/GetDictionaryCommand";
 import { type GetFeedCommandInput, type GetFeedCommandOutput, GetFeedCommand } from "./commands/GetFeedCommand";
 import {
+  type GetFeedPolicyCommandInput,
+  type GetFeedPolicyCommandOutput,
+  GetFeedPolicyCommand,
+} from "./commands/GetFeedPolicyCommand";
+import {
   type GetFixtureCommandInput,
   type GetFixtureCommandOutput,
   GetFixtureCommand,
@@ -64,6 +74,11 @@ import {
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  type PutFeedPolicyCommandInput,
+  type PutFeedPolicyCommandOutput,
+  PutFeedPolicyCommand,
+} from "./commands/PutFeedPolicyCommand";
 import {
   type SearchFixturesCommandInput,
   type SearchFixturesCommandOutput,
@@ -103,14 +118,17 @@ const commands = {
   CreateFeedCommand,
   DeleteDictionaryCommand,
   DeleteFeedCommand,
+  DeleteFeedPolicyCommand,
   DisassociateFeedCommand,
   ExportDictionaryEntriesCommand,
   GetDictionaryCommand,
   GetFeedCommand,
+  GetFeedPolicyCommand,
   GetFixtureCommand,
   ListDictionariesCommand,
   ListFeedsCommand,
   ListTagsForResourceCommand,
+  PutFeedPolicyCommand,
   SearchFixturesCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -213,6 +231,23 @@ export interface ElementalInference {
   ): void;
 
   /**
+   * @see {@link DeleteFeedPolicyCommand}
+   */
+  deleteFeedPolicy(
+    args: DeleteFeedPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFeedPolicyCommandOutput>;
+  deleteFeedPolicy(
+    args: DeleteFeedPolicyCommandInput,
+    cb: (err: any, data?: DeleteFeedPolicyCommandOutput) => void
+  ): void;
+  deleteFeedPolicy(
+    args: DeleteFeedPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFeedPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateFeedCommand}
    */
   disassociateFeed(
@@ -278,6 +313,23 @@ export interface ElementalInference {
     args: GetFeedCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFeedCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFeedPolicyCommand}
+   */
+  getFeedPolicy(
+    args: GetFeedPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFeedPolicyCommandOutput>;
+  getFeedPolicy(
+    args: GetFeedPolicyCommandInput,
+    cb: (err: any, data?: GetFeedPolicyCommandOutput) => void
+  ): void;
+  getFeedPolicy(
+    args: GetFeedPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFeedPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -348,6 +400,23 @@ export interface ElementalInference {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutFeedPolicyCommand}
+   */
+  putFeedPolicy(
+    args: PutFeedPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFeedPolicyCommandOutput>;
+  putFeedPolicy(
+    args: PutFeedPolicyCommandInput,
+    cb: (err: any, data?: PutFeedPolicyCommandOutput) => void
+  ): void;
+  putFeedPolicy(
+    args: PutFeedPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFeedPolicyCommandOutput) => void
   ): void;
 
   /**

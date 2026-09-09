@@ -59,6 +59,7 @@ import type { CreateDictionaryCommandInput, CreateDictionaryCommandOutput } from
 import type { CreateFeedCommandInput, CreateFeedCommandOutput } from "./commands/CreateFeedCommand";
 import type { DeleteDictionaryCommandInput, DeleteDictionaryCommandOutput } from "./commands/DeleteDictionaryCommand";
 import type { DeleteFeedCommandInput, DeleteFeedCommandOutput } from "./commands/DeleteFeedCommand";
+import type { DeleteFeedPolicyCommandInput, DeleteFeedPolicyCommandOutput } from "./commands/DeleteFeedPolicyCommand";
 import type { DisassociateFeedCommandInput, DisassociateFeedCommandOutput } from "./commands/DisassociateFeedCommand";
 import type {
   ExportDictionaryEntriesCommandInput,
@@ -66,6 +67,7 @@ import type {
 } from "./commands/ExportDictionaryEntriesCommand";
 import type { GetDictionaryCommandInput, GetDictionaryCommandOutput } from "./commands/GetDictionaryCommand";
 import type { GetFeedCommandInput, GetFeedCommandOutput } from "./commands/GetFeedCommand";
+import type { GetFeedPolicyCommandInput, GetFeedPolicyCommandOutput } from "./commands/GetFeedPolicyCommand";
 import type { GetFixtureCommandInput, GetFixtureCommandOutput } from "./commands/GetFixtureCommand";
 import type { ListDictionariesCommandInput, ListDictionariesCommandOutput } from "./commands/ListDictionariesCommand";
 import type { ListFeedsCommandInput, ListFeedsCommandOutput } from "./commands/ListFeedsCommand";
@@ -73,6 +75,7 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type { PutFeedPolicyCommandInput, PutFeedPolicyCommandOutput } from "./commands/PutFeedPolicyCommand";
 import type { SearchFixturesCommandInput, SearchFixturesCommandOutput } from "./commands/SearchFixturesCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -98,14 +101,17 @@ export type ServiceInputTypes =
   | CreateFeedCommandInput
   | DeleteDictionaryCommandInput
   | DeleteFeedCommandInput
+  | DeleteFeedPolicyCommandInput
   | DisassociateFeedCommandInput
   | ExportDictionaryEntriesCommandInput
   | GetDictionaryCommandInput
   | GetFeedCommandInput
+  | GetFeedPolicyCommandInput
   | GetFixtureCommandInput
   | ListDictionariesCommandInput
   | ListFeedsCommandInput
   | ListTagsForResourceCommandInput
+  | PutFeedPolicyCommandInput
   | SearchFixturesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -121,14 +127,17 @@ export type ServiceOutputTypes =
   | CreateFeedCommandOutput
   | DeleteDictionaryCommandOutput
   | DeleteFeedCommandOutput
+  | DeleteFeedPolicyCommandOutput
   | DisassociateFeedCommandOutput
   | ExportDictionaryEntriesCommandOutput
   | GetDictionaryCommandOutput
   | GetFeedCommandOutput
+  | GetFeedPolicyCommandOutput
   | GetFixtureCommandOutput
   | ListDictionariesCommandOutput
   | ListFeedsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutFeedPolicyCommandOutput
   | SearchFixturesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
