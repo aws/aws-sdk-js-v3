@@ -77,6 +77,11 @@ export interface GetComputeNodeGroupCommandOutput extends GetComputeNodeGroupRes
  * //           parameterValue: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       gresCustomSettings: [ // GresCustomSettings
+ * //         { // GresCustomSettingMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //     nodeLifecycleActions: { // NodeLifecycleActions
  * //       stages: { // NodeLifecycleStages

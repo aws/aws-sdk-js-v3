@@ -230,6 +230,12 @@ export interface ComputeNodeGroupSlurmConfigurationRequest {
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
+
+  /**
+   * <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+   * @public
+   */
+  gresCustomSettings?: Record<string, string>[] | undefined;
 }
 
 /**
@@ -403,6 +409,12 @@ export interface ComputeNodeGroupSlurmConfiguration {
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
+
+  /**
+   * <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+   * @public
+   */
+  gresCustomSettings?: Record<string, string>[] | undefined;
 }
 
 /**
@@ -726,6 +738,12 @@ export interface UpdateComputeNodeGroupSlurmConfigurationRequest {
    * @public
    */
   slurmCustomSettings?: SlurmCustomSetting[] | undefined;
+
+  /**
+   * <p>The additional Slurm <code>gres.conf</code> records for the compute node group. Each item is a map of <code>gres.conf</code> attribute names to values that describes one <code>gres.conf</code> record, such as a GPU topology, MIG, MPS, or custom GRES entry. PCS adds the <code>NodeName=</code> prefix and merges these records with the GPU record it derives from the instance type.</p>
+   * @public
+   */
+  gresCustomSettings?: Record<string, string>[] | undefined;
 }
 
 /**
@@ -852,7 +870,7 @@ export interface SchedulerRequest {
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.11 | 25.05 | 25.11</code> </p>
+   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.11 | 25.05 | 25.11 | 26.05</code> </p>
    * @public
    */
   version: string | undefined;
@@ -1067,7 +1085,7 @@ export interface Scheduler {
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. You can update this version using the <code>UpdateCluster</code> API action. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> and <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11 | 25.05 | 25.11</code> </p>
+   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. You can update this version using the <code>UpdateCluster</code> API action. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> and <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11 | 25.05 | 25.11 | 26.05</code> </p>
    * @public
    */
   version: string | undefined;
@@ -1822,7 +1840,7 @@ export interface RegisterComputeNodeGroupInstanceResponse {
  */
 export interface UpdateSchedulerRequest {
   /**
-   * <p>The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11</code> </p>
+   * <p>The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11 | 26.05</code> </p>
    * @public
    */
   version: string | undefined;

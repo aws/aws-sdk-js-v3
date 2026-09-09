@@ -65,6 +65,11 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  *         parameterValue: "STRING_VALUE", // required
  *       },
  *     ],
+ *     gresCustomSettings: [ // GresCustomSettings
+ *       { // GresCustomSettingMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     ],
  *   },
  *   nodeLifecycleActions: { // NodeLifecycleActionsRequest
  *     stages: { // NodeLifecycleStages
@@ -145,6 +150,11 @@ export interface CreateComputeNodeGroupCommandOutput extends CreateComputeNodeGr
  * //         { // SlurmCustomSetting
  * //           parameterName: "STRING_VALUE", // required
  * //           parameterValue: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       gresCustomSettings: [ // GresCustomSettings
+ * //         { // GresCustomSettingMap
+ * //           "<keys>": "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

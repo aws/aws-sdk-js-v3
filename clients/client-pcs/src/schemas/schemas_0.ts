@@ -45,6 +45,7 @@ const _GCNGR = "GetComputeNodeGroupRequest";
 const _GCNGRe = "GetComputeNodeGroupResponse";
 const _GCR = "GetClusterRequest";
 const _GCRe = "GetClusterResponse";
+const _GCS = "GresCustomSettings";
 const _GQ = "GetQueue";
 const _GQR = "GetQueueRequest";
 const _GQRe = "GetQueueResponse";
@@ -154,6 +155,7 @@ const _eI = "errorInfo";
 const _eP = "executionPolicy";
 const _en = "endpoints";
 const _fL = "fieldList";
+const _gCS = "gresCustomSettings";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
@@ -350,13 +352,13 @@ export var ComputeNodeGroupConfiguration$: StaticStructureSchema = [3, n0, _CNGC
 ];
 export var ComputeNodeGroupSlurmConfiguration$: StaticStructureSchema = [3, n0, _CNGSC,
   0,
-  [_sDITIS, _sCS],
-  [1, () => SlurmCustomSettings]
+  [_sDITIS, _sCS, _gCS],
+  [1, () => SlurmCustomSettings, [1, n0, _GCS, 0, 128 | 0]]
 ];
 export var ComputeNodeGroupSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _CNGSCR,
   0,
-  [_sDITIS, _sCS],
-  [1, () => SlurmCustomSettings]
+  [_sDITIS, _sCS, _gCS],
+  [1, () => SlurmCustomSettings, [1, n0, _GCS, 0, 128 | 0]]
 ];
 export var ComputeNodeGroupSummary$: StaticStructureSchema = [3, n0, _CNGS,
   0,
@@ -690,8 +692,8 @@ export var UpdateComputeNodeGroupResponse$: StaticStructureSchema = [3, n0, _UCN
 ];
 export var UpdateComputeNodeGroupSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _UCNGSCR,
   0,
-  [_sDITIS, _sCS],
-  [1, () => SlurmCustomSettings]
+  [_sDITIS, _sCS, _gCS],
+  [1, () => SlurmCustomSettings, [1, n0, _GCS, 0, 128 | 0]]
 ];
 export var UpdateNodeLifecycleActionsRequest$: StaticStructureSchema = [3, n0, _UNLAR,
   0,
@@ -746,6 +748,9 @@ var Endpoints: StaticListSchema = [1, n0, _En,
 var ErrorInfoList: StaticListSchema = [1, n0, _EIL,
   0, () => ErrorInfo$
 ];
+var GresCustomSettings: StaticListSchema = [1, n0, _GCS,
+  0, 128 | 0
+];
 var InstanceList: StaticListSchema = [1, n0, _IL,
   0, () => InstanceConfig$
 ];
@@ -769,6 +774,7 @@ var TagKeys = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
+var GresCustomSettingMap = 128 | 0;
 var RequestTagMap = 128 | 0;
 var ResponseTagMap = 128 | 0;
 export var CreateCluster$: StaticOperationSchema = [9, n0, _CC,
