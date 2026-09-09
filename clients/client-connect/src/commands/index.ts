@@ -209,6 +209,7 @@ export * from "./ListDataTableValuesCommand";
 export * from "./ListDataTablesCommand";
 export * from "./ListDefaultVocabulariesCommand";
 export * from "./ListEntitySecurityProfilesCommand";
+export * from "./ListEvaluationFormAIVersionsCommand";
 export * from "./ListEvaluationFormVersionsCommand";
 export * from "./ListEvaluationFormsCommand";
 export * from "./ListExtractionDefinitionsCommand";

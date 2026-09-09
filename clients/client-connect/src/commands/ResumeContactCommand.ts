@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ResumeContactRequest, ResumeContactResponse } from "../models/models_2";
+import type { ResumeContactRequest, ResumeContactResponse } from "../models/models_3";
 import { ResumeContact$ } from "../schemas/schemas_0";
 
 /**

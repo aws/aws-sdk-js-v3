@@ -127,6 +127,10 @@ const _AIHD = "AgentInitiatedHoldDuration";
 const _AISC = "AssociateInstanceStorageConfig";
 const _AISCR = "AssociateInstanceStorageConfigRequest";
 const _AISCRs = "AssociateInstanceStorageConfigResponse";
+const _AIV = "AIVersion";
+const _AIVL = "AIVersionLifecycle";
+const _AIVN = "AIVersionName";
+const _AIVS = "AIVersionSummaries";
 const _AIg = "AgentIds";
 const _AIl = "AllowedIps";
 const _AIli = "AliasId";
@@ -1025,6 +1029,9 @@ const _EDr = "ErrorDescription";
 const _EF = "EffectiveFrom";
 const _EFA = "EvaluationFormArn";
 const _EFAEC = "EvaluationFormAutoEvaluationConfiguration";
+const _EFAIVL = "EvaluationFormAIVersionLifecycle";
+const _EFAIVS = "EvaluationFormAIVersionSummary";
+const _EFAIVSL = "EvaluationFormAIVersionSummaryList";
 const _EFC = "EvaluationFormContent";
 const _EFI = "EvaluationFormId";
 const _EFIEC = "EvaluationFormItemEnablementCondition";
@@ -1039,6 +1046,7 @@ const _EFIL = "EvaluationFormItemsList";
 const _EFIv = "EvaluationFormItem";
 const _EFL = "EvaluationFormLanguage";
 const _EFLC = "EvaluationFormLanguageConfiguration";
+const _EFMC = "EvaluationFormMetricConfiguration";
 const _EFMSQA = "EvaluationFormMultiSelectQuestionAutomation";
 const _EFMSQAO = "EvaluationFormMultiSelectQuestionAutomationOption";
 const _EFMSQAOL = "EvaluationFormMultiSelectQuestionAutomationOptionList";
@@ -1109,6 +1117,7 @@ const _ENM = "EvaluationNotesMap";
 const _EOC = "EndOffsetChar";
 const _EOH = "EffectiveOverrideHours";
 const _EOHL = "EffectiveOverrideHoursList";
+const _EOLT = "EndOfLifeTime";
 const _EP = "EntryPoint";
 const _EPa = "EarnedPoints";
 const _EQAAD = "EvaluationQuestionAnswerAnalysisDetails";
@@ -1503,6 +1512,9 @@ const _LEDR = "ListExtractionDefinitionsRequest";
 const _LEDRi = "ListExtractionDefinitionsResponse";
 const _LEE = "LimitExceededException";
 const _LEF = "ListEvaluationForms";
+const _LEFAIV = "ListEvaluationFormAIVersions";
+const _LEFAIVR = "ListEvaluationFormAIVersionsRequest";
+const _LEFAIVRi = "ListEvaluationFormAIVersionsResponse";
 const _LEFR = "ListEvaluationFormsRequest";
 const _LEFRi = "ListEvaluationFormsResponse";
 const _LEFV = "ListEvaluationFormVersions";
@@ -1704,6 +1716,7 @@ const _MCa = "MaxContacts";
 const _MCe = "MetricCalculation";
 const _MCed = "MediaConcurrencies";
 const _MCedi = "MediaConcurrency";
+const _MCet = "MetricConfiguration";
 const _MCo = "MonitorContact";
 const _MD = "MetricDefinition";
 const _MDCV = "MetricDataCollectionsV2";
@@ -1768,6 +1781,7 @@ const _MSu = "MultiSelect";
 const _MT = "MediaType";
 const _MTI = "MessageTemplateId";
 const _MTa = "MatchType";
+const _MTe = "MetricType";
 const _MTo = "ModifiedTimestamp";
 const _MV = "MinValue";
 const _MVa = "MaxValue";
@@ -2388,6 +2402,7 @@ const _SOECR = "StartOutboundEmailContactRequest";
 const _SOECRt = "StartOutboundEmailContactResponse";
 const _SOER = "SendOutboundEmailRequest";
 const _SOERe = "SendOutboundEmailResponse";
+const _SOLT = "StartOfLifeTime";
 const _SOVC = "StartOutboundVoiceContact";
 const _SOVCR = "StartOutboundVoiceContactRequest";
 const _SOVCRt = "StartOutboundVoiceContactResponse";
@@ -2988,6 +3003,7 @@ const _bN = "botName";
 const _c = "client";
 const _cFT = "contactFlowTypes";
 const _cI = "contactId";
+const _cIT = "contactInteractionType";
 const _cT = "clientToken";
 const _e = "error";
 const _eSN = "eventSourceName";
@@ -4261,8 +4277,8 @@ export var CreateEmailAddressResponse$: StaticStructureSchema = [3, n0, _CEARr,
 ];
 export var CreateEvaluationFormRequest$: StaticStructureSchema = [3, n0, _CEFR,
   0,
-  [_II, _Ti, _It, _D, _SS, _AEC, _CT, _ADs, _Ta, _RCev, _TCar, _LC],
-  [[0, 1], 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, [0, 4], 2, 128 | 0, () => EvaluationReviewConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 3
+  [_II, _Ti, _It, _D, _SS, _AEC, _CT, _ADs, _Ta, _RCev, _TCar, _LC, _AIV],
+  [[0, 1], 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, [0, 4], 2, 128 | 0, () => EvaluationReviewConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, 0], 3
 ];
 export var CreateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _CEFRr,
   0,
@@ -5666,8 +5682,18 @@ export var EvaluationContactParticipant$: StaticStructureSchema = [3, n0, _ECP,
 ];
 export var EvaluationForm$: StaticStructureSchema = [3, n0, _EFv,
   0,
-  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _RCev, _Ta, _TCar, _LC, _LVS, _LVT],
-  [0, 1, 2, 0, 0, 0, () => EvaluationFormItemsList, 4, 0, 4, 0, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 128 | 0, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, 0, 4], 11
+  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _RCev, _Ta, _TCar, _LC, _LVS, _LVT, _AIV],
+  [0, 1, 2, 0, 0, 0, () => EvaluationFormItemsList, 4, 0, 4, 0, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 128 | 0, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, 0, 4, 0], 11
+];
+export var EvaluationFormAIVersionLifecycle$: StaticStructureSchema = [3, n0, _EFAIVL,
+  0,
+  [_St, _SOLT, _EOLT],
+  [0, 4, 4], 2
+];
+export var EvaluationFormAIVersionSummary$: StaticStructureSchema = [3, n0, _EFAIVS,
+  0,
+  [_AIVN, _AIVL],
+  [0, () => EvaluationFormAIVersionLifecycle$], 2
 ];
 export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [3, n0, _EFAEC,
   0,
@@ -5676,8 +5702,8 @@ export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [
 ];
 export var EvaluationFormContent$: StaticStructureSchema = [3, n0, _EFC,
   0,
-  [_EFV, _EFI, _EFA, _Ti, _It, _D, _SS, _AEC, _TCar, _LC, _RCev],
-  [1, 0, 0, 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, () => EvaluationReviewConfiguration$], 5
+  [_EFV, _EFI, _EFA, _Ti, _It, _D, _SS, _AEC, _TCar, _LC, _RCev, _AIV],
+  [1, 0, 0, 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, () => EvaluationReviewConfiguration$, 0], 5
 ];
 export var EvaluationFormItemEnablementCondition$: StaticStructureSchema = [3, n0, _EFIEC,
   0,
@@ -5709,6 +5735,11 @@ export var EvaluationFormLanguageConfiguration$: StaticStructureSchema = [3, n0,
   [_FLo],
   [0]
 ];
+export var EvaluationFormMetricConfiguration$: StaticStructureSchema = [3, n0, _EFMC,
+  0,
+  [_MTe, _MN],
+  [0, 0], 2
+];
 export var EvaluationFormMultiSelectQuestionAutomation$: StaticStructureSchema = [3, n0, _EFMSQA,
   0,
   [_Opt, _DORI, _ASn],
@@ -5736,8 +5767,8 @@ export var EvaluationFormNumericQuestionProperties$: StaticStructureSchema = [3,
 ];
 export var EvaluationFormQuestion$: StaticStructureSchema = [3, n0, _EFQ,
   0,
-  [_Ti, _RIef, _QT, _Ins, _NAE, _QTP, _Ena, _We, _SCc],
-  [0, 0, 0, 0, 2, () => EvaluationFormQuestionTypeProperties$, () => EvaluationFormItemEnablementConfiguration$, 1, () => EvaluationFormQuestionScoringConfiguration$], 3
+  [_Ti, _RIef, _QT, _Ins, _NAE, _QTP, _Ena, _We, _SCc, _MCet],
+  [0, 0, 0, 0, 2, () => EvaluationFormQuestionTypeProperties$, () => EvaluationFormItemEnablementConfiguration$, 1, () => EvaluationFormQuestionScoringConfiguration$, () => EvaluationFormMetricConfiguration$], 3
 ];
 export var EvaluationFormQuestionAutomationAnswerSource$: StaticStructureSchema = [3, n0, _EFQAAS,
   0,
@@ -5771,8 +5802,8 @@ export var EvaluationFormSearchFilter$: StaticStructureSchema = [3, n0, _EFSF,
 ];
 export var EvaluationFormSearchSummary$: StaticStructureSchema = [3, n0, _EFSSv,
   0,
-  [_EFI, _EFA, _Ti, _St, _CTre, _CB, _LMT, _LMB, _LVa, _D, _LAT, _LAB, _AVc, _AEE, _EFL, _CIT, _Ta],
-  [0, 0, 0, 0, 4, 0, 4, 0, 1, 0, 4, 0, 1, 2, 0, 0, 128 | 0], 9
+  [_EFI, _EFA, _Ti, _St, _CTre, _CB, _LMT, _LMB, _LVa, _D, _LAT, _LAB, _AVc, _AEE, _EFL, _CIT, _Ta, _AIV],
+  [0, 0, 0, 0, 4, 0, 4, 0, 1, 0, 4, 0, 1, 2, 0, 0, 128 | 0, 0], 9
 ];
 export var EvaluationFormSection$: StaticStructureSchema = [3, n0, _EFS,
   0,
@@ -6663,6 +6694,16 @@ export var ListEntitySecurityProfilesResponse$: StaticStructureSchema = [3, n0, 
   0,
   [_SP, _NT],
   [() => SecurityProfiles100, 0]
+];
+export var ListEvaluationFormAIVersionsRequest$: StaticStructureSchema = [3, n0, _LEFAIVR,
+  0,
+  [_II, _CIT, _MR, _NT],
+  [[0, 1], [0, { [_hQ]: _cIT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListEvaluationFormAIVersionsResponse$: StaticStructureSchema = [3, n0, _LEFAIVRi,
+  0,
+  [_AIVS, _NT],
+  [() => EvaluationFormAIVersionSummaryList, 0], 1
 ];
 export var ListEvaluationFormsRequest$: StaticStructureSchema = [3, n0, _LEFR,
   0,
@@ -9086,8 +9127,8 @@ export var UpdateEmailAddressMetadataResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateEvaluationFormRequest$: StaticStructureSchema = [3, n0, _UEFR,
   0,
-  [_II, _EFI, _EFV, _Ti, _It, _CNV, _D, _SS, _AEC, _RCev, _ADs, _CT, _TCar, _LC],
-  [[0, 1], [0, 1], 1, 0, () => EvaluationFormItemsList, 2, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 2, [0, 4], () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 5
+  [_II, _EFI, _EFV, _Ti, _It, _CNV, _D, _SS, _AEC, _RCev, _ADs, _CT, _TCar, _LC, _AIV],
+  [[0, 1], [0, 1], 1, 0, () => EvaluationFormItemsList, 2, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 2, [0, 4], () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, 0], 5
 ];
 export var UpdateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _UEFRp,
   0,
@@ -9961,6 +10002,9 @@ var ErrorResults: StaticListSchema = [1, n0, _ERrr,
 var EvaluationAnswerDataStringValueList = 64 | 0;
 var EvaluationAutomationRuleCategoryList: StaticListSchema = [1, n0, _EARCL,
   0, () => EvaluationAutomationRuleCategory$
+];
+var EvaluationFormAIVersionSummaryList: StaticListSchema = [1, n0, _EFAIVSL,
+  0, () => EvaluationFormAIVersionSummary$
 ];
 var EvaluationFormItemEnablementConditionOperandList: StaticListSchema = [1, n0, _EFIECOL,
   0, () => EvaluationFormItemEnablementConditionOperand$
@@ -11331,6 +11375,9 @@ export var ListDefaultVocabularies$: StaticOperationSchema = [9, n0, _LDV,
 ];
 export var ListEntitySecurityProfiles$: StaticOperationSchema = [9, n0, _LESP,
   { [_h]: ["POST", "/entity-security-profiles-summary/{InstanceId}", 200] }, () => ListEntitySecurityProfilesRequest$, () => ListEntitySecurityProfilesResponse$
+];
+export var ListEvaluationFormAIVersions$: StaticOperationSchema = [9, n0, _LEFAIV,
+  { [_h]: ["GET", "/instances/{InstanceId}/evaluation-form-ai-versions", 200] }, () => ListEvaluationFormAIVersionsRequest$, () => ListEvaluationFormAIVersionsResponse$
 ];
 export var ListEvaluationForms$: StaticOperationSchema = [9, n0, _LEF,
   { [_h]: ["GET", "/evaluation-forms/{InstanceId}", 200] }, () => ListEvaluationFormsRequest$, () => ListEvaluationFormsResponse$

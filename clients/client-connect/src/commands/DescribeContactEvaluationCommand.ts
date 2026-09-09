@@ -381,6 +381,10 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //                     },
  * //                   ],
  * //                 },
+ * //                 MetricConfiguration: { // EvaluationFormMetricConfiguration
+ * //                   MetricType: "BUSINESS_OUTCOME", // required
+ * //                   MetricName: "STRING_VALUE", // required
+ * //                 },
  * //               },
  * //             },
  * //           ],
@@ -502,6 +506,10 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //             IsExcludedFromScoring: true || false,
  * //             ScoreThresholds: "<EvaluationFormScoreThresholdList>",
  * //           },
+ * //           MetricConfiguration: {
+ * //             MetricType: "BUSINESS_OUTCOME", // required
+ * //             MetricName: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //       },
  * //     ],
@@ -530,6 +538,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //       ],
  * //       EligibilityDays: Number("int"),
  * //     },
+ * //     AIVersion: "STRING_VALUE",
  * //   },
  * // };
  *

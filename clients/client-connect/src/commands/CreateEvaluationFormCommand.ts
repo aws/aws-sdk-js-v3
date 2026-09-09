@@ -235,6 +235,10 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *                   },
  *                 ],
  *               },
+ *               MetricConfiguration: { // EvaluationFormMetricConfiguration
+ *                 MetricType: "BUSINESS_OUTCOME", // required
+ *                 MetricName: "STRING_VALUE", // required
+ *               },
  *             },
  *           },
  *         ],
@@ -356,6 +360,10 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *           IsExcludedFromScoring: true || false,
  *           ScoreThresholds: "<EvaluationFormScoreThresholdList>",
  *         },
+ *         MetricConfiguration: {
+ *           MetricType: "BUSINESS_OUTCOME", // required
+ *           MetricName: "STRING_VALUE", // required
+ *         },
  *       },
  *     },
  *   ],
@@ -389,6 +397,7 @@ export interface CreateEvaluationFormCommandOutput extends CreateEvaluationFormR
  *   LanguageConfiguration: { // EvaluationFormLanguageConfiguration
  *     FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "ms-MY",
  *   },
+ *   AIVersion: "STRING_VALUE",
  * };
  * const command = new CreateEvaluationFormCommand(input);
  * const response = await client.send(command);

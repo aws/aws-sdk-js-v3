@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateTaskTemplateRequest } from "../models/models_0";
-import type { CreateTaskTemplateResponse } from "../models/models_1";
+import type { CreateTaskTemplateRequest, CreateTaskTemplateResponse } from "../models/models_1";
 import { CreateTaskTemplate$ } from "../schemas/schemas_0";
 
 /**

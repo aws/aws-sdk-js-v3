@@ -742,6 +742,10 @@ import type {
   ListEntitySecurityProfilesCommandOutput,
 } from "./commands/ListEntitySecurityProfilesCommand";
 import type {
+  ListEvaluationFormAIVersionsCommandInput,
+  ListEvaluationFormAIVersionsCommandOutput,
+} from "./commands/ListEvaluationFormAIVersionsCommand";
+import type {
   ListEvaluationFormsCommandInput,
   ListEvaluationFormsCommandOutput,
 } from "./commands/ListEvaluationFormsCommand";
@@ -1580,6 +1584,7 @@ export type ServiceInputTypes =
   | ListDataTablesCommandInput
   | ListDefaultVocabulariesCommandInput
   | ListEntitySecurityProfilesCommandInput
+  | ListEvaluationFormAIVersionsCommandInput
   | ListEvaluationFormVersionsCommandInput
   | ListEvaluationFormsCommandInput
   | ListExtractionDefinitionsCommandInput
@@ -1980,6 +1985,7 @@ export type ServiceOutputTypes =
   | ListDataTablesCommandOutput
   | ListDefaultVocabulariesCommandOutput
   | ListEntitySecurityProfilesCommandOutput
+  | ListEvaluationFormAIVersionsCommandOutput
   | ListEvaluationFormVersionsCommandOutput
   | ListEvaluationFormsCommandOutput
   | ListExtractionDefinitionsCommandOutput

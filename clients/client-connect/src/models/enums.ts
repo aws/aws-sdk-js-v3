@@ -720,6 +720,18 @@ export type EvaluationFormItemEnablementOperator =
  * @public
  * @enum
  */
+export const EvaluationFormMetricType = {
+  BUSINESS_OUTCOME: "BUSINESS_OUTCOME",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationFormMetricType = (typeof EvaluationFormMetricType)[keyof typeof EvaluationFormMetricType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationFormQuestionType = {
   DATETIME: "DATETIME",
   MULTISELECT: "MULTISELECT",
@@ -2592,6 +2604,22 @@ export const LexVersion = {
  * @public
  */
 export type LexVersion = (typeof LexVersion)[keyof typeof LexVersion];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFormAIVersionStatus = {
+  ACTIVE: "ACTIVE",
+  DEPRECATED: "DEPRECATED",
+  LATEST: "LATEST",
+  PREVIEW: "PREVIEW",
+} as const;
+/**
+ * @public
+ */
+export type EvaluationFormAIVersionStatus =
+  (typeof EvaluationFormAIVersionStatus)[keyof typeof EvaluationFormAIVersionStatus];
 
 /**
  * @public

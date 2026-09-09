@@ -11,12 +11,14 @@ import type {
   ContactFlowStatus,
   ContactFlowType,
   ContactInitiationMethod,
-  ContactRecordingType,
+  ContactInteractionType,
+  ContactMetricName,
   ContactState,
   CurrentMetricName,
   DataTableAttributeValueType,
   DirectoryType,
   EntityType,
+  EvaluationFormAIVersionStatus,
   EvaluationFormValidationFindingSeverity,
   EvaluationFormValidationStatus,
   EvaluationFormVersionStatus,
@@ -100,7 +102,7 @@ import type {
 } from "./models_0";
 import type {
   Attribute,
-  ContactMetricResult,
+  ContactMetricValue,
   DataTableAttribute,
   EvaluationContactParticipant,
   EvaluationScore,
@@ -110,6 +112,27 @@ import type {
   HoursOfOperationsIdentifier,
   Notification,
 } from "./models_1";
+
+/**
+ * <p>Contains the result of a requested metric for the contact. This object is returned as part of the
+ *    GetContactMetrics response and includes both the metric name and its calculated value.</p>
+ * @public
+ */
+export interface ContactMetricResult {
+  /**
+   * <p>The name of the metric that was retrieved. This corresponds to the metric name specified in the
+   *    request, such as POSITION_IN_QUEUE or ESTIMATED_WAIT_TIME.</p>
+   * @public
+   */
+  Name: ContactMetricName | undefined;
+
+  /**
+   * <p>The calculated value for the requested metric. This object contains the numeric result based on
+   *    the contact's current state in the queue.</p>
+   * @public
+   */
+  Value: ContactMetricValue | undefined;
+}
 
 /**
  * @public
@@ -6387,6 +6410,117 @@ export interface ListEntitySecurityProfilesResponse {
 /**
  * @public
  */
+export interface ListEvaluationFormAIVersionsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The contact interaction type for the evaluation form.</p>
+   * @public
+   */
+  ContactInteractionType: ContactInteractionType | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the status and availability dates for an AI version, indicating when the version became active and when it reaches end of life.</p>
+ * @public
+ */
+export interface EvaluationFormAIVersionLifecycle {
+  /**
+   * <p>The status of the AI version. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Latest</code> - The most recent AI version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Preview</code> - An AI version available for preview.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Active</code> - An AI version that is currently available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deprecated</code> - An AI version that is no longer recommended for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Removed</code> - An AI version that is no longer available.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status: EvaluationFormAIVersionStatus | undefined;
+
+  /**
+   * <p>The timestamp for when this AI version became available.</p>
+   * @public
+   */
+  StartOfLifeTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when this AI version reaches or reached end of life.</p>
+   * @public
+   */
+  EndOfLifeTime?: Date | undefined;
+}
+
+/**
+ * <p>Contains the name and lifecycle information for an AI version that you can use when creating or updating an evaluation form.</p>
+ * @public
+ */
+export interface EvaluationFormAIVersionSummary {
+  /**
+   * <p>The name of the AI version.</p>
+   * @public
+   */
+  AIVersionName: string | undefined;
+
+  /**
+   * <p>The lifecycle information for this AI version, including its status and availability dates.</p>
+   * @public
+   */
+  AIVersionLifecycle: EvaluationFormAIVersionLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEvaluationFormAIVersionsResponse {
+  /**
+   * <p>The list of AI version summaries.</p>
+   * @public
+   */
+  AIVersionSummaries: EvaluationFormAIVersionSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListEvaluationFormsRequest {
   /**
    * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -11014,85 +11148,3 @@ export interface ReplicateInstanceRequest {
    */
   ReplicaAlias: string | undefined;
 }
-
-/**
- * @public
- */
-export interface ReplicateInstanceResponse {
-  /**
-   * <p>The identifier of the replicated instance. You can find the <code>instanceId</code> in the ARN of the instance.
-   *    The replicated instance has the same identifier as the instance it was replicated from.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the replicated instance.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeContactRequest {
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the <code>instanceId</code> in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeContactResponse {}
-
-/**
- * @public
- */
-export interface ResumeContactRecordingRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with
-   *    the contact center.</p>
-   * @public
-   */
-  InitialContactId: string | undefined;
-
-  /**
-   * <p>The type of recording being operated on.</p>
-   * @public
-   */
-  ContactRecordingType?: ContactRecordingType | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeContactRecordingResponse {}

@@ -888,6 +888,9 @@ import {
   EvaluationContactLensAnswerAnalysisDetails$,
   EvaluationContactParticipant$,
   EvaluationForm$,
+  EvaluationFormAIVersionLifecycle$,
+  EvaluationFormAIVersionStatus,
+  EvaluationFormAIVersionSummary$,
   EvaluationFormAutoEvaluationConfiguration$,
   EvaluationFormContent$,
   EvaluationFormItem$,
@@ -904,6 +907,8 @@ import {
   EvaluationFormItemSourceValuesComparator,
   EvaluationFormLanguageCode,
   EvaluationFormLanguageConfiguration$,
+  EvaluationFormMetricConfiguration$,
+  EvaluationFormMetricType,
   EvaluationFormMultiSelectQuestionAutomation$,
   EvaluationFormMultiSelectQuestionAutomationOption$,
   EvaluationFormMultiSelectQuestionDisplayMode,
@@ -1237,6 +1242,10 @@ import {
   ListEntitySecurityProfilesCommand,
   ListEntitySecurityProfilesRequest$,
   ListEntitySecurityProfilesResponse$,
+  ListEvaluationFormAIVersions$,
+  ListEvaluationFormAIVersionsCommand,
+  ListEvaluationFormAIVersionsRequest$,
+  ListEvaluationFormAIVersionsResponse$,
   ListEvaluationForms$,
   ListEvaluationFormsCommand,
   ListEvaluationFormsRequest$,
@@ -2865,6 +2874,8 @@ assert(typeof ListDefaultVocabulariesCommand === "function");
 assert(typeof ListDefaultVocabularies$ === "object");
 assert(typeof ListEntitySecurityProfilesCommand === "function");
 assert(typeof ListEntitySecurityProfiles$ === "object");
+assert(typeof ListEvaluationFormAIVersionsCommand === "function");
+assert(typeof ListEvaluationFormAIVersions$ === "object");
 assert(typeof ListEvaluationFormsCommand === "function");
 assert(typeof ListEvaluationForms$ === "object");
 assert(typeof ListEvaluationFormVersionsCommand === "function");
@@ -3712,6 +3723,8 @@ assert(typeof EvaluationAutomationRuleCategory$ === "object");
 assert(typeof EvaluationContactLensAnswerAnalysisDetails$ === "object");
 assert(typeof EvaluationContactParticipant$ === "object");
 assert(typeof EvaluationForm$ === "object");
+assert(typeof EvaluationFormAIVersionLifecycle$ === "object");
+assert(typeof EvaluationFormAIVersionSummary$ === "object");
 assert(typeof EvaluationFormAutoEvaluationConfiguration$ === "object");
 assert(typeof EvaluationFormContent$ === "object");
 assert(typeof EvaluationFormItem$ === "object");
@@ -3722,6 +3735,7 @@ assert(typeof EvaluationFormItemEnablementExpression$ === "object");
 assert(typeof EvaluationFormItemEnablementSource$ === "object");
 assert(typeof EvaluationFormItemEnablementSourceValue$ === "object");
 assert(typeof EvaluationFormLanguageConfiguration$ === "object");
+assert(typeof EvaluationFormMetricConfiguration$ === "object");
 assert(typeof EvaluationFormMultiSelectQuestionAutomation$ === "object");
 assert(typeof EvaluationFormMultiSelectQuestionAutomationOption$ === "object");
 assert(typeof EvaluationFormMultiSelectQuestionOption$ === "object");
@@ -3920,6 +3934,8 @@ assert(typeof ListDefaultVocabulariesRequest$ === "object");
 assert(typeof ListDefaultVocabulariesResponse$ === "object");
 assert(typeof ListEntitySecurityProfilesRequest$ === "object");
 assert(typeof ListEntitySecurityProfilesResponse$ === "object");
+assert(typeof ListEvaluationFormAIVersionsRequest$ === "object");
+assert(typeof ListEvaluationFormAIVersionsResponse$ === "object");
 assert(typeof ListEvaluationFormsRequest$ === "object");
 assert(typeof ListEvaluationFormsResponse$ === "object");
 assert(typeof ListEvaluationFormVersionsRequest$ === "object");
@@ -4589,12 +4605,14 @@ assert(typeof EmailHeaderType === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof EndpointType === "object");
 assert(typeof EntityType === "object");
+assert(typeof EvaluationFormAIVersionStatus === "object");
 assert(typeof EvaluationFormItemEnablementAction === "object");
 assert(typeof EvaluationFormItemEnablementOperator === "object");
 assert(typeof EvaluationFormItemEnablementSourceType === "object");
 assert(typeof EvaluationFormItemEnablementSourceValueType === "object");
 assert(typeof EvaluationFormItemSourceValuesComparator === "object");
 assert(typeof EvaluationFormLanguageCode === "object");
+assert(typeof EvaluationFormMetricType === "object");
 assert(typeof EvaluationFormMultiSelectQuestionDisplayMode === "object");
 assert(typeof EvaluationFormQuestionAutomationAnswerSourceType === "object");
 assert(typeof EvaluationFormQuestionType === "object");

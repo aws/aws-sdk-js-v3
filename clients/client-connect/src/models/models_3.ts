@@ -149,6 +149,88 @@ import type { SignInConfig, TelephonyConfig } from "./models_2";
 /**
  * @public
  */
+export interface ReplicateInstanceResponse {
+  /**
+   * <p>The identifier of the replicated instance. You can find the <code>instanceId</code> in the ARN of the instance.
+   *    The replicated instance has the same identifier as the instance it was replicated from.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the replicated instance.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeContactRequest {
+  /**
+   * <p>The identifier of the contact.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the <code>instanceId</code> in the ARN of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeContactResponse {}
+
+/**
+ * @public
+ */
+export interface ResumeContactRecordingRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with
+   *    the contact center.</p>
+   * @public
+   */
+  InitialContactId: string | undefined;
+
+  /**
+   * <p>The type of recording being operated on.</p>
+   * @public
+   */
+  ContactRecordingType?: ContactRecordingType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeContactRecordingResponse {}
+
+/**
+ * @public
+ */
 export interface SearchAgentStatusesResponse {
   /**
    * <p>The search criteria to be used to return agent statuses.</p>
@@ -1649,6 +1731,12 @@ export interface EvaluationFormSearchSummary {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The AI version to use for the evaluation form. This specifies which AI model version is used for automated evaluations.</p>
+   * @public
+   */
+  AIVersion?: string | undefined;
 }
 
 /**
@@ -7952,119 +8040,6 @@ export interface UpdateUserConfigRequest {
    * @public
    */
   UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserHierarchyRequest {
-  /**
-   * <p>The identifier of the hierarchy group.</p>
-   * @public
-   */
-  HierarchyGroupId?: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserHierarchyGroupNameRequest {
-  /**
-   * <p>The name of the hierarchy group. Must not be more than 100 characters.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The identifier of the hierarchy group.</p>
-   * @public
-   */
-  HierarchyGroupId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * <p>Contains information about the hierarchy level to update.</p>
- * @public
- */
-export interface HierarchyLevelUpdate {
-  /**
-   * <p>The name of the user hierarchy level. Must not be more than 50 characters.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * <p>Contains information about the level hierarchy to update.</p>
- * @public
- */
-export interface HierarchyStructureUpdate {
-  /**
-   * <p>The
-   *    update
-   *    for level one.</p>
-   * @public
-   */
-  LevelOne?: HierarchyLevelUpdate | undefined;
-
-  /**
-   * <p>The update for level two.</p>
-   * @public
-   */
-  LevelTwo?: HierarchyLevelUpdate | undefined;
-
-  /**
-   * <p>The update for level three.</p>
-   * @public
-   */
-  LevelThree?: HierarchyLevelUpdate | undefined;
-
-  /**
-   * <p>The update for level four.</p>
-   * @public
-   */
-  LevelFour?: HierarchyLevelUpdate | undefined;
-
-  /**
-   * <p>The update for level five.</p>
-   * @public
-   */
-  LevelFive?: HierarchyLevelUpdate | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateUserHierarchyStructureRequest {
-  /**
-   * <p>The hierarchy levels to update.</p>
-   * @public
-   */
-  HierarchyStructure: HierarchyStructureUpdate | undefined;
 
   /**
    * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>

@@ -1049,6 +1049,11 @@ import {
   ListEntitySecurityProfilesCommand,
 } from "./commands/ListEntitySecurityProfilesCommand";
 import {
+  type ListEvaluationFormAIVersionsCommandInput,
+  type ListEvaluationFormAIVersionsCommandOutput,
+  ListEvaluationFormAIVersionsCommand,
+} from "./commands/ListEvaluationFormAIVersionsCommand";
+import {
   type ListEvaluationFormsCommandInput,
   type ListEvaluationFormsCommandOutput,
   ListEvaluationFormsCommand,
@@ -2268,6 +2273,7 @@ const commands = {
   ListDataTableValuesCommand,
   ListDefaultVocabulariesCommand,
   ListEntitySecurityProfilesCommand,
+  ListEvaluationFormAIVersionsCommand,
   ListEvaluationFormsCommand,
   ListEvaluationFormVersionsCommand,
   ListExtractionDefinitionsCommand,
@@ -6116,6 +6122,23 @@ export interface Connect {
     args: ListEntitySecurityProfilesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEntitySecurityProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEvaluationFormAIVersionsCommand}
+   */
+  listEvaluationFormAIVersions(
+    args: ListEvaluationFormAIVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEvaluationFormAIVersionsCommandOutput>;
+  listEvaluationFormAIVersions(
+    args: ListEvaluationFormAIVersionsCommandInput,
+    cb: (err: any, data?: ListEvaluationFormAIVersionsCommandOutput) => void
+  ): void;
+  listEvaluationFormAIVersions(
+    args: ListEvaluationFormAIVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEvaluationFormAIVersionsCommandOutput) => void
   ): void;
 
   /**

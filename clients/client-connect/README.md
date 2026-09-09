@@ -1676,6 +1676,13 @@ ListEntitySecurityProfiles
 </details>
 <details>
 <summary>
+ListEvaluationFormAIVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListEvaluationFormAIVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListEvaluationFormAIVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListEvaluationFormAIVersionsCommandOutput/)
+</details>
+<details>
+<summary>
 ListEvaluationForms
 </summary>
 

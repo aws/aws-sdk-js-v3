@@ -246,6 +246,10 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //                     },
  * //                   ],
  * //                 },
+ * //                 MetricConfiguration: { // EvaluationFormMetricConfiguration
+ * //                   MetricType: "BUSINESS_OUTCOME", // required
+ * //                   MetricName: "STRING_VALUE", // required
+ * //                 },
  * //               },
  * //             },
  * //           ],
@@ -367,6 +371,10 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //             IsExcludedFromScoring: true || false,
  * //             ScoreThresholds: "<EvaluationFormScoreThresholdList>",
  * //           },
+ * //           MetricConfiguration: {
+ * //             MetricType: "BUSINESS_OUTCOME", // required
+ * //             MetricName: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //       },
  * //     ],
@@ -404,6 +412,7 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //     },
  * //     LatestValidationStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED",
  * //     LastValidationTime: new Date("TIMESTAMP"),
+ * //     AIVersion: "STRING_VALUE",
  * //   },
  * // };
  *

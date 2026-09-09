@@ -32,6 +32,7 @@ import type {
   EvaluationFormItemEnablementSourceValueType,
   EvaluationFormItemSourceValuesComparator,
   EvaluationFormLanguageCode,
+  EvaluationFormMetricType,
   EvaluationFormMultiSelectQuestionDisplayMode,
   EvaluationFormQuestionAutomationAnswerSourceType,
   EvaluationFormScoringMode,
@@ -82,7 +83,6 @@ import type {
   StorageType,
   StringComparisonType,
   TaskTemplateFieldType,
-  TaskTemplateStatus,
   TrendIndicator,
   VideoCapability,
   VocabularyLanguageCode,
@@ -4434,6 +4434,47 @@ export interface EvaluationFormItemEnablementExpression {
 }
 
 /**
+ * <p>Information about the metric configuration for an evaluation form question. Use this to associate a
+ *    business outcome metric with a question.</p>
+ * @public
+ */
+export interface EvaluationFormMetricConfiguration {
+  /**
+   * <p>The type of metric. Currently, only <code>BUSINESS_OUTCOME</code> is supported.</p>
+   * @public
+   */
+  MetricType: EvaluationFormMetricType | undefined;
+
+  /**
+   * <p>The name of the metric. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SALE_SUCCESS</code> – Sale success.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CSAT</code> – Customer satisfaction.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CHURN_PROPENSITY</code> – Churn propensity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SELF_SERVICE_SUCCESS</code> – Self-service success.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARTIAL_SELF_SERVICE_SUCCESS</code> – Partial self-service success.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MetricName: string | undefined;
+}
+
+/**
  * <p>A question automation answer.</p>
  * @public
  */
@@ -7836,78 +7877,4 @@ export interface TaskTemplateField {
    * @public
    */
   SingleSelectOptions?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTaskTemplateRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The name of the task template.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description of the task template.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
-   *          <p>Although this parameter is marked as optional, the request must contain either a <code>ContactFlowId</code> or a field of type <code>QUICK_CONNECT</code>.</p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-
-  /**
-   * <p>The ContactFlowId for the flow that will be run if this template is used to create a self-assigned task.</p>
-   * @public
-   */
-  SelfAssignFlowId?: string | undefined;
-
-  /**
-   * <p>Constraints that are applicable to the fields listed.
-   * Although this parameter is marked as optional in the API model, the service requires it when calling <code>CreateTaskTemplate</code> or <code>UpdateTaskTemplate</code>.
-   * The <code>RequiredFields</code> array must contain at least one element, and the field of type <code>NAME</code> must be included in <code>RequiredFields</code>.</p>
-   * @public
-   */
-  Constraints?: TaskTemplateConstraints | undefined;
-
-  /**
-   * <p>The default values for fields when a task is created by referencing this template.</p>
-   * @public
-   */
-  Defaults?: TaskTemplateDefaults | undefined;
-
-  /**
-   * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
-   * Tasks can only be created from <code>ACTIVE</code> templates.
-   * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created. </p>
-   * @public
-   */
-  Status?: TaskTemplateStatus | undefined;
-
-  /**
-   * <p>Fields that are part of the template.</p>
-   *          <p>The request must contain exactly one field of type <code>NAME</code>. This field must also be listed in the <code>RequiredFields</code> array within the <code>Constraints</code> parameter.</p>
-   * @public
-   */
-  Fields: TaskTemplateField[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }
