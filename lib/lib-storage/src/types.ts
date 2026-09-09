@@ -53,6 +53,16 @@ export interface Configuration {
    * Optional abort controller for controlling this upload's abort signal externally.
    */
   abortController?: AbortController | AbortControllerPolyfill;
+
+  /**
+   * Optional timeout in milliseconds for the CompleteMultipartUpload request.
+   * When set, if CompleteMultipartUpload does not respond within this duration,
+   * the upload promise rejects with a TimeoutError. This guards against TCP
+   * connections being silently dropped by network intermediaries during
+   * long-running finalizations (e.g. assembling a 30+ GB object on S3's side).
+   * Default: undefined (no timeout — preserves existing behavior).
+   */
+  completeMultipartUploadTimeout?: number;
 }
 
 export interface Options extends Partial<Configuration> {
