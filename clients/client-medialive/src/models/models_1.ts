@@ -20,6 +20,7 @@ import type {
   ContentType,
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
+  EnrichmentMethod,
   EventBridgeRuleTemplateEventType,
   FeatureActivationsInputPrepareScheduleActions,
   FeatureActivationsOutputStaticImageOverlayScheduleActions,
@@ -69,6 +70,8 @@ import type {
   ThumbnailState,
   TimecodeConfigSource,
   UpdateNodeStateShape,
+  VideoDescriptionRespondToAfd,
+  VideoDescriptionScalingBehavior,
 } from "./enums";
 import type {
   AudioDescription,
@@ -154,9 +157,107 @@ import type {
   SrtSettings,
   ThumbnailDetail,
   TransferringInputDeviceSummary,
-  VideoDescription,
+  VideoCodecSettings,
+  VideoPositionRectangle,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * Video settings for this stream.
+ * @public
+ */
+export interface VideoDescription {
+  /**
+   * Video codec settings.
+   * @public
+   */
+  CodecSettings?: VideoCodecSettings | undefined;
+
+  /**
+   * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+   * @public
+   */
+  Height?: number | undefined;
+
+  /**
+   * The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * Indicates how MediaLive will respond to the AFD values that might be in the input video. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose PASSTHROUGH.
+   * RESPOND: MediaLive clips the input video using a formula that uses the AFD values (configured in afdSignaling ), the input display aspect ratio, and the output display aspect ratio. MediaLive also includes the AFD values in the output, unless the codec for this encode is FRAME_CAPTURE.
+   * PASSTHROUGH: MediaLive ignores the AFD values and does not clip the video. But MediaLive does include the values in the output.
+   * NONE: MediaLive does not clip the input video and does not include the AFD values in the output
+   * @public
+   */
+  RespondToAfd?: VideoDescriptionRespondToAfd | undefined;
+
+  /**
+   * Configures how MediaLive transforms the video picture to match the output frame.
+   * Use STRETCH_TO_OUTPUT to stretch the video to fill the output frame. The video might get distorted.
+   * Use DEFAULT to insert pillar boxes or letter boxes around the video to fill the output frame. The video won't get distorted.
+   * Use SMART_CROP to enable the smart crop feature that uses the Elemental Inference service to crop the frame using AI - see the MediaLive User Guide for more information.
+   * @public
+   */
+  ScalingBehavior?: VideoDescriptionScalingBehavior | undefined;
+
+  /**
+   * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
+   * @public
+   */
+  Sharpness?: number | undefined;
+
+  /**
+   * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+   * @public
+   */
+  Width?: number | undefined;
+
+  /**
+   * Region of the input video to crop before scaling. If not specified, the entire input
+   * frame is used.
+   *
+   * Note: Unlike \{@link outputPositionRectangle\}, the bounds of cropRectangle are validated
+   * at ingest time by the encoder/scaler rather than at the API level, because the input
+   * resolution is not known until the source is probed. Field-level constraints on (x, y,
+   * width, height) defined on \{@link VideoPositionRectangle\} still apply.
+   * @public
+   */
+  CropRectangle?: VideoPositionRectangle | undefined;
+
+  /**
+   * Position of the encoded video within the output frame. The area outside the rectangle
+   * is filled with black. If not specified, the video fills the entire output frame.
+   * When used, both \{@link width\} and \{@link height\} of the VideoDescription must be
+   * explicitly specified so that the rectangle can be validated against the output frame.
+   * @public
+   */
+  OutputPositionRectangle?: VideoPositionRectangle | undefined;
+
+  /**
+   * Specifies the number of pixels of black border that will be inserted around the edge
+   * of the encoded picture. Must be an even integer from 0 (no border, the default) up
+   * to 100. The width and height of the VideoDescription must each be greater than twice
+   * this value. Cannot be used together with \{@link outputPositionRectangle\} -- both
+   * govern the position of the encoded content within the output frame.
+   * @public
+   */
+  Border?: number | undefined;
+}
+
+/**
+ * Placeholder documentation for AcceptInputDeviceTransferRequest
+ * @public
+ */
+export interface AcceptInputDeviceTransferRequest {
+  /**
+   * The unique ID of the input device to accept. For example, hd-123456789abcdef.
+   * @public
+   */
+  InputDeviceId: string | undefined;
+}
 
 /**
  * Placeholder documentation for AcceptInputDeviceTransferResponse
@@ -1208,6 +1309,12 @@ export interface InferenceSettings {
    * @public
    */
   AudioFeedInputs?: AudioFeedInput[] | undefined;
+
+  /**
+   * The set of Contextual Metadata Enrichment methods enabled for this channel. Each method represents a specific way the channel will use the inference feed to augment its output with contextual metadata. An empty array (or omitting the field) disables enrichment. Order is not significant; duplicate values are not permitted.
+   * @public
+   */
+  EnrichmentMethods?: EnrichmentMethod[] | undefined;
 }
 
 /**
@@ -9923,46 +10030,4 @@ export interface UpdateReservationResponse {
    * @public
    */
   Reservation?: Reservation | undefined;
-}
-
-/**
- * A request to update the SdiSource.
- * @public
- */
-export interface UpdateSdiSourceRequest {
-  /**
-   * Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
-   * @public
-   */
-  Mode?: SdiSourceMode | undefined;
-
-  /**
-   * Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive.
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * The ID of the SdiSource
-   * @public
-   */
-  SdiSourceId: string | undefined;
-
-  /**
-   * Include this parameter only if you want to change the mode. Specify the type of the SDI source: SINGLE: The source is a single-link source. QUAD: The source is one part of a quad-link source.
-   * @public
-   */
-  Type?: SdiSourceType | undefined;
-}
-
-/**
- * Placeholder documentation for UpdateSdiSourceResponse
- * @public
- */
-export interface UpdateSdiSourceResponse {
-  /**
-   * Settings for the SDI source.
-   * @public
-   */
-  SdiSource?: SdiSource | undefined;
 }

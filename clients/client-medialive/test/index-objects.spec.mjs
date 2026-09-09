@@ -438,12 +438,15 @@ import {
   EbuTtDDestinationSettings$,
   EbuTtDDestinationStyleControl,
   EbuTtDFillLineGapControl,
+  EmbeddedCaptionPositionSettings$,
   EmbeddedConvert608To708,
   EmbeddedDestinationSettings$,
+  EmbeddedDestinationStyleControl,
   EmbeddedPlusScte20DestinationSettings$,
   EmbeddedScte20Detection,
   EmbeddedSourceSettings$,
   EncoderSettings$,
+  EnrichmentMethod,
   EpochLockingSettings$,
   Esam$,
   EventBridgeRuleTemplateEventType,
@@ -905,6 +908,7 @@ import {
   OutputLocationRef$,
   OutputLockingSettings$,
   OutputSettings$,
+  OutputUsage,
   paginateDescribeSchedule,
   paginateListAlerts,
   paginateListChannelPlacementGroups,
@@ -1110,6 +1114,7 @@ import {
   TemporalFilterPostFilterSharpening,
   TemporalFilterSettings$,
   TemporalFilterStrength,
+  TextCaptionPositionSettings$,
   Thumbnail$,
   ThumbnailConfiguration$,
   ThumbnailDetail$,
@@ -1736,6 +1741,7 @@ assert(typeof DvbTdtSettings$ === "object");
 assert(typeof Eac3AtmosSettings$ === "object");
 assert(typeof Eac3Settings$ === "object");
 assert(typeof EbuTtDDestinationSettings$ === "object");
+assert(typeof EmbeddedCaptionPositionSettings$ === "object");
 assert(typeof EmbeddedDestinationSettings$ === "object");
 assert(typeof EmbeddedPlusScte20DestinationSettings$ === "object");
 assert(typeof EmbeddedSourceSettings$ === "object");
@@ -2065,6 +2071,7 @@ assert(typeof SuccessfulMonitorDeployment$ === "object");
 assert(typeof TeletextDestinationSettings$ === "object");
 assert(typeof TeletextSourceSettings$ === "object");
 assert(typeof TemporalFilterSettings$ === "object");
+assert(typeof TextCaptionPositionSettings$ === "object");
 assert(typeof Thumbnail$ === "object");
 assert(typeof ThumbnailConfiguration$ === "object");
 assert(typeof ThumbnailDetail$ === "object");
@@ -2239,7 +2246,9 @@ assert(typeof Eac3SurroundMode === "object");
 assert(typeof EbuTtDDestinationStyleControl === "object");
 assert(typeof EbuTtDFillLineGapControl === "object");
 assert(typeof EmbeddedConvert608To708 === "object");
+assert(typeof EmbeddedDestinationStyleControl === "object");
 assert(typeof EmbeddedScte20Detection === "object");
+assert(typeof EnrichmentMethod === "object");
 assert(typeof EventBridgeRuleTemplateEventType === "object");
 assert(typeof FeatureActivationsInputPrepareScheduleActions === "object");
 assert(typeof FeatureActivationsOutputStaticImageOverlayScheduleActions === "object");
@@ -2411,6 +2420,7 @@ assert(typeof NodeRole === "object");
 assert(typeof NodeState === "object");
 assert(typeof OfferingDurationUnits === "object");
 assert(typeof OfferingType === "object");
+assert(typeof OutputUsage === "object");
 assert(typeof PipelineId === "object");
 assert(typeof PipelineLockingMethod === "object");
 assert(typeof PreferredChannelPipeline === "object");

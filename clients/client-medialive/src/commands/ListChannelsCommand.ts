@@ -363,6 +363,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //             FeedInput: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         EnrichmentMethods: [ // __listOfEnrichmentMethod
+ * //           "SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS",
+ * //         ],
  * //       },
  * //     },
  * //   ],

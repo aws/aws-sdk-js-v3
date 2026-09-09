@@ -102,7 +102,9 @@ import type {
   EbuTtDDestinationStyleControl,
   EbuTtDFillLineGapControl,
   EmbeddedConvert608To708,
+  EmbeddedDestinationStyleControl,
   EmbeddedScte20Detection,
+  EnrichmentMethod,
   EventBridgeRuleTemplateEventType,
   FecOutputIncludeFec,
   FixedAfd,
@@ -265,6 +267,7 @@ import type {
   NodeState,
   OfferingDurationUnits,
   OfferingType,
+  OutputUsage,
   PipelineId,
   ReservationAutomaticRenewal,
   ReservationCodec,
@@ -312,8 +315,6 @@ import type {
   TimecodeBurninPosition,
   TtmlDestinationStyleControl,
   UdpTimedMetadataId3Frame,
-  VideoDescriptionRespondToAfd,
-  VideoDescriptionScalingBehavior,
   VideoSelectorColorSpace,
   VideoSelectorColorSpaceUsage,
   WavCodingMode,
@@ -1646,10 +1647,37 @@ export interface EbuTtDDestinationSettings {
 }
 
 /**
+ * Embedded Caption Position Settings
+ * @public
+ */
+export interface EmbeddedCaptionPositionSettings {
+  /**
+   * Specifies the vertical position of the caption as a row counted from the top of the output. Row 1 is the topmost row. Acceptable values are 1 through 15.
+   * @public
+   */
+  YPositionLine?: number | undefined;
+}
+
+/**
  * Embedded Destination Settings
  * @public
  */
-export interface EmbeddedDestinationSettings {}
+export interface EmbeddedDestinationSettings {
+  /**
+   * Specifies the position of the output captions. Applies only when styleControl is set to manual.
+   * @public
+   */
+  Position?: EmbeddedCaptionPositionSettings | undefined;
+
+  /**
+   * Controls the source of position and style information for the output captions.
+   *
+   * - "passthrough": Carry the caption position and style from the source captions. When the source captions are embedded, SCTE-20, or ancillary, the position and style are preserved exactly. When the source captions are another format, the position and any supported style are carried over.
+   * - "manual": Applies the specified styling and positioning. All other styling and positioning is given default values.
+   * @public
+   */
+  StyleControl?: EmbeddedDestinationStyleControl | undefined;
+}
 
 /**
  * Embedded Plus Scte20 Destination Settings
@@ -1688,15 +1716,33 @@ export interface SmpteTtDestinationSettings {}
 export interface TeletextDestinationSettings {}
 
 /**
+ * Text Caption Position Settings
+ * @public
+ */
+export interface TextCaptionPositionSettings {
+  /**
+   * Specifies the vertical position of the top edge of the caption relative to the top of the output as a percentage. A value of 0 places the caption at the top of the output and 100 at the bottom.
+   * @public
+   */
+  YPositionPercentage?: number | undefined;
+}
+
+/**
  * Ttml Destination Settings
  * @public
  */
 export interface TtmlDestinationSettings {
   /**
-   * This field is not currently supported and will not affect the output styling. Leave the default value.
+   * Controls the source of style and position information for the output captions.  PASSTHROUGH - Preserve the style and position from the source captions.  USE_CONFIGURED - Don't pass through the style. The output captions will use the default styling.  MANUAL - Applies the specified styling and positioning. All other styling and positioning is given default values.
    * @public
    */
   StyleControl?: TtmlDestinationStyleControl | undefined;
+
+  /**
+   * Specifies the position of the output captions. Applies only when styleControl is set to manual.
+   * @public
+   */
+  Position?: TextCaptionPositionSettings | undefined;
 }
 
 /**
@@ -1705,10 +1751,16 @@ export interface TtmlDestinationSettings {
  */
 export interface WebvttDestinationSettings {
   /**
-   * Controls whether the color and position of the source captions is passed through to the WebVTT output captions.  PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT.  NO_STYLE_DATA - Don't pass through the style. The output captions will not contain any font styling information.
+   * Controls whether the color and position of the source captions is passed through to the WebVTT output captions.  PASSTHROUGH - Valid only if the source captions are EMBEDDED, TELETEXT, or SMART SUBTITLES.  NO_STYLE_DATA - Don't pass through the style. The output captions will not contain any font styling information. MANUAL - Applies the specified styling and positioning. All other styling and positioning is given default values.
    * @public
    */
   StyleControl?: WebvttDestinationStyleControl | undefined;
+
+  /**
+   * Specifies the position of the output captions. Applies only when styleControl is set to manual.
+   * @public
+   */
+  Position?: TextCaptionPositionSettings | undefined;
 }
 
 /**
@@ -2451,6 +2503,12 @@ export interface DescribeInferenceSettings {
    * @public
    */
   AudioFeedInputs?: AudioFeedInput[] | undefined;
+
+  /**
+   * The set of Contextual Metadata Enrichment methods enabled for this channel. Each method represents a specific way the channel uses the inference feed to augment its output with contextual metadata.
+   * @public
+   */
+  EnrichmentMethods?: EnrichmentMethod[] | undefined;
 }
 
 /**
@@ -6170,6 +6228,12 @@ export interface MediaPackageV2DestinationSettings {
    * @public
    */
   HlsDefault?: HlsDefault | undefined;
+
+  /**
+   * List of usage tags declaring how this MediaPackage V2 output is used. Currently these are all multiview-related (multiviewPrimaryView, multiviewSecondaryView, multiviewEqualSizeView) and enable multiview validations and augmentations to help ensure proper multiview configuration and compatibility with MediaPackage. Leave empty (the default) if this output has no multiview role. If any video-carrying MediaPackage V2 output in an output group specifies a multiview value, every video-carrying MediaPackage V2 output in the group must also specify a multiview value; place standalone video outputs in a separate output group.
+   * @public
+   */
+  OutputUsage?: OutputUsage[] | undefined;
 }
 
 /**
@@ -10417,91 +10481,4 @@ export interface VideoPositionRectangle {
    * @public
    */
   Y: number | undefined;
-}
-
-/**
- * Video settings for this stream.
- * @public
- */
-export interface VideoDescription {
-  /**
-   * Video codec settings.
-   * @public
-   */
-  CodecSettings?: VideoCodecSettings | undefined;
-
-  /**
-   * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
-   * @public
-   */
-  Height?: number | undefined;
-
-  /**
-   * The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * Indicates how MediaLive will respond to the AFD values that might be in the input video. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose PASSTHROUGH.
-   * RESPOND: MediaLive clips the input video using a formula that uses the AFD values (configured in afdSignaling ), the input display aspect ratio, and the output display aspect ratio. MediaLive also includes the AFD values in the output, unless the codec for this encode is FRAME_CAPTURE.
-   * PASSTHROUGH: MediaLive ignores the AFD values and does not clip the video. But MediaLive does include the values in the output.
-   * NONE: MediaLive does not clip the input video and does not include the AFD values in the output
-   * @public
-   */
-  RespondToAfd?: VideoDescriptionRespondToAfd | undefined;
-
-  /**
-   * Configures how MediaLive transforms the video picture to match the output frame.
-   * Use STRETCH_TO_OUTPUT to stretch the video to fill the output frame. The video might get distorted.
-   * Use DEFAULT to insert pillar boxes or letter boxes around the video to fill the output frame. The video won't get distorted.
-   * Use SMART_CROP to enable the smart crop feature that uses the Elemental Inference service to crop the frame using AI - see the MediaLive User Guide for more information.
-   * @public
-   */
-  ScalingBehavior?: VideoDescriptionScalingBehavior | undefined;
-
-  /**
-   * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
-   * @public
-   */
-  Sharpness?: number | undefined;
-
-  /**
-   * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
-   * @public
-   */
-  Width?: number | undefined;
-
-  /**
-   * Region of the input video to crop before scaling. If not specified, the entire input
-   * frame is used.
-   *
-   * Note: Unlike \{@link outputPositionRectangle\}, the bounds of cropRectangle are validated
-   * at ingest time by the encoder/scaler rather than at the API level, because the input
-   * resolution is not known until the source is probed. Field-level constraints on (x, y,
-   * width, height) defined on \{@link VideoPositionRectangle\} still apply.
-   * @public
-   */
-  CropRectangle?: VideoPositionRectangle | undefined;
-
-  /**
-   * Position of the encoded video within the output frame. The area outside the rectangle
-   * is filled with black. If not specified, the video fills the entire output frame.
-   * When used, both \{@link width\} and \{@link height\} of the VideoDescription must be
-   * explicitly specified so that the rectangle can be validated against the output frame.
-   * @public
-   */
-  OutputPositionRectangle?: VideoPositionRectangle | undefined;
-}
-
-/**
- * Placeholder documentation for AcceptInputDeviceTransferRequest
- * @public
- */
-export interface AcceptInputDeviceTransferRequest {
-  /**
-   * The unique ID of the input device to accept. For example, hd-123456789abcdef.
-   * @public
-   */
-  InputDeviceId: string | undefined;
 }

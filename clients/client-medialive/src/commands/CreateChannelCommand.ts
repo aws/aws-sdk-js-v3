@@ -313,7 +313,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *             DefaultFontSize: Number("int"),
  *             DefaultLineHeight: Number("int"),
  *           },
- *           EmbeddedDestinationSettings: {},
+ *           EmbeddedDestinationSettings: { // EmbeddedDestinationSettings
+ *             Position: { // EmbeddedCaptionPositionSettings
+ *               YPositionLine: Number("int"),
+ *             },
+ *             StyleControl: "MANUAL" || "PASSTHROUGH",
+ *           },
  *           EmbeddedPlusScte20DestinationSettings: {},
  *           RtmpCaptionInfoDestinationSettings: {},
  *           Scte20PlusEmbeddedDestinationSettings: {},
@@ -321,10 +326,16 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *           SmpteTtDestinationSettings: {},
  *           TeletextDestinationSettings: {},
  *           TtmlDestinationSettings: { // TtmlDestinationSettings
- *             StyleControl: "PASSTHROUGH" || "USE_CONFIGURED",
+ *             StyleControl: "PASSTHROUGH" || "USE_CONFIGURED" || "MANUAL",
+ *             Position: { // TextCaptionPositionSettings
+ *               YPositionPercentage: Number("int"),
+ *             },
  *           },
  *           WebvttDestinationSettings: { // WebvttDestinationSettings
- *             StyleControl: "NO_STYLE_DATA" || "PASSTHROUGH",
+ *             StyleControl: "NO_STYLE_DATA" || "PASSTHROUGH" || "MANUAL",
+ *             Position: {
+ *               YPositionPercentage: Number("int"),
+ *             },
  *           },
  *         },
  *         LanguageCode: "STRING_VALUE",
@@ -767,6 +778,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *                   AudioRenditionSets: "STRING_VALUE",
  *                   HlsAutoSelect: "NO" || "OMIT" || "YES",
  *                   HlsDefault: "NO" || "OMIT" || "YES",
+ *                   OutputUsage: [ // __listOfOutputUsage
+ *                     "MULTIVIEW_EQUAL_SIZE_VIEW" || "MULTIVIEW_PRIMARY_VIEW" || "MULTIVIEW_SECONDARY_VIEW",
+ *                   ],
  *                 },
  *               },
  *               MsSmoothOutputSettings: { // MsSmoothOutputSettings
@@ -1252,6 +1266,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *           X: Number("int"), // required
  *           Y: Number("int"), // required
  *         },
+ *         Border: Number("int"),
  *       },
  *     ],
  *     ThumbnailConfiguration: { // ThumbnailConfiguration
@@ -1516,6 +1531,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         AudioSelectorName: "STRING_VALUE",
  *         FeedInput: "STRING_VALUE",
  *       },
+ *     ],
+ *     EnrichmentMethods: [ // __listOfEnrichmentMethod
+ *       "SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS",
  *     ],
  *   },
  * };
@@ -1809,7 +1827,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //               DefaultFontSize: Number("int"),
  * //               DefaultLineHeight: Number("int"),
  * //             },
- * //             EmbeddedDestinationSettings: {},
+ * //             EmbeddedDestinationSettings: { // EmbeddedDestinationSettings
+ * //               Position: { // EmbeddedCaptionPositionSettings
+ * //                 YPositionLine: Number("int"),
+ * //               },
+ * //               StyleControl: "MANUAL" || "PASSTHROUGH",
+ * //             },
  * //             EmbeddedPlusScte20DestinationSettings: {},
  * //             RtmpCaptionInfoDestinationSettings: {},
  * //             Scte20PlusEmbeddedDestinationSettings: {},
@@ -1817,10 +1840,16 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //             SmpteTtDestinationSettings: {},
  * //             TeletextDestinationSettings: {},
  * //             TtmlDestinationSettings: { // TtmlDestinationSettings
- * //               StyleControl: "PASSTHROUGH" || "USE_CONFIGURED",
+ * //               StyleControl: "PASSTHROUGH" || "USE_CONFIGURED" || "MANUAL",
+ * //               Position: { // TextCaptionPositionSettings
+ * //                 YPositionPercentage: Number("int"),
+ * //               },
  * //             },
  * //             WebvttDestinationSettings: { // WebvttDestinationSettings
- * //               StyleControl: "NO_STYLE_DATA" || "PASSTHROUGH",
+ * //               StyleControl: "NO_STYLE_DATA" || "PASSTHROUGH" || "MANUAL",
+ * //               Position: {
+ * //                 YPositionPercentage: Number("int"),
+ * //               },
  * //             },
  * //           },
  * //           LanguageCode: "STRING_VALUE",
@@ -2263,6 +2292,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //                     AudioRenditionSets: "STRING_VALUE",
  * //                     HlsAutoSelect: "NO" || "OMIT" || "YES",
  * //                     HlsDefault: "NO" || "OMIT" || "YES",
+ * //                     OutputUsage: [ // __listOfOutputUsage
+ * //                       "MULTIVIEW_EQUAL_SIZE_VIEW" || "MULTIVIEW_PRIMARY_VIEW" || "MULTIVIEW_SECONDARY_VIEW",
+ * //                     ],
  * //                   },
  * //                 },
  * //                 MsSmoothOutputSettings: { // MsSmoothOutputSettings
@@ -2748,6 +2780,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //             X: Number("int"), // required
  * //             Y: Number("int"), // required
  * //           },
+ * //           Border: Number("int"),
  * //         },
  * //       ],
  * //       ThumbnailConfiguration: { // ThumbnailConfiguration
@@ -3035,6 +3068,9 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //           AudioSelectorName: "STRING_VALUE",
  * //           FeedInput: "STRING_VALUE",
  * //         },
+ * //       ],
+ * //       EnrichmentMethods: [ // __listOfEnrichmentMethod
+ * //         "SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS",
  * //       ],
  * //     },
  * //   },

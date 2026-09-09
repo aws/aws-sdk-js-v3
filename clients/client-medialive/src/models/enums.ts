@@ -943,7 +943,22 @@ export type EbuTtDDestinationStyleControl =
  * @public
  * @enum
  */
+export const EmbeddedDestinationStyleControl = {
+  MANUAL: "MANUAL",
+  PASSTHROUGH: "PASSTHROUGH",
+} as const;
+/**
+ * @public
+ */
+export type EmbeddedDestinationStyleControl =
+  (typeof EmbeddedDestinationStyleControl)[keyof typeof EmbeddedDestinationStyleControl];
+
+/**
+ * @public
+ * @enum
+ */
 export const TtmlDestinationStyleControl = {
+  MANUAL: "MANUAL",
   PASSTHROUGH: "PASSTHROUGH",
   USE_CONFIGURED: "USE_CONFIGURED",
 } as const;
@@ -958,6 +973,7 @@ export type TtmlDestinationStyleControl =
  * @enum
  */
 export const WebvttDestinationStyleControl = {
+  MANUAL: "MANUAL",
   NO_STYLE_DATA: "NO_STYLE_DATA",
   PASSTHROUGH: "PASSTHROUGH",
 } as const;
@@ -1133,6 +1149,18 @@ export const ConnectionMode = {
  * @public
  */
 export type ConnectionMode = (typeof ConnectionMode)[keyof typeof ConnectionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnrichmentMethod = {
+  SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS: "SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS",
+} as const;
+/**
+ * @public
+ */
+export type EnrichmentMethod = (typeof EnrichmentMethod)[keyof typeof EnrichmentMethod];
 
 /**
  * @public
@@ -2545,6 +2573,20 @@ export const HlsDefault = {
  * @public
  */
 export type HlsDefault = (typeof HlsDefault)[keyof typeof HlsDefault];
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputUsage = {
+  MULTIVIEW_EQUAL_SIZE_VIEW: "MULTIVIEW_EQUAL_SIZE_VIEW",
+  MULTIVIEW_PRIMARY_VIEW: "MULTIVIEW_PRIMARY_VIEW",
+  MULTIVIEW_SECONDARY_VIEW: "MULTIVIEW_SECONDARY_VIEW",
+} as const;
+/**
+ * @public
+ */
+export type OutputUsage = (typeof OutputUsage)[keyof typeof OutputUsage];
 
 /**
  * @public

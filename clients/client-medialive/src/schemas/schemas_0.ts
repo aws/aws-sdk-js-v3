@@ -142,6 +142,7 @@ const _BUSR = "BatchUpdateScheduleRequest";
 const _BUSRa = "BatchUpdateScheduleResponse";
 const _Ba = "Bandwidth";
 const _Bo = "Body";
+const _Bor = "Border";
 const _C = "Channels";
 const _CA = "CannedAcl";
 const _CAh = "ChannelAlert";
@@ -476,6 +477,7 @@ const _EBRTGIve = "EventBridgeRuleTemplateGroupIdentifier";
 const _EBRTGS = "EventBridgeRuleTemplateGroupSummary";
 const _EBRTS = "EventBridgeRuleTemplateSummary";
 const _EBRTT = "EventBridgeRuleTemplateTarget";
+const _ECPS = "EmbeddedCaptionPositionSettings";
 const _ECTM = "ErrorClearTimeMsec";
 const _ED = "ExpirationDate";
 const _EDS = "EmbeddedDestinationSettings";
@@ -487,6 +489,7 @@ const _EIM = "EventIdMode";
 const _ELM = "EbpLookaheadMs";
 const _ELS = "EpochLockingSettings";
 const _EM = "ErrorMessage";
+const _EMn = "EnrichmentMethods";
 const _EP = "EvaluationPeriods";
 const _EPP = "EtvPlatformPid";
 const _EPSA = "EncryptionPassphraseSecretArn";
@@ -1007,6 +1010,7 @@ const _OSutp = "OutputSettings";
 const _OT = "OfferingType";
 const _OTS = "OutputTimingSource";
 const _OTu = "OutputType";
+const _OU = "OutputUsage";
 const _Of = "Offering";
 const _Op = "Opacity";
 const _Ou = "Output";
@@ -1071,8 +1075,8 @@ const _Pid = "Pids";
 const _Pip = "Pipeline0";
 const _Pipe = "Pipeline1";
 const _Pipel = "Pipelines";
-const _Po = "Port";
-const _Pos = "Position";
+const _Po = "Position";
+const _Por = "Port";
 const _Pr = "Priority";
 const _Pre = "Prefix";
 const _QL = "QualityLevel";
@@ -1340,6 +1344,7 @@ const _TA = "TemporalAq";
 const _TBS = "TimecodeBurninSettings";
 const _TC = "TemplateCount";
 const _TCI = "TargetCustomerId";
+const _TCPS = "TextCaptionPositionSettings";
 const _TCh = "ThumbnailConfiguration";
 const _TCi = "TimecodeConfig";
 const _TD = "ThumbnailDetails";
@@ -1501,6 +1506,8 @@ const _X = "X";
 const _XP = "XPosition";
 const _Y = "Y";
 const _YP = "YPosition";
+const _YPL = "YPositionLine";
+const _YPP = "YPositionPercentage";
 const _ZI = "ZoneIdentity";
 const _a = "algorithm";
 const _aAF = "archiveAllowedFlag";
@@ -1608,6 +1615,7 @@ const _bUM = "baseUrlManifest";
 const _bUMa = "baseUrlManifest1";
 const _ba = "bandwidth";
 const _bo = "body";
+const _bor = "border";
 const _c = "client";
 const _cA = "cannedAcl";
 const _cAr = "createdAt";
@@ -1760,6 +1768,7 @@ const _eIM = "eventIdMode";
 const _eLM = "ebpLookaheadMs";
 const _eLS = "epochLockingSettings";
 const _eM = "errorMessage";
+const _eMn = "enrichmentMethods";
 const _eP = "evaluationPeriods";
 const _ePP = "etvPlatformPid";
 const _ePSA = "encryptionPassphraseSecretArn";
@@ -2198,6 +2207,7 @@ const _oSutp = "outputSettings";
 const _oT = "offeringType";
 const _oTS = "outputTimingSource";
 const _oTu = "outputType";
+const _oU = "outputUsage";
 const _op = "opacity";
 const _ou = "outputs";
 const _p = "profile";
@@ -2254,8 +2264,8 @@ const _pid = "pids";
 const _pip = "pipeline0";
 const _pipe = "pipeline1";
 const _pipel = "pipelines";
-const _po = "port";
-const _pos = "position";
+const _po = "position";
+const _por = "port";
 const _pr = "priority";
 const _pre = "prefix";
 const _qL = "qualityLevel";
@@ -2534,6 +2544,8 @@ const _x = "x";
 const _xP = "xPosition";
 const _y = "y";
 const _yP = "yPosition";
+const _yPL = "yPositionLine";
+const _yPP = "yPositionPercentage";
 const _zI = "zoneIdentity";
 const n0 = "com.amazonaws.medialive";
 
@@ -3457,8 +3469,8 @@ export var DescribeFollowerChannelSettings$: StaticStructureSchema = [3, n0, _DF
 ];
 export var DescribeInferenceSettings$: StaticStructureSchema = [3, n0, _DIS,
   0,
-  [_FAe, _AFIu],
-  [[0, { [_jN]: _fAe }], [() => __listOfAudioFeedInput, { [_jN]: _aFI }]]
+  [_FAe, _AFIu, _EMn],
+  [[0, { [_jN]: _fAe }], [() => __listOfAudioFeedInput, { [_jN]: _aFI }], [64 | 0, { [_jN]: _eMn }]]
 ];
 export var DescribeInputDeviceRequest$: StaticStructureSchema = [3, n0, _DIDR,
   0,
@@ -3660,10 +3672,15 @@ export var EbuTtDDestinationSettings$: StaticStructureSchema = [3, n0, _ETDDS,
   [_CH, _FLG, _FF, _SCt, _DFS, _DLH],
   [[0, { [_jN]: _cH }], [0, { [_jN]: _fLG }], [0, { [_jN]: _fF }], [0, { [_jN]: _sCt }], [1, { [_jN]: _dFS }], [1, { [_jN]: _dLH }]]
 ];
+export var EmbeddedCaptionPositionSettings$: StaticStructureSchema = [3, n0, _ECPS,
+  0,
+  [_YPL],
+  [[1, { [_jN]: _yPL }]]
+];
 export var EmbeddedDestinationSettings$: StaticStructureSchema = [3, n0, _EDS,
   0,
-  [],
-  []
+  [_Po, _SCt],
+  [[() => EmbeddedCaptionPositionSettings$, { [_jN]: _po }], [0, { [_jN]: _sCt }]]
 ];
 export var EmbeddedPlusScte20DestinationSettings$: StaticStructureSchema = [3, n0, _EPSDS,
   0,
@@ -3947,8 +3964,8 @@ export var ImmediateModeScheduleActionStartSettings$: StaticStructureSchema = [3
 ];
 export var InferenceSettings$: StaticStructureSchema = [3, n0, _ISn,
   0,
-  [_FAe, _AFIu],
-  [[0, { [_jN]: _fAe }], [() => __listOfAudioFeedInput, { [_jN]: _aFI }]]
+  [_FAe, _AFIu, _EMn],
+  [[0, { [_jN]: _fAe }], [() => __listOfAudioFeedInput, { [_jN]: _aFI }], [64 | 0, { [_jN]: _eMn }]]
 ];
 export var Input$: StaticStructureSchema = [3, n0, _In,
   0,
@@ -3972,8 +3989,8 @@ export var InputClippingSettings$: StaticStructureSchema = [3, n0, _ICSn,
 ];
 export var InputDestination$: StaticStructureSchema = [3, n0, _IDn,
   0,
-  [_Ip, _Po, _Ur, _V, _Ne, _NRe],
-  [[0, { [_jN]: _ip }], [0, { [_jN]: _po }], [0, { [_jN]: _ur }], [() => InputDestinationVpc$, { [_jN]: _v }], [0, { [_jN]: _ne }], [() => __listOfInputDestinationRoute, { [_jN]: _nRe }]]
+  [_Ip, _Por, _Ur, _V, _Ne, _NRe],
+  [[0, { [_jN]: _ip }], [0, { [_jN]: _por }], [0, { [_jN]: _ur }], [() => InputDestinationVpc$, { [_jN]: _v }], [0, { [_jN]: _ne }], [() => __listOfInputDestinationRoute, { [_jN]: _nRe }]]
 ];
 export var InputDestinationRequest$: StaticStructureSchema = [3, n0, _IDR,
   0,
@@ -4492,8 +4509,8 @@ export var MediaPackageV2AbWatermarkerIrdetoSettings$: StaticStructureSchema = [
 ];
 export var MediaPackageV2DestinationSettings$: StaticStructureSchema = [3, n0, _MPVDS,
   0,
-  [_AGI, _ARS, _HASl, _HD],
-  [[0, { [_jN]: _aGI }], [0, { [_jN]: _aRS }], [0, { [_jN]: _hASl }], [0, { [_jN]: _hD }]]
+  [_AGI, _ARS, _HASl, _HD, _OU],
+  [[0, { [_jN]: _aGI }], [0, { [_jN]: _aRS }], [0, { [_jN]: _hASl }], [0, { [_jN]: _hD }], [64 | 0, { [_jN]: _oU }]]
 ];
 export var MediaPackageV2GroupSettings$: StaticStructureSchema = [3, n0, _MPVGS,
   0,
@@ -5305,6 +5322,11 @@ export var TemporalFilterSettings$: StaticStructureSchema = [3, n0, _TFS,
   [_PFS, _Str],
   [[0, { [_jN]: _pFS }], [0, { [_jN]: _str }]]
 ];
+export var TextCaptionPositionSettings$: StaticStructureSchema = [3, n0, _TCPS,
+  0,
+  [_YPP],
+  [[1, { [_jN]: _yPP }]]
+];
 export var Thumbnail$: StaticStructureSchema = [3, n0, _Thu,
   0,
   [_Bo, _CTo, _TT, _TSi],
@@ -5322,8 +5344,8 @@ export var ThumbnailDetail$: StaticStructureSchema = [3, n0, _TDh,
 ];
 export var TimecodeBurninSettings$: StaticStructureSchema = [3, n0, _TBS,
   0,
-  [_FS, _Pos, _Pre],
-  [[0, { [_jN]: _fS }], [0, { [_jN]: _pos }], [0, { [_jN]: _pre }]], 2
+  [_FS, _Po, _Pre],
+  [[0, { [_jN]: _fS }], [0, { [_jN]: _po }], [0, { [_jN]: _pre }]], 2
 ];
 export var TimecodeConfig$: StaticStructureSchema = [3, n0, _TCi,
   0,
@@ -5352,8 +5374,8 @@ export var TransferringInputDeviceSummary$: StaticStructureSchema = [3, n0, _TID
 ];
 export var TtmlDestinationSettings$: StaticStructureSchema = [3, n0, _TDSt,
   0,
-  [_SCt],
-  [[0, { [_jN]: _sCt }]]
+  [_SCt, _Po],
+  [[0, { [_jN]: _sCt }], [() => TextCaptionPositionSettings$, { [_jN]: _po }]]
 ];
 export var UdpContainerSettings$: StaticStructureSchema = [3, n0, _UCS,
   0,
@@ -5577,8 +5599,8 @@ export var VideoCodecSettings$: StaticStructureSchema = [3, n0, _VCS,
 ];
 export var VideoDescription$: StaticStructureSchema = [3, n0, _VDi,
   0,
-  [_N, _CSo, _H, _RTA, _SBc, _Sh, _W, _CRr, _OPR],
-  [[0, { [_jN]: _n }], [() => VideoCodecSettings$, { [_jN]: _cSo }], [1, { [_jN]: _h }], [0, { [_jN]: _rTA }], [0, { [_jN]: _sBc }], [1, { [_jN]: _sh }], [1, { [_jN]: _w }], [() => VideoPositionRectangle$, { [_jN]: _cR }], [() => VideoPositionRectangle$, { [_jN]: _oPR }]], 1
+  [_N, _CSo, _H, _RTA, _SBc, _Sh, _W, _CRr, _OPR, _Bor],
+  [[0, { [_jN]: _n }], [() => VideoCodecSettings$, { [_jN]: _cSo }], [1, { [_jN]: _h }], [0, { [_jN]: _rTA }], [0, { [_jN]: _sBc }], [1, { [_jN]: _sh }], [1, { [_jN]: _w }], [() => VideoPositionRectangle$, { [_jN]: _cR }], [() => VideoPositionRectangle$, { [_jN]: _oPR }], [1, { [_jN]: _bor }]], 1
 ];
 export var VideoPositionRectangle$: StaticStructureSchema = [3, n0, _VPR,
   0,
@@ -5627,8 +5649,8 @@ export var WavSettings$: StaticStructureSchema = [3, n0, _WS,
 ];
 export var WebvttDestinationSettings$: StaticStructureSchema = [3, n0, _WDS,
   0,
-  [_SCt],
-  [[0, { [_jN]: _sCt }]]
+  [_SCt, _Po],
+  [[0, { [_jN]: _sCt }], [() => TextCaptionPositionSettings$, { [_jN]: _po }]]
 ];
 var __Unit = "unit" as const;
 var __listOf__integer = 64 | 1;
@@ -5738,6 +5760,7 @@ var __listOfDescribeNodeSummary: StaticListSchema = [1, n0, _lODNSi,
   0, [() => DescribeNodeSummary$,
     0]
 ];
+var __listOfEnrichmentMethod = 64 | 0;
 var __listOfEventBridgeRuleTemplateGroupSummary: StaticListSchema = [1, n0, _lOEBRTGS,
   0, [() => EventBridgeRuleTemplateGroupSummary$,
     0]
@@ -5939,6 +5962,7 @@ var __listOfOutputLocationRef: StaticListSchema = [1, n0, _lOOLR,
   0, [() => OutputLocationRef$,
     0]
 ];
+var __listOfOutputUsage = 64 | 0;
 var __listOfPipelineDetail: StaticListSchema = [1, n0, _lOPD,
   0, [() => PipelineDetail$,
     0]
