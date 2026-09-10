@@ -493,6 +493,7 @@ const _BM = "BootMode";
 const _BMIRPR = "BatchModifyIpamRoutingPolicyRegistrations";
 const _BMIRPRR = "BatchModifyIpamRoutingPolicyRegistrationsRequest";
 const _BMIRPRRa = "BatchModifyIpamRoutingPolicyRegistrationsResult";
+const _BMO = "BootModeOverride";
 const _BMTL = "BootModeTypeList";
 const _BMa = "BareMetal";
 const _BN = "BucketName";
@@ -10991,10 +10992,10 @@ export var CreateFpgaImageResult$: StaticStructureSchema = [3, n0, _CFIRre,
 ];
 export var CreateImageRequest$: StaticStructureSchema = [3, n0, _CIRr,
   0,
-  [_II, _N, _TS, _SL, _DR, _De, _NR, _BDMl],
+  [_II, _N, _TS, _SL, _BMO, _DR, _De, _NR, _BDMl],
   [[0, { [_eQN]: `InstanceId`
   , [_xN]: _iI }], [0, { [_eQN]: `Name`
-  , [_xN]: _n }], [() => TagSpecificationList, { [_xN]: _TSa }], 0, [2, { [_eQN]: `DryRun`
+  , [_xN]: _n }], [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [2, { [_eQN]: `NoReboot`
   , [_xN]: _nR }], [() => BlockDeviceMappingRequestList, { [_eQN]: `BlockDeviceMapping`

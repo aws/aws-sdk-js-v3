@@ -3678,6 +3678,18 @@ export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
  * @public
  * @enum
  */
+export const BootModeOverrideValues = {
+  uefi: "uefi",
+} as const;
+/**
+ * @public
+ */
+export type BootModeOverrideValues = (typeof BootModeOverrideValues)[keyof typeof BootModeOverrideValues];
+
+/**
+ * @public
+ * @enum
+ */
 export const SnapshotLocationEnum = {
   LOCAL: "local",
   REGIONAL: "regional",

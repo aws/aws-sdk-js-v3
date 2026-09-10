@@ -2455,6 +2455,7 @@ export type {
   BatchState,
   BgpStatus,
   BlockPublicAccessMode,
+  BootModeOverrideValues,
   BootModeType,
   BootModeValues,
   BundleTaskState,

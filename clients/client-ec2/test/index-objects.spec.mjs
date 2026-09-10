@@ -299,6 +299,7 @@ import {
   BlockDeviceMappingResponse$,
   BlockPublicAccessMode,
   BlockPublicAccessStates$,
+  BootModeOverrideValues,
   BootModeType,
   BootModeValues,
   BundleInstance$,
@@ -9017,6 +9018,7 @@ assert(typeof BareMetal === "object");
 assert(typeof BatchState === "object");
 assert(typeof BgpStatus === "object");
 assert(typeof BlockPublicAccessMode === "object");
+assert(typeof BootModeOverrideValues === "object");
 assert(typeof BootModeType === "object");
 assert(typeof BootModeValues === "object");
 assert(typeof BundleTaskState === "object");

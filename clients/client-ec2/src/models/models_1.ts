@@ -12,6 +12,7 @@ import type {
   AvailabilityMode,
   BareMetal,
   BlockPublicAccessMode,
+  BootModeOverrideValues,
   BurstablePerformance,
   CapacityReservationPreference,
   ClientVpnEndpointStatusCode,
@@ -5532,6 +5533,24 @@ export interface CreateImageRequest {
    * @public
    */
   SnapshotLocation?: SnapshotLocationEnum | undefined;
+
+  /**
+   * <p>The boot mode of the new image, which overrides the default boot mode. By default,
+   *       if you do not specify this parameter, the new image inherits
+   *       the <code>boot-mode</code> from the source instance.</p>
+   *          <p>A value of <code>uefi</code> indicates that the image only supports UEFI boot mode. You can
+   *       specify this parameter only if the <code>current-instance-boot-mode</code> of the source instance is
+   *         <code>uefi</code>. To find the <code>boot-mode</code> or <code>current-instance-boot-mode</code> of
+   *         an instance, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a>.</p>
+   *          <note>
+   *             <p>The operating system contained in the AMI must be configured to support the specified
+   *         boot mode.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Instance launch behavior with Amazon EC2 boot modes</a> in
+   *       the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  BootModeOverride?: BootModeOverrideValues | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,

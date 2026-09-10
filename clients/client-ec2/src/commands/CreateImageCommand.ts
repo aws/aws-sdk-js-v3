@@ -70,6 +70,7 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *     },
  *   ],
  *   SnapshotLocation: "regional" || "local",
+ *   BootModeOverride: "uefi",
  *   DryRun: true || false,
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
