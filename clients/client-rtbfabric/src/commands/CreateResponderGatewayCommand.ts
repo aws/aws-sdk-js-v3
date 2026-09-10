@@ -85,6 +85,7 @@ export interface CreateResponderGatewayCommandOutput extends CreateResponderGate
  *     "<keys>": "STRING_VALUE",
  *   },
  *   gatewayType: "EXTERNAL" || "INTERNAL",
+ *   clientRoutingPolicy: "AVAILABILITY_ZONE_AFFINITY" || "ANY_AVAILABILITY_ZONE",
  * };
  * const command = new CreateResponderGatewayCommand(input);
  * const response = await client.send(command);
@@ -97,6 +98,7 @@ export interface CreateResponderGatewayCommandOutput extends CreateResponderGate
  * //     ],
  * //   },
  * //   externalInboundEndpoint: "STRING_VALUE",
+ * //   clientRoutingPolicy: "AVAILABILITY_ZONE_AFFINITY" || "ANY_AVAILABILITY_ZONE",
  * // };
  *
  * ```

@@ -13,6 +13,7 @@ import {
   AutoScalingGroupsConfiguration$,
   CertificateAssociationStatus,
   CertificateAssociationSummary$,
+  ClientRoutingPolicy,
   ConflictException,
   ConflictException$,
   ConnectivityType,
@@ -412,6 +413,7 @@ assert(typeof UpdateResponderGatewayRequest$ === "object");
 assert(typeof UpdateResponderGatewayResponse$ === "object");
 // enums
 assert(typeof CertificateAssociationStatus === "object");
+assert(typeof ClientRoutingPolicy === "object");
 assert(typeof ConnectivityType === "object");
 assert(typeof FilterType === "object");
 assert(typeof GatewayType === "object");

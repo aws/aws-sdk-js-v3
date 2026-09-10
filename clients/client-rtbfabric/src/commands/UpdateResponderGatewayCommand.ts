@@ -23,7 +23,7 @@ export interface UpdateResponderGatewayCommandInput extends UpdateResponderGatew
 export interface UpdateResponderGatewayCommandOutput extends UpdateResponderGatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a responder gateway.</p>
+ * <p>Updates the description, Auto Scaling group managed endpoint configuration, trust store configuration, and client routing policy of a responder gateway. This operation also updates the <code>protocols</code> list in the listener configuration.</p> <p>You cannot change the <code>domainName</code>, <code>port</code>, and <code>protocol</code> values that you set when you create a responder gateway. To change any of them, delete the gateway and create a new one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,12 +75,14 @@ export interface UpdateResponderGatewayCommandOutput extends UpdateResponderGate
  *   clientToken: "STRING_VALUE", // required
  *   gatewayId: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   clientRoutingPolicy: "AVAILABILITY_ZONE_AFFINITY" || "ANY_AVAILABILITY_ZONE",
  * };
  * const command = new UpdateResponderGatewayCommand(input);
  * const response = await client.send(command);
  * // { // UpdateResponderGatewayResponse
  * //   gatewayId: "STRING_VALUE", // required
  * //   status: "PENDING_CREATION" || "ACTIVE" || "PENDING_DELETION" || "DELETED" || "ERROR" || "PENDING_UPDATE" || "ISOLATED" || "PENDING_ISOLATION" || "PENDING_RESTORATION", // required
+ * //   clientRoutingPolicy: "AVAILABILITY_ZONE_AFFINITY" || "ANY_AVAILABILITY_ZONE",
  * // };
  *
  * ```

@@ -111,6 +111,7 @@ export type {
   UpdateResponderGatewayCommandInput,
   UpdateResponderGatewayCommandOutput,
   CertificateAssociationStatus,
+  ClientRoutingPolicy,
   ConnectivityType,
   FilterType,
   GatewayType,

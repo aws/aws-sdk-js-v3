@@ -97,6 +97,7 @@ export interface GetResponderGatewayCommandOutput extends GetResponderGatewayRes
  * //   linksRequestedCount: Number("int"),
  * //   gatewayType: "EXTERNAL" || "INTERNAL",
  * //   externalInboundEndpoint: "STRING_VALUE",
+ * //   clientRoutingPolicy: "AVAILABILITY_ZONE_AFFINITY" || "ANY_AVAILABILITY_ZONE",
  * // };
  *
  * ```

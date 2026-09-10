@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   CertificateAssociationStatus,
+  ClientRoutingPolicy,
   ConnectivityType,
   FilterType,
   GatewayType,
@@ -511,7 +512,7 @@ export interface AssociateCertificateRequest {
   acmCertificateArn: string | undefined;
 
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -653,7 +654,7 @@ export interface CertificateAssociationSummary {
  */
 export interface CreateInboundExternalLinkRequest {
   /**
-   * <p>The unique client token.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -747,7 +748,7 @@ export interface CreateLinkRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Settings for the application logs.</p>
+   * <p>Application log settings for the link. This value is required. Under <code>applicationLogs.sampling</code>, the <code>errorLog</code> and <code>filterLog</code> fields set the percentage of eligible events to log. Valid values range from <code>0</code> through <code>100</code>. To turn off application logs, set both fields to <code>0</code>, as in <code>\{"applicationLogs":\{"sampling":\{"errorLog":0,"filterLog":0\}\}\}</code>.</p>
    * @public
    */
   logSettings: LinkLogSettings | undefined;
@@ -907,7 +908,7 @@ export interface RuleCondition {
  */
 export interface CreateLinkRoutingRuleRequest {
   /**
-   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>ClientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -971,7 +972,7 @@ export interface CreateLinkRoutingRuleResponse {
  */
 export interface CreateOutboundExternalLinkRequest {
   /**
-   * <p>The unique client token.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1053,7 +1054,7 @@ export interface CreateRequesterGatewayRequest {
   securityGroupIds: string[] | undefined;
 
   /**
-   * <p>The unique client token.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1224,7 +1225,7 @@ export interface CreateResponderGatewayRequest {
   vpcId: string | undefined;
 
   /**
-   * <p>The unique identifiers of the subnets.</p>
+   * <p>Unique identifiers of the subnets. A service quota for your account sets the number of Availability Zones that your subnets can span. By default, this quota is one Availability Zone. To span more Availability Zones, request a quota increase.</p>
    * @public
    */
   subnetIds: string[] | undefined;
@@ -1272,7 +1273,7 @@ export interface CreateResponderGatewayRequest {
   managedEndpointConfiguration?: ManagedEndpointConfiguration | undefined;
 
   /**
-   * <p>The unique client token.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1294,6 +1295,12 @@ export interface CreateResponderGatewayRequest {
    * @public
    */
   gatewayType?: GatewayType | undefined;
+
+  /**
+   * <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. Valid values are the following:</p> <ul> <li> <p> <code>AVAILABILITY_ZONE_AFFINITY</code>: RTB Fabric routes each requester's traffic to gateway capacity in the requester's own Availability Zone when the gateway has capacity available there. Otherwise, RTB Fabric routes the traffic to gateway capacity in the other Availability Zones of the gateway.</p> </li> <li> <p> <code>ANY_AVAILABILITY_ZONE</code>: RTB Fabric routes each requester's traffic to gateway capacity in every Availability Zone that the subnets of the gateway span. The Availability Zone that the requester is in does not change this.</p> </li> </ul> <p>If you don't specify a value, RTB Fabric uses <code>AVAILABILITY_ZONE_AFFINITY</code>. To get the behavior of <code>ANY_AVAILABILITY_ZONE</code>, create the gateway with subnets in more than one Availability Zone. RTB Fabric does not support partial Availability Zone affinity, so <code>PARTIAL_AVAILABILITY_ZONE_AFFINITY</code> is not a valid value. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * @public
+   */
+  clientRoutingPolicy?: ClientRoutingPolicy | undefined;
 }
 
 /**
@@ -1323,6 +1330,12 @@ export interface CreateResponderGatewayResponse {
    * @public
    */
   externalInboundEndpoint?: string | undefined;
+
+  /**
+   * <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * @public
+   */
+  clientRoutingPolicy?: ClientRoutingPolicy | undefined;
 }
 
 /**
@@ -2178,7 +2191,7 @@ export interface UpdateLinkResponse {
  */
 export interface UpdateLinkModuleFlowRequest {
   /**
-   * <p>The unique client token.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2687,6 +2700,12 @@ export interface GetResponderGatewayResponse {
    * @public
    */
   externalInboundEndpoint?: string | undefined;
+
+  /**
+   * <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. RTB Fabric omits this member if the gateway has never had a client routing policy. An omitted value means that the gateway uses <code>AVAILABILITY_ZONE_AFFINITY</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * @public
+   */
+  clientRoutingPolicy?: ClientRoutingPolicy | undefined;
 }
 
 /**
@@ -2824,7 +2843,7 @@ export interface ListTagsForResourceResponse {
  */
 export interface UpdateRequesterGatewayRequest {
   /**
-   * <p>The unique client token.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2864,19 +2883,19 @@ export interface UpdateRequesterGatewayResponse {
  */
 export interface UpdateResponderGatewayRequest {
   /**
-   * <p>The domain name for the responder gateway.</p>
+   * <p>Domain name for the responder gateway. This operation does not change the domain name of an existing gateway. To use a different domain name, delete the gateway and create a new one.</p>
    * @public
    */
   domainName?: string | undefined;
 
   /**
-   * <p>The networking port to use.</p>
+   * <p>Networking port to use. This operation does not change the port of an existing gateway. To use a different port, delete the gateway and create a new one.</p>
    * @public
    */
   port: number | undefined;
 
   /**
-   * <p>The networking protocol to use.</p>
+   * <p>Networking protocol to use. This operation does not change the protocol of an existing gateway. To use a different protocol, delete the gateway and create a new one.</p>
    * @public
    */
   protocol: Protocol | undefined;
@@ -2900,7 +2919,7 @@ export interface UpdateResponderGatewayRequest {
   managedEndpointConfiguration?: ManagedEndpointConfiguration | undefined;
 
   /**
-   * <p>The unique client token.</p>
+   * <p>Specifies a unique, case-sensitive identifier that you provide to ensure the idempotency of the request. This lets you safely retry the request without accidentally performing the same operation a second time. Passing the same value to a later call to an operation requires that you also pass the same value for all other parameters. We recommend that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID type of value</a>.</p> <p>If you don't provide this value, then Amazon Web Services generates a random one for you.</p> <p>If you retry the operation with the same <code>clientToken</code>, but with different parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2916,6 +2935,12 @@ export interface UpdateResponderGatewayRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The client routing policy of the gateway. This policy controls which Availability Zones RTB Fabric uses to reach the gateway for the requester gateways that send traffic to it. Valid values are the following:</p> <ul> <li> <p> <code>AVAILABILITY_ZONE_AFFINITY</code>: RTB Fabric routes each requester's traffic to gateway capacity in the requester's own Availability Zone when the gateway has capacity available there. Otherwise, RTB Fabric routes the traffic to gateway capacity in the other Availability Zones of the gateway.</p> </li> <li> <p> <code>ANY_AVAILABILITY_ZONE</code>: RTB Fabric routes each requester's traffic to gateway capacity in every Availability Zone that the subnets of the gateway span. The Availability Zone that the requester is in does not change this.</p> </li> </ul> <p>If you don't specify a value, the gateway keeps its current client routing policy. Changing the policy sets the gateway status to <code>PENDING_UPDATE</code> until the change is complete. RTB Fabric does not support partial Availability Zone affinity, so <code>PARTIAL_AVAILABILITY_ZONE_AFFINITY</code> is not a valid value. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * @public
+   */
+  clientRoutingPolicy?: ClientRoutingPolicy | undefined;
 }
 
 /**
@@ -2933,6 +2958,12 @@ export interface UpdateResponderGatewayResponse {
    * @public
    */
   status: ResponderGatewayStatus | undefined;
+
+  /**
+   * <p>The client routing policy of the gateway. If the operation changed this policy, the gateway uses the new policy after its status returns to <code>ACTIVE</code>. For more information, see <a href="https://docs.aws.amazon.com/rtb-fabric/latest/userguide/working-with-responder-gateways.html#configuring-availability-zone-affinity">Configuring Availability Zone affinity</a> in the <i>Amazon Web Services RTB Fabric User Guide</i>.</p>
+   * @public
+   */
+  clientRoutingPolicy?: ClientRoutingPolicy | undefined;
 }
 
 /**

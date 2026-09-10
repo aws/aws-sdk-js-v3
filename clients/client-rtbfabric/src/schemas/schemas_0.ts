@@ -164,6 +164,7 @@ const _cASEU = "clusterApiServerEndpointUri";
 const _cAe = "certificateAssociations";
 const _cN = "clusterName";
 const _cPI = "customerProvidedId";
+const _cRP = "clientRoutingPolicy";
 const _cT = "connectivityType";
 const _cTl = "clientToken";
 const _co = "conditions";
@@ -420,13 +421,13 @@ export var CreateRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _CRG
 ];
 export var CreateResponderGatewayRequest$: StaticStructureSchema = [3, n0, _CRGRre,
   0,
-  [_vI, _sI, _sGI, _po, _pr, _dN, _lC, _tSC, _mEC, _cTl, _de, _t, _gT],
-  [0, 64 | 0, 64 | 0, 1, 0, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], [0, 4], 0, 128 | 0, 0], 5
+  [_vI, _sI, _sGI, _po, _pr, _dN, _lC, _tSC, _mEC, _cTl, _de, _t, _gT, _cRP],
+  [0, 64 | 0, 64 | 0, 1, 0, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], [0, 4], 0, 128 | 0, 0, 0], 5
 ];
 export var CreateResponderGatewayResponse$: StaticStructureSchema = [3, n0, _CRGRrea,
   0,
-  [_gI, _st, _lC, _eIE],
-  [0, 0, () => ListenerConfig$, 0], 2
+  [_gI, _st, _lC, _eIE, _cRP],
+  [0, 0, () => ListenerConfig$, 0, 0], 2
 ];
 export var DeleteInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _DIELR,
   0,
@@ -580,8 +581,8 @@ export var GetResponderGatewayRequest$: StaticStructureSchema = [3, n0, _GRGRet,
 ];
 export var GetResponderGatewayResponse$: StaticStructureSchema = [3, n0, _GRGRete,
   0,
-  [_vI, _sI, _sGI, _st, _po, _pr, _gI, _de, _cA, _uA, _dN, _lC, _tSC, _mEC, _t, _aLC, _tLC, _lRC, _gT, _eIE],
-  [0, 64 | 0, 64 | 0, 0, 1, 0, 0, 0, 4, 4, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], 128 | 0, 1, 1, 1, 0, 0], 7
+  [_vI, _sI, _sGI, _st, _po, _pr, _gI, _de, _cA, _uA, _dN, _lC, _tSC, _mEC, _t, _aLC, _tLC, _lRC, _gT, _eIE, _cRP],
+  [0, 64 | 0, 64 | 0, 0, 1, 0, 0, 0, 4, 4, 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], 128 | 0, 1, 1, 1, 0, 0, 0], 7
 ];
 export var HeaderTagAction$: StaticStructureSchema = [3, n0, _HTA,
   0,
@@ -805,13 +806,13 @@ export var UpdateRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _URG
 ];
 export var UpdateResponderGatewayRequest$: StaticStructureSchema = [3, n0, _URGRpd,
   0,
-  [_po, _pr, _gI, _dN, _lC, _tSC, _mEC, _cTl, _de],
-  [1, 0, [0, 1], 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], [0, 4], 0], 3
+  [_po, _pr, _gI, _dN, _lC, _tSC, _mEC, _cTl, _de, _cRP],
+  [1, 0, [0, 1], 0, () => ListenerConfig$, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], [0, 4], 0, 0], 3
 ];
 export var UpdateResponderGatewayResponse$: StaticStructureSchema = [3, n0, _URGRpda,
   0,
-  [_gI, _st],
-  [0, 0], 2
+  [_gI, _st, _cRP],
+  [0, 0, 0], 2
 ];
 var AutoScalingGroupNameList = 64 | 0;
 var CertificateAssociationSummaryList: StaticListSchema = [1, n0, _CASL,

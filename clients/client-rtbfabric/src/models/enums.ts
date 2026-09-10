@@ -127,6 +127,19 @@ export type Protocol = (typeof Protocol)[keyof typeof Protocol];
  * @public
  * @enum
  */
+export const ClientRoutingPolicy = {
+  ANY_AVAILABILITY_ZONE: "ANY_AVAILABILITY_ZONE",
+  AVAILABILITY_ZONE_AFFINITY: "AVAILABILITY_ZONE_AFFINITY",
+} as const;
+/**
+ * @public
+ */
+export type ClientRoutingPolicy = (typeof ClientRoutingPolicy)[keyof typeof ClientRoutingPolicy];
+
+/**
+ * @public
+ * @enum
+ */
 export const RuleStatus = {
   ACTIVE: "ACTIVE",
   CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
