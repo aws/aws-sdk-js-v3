@@ -173,6 +173,7 @@ export type {
   QuoteRackUseType,
   QuoteSpecificationType,
   QuoteStatus,
+  RackScalingType,
   RackUnitHeight,
   ResourceType,
   ShipmentCarrier,

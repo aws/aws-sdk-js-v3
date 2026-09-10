@@ -172,6 +172,19 @@ export type CatalogItemStatus = (typeof CatalogItemStatus)[keyof typeof CatalogI
  * @public
  * @enum
  */
+export const RackScalingType = {
+  MULTI_RACK: "MULTI_RACK",
+  SINGLE_RACK: "SINGLE_RACK",
+} as const;
+/**
+ * @public
+ */
+export type RackScalingType = (typeof RackScalingType)[keyof typeof RackScalingType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SupportedStorageEnum = {
   EBS: "EBS",
   S3: "S3",
@@ -310,6 +323,19 @@ export type SupportedHardwareType = (typeof SupportedHardwareType)[keyof typeof 
  * @public
  * @enum
  */
+export const OutpostGeneration = {
+  GENERATION_1: "GENERATION_1",
+  GENERATION_2: "GENERATION_2",
+} as const;
+/**
+ * @public
+ */
+export type OutpostGeneration = (typeof OutpostGeneration)[keyof typeof OutpostGeneration];
+
+/**
+ * @public
+ * @enum
+ */
 export const PrivateConnectivityStatus = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -327,6 +353,7 @@ export const QuoteConstraintType = {
   RACK_MAXIMUM: "RACK_MAXIMUM",
   RACK_MAX_POWER_KVA: "RACK_MAX_POWER_KVA",
   RACK_MAX_WEIGHT_LBS: "RACK_MAX_WEIGHT_LBS",
+  RACK_SPACE_CONSTRAINED: "RACK_SPACE_CONSTRAINED",
 } as const;
 /**
  * @public
@@ -627,19 +654,6 @@ export const FormFactor = {
  * @public
  */
 export type FormFactor = (typeof FormFactor)[keyof typeof FormFactor];
-
-/**
- * @public
- * @enum
- */
-export const OutpostGeneration = {
-  GENERATION_1: "GENERATION_1",
-  GENERATION_2: "GENERATION_2",
-} as const;
-/**
- * @public
- */
-export type OutpostGeneration = (typeof OutpostGeneration)[keyof typeof OutpostGeneration];
 
 /**
  * @public

@@ -56,7 +56,7 @@ export interface ListQuotesCommandOutput extends ListQuotesOutput, __MetadataBea
  * //       ],
  * //       RequestedConstraints: [ // QuoteConstraintList
  * //         { // QuoteConstraint
- * //           QuoteConstraintType: "RACK_MAXIMUM" || "RACK_MAX_POWER_KVA" || "RACK_MAX_WEIGHT_LBS",
+ * //           QuoteConstraintType: "RACK_MAXIMUM" || "RACK_MAX_POWER_KVA" || "RACK_MAX_WEIGHT_LBS" || "RACK_SPACE_CONSTRAINED",
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],

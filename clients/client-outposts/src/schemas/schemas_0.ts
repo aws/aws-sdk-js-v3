@@ -120,6 +120,7 @@ const _FFCo = "FormFactorConfig";
 const _FOCT = "FiberOpticCableType";
 const _FRSD = "FinalRackSpecificationDetails";
 const _Fa = "Failed";
+const _G = "Generation";
 const _GC = "GetConnection";
 const _GCI = "GetCatalogItem";
 const _GCII = "GetCatalogItemInput";
@@ -322,6 +323,7 @@ const _RPO = "RequestedPaymentOptions";
 const _RPP = "RackPhysicalProperties";
 const _RPT = "RequestedPaymentTerms";
 const _RSD = "RackSpecificationDetails";
+const _RST = "RackScalingType";
 const _RT = "ResourceType";
 const _RU = "RackUse";
 const _RUH = "RackUnitHeight";
@@ -564,8 +566,8 @@ export var CapacityTaskSummary$: StaticStructureSchema = [3, n0, _CTS,
 ];
 export var CatalogItem$: StaticStructureSchema = [3, n0, _CI,
   0,
-  [_CII, _IS, _ECC, _PK, _WL, _SUG, _SS],
-  [0, 0, () => EC2CapacityListDefinition, 1, 1, 64 | 1, 64 | 0]
+  [_CII, _IS, _ECC, _PK, _WL, _SUG, _SS, _RST],
+  [0, 0, () => EC2CapacityListDefinition, 1, 1, 64 | 1, 64 | 0, 0]
 ];
 export var ComputeAttributes$: StaticStructureSchema = [3, n0, _CA,
   0,
@@ -969,8 +971,8 @@ export var OrderSummary$: StaticStructureSchema = [3, n0, _OS,
 ];
 export var Outpost$: StaticStructureSchema = [3, n0, _Ou,
   0,
-  [_OIu, _OIw, _OAu, _SI, _N, _D, _LCS, _AZ, _AZI, _Ta, _SAi, _SHT],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 0]
+  [_OIu, _OIw, _OAu, _SI, _N, _D, _LCS, _AZ, _AZI, _Ta, _SAi, _SHT, _G, _RST],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, 0, 0, 0]
 ];
 export var PricingOption$: StaticStructureSchema = [3, n0, _POri,
   0,

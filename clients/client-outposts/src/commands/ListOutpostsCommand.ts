@@ -67,6 +67,8 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  * //       },
  * //       SiteArn: "STRING_VALUE",
  * //       SupportedHardwareType: "RACK" || "SERVER",
+ * //       Generation: "GENERATION_2" || "GENERATION_1",
+ * //       RackScalingType: "SINGLE_RACK" || "MULTI_RACK",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

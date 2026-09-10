@@ -233,6 +233,7 @@ import {
   QuoteStatus,
   QuoteSummary$,
   RackPhysicalProperties$,
+  RackScalingType,
   RackSpecificationDetails$,
   RackUnitHeight,
   ResourceType,
@@ -559,6 +560,7 @@ assert(typeof QuotePricingType === "object");
 assert(typeof QuoteRackUseType === "object");
 assert(typeof QuoteSpecificationType === "object");
 assert(typeof QuoteStatus === "object");
+assert(typeof RackScalingType === "object");
 assert(typeof RackUnitHeight === "object");
 assert(typeof ResourceType === "object");
 assert(typeof ShipmentCarrier === "object");

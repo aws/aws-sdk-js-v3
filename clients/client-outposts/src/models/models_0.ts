@@ -36,6 +36,7 @@ import type {
   QuoteRackUseType,
   QuoteSpecificationType,
   QuoteStatus,
+  RackScalingType,
   RackUnitHeight,
   ShipmentCarrier,
   SubscriptionStatus,
@@ -541,6 +542,13 @@ export interface CatalogItem {
    * @public
    */
   SupportedStorage?: SupportedStorageEnum[] | undefined;
+
+  /**
+   * <p>The rack scaling type supported by the catalog item. Valid values are
+   *       <code>SINGLE_RACK</code> and <code>MULTI_RACK</code>.</p>
+   * @public
+   */
+  RackScalingType?: RackScalingType | undefined;
 }
 
 /**
@@ -972,6 +980,21 @@ export interface Outpost {
    * @public
    */
   SupportedHardwareType?: SupportedHardwareType | undefined;
+
+  /**
+   * <p>The Outpost generation. Valid values are <code>GENERATION_1</code> for first-generation
+   *       rack deployments and <code>GENERATION_2</code> for second-generation rack deployments.</p>
+   * @public
+   */
+  Generation?: OutpostGeneration | undefined;
+
+  /**
+   * <p>The rack scaling type. Valid values are <code>SINGLE_RACK</code> for single-rack
+   *       Outposts and <code>MULTI_RACK</code> for multi-rack Outposts that can expand across
+   *       multiple racks.</p>
+   * @public
+   */
+  RackScalingType?: RackScalingType | undefined;
 }
 
 /**
@@ -1090,7 +1113,8 @@ export interface CreatePrivateConnectivityConfigOutput {
 export interface QuoteConstraint {
   /**
    * <p>The type of constraint. Valid values are <code>RACK_MAXIMUM</code>,
-   *       <code>RACK_MAX_POWER_KVA</code>, and <code>RACK_MAX_WEIGHT_LBS</code>.</p>
+   *       <code>RACK_MAX_POWER_KVA</code>, <code>RACK_MAX_WEIGHT_LBS</code>, and
+   *       <code>RACK_SPACE_CONSTRAINED</code>.</p>
    * @public
    */
   QuoteConstraintType?: QuoteConstraintType | undefined;

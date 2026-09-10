@@ -53,6 +53,8 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
  * //     },
  * //     SiteArn: "STRING_VALUE",
  * //     SupportedHardwareType: "RACK" || "SERVER",
+ * //     Generation: "GENERATION_2" || "GENERATION_1",
+ * //     RackScalingType: "SINGLE_RACK" || "MULTI_RACK",
  * //   },
  * // };
  *

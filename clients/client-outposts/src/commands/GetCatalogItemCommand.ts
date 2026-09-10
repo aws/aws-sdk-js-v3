@@ -56,6 +56,7 @@ export interface GetCatalogItemCommandOutput extends GetCatalogItemOutput, __Met
  * //     SupportedStorage: [ // SupportedStorageList
  * //       "EBS" || "S3",
  * //     ],
+ * //     RackScalingType: "SINGLE_RACK" || "MULTI_RACK",
  * //   },
  * // };
  *

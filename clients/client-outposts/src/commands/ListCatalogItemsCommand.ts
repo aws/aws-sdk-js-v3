@@ -70,6 +70,7 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  * //       SupportedStorage: [ // SupportedStorageList
  * //         "EBS" || "S3",
  * //       ],
+ * //       RackScalingType: "SINGLE_RACK" || "MULTI_RACK",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
