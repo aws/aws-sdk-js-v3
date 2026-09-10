@@ -477,6 +477,7 @@ export type ParsingModality = (typeof ParsingModality)[keyof typeof ParsingModal
 export const ParsingStrategy = {
   BEDROCK_DATA_AUTOMATION: "BEDROCK_DATA_AUTOMATION",
   BEDROCK_FOUNDATION_MODEL: "BEDROCK_FOUNDATION_MODEL",
+  MULTI_MODAL_EMBEDDINGS: "MULTI_MODAL_EMBEDDINGS",
   SMART_PARSING: "SMART_PARSING",
 } as const;
 /**
@@ -963,6 +964,19 @@ export type EmbeddingModelType = (typeof EmbeddingModelType)[keyof typeof Embedd
  * @public
  * @enum
  */
+export const SupplementalDataStorageLocationType = {
+  S3: "S3",
+} as const;
+/**
+ * @public
+ */
+export type SupplementalDataStorageLocationType =
+  (typeof SupplementalDataStorageLocationType)[keyof typeof SupplementalDataStorageLocationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RedshiftProvisionedAuthType = {
   IAM: "IAM",
   USERNAME: "USERNAME",
@@ -1053,19 +1067,6 @@ export const KnowledgeBaseType = {
  * @public
  */
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
-
-/**
- * @public
- * @enum
- */
-export const SupplementalDataStorageLocationType = {
-  S3: "S3",
-} as const;
-/**
- * @public
- */
-export type SupplementalDataStorageLocationType =
-  (typeof SupplementalDataStorageLocationType)[keyof typeof SupplementalDataStorageLocationType];
 
 /**
  * @public

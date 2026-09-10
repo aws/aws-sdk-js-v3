@@ -96,16 +96,26 @@ export interface BedrockEmbeddingModelConfiguration {
   embeddingDataType?: EmbeddingDataType | undefined;
 
   /**
-   * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+   * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p> <important> <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p> </important>
+   *
+   * @deprecated (since 2026-09-01) Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html.
    * @public
    */
   audio?: AudioConfiguration[] | undefined;
 
   /**
-   * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+   * <p>Configuration settings for processing video content in multimodal knowledge bases.</p> <important> <p>This field is deprecated. Use <code>modelConfiguration</code> instead.</p> </important>
+   *
+   * @deprecated (since 2026-09-01) Use Managed Knowledge Base's modelConfiguration field. https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html.
    * @public
    */
   video?: VideoConfiguration[] | undefined;
+
+  /**
+   * <p>Model-specific configuration for the embedding model, provided as a JSON object. Use this field to specify settings that apply to the embedding model that you selected, such as how audio and video files are divided into segments.</p> <p>The fields that this object accepts depend on the embedding model. For the settings that each model accepts, see the documentation for that model.</p>
+   * @public
+   */
+  modelConfiguration?: __DocumentType | undefined;
 }
 
 /**
@@ -121,12 +131,42 @@ export interface EmbeddingModelConfiguration {
 }
 
 /**
+ * <p>Contains information about a storage location for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.</p>
+ * @public
+ */
+export interface SupplementalDataStorageLocation {
+  /**
+   * <p>Specifies the storage service used for this location.</p>
+   * @public
+   */
+  type: SupplementalDataStorageLocationType | undefined;
+
+  /**
+   * <p>Contains information about the Amazon S3 location for the extracted multimedia content.</p>
+   * @public
+   */
+  s3Location?: S3Location | undefined;
+}
+
+/**
+ * <p>Specifies configurations for the storage location of multimedia content (images, audio, and video) extracted from multimodal documents in your data source. This content can be retrieved and returned to the end user with timestamp references for audio and video segments.</p>
+ * @public
+ */
+export interface SupplementalDataStorageConfiguration {
+  /**
+   * <p>A list of objects specifying storage locations for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.</p>
+   * @public
+   */
+  storageLocations: SupplementalDataStorageLocation[] | undefined;
+}
+
+/**
  * <p>Configurations for a managed knowledge base.</p>
  * @public
  */
 export interface ManagedKnowledgeBaseConfiguration {
   /**
-   * <p>Choose <code>CUSTOM</code> to provide your own Bedrock embedding model ARN. Choose <code>MANAGED</code> to use a service-managed embedding model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-create.html#kb-managed-embedding-models">Embedding model options</a>.</p>
+   * <p>Choose CUSTOM to provide your own Bedrock embedding model ARN. Choose MANAGED to use a service-managed embedding model.</p>
    * @public
    */
   embeddingModelType?: EmbeddingModelType | undefined;
@@ -138,7 +178,7 @@ export interface ManagedKnowledgeBaseConfiguration {
   embeddingModelArn?: string | undefined;
 
   /**
-   * <p>The configuration details for the embeddings model.</p>
+   * <p>The configuration details for the embeddings model. Not required when choosing the MANAGED embeddingModelType.</p>
    * @public
    */
   embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
@@ -148,6 +188,12 @@ export interface ManagedKnowledgeBaseConfiguration {
    * @public
    */
   serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
+
+  /**
+   * <p>Use this object to specify the Amazon S3 location that the knowledge base uses to process and ingest multimodal content. This field is required when you use a native multimodal embedding model.</p>
+   * @public
+   */
+  supplementalDataStorageConfiguration?: SupplementalDataStorageConfiguration | undefined;
 }
 
 /**
@@ -451,36 +497,6 @@ export interface SqlKnowledgeBaseConfiguration {
 }
 
 /**
- * <p>Contains information about a storage location for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.</p>
- * @public
- */
-export interface SupplementalDataStorageLocation {
-  /**
-   * <p>Specifies the storage service used for this location.</p>
-   * @public
-   */
-  type: SupplementalDataStorageLocationType | undefined;
-
-  /**
-   * <p>Contains information about the Amazon S3 location for the extracted multimedia content.</p>
-   * @public
-   */
-  s3Location?: S3Location | undefined;
-}
-
-/**
- * <p>Specifies configurations for the storage location of multimedia content (images, audio, and video) extracted from multimodal documents in your data source. This content can be retrieved and returned to the end user with timestamp references for audio and video segments.</p>
- * @public
- */
-export interface SupplementalDataStorageConfiguration {
-  /**
-   * <p>A list of objects specifying storage locations for multimedia content (images, audio, and video) extracted from multimodal documents in your data source.</p>
-   * @public
-   */
-  storageLocations: SupplementalDataStorageLocation[] | undefined;
-}
-
-/**
  * <p>Contains details about the model used to create vector embeddings for the knowledge base.</p>
  * @public
  */
@@ -522,7 +538,7 @@ export interface KnowledgeBaseConfiguration {
   vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration | undefined;
 
   /**
-   * <p>Configurations for a managed knowledge base.</p>
+   * <p>Contains configuration details for a knowledge base that uses a vector store fully managed by Amazon Bedrock. Specify this object when the knowledge base type is MANAGED.</p>
    * @public
    */
   managedKnowledgeBaseConfiguration?: ManagedKnowledgeBaseConfiguration | undefined;

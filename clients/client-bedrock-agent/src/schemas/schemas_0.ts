@@ -1270,8 +1270,8 @@ export var BedrockDataAutomationConfiguration$: StaticStructureSchema = [3, n0, 
 ];
 export var BedrockEmbeddingModelConfiguration$: StaticStructureSchema = [3, n0, _BEMC,
   0,
-  [_di, _eDT, _au, _vi],
-  [1, 0, () => AudioConfigurations, () => VideoConfigurations]
+  [_di, _eDT, _au, _vi, _mCo],
+  [1, 0, () => AudioConfigurations, () => VideoConfigurations, 15]
 ];
 export var BedrockFoundationModelConfiguration$: StaticStructureSchema = [3, n0, _BFMC,
   0,
@@ -2250,8 +2250,8 @@ export var MalformedNodeInputExpressionFlowValidationDetails$: StaticStructureSc
 ];
 export var ManagedKnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _MKBC,
   0,
-  [_eMT, _eMA, _eMC, _sSEC],
-  [0, 0, () => EmbeddingModelConfiguration$, () => ServerSideEncryptionConfiguration$]
+  [_eMT, _eMA, _eMC, _sSEC, _sDSC],
+  [0, 0, () => EmbeddingModelConfiguration$, () => ServerSideEncryptionConfiguration$, () => SupplementalDataStorageConfiguration$]
 ];
 export var ManagedKnowledgeBaseConnectorConfiguration$: StaticStructureSchema = [3, n0, _MKBCC,
   0,

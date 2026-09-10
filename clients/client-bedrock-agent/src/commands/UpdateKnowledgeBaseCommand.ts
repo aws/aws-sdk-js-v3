@@ -59,6 +59,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *               },
  *             },
  *           ],
+ *           modelConfiguration: "DOCUMENT_VALUE",
  *         },
  *       },
  *       supplementalDataStorageConfiguration: { // SupplementalDataStorageConfiguration
@@ -93,10 +94,21 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *               },
  *             },
  *           ],
+ *           modelConfiguration: "DOCUMENT_VALUE",
  *         },
  *       },
  *       serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *         kmsKeyArn: "STRING_VALUE",
+ *       },
+ *       supplementalDataStorageConfiguration: {
+ *         storageLocations: [ // required
+ *           {
+ *             type: "S3", // required
+ *             s3Location: {
+ *               uri: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         ],
  *       },
  *     },
  *     kendraKnowledgeBaseConfiguration: { // KendraKnowledgeBaseConfiguration
@@ -276,6 +288,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //                 },
  * //               },
  * //             ],
+ * //             modelConfiguration: "DOCUMENT_VALUE",
  * //           },
  * //         },
  * //         supplementalDataStorageConfiguration: { // SupplementalDataStorageConfiguration
@@ -310,10 +323,21 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //                 },
  * //               },
  * //             ],
+ * //             modelConfiguration: "DOCUMENT_VALUE",
  * //           },
  * //         },
  * //         serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //           kmsKeyArn: "STRING_VALUE",
+ * //         },
+ * //         supplementalDataStorageConfiguration: {
+ * //           storageLocations: [ // required
+ * //             {
+ * //               type: "S3", // required
+ * //               s3Location: {
+ * //                 uri: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       kendraKnowledgeBaseConfiguration: { // KendraKnowledgeBaseConfiguration

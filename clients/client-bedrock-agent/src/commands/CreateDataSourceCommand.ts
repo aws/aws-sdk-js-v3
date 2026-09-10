@@ -221,7 +221,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       ],
  *     },
  *     parsingConfiguration: { // ParsingConfiguration
- *       parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION" || "SMART_PARSING", // required
+ *       parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION" || "SMART_PARSING" || "MULTI_MODAL_EMBEDDINGS", // required
  *       bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfiguration
  *         modelArn: "STRING_VALUE", // required
  *         parsingPrompt: { // ParsingPrompt
@@ -436,7 +436,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * //         ],
  * //       },
  * //       parsingConfiguration: { // ParsingConfiguration
- * //         parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION" || "SMART_PARSING", // required
+ * //         parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION" || "SMART_PARSING" || "MULTI_MODAL_EMBEDDINGS", // required
  * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfiguration
  * //           modelArn: "STRING_VALUE", // required
  * //           parsingPrompt: { // ParsingPrompt

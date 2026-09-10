@@ -2598,7 +2598,7 @@ export interface DeletionProtectionConfiguration {
  */
 export interface AudioExtractionConfiguration {
   /**
-   * Whether audio extraction is enabled or disabled.
+   * <p>Whether audio extraction is enabled or disabled.</p>
    * @public
    */
   audioExtractionStatus: EnabledOrDisabledState | undefined;
@@ -2610,7 +2610,7 @@ export interface AudioExtractionConfiguration {
  */
 export interface ImageExtractionConfiguration {
   /**
-   * Whether image extraction is enabled or disabled.
+   * <p>Whether image extraction is enabled or disabled.</p>
    * @public
    */
   imageExtractionStatus: EnabledOrDisabledState | undefined;
@@ -2622,7 +2622,7 @@ export interface ImageExtractionConfiguration {
  */
 export interface VideoExtractionConfiguration {
   /**
-   * Whether video extraction is enabled or disabled.
+   * <p>Whether video extraction is enabled or disabled.</p>
    * @public
    */
   videoExtractionStatus: EnabledOrDisabledState | undefined;
@@ -3452,7 +3452,7 @@ export interface BedrockFoundationModelConfiguration {
  */
 export interface ParsingConfiguration {
   /**
-   * <p>The parsing strategy for the data source. Only <code>SMART_PARSING</code> can be selected for managed knowledge bases. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-customize-ingestion.html">Customize ingestion for managed knowledge bases</a>.</p>
+   * <p>The parsing strategy for the data source.</p> <p>For managed knowledge bases, the strategy that you can select depends on the embedding model that your knowledge base uses:</p> <ul> <li> <p>If your knowledge base uses a native multimodal embedding model, specify <code>MULTI_MODAL_EMBEDDINGS</code>. With this strategy, files are sent directly to the embedding model instead of being parsed into text. This is the only strategy that is supported for these knowledge bases.</p> </li> <li> <p>Otherwise, specify <code>SMART_PARSING</code>.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-customize-ingestion.html">Customize ingestion for managed knowledge bases</a>.</p>
    * @public
    */
   parsingStrategy: ParsingStrategy | undefined;
@@ -4759,7 +4759,7 @@ export interface ToolSpecification {
   inputSchema: ToolInputSchema | undefined;
 
   /**
-   * Whether to enforce strict JSON schema adherence for the tool input
+   * <p>Whether the tool schema is strictly enforced.</p>
    * @public
    */
   strict?: boolean | undefined;
