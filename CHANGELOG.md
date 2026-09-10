@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1129.0...v3.1130.0) (2026-09-10)
+
+
+### Features
+
+* **client-bedrock-agent:** TwelveLabs Marengo 3.0 is now an embedding model option in Amazon Bedrock Managed Knowledge Base. Create multimodal embeddings for video, audio, and image content that capture visual scenes, speech, and video cues, not just transcribed text. ([2671d46](https://github.com/aws/aws-sdk-js-v3/commit/2671d46566e0b381c624b22e4ba13d26c30db088))
+* **client-ec2:** The CreateImage API now supports a BootModeOverride parameter to explicitly set UEFI boot mode on a new AMI, overriding the source instance's inherited boot mode. ([c47027f](https://github.com/aws/aws-sdk-js-v3/commit/c47027fb758c788adc42d44e02df1fcaee9e9e6a))
+* **client-outposts:** Added fields to identify Outpost generation and rack scaling configuration on Outpost and CatalogItem resources. ([d6ec7dc](https://github.com/aws/aws-sdk-js-v3/commit/d6ec7dce8e3199abcf7687ad6d71cf67f6766058))
+* **client-resiliencehubv2:** This release adds the ListTestRunSourceEvents and ListTestRunDependencies APIs, which return the alarm state changes during a test run and the dependencies the run blocked. ([b918658](https://github.com/aws/aws-sdk-js-v3/commit/b918658dd6353198753badbf9b6045af5b8a0dda))
+* **client-rtbfabric:** AWS RTB Fabric now lets you control how traffic is routed to your responder gateway across Availability Zones. Set the new clientRoutingPolicy parameter  to keep traffic within the same Availability Zone or distribute traffic across all Availability Zones. ([e3d270a](https://github.com/aws/aws-sdk-js-v3/commit/e3d270a985ba9b295dfd429d91fd1aa18d547278))
+* **client-sagemaker:** This release adds the ability for customers to attach customer owned Elastic Network Interfaces (ENIs) to HyperPod cluster nodes. ([a741473](https://github.com/aws/aws-sdk-js-v3/commit/a74147302d3c20daa9e83daa8d3ecc42b38ba2b2))
+* **clients:** update client endpoints as of 2026-09-10 ([96951f6](https://github.com/aws/aws-sdk-js-v3/commit/96951f652f39a158adfe2fdb1084fa64a7ce4096))
+
+
+
+
+
 # [3.1129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1128.0...v3.1129.0) (2026-09-09)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1129.0...v3.1130.0) (2026-09-10)
+
+
+### Features
+
+* **client-resiliencehubv2:** This release adds the ListTestRunSourceEvents and ListTestRunDependencies APIs, which return the alarm state changes during a test run and the dependencies the run blocked. ([b918658](https://github.com/aws/aws-sdk-js-v3/commit/b918658dd6353198753badbf9b6045af5b8a0dda))
+
+
+
+
+
 # [3.1129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1128.0...v3.1129.0) (2026-09-09)
 
 **Note:** Version bump only for package @aws-sdk/client-resiliencehubv2

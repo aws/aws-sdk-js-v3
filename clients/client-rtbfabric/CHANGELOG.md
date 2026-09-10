@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1129.0...v3.1130.0) (2026-09-10)
+
+
+### Features
+
+* **client-rtbfabric:** AWS RTB Fabric now lets you control how traffic is routed to your responder gateway across Availability Zones. Set the new clientRoutingPolicy parameter  to keep traffic within the same Availability Zone or distribute traffic across all Availability Zones. ([e3d270a](https://github.com/aws/aws-sdk-js-v3/commit/e3d270a985ba9b295dfd429d91fd1aa18d547278))
+
+
+
+
+
 # [3.1129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1128.0...v3.1129.0) (2026-09-09)
 
 **Note:** Version bump only for package @aws-sdk/client-rtbfabric

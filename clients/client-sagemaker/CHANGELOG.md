@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1129.0...v3.1130.0) (2026-09-10)
+
+
+### Features
+
+* **client-sagemaker:** This release adds the ability for customers to attach customer owned Elastic Network Interfaces (ENIs) to HyperPod cluster nodes. ([a741473](https://github.com/aws/aws-sdk-js-v3/commit/a74147302d3c20daa9e83daa8d3ecc42b38ba2b2))
+
+
+
+
+
 # [3.1129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1128.0...v3.1129.0) (2026-09-09)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

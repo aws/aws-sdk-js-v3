@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1129.0...v3.1130.0) (2026-09-10)
+
+
+### Features
+
+* **client-bedrock-agent:** TwelveLabs Marengo 3.0 is now an embedding model option in Amazon Bedrock Managed Knowledge Base. Create multimodal embeddings for video, audio, and image content that capture visual scenes, speech, and video cues, not just transcribed text. ([2671d46](https://github.com/aws/aws-sdk-js-v3/commit/2671d46566e0b381c624b22e4ba13d26c30db088))
+
+
+
+
+
 # [3.1129.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1128.0...v3.1129.0) (2026-09-09)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent
