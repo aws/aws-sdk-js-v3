@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListHubContentVersionsRequest, ListHubContentVersionsResponse } from "../models/models_3";
+import type { ListHubContentVersionsRequest } from "../models/models_3";
+import type { ListHubContentVersionsResponse } from "../models/models_4";
 import { ListHubContentVersions$ } from "../schemas/schemas_0";
 
 /**

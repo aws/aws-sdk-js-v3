@@ -18,6 +18,7 @@ import type {
   HomeEfsFileSystemCreation,
   HubContentSupportStatus,
   HubContentType,
+  HubSortBy,
   HyperParameterTuningJobSortByOptions,
   HyperParameterTuningJobStatus,
   ImageSortBy,
@@ -236,6 +237,7 @@ import type {
   FeatureMetadata,
   Filter,
   GitConfigForUpdate,
+  HubContentInfo,
   HubInfo,
   HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
@@ -276,6 +278,82 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListHubContentVersionsResponse {
+  /**
+   * <p>The summaries of the listed hub content versions.</p>
+   * @public
+   */
+  HubContentSummaries: HubContentInfo[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of hub content versions, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHubsRequest {
+  /**
+   * <p>Only list hubs with names that contain the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>Only list hubs that were created before the time specified.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Only list hubs that were created after the time specified.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Only list hubs that were last modified before the time specified.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Only list hubs that were last modified after the time specified.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Sort hubs by either name or creation time.</p>
+   * @public
+   */
+  SortBy?: HubSortBy | undefined;
+
+  /**
+   * <p>Sort hubs by ascending or descending order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of hubs to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListHubs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hubs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -10464,34 +10542,6 @@ export interface UpdateInferenceComponentInput {
  * @public
  */
 export interface UpdateInferenceComponentOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the inference component.</p>
-   * @public
-   */
-  InferenceComponentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInferenceComponentRuntimeConfigInput {
-  /**
-   * <p>The name of the inference component to update.</p>
-   * @public
-   */
-  InferenceComponentName: string | undefined;
-
-  /**
-   * <p>Runtime settings for a model that is deployed with an inference component.</p>
-   * @public
-   */
-  DesiredRuntimeConfig: InferenceComponentRuntimeConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInferenceComponentRuntimeConfigOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the inference component.</p>
    * @public

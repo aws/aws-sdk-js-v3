@@ -2,6 +2,7 @@
 export * from "./AddAssociationCommand";
 export * from "./AddTagsCommand";
 export * from "./AssociateTrialComponentCommand";
+export * from "./AttachClusterNodeNetworkInterfaceCommand";
 export * from "./AttachClusterNodeVolumeCommand";
 export * from "./BatchAddClusterNodesCommand";
 export * from "./BatchDeleteClusterNodesCommand";

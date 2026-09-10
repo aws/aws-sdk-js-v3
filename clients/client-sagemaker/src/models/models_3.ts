@@ -39,7 +39,6 @@ import type {
   HubContentStatus,
   HubContentSupportStatus,
   HubContentType,
-  HubSortBy,
   HubStatus,
   HumanTaskUiStatus,
   HyperParameterTuningJobObjectiveType,
@@ -255,6 +254,7 @@ import type {
   ExperimentConfig,
   ExperimentSource,
   FeatureParameter,
+  HubContentDependency,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
   LastUpdateStatus,
@@ -293,6 +293,142 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeHubContentResponse {
+  /**
+   * <p>The name of the hub content.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+
+  /**
+   * <p>The version of the hub content.</p>
+   * @public
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The type of hub content.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The document schema version for the hub content.</p>
+   * @public
+   */
+  DocumentSchemaVersion: string | undefined;
+
+  /**
+   * <p>The name of the hub that contains the content.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub that contains the content. </p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   * @public
+   */
+  HubContentDisplayName?: string | undefined;
+
+  /**
+   * <p>A description of the hub content.</p>
+   * @public
+   */
+  HubContentDescription?: string | undefined;
+
+  /**
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
+   * @public
+   */
+  HubContentMarkdown?: string | undefined;
+
+  /**
+   * <p>The hub content document that describes information about the hub content such as type, associated containers, scripts, and more.</p>
+   * @public
+   */
+  HubContentDocument: string | undefined;
+
+  /**
+   * <p>The ARN of the public hub content.</p>
+   * @public
+   */
+  SageMakerPublicHubContentArn?: string | undefined;
+
+  /**
+   * <p>The minimum version of the hub content.</p>
+   * @public
+   */
+  ReferenceMinVersion?: string | undefined;
+
+  /**
+   * <p>The support status of the hub content.</p>
+   * @public
+   */
+  SupportStatus?: HubContentSupportStatus | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub content.</p>
+   * @public
+   */
+  HubContentSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>The location of any dependencies that the hub content has, such as scripts, model artifacts, datasets, or notebooks.</p>
+   * @public
+   */
+  HubContentDependencies?: HubContentDependency[] | undefined;
+
+  /**
+   * <p>The status of the hub content.</p>
+   * @public
+   */
+  HubContentStatus: HubContentStatus | undefined;
+
+  /**
+   * <p>The failure reason if importing hub content failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The date and time that hub content was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The last modified time of the hub content.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHumanTaskUiRequest {
+  /**
+   * <p>The name of the human task user interface (worker task template) you want information about.</p>
+   * @public
+   */
+  HumanTaskUiName: string | undefined;
+}
 
 /**
  * <p>Container for user interface template information.</p>
@@ -11713,82 +11849,6 @@ export interface ListHubContentVersionsRequest {
 
   /**
    * <p>If the response to a previous <code>ListHubContentVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hub content versions, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHubContentVersionsResponse {
-  /**
-   * <p>The summaries of the listed hub content versions.</p>
-   * @public
-   */
-  HubContentSummaries: HubContentInfo[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of hub content versions, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHubsRequest {
-  /**
-   * <p>Only list hubs with names that contain the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>Only list hubs that were created before the time specified.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Only list hubs that were created after the time specified.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Only list hubs that were last modified before the time specified.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Only list hubs that were last modified after the time specified.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Sort hubs by either name or creation time.</p>
-   * @public
-   */
-  SortBy?: HubSortBy | undefined;
-
-  /**
-   * <p>Sort hubs by ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The maximum number of hubs to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the response to a previous <code>ListHubs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hubs, use the token in the next request.</p>
    * @public
    */
   NextToken?: string | undefined;

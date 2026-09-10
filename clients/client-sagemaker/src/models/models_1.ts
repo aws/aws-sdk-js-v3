@@ -156,10 +156,8 @@ import type {
   ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
   CodeEditorAppSettings,
-  CodeRepository,
   ComputeQuotaResourceConfig,
   CustomImage,
-  GitConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -174,6 +172,42 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>A Git repository that SageMaker AI automatically displays to users for cloning in the JupyterServer application.</p>
+ * @public
+ */
+export interface CodeRepository {
+  /**
+   * <p>The URL of the Git repository.</p>
+   * @public
+   */
+  RepositoryUrl: string | undefined;
+}
+
+/**
+ * <p>Specifies configuration details for a Git repository in your Amazon Web Services account.</p>
+ * @public
+ */
+export interface GitConfig {
+  /**
+   * <p>The URL where the Git repository is located.</p>
+   * @public
+   */
+  RepositoryUrl: string | undefined;
+
+  /**
+   * <p>The default branch for the Git repository.</p>
+   * @public
+   */
+  Branch?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>\{"username": <i>UserName</i>, "password": <i>Password</i>\}</code> </p>
+   * @public
+   */
+  SecretArn?: string | undefined;
+}
 
 /**
  * <p>Specifies summary information about a Git repository.</p>
@@ -8486,38 +8520,4 @@ export interface MonitoringScheduleConfig {
    * @public
    */
   MonitoringType?: MonitoringType | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMonitoringScheduleRequest {
-  /**
-   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within an Amazon Web Services account.</p>
-   * @public
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring job.</p>
-   * @public
-   */
-  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMonitoringScheduleResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   * @public
-   */
-  MonitoringScheduleArn: string | undefined;
 }

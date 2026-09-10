@@ -24,6 +24,7 @@ import type {
   Tag,
 } from "./models_0";
 import type {
+  InferenceComponentRuntimeConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   ModelLifeCycle,
@@ -62,6 +63,34 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateInferenceComponentRuntimeConfigInput {
+  /**
+   * <p>The name of the inference component to update.</p>
+   * @public
+   */
+  InferenceComponentName: string | undefined;
+
+  /**
+   * <p>Runtime settings for a model that is deployed with an inference component.</p>
+   * @public
+   */
+  DesiredRuntimeConfig: InferenceComponentRuntimeConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInferenceComponentRuntimeConfigOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference component.</p>
+   * @public
+   */
+  InferenceComponentArn: string | undefined;
+}
 
 /**
  * @public

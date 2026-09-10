@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateInferenceComponentRuntimeConfigInput,
   UpdateInferenceComponentRuntimeConfigOutput,
-} from "../models/models_4";
+} from "../models/models_5";
 import { UpdateInferenceComponentRuntimeConfig$ } from "../schemas/schemas_0";
 
 /**

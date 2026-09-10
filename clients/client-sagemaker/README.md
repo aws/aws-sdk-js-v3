@@ -202,6 +202,13 @@ AssociateTrialComponent
 </details>
 <details>
 <summary>
+AttachClusterNodeNetworkInterface
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/AttachClusterNodeNetworkInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/AttachClusterNodeNetworkInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/AttachClusterNodeNetworkInterfaceCommandOutput/)
+</details>
+<details>
+<summary>
 AttachClusterNodeVolume
 </summary>
 

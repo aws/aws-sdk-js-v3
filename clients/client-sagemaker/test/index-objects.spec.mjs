@@ -109,6 +109,10 @@ import {
   AthenaDatasetDefinition$,
   AthenaResultCompressionType,
   AthenaResultFormat,
+  AttachClusterNodeNetworkInterface$,
+  AttachClusterNodeNetworkInterfaceCommand,
+  AttachClusterNodeNetworkInterfaceRequest$,
+  AttachClusterNodeNetworkInterfaceResponse$,
   AttachClusterNodeVolume$,
   AttachClusterNodeVolumeCommand,
   AttachClusterNodeVolumeRequest$,
@@ -2858,6 +2862,8 @@ assert(typeof AddTagsCommand === "function");
 assert(typeof AddTags$ === "object");
 assert(typeof AssociateTrialComponentCommand === "function");
 assert(typeof AssociateTrialComponent$ === "object");
+assert(typeof AttachClusterNodeNetworkInterfaceCommand === "function");
+assert(typeof AttachClusterNodeNetworkInterface$ === "object");
 assert(typeof AttachClusterNodeVolumeCommand === "function");
 assert(typeof AttachClusterNodeVolume$ === "object");
 assert(typeof BatchAddClusterNodesCommand === "function");
@@ -3734,6 +3740,8 @@ assert(typeof AsyncInferenceConfig$ === "object");
 assert(typeof AsyncInferenceNotificationConfig$ === "object");
 assert(typeof AsyncInferenceOutputConfig$ === "object");
 assert(typeof AthenaDatasetDefinition$ === "object");
+assert(typeof AttachClusterNodeNetworkInterfaceRequest$ === "object");
+assert(typeof AttachClusterNodeNetworkInterfaceResponse$ === "object");
 assert(typeof AttachClusterNodeVolumeRequest$ === "object");
 assert(typeof AttachClusterNodeVolumeResponse$ === "object");
 assert(typeof AuthorizedUrl$ === "object");

@@ -19,6 +19,11 @@ import {
   AssociateTrialComponentCommand,
 } from "./commands/AssociateTrialComponentCommand";
 import {
+  type AttachClusterNodeNetworkInterfaceCommandInput,
+  type AttachClusterNodeNetworkInterfaceCommandOutput,
+  AttachClusterNodeNetworkInterfaceCommand,
+} from "./commands/AttachClusterNodeNetworkInterfaceCommand";
+import {
   type AttachClusterNodeVolumeCommandInput,
   type AttachClusterNodeVolumeCommandOutput,
   AttachClusterNodeVolumeCommand,
@@ -2087,6 +2092,7 @@ const commands = {
   AddAssociationCommand,
   AddTagsCommand,
   AssociateTrialComponentCommand,
+  AttachClusterNodeNetworkInterfaceCommand,
   AttachClusterNodeVolumeCommand,
   BatchAddClusterNodesCommand,
   BatchDeleteClusterNodesCommand,
@@ -2647,6 +2653,23 @@ export interface SageMaker {
     args: AssociateTrialComponentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateTrialComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AttachClusterNodeNetworkInterfaceCommand}
+   */
+  attachClusterNodeNetworkInterface(
+    args: AttachClusterNodeNetworkInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachClusterNodeNetworkInterfaceCommandOutput>;
+  attachClusterNodeNetworkInterface(
+    args: AttachClusterNodeNetworkInterfaceCommandInput,
+    cb: (err: any, data?: AttachClusterNodeNetworkInterfaceCommandOutput) => void
+  ): void;
+  attachClusterNodeNetworkInterface(
+    args: AttachClusterNodeNetworkInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachClusterNodeNetworkInterfaceCommandOutput) => void
   ): void;
 
   /**

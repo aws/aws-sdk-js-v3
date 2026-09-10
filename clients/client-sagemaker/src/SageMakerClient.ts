@@ -61,6 +61,10 @@ import type {
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
 import type {
+  AttachClusterNodeNetworkInterfaceCommandInput,
+  AttachClusterNodeNetworkInterfaceCommandOutput,
+} from "./commands/AttachClusterNodeNetworkInterfaceCommand";
+import type {
   AttachClusterNodeVolumeCommandInput,
   AttachClusterNodeVolumeCommandOutput,
 } from "./commands/AttachClusterNodeVolumeCommand";
@@ -1288,6 +1292,7 @@ export type ServiceInputTypes =
   | AddAssociationCommandInput
   | AddTagsCommandInput
   | AssociateTrialComponentCommandInput
+  | AttachClusterNodeNetworkInterfaceCommandInput
   | AttachClusterNodeVolumeCommandInput
   | BatchAddClusterNodesCommandInput
   | BatchDeleteClusterNodesCommandInput
@@ -1696,6 +1701,7 @@ export type ServiceOutputTypes =
   | AddAssociationCommandOutput
   | AddTagsCommandOutput
   | AssociateTrialComponentCommandOutput
+  | AttachClusterNodeNetworkInterfaceCommandOutput
   | AttachClusterNodeVolumeCommandOutput
   | BatchAddClusterNodesCommandOutput
   | BatchDeleteClusterNodesCommandOutput

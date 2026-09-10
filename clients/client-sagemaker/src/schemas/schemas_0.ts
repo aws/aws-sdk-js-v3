@@ -15,6 +15,9 @@ const _ABRA = "AmazonBedrockRoleArn";
 const _AC = "AgentCount";
 const _ACC = "AnnotationConsolidationConfig";
 const _ACLA = "AnnotationConsolidationLambdaArn";
+const _ACNNI = "AttachClusterNodeNetworkInterface";
+const _ACNNIR = "AttachClusterNodeNetworkInterfaceRequest";
+const _ACNNIRt = "AttachClusterNodeNetworkInterfaceResponse";
 const _ACNS = "AddClusterNodeSpecification";
 const _ACNSL = "AddClusterNodeSpecificationList";
 const _ACNV = "AttachClusterNodeVolume";
@@ -118,6 +121,7 @@ const _AIWIDC = "AIWorkloadInputDataConfig";
 const _AIWIDCL = "AIWorkloadInputDataConfigList";
 const _AIWSDS = "AIWorkloadS3DataSource";
 const _AIs = "AssociationInfo";
+const _AIt = "AttachmentId";
 const _AL = "AlarmList";
 const _ALM = "AppLifecycleManagement";
 const _ALp = "AppList";
@@ -4154,6 +4158,16 @@ export var AthenaDatasetDefinition$: StaticStructureSchema = [3, n0, _ADD,
   0,
   [_Ca, _Da, _QS, _OSU, _OF, _WG, _KKI, _OCut],
   [0, 0, 0, 0, 0, 0, 0, 0], 5
+];
+export var AttachClusterNodeNetworkInterfaceRequest$: StaticStructureSchema = [3, n0, _ACNNIR,
+  0,
+  [_CNl, _NI, _NII],
+  [0, 0, 0], 3
+];
+export var AttachClusterNodeNetworkInterfaceResponse$: StaticStructureSchema = [3, n0, _ACNNIRt,
+  0,
+  [_CAl, _NI, _NII, _AIt],
+  [0, 0, 0, 0], 4
 ];
 export var AttachClusterNodeVolumeRequest$: StaticStructureSchema = [3, n0, _ACNVR,
   0,
@@ -12437,6 +12451,9 @@ export var AddTags$: StaticOperationSchema = [9, n0, _ATd,
 ];
 export var AssociateTrialComponent$: StaticOperationSchema = [9, n0, _ATC,
   0, () => AssociateTrialComponentRequest$, () => AssociateTrialComponentResponse$
+];
+export var AttachClusterNodeNetworkInterface$: StaticOperationSchema = [9, n0, _ACNNI,
+  0, () => AttachClusterNodeNetworkInterfaceRequest$, () => AttachClusterNodeNetworkInterfaceResponse$
 ];
 export var AttachClusterNodeVolume$: StaticOperationSchema = [9, n0, _ACNV,
   0, () => AttachClusterNodeVolumeRequest$, () => AttachClusterNodeVolumeResponse$

@@ -3204,6 +3204,58 @@ export interface AthenaDatasetDefinition {
 /**
  * @public
  */
+export interface AttachClusterNodeNetworkInterfaceRequest {
+  /**
+   * <p> The name or Amazon Resource Name (ARN) of the SageMaker HyperPod cluster that contains the target node. </p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p> The unique identifier of the cluster node to which you want to attach the network interface. The node must belong to your specified HyperPod cluster and cannot be part of a Restricted Instance Group (RIG). </p>
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p> The unique identifier of the elastic network interface (ENI) to attach. </p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AttachClusterNodeNetworkInterfaceResponse {
+  /**
+   * <p> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster where the network interface attachment operation was performed. </p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p> The unique identifier of the cluster node where your network interface was attached. </p>
+   * @public
+   */
+  NodeId: string | undefined;
+
+  /**
+   * <p> The unique identifier of the elastic network interface (ENI) that was attached. </p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p> The unique identifier of the network interface attachment. Use this value to reference or detach the network interface later. </p>
+   * @public
+   */
+  AttachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface AttachClusterNodeVolumeRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of your SageMaker HyperPod cluster containing the target node. Your cluster must use EKS as the orchestration and be in the <code>InService</code> state. </p>
@@ -8189,40 +8241,4 @@ export interface CodeEditorAppSettings {
    * @public
    */
   BuiltInLifecycleConfigArn?: string | undefined;
-}
-
-/**
- * <p>A Git repository that SageMaker AI automatically displays to users for cloning in the JupyterServer application.</p>
- * @public
- */
-export interface CodeRepository {
-  /**
-   * <p>The URL of the Git repository.</p>
-   * @public
-   */
-  RepositoryUrl: string | undefined;
-}
-
-/**
- * <p>Specifies configuration details for a Git repository in your Amazon Web Services account.</p>
- * @public
- */
-export interface GitConfig {
-  /**
-   * <p>The URL where the Git repository is located.</p>
-   * @public
-   */
-  RepositoryUrl: string | undefined;
-
-  /**
-   * <p>The default branch for the Git repository.</p>
-   * @public
-   */
-  Branch?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of <code>AWSCURRENT</code> and must be in the following format:</p> <p> <code>\{"username": <i>UserName</i>, "password": <i>Password</i>\}</code> </p>
-   * @public
-   */
-  SecretArn?: string | undefined;
 }

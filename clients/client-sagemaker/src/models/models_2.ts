@@ -37,8 +37,6 @@ import type {
   FeatureType,
   FlowDefinitionStatus,
   HomeEfsFileSystemCreation,
-  HubContentStatus,
-  HubContentSupportStatus,
   HubContentType,
   HubStatus,
   InputMode,
@@ -130,8 +128,6 @@ import type {
   ClusterRestrictedInstanceGroupsConfigOutput,
   ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
-  CodeRepository,
-  GitConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -147,6 +143,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  CodeRepository,
   CognitoConfig,
   CognitoMemberDefinition,
   CollectionConfiguration,
@@ -167,6 +164,7 @@ import type {
   ExplainerConfig,
   FeatureDefinition,
   FlowDefinitionOutputConfig,
+  GitConfig,
   HubS3StorageConfig,
   HumanLoopActivationConfig,
   HumanLoopConfig,
@@ -180,6 +178,7 @@ import type {
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
+  MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   NeoVpcConfig,
   NetworkConfig,
@@ -195,6 +194,40 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateMonitoringScheduleRequest {
+  /**
+   * <p>The name of the monitoring schedule. The name must be unique within an Amazon Web Services Region within an Amazon Web Services account.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The configuration object that specifies the monitoring schedule and defines the monitoring job.</p>
+   * @public
+   */
+  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href=" https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMonitoringScheduleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
+   * @public
+   */
+  MonitoringScheduleArn: string | undefined;
+}
 
 /**
  * <p>Information on the IMDS configuration of the notebook instance</p>
@@ -8167,140 +8200,4 @@ export interface HubContentDependency {
    * @public
    */
   DependencyCopyPath?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHubContentResponse {
-  /**
-   * <p>The name of the hub content.</p>
-   * @public
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
-   * @public
-   */
-  HubContentArn: string | undefined;
-
-  /**
-   * <p>The version of the hub content.</p>
-   * @public
-   */
-  HubContentVersion: string | undefined;
-
-  /**
-   * <p>The type of hub content.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>The document schema version for the hub content.</p>
-   * @public
-   */
-  DocumentSchemaVersion: string | undefined;
-
-  /**
-   * <p>The name of the hub that contains the content.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hub that contains the content. </p>
-   * @public
-   */
-  HubArn: string | undefined;
-
-  /**
-   * <p>The display name of the hub content.</p>
-   * @public
-   */
-  HubContentDisplayName?: string | undefined;
-
-  /**
-   * <p>A description of the hub content.</p>
-   * @public
-   */
-  HubContentDescription?: string | undefined;
-
-  /**
-   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formating.</p>
-   * @public
-   */
-  HubContentMarkdown?: string | undefined;
-
-  /**
-   * <p>The hub content document that describes information about the hub content such as type, associated containers, scripts, and more.</p>
-   * @public
-   */
-  HubContentDocument: string | undefined;
-
-  /**
-   * <p>The ARN of the public hub content.</p>
-   * @public
-   */
-  SageMakerPublicHubContentArn?: string | undefined;
-
-  /**
-   * <p>The minimum version of the hub content.</p>
-   * @public
-   */
-  ReferenceMinVersion?: string | undefined;
-
-  /**
-   * <p>The support status of the hub content.</p>
-   * @public
-   */
-  SupportStatus?: HubContentSupportStatus | undefined;
-
-  /**
-   * <p>The searchable keywords for the hub content.</p>
-   * @public
-   */
-  HubContentSearchKeywords?: string[] | undefined;
-
-  /**
-   * <p>The location of any dependencies that the hub content has, such as scripts, model artifacts, datasets, or notebooks.</p>
-   * @public
-   */
-  HubContentDependencies?: HubContentDependency[] | undefined;
-
-  /**
-   * <p>The status of the hub content.</p>
-   * @public
-   */
-  HubContentStatus: HubContentStatus | undefined;
-
-  /**
-   * <p>The failure reason if importing hub content failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The date and time that hub content was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The last modified time of the hub content.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHumanTaskUiRequest {
-  /**
-   * <p>The name of the human task user interface (worker task template) you want information about.</p>
-   * @public
-   */
-  HumanTaskUiName: string | undefined;
 }
