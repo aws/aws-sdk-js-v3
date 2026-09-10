@@ -50,6 +50,20 @@ export interface CreateInputSourceCommandOutput extends CreateInputSourceRespons
  *       namespaces: [ // EksNamespaceList // required
  *         "STRING_VALUE",
  *       ],
+ *       labelSelector: { // EksLabelSelector
+ *         matchLabels: { // EksLabelMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         matchExpressions: [ // EksLabelSelectorRequirementList
+ *           { // EksLabelSelectorRequirement
+ *             key: "STRING_VALUE", // required
+ *             operator: "IN" || "NOT_IN" || "EXISTS" || "DOES_NOT_EXIST", // required
+ *             values: [ // EksLabelValueList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
  *     },
  *     designFileS3Url: "STRING_VALUE",
  *   },

@@ -3,6 +3,7 @@ import type {
   AccountTargeting,
   AchievabilityStatus,
   ActorType,
+  AlarmState,
   AssertionSource,
   AssessmentErrorCode,
   AssessmentSortField,
@@ -12,6 +13,7 @@ import type {
   DependencyCriticality,
   DependencyDiscoveryInput,
   DependencyDiscoveryStatus,
+  EksLabelSelectorOperator,
   FailureCategory,
   FindingSeverity,
   FindingStatus,
@@ -33,6 +35,9 @@ import type {
   SortOrder,
   StopConditionSource,
   SystemEventType,
+  TestRunDependencySource,
+  TestRunSourceEventErrorCode,
+  TestRunSourceEventType,
   TestRunSourceType,
   TestRunStatus,
   TestSourceOutcome,
@@ -68,6 +73,30 @@ export interface Achievability {
    * @public
    */
   dataRecoveryTimeBetweenBackups?: AchievabilityStatus | undefined;
+}
+
+/**
+ * <p>Details about a CloudWatch alarm state change observed during a test run.</p>
+ * @public
+ */
+export interface AlarmStateChangeDetail {
+  /**
+   * <p>The state the alarm transitioned to.</p>
+   * @public
+   */
+  state: AlarmState | undefined;
+
+  /**
+   * <p>The state the alarm transitioned from. Absent on the initial event, which records the alarm's state when collection began.</p>
+   * @public
+   */
+  previousState?: AlarmState | undefined;
+
+  /**
+   * <p>A human-readable explanation of the state change, as reported by CloudWatch.</p>
+   * @public
+   */
+  reason?: string | undefined;
 }
 
 /**
@@ -351,6 +380,48 @@ export interface ValidationExceptionField {
 }
 
 /**
+ * <p>A single label requirement in a label selector, expressed as a key, an operator, and an optional list of values.</p>
+ * @public
+ */
+export interface EksLabelSelectorRequirement {
+  /**
+   * <p>The label key that the requirement applies to.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The operator that relates the label key to the values.</p>
+   * @public
+   */
+  operator: EksLabelSelectorOperator | undefined;
+
+  /**
+   * <p>The label values to compare against. Specify values when the operator is IN or NOT_IN. Leave this empty when the operator is EXISTS or DOES_NOT_EXIST.</p>
+   * @public
+   */
+  values?: string[] | undefined;
+}
+
+/**
+ * <p>A label selector that filters the Kubernetes objects discovered from an Amazon EKS input source. An object must satisfy both matchLabels and matchExpressions to match the selector. A selector with neither matches every object. The selector must render to 2,048 characters or fewer in Kubernetes label selector syntax.</p>
+ * @public
+ */
+export interface EksLabelSelector {
+  /**
+   * <p>The label key-value pairs that an object must have. All pairs must match for the object to be selected.</p>
+   * @public
+   */
+  matchLabels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The label requirements that an object must satisfy. All requirements in the list must match for the object to be selected.</p>
+   * @public
+   */
+  matchExpressions?: EksLabelSelectorRequirement[] | undefined;
+}
+
+/**
  * <p>Defines an Amazon EKS cluster and its namespaces as an input source for resource discovery.</p>
  * @public
  */
@@ -366,6 +437,12 @@ export interface EksSource {
    * @public
    */
   namespaces: string[] | undefined;
+
+  /**
+   * <p>Filters discovery to the Kubernetes objects whose labels match the selector. When omitted, all supported objects in the specified namespaces are discovered.</p>
+   * @public
+   */
+  labelSelector?: EksLabelSelector | undefined;
 }
 
 /**
@@ -3055,7 +3132,7 @@ export interface TestRun {
   regions?: string[] | undefined;
 
   /**
-   * Indicates whether this test run targets a single account or multiple accounts.
+   * <p>Indicates whether the test run targets resources in a single AWS account or across multiple accounts.</p>
    * @public
    */
   accountTargeting?: AccountTargeting | undefined;
@@ -5999,6 +6076,106 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface ListTestRunDependenciesRequest {
+  /**
+   * <p>The identifier of the test run to list dependencies for.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test run belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a dependency that a test run blocked, as captured when the run started.</p>
+ * @public
+ */
+export interface TestRunDependencySummary {
+  /**
+   * <p>The unique identifier of the dependency. Absent when the dependency was entered manually and was not part of dependency discovery.</p>
+   * @public
+   */
+  dependencyId?: string | undefined;
+
+  /**
+   * <p>The name of the dependency.</p>
+   * @public
+   */
+  dependencyName: string | undefined;
+
+  /**
+   * <p>The DNS name of the dependency that the test run blocked.</p>
+   * @public
+   */
+  dnsName: string | undefined;
+
+  /**
+   * <p>The criticality classification of the dependency when the run started. A dependency that was not discovered has the UNKNOWN criticality.</p>
+   * @public
+   */
+  criticality: DependencyCriticality | undefined;
+
+  /**
+   * <p>The origin of the dependency. A discovered dependency was found by dependency discovery; a manual dependency was entered when the run started.</p>
+   * @public
+   */
+  source: TestRunDependencySource | undefined;
+
+  /**
+   * <p>The location of the dependency.</p>
+   * @public
+   */
+  location?: string | undefined;
+
+  /**
+   * <p>The source Regions from which the dependency was detected.</p>
+   * @public
+   */
+  sourceRegions?: string[] | undefined;
+
+  /**
+   * <p>The provider of the dependency.</p>
+   * @public
+   */
+  provider?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestRunDependenciesResponse {
+  /**
+   * <p>The list of dependencies the test run blocked.</p>
+   * @public
+   */
+  dependencies: TestRunDependencySummary[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTestRunEventsRequest {
   /**
    * <p>The identifier of the test run to list events for.</p>
@@ -6167,7 +6344,7 @@ export interface TestRunSummary {
   errorMessage?: string | undefined;
 
   /**
-   * Indicates whether this test run targets a single account or multiple accounts.
+   * <p>Indicates whether the test run targets resources in a single AWS account or across multiple accounts.</p>
    * @public
    */
   accountTargeting?: AccountTargeting | undefined;
@@ -6182,6 +6359,159 @@ export interface ListTestRunsResponse {
    * @public
    */
   testRuns: TestRunSummary[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestRunSourceEventsRequest {
+  /**
+   * <p>The identifier of the test run to list source events for.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test run belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the monitoring source to list events for, such as the ARN of a CloudWatch alarm. If the source was not monitored during the test run, the response is an empty list.</p>
+   * @public
+   */
+  sourceArn: string | undefined;
+
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes an error that prevented event collection from a test run monitoring source.</p>
+ * @public
+ */
+export interface TestRunSourceEventError {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  errorCode: TestRunSourceEventErrorCode | undefined;
+
+  /**
+   * <p>A human-readable description of the error.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * <p>The payload of a test run source event. Exactly one member is set.</p>
+ * @public
+ */
+export type TestRunSourceEventDetail =
+  | TestRunSourceEventDetail.AlarmStateChangeMember
+  | TestRunSourceEventDetail.ErrorMember
+  | TestRunSourceEventDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TestRunSourceEventDetail {
+  /**
+   * <p>A CloudWatch alarm state change.</p>
+   * @public
+   */
+  export interface AlarmStateChangeMember {
+    alarmStateChange: AlarmStateChangeDetail;
+    error?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An error that prevented event collection from the source.</p>
+   * @public
+   */
+  export interface ErrorMember {
+    alarmStateChange?: never;
+    error: TestRunSourceEventError;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    alarmStateChange?: never;
+    error?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    alarmStateChange: (value: AlarmStateChangeDetail) => T;
+    error: (value: TestRunSourceEventError) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A state-change event observed for a test run monitoring source.</p>
+ * @public
+ */
+export interface TestRunSourceEvent {
+  /**
+   * <p>The timestamp when the event occurred.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The ARN of the monitoring source the event belongs to.</p>
+   * @public
+   */
+  sourceArn: string | undefined;
+
+  /**
+   * <p>The type of the event. ALARM indicates an event from a CloudWatch alarm source; the detail member carries either the alarm state change or a collection error.</p>
+   * @public
+   */
+  eventType: TestRunSourceEventType | undefined;
+
+  /**
+   * <p>The event payload.</p>
+   * @public
+   */
+  detail: TestRunSourceEventDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestRunSourceEventsResponse {
+  /**
+   * <p>The list of source events, in chronological order.</p>
+   * @public
+   */
+  testRunSourceEvents: TestRunSourceEvent[] | undefined;
 
   /**
    * <p>Pagination token.</p>

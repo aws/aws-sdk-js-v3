@@ -5,6 +5,8 @@ import {
   Achievability$,
   AchievabilityStatus,
   ActorType,
+  AlarmState,
+  AlarmStateChangeDetail$,
   Assertion$,
   AssertionCreatedMetadata$,
   AssertionDeletedMetadata$,
@@ -111,6 +113,9 @@ import {
   DisasterRecoverySource$,
   EdgePropertySummary$,
   EffectivePolicyValues$,
+  EksLabelSelector$,
+  EksLabelSelectorOperator,
+  EksLabelSelectorRequirement$,
   EksSource$,
   EventActor$,
   ExperimentDetails$,
@@ -230,12 +235,20 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  ListTestRunDependencies$,
+  ListTestRunDependenciesCommand,
+  ListTestRunDependenciesRequest$,
+  ListTestRunDependenciesResponse$,
   ListTestRunEvents$,
   ListTestRunEventsCommand,
   ListTestRunEventsRequest$,
   ListTestRunEventsResponse$,
   ListTestRuns$,
   ListTestRunsCommand,
+  ListTestRunSourceEvents$,
+  ListTestRunSourceEventsCommand,
+  ListTestRunSourceEventsRequest$,
+  ListTestRunSourceEventsResponse$,
   ListTestRunSources$,
   ListTestRunSourcesCommand,
   ListTestRunSourcesRequest$,
@@ -281,8 +294,10 @@ import {
   paginateListServiceTopologyEdges,
   paginateListSystemEvents,
   paginateListSystems,
+  paginateListTestRunDependencies,
   paginateListTestRunEvents,
   paginateListTestRuns,
+  paginateListTestRunSourceEvents,
   paginateListTestRunSources,
   paginateListTests,
   paginateListTestSources,
@@ -395,10 +410,17 @@ import {
   TestAction$,
   TestingRecommendation$,
   TestRun$,
+  TestRunDependencySource,
+  TestRunDependencySummary$,
   TestRunEvent$,
   TestRunObservabilityAlarmSummary$,
   TestRunPolicySnapshot$,
   TestRunReportConfiguration$,
+  TestRunSourceEvent$,
+  TestRunSourceEventDetail$,
+  TestRunSourceEventError$,
+  TestRunSourceEventErrorCode,
+  TestRunSourceEventType,
   TestRunSourceSummary$,
   TestRunSourceType,
   TestRunStatus,
@@ -568,10 +590,14 @@ assert(typeof ListSystemsCommand === "function");
 assert(typeof ListSystems$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof ListTestRunDependenciesCommand === "function");
+assert(typeof ListTestRunDependencies$ === "object");
 assert(typeof ListTestRunEventsCommand === "function");
 assert(typeof ListTestRunEvents$ === "object");
 assert(typeof ListTestRunsCommand === "function");
 assert(typeof ListTestRuns$ === "object");
+assert(typeof ListTestRunSourceEventsCommand === "function");
+assert(typeof ListTestRunSourceEvents$ === "object");
 assert(typeof ListTestRunSourcesCommand === "function");
 assert(typeof ListTestRunSources$ === "object");
 assert(typeof ListTestsCommand === "function");
@@ -614,6 +640,7 @@ assert(typeof UpdateUserJourneyCommand === "function");
 assert(typeof UpdateUserJourney$ === "object");
 // structural schemas
 assert(typeof Achievability$ === "object");
+assert(typeof AlarmStateChangeDetail$ === "object");
 assert(typeof Assertion$ === "object");
 assert(typeof AssertionCreatedMetadata$ === "object");
 assert(typeof AssertionDeletedMetadata$ === "object");
@@ -669,6 +696,8 @@ assert(typeof DependencySummary$ === "object");
 assert(typeof DisasterRecoverySource$ === "object");
 assert(typeof EdgePropertySummary$ === "object");
 assert(typeof EffectivePolicyValues$ === "object");
+assert(typeof EksLabelSelector$ === "object");
+assert(typeof EksLabelSelectorRequirement$ === "object");
 assert(typeof EksSource$ === "object");
 assert(typeof EventActor$ === "object");
 assert(typeof ExperimentDetails$ === "object");
@@ -730,8 +759,12 @@ assert(typeof ListSystemsRequest$ === "object");
 assert(typeof ListSystemsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ListTestRunDependenciesRequest$ === "object");
+assert(typeof ListTestRunDependenciesResponse$ === "object");
 assert(typeof ListTestRunEventsRequest$ === "object");
 assert(typeof ListTestRunEventsResponse$ === "object");
+assert(typeof ListTestRunSourceEventsRequest$ === "object");
+assert(typeof ListTestRunSourceEventsResponse$ === "object");
 assert(typeof ListTestRunSourcesRequest$ === "object");
 assert(typeof ListTestRunSourcesResponse$ === "object");
 assert(typeof ListTestRunsRequest$ === "object");
@@ -826,10 +859,14 @@ assert(typeof Test$ === "object");
 assert(typeof TestAction$ === "object");
 assert(typeof TestingRecommendation$ === "object");
 assert(typeof TestRun$ === "object");
+assert(typeof TestRunDependencySummary$ === "object");
 assert(typeof TestRunEvent$ === "object");
 assert(typeof TestRunObservabilityAlarmSummary$ === "object");
 assert(typeof TestRunPolicySnapshot$ === "object");
 assert(typeof TestRunReportConfiguration$ === "object");
+assert(typeof TestRunSourceEvent$ === "object");
+assert(typeof TestRunSourceEventDetail$ === "object");
+assert(typeof TestRunSourceEventError$ === "object");
 assert(typeof TestRunSourceSummary$ === "object");
 assert(typeof TestRunSuccessCriteriaAlarmSummary$ === "object");
 assert(typeof TestRunSummary$ === "object");
@@ -867,6 +904,7 @@ assert(typeof ValidationExceptionField$ === "object");
 assert(typeof AccountTargeting === "object");
 assert(typeof AchievabilityStatus === "object");
 assert(typeof ActorType === "object");
+assert(typeof AlarmState === "object");
 assert(typeof AssertionSource === "object");
 assert(typeof AssessmentErrorCode === "object");
 assert(typeof AssessmentSortField === "object");
@@ -876,6 +914,7 @@ assert(typeof CostCurrency === "object");
 assert(typeof DependencyCriticality === "object");
 assert(typeof DependencyDiscoveryInput === "object");
 assert(typeof DependencyDiscoveryStatus === "object");
+assert(typeof EksLabelSelectorOperator === "object");
 assert(typeof FailureCategory === "object");
 assert(typeof FindingSeverity === "object");
 assert(typeof FindingStatus === "object");
@@ -897,6 +936,9 @@ assert(typeof ServiceFunctionSource === "object");
 assert(typeof SortOrder === "object");
 assert(typeof StopConditionSource === "object");
 assert(typeof SystemEventType === "object");
+assert(typeof TestRunDependencySource === "object");
+assert(typeof TestRunSourceEventErrorCode === "object");
+assert(typeof TestRunSourceEventType === "object");
 assert(typeof TestRunSourceType === "object");
 assert(typeof TestRunStatus === "object");
 assert(typeof TestSourceOutcome === "object");
@@ -944,7 +986,9 @@ assert(typeof paginateListServiceTopologyEdges === "function");
 assert(typeof paginateListServices === "function");
 assert(typeof paginateListSystemEvents === "function");
 assert(typeof paginateListSystems === "function");
+assert(typeof paginateListTestRunDependencies === "function");
 assert(typeof paginateListTestRunEvents === "function");
+assert(typeof paginateListTestRunSourceEvents === "function");
 assert(typeof paginateListTestRunSources === "function");
 assert(typeof paginateListTestRuns === "function");
 assert(typeof paginateListTestSources === "function");

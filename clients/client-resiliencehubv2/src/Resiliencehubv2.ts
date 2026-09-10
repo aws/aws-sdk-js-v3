@@ -222,6 +222,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTestRunDependenciesCommandInput,
+  type ListTestRunDependenciesCommandOutput,
+  ListTestRunDependenciesCommand,
+} from "./commands/ListTestRunDependenciesCommand";
+import {
   type ListTestRunEventsCommandInput,
   type ListTestRunEventsCommandOutput,
   ListTestRunEventsCommand,
@@ -231,6 +236,11 @@ import {
   type ListTestRunsCommandOutput,
   ListTestRunsCommand,
 } from "./commands/ListTestRunsCommand";
+import {
+  type ListTestRunSourceEventsCommandInput,
+  type ListTestRunSourceEventsCommandOutput,
+  ListTestRunSourceEventsCommand,
+} from "./commands/ListTestRunSourceEventsCommand";
 import {
   type ListTestRunSourcesCommandInput,
   type ListTestRunSourcesCommandOutput,
@@ -343,7 +353,9 @@ import { paginateListServices } from "./pagination/ListServicesPaginator";
 import { paginateListServiceTopologyEdges } from "./pagination/ListServiceTopologyEdgesPaginator";
 import { paginateListSystemEvents } from "./pagination/ListSystemEventsPaginator";
 import { paginateListSystems } from "./pagination/ListSystemsPaginator";
+import { paginateListTestRunDependencies } from "./pagination/ListTestRunDependenciesPaginator";
 import { paginateListTestRunEvents } from "./pagination/ListTestRunEventsPaginator";
+import { paginateListTestRunSourceEvents } from "./pagination/ListTestRunSourceEventsPaginator";
 import { paginateListTestRunSources } from "./pagination/ListTestRunSourcesPaginator";
 import { paginateListTestRuns } from "./pagination/ListTestRunsPaginator";
 import { paginateListTestSources } from "./pagination/ListTestSourcesPaginator";
@@ -402,8 +414,10 @@ const commands = {
   ListSystemEventsCommand,
   ListSystemsCommand,
   ListTagsForResourceCommand,
+  ListTestRunDependenciesCommand,
   ListTestRunEventsCommand,
   ListTestRunsCommand,
+  ListTestRunSourceEventsCommand,
   ListTestRunSourcesCommand,
   ListTestsCommand,
   ListTestSourcesCommand,
@@ -441,8 +455,10 @@ const paginators = {
   paginateListServiceTopologyEdges,
   paginateListSystemEvents,
   paginateListSystems,
+  paginateListTestRunDependencies,
   paginateListTestRunEvents,
   paginateListTestRuns,
+  paginateListTestRunSourceEvents,
   paginateListTestRunSources,
   paginateListTests,
   paginateListTestSources,
@@ -1244,6 +1260,23 @@ export interface Resiliencehubv2 {
   ): void;
 
   /**
+   * @see {@link ListTestRunDependenciesCommand}
+   */
+  listTestRunDependencies(
+    args: ListTestRunDependenciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestRunDependenciesCommandOutput>;
+  listTestRunDependencies(
+    args: ListTestRunDependenciesCommandInput,
+    cb: (err: any, data?: ListTestRunDependenciesCommandOutput) => void
+  ): void;
+  listTestRunDependencies(
+    args: ListTestRunDependenciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestRunDependenciesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTestRunEventsCommand}
    */
   listTestRunEvents(
@@ -1275,6 +1308,23 @@ export interface Resiliencehubv2 {
     args: ListTestRunsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTestRunsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestRunSourceEventsCommand}
+   */
+  listTestRunSourceEvents(
+    args: ListTestRunSourceEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestRunSourceEventsCommandOutput>;
+  listTestRunSourceEvents(
+    args: ListTestRunSourceEventsCommandInput,
+    cb: (err: any, data?: ListTestRunSourceEventsCommandOutput) => void
+  ): void;
+  listTestRunSourceEvents(
+    args: ListTestRunSourceEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestRunSourceEventsCommandOutput) => void
   ): void;
 
   /**
@@ -1784,6 +1834,17 @@ export interface Resiliencehubv2 {
   ): Paginator<ListSystemsCommandOutput>;
 
   /**
+   * @see {@link ListTestRunDependenciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestRunDependenciesCommandOutput}.
+   */
+  paginateListTestRunDependencies(
+    args: ListTestRunDependenciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestRunDependenciesCommandOutput>;
+
+  /**
    * @see {@link ListTestRunEventsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1804,6 +1865,17 @@ export interface Resiliencehubv2 {
     args: ListTestRunsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTestRunsCommandOutput>;
+
+  /**
+   * @see {@link ListTestRunSourceEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestRunSourceEventsCommandOutput}.
+   */
+  paginateListTestRunSourceEvents(
+    args: ListTestRunSourceEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestRunSourceEventsCommandOutput>;
 
   /**
    * @see {@link ListTestRunSourcesCommand}

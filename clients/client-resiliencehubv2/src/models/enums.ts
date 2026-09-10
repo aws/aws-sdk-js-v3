@@ -48,6 +48,20 @@ export type ActorType = (typeof ActorType)[keyof typeof ActorType];
  * @public
  * @enum
  */
+export const AlarmState = {
+  ALARM: "ALARM",
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  OK: "OK",
+} as const;
+/**
+ * @public
+ */
+export type AlarmState = (typeof AlarmState)[keyof typeof AlarmState];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssertionSource = {
   AI_GENERATED: "AI_GENERATED",
   USER: "USER",
@@ -147,6 +161,21 @@ export const ValidationExceptionReason = {
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const EksLabelSelectorOperator = {
+  DOES_NOT_EXIST: "DOES_NOT_EXIST",
+  EXISTS: "EXISTS",
+  IN: "IN",
+  NOT_IN: "NOT_IN",
+} as const;
+/**
+ * @public
+ */
+export type EksLabelSelectorOperator = (typeof EksLabelSelectorOperator)[keyof typeof EksLabelSelectorOperator];
 
 /**
  * @public
@@ -548,6 +577,45 @@ export const SystemEventType = {
  * @public
  */
 export type SystemEventType = (typeof SystemEventType)[keyof typeof SystemEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestRunDependencySource = {
+  DISCOVERED: "DISCOVERED",
+  MANUAL: "MANUAL",
+} as const;
+/**
+ * @public
+ */
+export type TestRunDependencySource = (typeof TestRunDependencySource)[keyof typeof TestRunDependencySource];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestRunSourceEventErrorCode = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+} as const;
+/**
+ * @public
+ */
+export type TestRunSourceEventErrorCode =
+  (typeof TestRunSourceEventErrorCode)[keyof typeof TestRunSourceEventErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestRunSourceEventType = {
+  ALARM: "ALARM",
+} as const;
+/**
+ * @public
+ */
+export type TestRunSourceEventType = (typeof TestRunSourceEventType)[keyof typeof TestRunSourceEventType];
 
 /**
  * @public

@@ -503,6 +503,13 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListTestRunDependencies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListTestRunDependenciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunDependenciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunDependenciesCommandOutput/)
+</details>
+<details>
+<summary>
 ListTestRunEvents
 </summary>
 
@@ -514,6 +521,13 @@ ListTestRuns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListTestRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunsCommandOutput/)
+</details>
+<details>
+<summary>
+ListTestRunSourceEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListTestRunSourceEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunSourceEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunSourceEventsCommandOutput/)
 </details>
 <details>
 <summary>

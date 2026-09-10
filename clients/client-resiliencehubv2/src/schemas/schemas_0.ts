@@ -5,6 +5,7 @@ const _ADE = "AccessDeniedException";
 const _ADM = "AssertionDeletedMetadata";
 const _AL = "AssertionList";
 const _AS = "AssessmentSummary";
+const _ASCD = "AlarmStateChangeDetail";
 const _ASL = "AssessmentSummaryList";
 const _ASLs = "AssociatedSystemList";
 const _ASs = "AssociatedSystem";
@@ -82,6 +83,10 @@ const _DUJRe = "DeleteUserJourneyResponse";
 const _EA = "EventActor";
 const _ED = "ExperimentDetails";
 const _EDL = "ExperimentDetailsList";
+const _ELM = "EksLabelMap";
+const _ELS = "EksLabelSelector";
+const _ELSR = "EksLabelSelectorRequirement";
+const _ELSRL = "EksLabelSelectorRequirementList";
 const _EPL = "EdgePropertyList";
 const _EPS = "EdgePropertySummary";
 const _EPV = "EffectivePolicyValues";
@@ -177,12 +182,18 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LTR = "ListTestsRequest";
+const _LTRD = "ListTestRunDependencies";
+const _LTRDR = "ListTestRunDependenciesRequest";
+const _LTRDRi = "ListTestRunDependenciesResponse";
 const _LTRE = "ListTestRunEvents";
 const _LTRER = "ListTestRunEventsRequest";
 const _LTRERi = "ListTestRunEventsResponse";
 const _LTRR = "ListTestRunsRequest";
 const _LTRRi = "ListTestRunsResponse";
 const _LTRS = "ListTestRunSources";
+const _LTRSE = "ListTestRunSourceEvents";
+const _LTRSER = "ListTestRunSourceEventsRequest";
+const _LTRSERi = "ListTestRunSourceEventsResponse";
 const _LTRSR = "ListTestRunSourcesRequest";
 const _LTRSRi = "ListTestRunSourcesResponse";
 const _LTRi = "ListTestsResponse";
@@ -300,6 +311,8 @@ const _TKL = "TagKeyList";
 const _TM = "TagMap";
 const _TP = "TestParameters";
 const _TR = "TestingRecommendation";
+const _TRDS = "TestRunDependencySummary";
+const _TRDSL = "TestRunDependencySummaryList";
 const _TRE = "TestRunEvent";
 const _TREL = "TestRunEventList";
 const _TRL = "TestingRecommendationsList";
@@ -310,6 +323,10 @@ const _TRRC = "TestRunReportConfiguration";
 const _TRRa = "TagResourceResponse";
 const _TRS = "TestRunSummary";
 const _TRSCAS = "TestRunSuccessCriteriaAlarmSummary";
+const _TRSE = "TestRunSourceEvent";
+const _TRSED = "TestRunSourceEventDetail";
+const _TRSEE = "TestRunSourceEventError";
+const _TRSEL = "TestRunSourceEventList";
 const _TRSL = "TestRunSummaryList";
 const _TRSS = "TestRunSourceSummary";
 const _TRSSL = "TestRunSourceSummaryList";
@@ -380,6 +397,7 @@ const _aR = "awsRegion";
 const _aS = "availabilitySlo";
 const _aSAD = "associatedServicesAtDeletion";
 const _aSC = "associatedServiceCount";
+const _aSCl = "alarmStateChange";
 const _aSs = "assessmentStatus";
 const _aSss = "assessmentStep";
 const _aSsse = "assessmentStatuses";
@@ -428,6 +446,8 @@ const _dRe = "destinationRegion";
 const _dS = "dependencySummaries";
 const _dV = "defaultValue";
 const _de = "details";
+const _dep = "dependencies";
+const _det = "detail";
 const _e = "error";
 const _eA = "endedAt";
 const _eAC = "estimatedAssessmentCost";
@@ -472,6 +492,7 @@ const _l = "location";
 const _lC = "loggingConfiguration";
 const _lDT = "lastDetectedTime";
 const _lRA = "lastRunAt";
+const _lS = "labelSelector";
 const _lSV = "logSchemaVersion";
 const _la = "label";
 const _m = "message";
@@ -481,6 +502,8 @@ const _mADRA = "multiAzDisasterRecoveryApproach";
 const _mAR = "multiAzRto";
 const _mARR = "multiAzRtoRpo";
 const _mARu = "multiAzRpo";
+const _mE = "matchExpressions";
+const _mL = "matchLabels";
 const _mR = "multiRegion";
 const _mRDA = "multiRegionDrApproach";
 const _mRDRA = "multiRegionDisasterRecoveryApproach";
@@ -493,7 +516,7 @@ const _n = "name";
 const _nT = "nextToken";
 const _nV = "newValue";
 const _na = "namespaces";
-const _o = "outcome";
+const _o = "operator";
 const _oA = "observabilityAlarm";
 const _oFC = "openFindingsCount";
 const _oI = "ouId";
@@ -501,13 +524,15 @@ const _oIr = "organizationId";
 const _oR = "observabilityRecommendations";
 const _oRu = "outcomeReason";
 const _oV = "oldValue";
+const _ou = "outcome";
 const _p = "policy";
 const _pA = "policyArn";
 const _pC = "policyComponent";
 const _pI = "principalId";
 const _pM = "permissionModel";
 const _pN = "policyName";
-const _pS = "policySummaries";
+const _pS = "previousState";
+const _pSo = "policySummaries";
 const _pa = "parameters";
 const _pr = "provider";
 const _pro = "properties";
@@ -553,7 +578,8 @@ const _res = "resource";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.resiliencehubv2";
 const _sA = "serviceArn";
 const _sAU = "serviceAchievabilityUpdated";
-const _sAo = "sourceAccount";
+const _sAo = "sourceArn";
+const _sAou = "sourceAccount";
 const _sAt = "startedAt";
 const _sAta = "startedAfter";
 const _sAy = "systemArn";
@@ -614,7 +640,8 @@ const _se = "server";
 const _ser = "service";
 const _sev = "severity";
 const _so = "source";
-const _st = "status";
+const _st = "state";
+const _sta = "status";
 const _sy = "system";
 const _t = "text";
 const _tBBIM = "timeBetweenBackupsInMinutes";
@@ -626,6 +653,7 @@ const _tN = "targetName";
 const _tR = "testingRecommendations";
 const _tRI = "testRunId";
 const _tRS = "testRunSources";
+const _tRSE = "testRunSourceEvents";
 const _tRe = "testRun";
 const _tRes = "testRuns";
 const _tS = "testSources";
@@ -741,6 +769,11 @@ export var Achievability$: StaticStructureSchema = [3, n0, _A,
   [_aS, _mARR, _mRRR, _dRTBB],
   [0, 0, 0, 0]
 ];
+export var AlarmStateChangeDetail$: StaticStructureSchema = [3, n0, _ASCD,
+  0,
+  [_st, _pS, _r],
+  [0, 0, 0], 1
+];
 export var Assertion$: StaticStructureSchema = [3, n0, _As,
   0,
   [_sA, _aI, _t, _so, _cA, _uA],
@@ -794,7 +827,7 @@ export var CreateAssertionResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateInputSourceRequest$: StaticStructureSchema = [3, n0, _CISR,
   0,
   [_sA, _rC, _cT],
-  [0, () => ResourceConfiguration$, [0, 4]], 2
+  [0, [() => ResourceConfiguration$, 0], [0, 4]], 2
 ];
 export var CreateInputSourceResponse$: StaticStructureSchema = [3, n0, _CISRr,
   0,
@@ -993,7 +1026,7 @@ export var DeleteUserJourneyResponse$: StaticStructureSchema = [3, n0, _DUJRe,
 ];
 export var DependencyDiscoveryConfig$: StaticStructureSchema = [3, n0, _DDC,
   0,
-  [_st, _uA, _eRC, _m],
+  [_sta, _uA, _eRC, _m],
   [0, 4, 1, 0], 1
 ];
 export var DependencySummary$: StaticStructureSchema = [3, n0, _DS,
@@ -1016,10 +1049,20 @@ export var EffectivePolicyValues$: StaticStructureSchema = [3, n0, _EPV,
   [_aS, _mAR, _mARu, _mADA, _mRR, _mRRu, _mRDA, _dRTBB],
   [() => SloSource$, () => TargetSource$, () => TargetSource$, () => DisasterRecoverySource$, () => TargetSource$, () => TargetSource$, () => DisasterRecoverySource$, () => TargetSource$]
 ];
+export var EksLabelSelector$: StaticStructureSchema = [3, n0, _ELS,
+  0,
+  [_mL, _mE],
+  [[() => EksLabelMap, 0], [() => EksLabelSelectorRequirementList, 0]]
+];
+export var EksLabelSelectorRequirement$: StaticStructureSchema = [3, n0, _ELSR,
+  0,
+  [_k, _o, _va],
+  [0, 0, 64 | 0], 2
+];
 export var EksSource$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_cAl, _na],
-  [0, 64 | 0], 2
+  [_cAl, _na, _lS],
+  [0, 64 | 0, [() => EksLabelSelector$, 0]], 2
 ];
 export var EventActor$: StaticStructureSchema = [3, n0, _EA,
   0,
@@ -1038,12 +1081,12 @@ export var FailedReportOutput$: StaticStructureSchema = [3, n0, _FRO,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_fI, _n, _d, _fC, _st, _rea, _co, _sev, _sFe, _pC, _iACR, _oR, _tR, _uA],
+  [_fI, _n, _d, _fC, _sta, _rea, _co, _sev, _sFe, _pC, _iACR, _oR, _tR, _uA],
   [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, () => InfrastructureAndCodeRecommendationsList, () => ObservabilityRecommendationsList, () => TestingRecommendationsList, 4]
 ];
 export var FindingSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
-  [_sA, _fI, _n, _d, _fC, _sev, _st, _pC, _uA],
+  [_sA, _fI, _n, _d, _fC, _sev, _sta, _pC, _uA],
   [0, 0, 0, 0, 0, 0, 0, 0, 4]
 ];
 export var GetFailureModeFindingRequest$: StaticStructureSchema = [3, n0, _GFMFR,
@@ -1159,7 +1202,7 @@ export var InputSource$: StaticStructureSchema = [3, n0, _IS,
 export var InputSourceSummary$: StaticStructureSchema = [3, n0, _ISS,
   0,
   [_iSI, _ty, _rTes, _cSA, _tSFU, _ek, _dFSU, _cA],
-  [0, 0, () => ResourceTagList, 0, 0, () => EksSource$, 0, 4], 1
+  [0, 0, () => ResourceTagList, 0, 0, [() => EksSource$, 0], 0, 4], 1
 ];
 export var ListAssertionsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -1193,8 +1236,8 @@ export var ListFailureModeAssessmentsResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListFailureModeFindingsRequest$: StaticStructureSchema = [3, n0, _LFMFR,
   0,
-  [_sA, _sev, _fC, _st, _mRa, _nT],
-  [[0, { [_hQ]: _sA }], [0, { [_hQ]: _sev }], [0, { [_hQ]: _fC }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
+  [_sA, _sev, _fC, _sta, _mRa, _nT],
+  [[0, { [_hQ]: _sA }], [0, { [_hQ]: _sev }], [0, { [_hQ]: _fC }], [0, { [_hQ]: _sta }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListFailureModeFindingsResponse$: StaticStructureSchema = [3, n0, _LFMFRi,
   0,
@@ -1209,7 +1252,7 @@ export var ListInputSourcesRequest$: StaticStructureSchema = [3, n0, _LISR,
 export var ListInputSourcesResponse$: StaticStructureSchema = [3, n0, _LISRi,
   0,
   [_iSS, _nT],
-  [() => InputSourceSummaryList, 0], 1
+  [[() => InputSourceSummaryList, 0], 0], 1
 ];
 export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
@@ -1218,7 +1261,7 @@ export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPR,
 ];
 export var ListPoliciesResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
-  [_pS, _nT],
+  [_pSo, _nT],
   [() => PolicySummaryList, 0], 1
 ];
 export var ListReportsRequest$: StaticStructureSchema = [3, n0, _LRR,
@@ -1321,6 +1364,16 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_tag],
   [[() => TagMap, 0]]
 ];
+export var ListTestRunDependenciesRequest$: StaticStructureSchema = [3, n0, _LTRDR,
+  0,
+  [_tRI, _sA, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _sA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListTestRunDependenciesResponse$: StaticStructureSchema = [3, n0, _LTRDRi,
+  0,
+  [_dep, _nT],
+  [() => TestRunDependencySummaryList, 0], 1
+];
 export var ListTestRunEventsRequest$: StaticStructureSchema = [3, n0, _LTRER,
   0,
   [_tRI, _sA, _sAt, _eA, _mRa, _nT],
@@ -1330,6 +1383,16 @@ export var ListTestRunEventsResponse$: StaticStructureSchema = [3, n0, _LTRERi,
   0,
   [_ev, _nT],
   [() => TestRunEventList, 0], 1
+];
+export var ListTestRunSourceEventsRequest$: StaticStructureSchema = [3, n0, _LTRSER,
+  0,
+  [_tRI, _sA, _sAo, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _sA }], [0, { [_hQ]: _sAo }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 3
+];
+export var ListTestRunSourceEventsResponse$: StaticStructureSchema = [3, n0, _LTRSERi,
+  0,
+  [_tRSE, _nT],
+  [() => TestRunSourceEventList, 0], 1
 ];
 export var ListTestRunSourcesRequest$: StaticStructureSchema = [3, n0, _LTRSR,
   0,
@@ -1458,7 +1521,7 @@ export var QueryRange$: StaticStructureSchema = [3, n0, _QR,
 ];
 export var ReportGenerationResult$: StaticStructureSchema = [3, n0, _RGR,
   0,
-  [_rTe, _st, _sA, _aIs, _tRI, _tTA, _cA, _rO],
+  [_rTe, _sta, _sA, _aIs, _tRI, _tTA, _cA, _rO],
   [0, 0, 0, 0, 0, 0, 4, () => ReportOutput$], 2
 ];
 export var ResolvedTargetResource$: StaticStructureSchema = [3, n0, _RTR,
@@ -1473,7 +1536,7 @@ export var Resource$: StaticStructureSchema = [3, n0, _R,
 ];
 export var ResourceDiscoveryStatus$: StaticStructureSchema = [3, n0, _RDS,
   0,
-  [_st, _lRA, _eC, _eM],
+  [_sta, _lRA, _eC, _eM],
   [0, 4, 0, 0]
 ];
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
@@ -1613,7 +1676,7 @@ export var ServiceSystemDisassociatedMetadata$: StaticStructureSchema = [3, n0, 
 ];
 export var ServiceTopologyEdgeSummary$: StaticStructureSchema = [3, n0, _STES,
   0,
-  [_sRI, _dRI, _sRo, _dRe, _sAo, _dA, _pro],
+  [_sRI, _dRI, _sRo, _dRe, _sAou, _dA, _pro],
   [0, 0, 0, 0, 0, 0, () => EdgePropertyList], 2
 ];
 export var ServiceWorkflowUpdatedMetadata$: StaticStructureSchema = [3, n0, _SWUM,
@@ -1643,7 +1706,7 @@ export var StartTestRunRequest$: StaticStructureSchema = [3, n0, _STRR,
 ];
 export var StartTestRunResponse$: StaticStructureSchema = [3, n0, _STRRt,
   0,
-  [_tRI, _st, _eAxp],
+  [_tRI, _sta, _eAxp],
   [0, 0, 64 | 0], 3
 ];
 export var StopCondition$: StaticStructureSchema = [3, n0, _SC,
@@ -1658,7 +1721,7 @@ export var StopTestRunRequest$: StaticStructureSchema = [3, n0, _STRRto,
 ];
 export var StopTestRunResponse$: StaticStructureSchema = [3, n0, _STRRtop,
   0,
-  [_tRI, _st],
+  [_tRI, _sta],
   [0, 0], 2
 ];
 export var StringChange$: StaticStructureSchema = [3, n0, _SCt,
@@ -1773,8 +1836,13 @@ export var TestingRecommendation$: StaticStructureSchema = [3, n0, _TR,
 ];
 export var TestRun$: StaticStructureSchema = [3, n0, _TRe,
   0,
-  [_tRI, _tI, _st, _sAt, _tTA, _sA, _eA, _ex, _eCv, _pa, _eM, _sC, _lC, _rN, _rCe, _p, _rO, _rSPA, _rSEI, _pM, _reg, _aT],
+  [_tRI, _tI, _sta, _sAt, _tTA, _sA, _eA, _ex, _eCv, _pa, _eM, _sC, _lC, _rN, _rCe, _p, _rO, _rSPA, _rSEI, _pM, _reg, _aT],
   [0, 0, 0, 4, 0, 0, 4, () => ExperimentDetailsList, 1, [2, n0, _TP, 0, 0, 64 | 0], 0, () => StopConditionList, () => LoggingConfiguration$, 0, () => TestRunReportConfiguration$, () => TestRunPolicySnapshot$, () => ReportGenerationResult$, 0, 0, () => PermissionModel$, 64 | 0, 0], 5
+];
+export var TestRunDependencySummary$: StaticStructureSchema = [3, n0, _TRDS,
+  0,
+  [_dN, _dNn, _cr, _so, _dI, _l, _sR, _pr],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 0], 4
 ];
 export var TestRunEvent$: StaticStructureSchema = [3, n0, _TRE,
   0,
@@ -1796,14 +1864,24 @@ export var TestRunReportConfiguration$: StaticStructureSchema = [3, n0, _TRRC,
   [_rO],
   [() => ReportOutputConfigurationList], 1
 ];
+export var TestRunSourceEvent$: StaticStructureSchema = [3, n0, _TRSE,
+  0,
+  [_ti, _sAo, _eTv, _det],
+  [4, 0, 0, () => TestRunSourceEventDetail$], 4
+];
+export var TestRunSourceEventError$: StaticStructureSchema = [3, n0, _TRSEE,
+  0,
+  [_eC, _eM],
+  [0, 0], 2
+];
 export var TestRunSuccessCriteriaAlarmSummary$: StaticStructureSchema = [3, n0, _TRSCAS,
   0,
-  [_aA, _aNl, _regi, _aIc, _o, _oRu],
+  [_aA, _aNl, _regi, _aIc, _ou, _oRu],
   [0, 0, 0, 0, 0, 0], 4
 ];
 export var TestRunSummary$: StaticStructureSchema = [3, n0, _TRS,
   0,
-  [_tRI, _st, _sAt, _tTA, _eA, _sA, _eM, _aT],
+  [_tRI, _sta, _sAt, _tTA, _eA, _sA, _eM, _aT],
   [0, 0, 4, 0, 4, 0, 0, 0], 4
 ];
 export var TestSummary$: StaticStructureSchema = [3, n0, _TSe,
@@ -1858,7 +1936,7 @@ export var UpdateDependencyResponse$: StaticStructureSchema = [3, n0, _UDRp,
 ];
 export var UpdateFailureModeFindingRequest$: StaticStructureSchema = [3, n0, _UFMFR,
   0,
-  [_fI, _st, _sA, _co],
+  [_fI, _sta, _sA, _co],
   [0, 0, 0, 0], 3
 ];
 export var UpdateFailureModeFindingResponse$: StaticStructureSchema = [3, n0, _UFMFRp,
@@ -1966,6 +2044,10 @@ var DependencySummaryList: StaticListSchema = [1, n0, _DSL,
 var EdgePropertyList: StaticListSchema = [1, n0, _EPL,
   0, () => EdgePropertySummary$
 ];
+var EksLabelSelectorRequirementList: StaticListSchema = [1, n0, _ELSRL,
+  8, () => EksLabelSelectorRequirement$
+];
+var EksLabelValueList = 64 | 0;
 var EksNamespaceList = 64 | 0;
 var ExperimentArnList = 64 | 0;
 var ExperimentDetailsList: StaticListSchema = [1, n0, _EDL,
@@ -1979,7 +2061,8 @@ var InfrastructureAndCodeRecommendationsList: StaticListSchema = [1, n0, _IACRL,
   0, () => InfrastructureAndCodeRecommendation$
 ];
 var InputSourceSummaryList: StaticListSchema = [1, n0, _ISSL,
-  0, () => InputSourceSummary$
+  0, [() => InputSourceSummary$,
+    0]
 ];
 var ObservabilityRecommendationsList: StaticListSchema = [1, n0, _ORL,
   0, () => ObservabilityRecommendation$
@@ -2047,8 +2130,14 @@ var TestActionList: StaticListSchema = [1, n0, _TAL,
 var TestingRecommendationsList: StaticListSchema = [1, n0, _TRL,
   0, () => TestingRecommendation$
 ];
+var TestRunDependencySummaryList: StaticListSchema = [1, n0, _TRDSL,
+  0, () => TestRunDependencySummary$
+];
 var TestRunEventList: StaticListSchema = [1, n0, _TREL,
   0, () => TestRunEvent$
+];
+var TestRunSourceEventList: StaticListSchema = [1, n0, _TRSEL,
+  0, () => TestRunSourceEvent$
 ];
 var TestRunSourceSummaryList: StaticListSchema = [1, n0, _TRSSL,
   0, () => TestRunSourceSummary$
@@ -2079,6 +2168,9 @@ var UserJourneySummaryList: StaticListSchema = [1, n0, _UJSL,
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
+var EksLabelMap: StaticMapSchema = [2, n0, _ELM,
+  8, 0, 0
+];
 var ResolvedTargetInformation = 128 | 0;
 var TagMap: StaticMapSchema = [2, n0, _TM,
   8, 0, 0
@@ -2100,7 +2192,7 @@ export var ReportOutputConfiguration$: StaticUnionSchema = [4, n0, _ROC,
 export var ResourceConfiguration$: StaticUnionSchema = [4, n0, _RC,
   0,
   [_rTes, _cSA, _tSFU, _ek, _dFSU],
-  [() => ResourceTagList, 0, 0, () => EksSource$, 0]
+  [() => ResourceTagList, 0, 0, [() => EksSource$, 0], 0]
 ];
 export var ServiceEventMetadata$: StaticUnionSchema = [4, n0, _SEM,
   0,
@@ -2111,6 +2203,11 @@ export var SystemEventMetadata$: StaticUnionSchema = [4, n0, _SEMy,
   0,
   [_sCy, _sDy, _sUJC, _sUJU, _sUJD, _sSAy, _sSDy, _sPAy, _sPDy],
   [() => SystemCreatedMetadata$, () => SystemDeletedMetadata$, () => SystemUserJourneyCreatedMetadata$, () => SystemUserJourneyUpdatedMetadata$, () => SystemUserJourneyDeletedMetadata$, () => SystemServiceAssociatedMetadata$, () => SystemServiceDisassociatedMetadata$, () => SystemPolicyAssociatedMetadata$, () => SystemPolicyDisassociatedMetadata$]
+];
+export var TestRunSourceEventDetail$: StaticUnionSchema = [4, n0, _TRSED,
+  0,
+  [_aSCl, _e],
+  [() => AlarmStateChangeDetail$, () => TestRunSourceEventError$]
 ];
 export var TestRunSourceSummary$: StaticUnionSchema = [4, n0, _TRSS,
   0,
@@ -2265,11 +2362,17 @@ export var ListSystems$: StaticOperationSchema = [9, n0, _LSi,
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/v2/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
+export var ListTestRunDependencies$: StaticOperationSchema = [9, n0, _LTRD,
+  { [_h]: ["GET", "/v2/test-runs/{testRunId}/dependencies", 200] }, () => ListTestRunDependenciesRequest$, () => ListTestRunDependenciesResponse$
+];
 export var ListTestRunEvents$: StaticOperationSchema = [9, n0, _LTRE,
   { [_h]: ["GET", "/v2/test-runs/{testRunId}/events", 200] }, () => ListTestRunEventsRequest$, () => ListTestRunEventsResponse$
 ];
 export var ListTestRuns$: StaticOperationSchema = [9, n0, _LTRis,
   { [_h]: ["GET", "/v2/list-test-runs", 200] }, () => ListTestRunsRequest$, () => ListTestRunsResponse$
+];
+export var ListTestRunSourceEvents$: StaticOperationSchema = [9, n0, _LTRSE,
+  { [_h]: ["GET", "/v2/test-runs/{testRunId}/source-events", 200] }, () => ListTestRunSourceEventsRequest$, () => ListTestRunSourceEventsResponse$
 ];
 export var ListTestRunSources$: StaticOperationSchema = [9, n0, _LTRS,
   { [_h]: ["GET", "/v2/test-runs/{testRunId}/sources", 200] }, () => ListTestRunSourcesRequest$, () => ListTestRunSourcesResponse$

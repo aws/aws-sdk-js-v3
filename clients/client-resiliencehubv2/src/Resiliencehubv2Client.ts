@@ -152,10 +152,18 @@ import type {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import type {
+  ListTestRunDependenciesCommandInput,
+  ListTestRunDependenciesCommandOutput,
+} from "./commands/ListTestRunDependenciesCommand";
+import type {
   ListTestRunEventsCommandInput,
   ListTestRunEventsCommandOutput,
 } from "./commands/ListTestRunEventsCommand";
 import type { ListTestRunsCommandInput, ListTestRunsCommandOutput } from "./commands/ListTestRunsCommand";
+import type {
+  ListTestRunSourceEventsCommandInput,
+  ListTestRunSourceEventsCommandOutput,
+} from "./commands/ListTestRunSourceEventsCommand";
 import type {
   ListTestRunSourcesCommandInput,
   ListTestRunSourcesCommandOutput,
@@ -255,7 +263,9 @@ export type ServiceInputTypes =
   | ListSystemEventsCommandInput
   | ListSystemsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTestRunDependenciesCommandInput
   | ListTestRunEventsCommandInput
+  | ListTestRunSourceEventsCommandInput
   | ListTestRunSourcesCommandInput
   | ListTestRunsCommandInput
   | ListTestSourcesCommandInput
@@ -328,7 +338,9 @@ export type ServiceOutputTypes =
   | ListSystemEventsCommandOutput
   | ListSystemsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTestRunDependenciesCommandOutput
   | ListTestRunEventsCommandOutput
+  | ListTestRunSourceEventsCommandOutput
   | ListTestRunSourcesCommandOutput
   | ListTestRunsCommandOutput
   | ListTestSourcesCommandOutput
