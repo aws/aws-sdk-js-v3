@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1130.0...v3.1131.0) (2026-09-11)
+
+
+### Features
+
+* **client-invoicing:** Add ListProcurementPortals and ListProcurementPortalSuppliers APIs to retrieve AWS-supported 3rd party procurement portals and their suppliers for e-invoice delivery and purchase order retrieval. ([2cf8ccd](https://github.com/aws/aws-sdk-js-v3/commit/2cf8ccd9a0dfec444e0c9a4054eb40dec41b9ae2))
+
+
+
+
+
 # [3.1130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1129.0...v3.1130.0) (2026-09-10)
 
 **Note:** Version bump only for package @aws-sdk/client-invoicing

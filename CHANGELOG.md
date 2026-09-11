@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1130.0...v3.1131.0) (2026-09-11)
+
+
+### Features
+
+* **client-batch:** Added new bulk job APIs (CancelJobs, TerminateJobs, TerminateServiceJobs) and new fields on ListJobs and ListServiceJobs responses. This allows customers to cancel or terminate multiple jobs in a single request. ListJobs and ListServiceJobs responses now include isCancelled and isTerminated fields. ([036dd99](https://github.com/aws/aws-sdk-js-v3/commit/036dd9962368849300417e5088bf5772ef8370de))
+* **client-ecs:** This feature adds support for setting the cpu architecture type that should be used to launch tasks for an Express Gateway Service. ([62bd9bf](https://github.com/aws/aws-sdk-js-v3/commit/62bd9bf24ec1ff3c055a638d5122f4b31bf5a161))
+* **client-invoicing:** Add ListProcurementPortals and ListProcurementPortalSuppliers APIs to retrieve AWS-supported 3rd party procurement portals and their suppliers for e-invoice delivery and purchase order retrieval. ([2cf8ccd](https://github.com/aws/aws-sdk-js-v3/commit/2cf8ccd9a0dfec444e0c9a4054eb40dec41b9ae2))
+* **client-lightsail:** Amazon Lightsail now lets you serve website content from a private Lightsail bucket through a Lightsail distribution. This release adds enablePrivateOriginAccess to the CreateDistribution and UpdateDistribution actions, plus new defaultRootObject and customErrorResponses options. ([24e18ac](https://github.com/aws/aws-sdk-js-v3/commit/24e18ac6701071490d48645a095de2732241b7db))
+* **client-mediaconvert:** Adds Dolby Vision metadata to Probe results, including profile, level, and presence of the RPU, base layer, and enhancement layer. Adds video sample and display aspect ratios. Adds the UnprocessableEntityException (HTTP 422) error to Probe for recognized but malformed or corrupt inputs. ([32973df](https://github.com/aws/aws-sdk-js-v3/commit/32973df66c3cc3b44f32ed12df4da1d50f8cf8a7))
+* **clients:** update client endpoints as of 2026-09-11 ([036bf16](https://github.com/aws/aws-sdk-js-v3/commit/036bf1657b0bdf850e4c043a42114fd6ab861af2))
+
+
+
+
+
 # [3.1130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1129.0...v3.1130.0) (2026-09-10)
 
 

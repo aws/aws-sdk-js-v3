@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1130.0...v3.1131.0) (2026-09-11)
+
+
+### Features
+
+* **client-mediaconvert:** Adds Dolby Vision metadata to Probe results, including profile, level, and presence of the RPU, base layer, and enhancement layer. Adds video sample and display aspect ratios. Adds the UnprocessableEntityException (HTTP 422) error to Probe for recognized but malformed or corrupt inputs. ([32973df](https://github.com/aws/aws-sdk-js-v3/commit/32973df66c3cc3b44f32ed12df4da1d50f8cf8a7))
+
+
+
+
+
 # [3.1130.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1129.0...v3.1130.0) (2026-09-10)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert
