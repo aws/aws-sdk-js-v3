@@ -287,6 +287,7 @@ import {
   ExecuteCommandLogging,
   ExecuteCommandRequest$,
   ExecuteCommandResponse$,
+  ExpressCpuArchitecture,
   ExpressGatewayContainer$,
   ExpressGatewayRepositoryCredentials$,
   ExpressGatewayScalingTarget$,
@@ -1259,6 +1260,7 @@ assert(typeof EFSAuthorizationConfigIAM === "object");
 assert(typeof EFSTransitEncryption === "object");
 assert(typeof EnvironmentFileType === "object");
 assert(typeof ExecuteCommandLogging === "object");
+assert(typeof ExpressCpuArchitecture === "object");
 assert(typeof ExpressGatewayServiceInclude === "object");
 assert(typeof ExpressGatewayServiceScalingMetric === "object");
 assert(typeof ExpressGatewayServiceStatusCode === "object");

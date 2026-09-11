@@ -56,6 +56,7 @@ export interface DeleteExpressGatewayServiceCommandOutput extends DeleteExpressG
  * //         taskDefinitionArn: "STRING_VALUE",
  * //         cpu: "STRING_VALUE",
  * //         memory: "STRING_VALUE",
+ * //         cpuArchitecture: "X86_64" || "ARM64",
  * //         networkConfiguration: { // ExpressGatewayServiceNetworkConfiguration
  * //           securityGroups: [ // StringList
  * //             "STRING_VALUE",

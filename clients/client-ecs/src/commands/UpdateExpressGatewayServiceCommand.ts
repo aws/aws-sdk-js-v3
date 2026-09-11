@@ -73,6 +73,7 @@ export interface UpdateExpressGatewayServiceCommandOutput extends UpdateExpressG
  *   },
  *   cpu: "STRING_VALUE",
  *   memory: "STRING_VALUE",
+ *   cpuArchitecture: "X86_64" || "ARM64",
  *   scalingTarget: { // ExpressGatewayScalingTarget
  *     minTaskCount: Number("int"),
  *     maxTaskCount: Number("int"),
@@ -99,6 +100,7 @@ export interface UpdateExpressGatewayServiceCommandOutput extends UpdateExpressG
  * //       taskDefinitionArn: "STRING_VALUE",
  * //       cpu: "STRING_VALUE",
  * //       memory: "STRING_VALUE",
+ * //       cpuArchitecture: "X86_64" || "ARM64",
  * //       networkConfiguration: { // ExpressGatewayServiceNetworkConfiguration
  * //         securityGroups: [ // StringList
  * //           "STRING_VALUE",

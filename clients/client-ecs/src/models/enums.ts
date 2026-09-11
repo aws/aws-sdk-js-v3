@@ -1218,6 +1218,19 @@ export type ServiceDeploymentStatus = (typeof ServiceDeploymentStatus)[keyof typ
  * @public
  * @enum
  */
+export const ExpressCpuArchitecture = {
+  ARM64: "ARM64",
+  X86_64: "X86_64",
+} as const;
+/**
+ * @public
+ */
+export type ExpressCpuArchitecture = (typeof ExpressCpuArchitecture)[keyof typeof ExpressCpuArchitecture];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExpressGatewayServiceScalingMetric = {
   AverageCPUUtilization: "AVERAGE_CPU",
   AverageMemoryUtilization: "AVERAGE_MEMORY",

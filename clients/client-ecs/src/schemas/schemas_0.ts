@@ -1572,8 +1572,8 @@ export var CreatedAt$: StaticStructureSchema = [3, n0, _CA,
 ];
 export var CreateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _CEGSR,
   0,
-  [_iRA, _eRA, _sN, _cl, _hCP, _pC, _tRA, _nC, _cp, _me, _sTc, _ta, _tDA],
-  [0, 0, 0, 0, 0, [() => ExpressGatewayContainer$, 0], 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$, () => Tags, 0], 1
+  [_iRA, _eRA, _sN, _cl, _hCP, _pC, _tRA, _nC, _cp, _me, _cAp, _sTc, _ta, _tDA],
+  [0, 0, 0, 0, 0, [() => ExpressGatewayContainer$, 0], 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, 0, () => ExpressGatewayScalingTarget$, () => Tags, 0], 1
 ];
 export var CreateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _CEGSRr,
   0,
@@ -2112,8 +2112,8 @@ export var ExpressGatewayServiceAwsLogsConfiguration$: StaticStructureSchema = [
 ];
 export var ExpressGatewayServiceConfiguration$: StaticStructureSchema = [3, n0, _EGSC,
   0,
-  [_sRAe, _eRA, _tRA, _tDA, _cp, _me, _nC, _hCP, _pC, _sTc, _iP, _cAr],
-  [0, 0, 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, [() => ExpressGatewayContainer$, 0], () => ExpressGatewayScalingTarget$, () => IngressPathSummaries, 4]
+  [_sRAe, _eRA, _tRA, _tDA, _cp, _me, _cAp, _nC, _hCP, _pC, _sTc, _iP, _cAr],
+  [0, 0, 0, 0, 0, 0, 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, [() => ExpressGatewayContainer$, 0], () => ExpressGatewayScalingTarget$, () => IngressPathSummaries, 4]
 ];
 export var ExpressGatewayServiceNetworkConfiguration$: StaticStructureSchema = [3, n0, _EGSNC,
   0,
@@ -3047,8 +3047,8 @@ export var UpdatedExpressGatewayService$: StaticStructureSchema = [3, n0, _UEGS,
 ];
 export var UpdateExpressGatewayServiceRequest$: StaticStructureSchema = [3, n0, _UEGSR,
   0,
-  [_sAe, _eRA, _hCP, _pC, _tRA, _nC, _cp, _me, _sTc, _tDA],
-  [0, 0, 0, [() => ExpressGatewayContainer$, 0], 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, () => ExpressGatewayScalingTarget$, 0], 1
+  [_sAe, _eRA, _hCP, _pC, _tRA, _nC, _cp, _me, _cAp, _sTc, _tDA],
+  [0, 0, 0, [() => ExpressGatewayContainer$, 0], 0, () => ExpressGatewayServiceNetworkConfiguration$, 0, 0, 0, () => ExpressGatewayScalingTarget$, 0], 1
 ];
 export var UpdateExpressGatewayServiceResponse$: StaticStructureSchema = [3, n0, _UEGSRp,
   0,

@@ -282,6 +282,7 @@ export type {
   EFSTransitEncryption,
   EnvironmentFileType,
   ExecuteCommandLogging,
+  ExpressCpuArchitecture,
   ExpressGatewayServiceInclude,
   ExpressGatewayServiceScalingMetric,
   ExpressGatewayServiceStatusCode,
