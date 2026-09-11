@@ -8,6 +8,7 @@ const _AL = "AddressLine1";
 const _ALd = "AddressLine2";
 const _ALdd = "AddressLine3";
 const _AO = "AsOf";
+const _AT = "AttachmentTypes";
 const _Ac = "Accounts";
 const _B = "Breakdown";
 const _BCA = "BaseCurrencyAmount";
@@ -45,6 +46,7 @@ const _DB = "DiscountsBreakdown";
 const _DBA = "DiscountsBreakdownAmount";
 const _DBAL = "DiscountsBreakdownAmountList";
 const _DD = "DueDate";
+const _DFC = "DefaultFeatureConfigurations";
 const _DI = "DateInterval";
 const _DIU = "DeleteInvoiceUnit";
 const _DIUR = "DeleteInvoiceUnitRequest";
@@ -54,7 +56,8 @@ const _DOC = "DistrictOrCounty";
 const _DPPP = "DeleteProcurementPortalPreference";
 const _DPPPR = "DeleteProcurementPortalPreferenceRequest";
 const _DPPPRe = "DeleteProcurementPortalPreferenceResponse";
-const _DT = "DocumentType";
+const _DT = "DocumentTypes";
+const _DTo = "DocumentType";
 const _DU = "DocumentUrl";
 const _DUED = "DocumentUrlExpirationDate";
 const _De = "Description";
@@ -70,10 +73,12 @@ const _EDPS = "EinvoiceDeliveryPreferenceStatus";
 const _EDPSR = "EinvoiceDeliveryPreferenceStatusReason";
 const _EDS = "EinvoiceDeliveryStatus";
 const _En = "Entity";
+const _Env = "Environment";
 const _F = "Fees";
 const _FB = "FeesBreakdown";
 const _FBA = "FeesBreakdownAmount";
 const _FBAL = "FeesBreakdownAmountList";
+const _FC = "FeatureConfigurations";
 const _Fi = "Filters";
 const _Fil = "Filter";
 const _GIPDF = "GetInvoicePDF";
@@ -86,6 +91,7 @@ const _GPPP = "GetProcurementPortalPreference";
 const _GPPPR = "GetProcurementPortalPreferenceRequest";
 const _GPPPRe = "GetProcurementPortalPreferenceResponse";
 const _I = "Issuer";
+const _IC = "InvoiceConfiguration";
 const _ICA = "InvoiceCurrencyAmount";
 const _ID = "IssuedDate";
 const _IE = "InvoicingEntity";
@@ -115,9 +121,15 @@ const _LIU = "ListInvoiceUnits";
 const _LIUR = "ListInvoiceUnitsRequest";
 const _LIURi = "ListInvoiceUnitsResponse";
 const _LM = "LastModified";
+const _LPP = "ListProcurementPortals";
 const _LPPP = "ListProcurementPortalPreferences";
 const _LPPPR = "ListProcurementPortalPreferencesRequest";
 const _LPPPRi = "ListProcurementPortalPreferencesResponse";
+const _LPPR = "ListProcurementPortalsRequest";
+const _LPPRi = "ListProcurementPortalsResponse";
+const _LPPS = "ListProcurementPortalSuppliers";
+const _LPPSR = "ListProcurementPortalSuppliersRequest";
+const _LPPSRi = "ListProcurementPortalSuppliersResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -131,7 +143,10 @@ const _OII = "OriginalInvoiceId";
 const _P = "Profiles";
 const _PC = "PostalCode";
 const _PCA = "PaymentCurrencyAmount";
+const _PDN = "PortalDisplayName";
+const _PI = "PortalIdentifier";
 const _PL = "ProfileList";
+const _PN = "PortalName";
 const _PODS = "PurchaseOrderDataSources";
 const _PODST = "PurchaseOrderDataSourceType";
 const _PODSu = "PurchaseOrderDataSource";
@@ -140,6 +155,7 @@ const _PORE = "PurchaseOrderRetrievalEnabled";
 const _POREu = "PurchaseOrderRetrievalEndpoint";
 const _PORPS = "PurchaseOrderRetrievalPreferenceStatus";
 const _PORPSR = "PurchaseOrderRetrievalPreferenceStatusReason";
+const _PP = "ProcurementPortals";
 const _PPIE = "ProcurementPortalInstanceEndpoint";
 const _PPN = "ProcurementPortalName";
 const _PPP = "ProcurementPortalPreference";
@@ -151,7 +167,10 @@ const _PPPS = "ProcurementPortalPreferenceSelector";
 const _PPPSr = "ProcurementPortalPreferenceSummary";
 const _PPPSro = "ProcurementPortalPreferenceSummaries";
 const _PPPr = "ProcurementPortalPreferences";
+const _PPS = "ProcurementPortalSuppliers";
 const _PPSS = "ProcurementPortalSharedSecret";
+const _PPSr = "ProcurementPortalSupplier";
+const _PPr = "ProcurementPortal";
 const _Pr = "Protocol";
 const _R = "Rule";
 const _RA = "Retry-After";
@@ -176,6 +195,7 @@ const _SDu = "SupplementalDocuments";
 const _SDup = "SupplementalDocument";
 const _SI = "SupplierIdentifier";
 const _SOR = "SellerOfRecords";
+const _SORe = "SellerOfRecord";
 const _SORt = "StateOrRegion";
 const _SPPV = "SendProcurementPortalValidation";
 const _SPPVR = "SendProcurementPortalValidationRequest";
@@ -408,6 +428,11 @@ export var Entity$: StaticStructureSchema = [3, n0, _En,
   [_IE, _BE],
   [0, 0]
 ];
+export var FeatureConfigurations$: StaticStructureSchema = [3, n0, _FC,
+  0,
+  [_IC],
+  [() => InvoiceConfiguration$]
+];
 export var FeesBreakdown$: StaticStructureSchema = [3, n0, _FB,
   0,
   [_B, _TA],
@@ -452,6 +477,11 @@ export var GetProcurementPortalPreferenceResponse$: StaticStructureSchema = [3, 
   0,
   [_PPP],
   [[() => ProcurementPortalPreference$, 0]], 1
+];
+export var InvoiceConfiguration$: StaticStructureSchema = [3, n0, _IC,
+  0,
+  [_DT, _AT],
+  [64 | 0, 64 | 0]
 ];
 export var InvoiceCurrencyAmount$: StaticStructureSchema = [3, n0, _ICA,
   0,
@@ -523,6 +553,26 @@ export var ListProcurementPortalPreferencesResponse$: StaticStructureSchema = [3
   [_PPPr, _NT],
   [() => ProcurementPortalPreferenceSummaries, 0]
 ];
+export var ListProcurementPortalsRequest$: StaticStructureSchema = [3, n0, _LPPR,
+  0,
+  [_NT, _MR],
+  [0, 1]
+];
+export var ListProcurementPortalsResponse$: StaticStructureSchema = [3, n0, _LPPRi,
+  0,
+  [_PP, _NT],
+  [() => ProcurementPortals, 0], 1
+];
+export var ListProcurementPortalSuppliersRequest$: StaticStructureSchema = [3, n0, _LPPSR,
+  0,
+  [_PI, _NT, _MR],
+  [0, 0, 1], 1
+];
+export var ListProcurementPortalSuppliersResponse$: StaticStructureSchema = [3, n0, _LPPSRi,
+  0,
+  [_PPS, _NT],
+  [() => ProcurementPortalSuppliers, 0], 1
+];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAes],
@@ -532,6 +582,11 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   0,
   [_RT],
   [() => ResourceTagList]
+];
+export var ProcurementPortal$: StaticStructureSchema = [3, n0, _PPr,
+  0,
+  [_PI, _PN, _PDN, _DFC],
+  [0, 0, 0, () => FeatureConfigurations$], 2
 ];
 export var ProcurementPortalPreference$: StaticStructureSchema = [3, n0, _PPP,
   0,
@@ -547,6 +602,11 @@ export var ProcurementPortalPreferenceSummary$: StaticStructureSchema = [3, n0, 
   0,
   [_AAI, _PPPA, _PPN, _BD, _BI, _SD, _SI, _EDE, _PORE, _Ve, _CD, _LUD, _S, _EDPS, _EDPSR, _PORPS, _PORPSR],
   [0, 0, 0, 0, 0, 0, 0, 2, 2, 1, 4, 4, () => ProcurementPortalPreferenceSelector$, 0, 0, 0, 0], 12
+];
+export var ProcurementPortalSupplier$: StaticStructureSchema = [3, n0, _PPSr,
+  0,
+  [_SI, _SORe, _CCo, _Env],
+  [0, 0, 0, 0], 1
 ];
 export var PurchaseOrderDataSource$: StaticStructureSchema = [3, n0, _PODSu,
   0,
@@ -585,7 +645,7 @@ export var SendProcurementPortalValidationResponse$: StaticStructureSchema = [3,
 ];
 export var SupplementalDocument$: StaticStructureSchema = [3, n0, _SDup,
   0,
-  [_DT, _DIo, _DU, _DUED],
+  [_DTo, _DIo, _DU, _DUED],
   [0, 0, 0, 4]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -688,6 +748,12 @@ var InvoiceUnits: StaticListSchema = [1, n0, _IUn,
 var ProcurementPortalPreferenceSummaries: StaticListSchema = [1, n0, _PPPSro,
   0, () => ProcurementPortalPreferenceSummary$
 ];
+var ProcurementPortals: StaticListSchema = [1, n0, _PP,
+  0, () => ProcurementPortal$
+];
+var ProcurementPortalSuppliers: StaticListSchema = [1, n0, _PPS,
+  0, () => ProcurementPortalSupplier$
+];
 var ProfileList: StaticListSchema = [1, n0, _PL,
   0, [() => InvoiceProfile$,
     0]
@@ -742,6 +808,12 @@ export var ListInvoiceUnits$: StaticOperationSchema = [9, n0, _LIU,
 ];
 export var ListProcurementPortalPreferences$: StaticOperationSchema = [9, n0, _LPPP,
   0, () => ListProcurementPortalPreferencesRequest$, () => ListProcurementPortalPreferencesResponse$
+];
+export var ListProcurementPortals$: StaticOperationSchema = [9, n0, _LPP,
+  0, () => ListProcurementPortalsRequest$, () => ListProcurementPortalsResponse$
+];
+export var ListProcurementPortalSuppliers$: StaticOperationSchema = [9, n0, _LPPS,
+  0, () => ListProcurementPortalSuppliersRequest$, () => ListProcurementPortalSuppliersResponse$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$

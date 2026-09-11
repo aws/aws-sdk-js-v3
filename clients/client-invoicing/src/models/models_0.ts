@@ -10,6 +10,7 @@ import type {
   InvoiceFrequency,
   InvoiceType,
   ListInvoiceSummariesResourceType,
+  ProcurementPortalEnv,
   ProcurementPortalName,
   ProcurementPortalPreferenceStatus,
   Protocol,
@@ -788,6 +789,36 @@ export interface Entity {
    * @public
    */
   BillingEntity?: BillingEntity | undefined;
+}
+
+/**
+ * <p>Specifies the supported document types and attachment types for invoice delivery to a procurement portal.</p>
+ * @public
+ */
+export interface InvoiceConfiguration {
+  /**
+   * <p>The e-invoice document types supported by the procurement portal.</p>
+   * @public
+   */
+  DocumentTypes?: EinvoiceDeliveryDocumentType[] | undefined;
+
+  /**
+   * <p>The attachment types supported by the procurement portal for e-invoice delivery.</p>
+   * @public
+   */
+  AttachmentTypes?: EinvoiceDeliveryAttachmentType[] | undefined;
+}
+
+/**
+ * <p>Contains the default feature configuration settings for a procurement portal.</p>
+ * @public
+ */
+export interface FeatureConfigurations {
+  /**
+   * <p>The invoice configuration settings for the procurement portal.</p>
+   * @public
+   */
+  InvoiceConfiguration?: InvoiceConfiguration | undefined;
 }
 
 /**
@@ -1664,6 +1695,140 @@ export interface ListProcurementPortalPreferencesResponse {
    * @public
    */
   ProcurementPortalPreferences?: ProcurementPortalPreferenceSummary[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProcurementPortalsRequest {
+  /**
+   * <p>The token for the next set of results. You received this token from a previous call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. Default is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains metadata for a procurement portal, including the portal identifier, name, and default feature configurations.</p>
+ * @public
+ */
+export interface ProcurementPortal {
+  /**
+   * <p>The unique identifier of the procurement portal.</p>
+   * @public
+   */
+  PortalIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the procurement portal.</p>
+   * @public
+   */
+  PortalName: ProcurementPortalName | undefined;
+
+  /**
+   * <p>The display name of the procurement portal.</p>
+   * @public
+   */
+  PortalDisplayName?: string | undefined;
+
+  /**
+   * <p>The default feature configurations for the procurement portal.</p>
+   * @public
+   */
+  DefaultFeatureConfigurations?: FeatureConfigurations | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProcurementPortalsResponse {
+  /**
+   * <p>The list of procurement portals available for configuration.</p>
+   * @public
+   */
+  ProcurementPortals: ProcurementPortal[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProcurementPortalSuppliersRequest {
+  /**
+   * <p>The unique identifier of the procurement portal for which to list suppliers. Use the <code>PortalIdentifier</code> value returned by <code>ListProcurementPortals</code>.</p>
+   * @public
+   */
+  PortalIdentifier: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. You received this token from a previous call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value. Default is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains metadata for a supplier configured within a procurement portal.</p>
+ * @public
+ */
+export interface ProcurementPortalSupplier {
+  /**
+   * <p>The unique identifier of the supplier within the procurement portal.</p>
+   * @public
+   */
+  SupplierIdentifier: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services seller of record associated with the supplier—the Amazon Web Services legal entity that issues invoices for the account (for example, <code>AWS_INC</code> or <code>AWS_EUROPE</code>).</p>
+   * @public
+   */
+  SellerOfRecord?: string | undefined;
+
+  /**
+   * <p>The two-letter ISO 3166-1 alpha-2 country code associated with the supplier.</p>
+   * @public
+   */
+  CountryCode?: string | undefined;
+
+  /**
+   * <p>The environment identifier for the supplier in the procurement portal. PROD for production env, or TEST for sandbox/test env.</p>
+   * @public
+   */
+  Environment?: ProcurementPortalEnv | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProcurementPortalSuppliersResponse {
+  /**
+   * <p>The list of suppliers configured for the specified procurement portal.</p>
+   * @public
+   */
+  ProcurementPortalSuppliers: ProcurementPortalSupplier[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next set of results, or null if there are no more results.</p>

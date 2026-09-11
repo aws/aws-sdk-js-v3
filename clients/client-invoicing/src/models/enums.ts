@@ -272,3 +272,22 @@ export const ListInvoiceSummariesResourceType = {
  */
 export type ListInvoiceSummariesResourceType =
   (typeof ListInvoiceSummariesResourceType)[keyof typeof ListInvoiceSummariesResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProcurementPortalEnv = {
+  /**
+   * <p>The production environment.</p>
+   */
+  PROD: "PROD",
+  /**
+   * <p>The sandbox or test environment.</p>
+   */
+  TEST: "TEST",
+} as const;
+/**
+ * @public
+ */
+export type ProcurementPortalEnv = (typeof ProcurementPortalEnv)[keyof typeof ProcurementPortalEnv];

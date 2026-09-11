@@ -90,6 +90,14 @@ import type {
   ListProcurementPortalPreferencesCommandOutput,
 } from "./commands/ListProcurementPortalPreferencesCommand";
 import type {
+  ListProcurementPortalsCommandInput,
+  ListProcurementPortalsCommandOutput,
+} from "./commands/ListProcurementPortalsCommand";
+import type {
+  ListProcurementPortalSuppliersCommandInput,
+  ListProcurementPortalSuppliersCommandOutput,
+} from "./commands/ListProcurementPortalSuppliersCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -141,6 +149,8 @@ export type ServiceInputTypes =
   | ListInvoiceSummariesCommandInput
   | ListInvoiceUnitsCommandInput
   | ListProcurementPortalPreferencesCommandInput
+  | ListProcurementPortalSuppliersCommandInput
+  | ListProcurementPortalsCommandInput
   | ListTagsForResourceCommandInput
   | PutProcurementPortalPreferenceCommandInput
   | SendProcurementPortalValidationCommandInput
@@ -165,6 +175,8 @@ export type ServiceOutputTypes =
   | ListInvoiceSummariesCommandOutput
   | ListInvoiceUnitsCommandOutput
   | ListProcurementPortalPreferencesCommandOutput
+  | ListProcurementPortalSuppliersCommandOutput
+  | ListProcurementPortalsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutProcurementPortalPreferenceCommandOutput
   | SendProcurementPortalValidationCommandOutput

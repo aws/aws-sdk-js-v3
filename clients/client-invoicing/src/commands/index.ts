@@ -10,6 +10,8 @@ export * from "./GetProcurementPortalPreferenceCommand";
 export * from "./ListInvoiceSummariesCommand";
 export * from "./ListInvoiceUnitsCommand";
 export * from "./ListProcurementPortalPreferencesCommand";
+export * from "./ListProcurementPortalSuppliersCommand";
+export * from "./ListProcurementPortalsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutProcurementPortalPreferenceCommand";
 export * from "./SendProcurementPortalValidationCommand";

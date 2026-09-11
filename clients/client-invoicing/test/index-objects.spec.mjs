@@ -39,6 +39,7 @@ import {
   EinvoiceDeliveryPreference$,
   EinvoiceDeliveryStatus,
   Entity$,
+  FeatureConfigurations$,
   FeesBreakdown$,
   FeesBreakdownAmount$,
   Filters$,
@@ -56,6 +57,7 @@ import {
   GetProcurementPortalPreferenceResponse$,
   InternalServerException,
   InternalServerException$,
+  InvoiceConfiguration$,
   InvoiceCurrencyAmount$,
   InvoiceFrequency,
   InvoicePDF$,
@@ -82,6 +84,14 @@ import {
   ListProcurementPortalPreferencesCommand,
   ListProcurementPortalPreferencesRequest$,
   ListProcurementPortalPreferencesResponse$,
+  ListProcurementPortals$,
+  ListProcurementPortalsCommand,
+  ListProcurementPortalsRequest$,
+  ListProcurementPortalsResponse$,
+  ListProcurementPortalSuppliers$,
+  ListProcurementPortalSuppliersCommand,
+  ListProcurementPortalSuppliersRequest$,
+  ListProcurementPortalSuppliersResponse$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -89,11 +99,16 @@ import {
   paginateListInvoiceSummaries,
   paginateListInvoiceUnits,
   paginateListProcurementPortalPreferences,
+  paginateListProcurementPortals,
+  paginateListProcurementPortalSuppliers,
+  ProcurementPortal$,
+  ProcurementPortalEnv,
   ProcurementPortalName,
   ProcurementPortalPreference$,
   ProcurementPortalPreferenceSelector$,
   ProcurementPortalPreferenceStatus,
   ProcurementPortalPreferenceSummary$,
+  ProcurementPortalSupplier$,
   Protocol,
   PurchaseOrderDataSource$,
   PurchaseOrderDataSourceType,
@@ -174,6 +189,10 @@ assert(typeof ListInvoiceUnitsCommand === "function");
 assert(typeof ListInvoiceUnits$ === "object");
 assert(typeof ListProcurementPortalPreferencesCommand === "function");
 assert(typeof ListProcurementPortalPreferences$ === "object");
+assert(typeof ListProcurementPortalsCommand === "function");
+assert(typeof ListProcurementPortals$ === "object");
+assert(typeof ListProcurementPortalSuppliersCommand === "function");
+assert(typeof ListProcurementPortalSuppliers$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PutProcurementPortalPreferenceCommand === "function");
@@ -210,6 +229,7 @@ assert(typeof DiscountsBreakdown$ === "object");
 assert(typeof DiscountsBreakdownAmount$ === "object");
 assert(typeof EinvoiceDeliveryPreference$ === "object");
 assert(typeof Entity$ === "object");
+assert(typeof FeatureConfigurations$ === "object");
 assert(typeof FeesBreakdown$ === "object");
 assert(typeof FeesBreakdownAmount$ === "object");
 assert(typeof Filters$ === "object");
@@ -219,6 +239,7 @@ assert(typeof GetInvoiceUnitRequest$ === "object");
 assert(typeof GetInvoiceUnitResponse$ === "object");
 assert(typeof GetProcurementPortalPreferenceRequest$ === "object");
 assert(typeof GetProcurementPortalPreferenceResponse$ === "object");
+assert(typeof InvoiceConfiguration$ === "object");
 assert(typeof InvoiceCurrencyAmount$ === "object");
 assert(typeof InvoicePDF$ === "object");
 assert(typeof InvoiceProfile$ === "object");
@@ -233,11 +254,17 @@ assert(typeof ListInvoiceUnitsRequest$ === "object");
 assert(typeof ListInvoiceUnitsResponse$ === "object");
 assert(typeof ListProcurementPortalPreferencesRequest$ === "object");
 assert(typeof ListProcurementPortalPreferencesResponse$ === "object");
+assert(typeof ListProcurementPortalsRequest$ === "object");
+assert(typeof ListProcurementPortalsResponse$ === "object");
+assert(typeof ListProcurementPortalSuppliersRequest$ === "object");
+assert(typeof ListProcurementPortalSuppliersResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ProcurementPortal$ === "object");
 assert(typeof ProcurementPortalPreference$ === "object");
 assert(typeof ProcurementPortalPreferenceSelector$ === "object");
 assert(typeof ProcurementPortalPreferenceSummary$ === "object");
+assert(typeof ProcurementPortalSupplier$ === "object");
 assert(typeof PurchaseOrderDataSource$ === "object");
 assert(typeof PutProcurementPortalPreferenceRequest$ === "object");
 assert(typeof PutProcurementPortalPreferenceResponse$ === "object");
@@ -272,6 +299,7 @@ assert(typeof EinvoiceDeliveryStatus === "object");
 assert(typeof InvoiceFrequency === "object");
 assert(typeof InvoiceType === "object");
 assert(typeof ListInvoiceSummariesResourceType === "object");
+assert(typeof ProcurementPortalEnv === "object");
 assert(typeof ProcurementPortalName === "object");
 assert(typeof ProcurementPortalPreferenceStatus === "object");
 assert(typeof Protocol === "object");
@@ -301,4 +329,6 @@ assert(InvoicingServiceException.prototype instanceof Error);
 assert(typeof paginateListInvoiceSummaries === "function");
 assert(typeof paginateListInvoiceUnits === "function");
 assert(typeof paginateListProcurementPortalPreferences === "function");
+assert(typeof paginateListProcurementPortalSuppliers === "function");
+assert(typeof paginateListProcurementPortals === "function");
 console.log(`Invoicing index test passed.`);

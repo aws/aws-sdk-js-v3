@@ -258,6 +258,20 @@ ListProcurementPortalPreferences
 </details>
 <details>
 <summary>
+ListProcurementPortals
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/ListProcurementPortalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListProcurementPortalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListProcurementPortalsCommandOutput/)
+</details>
+<details>
+<summary>
+ListProcurementPortalSuppliers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/ListProcurementPortalSuppliersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListProcurementPortalSuppliersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/ListProcurementPortalSuppliersCommandOutput/)
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 

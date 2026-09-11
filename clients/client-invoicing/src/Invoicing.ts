@@ -58,6 +58,16 @@ import {
   ListProcurementPortalPreferencesCommand,
 } from "./commands/ListProcurementPortalPreferencesCommand";
 import {
+  type ListProcurementPortalsCommandInput,
+  type ListProcurementPortalsCommandOutput,
+  ListProcurementPortalsCommand,
+} from "./commands/ListProcurementPortalsCommand";
+import {
+  type ListProcurementPortalSuppliersCommandInput,
+  type ListProcurementPortalSuppliersCommandOutput,
+  ListProcurementPortalSuppliersCommand,
+} from "./commands/ListProcurementPortalSuppliersCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -101,6 +111,8 @@ import { InvoicingClient } from "./InvoicingClient";
 import { paginateListInvoiceSummaries } from "./pagination/ListInvoiceSummariesPaginator";
 import { paginateListInvoiceUnits } from "./pagination/ListInvoiceUnitsPaginator";
 import { paginateListProcurementPortalPreferences } from "./pagination/ListProcurementPortalPreferencesPaginator";
+import { paginateListProcurementPortals } from "./pagination/ListProcurementPortalsPaginator";
+import { paginateListProcurementPortalSuppliers } from "./pagination/ListProcurementPortalSuppliersPaginator";
 
 const commands = {
   BatchGetInvoiceProfileCommand,
@@ -114,6 +126,8 @@ const commands = {
   ListInvoiceSummariesCommand,
   ListInvoiceUnitsCommand,
   ListProcurementPortalPreferencesCommand,
+  ListProcurementPortalsCommand,
+  ListProcurementPortalSuppliersCommand,
   ListTagsForResourceCommand,
   PutProcurementPortalPreferenceCommand,
   SendProcurementPortalValidationCommand,
@@ -127,6 +141,8 @@ const paginators = {
   paginateListInvoiceSummaries,
   paginateListInvoiceUnits,
   paginateListProcurementPortalPreferences,
+  paginateListProcurementPortals,
+  paginateListProcurementPortalSuppliers,
 };
 
 export interface Invoicing {
@@ -320,6 +336,41 @@ export interface Invoicing {
   ): void;
 
   /**
+   * @see {@link ListProcurementPortalsCommand}
+   */
+  listProcurementPortals(): Promise<ListProcurementPortalsCommandOutput>;
+  listProcurementPortals(
+    args: ListProcurementPortalsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProcurementPortalsCommandOutput>;
+  listProcurementPortals(
+    args: ListProcurementPortalsCommandInput,
+    cb: (err: any, data?: ListProcurementPortalsCommandOutput) => void
+  ): void;
+  listProcurementPortals(
+    args: ListProcurementPortalsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProcurementPortalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProcurementPortalSuppliersCommand}
+   */
+  listProcurementPortalSuppliers(
+    args: ListProcurementPortalSuppliersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProcurementPortalSuppliersCommandOutput>;
+  listProcurementPortalSuppliers(
+    args: ListProcurementPortalSuppliersCommandInput,
+    cb: (err: any, data?: ListProcurementPortalSuppliersCommandOutput) => void
+  ): void;
+  listProcurementPortalSuppliers(
+    args: ListProcurementPortalSuppliersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProcurementPortalSuppliersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -487,6 +538,28 @@ export interface Invoicing {
     args?: ListProcurementPortalPreferencesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListProcurementPortalPreferencesCommandOutput>;
+
+  /**
+   * @see {@link ListProcurementPortalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProcurementPortalsCommandOutput}.
+   */
+  paginateListProcurementPortals(
+    args?: ListProcurementPortalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProcurementPortalsCommandOutput>;
+
+  /**
+   * @see {@link ListProcurementPortalSuppliersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProcurementPortalSuppliersCommandOutput}.
+   */
+  paginateListProcurementPortalSuppliers(
+    args: ListProcurementPortalSuppliersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProcurementPortalSuppliersCommandOutput>;
 }
 
 /**
