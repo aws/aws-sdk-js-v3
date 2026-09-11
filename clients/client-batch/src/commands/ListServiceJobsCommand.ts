@@ -75,6 +75,7 @@ export interface ListServiceJobsCommandOutput extends ListServiceJobsResponse, _
  * //       statusReason: "STRING_VALUE",
  * //       startedAt: Number("long"),
  * //       stoppedAt: Number("long"),
+ * //       isTerminated: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

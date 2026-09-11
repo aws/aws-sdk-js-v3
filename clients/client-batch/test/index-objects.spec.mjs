@@ -15,6 +15,11 @@ import {
   CancelJobCommand,
   CancelJobRequest$,
   CancelJobResponse$,
+  CancelJobs$,
+  CancelJobsCommand,
+  CancelJobsErrorDetail$,
+  CancelJobsRequest$,
+  CancelJobsResponse$,
   CapacityLimit$,
   CapacityReservationRequest$,
   CEState,
@@ -334,10 +339,20 @@ import {
   TerminateJobCommand,
   TerminateJobRequest$,
   TerminateJobResponse$,
+  TerminateJobs$,
+  TerminateJobsCommand,
+  TerminateJobsErrorDetail$,
+  TerminateJobsRequest$,
+  TerminateJobsResponse$,
   TerminateServiceJob$,
   TerminateServiceJobCommand,
   TerminateServiceJobRequest$,
   TerminateServiceJobResponse$,
+  TerminateServiceJobs$,
+  TerminateServiceJobsCommand,
+  TerminateServiceJobsErrorDetail$,
+  TerminateServiceJobsRequest$,
+  TerminateServiceJobsResponse$,
   Tmpfs$,
   Ulimit$,
   UntagResource$,
@@ -384,6 +399,8 @@ assert(typeof Batch === "function");
 // commands
 assert(typeof CancelJobCommand === "function");
 assert(typeof CancelJob$ === "object");
+assert(typeof CancelJobsCommand === "function");
+assert(typeof CancelJobs$ === "object");
 assert(typeof CreateComputeEnvironmentCommand === "function");
 assert(typeof CreateComputeEnvironment$ === "object");
 assert(typeof CreateConsumableResourceCommand === "function");
@@ -454,8 +471,12 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof TerminateJobCommand === "function");
 assert(typeof TerminateJob$ === "object");
+assert(typeof TerminateJobsCommand === "function");
+assert(typeof TerminateJobs$ === "object");
 assert(typeof TerminateServiceJobCommand === "function");
 assert(typeof TerminateServiceJob$ === "object");
+assert(typeof TerminateServiceJobsCommand === "function");
+assert(typeof TerminateServiceJobs$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateComputeEnvironmentCommand === "function");
@@ -482,6 +503,9 @@ assert(typeof AttemptEcsTaskDetails$ === "object");
 assert(typeof AttemptTaskContainerDetails$ === "object");
 assert(typeof CancelJobRequest$ === "object");
 assert(typeof CancelJobResponse$ === "object");
+assert(typeof CancelJobsErrorDetail$ === "object");
+assert(typeof CancelJobsRequest$ === "object");
+assert(typeof CancelJobsResponse$ === "object");
 assert(typeof CapacityLimit$ === "object");
 assert(typeof CapacityReservationRequest$ === "object");
 assert(typeof ComputeEnvironmentDetail$ === "object");
@@ -682,8 +706,14 @@ assert(typeof TaskContainerProperties$ === "object");
 assert(typeof TaskPropertiesOverride$ === "object");
 assert(typeof TerminateJobRequest$ === "object");
 assert(typeof TerminateJobResponse$ === "object");
+assert(typeof TerminateJobsErrorDetail$ === "object");
+assert(typeof TerminateJobsRequest$ === "object");
+assert(typeof TerminateJobsResponse$ === "object");
 assert(typeof TerminateServiceJobRequest$ === "object");
 assert(typeof TerminateServiceJobResponse$ === "object");
+assert(typeof TerminateServiceJobsErrorDetail$ === "object");
+assert(typeof TerminateServiceJobsRequest$ === "object");
+assert(typeof TerminateServiceJobsResponse$ === "object");
 assert(typeof Tmpfs$ === "object");
 assert(typeof Ulimit$ === "object");
 assert(typeof UntagResourceRequest$ === "object");

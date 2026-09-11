@@ -5,6 +5,11 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 import { BatchClient } from "./BatchClient";
 import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
 import {
+  type CancelJobsCommandInput,
+  type CancelJobsCommandOutput,
+  CancelJobsCommand,
+} from "./commands/CancelJobsCommand";
+import {
   type CreateComputeEnvironmentCommandInput,
   type CreateComputeEnvironmentCommandOutput,
   CreateComputeEnvironmentCommand,
@@ -172,10 +177,20 @@ import {
   TerminateJobCommand,
 } from "./commands/TerminateJobCommand";
 import {
+  type TerminateJobsCommandInput,
+  type TerminateJobsCommandOutput,
+  TerminateJobsCommand,
+} from "./commands/TerminateJobsCommand";
+import {
   type TerminateServiceJobCommandInput,
   type TerminateServiceJobCommandOutput,
   TerminateServiceJobCommand,
 } from "./commands/TerminateServiceJobCommand";
+import {
+  type TerminateServiceJobsCommandInput,
+  type TerminateServiceJobsCommandOutput,
+  TerminateServiceJobsCommand,
+} from "./commands/TerminateServiceJobsCommand";
 import {
   type UntagResourceCommandInput,
   type UntagResourceCommandOutput,
@@ -229,6 +244,7 @@ import { paginateListServiceJobs } from "./pagination/ListServiceJobsPaginator";
 
 const commands = {
   CancelJobCommand,
+  CancelJobsCommand,
   CreateComputeEnvironmentCommand,
   CreateConsumableResourceCommand,
   CreateJobQueueCommand,
@@ -264,7 +280,9 @@ const commands = {
   SubmitServiceJobCommand,
   TagResourceCommand,
   TerminateJobCommand,
+  TerminateJobsCommand,
   TerminateServiceJobCommand,
+  TerminateServiceJobsCommand,
   UntagResourceCommand,
   UpdateComputeEnvironmentCommand,
   UpdateConsumableResourceCommand,
@@ -303,6 +321,23 @@ export interface Batch {
     args: CancelJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelJobsCommand}
+   */
+  cancelJobs(
+    args: CancelJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelJobsCommandOutput>;
+  cancelJobs(
+    args: CancelJobsCommandInput,
+    cb: (err: any, data?: CancelJobsCommandOutput) => void
+  ): void;
+  cancelJobs(
+    args: CancelJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelJobsCommandOutput) => void
   ): void;
 
   /**
@@ -909,6 +944,23 @@ export interface Batch {
   ): void;
 
   /**
+   * @see {@link TerminateJobsCommand}
+   */
+  terminateJobs(
+    args: TerminateJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateJobsCommandOutput>;
+  terminateJobs(
+    args: TerminateJobsCommandInput,
+    cb: (err: any, data?: TerminateJobsCommandOutput) => void
+  ): void;
+  terminateJobs(
+    args: TerminateJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TerminateServiceJobCommand}
    */
   terminateServiceJob(
@@ -923,6 +975,23 @@ export interface Batch {
     args: TerminateServiceJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TerminateServiceJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TerminateServiceJobsCommand}
+   */
+  terminateServiceJobs(
+    args: TerminateServiceJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateServiceJobsCommandOutput>;
+  terminateServiceJobs(
+    args: TerminateServiceJobsCommandInput,
+    cb: (err: any, data?: TerminateServiceJobsCommandOutput) => void
+  ): void;
+  terminateServiceJobs(
+    args: TerminateServiceJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateServiceJobsCommandOutput) => void
   ): void;
 
   /**

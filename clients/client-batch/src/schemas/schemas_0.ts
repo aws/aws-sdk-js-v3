@@ -19,11 +19,16 @@ const _CEDL = "ComputeEnvironmentDetailList";
 const _CEO = "ComputeEnvironmentOrder";
 const _CEOo = "ComputeEnvironmentOrders";
 const _CJ = "CancelJob";
+const _CJED = "CancelJobsErrorDetail";
+const _CJEDL = "CancelJobsErrorDetailList";
 const _CJQ = "CreateJobQueue";
 const _CJQR = "CreateJobQueueRequest";
 const _CJQRr = "CreateJobQueueResponse";
 const _CJR = "CancelJobRequest";
 const _CJRa = "CancelJobResponse";
+const _CJRan = "CancelJobsRequest";
+const _CJRanc = "CancelJobsResponse";
+const _CJa = "CancelJobs";
 const _CL = "CapacityLimit";
 const _CLa = "CapacityLimits";
 const _CO = "ContainerOverrides";
@@ -307,16 +312,26 @@ const _TCDa = "TaskContainerDetails";
 const _TCO = "TaskContainerOverrides";
 const _TCP = "TaskContainerProperties";
 const _TJ = "TerminateJob";
+const _TJED = "TerminateJobsErrorDetail";
+const _TJEDL = "TerminateJobsErrorDetailList";
 const _TJR = "TerminateJobRequest";
 const _TJRe = "TerminateJobResponse";
+const _TJRer = "TerminateJobsRequest";
+const _TJRerm = "TerminateJobsResponse";
+const _TJe = "TerminateJobs";
 const _TL = "TmpfsList";
 const _TPO = "TaskPropertiesOverride";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TSJ = "TerminateServiceJob";
+const _TSJED = "TerminateServiceJobsErrorDetail";
+const _TSJEDL = "TerminateServiceJobsErrorDetailList";
 const _TSJR = "TerminateServiceJobRequest";
 const _TSJRe = "TerminateServiceJobResponse";
+const _TSJRer = "TerminateServiceJobsRequest";
+const _TSJRerm = "TerminateServiceJobsResponse";
+const _TSJe = "TerminateServiceJobs";
 const _U = "Ulimit";
 const _UCE = "UpdateComputeEnvironment";
 const _UCER = "UpdateComputeEnvironmentRequest";
@@ -404,6 +419,7 @@ const _cTl = "clientToken";
 const _cU = "capacityUnit";
 const _cUa = "capacityUsage";
 const _co = "container";
+const _cod = "code";
 const _com = "command";
 const _con = "containers";
 const _cond = "condition";
@@ -435,6 +451,7 @@ const _eTAP = "earliestTimeAtPosition";
 const _eVC = "efsVolumeConfiguration";
 const _en = "environment";
 const _env = "env";
+const _er = "errors";
 const _es = "essential";
 const _f = "filters";
 const _fC = "firelensConfiguration";
@@ -480,7 +497,7 @@ const _iTs = "isTerminated";
 const _iUQ = "inUseQuantity";
 const _ia = "iam";
 const _im = "image";
-const _j = "jobs";
+const _j = "job";
 const _jA = "jobArn";
 const _jD = "jobDefinition";
 const _jDA = "jobDefinitionArn";
@@ -498,6 +515,7 @@ const _jRA = "jobRoleArn";
 const _jS = "jobStatus";
 const _jSL = "jobSummaryList";
 const _jSTLA = "jobStateTimeLimitActions";
+const _jo = "jobs";
 const _kN = "kubernetesNamespace";
 const _l = "limits";
 const _lA = "latestAttempt";
@@ -652,7 +670,8 @@ const _si = "size";
 const _st = "state";
 const _sta = "status";
 const _str = "strategy";
-const _su = "subnets";
+const _su = "successful";
+const _sub = "subnets";
 const _sw = "swappiness";
 const _t = "tags";
 const _tA = "taskArn";
@@ -773,6 +792,21 @@ export var CancelJobResponse$: StaticStructureSchema = [3, n0, _CJRa,
   [],
   []
 ];
+export var CancelJobsErrorDetail$: StaticStructureSchema = [3, n0, _CJED,
+  0,
+  [_j, _cod, _m],
+  [0, 0, 0], 3
+];
+export var CancelJobsRequest$: StaticStructureSchema = [3, n0, _CJRan,
+  0,
+  [_jo, _r],
+  [64 | 0, 0], 2
+];
+export var CancelJobsResponse$: StaticStructureSchema = [3, n0, _CJRanc,
+  0,
+  [_su, _er],
+  [64 | 0, () => CancelJobsErrorDetailList], 2
+];
 export var CapacityLimit$: StaticStructureSchema = [3, n0, _CL,
   0,
   [_mC, _cU],
@@ -795,12 +829,12 @@ export var ComputeEnvironmentOrder$: StaticStructureSchema = [3, n0, _CEO,
 ];
 export var ComputeResource$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_ty, _mCa, _aS, _mCi, _dC, _iT, _iI, _su, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc, _sP, _mIP, _cT],
+  [_ty, _mCa, _aS, _mCi, _dC, _iT, _iI, _sub, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc, _sP, _mIP, _cT],
   [0, 1, 0, 1, 1, 64 | 0, 0, 64 | 0, 64 | 0, 0, 0, 128 | 0, 0, 1, 0, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, () => ComputeScalingPolicy$, () => ManagedInstancesProvider$, 128 | 0], 2
 ];
 export var ComputeResourceUpdate$: StaticStructureSchema = [3, n0, _CRU,
   0,
-  [_mCi, _mCa, _dC, _su, _sGI, _aS, _iT, _eKP, _iR, _t, _pG, _bP, _lT, _eCc, _uTLIV, _ty, _iI, _sP, _mIP, _cT],
+  [_mCi, _mCa, _dC, _sub, _sGI, _aS, _iT, _eKP, _iR, _t, _pG, _bP, _lT, _eCc, _uTLIV, _ty, _iI, _sP, _mIP, _cT],
   [1, 1, 1, 64 | 0, 64 | 0, 0, 64 | 0, 0, 0, 128 | 0, 0, 1, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, 2, 0, 0, () => ComputeScalingPolicy$, () => UpdateManagedInstancesProviderConfiguration$, 128 | 0]
 ];
 export var ComputeScalingPolicy$: StaticStructureSchema = [3, n0, _CSP,
@@ -1015,12 +1049,12 @@ export var DescribeJobQueuesResponse$: StaticStructureSchema = [3, n0, _DJQResc,
 ];
 export var DescribeJobsRequest$: StaticStructureSchema = [3, n0, _DJR,
   0,
-  [_j],
+  [_jo],
   [64 | 0], 1
 ];
 export var DescribeJobsResponse$: StaticStructureSchema = [3, n0, _DJRe,
   0,
-  [_j],
+  [_jo],
   [() => JobDetailList]
 ];
 export var DescribeQuotaShareRequest$: StaticStructureSchema = [3, n0, _DQSRes,
@@ -1265,7 +1299,7 @@ export var FirelensConfiguration$: StaticStructureSchema = [3, n0, _FC,
 ];
 export var FrontOfQueueDetail$: StaticStructureSchema = [3, n0, _FOQD,
   0,
-  [_j, _lUA],
+  [_jo, _lUA],
   [() => FrontOfQueueJobSummaryList, 1]
 ];
 export var FrontOfQueueJobSummary$: StaticStructureSchema = [3, n0, _FOQJS,
@@ -1355,8 +1389,8 @@ export var JobStateTimeLimitAction$: StaticStructureSchema = [3, n0, _JSTLA,
 ];
 export var JobSummary$: StaticStructureSchema = [3, n0, _JS,
   0,
-  [_jI, _jN, _jA, _cUa, _cA, _sAc, _sI, _sta, _sR, _sA, _sAt, _co, _aP, _nP, _jD],
-  [0, 0, 0, () => JobCapacityUsageSummaryList, 1, 1, 0, 0, 0, 1, 1, () => ContainerSummary$, () => ArrayPropertiesSummary$, () => NodePropertiesSummary$, 0], 2
+  [_jI, _jN, _jA, _cUa, _cA, _sAc, _sI, _sta, _sR, _sA, _sAt, _co, _aP, _nP, _jD, _iCs, _iTs],
+  [0, 0, 0, () => JobCapacityUsageSummaryList, 1, 1, 0, 0, 0, 1, 1, () => ContainerSummary$, () => ArrayPropertiesSummary$, () => NodePropertiesSummary$, 0, 2, 2], 2
 ];
 export var JobTimeout$: StaticStructureSchema = [3, n0, _JT,
   0,
@@ -1410,7 +1444,7 @@ export var ListJobsByConsumableResourceRequest$: StaticStructureSchema = [3, n0,
 ];
 export var ListJobsByConsumableResourceResponse$: StaticStructureSchema = [3, n0, _LJBCRRi,
   0,
-  [_j, _nT],
+  [_jo, _nT],
   [() => ListJobsByConsumableResourceSummaryList, 0], 1
 ];
 export var ListJobsByConsumableResourceSummary$: StaticStructureSchema = [3, n0, _LJBCRS,
@@ -1480,7 +1514,7 @@ export var ManagedInstancesLocalStorageConfiguration$: StaticStructureSchema = [
 ];
 export var ManagedInstancesNetworkConfiguration$: StaticStructureSchema = [3, n0, _MINC,
   0,
-  [_su, _sG],
+  [_sub, _sG],
   [64 | 0, 64 | 0], 2
 ];
 export var ManagedInstancesProvider$: StaticStructureSchema = [3, n0, _MIP,
@@ -1690,8 +1724,8 @@ export var ServiceJobRetryStrategy$: StaticStructureSchema = [3, n0, _SJRS,
 ];
 export var ServiceJobSummary$: StaticStructureSchema = [3, n0, _SJS,
   0,
-  [_jI, _jN, _sJT, _lA, _cUa, _cA, _jA, _sAc, _sI, _qSN, _sta, _sR, _sA, _sAt],
-  [0, 0, 0, () => LatestServiceJobAttempt$, () => ServiceJobCapacityUsageSummaryList, 1, 0, 1, 0, 0, 0, 0, 1, 1], 3
+  [_jI, _jN, _sJT, _lA, _cUa, _cA, _jA, _sAc, _sI, _qSN, _sta, _sR, _sA, _sAt, _iTs],
+  [0, 0, 0, () => LatestServiceJobAttempt$, () => ServiceJobCapacityUsageSummaryList, 1, 0, 1, 0, 0, 0, 0, 1, 1, 2], 3
 ];
 export var ServiceJobTimeout$: StaticStructureSchema = [3, n0, _SJT,
   0,
@@ -1773,6 +1807,21 @@ export var TerminateJobResponse$: StaticStructureSchema = [3, n0, _TJRe,
   [],
   []
 ];
+export var TerminateJobsErrorDetail$: StaticStructureSchema = [3, n0, _TJED,
+  0,
+  [_j, _cod, _m],
+  [0, 0, 0], 3
+];
+export var TerminateJobsRequest$: StaticStructureSchema = [3, n0, _TJRer,
+  0,
+  [_jo, _r],
+  [64 | 0, 0], 2
+];
+export var TerminateJobsResponse$: StaticStructureSchema = [3, n0, _TJRerm,
+  0,
+  [_su, _er],
+  [64 | 0, () => TerminateJobsErrorDetailList], 2
+];
 export var TerminateServiceJobRequest$: StaticStructureSchema = [3, n0, _TSJR,
   0,
   [_jI, _r],
@@ -1782,6 +1831,21 @@ export var TerminateServiceJobResponse$: StaticStructureSchema = [3, n0, _TSJRe,
   0,
   [],
   []
+];
+export var TerminateServiceJobsErrorDetail$: StaticStructureSchema = [3, n0, _TSJED,
+  0,
+  [_j, _cod, _m],
+  [0, 0, 0], 3
+];
+export var TerminateServiceJobsRequest$: StaticStructureSchema = [3, n0, _TSJRer,
+  0,
+  [_jo, _r],
+  [64 | 0, 0], 2
+];
+export var TerminateServiceJobsResponse$: StaticStructureSchema = [3, n0, _TSJRerm,
+  0,
+  [_su, _er],
+  [64 | 0, () => TerminateServiceJobsErrorDetailList], 2
 ];
 export var Tmpfs$: StaticStructureSchema = [3, n0, _T,
   0,
@@ -1890,6 +1954,9 @@ export var Volume$: StaticStructureSchema = [3, n0, _V,
 ];
 var AttemptDetails: StaticListSchema = [1, n0, _ADt,
   0, () => AttemptDetail$
+];
+var CancelJobsErrorDetailList: StaticListSchema = [1, n0, _CJEDL,
+  0, () => CancelJobsErrorDetail$
 ];
 var CapacityLimits: StaticListSchema = [1, n0, _CLa,
   0, () => CapacityLimit$
@@ -2090,6 +2157,12 @@ var TagKeysList = 64 | 0;
 var TaskContainerDependencyList: StaticListSchema = [1, n0, _TCDL,
   0, () => TaskContainerDependency$
 ];
+var TerminateJobsErrorDetailList: StaticListSchema = [1, n0, _TJEDL,
+  0, () => TerminateJobsErrorDetail$
+];
+var TerminateServiceJobsErrorDetailList: StaticListSchema = [1, n0, _TSJEDL,
+  0, () => TerminateServiceJobsErrorDetail$
+];
 var TmpfsList: StaticListSchema = [1, n0, _TL,
   0, () => Tmpfs$
 ];
@@ -2114,6 +2187,9 @@ var TagrisTagsMap = 128 | 0;
 var TagsMap = 128 | 0;
 export var CancelJob$: StaticOperationSchema = [9, n0, _CJ,
   { [_ht]: ["POST", "/v1/canceljob", 200] }, () => CancelJobRequest$, () => CancelJobResponse$
+];
+export var CancelJobs$: StaticOperationSchema = [9, n0, _CJa,
+  { [_ht]: ["POST", "/v1/canceljobs", 200] }, () => CancelJobsRequest$, () => CancelJobsResponse$
 ];
 export var CreateComputeEnvironment$: StaticOperationSchema = [9, n0, _CCE,
   { [_ht]: ["POST", "/v1/createcomputeenvironment", 200] }, () => CreateComputeEnvironmentRequest$, () => CreateComputeEnvironmentResponse$
@@ -2220,8 +2296,14 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 export var TerminateJob$: StaticOperationSchema = [9, n0, _TJ,
   { [_ht]: ["POST", "/v1/terminatejob", 200] }, () => TerminateJobRequest$, () => TerminateJobResponse$
 ];
+export var TerminateJobs$: StaticOperationSchema = [9, n0, _TJe,
+  { [_ht]: ["POST", "/v1/terminatejobs", 200] }, () => TerminateJobsRequest$, () => TerminateJobsResponse$
+];
 export var TerminateServiceJob$: StaticOperationSchema = [9, n0, _TSJ,
   { [_ht]: ["POST", "/v1/terminateservicejob", 200] }, () => TerminateServiceJobRequest$, () => TerminateServiceJobResponse$
+];
+export var TerminateServiceJobs$: StaticOperationSchema = [9, n0, _TSJe,
+  { [_ht]: ["POST", "/v1/terminateservicejobs", 200] }, () => TerminateServiceJobsRequest$, () => TerminateServiceJobsResponse$
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_ht]: ["DELETE", "/v1/tags/{resourceArn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$

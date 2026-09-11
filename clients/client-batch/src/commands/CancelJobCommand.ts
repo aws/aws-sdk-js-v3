@@ -25,17 +25,17 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
 /**
  * <p>Cancels a job in an Batch job queue. Jobs that are in a <code>SUBMITTED</code>, <code>PENDING</code>, or <code>RUNNABLE</code> state are cancelled and the job status is updated to <code>FAILED</code>.</p>
  *          <note>
- *             <p>A <code>PENDING</code> job is canceled after all dependency jobs are completed.
- *         Therefore, it may take longer than expected to cancel a job in <code>PENDING</code>
+ *             <p>A <code>PENDING</code> job is cancelled after all dependency jobs are completed.
+ *         Therefore, it might take longer than expected to cancel a job in <code>PENDING</code>
  *         status.</p>
  *             <p>When you try to cancel an array parent job in <code>PENDING</code>, Batch attempts to
- *         cancel all child jobs. The array parent job is canceled when all child jobs are
+ *         cancel all child jobs. The array parent job is cancelled when all child jobs are
  *         completed.</p>
  *          </note>
  *          <p>Jobs that progressed to the <code>STARTING</code> or
- *         <code>RUNNING</code> state aren't canceled. However, the API operation still succeeds, even
- *       if no job is canceled. These jobs must be terminated with the <a>TerminateJob</a>
- *       operation.</p>
+ *         <code>RUNNING</code> state aren't cancelled. However, the API operation still succeeds, even
+ *       if no job is cancelled. These jobs must be terminated with the <a>TerminateJob</a> or
+ *         <a>TerminateJobs</a> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -303,10 +303,10 @@ export interface CancelJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>A message to attach to the job that explains the reason for canceling it. This message is
+   * <p>A message to attach to the job that explains the reason for cancelling it. This message is
    *       returned by future <a>DescribeJobs</a> operations on the job. It is also
    *       recorded in the Batch activity logs.</p>
-   *          <p>This parameter has as limit of 1024 characters.</p>
+   *          <p>This parameter has a limit of 1024 characters.</p>
    * @public
    */
   reason: string | undefined;
@@ -316,6 +316,95 @@ export interface CancelJobRequest {
  * @public
  */
 export interface CancelJobResponse {}
+
+/**
+ * <p>Specifies the jobs to cancel and the reason for the cancellation.</p>
+ * @public
+ */
+export interface CancelJobsRequest {
+  /**
+   * <p>An array of up to 50 Batch job IDs of the jobs to cancel.</p>
+   * @public
+   */
+  jobs: string[] | undefined;
+
+  /**
+   * <p>A message to attach to the job that explains the reason for cancelling it. This message is
+   *       returned by future <a>DescribeJobs</a> operations on the job. It is also
+   *       recorded in the Batch activity logs.</p>
+   *          <p>This parameter has a limit of 1024 characters.</p>
+   * @public
+   */
+  reason: string | undefined;
+}
+
+/**
+ * <p>An object that contains the details of a job that couldn't be cancelled by a
+ *         <code>CancelJobs</code> operation.</p>
+ * @public
+ */
+export interface CancelJobsErrorDetail {
+  /**
+   * <p>The Batch job ID of the job that couldn't be cancelled.</p>
+   * @public
+   */
+  job: string | undefined;
+
+  /**
+   * <p>An error code that identifies the reason the job couldn't be cancelled. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ValidationException</code> – A job identifier in the request is malformed or isn't valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ClientException</code> – The request failed because of a client error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ThrottlingException</code> – The request was throttled. Retry the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ServerException</code> – An internal error occurred. Retry the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccessDenied</code> – The caller isn't authorized to perform the action on the specified job.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>A message that describes the reason the job couldn't be cancelled.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>The result of a <code>CancelJobs</code> request, including the jobs whose cancellation
+ *       request was accepted and the errors for jobs that couldn't be cancelled.</p>
+ * @public
+ */
+export interface CancelJobsResponse {
+  /**
+   * <p>A list of the job IDs whose cancellation request was accepted.</p>
+   * @public
+   */
+  successful: string[] | undefined;
+
+  /**
+   * <p>A list of <code>CancelJobsErrorDetail</code> items, one for each job that couldn't be
+   *       cancelled. Each item includes the job ID along with a code and message that describe why the
+   *       job wasn't cancelled.</p>
+   * @public
+   */
+  errors: CancelJobsErrorDetail[] | undefined;
+}
 
 /**
  * <p>Provides information used to select Amazon Machine Images (AMIs) for instances in the
@@ -6737,7 +6826,7 @@ export interface JobDetail {
   ecsProperties?: EcsPropertiesDetail | undefined;
 
   /**
-   * <p>Indicates whether the job is canceled.</p>
+   * <p>Indicates whether the job is cancelled.</p>
    * @public
    */
   isCancelled?: boolean | undefined;
@@ -8061,6 +8150,18 @@ export interface JobSummary {
    * @public
    */
   jobDefinition?: string | undefined;
+
+  /**
+   * <p>Indicates whether a cancellation request has been accepted for the job. This field is only present when the value is <code>true</code>.</p>
+   * @public
+   */
+  isCancelled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether a termination request has been accepted for the job. This field is only present when the value is <code>true</code>.</p>
+   * @public
+   */
+  isTerminated?: boolean | undefined;
 }
 
 /**
@@ -8648,6 +8749,12 @@ export interface ServiceJobSummary {
    * @public
    */
   stoppedAt?: number | undefined;
+
+  /**
+   * <p>Indicates whether a termination request has been accepted for the service job. This field is only present when the value is <code>true</code>.</p>
+   * @public
+   */
+  isTerminated?: boolean | undefined;
 }
 
 /**
@@ -9536,10 +9643,10 @@ export interface TerminateJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>A message to attach to the job that explains the reason for canceling it. This message is
+   * <p>A message to attach to the job that explains the reason for terminating it. This message is
    *       returned by future <a>DescribeJobs</a> operations on the job. It is also
    *       recorded in the Batch activity logs.</p>
-   *          <p>This parameter has as limit of 1024 characters.</p>
+   *          <p>This parameter has a limit of 1024 characters.</p>
    * @public
    */
   reason: string | undefined;
@@ -9549,6 +9656,95 @@ export interface TerminateJobRequest {
  * @public
  */
 export interface TerminateJobResponse {}
+
+/**
+ * <p>Specifies the jobs to terminate and the reason for the termination.</p>
+ * @public
+ */
+export interface TerminateJobsRequest {
+  /**
+   * <p>An array of up to 50 Batch job IDs of the jobs to terminate.</p>
+   * @public
+   */
+  jobs: string[] | undefined;
+
+  /**
+   * <p>A message to attach to the job that explains the reason for terminating it. This message is
+   *       returned by future <a>DescribeJobs</a> operations on the job. It is also
+   *       recorded in the Batch activity logs.</p>
+   *          <p>This parameter has a limit of 1024 characters.</p>
+   * @public
+   */
+  reason: string | undefined;
+}
+
+/**
+ * <p>An object that contains the details of a job that couldn't be terminated by a
+ *         <code>TerminateJobs</code> operation.</p>
+ * @public
+ */
+export interface TerminateJobsErrorDetail {
+  /**
+   * <p>The Batch job ID of the job that couldn't be terminated.</p>
+   * @public
+   */
+  job: string | undefined;
+
+  /**
+   * <p>An error code that identifies the reason the job couldn't be terminated. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ValidationException</code> – A job identifier in the request is malformed or isn't valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ClientException</code> – The request failed because of a client error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ThrottlingException</code> – The request was throttled. Retry the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ServerException</code> – An internal error occurred. Retry the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccessDenied</code> – The caller isn't authorized to perform the action on the specified job.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>A message that describes the reason the job couldn't be terminated.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>The result of a <code>TerminateJobs</code> request, including the jobs whose termination
+ *       request was accepted and the errors for jobs that couldn't be terminated.</p>
+ * @public
+ */
+export interface TerminateJobsResponse {
+  /**
+   * <p>A list of the job IDs whose termination request was accepted.</p>
+   * @public
+   */
+  successful: string[] | undefined;
+
+  /**
+   * <p>A list of <code>TerminateJobsErrorDetail</code> items, one for each job that couldn't be
+   *       terminated. Each item includes the job ID along with a code and message that describe why the
+   *       job wasn't terminated.</p>
+   * @public
+   */
+  errors: TerminateJobsErrorDetail[] | undefined;
+}
 
 /**
  * @public
@@ -9561,7 +9757,7 @@ export interface TerminateServiceJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>A message to attach to the service job that explains the reason for canceling it. This message is returned by <code>DescribeServiceJob</code> operations on the service job.</p>
+   * <p>A message to attach to the service job that explains the reason for terminating it. This message is returned by <code>DescribeServiceJob</code> operations on the service job.</p>
    * @public
    */
   reason: string | undefined;
@@ -9571,6 +9767,88 @@ export interface TerminateServiceJobRequest {
  * @public
  */
 export interface TerminateServiceJobResponse {}
+
+/**
+ * <p>Specifies the service jobs to terminate and the reason for the termination.</p>
+ * @public
+ */
+export interface TerminateServiceJobsRequest {
+  /**
+   * <p>An array of up to 50 service job IDs of the service jobs to terminate.</p>
+   * @public
+   */
+  jobs: string[] | undefined;
+
+  /**
+   * <p>A message to attach to the service job that explains the reason for terminating it. This message is returned by <code>DescribeServiceJob</code> operations on the service job.</p>
+   * @public
+   */
+  reason: string | undefined;
+}
+
+/**
+ * <p>An object that contains the details of a service job that couldn't be terminated by a <code>TerminateServiceJobs</code> operation.</p>
+ * @public
+ */
+export interface TerminateServiceJobsErrorDetail {
+  /**
+   * <p>The service job ID of the service job that couldn't be terminated.</p>
+   * @public
+   */
+  job: string | undefined;
+
+  /**
+   * <p>An error code that identifies the reason the service job couldn't be terminated. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ValidationException</code> – A service job identifier in the request is malformed or isn't valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ClientException</code> – The request failed because of a client error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ThrottlingException</code> – The request was throttled. Retry the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ServerException</code> – An internal error occurred. Retry the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccessDenied</code> – The caller isn't authorized to perform the action on the specified service job.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>A message that describes the reason the service job couldn't be terminated.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>The result of a <code>TerminateServiceJobs</code> request, including the service jobs whose termination request was accepted and the errors for service jobs that couldn't be terminated.</p>
+ * @public
+ */
+export interface TerminateServiceJobsResponse {
+  /**
+   * <p>A list of the service job IDs whose termination request was accepted.</p>
+   * @public
+   */
+  successful: string[] | undefined;
+
+  /**
+   * <p>A list of <code>TerminateServiceJobsErrorDetail</code> items, one for each service job that couldn't be terminated. Each item includes the service job ID along with a code and message that describe why the service job wasn't terminated.</p>
+   * @public
+   */
+  errors: TerminateServiceJobsErrorDetail[] | undefined;
+}
 
 /**
  * <p>Contains the parameters for <code>UntagResource</code>.</p>

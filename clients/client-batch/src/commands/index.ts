@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./CancelJobCommand";
+export * from "./CancelJobsCommand";
 export * from "./CreateComputeEnvironmentCommand";
 export * from "./CreateConsumableResourceCommand";
 export * from "./CreateJobQueueCommand";
@@ -35,7 +36,9 @@ export * from "./SubmitJobCommand";
 export * from "./SubmitServiceJobCommand";
 export * from "./TagResourceCommand";
 export * from "./TerminateJobCommand";
+export * from "./TerminateJobsCommand";
 export * from "./TerminateServiceJobCommand";
+export * from "./TerminateServiceJobsCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateComputeEnvironmentCommand";
 export * from "./UpdateConsumableResourceCommand";

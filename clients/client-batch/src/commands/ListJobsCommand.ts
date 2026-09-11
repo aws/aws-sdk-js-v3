@@ -99,6 +99,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //         nodeIndex: Number("int"),
  * //       },
  * //       jobDefinition: "STRING_VALUE",
+ * //       isCancelled: true || false,
+ * //       isTerminated: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

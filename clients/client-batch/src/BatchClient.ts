@@ -55,6 +55,7 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import type { CancelJobsCommandInput, CancelJobsCommandOutput } from "./commands/CancelJobsCommand";
 import type {
   CreateComputeEnvironmentCommandInput,
   CreateComputeEnvironmentCommandOutput,
@@ -159,10 +160,15 @@ import type { SubmitJobCommandInput, SubmitJobCommandOutput } from "./commands/S
 import type { SubmitServiceJobCommandInput, SubmitServiceJobCommandOutput } from "./commands/SubmitServiceJobCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { TerminateJobCommandInput, TerminateJobCommandOutput } from "./commands/TerminateJobCommand";
+import type { TerminateJobsCommandInput, TerminateJobsCommandOutput } from "./commands/TerminateJobsCommand";
 import type {
   TerminateServiceJobCommandInput,
   TerminateServiceJobCommandOutput,
 } from "./commands/TerminateServiceJobCommand";
+import type {
+  TerminateServiceJobsCommandInput,
+  TerminateServiceJobsCommandOutput,
+} from "./commands/TerminateServiceJobsCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
   UpdateComputeEnvironmentCommandInput,
@@ -199,6 +205,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CancelJobCommandInput
+  | CancelJobsCommandInput
   | CreateComputeEnvironmentCommandInput
   | CreateConsumableResourceCommandInput
   | CreateJobQueueCommandInput
@@ -234,7 +241,9 @@ export type ServiceInputTypes =
   | SubmitServiceJobCommandInput
   | TagResourceCommandInput
   | TerminateJobCommandInput
+  | TerminateJobsCommandInput
   | TerminateServiceJobCommandInput
+  | TerminateServiceJobsCommandInput
   | UntagResourceCommandInput
   | UpdateComputeEnvironmentCommandInput
   | UpdateConsumableResourceCommandInput
@@ -249,6 +258,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CancelJobCommandOutput
+  | CancelJobsCommandOutput
   | CreateComputeEnvironmentCommandOutput
   | CreateConsumableResourceCommandOutput
   | CreateJobQueueCommandOutput
@@ -284,7 +294,9 @@ export type ServiceOutputTypes =
   | SubmitServiceJobCommandOutput
   | TagResourceCommandOutput
   | TerminateJobCommandOutput
+  | TerminateJobsCommandOutput
   | TerminateServiceJobCommandOutput
+  | TerminateServiceJobsCommandOutput
   | UntagResourceCommandOutput
   | UpdateComputeEnvironmentCommandOutput
   | UpdateConsumableResourceCommandOutput
