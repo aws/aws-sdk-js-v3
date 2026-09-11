@@ -4406,6 +4406,44 @@ export interface CreateDiskSnapshotResult {
 }
 
 /**
+ * <p>Describes a custom error response for a Lightsail distribution. A custom error response
+ *       specifies the page that the distribution returns to the viewer. It also specifies the HTTP
+ *       status code that the distribution sends when the origin responds with a given HTTP error code.</p>
+ * @public
+ */
+export interface DistributionCustomErrorResponse {
+  /**
+   * <p>The HTTP error code from the origin that triggers the custom error response (for example,
+   *       <code>403</code> or <code>404</code>).</p>
+   * @public
+   */
+  errorCode?: number | undefined;
+
+  /**
+   * <p>The HTTP status code that the distribution returns to the viewer for the custom error
+   *       response.</p>
+   * @public
+   */
+  responseCode?: string | undefined;
+
+  /**
+   * <p>The path to the custom error page that the distribution returns to the viewer (for
+   *       example, <code>/404.html</code>). The path must begin with a forward slash (<code>/</code>)
+   *       and reference an object that is available from the origin.</p>
+   * @public
+   */
+  responsePagePath?: string | undefined;
+
+  /**
+   * <p>The minimum time, in seconds, that the distribution caches the custom error response
+   *       before requesting the object again from the origin. If you don't specify a value, the default
+   *       is <code>10</code> seconds.</p>
+   * @public
+   */
+  errorCachingMinTTL?: number | undefined;
+}
+
+/**
  * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
  *          <p>An origin can be a Lightsail instance, bucket, container service, or load balancer. A
@@ -4525,6 +4563,37 @@ export interface CreateDistributionRequest {
    * @public
    */
   viewerMinimumTlsProtocolVersion?: ViewerMinimumTlsProtocolVersionEnum | undefined;
+
+  /**
+   * <p>Specifies whether to enable private origin access for the distribution. With private
+   *       origin access, the distribution can serve objects that aren't publicly accessible from a
+   *       Lightsail bucket.</p>
+   *          <p>Lightsail grants the distribution permission to read the bucket's objects. Enabling
+   *       private origin access doesn't change the bucket's access settings, and you can still
+   *       retrieve publicly accessible objects directly from the bucket's endpoint.</p>
+   *          <note>
+   *             <p>You can enable private origin access only when the distribution's origin is a
+   *         Lightsail bucket. If the origin is another resource type, the request fails.</p>
+   *          </note>
+   * @public
+   */
+  enablePrivateOriginAccess?: boolean | undefined;
+
+  /**
+   * <p>The object (for example, <code>index.html</code>) that the distribution returns when a
+   *       viewer requests the root URL of the distribution (<code>/</code>) instead of a specific
+   *       object. The object that you specify must be available from the origin.</p>
+   * @public
+   */
+  defaultRootObject?: string | undefined;
+
+  /**
+   * <p>An array of objects that describe the custom error responses for the distribution. With a
+   *       custom error response, you can specify the page to return when the origin responds with a
+   *       given HTTP error code. You can also specify the HTTP status code to send to the viewer.</p>
+   * @public
+   */
+  customErrorResponses?: DistributionCustomErrorResponse[] | undefined;
 }
 
 /**
@@ -4576,6 +4645,17 @@ export interface Origin {
    * @public
    */
   ipAddressType?: OriginIpAddressTypeEnum | undefined;
+
+  /**
+   * <p>Specifies whether private origin access is enabled for the distribution's origin. With
+   *       private origin access, the distribution can serve objects that aren't publicly accessible
+   *       from a Lightsail bucket.</p>
+   *          <p>This applies when you set the bucket's <code>getObject</code> access rule to
+   *       <code>private</code>. It also applies when you set <code>getObject</code> to <code>public</code>
+   *       but set individual objects to private.</p>
+   * @public
+   */
+  isPrivateOriginAccessEnabled?: boolean | undefined;
 }
 
 /**
@@ -4725,6 +4805,21 @@ export interface LightsailDistribution {
    * @public
    */
   viewerMinimumTlsProtocolVersion?: string | undefined;
+
+  /**
+   * <p>The object (for example, <code>index.html</code>) that the distribution returns when a
+   *       viewer requests the root URL of the distribution (<code>/</code>) instead of a specific
+   *       object.</p>
+   * @public
+   */
+  defaultRootObject?: string | undefined;
+
+  /**
+   * <p>An array of objects that describe the custom error responses configured for the
+   *       distribution.</p>
+   * @public
+   */
+  customErrorResponses?: DistributionCustomErrorResponse[] | undefined;
 }
 
 /**
@@ -10342,15 +10437,4 @@ export interface GetKeyPairsResult {
    * @public
    */
   nextPageToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetLoadBalancerRequest {
-  /**
-   * <p>The name of the load balancer.</p>
-   * @public
-   */
-  loadBalancerName: string | undefined;
 }

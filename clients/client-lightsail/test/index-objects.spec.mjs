@@ -314,6 +314,7 @@ import {
   DiskSnapshotState,
   DiskState,
   DistributionBundle$,
+  DistributionCustomErrorResponse$,
   DistributionMetricName,
   DnsRecordCreationState$,
   DnsRecordCreationStateCode,
@@ -1370,6 +1371,7 @@ assert(typeof DiskMap$ === "object");
 assert(typeof DiskSnapshot$ === "object");
 assert(typeof DiskSnapshotInfo$ === "object");
 assert(typeof DistributionBundle$ === "object");
+assert(typeof DistributionCustomErrorResponse$ === "object");
 assert(typeof DnsRecordCreationState$ === "object");
 assert(typeof Domain$ === "object");
 assert(typeof DomainEntry$ === "object");

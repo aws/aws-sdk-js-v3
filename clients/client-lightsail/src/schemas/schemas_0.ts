@@ -186,6 +186,8 @@ const _DBR = "DeleteBucketRequest";
 const _DBRe = "DeleteBucketResult";
 const _DBe = "DeleteBucket";
 const _DC = "DeleteCertificate";
+const _DCER = "DistributionCustomErrorResponse";
+const _DCERL = "DistributionCustomErrorResponseList";
 const _DCFD = "DetachCertificateFromDistribution";
 const _DCFDR = "DetachCertificateFromDistributionRequest";
 const _DCFDRe = "DetachCertificateFromDistributionResult";
@@ -760,6 +762,7 @@ const _cD = "certificateDetail";
 const _cDN = "certificateDomainName";
 const _cDu = "currentDeployment";
 const _cE = "contactEndpoint";
+const _cER = "customErrorResponses";
 const _cEo = "costEstimates";
 const _cFSR = "cloudFormationStackRecords";
 const _cHTTPM = "cachedHTTPMethods";
@@ -807,6 +810,7 @@ const _dNo = "domainName";
 const _dNom = "domainNames";
 const _dP = "diskPath";
 const _dRCS = "dnsRecordCreationState";
+const _dRO = "defaultRootObject";
 const _dS = "diskSnapshot";
 const _dSI = "diskSnapshotInfo";
 const _dSIG = "diskSizeInGb";
@@ -837,6 +841,7 @@ const _eAm = "emailAddress";
 const _eAn = "enrolledAt";
 const _eBR = "enableBackupRetention";
 const _eC = "errorCode";
+const _eCMTTL = "errorCachingMinTTL";
 const _eCv = "eventCategories";
 const _eD = "errorDetails";
 const _eDn = "engineDescription";
@@ -846,6 +851,7 @@ const _eH = "exposeHeaders";
 const _eIPR = "ecrImagePullerRole";
 const _eOV = "enableObjectVersioning";
 const _eP = "evaluationPeriods";
+const _ePOA = "enablePrivateOriginAccess";
 const _eSR = "exportSnapshotRecords";
 const _eT = "endTime";
 const _eTR = "eligibleToRenew";
@@ -929,6 +935,7 @@ const _iM = "isModifiable";
 const _iN = "instanceName";
 const _iNn = "instanceNames";
 const _iP = "instancePort";
+const _iPOAE = "isPrivateOriginAccessEnabled";
 const _iPs = "isPeered";
 const _iPsr = "isPrimary";
 const _iRDAZ = "includeRelationalDatabaseAvailabilityZones";
@@ -1066,6 +1073,7 @@ const _rAA = "readonlyAccessAccounts";
 const _rAe = "resourceArn";
 const _rBE = "resourcesBudgetEstimate";
 const _rBT = "resultsByTime";
+const _rC = "responseCode";
 const _rD = "restoreDate";
 const _rDAZ = "relationalDatabaseAvailabilityZones";
 const _rDBI = "relationalDatabaseBundleId";
@@ -1085,6 +1093,7 @@ const _rLE = "resourceLogEvents";
 const _rMUP = "rotateMasterUserPassword";
 const _rN = "resourceName";
 const _rNe = "regionName";
+const _rPP = "responsePagePath";
 const _rR = "revocationReason";
 const _rRA = "resourcesReceivingAccess";
 const _rRe = "resourceRecord";
@@ -1684,8 +1693,8 @@ export var CreateDiskSnapshotResult$: StaticStructureSchema = [3, n0, _CDSRr,
 ];
 export var CreateDistributionRequest$: StaticStructureSchema = [3, n0, _CDRre,
   0,
-  [_dN, _or, _dCB, _bIu, _cBS, _cB, _iAT, _ta, _cN, _vMTPV],
-  [0, () => InputOrigin$, () => CacheBehavior$, 0, () => CacheSettings$, () => CacheBehaviorList, 0, () => TagList, 0, 0], 4
+  [_dN, _or, _dCB, _bIu, _cBS, _cB, _iAT, _ta, _cN, _vMTPV, _ePOA, _dRO, _cER],
+  [0, () => InputOrigin$, () => CacheBehavior$, 0, () => CacheSettings$, () => CacheBehaviorList, 0, () => TagList, 0, 0, 2, 0, () => DistributionCustomErrorResponseList], 4
 ];
 export var CreateDistributionResult$: StaticStructureSchema = [3, n0, _CDRrea,
   0,
@@ -2106,6 +2115,11 @@ export var DistributionBundle$: StaticStructureSchema = [3, n0, _DB,
   0,
   [_bIu, _n, _pri, _tPMIG, _iA],
   [0, 0, 1, 1, 2]
+];
+export var DistributionCustomErrorResponse$: StaticStructureSchema = [3, n0, _DCER,
+  0,
+  [_eC, _rC, _rPP, _eCMTTL],
+  [1, 0, 0, 1]
 ];
 export var DnsRecordCreationState$: StaticStructureSchema = [3, n0, _DRCS,
   0,
@@ -2934,8 +2948,8 @@ export var KeyPair$: StaticStructureSchema = [3, n0, _KP,
 ];
 export var LightsailDistribution$: StaticStructureSchema = [3, n0, _LD,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _aDN, _st, _iE, _dNo, _bIu, _cN, _or, _oPDNS, _dCB, _cBS, _cB, _aTUB, _iAT, _ta, _vMTPV],
-  [0, 0, 0, 4, () => ResourceLocation$, 0, 64 | 0, 0, 2, 0, 0, 0, () => Origin$, 0, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, () => TagList, 0]
+  [_n, _a, _sC, _cA, _l, _rT, _aDN, _st, _iE, _dNo, _bIu, _cN, _or, _oPDNS, _dCB, _cBS, _cB, _aTUB, _iAT, _ta, _vMTPV, _dRO, _cER],
+  [0, 0, 0, 4, () => ResourceLocation$, 0, 64 | 0, 0, 2, 0, 0, 0, () => Origin$, 0, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, () => TagList, 0, 0, () => DistributionCustomErrorResponseList]
 ];
 export var LoadBalancer$: StaticStructureSchema = [3, n0, _LB,
   0,
@@ -3019,8 +3033,8 @@ export var Operation$: StaticStructureSchema = [3, n0, _O,
 ];
 export var Origin$: StaticStructureSchema = [3, n0, _Or,
   0,
-  [_n, _rT, _rNe, _pP, _rTes, _iAT],
-  [0, 0, 0, 0, 1, 0]
+  [_n, _rT, _rNe, _pP, _rTes, _iAT, _iPOAE],
+  [0, 0, 0, 0, 1, 0, 2]
 ];
 export var PartnerInfo$: StaticStructureSchema = [3, n0, _PI,
   0,
@@ -3449,8 +3463,8 @@ export var UpdateDistributionBundleResult$: StaticStructureSchema = [3, n0, _UDB
 ];
 export var UpdateDistributionRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_dN, _or, _dCB, _cBS, _cB, _iE, _vMTPV, _cN, _uDC],
-  [0, () => InputOrigin$, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, 0, 2], 1
+  [_dN, _or, _dCB, _cBS, _cB, _iE, _vMTPV, _cN, _uDC, _ePOA, _dRO, _cER],
+  [0, () => InputOrigin$, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, 0, 2, 2, 0, () => DistributionCustomErrorResponseList], 1
 ];
 export var UpdateDistributionResult$: StaticStructureSchema = [3, n0, _UDRp,
   0,
@@ -3605,6 +3619,9 @@ var DiskSnapshotList: StaticListSchema = [1, n0, _DSL,
 ];
 var DistributionBundleList: StaticListSchema = [1, n0, _DBL,
   0, () => DistributionBundle$
+];
+var DistributionCustomErrorResponseList: StaticListSchema = [1, n0, _DCERL,
+  0, () => DistributionCustomErrorResponse$
 ];
 var DistributionList: StaticListSchema = [1, n0, _DLi,
   0, () => LightsailDistribution$

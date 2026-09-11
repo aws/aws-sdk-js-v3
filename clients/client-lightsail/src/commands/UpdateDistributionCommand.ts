@@ -80,6 +80,16 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  *   viewerMinimumTlsProtocolVersion: "TLSv1.1_2016" || "TLSv1.2_2018" || "TLSv1.2_2019" || "TLSv1.2_2021",
  *   certificateName: "STRING_VALUE",
  *   useDefaultCertificate: true || false,
+ *   enablePrivateOriginAccess: true || false,
+ *   defaultRootObject: "STRING_VALUE",
+ *   customErrorResponses: [ // DistributionCustomErrorResponseList
+ *     { // DistributionCustomErrorResponse
+ *       errorCode: Number("int"),
+ *       responseCode: "STRING_VALUE",
+ *       responsePagePath: "STRING_VALUE",
+ *       errorCachingMinTTL: Number("long"),
+ *     },
+ *   ],
  * };
  * const command = new UpdateDistributionCommand(input);
  * const response = await client.send(command);

@@ -88,6 +88,16 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  *   ],
  *   certificateName: "STRING_VALUE",
  *   viewerMinimumTlsProtocolVersion: "TLSv1.1_2016" || "TLSv1.2_2018" || "TLSv1.2_2019" || "TLSv1.2_2021",
+ *   enablePrivateOriginAccess: true || false,
+ *   defaultRootObject: "STRING_VALUE",
+ *   customErrorResponses: [ // DistributionCustomErrorResponseList
+ *     { // DistributionCustomErrorResponse
+ *       errorCode: Number("int"),
+ *       responseCode: "STRING_VALUE",
+ *       responsePagePath: "STRING_VALUE",
+ *       errorCachingMinTTL: Number("long"),
+ *     },
+ *   ],
  * };
  * const command = new CreateDistributionCommand(input);
  * const response = await client.send(command);
@@ -117,6 +127,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //       protocolPolicy: "http-only" || "https-only",
  * //       responseTimeout: Number("int"),
  * //       ipAddressType: "ipv4" || "ipv6" || "dualstack",
+ * //       isPrivateOriginAccessEnabled: true || false,
  * //     },
  * //     originPublicDNS: "STRING_VALUE",
  * //     defaultCacheBehavior: { // CacheBehavior
@@ -162,6 +173,15 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * //       },
  * //     ],
  * //     viewerMinimumTlsProtocolVersion: "STRING_VALUE",
+ * //     defaultRootObject: "STRING_VALUE",
+ * //     customErrorResponses: [ // DistributionCustomErrorResponseList
+ * //       { // DistributionCustomErrorResponse
+ * //         errorCode: Number("int"),
+ * //         responseCode: "STRING_VALUE",
+ * //         responsePagePath: "STRING_VALUE",
+ * //         errorCachingMinTTL: Number("long"),
+ * //       },
+ * //     ],
  * //   },
  * //   operation: { // Operation
  * //     id: "STRING_VALUE",

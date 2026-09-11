@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetLoadBalancerRequest } from "../models/models_0";
-import type { GetLoadBalancerResult } from "../models/models_1";
+import type { GetLoadBalancerRequest, GetLoadBalancerResult } from "../models/models_1";
 import { GetLoadBalancer$ } from "../schemas/schemas_0";
 
 /**

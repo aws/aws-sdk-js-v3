@@ -739,6 +739,7 @@ export type {
   DiskSnapshot,
   DiskSnapshotInfo,
   DistributionBundle,
+  DistributionCustomErrorResponse,
   DnsRecordCreationState,
   Domain,
   DomainEntry,

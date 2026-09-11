@@ -66,6 +66,7 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * //         protocolPolicy: "http-only" || "https-only",
  * //         responseTimeout: Number("int"),
  * //         ipAddressType: "ipv4" || "ipv6" || "dualstack",
+ * //         isPrivateOriginAccessEnabled: true || false,
  * //       },
  * //       originPublicDNS: "STRING_VALUE",
  * //       defaultCacheBehavior: { // CacheBehavior
@@ -111,6 +112,15 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * //         },
  * //       ],
  * //       viewerMinimumTlsProtocolVersion: "STRING_VALUE",
+ * //       defaultRootObject: "STRING_VALUE",
+ * //       customErrorResponses: [ // DistributionCustomErrorResponseList
+ * //         { // DistributionCustomErrorResponse
+ * //           errorCode: Number("int"),
+ * //           responseCode: "STRING_VALUE",
+ * //           responsePagePath: "STRING_VALUE",
+ * //           errorCachingMinTTL: Number("long"),
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextPageToken: "STRING_VALUE",

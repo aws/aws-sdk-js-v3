@@ -49,6 +49,7 @@ import type {
   CacheSettings,
   ContainerImage,
   ContainerService,
+  DistributionCustomErrorResponse,
   DomainEntry,
   InputOrigin,
   MetricDatapoint,
@@ -58,6 +59,17 @@ import type {
   ResourceLocation,
   Tag,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetLoadBalancerRequest {
+  /**
+   * <p>The name of the load balancer.</p>
+   * @public
+   */
+  loadBalancerName: string | undefined;
+}
 
 /**
  * <p>Describes information about the health of the instance.</p>
@@ -4260,6 +4272,39 @@ export interface UpdateDistributionRequest {
    * @public
    */
   useDefaultCertificate?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable private origin access for the distribution. With private
+   *       origin access, the distribution can serve objects that aren't publicly accessible from a
+   *       Lightsail bucket.</p>
+   *          <p>Lightsail grants the distribution permission to read the bucket's objects. Enabling
+   *       private origin access doesn't change the bucket's access settings, and you can still
+   *       retrieve publicly accessible objects directly from the bucket's endpoint.</p>
+   *          <note>
+   *             <p>When you include this parameter, you must also include the <code>origin</code> parameter
+   *         with the resource name, even if the origin is not changing.</p>
+   *             <p>You can enable private origin access only when the distribution's origin is a
+   *         Lightsail bucket. If the origin is another resource type, the request fails.</p>
+   *          </note>
+   * @public
+   */
+  enablePrivateOriginAccess?: boolean | undefined;
+
+  /**
+   * <p>The object (for example, <code>index.html</code>) that the distribution returns when a
+   *       viewer requests the root URL of the distribution (<code>/</code>) instead of a specific
+   *       object. The object that you specify must be available from the origin.</p>
+   * @public
+   */
+  defaultRootObject?: string | undefined;
+
+  /**
+   * <p>An array of objects that describe the custom error responses for the distribution. With a
+   *       custom error response, you can specify the page to return when the origin responds with a
+   *       given HTTP error code. You can also specify the HTTP status code to send to the viewer.</p>
+   * @public
+   */
+  customErrorResponses?: DistributionCustomErrorResponse[] | undefined;
 }
 
 /**
