@@ -1880,7 +1880,8 @@ export interface CopyObjectRequest {
   ObjectLockEventHold?: ObjectLockEventHold | undefined;
 
   /**
-   * <p>The event hold duration in days to apply to the object copy.</p>
+   * <p>The event hold duration in days to apply to the object copy. You cannot specify a duration
+   *       in both days and years.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -1889,7 +1890,8 @@ export interface CopyObjectRequest {
   ObjectLockEventHoldDurationDays?: number | undefined;
 
   /**
-   * <p>The event hold duration in years to apply to the object copy.</p>
+   * <p>The event hold duration in years to apply to the object copy. You cannot specify a
+   *       duration in both days and years.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -3220,7 +3222,8 @@ export interface CreateMultipartUploadRequest {
   ObjectLockEventHold?: ObjectLockEventHold | undefined;
 
   /**
-   * <p>Specifies the event hold duration in days to apply to the uploaded object.</p>
+   * <p>Specifies the event hold duration in days to apply to the uploaded object. You cannot
+   *       specify a duration in both days and years.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -3229,7 +3232,8 @@ export interface CreateMultipartUploadRequest {
   ObjectLockEventHoldDurationDays?: number | undefined;
 
   /**
-   * <p>Specifies the event hold duration in years to apply to the uploaded object.</p>
+   * <p>Specifies the event hold duration in years to apply to the uploaded object. You cannot
+   *       specify a duration in both days and years.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -11587,10 +11591,18 @@ export interface DefaultRetention {
  */
 export interface ObjectLockRule {
   /**
-   * <p>The default Object Lock retention mode and period that you want to apply to new objects placed in
-   *       the specified bucket. Bucket settings require both a mode and a period. The period can be either
-   *         <code>Days</code> or <code>Years</code> but you must select one. You cannot specify <code>Days</code>
-   *       and <code>Years</code> at the same time.</p>
+   * <p>The default Object Lock retention settings for new objects in this bucket. You can
+   *       specify:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A default retention period, by using <code>Days</code> or <code>Years</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>A default event hold duration, by using <code>DefaultEventHold</code>. This setting also
+   *           uses days or years.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can set one or both. You cannot use days and years in the same setting.</p>
    * @public
    */
   DefaultRetention?: DefaultRetention | undefined;
@@ -17068,7 +17080,8 @@ export interface PutObjectRequest {
   ObjectLockEventHold?: ObjectLockEventHold | undefined;
 
   /**
-   * <p>Specifies the event hold duration in days to apply to this object.</p>
+   * <p>Specifies the event hold duration in days to apply to this object. You cannot specify a
+   *       duration in both days and years.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -17077,7 +17090,8 @@ export interface PutObjectRequest {
   ObjectLockEventHoldDurationDays?: number | undefined;
 
   /**
-   * <p>Specifies the event hold duration in years to apply to this object.</p>
+   * <p>Specifies the event hold duration in years to apply to this object. You cannot specify a
+   *       duration in both days and years.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
