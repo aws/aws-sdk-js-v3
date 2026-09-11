@@ -156,3 +156,25 @@ export class TooManyRequestsException extends __BaseException {
     this.Message = opts.Message;
   }
 }
+
+/**
+ * The input file was recognized but appears to be malformed or corrupt.
+ * @public
+ */
+export class UnprocessableEntityException extends __BaseException {
+  readonly name = "UnprocessableEntityException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
+    super({
+      name: "UnprocessableEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
+    this.Message = opts.Message;
+  }
+}

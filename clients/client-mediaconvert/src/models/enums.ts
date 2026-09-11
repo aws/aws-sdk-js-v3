@@ -6847,6 +6847,19 @@ export type ColorPrimaries = (typeof ColorPrimaries)[keyof typeof ColorPrimaries
  * @public
  * @enum
  */
+export const DolbyVisionPresence = {
+  ABSENT: "ABSENT",
+  PRESENT: "PRESENT",
+} as const;
+/**
+ * @public
+ */
+export type DolbyVisionPresence = (typeof DolbyVisionPresence)[keyof typeof DolbyVisionPresence];
+
+/**
+ * @public
+ * @enum
+ */
 export const Hdr10PlusPresence = {
   PRESENT: "PRESENT",
 } as const;

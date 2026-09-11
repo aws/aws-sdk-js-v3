@@ -88,6 +88,7 @@ const _BCi = "BitrateClass";
 const _BCr = "BreakoutCode";
 const _BD = "BitDepth";
 const _BDS = "BurninDestinationSettings";
+const _BL = "BaseLayer";
 const _BM = "BitstreamMode";
 const _BMu = "BufferModel";
 const _BO = "BackgroundOpacity";
@@ -272,6 +273,7 @@ const _DTP = "DvbTeletextPid";
 const _DTS = "DvbTdtSettings";
 const _DV = "DolbyVision";
 const _DVLM = "DolbyVisionLevel6Metadata";
+const _DVM = "DolbyVisionMetadata";
 const _DVMX = "DolbyVisionMetadataXml";
 const _DVSF = "DescriptiveVideoServiceFlag";
 const _DXC = "DdsXCoordinate";
@@ -297,6 +299,7 @@ const _EE = "EntropyEncoding";
 const _EI = "EpisodeId";
 const _EIC = "ElementalInferenceConfiguration";
 const _EIF = "ElementalInferenceFeed";
+const _EL = "EnhancementLayer";
 const _EM = "EncryptionMethod";
 const _EMCCN = "EsamManifestConfirmConditionNotification";
 const _EMr = "ErrorMessage";
@@ -754,6 +757,7 @@ const _Rec = "Rectangle";
 const _Ro = "Rotation";
 const _Rol = "Role";
 const _Rot = "Rotate";
+const _Rp = "Rpu";
 const _Ru = "Rules";
 const _S = "Specification";
 const _SACN = "SourceAncillaryChannelNumber";
@@ -928,6 +932,7 @@ const _Ty = "Type";
 const _U = "Url";
 const _UAW = "UncompressedAudioWrapping";
 const _UCJ = "UnallocatedConcurrentJobs";
+const _UEE = "UnprocessableEntityException";
 const _UJT = "UpdateJobTemplate";
 const _UJTR = "UpdateJobTemplateRequest";
 const _UJTRp = "UpdateJobTemplateResponse";
@@ -1082,6 +1087,7 @@ const _bCi = "bitrateClass";
 const _bCr = "breakoutCode";
 const _bD = "bitDepth";
 const _bDS = "burninDestinationSettings";
+const _bL = "baseLayer";
 const _bM = "bitstreamMode";
 const _bMu = "bufferModel";
 const _bO = "backgroundOpacity";
@@ -1236,6 +1242,7 @@ const _eDSx = "extendedDataServices";
 const _eE = "entropyEncoding";
 const _eI = "episodeId";
 const _eIC = "elementalInferenceConfiguration";
+const _eL = "enhancementLayer";
 const _eM = "encryptionMethod";
 const _eMr = "errorMessage";
 const _eOSM = "endOfStreamMarkers";
@@ -1656,6 +1663,7 @@ const _re = "reference";
 const _ro = "rotation";
 const _rol = "role";
 const _rot = "rotate";
+const _rp = "rpu";
 const _ru = "rules";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mediaconvert";
 const _sACN = "sourceAncillaryChannelNumber";
@@ -1888,6 +1896,7 @@ import {
   NotFoundException,
   ServiceQuotaExceededException,
   TooManyRequestsException,
+  UnprocessableEntityException,
 } from "../models/errors";
 import { MediaConvertServiceException } from "../models/MediaConvertServiceException";
 
@@ -1938,6 +1947,12 @@ export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
   [[0, { [_jN]: _m }]]
 ];
 n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_e]: _c, [_hE]: 422 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(UnprocessableEntityException$, UnprocessableEntityException);
 /**
  * TypeRegistry instances containing modeled errors.
  * @internal
@@ -2174,8 +2189,8 @@ export var CmfcSettings$: StaticStructureSchema = [3, n0, _CSm,
 ];
 export var CodecMetadata$: StaticStructureSchema = [3, n0, _CMo,
   0,
-  [_BD, _CSh, _CFR, _CPo, _CLL, _FOi, _HPP, _H, _L, _MCat, _Pr, _Ro, _STc, _TCr, _W],
-  [[1, { [_jN]: _bD }], [0, { [_jN]: _cSh }], [() => FrameRate$, { [_jN]: _cFR }], [0, { [_jN]: _cPo }], [() => ContentLightLevel$, { [_jN]: _cLL }], [0, { [_jN]: _fOi }], [0, { [_jN]: _hPP }], [1, { [_jN]: _h }], [0, { [_jN]: _l }], [0, { [_jN]: _mCat }], [0, { [_jN]: _pr }], [1, { [_jN]: _ro }], [0, { [_jN]: _sTc }], [0, { [_jN]: _tCr }], [1, { [_jN]: _w }]]
+  [_BD, _CSh, _CFR, _CPo, _CLL, _DAR, _DV, _FOi, _HPP, _H, _L, _MCat, _Pr, _Ro, _SAR, _STc, _TCr, _W],
+  [[1, { [_jN]: _bD }], [0, { [_jN]: _cSh }], [() => FrameRate$, { [_jN]: _cFR }], [0, { [_jN]: _cPo }], [() => ContentLightLevel$, { [_jN]: _cLL }], [() => AspectRatio$, { [_jN]: _dAR }], [() => DolbyVisionMetadata$, { [_jN]: _dV }], [0, { [_jN]: _fOi }], [0, { [_jN]: _hPP }], [1, { [_jN]: _h }], [0, { [_jN]: _l }], [0, { [_jN]: _mCat }], [0, { [_jN]: _pr }], [1, { [_jN]: _ro }], [() => AspectRatio$, { [_jN]: _sAR }], [0, { [_jN]: _sTc }], [0, { [_jN]: _tCr }], [1, { [_jN]: _w }]]
 ];
 export var ColorConversion3DLUTSetting$: StaticStructureSchema = [3, n0, _CCDLUTS,
   0,
@@ -2361,6 +2376,11 @@ export var DolbyVisionLevel6Metadata$: StaticStructureSchema = [3, n0, _DVLM,
   0,
   [_MCax, _MF],
   [[1, { [_jN]: _mCax }], [1, { [_jN]: _mF }]]
+];
+export var DolbyVisionMetadata$: StaticStructureSchema = [3, n0, _DVM,
+  0,
+  [_BL, _EL, _L, _Pr, _Rp],
+  [[0, { [_jN]: _bL }], [0, { [_jN]: _eL }], [1, { [_jN]: _l }], [1, { [_jN]: _pr }], [0, { [_jN]: _rp }]]
 ];
 export var DurationControl$: StaticStructureSchema = [3, n0, _DC,
   0,

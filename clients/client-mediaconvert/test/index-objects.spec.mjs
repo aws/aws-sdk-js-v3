@@ -247,6 +247,8 @@ import {
   DolbyVisionLevel6Metadata$,
   DolbyVisionLevel6Mode,
   DolbyVisionMapping,
+  DolbyVisionMetadata$,
+  DolbyVisionPresence,
   DolbyVisionProfile,
   DropFrameTimecode,
   DurationControl$,
@@ -762,6 +764,8 @@ import {
   UncompressedSettings$,
   UncompressedSlowPal,
   UncompressedTelecine,
+  UnprocessableEntityException,
+  UnprocessableEntityException$,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -1010,6 +1014,7 @@ assert(typeof DisassociateCertificateRequest$ === "object");
 assert(typeof DisassociateCertificateResponse$ === "object");
 assert(typeof DolbyVision$ === "object");
 assert(typeof DolbyVisionLevel6Metadata$ === "object");
+assert(typeof DolbyVisionMetadata$ === "object");
 assert(typeof DurationControl$ === "object");
 assert(typeof DvbNitSettings$ === "object");
 assert(typeof DvbSdtSettings$ === "object");
@@ -1348,6 +1353,7 @@ assert(typeof DescribeEndpointsMode === "object");
 assert(typeof DolbyVisionCompatibility === "object");
 assert(typeof DolbyVisionLevel6Mode === "object");
 assert(typeof DolbyVisionMapping === "object");
+assert(typeof DolbyVisionPresence === "object");
 assert(typeof DolbyVisionProfile === "object");
 assert(typeof DropFrameTimecode === "object");
 assert(typeof DvbddsHandling === "object");
@@ -1704,6 +1710,8 @@ assert(ServiceQuotaExceededException.prototype instanceof MediaConvertServiceExc
 assert(typeof ServiceQuotaExceededException$ === "object");
 assert(TooManyRequestsException.prototype instanceof MediaConvertServiceException);
 assert(typeof TooManyRequestsException$ === "object");
+assert(UnprocessableEntityException.prototype instanceof MediaConvertServiceException);
+assert(typeof UnprocessableEntityException$ === "object");
 assert(MediaConvertServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeEndpoints === "function");

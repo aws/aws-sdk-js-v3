@@ -135,6 +135,7 @@ import type {
   DolbyVisionCompatibility,
   DolbyVisionLevel6Mode,
   DolbyVisionMapping,
+  DolbyVisionPresence,
   DolbyVisionProfile,
   DropFrameTimecode,
   DvbddsHandling,
@@ -9857,6 +9858,60 @@ export interface ContentLightLevel {
 }
 
 /**
+ * An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+ * @public
+ */
+export interface AspectRatio {
+  /**
+   * The denominator, or bottom number, in the fractional aspect ratio. For example, for a display aspect ratio of 16 / 9, the denominator would be 9.
+   * @public
+   */
+  Denominator?: number | undefined;
+
+  /**
+   * The numerator, or top number, in the fractional aspect ratio. For example, for a display aspect ratio of 16 / 9, the numerator would be 16.
+   * @public
+   */
+  Numerator?: number | undefined;
+}
+
+/**
+ * Dolby Vision characteristics of the video track: the profile and level, and whether the RPU (dynamic metadata), base layer, and enhancement layer are present. Use this to distinguish Dolby Vision content from standard HEVC and to choose your encoding or passthrough settings. Omitted when the content is not Dolby Vision.
+ * @public
+ */
+export interface DolbyVisionMetadata {
+  /**
+   * Whether a Dolby Vision component is present in the track.
+   * @public
+   */
+  BaseLayer?: DolbyVisionPresence | undefined;
+
+  /**
+   * Whether a Dolby Vision component is present in the track.
+   * @public
+   */
+  EnhancementLayer?: DolbyVisionPresence | undefined;
+
+  /**
+   * The Dolby Vision level, which indicates the maximum resolution and frame rate.
+   * @public
+   */
+  Level?: number | undefined;
+
+  /**
+   * The Dolby Vision profile, for example 5, 7, or 8. The profile determines the layer structure and playback compatibility of the content.
+   * @public
+   */
+  Profile?: number | undefined;
+
+  /**
+   * Whether a Dolby Vision component is present in the track.
+   * @public
+   */
+  Rpu?: DolbyVisionPresence | undefined;
+}
+
+/**
  * Codec-specific parameters parsed from the video essence headers. This information provides detailed technical specifications about how the video was encoded, including profile settings, resolution details, and color space information that can help you understand the source video characteristics and make informed encoding decisions.
  * @public
  */
@@ -9890,6 +9945,18 @@ export interface CodecMetadata {
    * @public
    */
   ContentLightLevel?: ContentLightLevel | undefined;
+
+  /**
+   * An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+   * @public
+   */
+  DisplayAspectRatio?: AspectRatio | undefined;
+
+  /**
+   * Dolby Vision characteristics of the video track: the profile and level, and whether the RPU (dynamic metadata), base layer, and enhancement layer are present. Use this to distinguish Dolby Vision content from standard HEVC and to choose your encoding or passthrough settings. Omitted when the content is not Dolby Vision.
+   * @public
+   */
+  DolbyVision?: DolbyVisionMetadata | undefined;
 
   /**
    * The field order of interlaced video, which indicates whether the top or bottom field is displayed first. Use this to select the correct deinterlacing behavior. One of "TopFieldFirst" or "BottomFieldFirst". This field is present only for interlaced video; it is omitted for progressive video and when the field order is not indicated by the source.
@@ -9934,6 +10001,12 @@ export interface CodecMetadata {
   Rotation?: number | undefined;
 
   /**
+   * An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
+   * @public
+   */
+  SampleAspectRatio?: AspectRatio | undefined;
+
+  /**
    * The scanning method specified in the video essence, indicating whether the video uses progressive or interlaced scanning.
    * @public
    */
@@ -9950,24 +10023,6 @@ export interface CodecMetadata {
    * @public
    */
   Width?: number | undefined;
-}
-
-/**
- * An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9.
- * @public
- */
-export interface AspectRatio {
-  /**
-   * The denominator, or bottom number, in the fractional aspect ratio. For example, for a display aspect ratio of 16 / 9, the denominator would be 9.
-   * @public
-   */
-  Denominator?: number | undefined;
-
-  /**
-   * The numerator, or top number, in the fractional aspect ratio. For example, for a display aspect ratio of 16 / 9, the numerator would be 16.
-   * @public
-   */
-  Numerator?: number | undefined;
 }
 
 /**
@@ -10084,7 +10139,7 @@ export interface VideoProperties {
   ColorPrimaries?: ColorPrimaries | undefined;
 
   /**
-   * An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9.
+   * An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
    * @public
    */
   DisplayAspectRatio?: AspectRatio | undefined;
@@ -10120,7 +10175,7 @@ export interface VideoProperties {
   Rotation?: number | undefined;
 
   /**
-   * An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9.
+   * An aspect ratio expressed as a fraction with numerator and denominator values, reduced to lowest terms. Used for the sample (pixel) aspect ratio and the display aspect ratio of a video track. For example, a 720x576 anamorphic track has a sample aspect ratio of 64 / 45 and a display aspect ratio of 16 / 9. A video track can declare an aspect ratio in two independent places, and MediaConvert reports each one where it was found rather than choosing between them. The ratio declared by the container appears on the video track itself, and the ratio declared by the video essence appears under codecMetadata. When a file declares an aspect ratio in only one of the two places, the other is null; when it declares both and they disagree, you can compare them and decide which to use.
    * @public
    */
   SampleAspectRatio?: AspectRatio | undefined;
@@ -10204,7 +10259,7 @@ export interface Container {
   Duration?: number | undefined;
 
   /**
-   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), WebM, MXF, Wave, AVI, MPEG-TS, MPEG-PS, MP3, FLAC, ASF (Windows Media / WMA), OGG. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
+   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), WebM, MXF, Wave, AVI, MPEG-TS, MPEG-PS, MP3, FLAC, ASF (Windows Media / WMA), or OGG. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
    * @public
    */
   Format?: Format | undefined;
