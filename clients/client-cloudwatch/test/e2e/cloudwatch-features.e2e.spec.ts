@@ -58,8 +58,9 @@ describe(CloudWatch.name, () => {
           Period: 300,
         })
       ).rejects.toThrow(
+        // "ValidationException" when the model aliases that shape to the query code, else legacy "ValidationError".
         expect.objectContaining({
-          name: "ValidationError",
+          name: expect.stringMatching(/^(ValidationError|ValidationException)$/),
         })
       );
     });

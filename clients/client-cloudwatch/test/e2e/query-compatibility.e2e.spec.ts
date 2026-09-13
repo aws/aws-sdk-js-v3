@@ -110,8 +110,9 @@ describe("CloudWatch Query Compatibility E2E", () => {
       expect(error).toBeInstanceOf(CloudWatchServiceException);
 
       expect(error.constructor.prototype.name).toBe("Error");
-      expect(error.constructor.name).toBe("CloudWatchServiceException");
-      expect(error.name).toBe("ValidationError");
+      // Modeling a ValidationException shape (aliased to query code "ValidationError") narrows this from the base class.
+      expect(["CloudWatchServiceException", "ValidationException"]).toContain(error.constructor.name);
+      expect(["ValidationError", "ValidationException"]).toContain(error.name);
 
       expect(error.message).toBe(msg);
       expect(error.Type).toEqual("Sender");
