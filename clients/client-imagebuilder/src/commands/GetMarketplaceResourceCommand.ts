@@ -23,7 +23,7 @@ export interface GetMarketplaceResourceCommandInput extends GetMarketplaceResour
 export interface GetMarketplaceResourceCommandOutput extends GetMarketplaceResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Verify the subscription and perform resource dependency checks on the requested
+ * <p>Verifies the subscription and performs resource dependency checks on the requested
  * 			Amazon Web Services Marketplace resource. For Amazon Web Services Marketplace components, the response contains fields to download the
  * 			components and their artifacts.</p>
  * @example

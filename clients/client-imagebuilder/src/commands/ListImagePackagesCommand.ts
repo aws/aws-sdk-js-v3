@@ -23,7 +23,7 @@ export interface ListImagePackagesCommandInput extends ListImagePackagesRequest 
 export interface ListImagePackagesCommandOutput extends ListImagePackagesResponse, __MetadataBearer {}
 
 /**
- * <p>List the Packages that are associated with an Image Build Version, as determined by
+ * <p>Lists the packages that are associated with an image build version, as determined by
  * 			Amazon Web Services Systems Manager Inventory at build time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

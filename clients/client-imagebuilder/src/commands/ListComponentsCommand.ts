@@ -30,10 +30,9 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
  * 	You can assign values for the first three, and can filter on all of them.</p>
  *             <p>
- *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
- * 	to specify the most recent versions or nodes when selecting the base image or components for your
- * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
- * 	wildcards.</p>
+ *                <b>Filtering:</b> You can use wildcards (x) to specify the most recent versions or nodes when
+ * 	selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes
+ * 	to the right of the first wildcard must also be wildcards.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

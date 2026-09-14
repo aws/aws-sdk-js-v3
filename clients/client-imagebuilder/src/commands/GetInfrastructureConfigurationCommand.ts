@@ -23,7 +23,7 @@ export interface GetInfrastructureConfigurationCommandInput extends GetInfrastru
 export interface GetInfrastructureConfigurationCommandOutput extends GetInfrastructureConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets an infrastructure configuration.</p>
+ * <p>Retrieves an infrastructure configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

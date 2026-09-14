@@ -23,7 +23,7 @@ export interface DeleteLifecyclePolicyCommandInput extends DeleteLifecyclePolicy
 export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Delete the specified lifecycle policy resource.</p>
+ * <p>Deletes the specified lifecycle policy resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,7 @@ export interface GetImagePipelineCommandInput extends GetImagePipelineRequest {}
 export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse, __MetadataBearer {}
 
 /**
- * <p>Gets an image pipeline.</p>
+ * <p>Retrieves an image pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

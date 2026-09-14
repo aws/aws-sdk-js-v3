@@ -23,7 +23,7 @@ export interface GetLifecyclePolicyCommandInput extends GetLifecyclePolicyReques
 export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Get details for the specified image lifecycle policy.</p>
+ * <p>Retrieves details for the specified image lifecycle policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3,6 +3,36 @@
  * @public
  * @enum
  */
+export const ImageConfigurationStep = {
+  ASSOCIATE_LICENSES: "ASSOCIATE_LICENSES",
+  EXPORT_AMI: "EXPORT_AMI",
+  PUT_SSM_PARAMETERS: "PUT_SSM_PARAMETERS",
+  UPDATE_FAST_LAUNCH_CONFIGURATIONS: "UPDATE_FAST_LAUNCH_CONFIGURATIONS",
+  UPDATE_LAUNCH_TEMPLATES: "UPDATE_LAUNCH_TEMPLATES",
+} as const;
+/**
+ * @public
+ */
+export type ImageConfigurationStep = (typeof ImageConfigurationStep)[keyof typeof ImageConfigurationStep];
+
+/**
+ * @public
+ * @enum
+ */
+export const RegionFailureStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type RegionFailureStatus = (typeof RegionFailureStatus)[keyof typeof RegionFailureStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ImageStatus = {
   AVAILABLE: "AVAILABLE",
   BUILDING: "BUILDING",

@@ -656,7 +656,7 @@ export type ImagebuilderClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface ImagebuilderClientResolvedConfig extends ImagebuilderClientResolvedConfigType {}
 
 /**
- * <p>EC2 Image Builder is a fully managed Amazon Web Services service that makes it easier to automate the
+ * <p>EC2 Image Builder automates the
  * 			creation, management, and deployment of customized, secure, and up-to-date
  * 			"golden" server images that are pre-installed and pre-configured with software
  * 			and settings to meet specific IT standards.</p>

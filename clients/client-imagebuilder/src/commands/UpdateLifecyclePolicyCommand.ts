@@ -23,7 +23,7 @@ export interface UpdateLifecyclePolicyCommandInput extends UpdateLifecyclePolicy
 export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Update the specified lifecycle policy.</p>
+ * <p>Updates the specified lifecycle policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

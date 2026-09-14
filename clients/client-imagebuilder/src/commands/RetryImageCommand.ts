@@ -23,7 +23,7 @@ export interface RetryImageCommandInput extends RetryImageRequest {}
 export interface RetryImageCommandOutput extends RetryImageResponse, __MetadataBearer {}
 
 /**
- * <p>RetryImage retries an image distribution without rebuilding the image.</p>
+ * <p>Retries an image distribution or test without rebuilding the image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

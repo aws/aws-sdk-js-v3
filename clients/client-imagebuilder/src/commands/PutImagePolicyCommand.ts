@@ -23,8 +23,7 @@ export interface PutImagePolicyCommandInput extends PutImagePolicyRequest {}
 export interface PutImagePolicyCommandOutput extends PutImagePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
- * 				<code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be
+ * <p>Applies a policy to an image. To share resources, call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a>. If you call this API, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> so that the resource is
  * 			visible to all principals with whom the resource is shared.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

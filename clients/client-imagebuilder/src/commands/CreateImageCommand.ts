@@ -23,10 +23,9 @@ export interface CreateImageCommandInput extends CreateImageRequest {}
 export interface CreateImageCommandOutput extends CreateImageResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new image. This request will create a new image along with all of the
- * 			configured output resources defined in the distribution configuration. You must specify
- * 			exactly one recipe for your image, using either a ContainerRecipeArn or an
- * 			ImageRecipeArn.</p>
+ * <p>Creates a new image along with all configured output resources defined in the
+ * 			distribution configuration. You must specify exactly one recipe for your image, using
+ * 			either a ContainerRecipeArn or an ImageRecipeArn.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

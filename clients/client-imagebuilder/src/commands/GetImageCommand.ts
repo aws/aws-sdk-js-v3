@@ -23,7 +23,7 @@ export interface GetImageCommandInput extends GetImageRequest {}
 export interface GetImageCommandOutput extends GetImageResponse, __MetadataBearer {}
 
 /**
- * <p>Gets an image.</p>
+ * <p>Retrieves an image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +50,32 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //     state: { // ImageState
  * //       status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //       reason: "STRING_VALUE",
+ * //       failureContext: { // ImageFailureContext
+ * //         imageStatus: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
+ * //         workflowExecutionId: "STRING_VALUE",
+ * //         workflowArn: "STRING_VALUE",
+ * //         stepExecutionId: "STRING_VALUE",
+ * //         failedStep: "STRING_VALUE",
+ * //         componentFailure: { // ComponentFailureContext
+ * //           componentArn: "STRING_VALUE",
+ * //           phaseName: "STRING_VALUE",
+ * //           stepName: "STRING_VALUE",
+ * //           action: "STRING_VALUE",
+ * //           errorMessage: "STRING_VALUE",
+ * //         },
+ * //         distributionFailure: { // DistributionFailureContext
+ * //           errorMessage: "STRING_VALUE",
+ * //           regionFailures: [ // RegionFailureList
+ * //             { // RegionFailure
+ * //               region: "STRING_VALUE",
+ * //               status: "FAILED" || "CANCELLED" || "TIMED_OUT",
+ * //               imageConfigurationStep: "ASSOCIATE_LICENSES" || "UPDATE_LAUNCH_TEMPLATES" || "PUT_SSM_PARAMETERS" || "UPDATE_FAST_LAUNCH_CONFIGURATIONS" || "EXPORT_AMI",
+ * //               errorMessage: "STRING_VALUE",
+ * //               targetAccountId: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //     imageRecipe: { // ImageRecipe
  * //       arn: "STRING_VALUE",
@@ -307,6 +333,32 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //           state: {
  * //             status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //             reason: "STRING_VALUE",
+ * //             failureContext: {
+ * //               imageStatus: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
+ * //               workflowExecutionId: "STRING_VALUE",
+ * //               workflowArn: "STRING_VALUE",
+ * //               stepExecutionId: "STRING_VALUE",
+ * //               failedStep: "STRING_VALUE",
+ * //               componentFailure: {
+ * //                 componentArn: "STRING_VALUE",
+ * //                 phaseName: "STRING_VALUE",
+ * //                 stepName: "STRING_VALUE",
+ * //                 action: "STRING_VALUE",
+ * //                 errorMessage: "STRING_VALUE",
+ * //               },
+ * //               distributionFailure: {
+ * //                 errorMessage: "STRING_VALUE",
+ * //                 regionFailures: [
+ * //                   {
+ * //                     region: "STRING_VALUE",
+ * //                     status: "FAILED" || "CANCELLED" || "TIMED_OUT",
+ * //                     imageConfigurationStep: "ASSOCIATE_LICENSES" || "UPDATE_LAUNCH_TEMPLATES" || "PUT_SSM_PARAMETERS" || "UPDATE_FAST_LAUNCH_CONFIGURATIONS" || "EXPORT_AMI",
+ * //                     errorMessage: "STRING_VALUE",
+ * //                     targetAccountId: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
  * //           },
  * //           accountId: "STRING_VALUE",
  * //         },

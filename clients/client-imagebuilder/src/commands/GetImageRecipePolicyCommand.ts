@@ -23,7 +23,7 @@ export interface GetImageRecipePolicyCommandInput extends GetImageRecipePolicyRe
 export interface GetImageRecipePolicyCommandOutput extends GetImageRecipePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets an image recipe policy.</p>
+ * <p>Retrieves an image recipe policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

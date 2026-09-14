@@ -23,7 +23,7 @@ export interface GetComponentCommandInput extends GetComponentRequest {}
 export interface GetComponentCommandOutput extends GetComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a component object.</p>
+ * <p>Retrieves a component object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

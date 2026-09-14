@@ -23,7 +23,7 @@ export interface StartResourceStateUpdateCommandInput extends StartResourceState
 export interface StartResourceStateUpdateCommandOutput extends StartResourceStateUpdateResponse, __MetadataBearer {}
 
 /**
- * <p>Begin asynchronous resource state update for lifecycle changes to the
+ * <p>Begins an asynchronous resource state update for lifecycle changes to the
  * 			specified image resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

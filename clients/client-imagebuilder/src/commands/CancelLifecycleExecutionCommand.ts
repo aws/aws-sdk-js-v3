@@ -23,7 +23,7 @@ export interface CancelLifecycleExecutionCommandInput extends CancelLifecycleExe
 export interface CancelLifecycleExecutionCommandOutput extends CancelLifecycleExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Cancel a specific image lifecycle policy runtime instance.</p>
+ * <p>Cancels a specific image lifecycle policy runtime instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

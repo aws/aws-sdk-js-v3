@@ -23,7 +23,7 @@ export interface UpdateImagePipelineCommandInput extends UpdateImagePipelineRequ
 export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an image pipeline. Image pipelines enable you to automate the creation and
+ * <p>Updates an image pipeline. Use image pipelines to automate the creation and
  * 			distribution of images. You must specify exactly one recipe for your image, using either
  * 			a <code>containerRecipeArn</code> or an <code>imageRecipeArn</code>.</p>
  *          <note>

@@ -21,6 +21,7 @@ import {
   ClientException$,
   Component$,
   ComponentConfiguration$,
+  ComponentFailureContext$,
   ComponentFormat,
   ComponentParameter$,
   ComponentParameterDetail$,
@@ -118,6 +119,7 @@ import {
   Distribution$,
   DistributionConfiguration$,
   DistributionConfigurationSummary$,
+  DistributionFailureContext$,
   DryRunOperationException,
   DryRunOperationException$,
   EbsInstanceBlockDeviceSpecification$,
@@ -204,6 +206,8 @@ import {
   Imagebuilder,
   ImagebuilderClient,
   ImagebuilderServiceException,
+  ImageConfigurationStep,
+  ImageFailureContext$,
   ImageLoggingConfiguration$,
   ImagePackage$,
   ImagePipeline$,
@@ -420,6 +424,8 @@ import {
   PutImageRecipePolicyCommand,
   PutImageRecipePolicyRequest$,
   PutImageRecipePolicyResponse$,
+  RegionFailure$,
+  RegionFailureStatus,
   RegisterImageOptions$,
   Remediation$,
   RemediationRecommendation$,
@@ -683,6 +689,7 @@ assert(typeof CancelLifecycleExecutionRequest$ === "object");
 assert(typeof CancelLifecycleExecutionResponse$ === "object");
 assert(typeof Component$ === "object");
 assert(typeof ComponentConfiguration$ === "object");
+assert(typeof ComponentFailureContext$ === "object");
 assert(typeof ComponentParameter$ === "object");
 assert(typeof ComponentParameterDetail$ === "object");
 assert(typeof ComponentState$ === "object");
@@ -736,6 +743,7 @@ assert(typeof DistributeImageResponse$ === "object");
 assert(typeof Distribution$ === "object");
 assert(typeof DistributionConfiguration$ === "object");
 assert(typeof DistributionConfigurationSummary$ === "object");
+assert(typeof DistributionFailureContext$ === "object");
 assert(typeof EbsInstanceBlockDeviceSpecification$ === "object");
 assert(typeof EcrConfiguration$ === "object");
 assert(typeof FastLaunchConfiguration$ === "object");
@@ -778,6 +786,7 @@ assert(typeof GetWorkflowStepExecutionRequest$ === "object");
 assert(typeof GetWorkflowStepExecutionResponse$ === "object");
 assert(typeof Image$ === "object");
 assert(typeof ImageAggregation$ === "object");
+assert(typeof ImageFailureContext$ === "object");
 assert(typeof ImageLoggingConfiguration$ === "object");
 assert(typeof ImagePackage$ === "object");
 assert(typeof ImagePipeline$ === "object");
@@ -884,6 +893,7 @@ assert(typeof PutImagePolicyRequest$ === "object");
 assert(typeof PutImagePolicyResponse$ === "object");
 assert(typeof PutImageRecipePolicyRequest$ === "object");
 assert(typeof PutImageRecipePolicyResponse$ === "object");
+assert(typeof RegionFailure$ === "object");
 assert(typeof RegisterImageOptions$ === "object");
 assert(typeof Remediation$ === "object");
 assert(typeof RemediationRecommendation$ === "object");
@@ -939,6 +949,7 @@ assert(typeof ContainerRepositoryService === "object");
 assert(typeof ContainerType === "object");
 assert(typeof DiskImageFormat === "object");
 assert(typeof EbsVolumeType === "object");
+assert(typeof ImageConfigurationStep === "object");
 assert(typeof ImageScanStatus === "object");
 assert(typeof ImageSource === "object");
 assert(typeof ImageStatus === "object");
@@ -958,6 +969,7 @@ assert(typeof PipelineExecutionStartCondition === "object");
 assert(typeof PipelineStatus === "object");
 assert(typeof Platform === "object");
 assert(typeof ProductCodeType === "object");
+assert(typeof RegionFailureStatus === "object");
 assert(typeof ResourceStatus === "object");
 assert(typeof SsmParameterDataType === "object");
 assert(typeof TenancyType === "object");

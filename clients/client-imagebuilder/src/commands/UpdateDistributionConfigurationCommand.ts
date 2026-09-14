@@ -26,7 +26,7 @@ export interface UpdateDistributionConfigurationCommandInput extends UpdateDistr
 export interface UpdateDistributionConfigurationCommandOutput extends UpdateDistributionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a new distribution configuration. Distribution configurations define and
+ * <p>Updates a distribution configuration. Distribution configurations define and
  * 			configure the outputs of your pipeline.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

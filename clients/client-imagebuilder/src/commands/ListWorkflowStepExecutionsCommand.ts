@@ -55,6 +55,8 @@ export interface ListWorkflowStepExecutionsCommandOutput extends ListWorkflowSte
  * //       outputs: "STRING_VALUE",
  * //       startTime: "STRING_VALUE",
  * //       endTime: "STRING_VALUE",
+ * //       attemptNumber: Number("int"),
+ * //       maxAttempts: Number("int"),
  * //     },
  * //   ],
  * //   workflowBuildVersionArn: "STRING_VALUE",

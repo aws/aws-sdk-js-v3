@@ -23,7 +23,7 @@ export interface CancelImageCreationCommandInput extends CancelImageCreationRequ
 export interface CancelImageCreationCommandOutput extends CancelImageCreationResponse, __MetadataBearer {}
 
 /**
- * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on
+ * <p>Cancels the creation of an image. This operation can only be used on
  * 			images in a non-terminal state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

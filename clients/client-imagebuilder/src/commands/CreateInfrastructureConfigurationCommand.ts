@@ -73,6 +73,7 @@ export interface CreateInfrastructureConfigurationCommandOutput extends CreateIn
  *     hostResourceGroupArn: "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE", // required
+ *   dryRun: true || false,
  * };
  * const command = new CreateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
@@ -97,6 +98,9 @@ export interface CreateInfrastructureConfigurationCommandOutput extends CreateIn
  *  <p>These errors are usually caused by a client action, such as using an action or
  * 			resource on behalf of a user that doesn't have permissions to use the action or
  * 			resource, or specifying an invalid resource identifier.</p>
+ *
+ * @throws {@link DryRunOperationException} (client fault)
+ *  <p>The dry run operation of the resource was successful, and no resources or mutations were actually performed due to the dry run flag in the request.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>

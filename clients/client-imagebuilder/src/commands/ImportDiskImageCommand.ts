@@ -23,7 +23,7 @@ export interface ImportDiskImageCommandInput extends ImportDiskImageRequest {}
 export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, __MetadataBearer {}
 
 /**
- * <p>Import a Windows operating system image from a verified Microsoft ISO disk
+ * <p>Imports a Windows operating system image from a verified Microsoft ISO disk
  * 			file. The following disk images are supported:</p>
  *          <ul>
  *             <li>

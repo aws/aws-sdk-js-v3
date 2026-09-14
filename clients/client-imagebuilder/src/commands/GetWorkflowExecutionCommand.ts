@@ -23,7 +23,7 @@ export interface GetWorkflowExecutionCommandInput extends GetWorkflowExecutionRe
 export interface GetWorkflowExecutionCommandOutput extends GetWorkflowExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Get the runtime information that was logged for a specific runtime instance
+ * <p>Retrieves runtime information for a specific runtime instance
  * 			of the workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

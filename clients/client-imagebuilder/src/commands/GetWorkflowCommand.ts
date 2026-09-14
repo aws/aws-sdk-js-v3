@@ -23,7 +23,7 @@ export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
 export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Get a workflow resource object.</p>
+ * <p>Retrieves a workflow resource object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

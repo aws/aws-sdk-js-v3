@@ -23,7 +23,7 @@ export interface GetWorkflowStepExecutionCommandInput extends GetWorkflowStepExe
 export interface GetWorkflowStepExecutionCommandOutput extends GetWorkflowStepExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Get the runtime information that was logged for a specific runtime instance of
+ * <p>Retrieves runtime information for a specific runtime instance of
  * 			the workflow step.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,6 +56,8 @@ export interface GetWorkflowStepExecutionCommandOutput extends GetWorkflowStepEx
  * //   endTime: "STRING_VALUE",
  * //   onFailure: "STRING_VALUE",
  * //   timeoutSeconds: Number("int"),
+ * //   attemptNumber: Number("int"),
+ * //   maxAttempts: Number("int"),
  * // };
  *
  * ```

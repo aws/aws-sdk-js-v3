@@ -8,6 +8,7 @@ import type {
   ContainerType,
   DiskImageFormat,
   EbsVolumeType,
+  ImageConfigurationStep,
   ImageScanStatus,
   ImageSource,
   ImageStatus,
@@ -27,6 +28,7 @@ import type {
   PipelineStatus,
   Platform,
   ProductCodeType,
+  RegionFailureStatus,
   ResourceStatus,
   SsmParameterDataType,
   TenancyType,
@@ -148,6 +150,165 @@ export interface AdditionalInstanceConfiguration {
 }
 
 /**
+ * <p>Contains details about the component that caused the image creation process to
+ * 			fail. The details identify the first step that failed when the component ran.</p>
+ * @public
+ */
+export interface ComponentFailureContext {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component build version that failed.</p>
+   * @public
+   */
+  componentArn?: string | undefined;
+
+  /**
+   * <p>The name of the phase in the component document where the failure occurred, such
+   * 			as <code>build</code>, <code>validate</code>, or <code>test</code>.</p>
+   * @public
+   */
+  phaseName?: string | undefined;
+
+  /**
+   * <p>The name of the step in the component document that failed.</p>
+   * @public
+   */
+  stepName?: string | undefined;
+
+  /**
+   * <p>The action that the failed step runs, for example <code>ExecuteBash</code>.</p>
+   * @public
+   */
+  action?: string | undefined;
+
+  /**
+   * <p>The error message from the step that failed. Image Builder truncates messages that are
+   * 			longer than 1024 characters. The component log in Amazon CloudWatch Logs contains
+   * 			the full output.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a distribution or image configuration failure for a single
+ * 			Region.</p>
+ * @public
+ */
+export interface RegionFailure {
+  /**
+   * <p>The Region where the failure occurred.</p>
+   * @public
+   */
+  region?: string | undefined;
+
+  /**
+   * <p>The failure status for the Region. Indicates whether the process failed, was
+   * 			canceled, or timed out.</p>
+   * @public
+   */
+  status?: RegionFailureStatus | undefined;
+
+  /**
+   * <p>The image configuration step where the failure occurred. Image Builder sets this property
+   * 			when the failure happened during post-distribution configuration, such as launch
+   * 			template updates or virtual machine (VM) export. This property doesn't appear
+   * 			for failures that occurred while Image Builder copied the image to the Region.</p>
+   * @public
+   */
+  imageConfigurationStep?: ImageConfigurationStep | undefined;
+
+  /**
+   * <p>The error message for the failure in the Region.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>The account ID of the account that the image was distributed to in the
+   * 			Region.</p>
+   * @public
+   */
+  targetAccountId?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a failure that occurred while Image Builder distributed the image
+ * 			or applied configuration to the distributed image.</p>
+ * @public
+ */
+export interface DistributionFailureContext {
+  /**
+   * <p>The error message for the distribution failure.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>The details about the failure for each Region where the image didn't finish
+   * 			distribution or configuration.</p>
+   * @public
+   */
+  regionFailures?: RegionFailure[] | undefined;
+}
+
+/**
+ * <p>Contains details about the failure when the image creation process fails.
+ * 			Properties appear in the failure context when the related information is available
+ * 			for the failure.</p>
+ * @public
+ */
+export interface ImageFailureContext {
+  /**
+   * <p>The status that the image had when the failure occurred. This indicates the stage
+   * 			of the image creation process where the image failed, for example
+   * 			<code>BUILDING</code> or <code>DISTRIBUTING</code>.</p>
+   * @public
+   */
+  imageStatus?: ImageStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the workflow execution that was running when the image
+   * 			failed.</p>
+   * @public
+   */
+  workflowExecutionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the workflow build version that was running when the image
+   * 			failed.</p>
+   * @public
+   */
+  workflowArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the workflow step execution that failed.</p>
+   * @public
+   */
+  stepExecutionId?: string | undefined;
+
+  /**
+   * <p>The name of the workflow step that failed, as it appears in the workflow
+   * 			document.</p>
+   * @public
+   */
+  failedStep?: string | undefined;
+
+  /**
+   * <p>The details about the component that failed, if the failure occurred while a
+   * 			component was running.</p>
+   * @public
+   */
+  componentFailure?: ComponentFailureContext | undefined;
+
+  /**
+   * <p>The details about the distribution failure, if the failure occurred while Image Builder
+   * 			distributed or configured the image.</p>
+   * @public
+   */
+  distributionFailure?: DistributionFailureContext | undefined;
+}
+
+/**
  * <p>Image status and the reason for that status.</p>
  * @public
  */
@@ -163,6 +324,13 @@ export interface ImageState {
    * @public
    */
   reason?: string | undefined;
+
+  /**
+   * <p>The details about the failure, for images that failed to complete. Image Builder only
+   * 			sets this property when the image status is <code>FAILED</code>.</p>
+   * @public
+   */
+  failureContext?: ImageFailureContext | undefined;
 }
 
 /**
@@ -318,8 +486,9 @@ export interface CancelImageCreationRequest {
   imageBuildVersionArn: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -360,8 +529,9 @@ export interface CancelLifecycleExecutionRequest {
   lifecycleExecutionId: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -749,18 +919,17 @@ export interface ComponentVersion {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
-   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
    * 	build number to the fourth node.</p>
    *             <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
    * 	a date, such as 2021.01.01.</p>
    *             <p>
-   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the base image or components for your
-   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
-   * 	wildcards.</p>
+   *                <b>Filtering:</b> You can use wildcards (x) to specify the most recent versions or nodes when
+   * 	selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes
+   * 	to the right of the first wildcard must also be wildcards.</p>
    *          </note>
    * @public
    */
@@ -779,8 +948,8 @@ export interface ComponentVersion {
   platform?: Platform | undefined;
 
   /**
-   * <p>he operating system (OS) version supported by the component. If the OS information is
-   * 			available, a prefix match is performed against the base image OS version during image
+   * <p>The operating system (OS) version supported by the component. If OS information is
+   * 			available, Image Builder performs a prefix match against the base image OS version during image
    * 			recipe creation.</p>
    * @public
    */
@@ -888,19 +1057,19 @@ export interface ContainerDistributionConfiguration {
  */
 export interface EbsInstanceBlockDeviceSpecification {
   /**
-   * <p>Use to configure device encryption.</p>
+   * <p>Specifies whether to encrypt the device.</p>
    * @public
    */
   encrypted?: boolean | undefined;
 
   /**
-   * <p>Use to configure delete on termination of the associated device.</p>
+   * <p>Specifies whether to delete the associated device on termination.</p>
    * @public
    */
   deleteOnTermination?: boolean | undefined;
 
   /**
-   * <p>Use to configure device IOPS.</p>
+   * <p>The IOPS value for the device. Required only when volumeType is io1 or io2.</p>
    * @public
    */
   iops?: number | undefined;
@@ -920,13 +1089,13 @@ export interface EbsInstanceBlockDeviceSpecification {
   snapshotId?: string | undefined;
 
   /**
-   * <p>Use to override the device's volume size.</p>
+   * <p>Overrides the volume size for the device.</p>
    * @public
    */
   volumeSize?: number | undefined;
 
   /**
-   * <p>Use to override the device's volume type.</p>
+   * <p>Overrides the volume type for the device.</p>
    * @public
    */
   volumeType?: EbsVolumeType | undefined;
@@ -952,19 +1121,19 @@ export interface InstanceBlockDeviceMapping {
   deviceName?: string | undefined;
 
   /**
-   * <p>Use to manage Amazon EBS-specific configuration for this mapping.</p>
+   * <p>The Amazon EBS-specific configuration for this mapping.</p>
    * @public
    */
   ebs?: EbsInstanceBlockDeviceSpecification | undefined;
 
   /**
-   * <p>Use to manage instance ephemeral devices.</p>
+   * <p>The virtual device name for instance ephemeral devices.</p>
    * @public
    */
   virtualName?: string | undefined;
 
   /**
-   * <p>Use to remove a mapping from the base image.</p>
+   * <p>Specifies a mapping to remove from the base image.</p>
    * @public
    */
   noDevice?: string | undefined;
@@ -1056,18 +1225,17 @@ export interface ContainerRecipe {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
-   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
    * 	build number to the fourth node.</p>
    *             <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
    * 	a date, such as 2021.01.01.</p>
    *             <p>
-   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the base image or components for your
-   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
-   * 	wildcards.</p>
+   *                <b>Filtering:</b> You can use wildcards (x) to specify the most recent versions or nodes when
+   * 	selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes
+   * 	to the right of the first wildcard must also be wildcards.</p>
    *          </note>
    * @public
    */
@@ -1224,8 +1392,8 @@ export interface CreateComponentRequest {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
-   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
    * 	build number to the fourth node.</p>
    *             <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
@@ -1274,7 +1442,7 @@ export interface CreateComponentRequest {
 
   /**
    * <p>The <code>uri</code> of a YAML component document file. This must be an S3 URL
-   * 				(<code>s3://bucket/key</code>), and the requester must have permission to access the
+   * 				(<code>s3://bucket/key</code>), and you must have permission to access the
    * 			S3 bucket it points to. If you use Amazon S3, you can specify component content up to your
    * 			service quota.</p>
    *          <p>Alternatively, you can specify the YAML document inline, using the component
@@ -1297,15 +1465,16 @@ export interface CreateComponentRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Validates the required permissions for the operation and the request parameters, without actually making the request, and provides an error response. Upon a successful request, the error response is <code>DryRunOperationException</code>.</p>
+   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
@@ -1399,8 +1568,8 @@ export interface CreateContainerRecipeRequest {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
-   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
    * 	build number to the fourth node.</p>
    *             <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
@@ -1431,7 +1600,7 @@ export interface CreateContainerRecipeRequest {
   dockerfileTemplateData?: string | undefined;
 
   /**
-   * <p>The Amazon S3 URI for the Dockerfile that will be used to build your container
+   * <p>The Amazon S3 URI for the Dockerfile that is used to build your container
    * 			image.</p>
    * @public
    */
@@ -1482,12 +1651,19 @@ export interface CreateContainerRecipeRequest {
   kmsKeyId?: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -1703,8 +1879,8 @@ export interface SsmParameterConfiguration {
   parameterName: string | undefined;
 
   /**
-   * <p>The data type specifies what type of value the Parameter contains. We recommend that
-   * 			you use data type <code>aws:ec2:image</code>.</p>
+   * <p>The type of value the parameter contains.
+   * 		We recommend the <code>aws:ec2:image</code> data type.</p>
    * @public
    */
   dataType?: SsmParameterDataType | undefined;
@@ -1798,12 +1974,19 @@ export interface CreateDistributionConfigurationRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -1880,8 +2063,9 @@ export interface ImageScanningConfiguration {
  */
 export interface ImageTestsConfiguration {
   /**
-   * <p>Determines if tests should run after building the image. Image Builder defaults to enable tests
-   * 			to run following the image build, before image distribution.</p>
+   * <p>Specifies whether tests run after building the image.
+   * 			When enabled, tests run after the image build and before image distribution.
+   * 			Defaults to <code>true</code>.</p>
    * @public
    */
   imageTestsEnabled?: boolean | undefined;
@@ -2005,9 +2189,8 @@ export interface CreateImageRequest {
   imageTestsConfiguration?: ImageTestsConfiguration | undefined;
 
   /**
-   * <p>Collects additional information about the image being created, including the operating
-   * 			system (OS) version and package list. This information is used to enhance the overall
-   * 			experience of using EC2 Image Builder. Enabled by default.</p>
+   * <p>Specifies whether to collect additional information about the image being created, including the operating
+   * 			system (OS) version and package list. Defaults to <code>true</code>.</p>
    * @public
    */
   enhancedImageMetadataEnabled?: boolean | undefined;
@@ -2019,8 +2202,9 @@ export interface CreateImageRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -2046,7 +2230,7 @@ export interface CreateImageRequest {
   executionRole?: string | undefined;
 
   /**
-   * <p>Define logging configuration for the image build process.</p>
+   * <p>The logging configuration for the image build process.</p>
    * @public
    */
   loggingConfiguration?: ImageLoggingConfiguration | undefined;
@@ -2183,7 +2367,7 @@ export interface CreateImagePipelineRequest {
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe that will be used to configure
+   * <p>The Amazon Resource Name (ARN) of the image recipe that configures
    * 			images created by this image pipeline.</p>
    * @public
    */
@@ -2197,15 +2381,15 @@ export interface CreateImagePipelineRequest {
   containerRecipeArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that will be used
-   * 			to build images created by this image pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that
+   * 			builds images created by this image pipeline.</p>
    * @public
    */
   infrastructureConfigurationArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration that will be used to
-   * 			configure and distribute images created by this image pipeline.</p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that configures and
+   * 			distributes images created by this image pipeline.</p>
    * @public
    */
   distributionConfigurationArn?: string | undefined;
@@ -2217,9 +2401,8 @@ export interface CreateImagePipelineRequest {
   imageTestsConfiguration?: ImageTestsConfiguration | undefined;
 
   /**
-   * <p>Collects additional information about the image being created, including the operating
-   * 			system (OS) version and package list. This information is used to enhance the overall
-   * 			experience of using EC2 Image Builder. Enabled by default.</p>
+   * <p>Specifies whether to collect additional information about the image being created, including the operating
+   * 			system (OS) version and package list. Defaults to <code>true</code>.</p>
    * @public
    */
   enhancedImageMetadataEnabled?: boolean | undefined;
@@ -2249,8 +2432,9 @@ export interface CreateImagePipelineRequest {
   imageTags?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -2285,6 +2469,12 @@ export interface CreateImagePipelineRequest {
    * @public
    */
   loggingConfiguration?: PipelineLoggingConfiguration | undefined;
+
+  /**
+   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -2334,8 +2524,8 @@ export interface CreateImageRecipeRequest {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
-   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
    * 	build number to the fourth node.</p>
    *             <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
@@ -2395,7 +2585,7 @@ export interface CreateImageRecipeRequest {
   workingDirectory?: string | undefined;
 
   /**
-   * <p>Specify additional settings and launch scripts for your build instances.</p>
+   * <p>The additional settings and launch scripts for your build instances.</p>
    * @public
    */
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration | undefined;
@@ -2421,12 +2611,19 @@ export interface CreateImageRecipeRequest {
   amiWatermarks?: string[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -2595,7 +2792,7 @@ export interface CreateInfrastructureConfigurationRequest {
 
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
-   * 			instance types to use for this build. The service will pick one of these instance types
+   * 			instance types to use for this build. Image Builder picks one of these instance types
    * 			based on availability.</p>
    * @public
    */
@@ -2635,16 +2832,15 @@ export interface CreateInfrastructureConfigurationRequest {
   keyPair?: string | undefined;
 
   /**
-   * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
+   * <p>Specifies whether to terminate the instance on failure. Set to
    * 			false if you want Image Builder to retain the instance used to configure your AMI if the build or
-   * 			test phase of your workflow fails.</p>
+   * 			test phase of your workflow fails. Defaults to <code>true</code>.</p>
    * @public
    */
   terminateInstanceOnFailure?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
-   * 			notifications.</p>
+   * <p>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder sends image build event notifications.</p>
    *          <note>
    *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
    * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
@@ -2677,18 +2873,25 @@ export interface CreateInfrastructureConfigurationRequest {
 
   /**
    * <p>The instance placement settings that define where the instances that are launched
-   * 			from your image will run.</p>
+   * 			from your image run.</p>
    * @public
    */
   placement?: Placement | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -2941,7 +3144,7 @@ export interface LifecyclePolicyResourceSelection {
  */
 export interface CreateLifecyclePolicyRequest {
   /**
-   * <p>The name of the  lifecycle policy to create.</p>
+   * <p>The name of the lifecycle policy to create.</p>
    * @public
    */
   name: string | undefined;
@@ -2990,12 +3193,19 @@ export interface CreateLifecyclePolicyRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -3032,8 +3242,8 @@ export interface CreateWorkflowRequest {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
-   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
    * 	build number to the fourth node.</p>
    *             <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
@@ -3067,7 +3277,7 @@ export interface CreateWorkflowRequest {
 
   /**
    * <p>The <code>uri</code> of a YAML component document file. This must be an S3 URL
-   * 			(<code>s3://bucket/key</code>), and the requester must have permission to access the
+   * 			(<code>s3://bucket/key</code>), and you must have permission to access the
    * 			S3 bucket it points to. If you use Amazon S3, you can specify component content up to your
    * 			service quota.</p>
    *          <p>Alternatively, you can specify the YAML document inline, using the component
@@ -3091,8 +3301,9 @@ export interface CreateWorkflowRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -3106,7 +3317,7 @@ export interface CreateWorkflowRequest {
   type: WorkflowType | undefined;
 
   /**
-   * <p>Validates the required permissions for the operation and the request parameters, without actually making the request, and provides an error response. Upon a successful request, the error response is <code>DryRunOperationException</code>.</p>
+   * <p>Validates the required permissions and request parameters without making the request. If validation succeeds, the operation returns a <code>DryRunOperationException</code> error response.</p>
    * @public
    */
   dryRun?: boolean | undefined;
@@ -3509,8 +3720,9 @@ export interface DistributeImageRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -4023,8 +4235,8 @@ export interface InfrastructureConfiguration {
   terminateInstanceOnFailure?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
-   * 			notifications.</p>
+   * <p>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder
+   * 			sends image build event notifications.</p>
    *          <note>
    *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
    * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
@@ -4066,7 +4278,7 @@ export interface InfrastructureConfiguration {
 
   /**
    * <p>The instance placement settings that define where the instances that are launched
-   * 			from your image will run.</p>
+   * 			from your image run.</p>
    * @public
    */
   placement?: Placement | undefined;
@@ -4158,18 +4370,17 @@ export interface Image {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
-   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
    * 	build number to the fourth node.</p>
    *             <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
    * 	a date, such as 2021.01.01.</p>
    *             <p>
-   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the base image or components for your
-   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
-   * 	wildcards.</p>
+   *                <b>Filtering:</b> You can use wildcards (x) to specify the most recent versions or nodes when
+   * 	selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes
+   * 	to the right of the first wildcard must also be wildcards.</p>
    *          </note>
    * @public
    */
@@ -4407,9 +4618,8 @@ export interface ImagePipeline {
   platform?: Platform | undefined;
 
   /**
-   * <p>Collects additional information about the image being created, including the operating
-   * 			system (OS) version and package list. This information is used to enhance the overall
-   * 			experience of using EC2 Image Builder. Enabled by default.</p>
+   * <p>Specifies whether to collect additional information about the image being created, including the operating
+   * 			system (OS) version and package list. Defaults to <code>true</code>.</p>
    * @public
    */
   enhancedImageMetadataEnabled?: boolean | undefined;
@@ -4704,7 +4914,7 @@ export interface GetInfrastructureConfigurationResponse {
  */
 export interface GetLifecycleExecutionRequest {
   /**
-   * <p>Use the unique identifier for a runtime instance of the lifecycle policy to get runtime details.</p>
+   * <p>The unique identifier for a runtime instance of the lifecycle policy.</p>
    * @public
    */
   lifecycleExecutionId: string | undefined;
@@ -5347,6 +5557,21 @@ export interface GetWorkflowStepExecutionResponse {
    * @public
    */
   timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The current attempt number for the specified runtime instance of the workflow
+   * 			step. The first run is attempt one. The number increases by one for each retry.</p>
+   * @public
+   */
+  attemptNumber?: number | undefined;
+
+  /**
+   * <p>The maximum number of attempts allowed for the specified runtime instance of
+   * 			the workflow step, based on the retry configuration in the workflow document.
+   * 			If the step doesn't configure retries, the maximum is one attempt.</p>
+   * @public
+   */
+  maxAttempts?: number | undefined;
 }
 
 /**
@@ -5385,10 +5610,9 @@ export interface ImportComponentRequest {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the base image or components for your
-   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
-   * 	wildcards.</p>
+   *                <b>Filtering:</b> You can use wildcards (x) to specify the most recent versions or nodes when
+   * 	selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes
+   * 	to the right of the first wildcard must also be wildcards.</p>
    *          </note>
    * @public
    */
@@ -5435,7 +5659,7 @@ export interface ImportComponentRequest {
   data?: string | undefined;
 
   /**
-   * <p>The uri of the component. Must be an Amazon S3 URL and the requester must have permission
+   * <p>The uri of the component. Must be an Amazon S3 URL and you must have permission
    * 			to access the Amazon S3 bucket. If you use Amazon S3, you can specify component content up to your
    * 			service quota. Either <code>data</code> or <code>uri</code> can be used to specify the
    * 			data within the component.</p>
@@ -5457,8 +5681,9 @@ export interface ImportComponentRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -5592,7 +5817,7 @@ export interface ImportDiskImageRequest {
   uri: string | undefined;
 
   /**
-   * <p>Define logging configuration for the image build process.</p>
+   * <p>The logging configuration for the image build process.</p>
    * @public
    */
   loggingConfiguration?: ImageLoggingConfiguration | undefined;
@@ -5617,8 +5842,9 @@ export interface ImportDiskImageRequest {
   windowsConfiguration?: WindowsConfiguration | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -5659,8 +5885,8 @@ export interface ImportVmImageRequest {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
-   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
    * 	build number to the fourth node.</p>
    *             <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
@@ -5698,7 +5924,7 @@ export interface ImportVmImageRequest {
   vmImportTaskId: string | undefined;
 
   /**
-   * <p>Define logging configuration for the image build process.</p>
+   * <p>The logging configuration for the image build process.</p>
    * @public
    */
   loggingConfiguration?: ImageLoggingConfiguration | undefined;
@@ -5710,8 +5936,9 @@ export interface ImportVmImageRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -5754,13 +5981,13 @@ export interface ListComponentBuildVersionsRequest {
   componentVersionArn?: string | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -5850,13 +6077,13 @@ export interface ListComponentsRequest {
   byName?: boolean | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -5933,13 +6160,13 @@ export interface ListContainerRecipesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -5982,13 +6209,13 @@ export interface ListDistributionConfigurationsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -6065,13 +6292,13 @@ export interface ListImageBuildVersionsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -6240,13 +6467,13 @@ export interface ListImagePackagesRequest {
   imageBuildVersionArn: string | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -6329,13 +6556,13 @@ export interface ListImagePipelineImagesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -6410,13 +6637,13 @@ export interface ListImagePipelinesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -6484,13 +6711,13 @@ export interface ListImageRecipesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -6576,10 +6803,8 @@ export interface ListImageRecipesResponse {
  */
 export interface ListImagesRequest {
   /**
-   * <p>The owner defines which images you want to list. By default, this request will only
-   * 			show images owned by your account. You can use this field to specify if you want to view
-   * 			images owned by yourself, by Amazon, or those images that have been shared with you by
-   * 			other customers.</p>
+   * <p>Filters the list to images owned by you, by Amazon, or shared with you by other accounts.
+   * 		By default, only your account's images are returned.</p>
    * @public
    */
   owner?: Ownership | undefined;
@@ -6624,13 +6849,13 @@ export interface ListImagesRequest {
   byName?: boolean | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -6689,18 +6914,17 @@ export interface ImageVersion {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
-   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   *                <b>Assignment:</b> For the first three nodes, you can assign any positive integer value, including
+   * 	zero. The upper limit is 2^30-1, or 1073741823, for each node. Image Builder automatically assigns the
    * 	build number to the fourth node.</p>
    *             <p>
    *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
    * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
    * 	a date, such as 2021.01.01.</p>
    *             <p>
-   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the base image or components for your
-   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
-   * 	wildcards.</p>
+   *                <b>Filtering:</b> You can use wildcards (x) to specify the most recent versions or nodes when
+   * 	selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes
+   * 	to the right of the first wildcard must also be wildcards.</p>
    *          </note>
    * @public
    */
@@ -6784,10 +7008,9 @@ export interface ListImagesResponse {
    *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
    * 	You can assign values for the first three, and can filter on all of them.</p>
    *             <p>
-   *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the base image or components for your
-   * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
-   * 	wildcards.</p>
+   *                <b>Filtering:</b> You can use wildcards (x) to specify the most recent versions or nodes when
+   * 	selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes
+   * 	to the right of the first wildcard must also be wildcards.</p>
    *          </note>
    * @public
    */
@@ -6815,7 +7038,7 @@ export interface ListImageScanFindingAggregationsRequest {
   filter?: Filter | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -6998,13 +7221,13 @@ export interface ListImageScanFindingsRequest {
   filters?: ImageScanFindingsFilter[] | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -7325,13 +7548,13 @@ export interface ListInfrastructureConfigurationsRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -7399,7 +7622,7 @@ export interface InfrastructureConfigurationSummary {
 
   /**
    * <p>The instance placement settings that define where the instances that are launched
-   * 			from your image will run.</p>
+   * 			from your image run.</p>
    * @public
    */
   placement?: Placement | undefined;
@@ -7435,13 +7658,13 @@ export interface ListInfrastructureConfigurationsResponse {
  */
 export interface ListLifecycleExecutionResourcesRequest {
   /**
-   * <p>Use the unique identifier for a runtime instance of the lifecycle policy to get runtime details.</p>
+   * <p>The unique identifier for a runtime instance of the lifecycle policy.</p>
    * @public
    */
   lifecycleExecutionId: string | undefined;
 
   /**
-   * <p>You can  leave this empty to get a list of Image Builder resources that were identified for lifecycle actions.</p>
+   * <p>You can leave this empty to get a list of Image Builder resources that were identified for lifecycle actions.</p>
    *          <p>To get a list of associated resources that are impacted for an individual resource (the parent), specify
    * 			its Amazon Resource Name (ARN). Associated resources are produced from your image and distributed when you run a build, such as
    * 			AMIs or container images stored in ECR repositories.</p>
@@ -7450,13 +7673,13 @@ export interface ListLifecycleExecutionResourcesRequest {
   parentResourceId?: string | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -7631,13 +7854,13 @@ export interface ListLifecycleExecutionResourcesResponse {
  */
 export interface ListLifecycleExecutionsRequest {
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -7681,13 +7904,13 @@ export interface ListLifecyclePoliciesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -7809,13 +8032,13 @@ export interface ListTagsForResourceResponse {
  */
 export interface ListWaitingWorkflowStepsRequest {
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -7904,13 +8127,13 @@ export interface ListWorkflowBuildVersionsRequest {
   workflowVersionArn?: string | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -8009,13 +8232,13 @@ export interface ListWorkflowBuildVersionsResponse {
  */
 export interface ListWorkflowExecutionsRequest {
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -8177,13 +8400,13 @@ export interface ListWorkflowsRequest {
   byName?: boolean | undefined;
 
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -8263,13 +8486,13 @@ export interface ListWorkflowsResponse {
  */
 export interface ListWorkflowStepExecutionsRequest {
   /**
-   * <p>Specify the maximum number of items to return in a request.</p>
+   * <p>The maximum number of items to return in a single request.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>A token to specify where to start paginating. This is the nextToken
+   * <p>A token to specify where to start paginating. Use the <code>nextToken</code> value
    * 	from a previously truncated response.</p>
    * @public
    */
@@ -8353,6 +8576,21 @@ export interface WorkflowStepMetadata {
    * @public
    */
   endTime?: string | undefined;
+
+  /**
+   * <p>The current attempt number for the workflow step. The first run is attempt one.
+   * 			The number increases by one for each retry.</p>
+   * @public
+   */
+  attemptNumber?: number | undefined;
+
+  /**
+   * <p>The maximum number of attempts allowed for the workflow step, based on the
+   * 			retry configuration in the workflow document. If the step doesn't configure
+   * 			retries, the maximum is one attempt.</p>
+   * @public
+   */
+  maxAttempts?: number | undefined;
 }
 
 /**
@@ -8562,8 +8800,9 @@ export interface RetryImageRequest {
   imageBuildVersionArn: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -8623,8 +8862,9 @@ export interface SendWorkflowStepActionRequest {
   reason?: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -8667,16 +8907,17 @@ export interface StartImagePipelineExecutionRequest {
   imagePipelineArn: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   clientToken?: string | undefined;
 
   /**
-   * <p>Specify tags for Image Builder to apply to the image resource that's created
-   * 			When it starts pipeline execution.</p>
+   * <p>The tags for Image Builder to apply to the image resource that's created
+   * 			when pipeline execution starts.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -8813,8 +9054,9 @@ export interface StartResourceStateUpdateRequest {
   updateAt?: Date | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -8907,8 +9149,9 @@ export interface UpdateDistributionConfigurationRequest {
   distributions: Distribution[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -8956,7 +9199,7 @@ export interface UpdateImagePipelineRequest {
   description?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe that will be used to configure
+   * <p>The Amazon Resource Name (ARN) of the image recipe that configures
    * 			images updated by this image pipeline.</p>
    * @public
    */
@@ -8989,9 +9232,8 @@ export interface UpdateImagePipelineRequest {
   imageTestsConfiguration?: ImageTestsConfiguration | undefined;
 
   /**
-   * <p>Collects additional information about the image being created, including the operating
-   * 			system (OS) version and package list. This information is used to enhance the overall
-   * 			experience of using EC2 Image Builder. Enabled by default.</p>
+   * <p>Specifies whether to collect additional information about the image being created, including the operating
+   * 			system (OS) version and package list. Defaults to <code>true</code>.</p>
    * @public
    */
   enhancedImageMetadataEnabled?: boolean | undefined;
@@ -9009,8 +9251,9 @@ export interface UpdateImagePipelineRequest {
   status?: PipelineStatus | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -9092,7 +9335,7 @@ export interface UpdateInfrastructureConfigurationRequest {
 
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
-   * 			instance types to use for this build. The service will pick one of these instance types
+   * 			instance types to use for this build. Image Builder picks one of these instance types
    * 			based on availability.</p>
    * @public
    */
@@ -9132,16 +9375,16 @@ export interface UpdateInfrastructureConfigurationRequest {
   keyPair?: string | undefined;
 
   /**
-   * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
+   * <p>Specifies whether to terminate the instance on failure. Set to
    * 			false if you want Image Builder to retain the instance used to configure your AMI if the build or
-   * 			test phase of your workflow fails.</p>
+   * 			test phase of your workflow fails. Defaults to <code>true</code>.</p>
    * @public
    */
   terminateInstanceOnFailure?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the SNS topic to which we send image build event
-   * 			notifications.</p>
+   * <p>The Amazon Resource Name (ARN) of the SNS topic to which Image Builder
+   * 			sends image build event notifications.</p>
    *          <note>
    *             <p>EC2 Image Builder is unable to send notifications to SNS topics that are encrypted using keys
    * 				from other accounts. The key that is used to encrypt the SNS topic must reside in the
@@ -9183,14 +9426,15 @@ export interface UpdateInfrastructureConfigurationRequest {
 
   /**
    * <p>The instance placement settings that define where the instances that are launched
-   * 			from your image will run.</p>
+   * 			from your image run.</p>
    * @public
    */
   placement?: Placement | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
@@ -9269,8 +9513,9 @@ export interface UpdateLifecyclePolicyRequest {
   resourceSelection: LifecyclePolicyResourceSelection | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   * <p>A unique, case-sensitive identifier you provide to ensure
+   *        that the operation completes no more than one time. If this token matches a previous request,
+   * 	   the service ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
    *        in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */

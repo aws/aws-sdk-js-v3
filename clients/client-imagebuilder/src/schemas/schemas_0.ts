@@ -19,6 +19,7 @@ const _CDCR = "CreateDistributionConfigurationRequest";
 const _CDCRr = "CreateDistributionConfigurationResponse";
 const _CDCr = "CreateDistributionConfiguration";
 const _CE = "ClientException";
+const _CFC = "ComponentFailureContext";
 const _CI = "CreateImage";
 const _CIC = "CancelImageCreation";
 const _CICR = "CancelImageCreationRequest";
@@ -76,6 +77,7 @@ const _DCe = "DeleteComponent";
 const _DDC = "DeleteDistributionConfiguration";
 const _DDCR = "DeleteDistributionConfigurationRequest";
 const _DDCRe = "DeleteDistributionConfigurationResponse";
+const _DFC = "DistributionFailureContext";
 const _DI = "DeleteImage";
 const _DIC = "DeleteInfrastructureConfiguration";
 const _DICR = "DeleteInfrastructureConfigurationRequest";
@@ -173,6 +175,7 @@ const _ICn = "InstanceConfiguration";
 const _IDI = "ImportDiskImage";
 const _IDIR = "ImportDiskImageRequest";
 const _IDIRm = "ImportDiskImageResponse";
+const _IFC = "ImageFailureContext";
 const _ILC = "ImageLoggingConfiguration";
 const _IMO = "InstanceMetadataOptions";
 const _IP = "ImagePackage";
@@ -324,6 +327,8 @@ const _PVD = "PackageVulnerabilityDetails";
 const _R = "Remediation";
 const _RAEE = "ResourceAlreadyExistsException";
 const _RDE = "ResourceDependencyException";
+const _RF = "RegionFailure";
+const _RFL = "RegionFailureList";
 const _RI = "RetryImage";
 const _RIO = "RegisterImageOptions";
 const _RIR = "RetryImageRequest";
@@ -404,6 +409,7 @@ const _aDC = "amiDistributionConfiguration";
 const _aDP = "autoDisablePolicy";
 const _aI = "accountId";
 const _aIC = "additionalInstanceConfiguration";
+const _aN = "attemptNumber";
 const _aT = "amiTags";
 const _aTg = "aggregationType";
 const _aW = "amiWatermarks";
@@ -422,7 +428,8 @@ const _cA = "componentArn";
 const _cBVA = "componentBuildVersionArn";
 const _cD = "changeDescription";
 const _cDC = "containerDistributionConfiguration";
-const _cF = "consecutiveFailures";
+const _cF = "componentFailure";
+const _cFo = "consecutiveFailures";
 const _cR = "containerRecipe";
 const _cRA = "containerRecipeArn";
 const _cRSL = "containerRecipeSummaryList";
@@ -443,6 +450,7 @@ const _dC = "dateCreated";
 const _dCA = "distributionConfigurationArn";
 const _dCSL = "distributionConfigurationSummaryList";
 const _dCi = "distributionConfiguration";
+const _dF = "distributionFailure";
 const _dIF = "diskImageFormat";
 const _dLR = "dateLastRun";
 const _dN = "deviceName";
@@ -460,6 +468,7 @@ const _di = "distributions";
 const _e = "error";
 const _eC = "ecrConfiguration";
 const _eIME = "enhancedImageMetadataEnabled";
+const _eM = "errorMessage";
 const _eR = "executionRole";
 const _eRx = "exclusionRules";
 const _eT = "endTime";
@@ -470,10 +479,12 @@ const _ep = "epoch";
 const _f = "format";
 const _fA = "fixAvailable";
 const _fC = "failureCount";
+const _fCa = "failureContext";
 const _fIV = "fixedInVersion";
 const _fLC = "fastLaunchConfigurations";
 const _fOA = "firstObservedAt";
 const _fP = "filePath";
+const _fS = "failedStep";
 const _fi = "filter";
 const _fil = "filters";
 const _fin = "findings";
@@ -492,6 +503,7 @@ const _iAm = "imageAggregation";
 const _iBVA = "imageBuildVersionArn";
 const _iC = "instanceConfiguration";
 const _iCA = "infrastructureConfigurationArn";
+const _iCS = "imageConfigurationStep";
 const _iCSL = "infrastructureConfigurationSummaryList";
 const _iCn = "infrastructureConfiguration";
 const _iD = "includeDeprecated";
@@ -516,6 +528,7 @@ const _iSC = "imageScanningConfiguration";
 const _iSD = "inspectorScoreDetails";
 const _iSE = "imageScanningEnabled";
 const _iSL = "imageSummaryList";
+const _iSm = "imageStatus";
 const _iSn = "inspectorScore";
 const _iT = "imageTags";
 const _iTC = "imageTestsConfiguration";
@@ -553,6 +566,7 @@ const _lTV = "launchTemplateVersion";
 const _lVA = "latestVersionArn";
 const _lVR = "latestVersionReferences";
 const _m = "message";
+const _mA = "maxAttempts";
 const _mPL = "maxParallelLaunches";
 const _mR = "maxResults";
 const _me = "metric";
@@ -578,8 +592,9 @@ const _pG = "parallelGroup";
 const _pI = "parentImage";
 const _pLGN = "pipelineLogGroupName";
 const _pM = "packageManager";
-const _pN = "packageName";
-const _pNa = "parameterName";
+const _pN = "phaseName";
+const _pNa = "packageName";
+const _pNar = "parameterName";
 const _pO = "platformOverride";
 const _pRI = "parentResourceId";
 const _pV = "packageVersion";
@@ -591,6 +606,7 @@ const _pu = "publisher";
 const _r = "region";
 const _rA = "resourceArn";
 const _rAL = "retainAtLeast";
+const _rF = "regionFailures";
 const _rI = "requestId";
 const _rIO = "registerImageOptions";
 const _rIS = "resourcesImpactedSummary";
@@ -632,6 +648,7 @@ const _sKP = "s3KeyPrefix";
 const _sL = "s3Logs";
 const _sLH = "sourceLayerHash";
 const _sMA = "systemsManagerAgent";
+const _sN = "stepName";
 const _sOV = "supportedOsVersions";
 const _sP = "s3Prefix";
 const _sPA = "sourcePipelineArn";
@@ -656,6 +673,7 @@ const _sta = "status";
 const _ste = "steps";
 const _t = "type";
 const _tAI = "targetAccountIds";
+const _tAIa = "targetAccountId";
 const _tIOF = "terminateInstanceOnFailure";
 const _tK = "tagKeys";
 const _tM = "timeoutMinutes";
@@ -932,6 +950,11 @@ export var ComponentConfiguration$: StaticStructureSchema = [3, n0, _CC,
   [_cA, _pa],
   [0, () => ComponentParameterList], 1
 ];
+export var ComponentFailureContext$: StaticStructureSchema = [3, n0, _CFC,
+  0,
+  [_cA, _pN, _sN, _ac, _eM],
+  [0, 0, 0, 0, 0]
+];
 export var ComponentParameter$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_n, _va],
@@ -989,8 +1012,8 @@ export var CreateComponentResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateContainerRecipeRequest$: StaticStructureSchema = [3, n0, _CCRR,
   0,
-  [_cTon, _n, _sV, _pI, _tR, _d, _co, _iC, _dTD, _dTU, _pO, _iOVO, _ta, _wD, _kKI, _cT],
-  [0, 0, 0, 0, () => TargetContainerRepository$, 0, () => ComponentConfigurationList, () => InstanceConfiguration$, 0, 0, 0, 0, 128 | 0, 0, 0, [0, 4]], 5
+  [_cTon, _n, _sV, _pI, _tR, _d, _co, _iC, _dTD, _dTU, _pO, _iOVO, _ta, _wD, _kKI, _cT, _dR],
+  [0, 0, 0, 0, () => TargetContainerRepository$, 0, () => ComponentConfigurationList, () => InstanceConfiguration$, 0, 0, 0, 0, 128 | 0, 0, 0, [0, 4], 2], 5
 ];
 export var CreateContainerRecipeResponse$: StaticStructureSchema = [3, n0, _CCRRr,
   0,
@@ -999,8 +1022,8 @@ export var CreateContainerRecipeResponse$: StaticStructureSchema = [3, n0, _CCRR
 ];
 export var CreateDistributionConfigurationRequest$: StaticStructureSchema = [3, n0, _CDCR,
   0,
-  [_n, _di, _d, _ta, _cT],
-  [0, () => DistributionList, 0, 128 | 0, [0, 4]], 2
+  [_n, _di, _d, _ta, _cT, _dR],
+  [0, () => DistributionList, 0, 128 | 0, [0, 4], 2], 2
 ];
 export var CreateDistributionConfigurationResponse$: StaticStructureSchema = [3, n0, _CDCRr,
   0,
@@ -1009,8 +1032,8 @@ export var CreateDistributionConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var CreateImagePipelineRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
-  [_n, _iCA, _d, _iRA, _cRA, _dCA, _iTC, _eIME, _sc, _sta, _ta, _iT, _cT, _iSC, _w, _eR, _lC],
-  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, 128 | 0, 128 | 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, 0, () => PipelineLoggingConfiguration$], 2
+  [_n, _iCA, _d, _iRA, _cRA, _dCA, _iTC, _eIME, _sc, _sta, _ta, _iT, _cT, _iSC, _w, _eR, _lC, _dR],
+  [0, 0, 0, 0, 0, 0, () => ImageTestsConfiguration$, 2, () => Schedule$, 0, 128 | 0, 128 | 0, [0, 4], () => ImageScanningConfiguration$, () => WorkflowConfigurationList, 0, () => PipelineLoggingConfiguration$, 2], 2
 ];
 export var CreateImagePipelineResponse$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
@@ -1019,8 +1042,8 @@ export var CreateImagePipelineResponse$: StaticStructureSchema = [3, n0, _CIPRr,
 ];
 export var CreateImageRecipeRequest$: StaticStructureSchema = [3, n0, _CIRR,
   0,
-  [_n, _sV, _pI, _d, _co, _bDM, _ta, _wD, _aIC, _aT, _aW, _cT],
-  [0, 0, 0, 0, () => ComponentConfigurationList, () => InstanceBlockDeviceMappings, 128 | 0, 0, () => AdditionalInstanceConfiguration$, 128 | 0, 64 | 0, [0, 4]], 3
+  [_n, _sV, _pI, _d, _co, _bDM, _ta, _wD, _aIC, _aT, _aW, _cT, _dR],
+  [0, 0, 0, 0, () => ComponentConfigurationList, () => InstanceBlockDeviceMappings, 128 | 0, 0, () => AdditionalInstanceConfiguration$, 128 | 0, 64 | 0, [0, 4], 2], 3
 ];
 export var CreateImageRecipeResponse$: StaticStructureSchema = [3, n0, _CIRRr,
   0,
@@ -1039,8 +1062,8 @@ export var CreateImageResponse$: StaticStructureSchema = [3, n0, _CIRr,
 ];
 export var CreateInfrastructureConfigurationRequest$: StaticStructureSchema = [3, n0, _CICRr,
   0,
-  [_n, _iPN, _d, _iTn, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _ta, _pl, _cT],
-  [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$, [0, 4]], 2
+  [_n, _iPN, _d, _iTn, _sGI, _sI, _l, _kP, _tIOF, _sTA, _rT, _iMO, _ta, _pl, _cT, _dR],
+  [0, 0, 0, 64 | 0, 64 | 0, 0, () => Logging$, 0, 2, 0, 128 | 0, () => InstanceMetadataOptions$, 128 | 0, () => Placement$, [0, 4], 2], 2
 ];
 export var CreateInfrastructureConfigurationResponse$: StaticStructureSchema = [3, n0, _CICRre,
   0,
@@ -1049,8 +1072,8 @@ export var CreateInfrastructureConfigurationResponse$: StaticStructureSchema = [
 ];
 export var CreateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _CLPR,
   0,
-  [_n, _eR, _rTe, _pD, _rS, _d, _sta, _ta, _cT],
-  [0, 0, 0, () => LifecyclePolicyDetails, () => LifecyclePolicyResourceSelection$, 0, 0, 128 | 0, [0, 4]], 5
+  [_n, _eR, _rTe, _pD, _rS, _d, _sta, _ta, _cT, _dR],
+  [0, 0, 0, () => LifecyclePolicyDetails, () => LifecyclePolicyResourceSelection$, 0, 0, 128 | 0, [0, 4], 2], 5
 ];
 export var CreateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _CLPRr,
   0,
@@ -1196,6 +1219,11 @@ export var DistributionConfigurationSummary$: StaticStructureSchema = [3, n0, _D
   0,
   [_a, _n, _d, _dC, _dU, _ta, _reg],
   [0, 0, 0, 0, 0, 128 | 0, 64 | 0]
+];
+export var DistributionFailureContext$: StaticStructureSchema = [3, n0, _DFC,
+  0,
+  [_eM, _rF],
+  [0, () => RegionFailureList]
 ];
 export var EbsInstanceBlockDeviceSpecification$: StaticStructureSchema = [3, n0, _EIBDS,
   0,
@@ -1394,8 +1422,8 @@ export var GetWorkflowStepExecutionRequest$: StaticStructureSchema = [3, n0, _GW
 ];
 export var GetWorkflowStepExecutionResponse$: StaticStructureSchema = [3, n0, _GWSERe,
   0,
-  [_rI, _sEI, _wBVA, _wEI, _iBVA, _n, _d, _ac, _sta, _rSo, _m, _in, _ou, _sT, _eT, _oF, _tS],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+  [_rI, _sEI, _wBVA, _wEI, _iBVA, _n, _d, _ac, _sta, _rSo, _m, _in, _ou, _sT, _eT, _oF, _tS, _aN, _mA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1]
 ];
 export var Image$: StaticStructureSchema = [3, n0, _I,
   0,
@@ -1407,6 +1435,11 @@ export var ImageAggregation$: StaticStructureSchema = [3, n0, _IA,
   [_iBVA, _sC],
   [0, () => SeverityCounts$]
 ];
+export var ImageFailureContext$: StaticStructureSchema = [3, n0, _IFC,
+  0,
+  [_iSm, _wEI, _wA, _sEI, _fS, _cF, _dF],
+  [0, 0, 0, 0, 0, () => ComponentFailureContext$, () => DistributionFailureContext$]
+];
 export var ImageLoggingConfiguration$: StaticStructureSchema = [3, n0, _ILC,
   0,
   [_lGN],
@@ -1414,12 +1447,12 @@ export var ImageLoggingConfiguration$: StaticStructureSchema = [3, n0, _ILC,
 ];
 export var ImagePackage$: StaticStructureSchema = [3, n0, _IP,
   0,
-  [_pN, _pV],
+  [_pNa, _pV],
   [0, 0]
 ];
 export var ImagePipeline$: StaticStructureSchema = [3, n0, _IPm,
   0,
-  [_a, _n, _d, _p, _eIME, _iRA, _cRA, _iCA, _dCA, _iTC, _sc, _sta, _dC, _dU, _dLR, _lRS, _dNR, _ta, _iSC, _iT, _eR, _w, _lC, _cF],
+  [_a, _n, _d, _p, _eIME, _iRA, _cRA, _iCA, _dCA, _iTC, _sc, _sta, _dC, _dU, _dLR, _lRS, _dNR, _ta, _iSC, _iT, _eR, _w, _lC, _cFo],
   [0, 0, 0, 0, 2, 0, 0, 0, 0, () => ImageTestsConfiguration$, () => Schedule$, 0, 0, 0, 0, 0, 0, 128 | 0, () => ImageScanningConfiguration$, 128 | 0, 0, () => WorkflowConfigurationList, () => PipelineLoggingConfiguration$, 1]
 ];
 export var ImagePipelineAggregation$: StaticStructureSchema = [3, n0, _IPA,
@@ -1464,8 +1497,8 @@ export var ImageScanState$: StaticStructureSchema = [3, n0, _ISS,
 ];
 export var ImageState$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_sta, _re],
-  [0, 0]
+  [_sta, _re, _fCa],
+  [0, 0, () => ImageFailureContext$]
 ];
 export var ImageSummary$: StaticStructureSchema = [3, n0, _ISm,
   0,
@@ -1937,6 +1970,11 @@ export var PutImageRecipePolicyResponse$: StaticStructureSchema = [3, n0, _PIRPR
   [_rI, _iRA],
   [0, 0]
 ];
+export var RegionFailure$: StaticStructureSchema = [3, n0, _RF,
+  0,
+  [_r, _sta, _iCS, _eM, _tAIa],
+  [0, 0, 0, 0, 0]
+];
 export var RegisterImageOptions$: StaticStructureSchema = [3, n0, _RIO,
   0,
   [_sBE, _uD],
@@ -2009,7 +2047,7 @@ export var SeverityCounts$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var SsmParameterConfiguration$: StaticStructureSchema = [3, n0, _SPC,
   0,
-  [_pNa, _aAIm, _dTa],
+  [_pNar, _aAIm, _dTa],
   [0, 0, 0], 1
 ];
 export var StartImagePipelineExecutionRequest$: StaticStructureSchema = [3, n0, _SIPER,
@@ -2154,8 +2192,8 @@ export var WorkflowStepExecution$: StaticStructureSchema = [3, n0, _WSE,
 ];
 export var WorkflowStepMetadata$: StaticStructureSchema = [3, n0, _WSM,
   0,
-  [_sEI, _n, _d, _ac, _sta, _rSo, _m, _in, _ou, _sT, _eT],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_sEI, _n, _d, _ac, _sta, _rSo, _m, _in, _ou, _sT, _eT, _aN, _mA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
 ];
 export var WorkflowSummary$: StaticStructureSchema = [3, n0, _WSo,
   0,
@@ -2273,6 +2311,9 @@ var OrganizationArnList = 64 | 0;
 var OsVersionList = 64 | 0;
 var ProductCodeList: StaticListSchema = [1, n0, _PCL,
   0, () => ProductCodeListItem$
+];
+var RegionFailureList: StaticListSchema = [1, n0, _RFL,
+  0, () => RegionFailure$
 ];
 var RegionList = 64 | 0;
 var SecurityGroupIds = 64 | 0;

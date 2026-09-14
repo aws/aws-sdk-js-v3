@@ -26,7 +26,7 @@ export interface ListLifecycleExecutionResourcesCommandInput extends ListLifecyc
 export interface ListLifecycleExecutionResourcesCommandOutput extends ListLifecycleExecutionResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>List resources that the runtime instance of the image lifecycle identified for lifecycle actions.</p>
+ * <p>Lists resources that the runtime instance of the image lifecycle identified for lifecycle actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

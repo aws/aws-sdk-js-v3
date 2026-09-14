@@ -26,8 +26,8 @@ export interface UpdateInfrastructureConfigurationCommandInput extends UpdateInf
 export interface UpdateInfrastructureConfigurationCommandOutput extends UpdateInfrastructureConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a new infrastructure configuration. An infrastructure configuration defines
- * 			the environment in which your image will be built and tested.</p>
+ * <p>Updates an infrastructure configuration. An infrastructure configuration defines
+ * 			the environment in which Image Builder builds and tests your image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

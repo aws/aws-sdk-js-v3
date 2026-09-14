@@ -23,7 +23,7 @@ export interface ListWaitingWorkflowStepsCommandInput extends ListWaitingWorkflo
 export interface ListWaitingWorkflowStepsCommandOutput extends ListWaitingWorkflowStepsResponse, __MetadataBearer {}
 
 /**
- * <p>Get a list of workflow steps that are waiting for action for workflows
+ * <p>Retrieves a list of workflow steps that are waiting for action for workflows
  * 			in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

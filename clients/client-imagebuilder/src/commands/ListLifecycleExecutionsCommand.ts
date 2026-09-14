@@ -23,7 +23,7 @@ export interface ListLifecycleExecutionsCommandInput extends ListLifecycleExecut
 export interface ListLifecycleExecutionsCommandOutput extends ListLifecycleExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Get the lifecycle runtime history for the specified resource.</p>
+ * <p>Retrieves the lifecycle runtime history for the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

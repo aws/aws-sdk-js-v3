@@ -23,7 +23,7 @@ export interface GetImageRecipeCommandInput extends GetImageRecipeRequest {}
 export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __MetadataBearer {}
 
 /**
- * <p>Gets an image recipe.</p>
+ * <p>Retrieves an image recipe.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,7 @@ export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
 export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Create a new workflow or a new version of an existing workflow.</p>
+ * <p>Creates a new workflow or a new version of an existing workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

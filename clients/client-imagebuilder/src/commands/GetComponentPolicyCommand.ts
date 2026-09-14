@@ -23,7 +23,7 @@ export interface GetComponentPolicyCommandInput extends GetComponentPolicyReques
 export interface GetComponentPolicyCommandOutput extends GetComponentPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a component policy.</p>
+ * <p>Retrieves a component policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

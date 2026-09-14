@@ -23,7 +23,7 @@ export interface GetLifecycleExecutionCommandInput extends GetLifecycleExecution
 export interface GetLifecycleExecutionCommandOutput extends GetLifecycleExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Get the runtime information that was logged for a specific runtime instance of the lifecycle policy.</p>
+ * <p>Retrieves the runtime information for a specific runtime instance of the lifecycle policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

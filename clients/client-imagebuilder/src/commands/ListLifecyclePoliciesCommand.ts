@@ -23,7 +23,7 @@ export interface ListLifecyclePoliciesCommandInput extends ListLifecyclePolicies
 export interface ListLifecyclePoliciesCommandOutput extends ListLifecyclePoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Get a list of lifecycle policies in your Amazon Web Services account.</p>
+ * <p>Retrieves a list of lifecycle policies in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
