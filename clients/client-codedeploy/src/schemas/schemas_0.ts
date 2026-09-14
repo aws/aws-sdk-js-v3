@@ -1562,8 +1562,8 @@ export var DeploymentGroupInfo$: StaticStructureSchema = [3, n0, _DGI,
 ];
 export var DeploymentInfo$: StaticStructureSchema = [3, n0, _DI,
   0,
-  [_aN, _dGNe, _dCN, _dI, _pR, _re, _st, _eIr, _cT, _sT, _cTo, _dO, _d, _cr, _iASF, _aRC, _uOIO, _rI, _dS, _tIar, _iTWTS, _bGDC, _lBI, _aDSI, _fEB, _dSM, _cP, _eI, _rD, _oAC],
-  [0, 0, 0, 0, () => RevisionLocation$, () => RevisionLocation$, 0, () => ErrorInformation$, 4, 4, 4, () => DeploymentOverview$, 0, 0, 2, () => AutoRollbackConfiguration$, 2, () => RollbackInfo$, () => DeploymentStyle$, () => TargetInstances$, 2, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, 0, 0, 64 | 0, 0, 0, () => RelatedDeployments$, () => AlarmConfiguration$]
+  [_aN, _dGNe, _dCN, _dI, _pR, _re, _st, _eIr, _cT, _sT, _cTo, _dO, _d, _cr, _iASF, _aRC, _uOIO, _rI, _dS, _tIar, _iTWTS, _bGDC, _lBI, _aDSI, _fEB, _dM, _dSM, _cP, _eI, _rD, _oAC],
+  [0, 0, 0, 0, () => RevisionLocation$, () => RevisionLocation$, 0, () => ErrorInformation$, 4, 4, 4, () => DeploymentOverview$, 0, 0, 2, () => AutoRollbackConfiguration$, 2, () => RollbackInfo$, () => DeploymentStyle$, () => TargetInstances$, 2, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, 0, 0, 0, 64 | 0, 0, 0, () => RelatedDeployments$, () => AlarmConfiguration$]
 ];
 export var DeploymentOverview$: StaticStructureSchema = [3, n0, _DO,
   0,

@@ -307,6 +307,19 @@ export type DeploymentCreator = (typeof DeploymentCreator)[keyof typeof Deployme
  * @public
  * @enum
  */
+export const DeploymentMode = {
+  RESTART: "RESTART",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ErrorCode = {
   AGENT_ISSUE: "AGENT_ISSUE",
   ALARM_ACTIVE: "ALARM_ACTIVE",
@@ -420,19 +433,6 @@ export const DeploymentWaitType = {
  * @public
  */
 export type DeploymentWaitType = (typeof DeploymentWaitType)[keyof typeof DeploymentWaitType];
-
-/**
- * @public
- * @enum
- */
-export const DeploymentMode = {
-  RESTART: "RESTART",
-  STANDARD: "STANDARD",
-} as const;
-/**
- * @public
- */
-export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
 /**
  * @public

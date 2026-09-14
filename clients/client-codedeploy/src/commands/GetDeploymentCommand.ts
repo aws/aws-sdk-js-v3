@@ -198,6 +198,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  * //     },
  * //     additionalDeploymentStatusInfo: "STRING_VALUE",
  * //     fileExistsBehavior: "DISALLOW" || "OVERWRITE" || "RETAIN",
+ * //     deploymentMode: "STANDARD" || "RESTART",
  * //     deploymentStatusMessages: [ // DeploymentStatusMessageList
  * //       "STRING_VALUE",
  * //     ],

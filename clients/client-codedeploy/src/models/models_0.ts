@@ -1865,6 +1865,28 @@ export interface DeploymentInfo {
   fileExistsBehavior?: FileExistsBehavior | undefined;
 
   /**
+   * <p>The deployment's type. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STANDARD</code>: The deployment installed the specified revision.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESTART</code>: The deployment restarted the application on the target
+   *                     instances using the revision from the deployment group's last successful
+   *                     deployment, without downloading a new revision.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This field is absent for deployments created before <code>deploymentMode</code>
+   *             existed, and for <code>STANDARD</code> deployments. An absent value must not be
+   *             interpreted as <code>STANDARD</code>; it simply means no value was recorded either
+   *             way.</p>
+   * @public
+   */
+  deploymentMode?: DeploymentMode | undefined;
+
+  /**
    * <p>Messages that contain information about the status of a deployment.</p>
    * @public
    */
@@ -2609,7 +2631,39 @@ export interface CreateDeploymentInput {
   fileExistsBehavior?: FileExistsBehavior | undefined;
 
   /**
-   * The deployment mode to use for the deployment. When set to STANDARD (the default), the deployment runs the standard set of deployment lifecycle events. When set to RESTART, an EC2/On-premises in-place deployment runs a shortened set of lifecycle events to quickly restart the application on the target instances.
+   * <p>The type of deployment to create. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STANDARD</code>: Deploys the specified revision. This is the default
+   *                     behavior if <code>deploymentMode</code> is not specified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESTART</code>: Restarts the application on the target instances using
+   *                     the revision from the deployment group's last successful deployment, without
+   *                     downloading a new revision. <code>RESTART</code> is supported only for
+   *                     EC2/On-premises in-place deployments.</p>
+   *                <p>When <code>deploymentMode</code> is <code>RESTART</code>, the following
+   *                     apply:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The call is rejected for Amazon ECS and Lambda
+   *                             deployments.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The <code>revision</code> parameter (including its
+   *                                 <code>s3Location</code> and <code>gitHubLocation</code>) must not be
+   *                             specified, and is rejected if provided. The revision is resolved by the
+   *                             service from the deployment group's last successful deployment.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The <code>updateOutdatedInstancesOnly</code> parameter must not be
+   *                             set to <code>true</code>, and is rejected if provided.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    * @public
    */
   deploymentMode?: DeploymentMode | undefined;

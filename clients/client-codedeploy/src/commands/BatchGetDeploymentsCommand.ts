@@ -196,6 +196,7 @@ export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOut
  * //       },
  * //       additionalDeploymentStatusInfo: "STRING_VALUE",
  * //       fileExistsBehavior: "DISALLOW" || "OVERWRITE" || "RETAIN",
+ * //       deploymentMode: "STANDARD" || "RESTART",
  * //       deploymentStatusMessages: [ // DeploymentStatusMessageList
  * //         "STRING_VALUE",
  * //       ],
