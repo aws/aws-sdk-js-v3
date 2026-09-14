@@ -148,6 +148,7 @@ export type {
   CustomLineItemListElement,
   CustomLineItemPercentageChargeDetails,
   CustomLineItemVersionListElement,
+  CustomTier,
   DeleteBillingGroupInput,
   DeleteBillingGroupOutput,
   DeleteCustomLineItemInput,

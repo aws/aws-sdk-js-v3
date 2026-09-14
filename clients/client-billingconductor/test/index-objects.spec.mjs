@@ -64,6 +64,7 @@ import {
   CustomLineItemRelationship,
   CustomLineItemType,
   CustomLineItemVersionListElement$,
+  CustomTier$,
   DeleteBillingGroup$,
   DeleteBillingGroupCommand,
   DeleteBillingGroupInput$,
@@ -323,6 +324,7 @@ assert(typeof CustomLineItemFlatChargeDetails$ === "object");
 assert(typeof CustomLineItemListElement$ === "object");
 assert(typeof CustomLineItemPercentageChargeDetails$ === "object");
 assert(typeof CustomLineItemVersionListElement$ === "object");
+assert(typeof CustomTier$ === "object");
 assert(typeof DeleteBillingGroupInput$ === "object");
 assert(typeof DeleteBillingGroupOutput$ === "object");
 assert(typeof DeleteCustomLineItemInput$ === "object");

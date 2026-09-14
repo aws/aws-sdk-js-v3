@@ -63,6 +63,13 @@ export interface ListPricingRulesCommandOutput extends ListPricingRulesOutput, _
  * //         FreeTier: { // FreeTierConfig
  * //           Activated: true || false, // required
  * //         },
+ * //         CustomTiers: [ // CustomTiersList
+ * //           { // CustomTier
+ * //             BeginRangeInclusive: Number("double"), // required
+ * //             EndRangeExclusive: Number("double"),
+ * //             RateValue: Number("double"), // required
+ * //           },
+ * //         ],
  * //       },
  * //       UsageType: "STRING_VALUE",
  * //       Operation: "STRING_VALUE",

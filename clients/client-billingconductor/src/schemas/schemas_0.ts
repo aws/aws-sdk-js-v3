@@ -53,6 +53,7 @@ const _BGT = "BillingGroupType";
 const _BGTi = "BillingGroupTypes";
 const _BP = "BillingPeriod";
 const _BPR = "BillingPeriodRange";
+const _BRI = "BeginRangeInclusive";
 const _C = "Currency";
 const _CBG = "CreateBillingGroup";
 const _CBGI = "CreateBillingGroupInput";
@@ -87,7 +88,10 @@ const _CPRO = "CreatePricingRuleOutput";
 const _CR = "ComputationRule";
 const _CT = "CreationTime";
 const _CTI = "CreateTieringInput";
+const _CTL = "CustomTiersList";
 const _CTl = "ClientToken";
+const _CTu = "CustomTiers";
+const _CTus = "CustomTier";
 const _CV = "ChargeValue";
 const _D = "Description";
 const _DA = "DisassociateAccounts";
@@ -113,6 +117,7 @@ const _DRRL = "DisassociateResourcesResponseList";
 const _E = "Error";
 const _EBP = "EndBillingPeriod";
 const _EEBP = "ExclusiveEndBillingPeriod";
+const _ERE = "EndRangeExclusive";
 const _F = "Fields";
 const _FAR = "FailedAssociatedResources";
 const _FDR = "FailedDisassociatedResources";
@@ -225,6 +230,7 @@ const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceType";
 const _RTA = "ResponsibilityTransferArn";
 const _RTAe = "ResponsibilityTransferArns";
+const _RV = "RateValue";
 const _Re = "Relationship";
 const _S = "Size";
 const _SAR = "SuccessfullyAssociatedResources";
@@ -516,8 +522,8 @@ export var CreatePricingRuleOutput$: StaticStructureSchema = [3, n0, _CPRO,
 ];
 export var CreateTieringInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
-  [_FT],
-  [() => CreateFreeTierConfig$], 1
+  [_FT, _CTu],
+  [() => CreateFreeTierConfig$, () => CustomTiersList]
 ];
 export var CustomLineItemBillingPeriodRange$: StaticStructureSchema = [3, n0, _CLIBPR,
   0,
@@ -548,6 +554,11 @@ export var CustomLineItemVersionListElement$: StaticStructureSchema = [3, n0, _C
   0,
   [_N, _CD, _CC, _D, _PCr, _BGA, _CT, _LMT, _AS, _SBP, _EBP, _A, _ST, _AI, _CR, _PD],
   [[() => CustomLineItemName, 0], () => ListCustomLineItemChargeDetails$, 0, [() => CustomLineItemDescription, 0], 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, () => PresentationObject$]
+];
+export var CustomTier$: StaticStructureSchema = [3, n0, _CTus,
+  0,
+  [_BRI, _RV, _ERE],
+  [1, 1, 1], 2
 ];
 export var DeleteBillingGroupInput$: StaticStructureSchema = [3, n0, _DBGI,
   0,
@@ -846,8 +857,8 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Tiering$: StaticStructureSchema = [3, n0, _Ti,
   0,
-  [_FT],
-  [() => FreeTierConfig$], 1
+  [_FT, _CTu],
+  [() => FreeTierConfig$, () => CustomTiersList]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
@@ -926,8 +937,8 @@ export var UpdatePricingRuleOutput$: StaticStructureSchema = [3, n0, _UPRO,
 ];
 export var UpdateTieringInput$: StaticStructureSchema = [3, n0, _UTI,
   0,
-  [_FT],
-  [() => UpdateFreeTierConfig$], 1
+  [_FT, _CTu],
+  [() => UpdateFreeTierConfig$, () => CustomTiersList]
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
@@ -975,6 +986,9 @@ var CustomLineItemNameList: StaticListSchema = [1, n0, _CLINL,
 var CustomLineItemVersionList: StaticListSchema = [1, n0, _CLIVL,
   0, [() => CustomLineItemVersionListElement$,
     0]
+];
+var CustomTiersList: StaticListSchema = [1, n0, _CTL,
+  0, () => CustomTier$
 ];
 var DisassociateResourcesResponseList: StaticListSchema = [1, n0, _DRRL,
   0, () => DisassociateResourceResponseElement$

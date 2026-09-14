@@ -2217,6 +2217,30 @@ export interface UpdatePricingPlanOutput {
 }
 
 /**
+ * <p> A custom tier for the pricing rule. Each custom tier applies a rate to the usage that falls within the tier's range. </p>
+ * @public
+ */
+export interface CustomTier {
+  /**
+   * <p> The inclusive start of the usage range that this tier applies to. </p>
+   * @public
+   */
+  BeginRangeInclusive: number | undefined;
+
+  /**
+   * <p> The exclusive end of the usage range that this tier applies to. If you don't specify a value, this tier applies to all usage that is greater than or equal to <code>BeginRangeInclusive</code>. </p>
+   * @public
+   */
+  EndRangeExclusive?: number | undefined;
+
+  /**
+   * <p> The rate that's applied to the usage that falls within this tier. </p>
+   * @public
+   */
+  RateValue: number | undefined;
+}
+
+/**
  * <p> The possible Amazon Web Services Free Tier configurations. </p>
  * @public
  */
@@ -2237,7 +2261,13 @@ export interface CreateTieringInput {
    * <p> The possible Amazon Web Services Free Tier configurations. </p>
    * @public
    */
-  FreeTier: CreateFreeTierConfig | undefined;
+  FreeTier?: CreateFreeTierConfig | undefined;
+
+  /**
+   * <p> The set of custom tiers for the pricing rule. </p>
+   * @public
+   */
+  CustomTiers?: CustomTier[] | undefined;
 }
 
 /**
@@ -2412,7 +2442,13 @@ export interface Tiering {
    * <p> The possible Amazon Web Services Free Tier configurations. </p>
    * @public
    */
-  FreeTier: FreeTierConfig | undefined;
+  FreeTier?: FreeTierConfig | undefined;
+
+  /**
+   * <p> The set of custom tiers for the pricing rule. </p>
+   * @public
+   */
+  CustomTiers?: CustomTier[] | undefined;
 }
 
 /**
@@ -2607,7 +2643,13 @@ export interface UpdateTieringInput {
    * <p> The possible Amazon Web Services Free Tier configurations. </p>
    * @public
    */
-  FreeTier: UpdateFreeTierConfig | undefined;
+  FreeTier?: UpdateFreeTierConfig | undefined;
+
+  /**
+   * <p> The set of custom tiers for the pricing rule. </p>
+   * @public
+   */
+  CustomTiers?: CustomTier[] | undefined;
 }
 
 /**

@@ -42,6 +42,13 @@ export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput,
  *     FreeTier: { // UpdateFreeTierConfig
  *       Activated: true || false, // required
  *     },
+ *     CustomTiers: [ // CustomTiersList
+ *       { // CustomTier
+ *         BeginRangeInclusive: Number("double"), // required
+ *         EndRangeExclusive: Number("double"),
+ *         RateValue: Number("double"), // required
+ *       },
+ *     ],
  *   },
  * };
  * const command = new UpdatePricingRuleCommand(input);
@@ -61,6 +68,13 @@ export interface UpdatePricingRuleCommandOutput extends UpdatePricingRuleOutput,
  * //     FreeTier: { // UpdateFreeTierConfig
  * //       Activated: true || false, // required
  * //     },
+ * //     CustomTiers: [ // CustomTiersList
+ * //       { // CustomTier
+ * //         BeginRangeInclusive: Number("double"), // required
+ * //         EndRangeExclusive: Number("double"),
+ * //         RateValue: Number("double"), // required
+ * //       },
+ * //     ],
  * //   },
  * //   UsageType: "STRING_VALUE",
  * //   Operation: "STRING_VALUE",
