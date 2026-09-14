@@ -53,6 +53,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     <PackedPolicySize>
         0
     </PackedPolicySize>
+    <SessionTokenUtilization>
+        0
+    </SessionTokenUtilization>
+    <SessionTokenSize>
+        0
+    </SessionTokenSize>
 </GetFederationTokenResponse>
 
 

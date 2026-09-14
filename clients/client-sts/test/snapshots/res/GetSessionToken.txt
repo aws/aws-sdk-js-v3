@@ -42,6 +42,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             2000-01-01T04:59:59.999Z
         </Expiration>
     </Credentials>
+    <SessionTokenUtilization>
+        0
+    </SessionTokenUtilization>
+    <SessionTokenSize>
+        0
+    </SessionTokenSize>
 </GetSessionTokenResponse>
 
 

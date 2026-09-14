@@ -135,6 +135,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   MinimumSessionTokenSize: Number("int"),
  * };
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
@@ -150,6 +151,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * //     Arn: "STRING_VALUE", // required
  * //   },
  * //   PackedPolicySize: Number("int"),
+ * //   SessionTokenUtilization: Number("int"),
+ * //   SessionTokenSize: Number("int"),
  * // };
  *
  * ```

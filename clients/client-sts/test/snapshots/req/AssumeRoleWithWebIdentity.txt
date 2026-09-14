@@ -2,7 +2,7 @@ POST https://sts.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 303
+content-length: 329
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sts#_.__ m/E
 host: sts.us-east-1.amazonaws.com
@@ -20,4 +20,5 @@ PolicyArns.member.1.arn=__arn__&
 PolicyArns.member.2.arn=__arn__&
 PolicyArns.member.3.arn=__arn__&
 Policy=__Policy__&
-DurationSeconds=0
+DurationSeconds=0&
+MinimumSessionTokenSize=0

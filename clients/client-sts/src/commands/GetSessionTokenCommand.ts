@@ -94,6 +94,7 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *   DurationSeconds: Number("int"),
  *   SerialNumber: "STRING_VALUE",
  *   TokenCode: "STRING_VALUE",
+ *   MinimumSessionTokenSize: Number("int"),
  * };
  * const command = new GetSessionTokenCommand(input);
  * const response = await client.send(command);
@@ -104,6 +105,8 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * //     SessionToken: "STRING_VALUE", // required
  * //     Expiration: new Date("TIMESTAMP"), // required
  * //   },
+ * //   SessionTokenUtilization: Number("int"),
+ * //   SessionTokenSize: Number("int"),
  * // };
  *
  * ```

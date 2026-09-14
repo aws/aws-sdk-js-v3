@@ -56,6 +56,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     <SourceIdentity>
         __SourceIdentity__
     </SourceIdentity>
+    <SessionTokenUtilization>
+        0
+    </SessionTokenUtilization>
+    <SessionTokenSize>
+        0
+    </SessionTokenSize>
 </AssumeRoleResponse>
 
 

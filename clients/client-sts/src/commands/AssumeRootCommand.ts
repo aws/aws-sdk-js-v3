@@ -56,6 +56,7 @@ export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataB
  *     arn: "STRING_VALUE",
  *   },
  *   DurationSeconds: Number("int"),
+ *   MinimumSessionTokenSize: Number("int"),
  * };
  * const command = new AssumeRootCommand(input);
  * const response = await client.send(command);
@@ -67,6 +68,8 @@ export interface AssumeRootCommandOutput extends AssumeRootResponse, __MetadataB
  * //     Expiration: new Date("TIMESTAMP"), // required
  * //   },
  * //   SourceIdentity: "STRING_VALUE",
+ * //   SessionTokenUtilization: Number("int"),
+ * //   SessionTokenSize: Number("int"),
  * // };
  *
  * ```

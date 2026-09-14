@@ -175,6 +175,7 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *   ],
  *   Policy: "STRING_VALUE",
  *   DurationSeconds: Number("int"),
+ *   MinimumSessionTokenSize: Number("int"),
  * };
  * const command = new AssumeRoleWithSAMLCommand(input);
  * const response = await client.send(command);
@@ -196,6 +197,8 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  * //   Audience: "STRING_VALUE",
  * //   NameQualifier: "STRING_VALUE",
  * //   SourceIdentity: "STRING_VALUE",
+ * //   SessionTokenUtilization: Number("int"),
+ * //   SessionTokenSize: Number("int"),
  * // };
  *
  * ```

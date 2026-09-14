@@ -57,6 +57,7 @@ const _IITE = "InvalidIdentityTokenException";
 const _JWTPSEE = "JWTPayloadSizeExceededException";
 const _K = "Key";
 const _MPDE = "MalformedPolicyDocumentException";
+const _MSTS = "MinimumSessionTokenSize";
 const _N = "Name";
 const _NQ = "NameQualifier";
 const _OWIFDE = "OutboundWebIdentityFederationDisabledException";
@@ -85,6 +86,8 @@ const _SFWIT = "SubjectFromWebIdentityToken";
 const _SI = "SourceIdentity";
 const _SN = "SerialNumber";
 const _ST = "SubjectType";
+const _STS = "SessionTokenSize";
+const _STU = "SessionTokenUtilization";
 const _STe = "SessionToken";
 const _T = "Tags";
 const _TC = "TokenCode";
@@ -235,43 +238,43 @@ export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU,
 ];
 export var AssumeRoleRequest$: StaticStructureSchema = [3, n0, _ARR,
   0,
-  [_RA, _RSN, _PA, _P, _DS, _T, _TTK, _EI, _SN, _TC, _SI, _PC],
-  [0, 0, () => policyDescriptorListType, 0, 1, () => tagListType, 64 | 0, 0, 0, 0, 0, () => ProvidedContextsListType], 2
+  [_RA, _RSN, _PA, _P, _DS, _T, _TTK, _EI, _SN, _TC, _SI, _PC, _MSTS],
+  [0, 0, () => policyDescriptorListType, 0, 1, () => tagListType, 64 | 0, 0, 0, 0, 0, () => ProvidedContextsListType, 1], 2
 ];
 export var AssumeRoleResponse$: StaticStructureSchema = [3, n0, _ARRs,
   0,
-  [_C, _ARU, _PPS, _SI],
-  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0]
+  [_C, _ARU, _PPS, _SI, _STU, _STS],
+  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0, 1, 1]
 ];
 export var AssumeRoleWithSAMLRequest$: StaticStructureSchema = [3, n0, _ARWSAMLR,
   0,
-  [_RA, _PAr, _SAMLA, _PA, _P, _DS],
-  [0, 0, [() => SAMLAssertionType, 0], () => policyDescriptorListType, 0, 1], 3
+  [_RA, _PAr, _SAMLA, _PA, _P, _DS, _MSTS],
+  [0, 0, [() => SAMLAssertionType, 0], () => policyDescriptorListType, 0, 1, 1], 3
 ];
 export var AssumeRoleWithSAMLResponse$: StaticStructureSchema = [3, n0, _ARWSAMLRs,
   0,
-  [_C, _ARU, _PPS, _S, _ST, _I, _Au, _NQ, _SI],
-  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0, 0, 0, 0, 0, 0]
+  [_C, _ARU, _PPS, _S, _ST, _I, _Au, _NQ, _SI, _STU, _STS],
+  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0, 0, 0, 0, 0, 0, 1, 1]
 ];
 export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [3, n0, _ARWWIR,
   0,
-  [_RA, _RSN, _WIT, _PI, _PA, _P, _DS],
-  [0, 0, [() => clientTokenType, 0], 0, () => policyDescriptorListType, 0, 1], 3
+  [_RA, _RSN, _WIT, _PI, _PA, _P, _DS, _MSTS],
+  [0, 0, [() => clientTokenType, 0], 0, () => policyDescriptorListType, 0, 1, 1], 3
 ];
 export var AssumeRoleWithWebIdentityResponse$: StaticStructureSchema = [3, n0, _ARWWIRs,
   0,
-  [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI],
-  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0]
+  [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI, _STU, _STS],
+  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0, 1, 1]
 ];
 export var AssumeRootRequest$: StaticStructureSchema = [3, n0, _ARRss,
   0,
-  [_TP, _TPA, _DS],
-  [0, () => PolicyDescriptorType$, 1], 2
+  [_TP, _TPA, _DS, _MSTS],
+  [0, () => PolicyDescriptorType$, 1, 1], 2
 ];
 export var AssumeRootResponse$: StaticStructureSchema = [3, n0, _ARRssu,
   0,
-  [_C, _SI],
-  [[() => Credentials$, 0], 0]
+  [_C, _SI, _STU, _STS],
+  [[() => Credentials$, 0], 0, 1, 1]
 ];
 export var Credentials$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -325,23 +328,23 @@ export var GetDelegatedAccessTokenResponse$: StaticStructureSchema = [3, n0, _GD
 ];
 export var GetFederationTokenRequest$: StaticStructureSchema = [3, n0, _GFTR,
   0,
-  [_N, _P, _PA, _DS, _T],
-  [0, 0, () => policyDescriptorListType, 1, () => tagListType], 1
+  [_N, _P, _PA, _DS, _T, _MSTS],
+  [0, 0, () => policyDescriptorListType, 1, () => tagListType, 1], 1
 ];
 export var GetFederationTokenResponse$: StaticStructureSchema = [3, n0, _GFTRe,
   0,
-  [_C, _FU, _PPS],
-  [[() => Credentials$, 0], () => FederatedUser$, 1]
+  [_C, _FU, _PPS, _STU, _STS],
+  [[() => Credentials$, 0], () => FederatedUser$, 1, 1, 1]
 ];
 export var GetSessionTokenRequest$: StaticStructureSchema = [3, n0, _GSTR,
   0,
-  [_DS, _SN, _TC],
-  [1, 0, 0]
+  [_DS, _SN, _TC, _MSTS],
+  [1, 0, 0, 1]
 ];
 export var GetSessionTokenResponse$: StaticStructureSchema = [3, n0, _GSTRe,
   0,
-  [_C],
-  [[() => Credentials$, 0]]
+  [_C, _STU, _STS],
+  [[() => Credentials$, 0], 1, 1]
 ];
 export var GetWebIdentityTokenRequest$: StaticStructureSchema = [3, n0, _GWITR,
   0,
