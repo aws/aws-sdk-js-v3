@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1131.0...v3.1132.0) (2026-09-14)
+
+
+### Features
+
+* **client-codedeploy:** AWS CodeDeploy now returns the deployment mode on GetDeployment and BatchGetDeployments. The new deploymentMode field on DeploymentInfo indicates whether a deployment used the standard deployment process or restarted the application using a previously installed revision (RESTART mode). ([05f1a7a](https://github.com/aws/aws-sdk-js-v3/commit/05f1a7a24082751deae8125f963432bc18c80ce4))
+
+
+
+
+
 # [3.1131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1130.0...v3.1131.0) (2026-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-codedeploy

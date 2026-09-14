@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1131.0...v3.1132.0) (2026-09-14)
+
+
+### Features
+
+* **client-imagebuilder:** This release adds a dryRun option to Image Builder create APIs (except CreateImage), structured failure context on failed images including component and distribution failure details, and step retry attempt tracking. ([7ee2144](https://github.com/aws/aws-sdk-js-v3/commit/7ee2144d59db7d6420dc1e784cda2a99763fafbc))
+
+
+
+
+
 # [3.1131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1130.0...v3.1131.0) (2026-09-11)
 
 **Note:** Version bump only for package @aws-sdk/client-imagebuilder

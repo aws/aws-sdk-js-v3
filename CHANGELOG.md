@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1131.0...v3.1132.0) (2026-09-14)
+
+
+### Features
+
+* **client-billingconductor:** This release adds support for custom volume tiering. You can now define custom tiers on a pricing rule's tiering configuration, where each tier specifies a usage range and the rate applied to usage in that range. ([7d5844d](https://github.com/aws/aws-sdk-js-v3/commit/7d5844d5c25c0496492ab3409135f6fe3696a678))
+* **client-billing:** Increased the maximum number of services returned in the supportEligibleSpendByService field of ListEnterpriseSupportLinkedAccountCharges ([eb2a387](https://github.com/aws/aws-sdk-js-v3/commit/eb2a3871268b43c9e64d9ecb9fae21ffc464d1ca))
+* **client-codedeploy:** AWS CodeDeploy now returns the deployment mode on GetDeployment and BatchGetDeployments. The new deploymentMode field on DeploymentInfo indicates whether a deployment used the standard deployment process or restarted the application using a previously installed revision (RESTART mode). ([05f1a7a](https://github.com/aws/aws-sdk-js-v3/commit/05f1a7a24082751deae8125f963432bc18c80ce4))
+* **client-glue:** Amazon Glue releasing the new API ListIntegrationTableProperties and adding IntegrationArn to TargetTableConfig ([ab0dc23](https://github.com/aws/aws-sdk-js-v3/commit/ab0dc23e9578dde0623792acdffebd4ccce3e6f7))
+* **client-imagebuilder:** This release adds a dryRun option to Image Builder create APIs (except CreateImage), structured failure context on failed images including component and distribution failure details, and step retry attempt tracking. ([7ee2144](https://github.com/aws/aws-sdk-js-v3/commit/7ee2144d59db7d6420dc1e784cda2a99763fafbc))
+* **client-sts:** Increases the maximum session token size to 4,096 bytes and removes the packed policy size limit. Adds SessionTokenSize and SessionTokenUtilization fields and a new MinimumSessionTokenSize parameter. PackedPolicySize is deprecated. ([906e0db](https://github.com/aws/aws-sdk-js-v3/commit/906e0db85730f7c72e0fceb332540c82a8cfeac1))
+* **clients:** update client endpoints as of 2026-09-14 ([8ab948b](https://github.com/aws/aws-sdk-js-v3/commit/8ab948b977f5934bde24b60a73d01155fdd2fbc9))
+
+
+
+
+
 # [3.1131.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1130.0...v3.1131.0) (2026-09-11)
 
 
