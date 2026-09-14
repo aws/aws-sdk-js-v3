@@ -1728,6 +1728,12 @@ export interface TargetTableConfig {
    * @public
    */
   TargetTableName?: string | undefined;
+
+  /**
+   * <p>The ARN of the integration that owns this target table configuration.</p>
+   * @public
+   */
+  IntegrationArn?: string | undefined;
 }
 
 /**

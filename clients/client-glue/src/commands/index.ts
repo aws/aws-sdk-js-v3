@@ -208,6 +208,7 @@ export * from "./ListFormTypesCommand";
 export * from "./ListGlossariesCommand";
 export * from "./ListGlossaryTermsCommand";
 export * from "./ListIntegrationResourcePropertiesCommand";
+export * from "./ListIntegrationTablePropertiesCommand";
 export * from "./ListIterableFormsCommand";
 export * from "./ListJobsCommand";
 export * from "./ListMLTransformsCommand";

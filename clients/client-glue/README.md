@@ -1645,6 +1645,13 @@ ListIntegrationResourceProperties
 </details>
 <details>
 <summary>
+ListIntegrationTableProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListIntegrationTablePropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListIntegrationTablePropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListIntegrationTablePropertiesCommandOutput/)
+</details>
+<details>
+<summary>
 ListIterableForms
 </summary>
 

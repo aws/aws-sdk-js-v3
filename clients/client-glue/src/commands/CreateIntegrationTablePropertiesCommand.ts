@@ -58,6 +58,7 @@ export interface CreateIntegrationTablePropertiesCommandOutput extends CreateInt
  *       },
  *     ],
  *     TargetTableName: "STRING_VALUE",
+ *     IntegrationArn: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateIntegrationTablePropertiesCommand(input);

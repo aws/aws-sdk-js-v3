@@ -149,10 +149,79 @@ import type {
   DataQualityRuleRecommendationRunAdditionalRunOptions,
   FederatedTable,
   IcebergTableMetadata,
+  JobBookmarkEntry,
   SchemaVersionNumber,
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface ResetJobBookmarkRequest {
+  /**
+   * <p>The name of the job in question.</p>
+   * @public
+   */
+  JobName: string | undefined;
+
+  /**
+   * <p>The unique run identifier associated with this job run.</p>
+   * @public
+   */
+  RunId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetJobBookmarkResponse {
+  /**
+   * <p>The reset bookmark entry.</p>
+   * @public
+   */
+  JobBookmarkEntry?: JobBookmarkEntry | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeWorkflowRunRequest {
+  /**
+   * <p>The name of the workflow to resume.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run to resume.</p>
+   * @public
+   */
+  RunId: string | undefined;
+
+  /**
+   * <p>A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.</p>
+   * @public
+   */
+  NodeIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeWorkflowRunResponse {
+  /**
+   * <p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>
+   * @public
+   */
+  RunId?: string | undefined;
+
+  /**
+   * <p>A list of the node IDs for the nodes that were actually restarted.</p>
+   * @public
+   */
+  NodeIds?: string[] | undefined;
+}
 
 /**
  * @public

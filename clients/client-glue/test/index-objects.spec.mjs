@@ -1112,6 +1112,8 @@ import {
   IntegrationResourceProperty$,
   IntegrationResourcePropertyFilter$,
   IntegrationStatus,
+  IntegrationTableProperties$,
+  IntegrationTablePropertiesFilter$,
   IntegrationType,
   InternalServerException,
   InternalServerException$,
@@ -1238,6 +1240,10 @@ import {
   ListIntegrationResourcePropertiesCommand,
   ListIntegrationResourcePropertiesRequest$,
   ListIntegrationResourcePropertiesResponse$,
+  ListIntegrationTableProperties$,
+  ListIntegrationTablePropertiesCommand,
+  ListIntegrationTablePropertiesRequest$,
+  ListIntegrationTablePropertiesResponse$,
   ListIterableForms$,
   ListIterableFormsCommand,
   ListIterableFormsRequest$,
@@ -2381,6 +2387,8 @@ assert(typeof ListGlossaryTermsCommand === "function");
 assert(typeof ListGlossaryTerms$ === "object");
 assert(typeof ListIntegrationResourcePropertiesCommand === "function");
 assert(typeof ListIntegrationResourceProperties$ === "object");
+assert(typeof ListIntegrationTablePropertiesCommand === "function");
+assert(typeof ListIntegrationTableProperties$ === "object");
 assert(typeof ListIterableFormsCommand === "function");
 assert(typeof ListIterableForms$ === "object");
 assert(typeof ListJobsCommand === "function");
@@ -3175,6 +3183,8 @@ assert(typeof IntegrationFilter$ === "object");
 assert(typeof IntegrationPartition$ === "object");
 assert(typeof IntegrationResourceProperty$ === "object");
 assert(typeof IntegrationResourcePropertyFilter$ === "object");
+assert(typeof IntegrationTableProperties$ === "object");
+assert(typeof IntegrationTablePropertiesFilter$ === "object");
 assert(typeof ItemError$ === "object");
 assert(typeof IterableFormEntry$ === "object");
 assert(typeof IterableFormItem$ === "object");
@@ -3240,6 +3250,8 @@ assert(typeof ListGlossaryTermsRequest$ === "object");
 assert(typeof ListGlossaryTermsResponse$ === "object");
 assert(typeof ListIntegrationResourcePropertiesRequest$ === "object");
 assert(typeof ListIntegrationResourcePropertiesResponse$ === "object");
+assert(typeof ListIntegrationTablePropertiesRequest$ === "object");
+assert(typeof ListIntegrationTablePropertiesResponse$ === "object");
 assert(typeof ListIterableFormsRequest$ === "object");
 assert(typeof ListIterableFormsResponse$ === "object");
 assert(typeof ListJobsRequest$ === "object");

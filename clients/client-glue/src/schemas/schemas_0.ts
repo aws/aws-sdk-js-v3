@@ -1358,6 +1358,10 @@ const _ITBRIM = "IdleTimeBetweenReadsInMs";
 const _ITL = "IcebergTargetList";
 const _ITLn = "IntegrationTagsList";
 const _ITM = "IcebergTableMetadata";
+const _ITP = "IntegrationTableProperties";
+const _ITPF = "IntegrationTablePropertiesFilter";
+const _ITPFL = "IntegrationTablePropertiesFilterList";
+const _ITPL = "IntegrationTablePropertiesList";
 const _ITU = "IcebergTableUpdate";
 const _ITUL = "IcebergTableUpdateList";
 const _ITc = "IcebergTargets";
@@ -1509,6 +1513,9 @@ const _LIFRi = "ListIterableFormsResponse";
 const _LIRP = "ListIntegrationResourceProperties";
 const _LIRPR = "ListIntegrationResourcePropertiesRequest";
 const _LIRPRi = "ListIntegrationResourcePropertiesResponse";
+const _LITP = "ListIntegrationTableProperties";
+const _LITPR = "ListIntegrationTablePropertiesRequest";
+const _LITPRi = "ListIntegrationTablePropertiesResponse";
 const _LJ = "ListJobs";
 const _LJR = "ListJobsRequest";
 const _LJRi = "ListJobsResponse";
@@ -6118,6 +6125,16 @@ export var IntegrationResourcePropertyFilter$: StaticStructureSchema = [3, n0, _
   [_N, _Val],
   [0, 64 | 0]
 ];
+export var IntegrationTableProperties$: StaticStructureSchema = [3, n0, _ITP,
+  0,
+  [_RAe, _TN, _STC, _TTC],
+  [0, 0, () => SourceTableConfig$, () => TargetTableConfig$], 2
+];
+export var IntegrationTablePropertiesFilter$: StaticStructureSchema = [3, n0, _ITPF,
+  0,
+  [_N, _Val],
+  [0, 64 | 0]
+];
 export var ItemError$: StaticStructureSchema = [3, n0, _IEt,
   0,
   [_II, _Cod, _M],
@@ -6442,6 +6459,16 @@ export var ListIntegrationResourcePropertiesResponse$: StaticStructureSchema = [
   0,
   [_IRPL, _Mar],
   [() => IntegrationResourcePropertyList, 0]
+];
+export var ListIntegrationTablePropertiesRequest$: StaticStructureSchema = [3, n0, _LITPR,
+  0,
+  [_Mar, _Fil, _MRa],
+  [0, () => IntegrationTablePropertiesFilterList, 1]
+];
+export var ListIntegrationTablePropertiesResponse$: StaticStructureSchema = [3, n0, _LITPRi,
+  0,
+  [_ITPL, _Mar],
+  [() => IntegrationTablePropertiesList, 0]
 ];
 export var ListIterableFormsRequest$: StaticStructureSchema = [3, n0, _LIFR,
   0,
@@ -7810,8 +7837,8 @@ export var TargetRedshiftCatalog$: StaticStructureSchema = [3, n0, _TRC,
 ];
 export var TargetTableConfig$: StaticStructureSchema = [3, n0, _TTC,
   0,
-  [_US, _PSa, _TTN],
-  [0, () => IntegrationPartitionSpecList, 0]
+  [_US, _PSa, _TTN, _IAnt],
+  [0, () => IntegrationPartitionSpecList, 0, 0]
 ];
 export var TaskRun$: StaticStructureSchema = [3, n0, _TRa,
   0,
@@ -8651,6 +8678,13 @@ var IntegrationResourcePropertyList: StaticListSchema = [1, n0, _IRPL,
 ];
 var IntegrationsList: StaticListSchema = [1, n0, _IL,
   0, () => Integration$
+];
+var IntegrationTablePropertiesFilterList: StaticListSchema = [1, n0, _ITPFL,
+  0, () => IntegrationTablePropertiesFilter$
+];
+var IntegrationTablePropertiesFilterValues = 64 | 0;
+var IntegrationTablePropertiesList: StaticListSchema = [1, n0, _ITPL,
+  0, () => IntegrationTableProperties$
 ];
 var IntegrationTagsList: StaticListSchema = [1, n0, _ITLn,
   0, () => Tag$
@@ -9606,6 +9640,9 @@ export var ListGlossaryTerms$: StaticOperationSchema = [9, n0, _LGT,
 ];
 export var ListIntegrationResourceProperties$: StaticOperationSchema = [9, n0, _LIRP,
   0, () => ListIntegrationResourcePropertiesRequest$, () => ListIntegrationResourcePropertiesResponse$
+];
+export var ListIntegrationTableProperties$: StaticOperationSchema = [9, n0, _LITP,
+  0, () => ListIntegrationTablePropertiesRequest$, () => ListIntegrationTablePropertiesResponse$
 ];
 export var ListIterableForms$: StaticOperationSchema = [9, n0, _LIF,
   { [_h]: ["GET", "/assets/{AssetIdentifier}/iterable-forms/{IterableFormName}", 200] }, () => ListIterableFormsRequest$, () => ListIterableFormsResponse$

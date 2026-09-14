@@ -6733,6 +6733,94 @@ export interface ListIntegrationResourcePropertiesResponse {
 }
 
 /**
+ * <p>A key-value filter used to narrow the list of integration table properties returned by ListIntegrationTableProperties. Specify a filter key and one or more values to match.</p>
+ * @public
+ */
+export interface IntegrationTablePropertiesFilter {
+  /**
+   * <p>The name of the filter. Supported filter keys are <code>SourceArn</code>, <code>TargetArn</code>, <code>SourceTableName</code>, and <code>TargetTableName</code>.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A list of filter values.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntegrationTablePropertiesRequest {
+  /**
+   * <p>The pagination token for the next page of results. The initial value is <code>null</code>.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>A list of filters. Supported filter keys are <code>SourceArn</code>, <code>TargetArn</code>, <code>SourceTableName</code>, and <code>TargetTableName</code>.</p>
+   * @public
+   */
+  Filters?: IntegrationTablePropertiesFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of records to return in the response.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+}
+
+/**
+ * <p>The properties of a single integration table, including the resource ARN, the table name, and the source or target table configuration.</p>
+ * @public
+ */
+export interface IntegrationTableProperties {
+  /**
+   * <p>The connection ARN of the source, or the database ARN of the target.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The name of the source table to be replicated.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A structure for the source table configuration.</p>
+   * @public
+   */
+  SourceTableConfig?: SourceTableConfig | undefined;
+
+  /**
+   * <p>A structure for the target table configuration.</p>
+   * @public
+   */
+  TargetTableConfig?: TargetTableConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIntegrationTablePropertiesResponse {
+  /**
+   * <p>A list of integration table properties meeting the filter criteria.</p>
+   * @public
+   */
+  IntegrationTablePropertiesList?: IntegrationTableProperties[] | undefined;
+
+  /**
+   * <p>The pagination token for the next page. Returns <code>null</code> if there are no more results.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListIterableFormsRequest {
@@ -8746,72 +8834,4 @@ export interface RemoveSchemaVersionMetadataResponse {
    * @public
    */
   MetadataValue?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetJobBookmarkRequest {
-  /**
-   * <p>The name of the job in question.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The unique run identifier associated with this job run.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetJobBookmarkResponse {
-  /**
-   * <p>The reset bookmark entry.</p>
-   * @public
-   */
-  JobBookmarkEntry?: JobBookmarkEntry | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeWorkflowRunRequest {
-  /**
-   * <p>The name of the workflow to resume.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run to resume.</p>
-   * @public
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.</p>
-   * @public
-   */
-  NodeIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeWorkflowRunResponse {
-  /**
-   * <p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-
-  /**
-   * <p>A list of the node IDs for the nodes that were actually restarted.</p>
-   * @public
-   */
-  NodeIds?: string[] | undefined;
 }

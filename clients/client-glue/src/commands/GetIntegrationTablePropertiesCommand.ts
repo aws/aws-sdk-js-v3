@@ -61,6 +61,7 @@ export interface GetIntegrationTablePropertiesCommandOutput extends GetIntegrati
  * //       },
  * //     ],
  * //     TargetTableName: "STRING_VALUE",
+ * //     IntegrationArn: "STRING_VALUE",
  * //   },
  * // };
  *

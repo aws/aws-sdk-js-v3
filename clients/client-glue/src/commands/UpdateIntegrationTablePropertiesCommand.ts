@@ -59,6 +59,7 @@ export interface UpdateIntegrationTablePropertiesCommandOutput extends UpdateInt
  *       },
  *     ],
  *     TargetTableName: "STRING_VALUE",
+ *     IntegrationArn: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateIntegrationTablePropertiesCommand(input);

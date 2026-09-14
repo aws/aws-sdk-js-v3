@@ -1004,6 +1004,11 @@ import {
   ListIntegrationResourcePropertiesCommand,
 } from "./commands/ListIntegrationResourcePropertiesCommand";
 import {
+  type ListIntegrationTablePropertiesCommandInput,
+  type ListIntegrationTablePropertiesCommandOutput,
+  ListIntegrationTablePropertiesCommand,
+} from "./commands/ListIntegrationTablePropertiesCommand";
+import {
   type ListIterableFormsCommandInput,
   type ListIterableFormsCommandOutput,
   ListIterableFormsCommand,
@@ -1709,6 +1714,7 @@ const commands = {
   ListGlossariesCommand,
   ListGlossaryTermsCommand,
   ListIntegrationResourcePropertiesCommand,
+  ListIntegrationTablePropertiesCommand,
   ListIterableFormsCommand,
   ListJobsCommand,
   ListMaterializedViewRefreshTaskRunsCommand,
@@ -5450,6 +5456,24 @@ export interface Glue {
     args: ListIntegrationResourcePropertiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIntegrationResourcePropertiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIntegrationTablePropertiesCommand}
+   */
+  listIntegrationTableProperties(): Promise<ListIntegrationTablePropertiesCommandOutput>;
+  listIntegrationTableProperties(
+    args: ListIntegrationTablePropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIntegrationTablePropertiesCommandOutput>;
+  listIntegrationTableProperties(
+    args: ListIntegrationTablePropertiesCommandInput,
+    cb: (err: any, data?: ListIntegrationTablePropertiesCommandOutput) => void
+  ): void;
+  listIntegrationTableProperties(
+    args: ListIntegrationTablePropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIntegrationTablePropertiesCommandOutput) => void
   ): void;
 
   /**

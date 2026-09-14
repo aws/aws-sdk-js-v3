@@ -582,6 +582,10 @@ import type {
   ListIntegrationResourcePropertiesCommandOutput,
 } from "./commands/ListIntegrationResourcePropertiesCommand";
 import type {
+  ListIntegrationTablePropertiesCommandInput,
+  ListIntegrationTablePropertiesCommandOutput,
+} from "./commands/ListIntegrationTablePropertiesCommand";
+import type {
   ListIterableFormsCommandInput,
   ListIterableFormsCommandOutput,
 } from "./commands/ListIterableFormsCommand";
@@ -1039,6 +1043,7 @@ export type ServiceInputTypes =
   | ListGlossariesCommandInput
   | ListGlossaryTermsCommandInput
   | ListIntegrationResourcePropertiesCommandInput
+  | ListIntegrationTablePropertiesCommandInput
   | ListIterableFormsCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
@@ -1343,6 +1348,7 @@ export type ServiceOutputTypes =
   | ListGlossariesCommandOutput
   | ListGlossaryTermsCommandOutput
   | ListIntegrationResourcePropertiesCommandOutput
+  | ListIntegrationTablePropertiesCommandOutput
   | ListIterableFormsCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput
