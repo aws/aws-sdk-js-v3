@@ -71,6 +71,9 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *     As2Transports: [ // As2Transports
  *       "HTTP",
  *     ],
+ *     ProxyConfig: { // ProxyConfig
+ *       SftpMode: "NONE" || "PROXY_PROTOCOL_V2_ENFORCED",
+ *     },
  *   },
  *   SecurityPolicyName: "STRING_VALUE",
  *   Tags: [ // Tags

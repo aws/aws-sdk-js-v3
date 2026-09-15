@@ -48,6 +48,9 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  * //       As2Transports: [ // As2Transports
  * //         "HTTP",
  * //       ],
+ * //       ProxyConfig: { // ProxyConfig
+ * //         SftpMode: "NONE" || "PROXY_PROTOCOL_V2_ENFORCED",
+ * //       },
  * //     },
  * //     Domain: "S3" || "EFS",
  * //     EndpointDetails: { // EndpointDetails

@@ -322,6 +322,7 @@ const _OUWD = "OnUploadWorkflowDetails";
 const _P = "Policy";
 const _PALB = "PostAuthenticationLoginBanner";
 const _PALBr = "PreAuthenticationLoginBanner";
+const _PC = "ProxyConfig";
 const _PCT = "PreserveContentType";
 const _PD = "ProtocolDetails";
 const _PF = "PreserveFilename";
@@ -383,6 +384,7 @@ const _SK = "SshKexs";
 const _SLD = "StructuredLogDestinations";
 const _SM = "ServiceMetadata";
 const _SMEIA = "ServiceManagedEgressIpAddresses";
+const _SMf = "SftpMode";
 const _SMs = "SshMacs";
 const _SMt = "StatusMessage";
 const _SP = "SecurityPolicy";
@@ -1315,8 +1317,13 @@ export var PosixProfile$: StaticStructureSchema = [3, n0, _PP,
 ];
 export var ProtocolDetails$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_PIa, _TSRM, _SSOe, _AT],
-  [0, 0, 0, 64 | 0]
+  [_PIa, _TSRM, _SSOe, _AT, _PC],
+  [0, 0, 0, 64 | 0, () => ProxyConfig$]
+];
+export var ProxyConfig$: StaticStructureSchema = [3, n0, _PC,
+  0,
+  [_SMf],
+  [0]
 ];
 export var S3FileLocation$: StaticStructureSchema = [3, n0, _SFLi,
   0,

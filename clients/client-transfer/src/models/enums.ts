@@ -361,6 +361,19 @@ export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
  * @public
  * @enum
  */
+export const ProxyMode = {
+  NONE: "NONE",
+  PROXY_PROTOCOL_V2_ENFORCED: "PROXY_PROTOCOL_V2_ENFORCED",
+} as const;
+/**
+ * @public
+ */
+export type ProxyMode = (typeof ProxyMode)[keyof typeof ProxyMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const SetStatOption = {
   DEFAULT: "DEFAULT",
   ENABLE_NO_OP: "ENABLE_NO_OP",

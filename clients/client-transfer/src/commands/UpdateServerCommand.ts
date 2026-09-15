@@ -41,6 +41,9 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *     As2Transports: [ // As2Transports
  *       "HTTP",
  *     ],
+ *     ProxyConfig: { // ProxyConfig
+ *       SftpMode: "NONE" || "PROXY_PROTOCOL_V2_ENFORCED",
+ *     },
  *   },
  *   EndpointDetails: { // EndpointDetails
  *     AddressAllocationIds: [ // AddressAllocationIds

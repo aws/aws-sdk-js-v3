@@ -293,6 +293,8 @@ import {
   ProfileType,
   Protocol,
   ProtocolDetails$,
+  ProxyConfig$,
+  ProxyMode,
   ResourceExistsException,
   ResourceExistsException$,
   ResourceNotFoundException,
@@ -715,6 +717,7 @@ assert(typeof ListWorkflowsResponse$ === "object");
 assert(typeof LoggingConfiguration$ === "object");
 assert(typeof PosixProfile$ === "object");
 assert(typeof ProtocolDetails$ === "object");
+assert(typeof ProxyConfig$ === "object");
 assert(typeof S3FileLocation$ === "object");
 assert(typeof S3InputFileLocation$ === "object");
 assert(typeof S3StorageOptions$ === "object");
@@ -807,6 +810,7 @@ assert(typeof PreserveContentType === "object");
 assert(typeof PreserveFilenameType === "object");
 assert(typeof ProfileType === "object");
 assert(typeof Protocol === "object");
+assert(typeof ProxyMode === "object");
 assert(typeof SecurityPolicyProtocol === "object");
 assert(typeof SecurityPolicyResourceType === "object");
 assert(typeof SetStatOption === "object");
