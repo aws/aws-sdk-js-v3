@@ -25,5 +25,11 @@ export class WorkerHttpHandler {
   httpHandlerConfigs(): Record<string, unknown> {
     return {};
   }
+  getDownloadResult(): { bytesWritten: number; checksum?: string } | undefined {
+    throw new Error("WorkerHttpHandler is not supported in browser environments.");
+  }
+  getStreamDownloadResult(): any {
+    throw new Error("WorkerHttpHandler is not supported in browser environments.");
+  }
   destroy(): void {}
 }
