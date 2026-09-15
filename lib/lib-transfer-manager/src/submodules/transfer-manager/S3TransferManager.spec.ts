@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { Readable } from "node:stream";
 import { afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { S3TransferManager } from "./S3TransferManager";
+import { S3TransferManager } from "./index";
 import type { TransferCompleteEvent, TransferEvent } from "./types";
 import type { CannedFailurePolicy } from "./types";
 import { WorkerHttpHandler } from "./worker-http-handler";
