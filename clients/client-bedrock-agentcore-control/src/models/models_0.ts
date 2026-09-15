@@ -1845,6 +1845,12 @@ export interface CreateAgentRuntimeRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The version of the runtime platform to use for the AgentCore Runtime.</p>
+   * @public
+   */
+  platformVersion?: string | undefined;
 }
 
 /**
@@ -2104,6 +2110,12 @@ export interface GetAgentRuntimeResponse {
    * @public
    */
   capacityProviderConfiguration?: CapacityProviderConfiguration | undefined;
+
+  /**
+   * <p>The version of the runtime platform used by the AgentCore Runtime.</p>
+   * @public
+   */
+  platformVersion?: string | undefined;
 }
 
 /**
@@ -2309,6 +2321,12 @@ export interface UpdateAgentRuntimeRequest {
    * @public
    */
   capacityProviderConfiguration?: CapacityProviderConfiguration | undefined;
+
+  /**
+   * <p>The updated version of the runtime platform to use for the AgentCore Runtime.</p>
+   * @public
+   */
+  platformVersion?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>

@@ -190,6 +190,7 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *     capacityProviderArn: "STRING_VALUE", // required
  *   },
  *   tags: "<TagsMap>",
+ *   platformVersion: "STRING_VALUE",
  * };
  * const command = new CreateAgentRuntimeCommand(input);
  * const response = await client.send(command);

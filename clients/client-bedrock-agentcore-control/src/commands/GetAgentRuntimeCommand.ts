@@ -207,6 +207,7 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //   capacityProviderConfiguration: { // CapacityProviderConfiguration
  * //     capacityProviderArn: "STRING_VALUE", // required
  * //   },
+ * //   platformVersion: "STRING_VALUE",
  * // };
  *
  * ```

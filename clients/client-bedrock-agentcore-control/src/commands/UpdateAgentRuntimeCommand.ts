@@ -191,6 +191,7 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *   capacityProviderConfiguration: { // CapacityProviderConfiguration
  *     capacityProviderArn: "STRING_VALUE", // required
  *   },
+ *   platformVersion: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateAgentRuntimeCommand(input);

@@ -1537,6 +1537,7 @@ const _pTr = "propagatedTags";
 const _pU = "portalUrl";
 const _pV = "parameterValues";
 const _pVI = "parentVersionIds";
+const _pVl = "platformVersion";
 const _pVr = "protocolVersion";
 const _pa = "paths";
 const _par = "parameters";
@@ -2229,8 +2230,8 @@ export var CreateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _CARR,
   0,
-  [_aRN, _aRAg, _rA, _nC, _cT, _d, _aCu, _rHC, _pC, _lC, _eV, _fC, _cPC, _ta],
-  [0, () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [0, 4], [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 128 | 0], 3
+  [_aRN, _aRAg, _rA, _nC, _cT, _d, _aCu, _rHC, _pC, _lC, _eV, _fC, _cPC, _ta, _pVl],
+  [0, () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [0, 4], [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 128 | 0, 0], 3
 ];
 export var CreateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _CARRr,
   0,
@@ -3024,8 +3025,8 @@ export var GetAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _GARR,
 ];
 export var GetAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _st, _lC, _nC, _fR, _d, _wID, _aRAg, _pC, _eV, _aCu, _rHC, _mC, _fC, _cPC],
-  [0, 0, 0, 0, 5, 5, 0, 0, () => LifecycleConfiguration$, () => NetworkConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$, () => FilesystemConfigurations, () => CapacityProviderConfiguration$], 9
+  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _st, _lC, _nC, _fR, _d, _wID, _aRAg, _pC, _eV, _aCu, _rHC, _mC, _fC, _cPC, _pVl],
+  [0, 0, 0, 0, 5, 5, 0, 0, () => LifecycleConfiguration$, () => NetworkConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$, () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0], 9
 ];
 export var GetApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GAKCPR,
   0,
@@ -4789,8 +4790,8 @@ export var UpdateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _UARR,
   0,
-  [_aRI, _aRAg, _rA, _nC, _d, _aCu, _rHC, _pC, _lC, _mC, _eV, _fC, _cPC, _cT],
-  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeMetadataConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, [0, 4]], 3
+  [_aRI, _aRAg, _rA, _nC, _d, _aCu, _rHC, _pC, _lC, _mC, _eV, _fC, _cPC, _pVl, _cT],
+  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeMetadataConfiguration$, [() => EnvironmentVariablesMap, 0], () => FilesystemConfigurations, () => CapacityProviderConfiguration$, 0, [0, 4]], 3
 ];
 export var UpdateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _UARRp,
   0,
