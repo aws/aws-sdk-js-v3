@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { Connections, DescribeHostedConnectionsRequest } from "../models/models_0";
-import { DescribeHostedConnections$ } from "../schemas/schemas_0";
+import type { UpdateConnectionsBillingModeRequest, UpdateConnectionsBillingModeResponse } from "../models/models_0";
+import { UpdateConnectionsBillingMode$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,38 +12,37 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link DescribeHostedConnectionsCommand}.
+ * The input for {@link UpdateConnectionsBillingModeCommand}.
  */
-export interface DescribeHostedConnectionsCommandInput extends DescribeHostedConnectionsRequest {}
+export interface UpdateConnectionsBillingModeCommandInput extends UpdateConnectionsBillingModeRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeHostedConnectionsCommand}.
+ * The output of {@link UpdateConnectionsBillingModeCommand}.
  */
-export interface DescribeHostedConnectionsCommandOutput extends Connections, __MetadataBearer {}
+export interface UpdateConnectionsBillingModeCommandOutput extends UpdateConnectionsBillingModeResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the hosted connections that have been provisioned on the specified
- *       interconnect or link aggregation group (LAG).</p>
- *          <note>
- *             <p>Intended for use by Direct Connect Partners only.</p>
- *          </note>
+ * <p>Updates the billing mode for the specified Direct Connect connections. You can update the billing
+ *       mode for up to 200 connections in a single request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DirectConnectClient, DescribeHostedConnectionsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
- * // const { DirectConnectClient, DescribeHostedConnectionsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * import { DirectConnectClient, UpdateConnectionsBillingModeCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, UpdateConnectionsBillingModeCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * // import type { DirectConnectClientConfig } from "@aws-sdk/client-direct-connect";
  * const config = {}; // type is DirectConnectClientConfig
  * const client = new DirectConnectClient(config);
- * const input = { // DescribeHostedConnectionsRequest
- *   connectionId: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ * const input = { // UpdateConnectionsBillingModeRequest
+ *   connectionIds: [ // ConnectionIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   billingMode: "PayAsYouGo" || "FlatRateTier1" || "FlatRateTier2" || "FlatRateTier3" || "FlatRateTier4" || "FlatRateTier5", // required
  * };
- * const command = new DescribeHostedConnectionsCommand(input);
+ * const command = new UpdateConnectionsBillingModeCommand(input);
  * const response = await client.send(command);
- * // { // Connections
+ * // { // UpdateConnectionsBillingModeResponse
+ * //   billingMode: "PayAsYouGo" || "FlatRateTier1" || "FlatRateTier2" || "FlatRateTier3" || "FlatRateTier4" || "FlatRateTier5" || "PortPairFlatRateTier1" || "PortPairFlatRateTier2" || "PortPairFlatRateTier3" || "PortPairFlatRateTier4" || "PortPairFlatRateTier5",
  * //   connections: [ // ConnectionList
  * //     { // Connection
  * //       ownerAccount: "STRING_VALUE",
@@ -94,15 +93,14 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  * //       billingMode: "PayAsYouGo" || "FlatRateTier1" || "FlatRateTier2" || "FlatRateTier3" || "FlatRateTier4" || "FlatRateTier5" || "PortPairFlatRateTier1" || "PortPairFlatRateTier2" || "PortPairFlatRateTier3" || "PortPairFlatRateTier4" || "PortPairFlatRateTier5",
  * //     },
  * //   ],
- * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeHostedConnectionsCommandInput - {@link DescribeHostedConnectionsCommandInput}
- * @returns {@link DescribeHostedConnectionsCommandOutput}
- * @see {@link DescribeHostedConnectionsCommandInput} for command's `input` shape.
- * @see {@link DescribeHostedConnectionsCommandOutput} for command's `response` shape.
+ * @param UpdateConnectionsBillingModeCommandInput - {@link UpdateConnectionsBillingModeCommandInput}
+ * @returns {@link UpdateConnectionsBillingModeCommandOutput}
+ * @see {@link UpdateConnectionsBillingModeCommandInput} for command's `input` shape.
+ * @see {@link UpdateConnectionsBillingModeCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  * @throws {@link DirectConnectClientException} (client fault)
@@ -117,21 +115,21 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  *
  * @public
  */
-export class DescribeHostedConnectionsCommand extends command<DescribeHostedConnectionsCommandInput, DescribeHostedConnectionsCommandOutput>(
+export class UpdateConnectionsBillingModeCommand extends command<UpdateConnectionsBillingModeCommandInput, UpdateConnectionsBillingModeCommandOutput>(
   _ep0,
   _mw0,
-  "DescribeHostedConnections",
-  DescribeHostedConnections$
+  "UpdateConnectionsBillingMode",
+  UpdateConnectionsBillingMode$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeHostedConnectionsRequest;
-      output: Connections;
+      input: UpdateConnectionsBillingModeRequest;
+      output: UpdateConnectionsBillingModeResponse;
     };
     sdk: {
-      input: DescribeHostedConnectionsCommandInput;
-      output: DescribeHostedConnectionsCommandOutput;
+      input: UpdateConnectionsBillingModeCommandInput;
+      output: UpdateConnectionsBillingModeCommandOutput;
     };
   };
 }

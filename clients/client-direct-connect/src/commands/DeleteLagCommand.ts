@@ -98,6 +98,7 @@ export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
  * //       prefixPoolSizeIpv6: Number("int"),
  * //       prefixPoolUnallocatedCountIpv4: Number("int"),
  * //       prefixPoolUnallocatedCountIpv6: Number("int"),
+ * //       billingMode: "PayAsYouGo" || "FlatRateTier1" || "FlatRateTier2" || "FlatRateTier3" || "FlatRateTier4" || "FlatRateTier5" || "PortPairFlatRateTier1" || "PortPairFlatRateTier2" || "PortPairFlatRateTier3" || "PortPairFlatRateTier4" || "PortPairFlatRateTier5",
  * //     },
  * //   ],
  * //   allowsHostedConnections: true || false,
@@ -130,6 +131,7 @@ export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
  * //     remaining: Number("int"),
  * //     totalBandwidth: "STRING_VALUE",
  * //   },
+ * //   billingMode: "PayAsYouGo" || "FlatRateTier1" || "FlatRateTier2" || "FlatRateTier3" || "FlatRateTier4" || "FlatRateTier5" || "PortPairFlatRateTier1" || "PortPairFlatRateTier2" || "PortPairFlatRateTier3" || "PortPairFlatRateTier4" || "PortPairFlatRateTier5",
  * // };
  *
  * ```

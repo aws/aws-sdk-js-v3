@@ -22,6 +22,10 @@ import {
   AllocateTransitVirtualInterfaceResult$,
   AsPathSegment$,
   AsPathType,
+  AssociateConnectionsToResiliencyGroup$,
+  AssociateConnectionsToResiliencyGroupCommand,
+  AssociateConnectionsToResiliencyGroupRequest$,
+  AssociateConnectionsToResiliencyGroupResult$,
   AssociateConnectionWithLag$,
   AssociateConnectionWithLagCommand,
   AssociateConnectionWithLagRequest$,
@@ -37,9 +41,11 @@ import {
   AssociateVirtualInterface$,
   AssociateVirtualInterfaceCommand,
   AssociateVirtualInterfaceRequest$,
+  AvailableBillingMode$,
   BGPPeer$,
   BGPPeerState,
   BGPStatus,
+  BillingMode,
   ConfirmConnection$,
   ConfirmConnectionCommand,
   ConfirmConnectionRequest$,
@@ -94,6 +100,10 @@ import {
   CreatePublicVirtualInterface$,
   CreatePublicVirtualInterfaceCommand,
   CreatePublicVirtualInterfaceRequest$,
+  CreateResiliencyGroup$,
+  CreateResiliencyGroupCommand,
+  CreateResiliencyGroupRequest$,
+  CreateResiliencyGroupResult$,
   CreateTransitVirtualInterface$,
   CreateTransitVirtualInterfaceCommand,
   CreateTransitVirtualInterfaceRequest$,
@@ -125,6 +135,10 @@ import {
   DeleteLag$,
   DeleteLagCommand,
   DeleteLagRequest$,
+  DeleteResiliencyGroup$,
+  DeleteResiliencyGroupCommand,
+  DeleteResiliencyGroupRequest$,
+  DeleteResiliencyGroupResult$,
   DeleteVirtualInterface$,
   DeleteVirtualInterfaceCommand,
   DeleteVirtualInterfaceRequest$,
@@ -208,6 +222,10 @@ import {
   DisassociateConnectionFromLag$,
   DisassociateConnectionFromLagCommand,
   DisassociateConnectionFromLagRequest$,
+  DisassociateConnectionsFromResiliencyGroup$,
+  DisassociateConnectionsFromResiliencyGroupCommand,
+  DisassociateConnectionsFromResiliencyGroupRequest$,
+  DisassociateConnectionsFromResiliencyGroupResult$,
   DisassociateMacSecKey$,
   DisassociateMacSecKeyCommand,
   DisassociateMacSecKeyRequest$,
@@ -215,6 +233,10 @@ import {
   DuplicateTagKeysException,
   DuplicateTagKeysException$,
   GatewayType,
+  GetResiliencyGroup$,
+  GetResiliencyGroupCommand,
+  GetResiliencyGroupRequest$,
+  GetResiliencyGroupResult$,
   HasLogicalRedundancy,
   Interconnect$,
   Interconnects$,
@@ -224,6 +246,14 @@ import {
   LagState,
   LimitExceededException,
   LimitExceededException$,
+  ListResiliencyGroupAssociations$,
+  ListResiliencyGroupAssociationsCommand,
+  ListResiliencyGroupAssociationsRequest$,
+  ListResiliencyGroupAssociationsResult$,
+  ListResiliencyGroups$,
+  ListResiliencyGroupsCommand,
+  ListResiliencyGroupsRequest$,
+  ListResiliencyGroupsResult$,
   ListVirtualInterfaceRoutes$,
   ListVirtualInterfaceRoutesCommand,
   ListVirtualInterfaceRoutesRequest$,
@@ -246,6 +276,14 @@ import {
   NewTransitVirtualInterfaceAllocation$,
   NniPartnerType,
   RateLimiterStatus$,
+  RequestBillingMode,
+  ResiliencyGroup$,
+  ResiliencyGroupAssociation$,
+  ResiliencyGroupAssociationState,
+  ResiliencyGroupState,
+  ResiliencyGroupSummary$,
+  ResiliencyGroupType,
+  ResiliencyModel,
   ResourceTag$,
   Route$,
   RouteDirection,
@@ -274,6 +312,10 @@ import {
   UpdateConnection$,
   UpdateConnectionCommand,
   UpdateConnectionRequest$,
+  UpdateConnectionsBillingMode$,
+  UpdateConnectionsBillingModeCommand,
+  UpdateConnectionsBillingModeRequest$,
+  UpdateConnectionsBillingModeResponse$,
   UpdateDirectConnectGateway$,
   UpdateDirectConnectGatewayAssociation$,
   UpdateDirectConnectGatewayAssociationCommand,
@@ -285,6 +327,10 @@ import {
   UpdateLag$,
   UpdateLagCommand,
   UpdateLagRequest$,
+  UpdateResiliencyGroup$,
+  UpdateResiliencyGroupCommand,
+  UpdateResiliencyGroupRequest$,
+  UpdateResiliencyGroupResult$,
   UpdateVirtualInterfaceAttributes$,
   UpdateVirtualInterfaceAttributesCommand,
   UpdateVirtualInterfaceAttributesRequest$,
@@ -312,6 +358,8 @@ assert(typeof AllocatePublicVirtualInterfaceCommand === "function");
 assert(typeof AllocatePublicVirtualInterface$ === "object");
 assert(typeof AllocateTransitVirtualInterfaceCommand === "function");
 assert(typeof AllocateTransitVirtualInterface$ === "object");
+assert(typeof AssociateConnectionsToResiliencyGroupCommand === "function");
+assert(typeof AssociateConnectionsToResiliencyGroup$ === "object");
 assert(typeof AssociateConnectionWithLagCommand === "function");
 assert(typeof AssociateConnectionWithLag$ === "object");
 assert(typeof AssociateHostedConnectionCommand === "function");
@@ -348,6 +396,8 @@ assert(typeof CreatePrivateVirtualInterfaceCommand === "function");
 assert(typeof CreatePrivateVirtualInterface$ === "object");
 assert(typeof CreatePublicVirtualInterfaceCommand === "function");
 assert(typeof CreatePublicVirtualInterface$ === "object");
+assert(typeof CreateResiliencyGroupCommand === "function");
+assert(typeof CreateResiliencyGroup$ === "object");
 assert(typeof CreateTransitVirtualInterfaceCommand === "function");
 assert(typeof CreateTransitVirtualInterface$ === "object");
 assert(typeof DeleteBGPPeerCommand === "function");
@@ -364,6 +414,8 @@ assert(typeof DeleteInterconnectCommand === "function");
 assert(typeof DeleteInterconnect$ === "object");
 assert(typeof DeleteLagCommand === "function");
 assert(typeof DeleteLag$ === "object");
+assert(typeof DeleteResiliencyGroupCommand === "function");
+assert(typeof DeleteResiliencyGroup$ === "object");
 assert(typeof DeleteVirtualInterfaceCommand === "function");
 assert(typeof DeleteVirtualInterface$ === "object");
 assert(typeof DescribeConnectionLoaCommand === "function");
@@ -404,8 +456,16 @@ assert(typeof DescribeVirtualInterfacesCommand === "function");
 assert(typeof DescribeVirtualInterfaces$ === "object");
 assert(typeof DisassociateConnectionFromLagCommand === "function");
 assert(typeof DisassociateConnectionFromLag$ === "object");
+assert(typeof DisassociateConnectionsFromResiliencyGroupCommand === "function");
+assert(typeof DisassociateConnectionsFromResiliencyGroup$ === "object");
 assert(typeof DisassociateMacSecKeyCommand === "function");
 assert(typeof DisassociateMacSecKey$ === "object");
+assert(typeof GetResiliencyGroupCommand === "function");
+assert(typeof GetResiliencyGroup$ === "object");
+assert(typeof ListResiliencyGroupAssociationsCommand === "function");
+assert(typeof ListResiliencyGroupAssociations$ === "object");
+assert(typeof ListResiliencyGroupsCommand === "function");
+assert(typeof ListResiliencyGroups$ === "object");
 assert(typeof ListVirtualInterfaceRoutesCommand === "function");
 assert(typeof ListVirtualInterfaceRoutes$ === "object");
 assert(typeof ListVirtualInterfaceTestHistoryCommand === "function");
@@ -420,12 +480,16 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateConnectionCommand === "function");
 assert(typeof UpdateConnection$ === "object");
+assert(typeof UpdateConnectionsBillingModeCommand === "function");
+assert(typeof UpdateConnectionsBillingMode$ === "object");
 assert(typeof UpdateDirectConnectGatewayCommand === "function");
 assert(typeof UpdateDirectConnectGateway$ === "object");
 assert(typeof UpdateDirectConnectGatewayAssociationCommand === "function");
 assert(typeof UpdateDirectConnectGatewayAssociation$ === "object");
 assert(typeof UpdateLagCommand === "function");
 assert(typeof UpdateLag$ === "object");
+assert(typeof UpdateResiliencyGroupCommand === "function");
+assert(typeof UpdateResiliencyGroup$ === "object");
 assert(typeof UpdateVirtualInterfaceAttributesCommand === "function");
 assert(typeof UpdateVirtualInterfaceAttributes$ === "object");
 // structural schemas
@@ -438,6 +502,8 @@ assert(typeof AllocatePublicVirtualInterfaceRequest$ === "object");
 assert(typeof AllocateTransitVirtualInterfaceRequest$ === "object");
 assert(typeof AllocateTransitVirtualInterfaceResult$ === "object");
 assert(typeof AsPathSegment$ === "object");
+assert(typeof AssociateConnectionsToResiliencyGroupRequest$ === "object");
+assert(typeof AssociateConnectionsToResiliencyGroupResult$ === "object");
 assert(typeof AssociateConnectionWithLagRequest$ === "object");
 assert(typeof AssociatedCoreNetwork$ === "object");
 assert(typeof AssociatedGateway$ === "object");
@@ -445,6 +511,7 @@ assert(typeof AssociateHostedConnectionRequest$ === "object");
 assert(typeof AssociateMacSecKeyRequest$ === "object");
 assert(typeof AssociateMacSecKeyResponse$ === "object");
 assert(typeof AssociateVirtualInterfaceRequest$ === "object");
+assert(typeof AvailableBillingMode$ === "object");
 assert(typeof BGPPeer$ === "object");
 assert(typeof ConfirmConnectionRequest$ === "object");
 assert(typeof ConfirmConnectionResponse$ === "object");
@@ -471,6 +538,8 @@ assert(typeof CreateInterconnectRequest$ === "object");
 assert(typeof CreateLagRequest$ === "object");
 assert(typeof CreatePrivateVirtualInterfaceRequest$ === "object");
 assert(typeof CreatePublicVirtualInterfaceRequest$ === "object");
+assert(typeof CreateResiliencyGroupRequest$ === "object");
+assert(typeof CreateResiliencyGroupResult$ === "object");
 assert(typeof CreateTransitVirtualInterfaceRequest$ === "object");
 assert(typeof CreateTransitVirtualInterfaceResult$ === "object");
 assert(typeof CustomerAgreement$ === "object");
@@ -486,6 +555,8 @@ assert(typeof DeleteDirectConnectGatewayResult$ === "object");
 assert(typeof DeleteInterconnectRequest$ === "object");
 assert(typeof DeleteInterconnectResponse$ === "object");
 assert(typeof DeleteLagRequest$ === "object");
+assert(typeof DeleteResiliencyGroupRequest$ === "object");
+assert(typeof DeleteResiliencyGroupResult$ === "object");
 assert(typeof DeleteVirtualInterfaceRequest$ === "object");
 assert(typeof DeleteVirtualInterfaceResponse$ === "object");
 assert(typeof DescribeConnectionLoaRequest$ === "object");
@@ -517,12 +588,20 @@ assert(typeof DirectConnectGatewayAssociation$ === "object");
 assert(typeof DirectConnectGatewayAssociationProposal$ === "object");
 assert(typeof DirectConnectGatewayAttachment$ === "object");
 assert(typeof DisassociateConnectionFromLagRequest$ === "object");
+assert(typeof DisassociateConnectionsFromResiliencyGroupRequest$ === "object");
+assert(typeof DisassociateConnectionsFromResiliencyGroupResult$ === "object");
 assert(typeof DisassociateMacSecKeyRequest$ === "object");
 assert(typeof DisassociateMacSecKeyResponse$ === "object");
+assert(typeof GetResiliencyGroupRequest$ === "object");
+assert(typeof GetResiliencyGroupResult$ === "object");
 assert(typeof Interconnect$ === "object");
 assert(typeof Interconnects$ === "object");
 assert(typeof Lag$ === "object");
 assert(typeof Lags$ === "object");
+assert(typeof ListResiliencyGroupAssociationsRequest$ === "object");
+assert(typeof ListResiliencyGroupAssociationsResult$ === "object");
+assert(typeof ListResiliencyGroupsRequest$ === "object");
+assert(typeof ListResiliencyGroupsResult$ === "object");
 assert(typeof ListVirtualInterfaceRoutesRequest$ === "object");
 assert(typeof ListVirtualInterfaceRoutesResponse$ === "object");
 assert(typeof ListVirtualInterfaceTestHistoryRequest$ === "object");
@@ -539,6 +618,9 @@ assert(typeof NewPublicVirtualInterfaceAllocation$ === "object");
 assert(typeof NewTransitVirtualInterface$ === "object");
 assert(typeof NewTransitVirtualInterfaceAllocation$ === "object");
 assert(typeof RateLimiterStatus$ === "object");
+assert(typeof ResiliencyGroup$ === "object");
+assert(typeof ResiliencyGroupAssociation$ === "object");
+assert(typeof ResiliencyGroupSummary$ === "object");
 assert(typeof ResourceTag$ === "object");
 assert(typeof Route$ === "object");
 assert(typeof RouteFilterPrefix$ === "object");
@@ -554,11 +636,15 @@ assert(typeof TagResourceResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateConnectionRequest$ === "object");
+assert(typeof UpdateConnectionsBillingModeRequest$ === "object");
+assert(typeof UpdateConnectionsBillingModeResponse$ === "object");
 assert(typeof UpdateDirectConnectGatewayAssociationRequest$ === "object");
 assert(typeof UpdateDirectConnectGatewayAssociationResult$ === "object");
 assert(typeof UpdateDirectConnectGatewayRequest$ === "object");
 assert(typeof UpdateDirectConnectGatewayResponse$ === "object");
 assert(typeof UpdateLagRequest$ === "object");
+assert(typeof UpdateResiliencyGroupRequest$ === "object");
+assert(typeof UpdateResiliencyGroupResult$ === "object");
 assert(typeof UpdateVirtualInterfaceAttributesRequest$ === "object");
 assert(typeof VirtualGateway$ === "object");
 assert(typeof VirtualGateways$ === "object");
@@ -570,6 +656,7 @@ assert(typeof AddressFamily === "object");
 assert(typeof AsPathType === "object");
 assert(typeof BGPPeerState === "object");
 assert(typeof BGPStatus === "object");
+assert(typeof BillingMode === "object");
 assert(typeof ConnectionState === "object");
 assert(typeof DirectConnectGatewayAssociationProposalState === "object");
 assert(typeof DirectConnectGatewayAssociationState === "object");
@@ -582,6 +669,11 @@ assert(typeof InterconnectState === "object");
 assert(typeof LagState === "object");
 assert(typeof LoaContentType === "object");
 assert(typeof NniPartnerType === "object");
+assert(typeof RequestBillingMode === "object");
+assert(typeof ResiliencyGroupAssociationState === "object");
+assert(typeof ResiliencyGroupState === "object");
+assert(typeof ResiliencyGroupType === "object");
+assert(typeof ResiliencyModel === "object");
 assert(typeof RouteDirection === "object");
 assert(typeof VirtualInterfaceState === "object");
 // errors

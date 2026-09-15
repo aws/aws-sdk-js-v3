@@ -27,16 +27,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DirectConnectClient` and
-the commands you need, for example `ListVirtualInterfaceRoutesCommand`:
+the commands you need, for example `ListResiliencyGroupsCommand`:
 
 ```js
 // ES5 example
-const { DirectConnectClient, ListVirtualInterfaceRoutesCommand } = require("@aws-sdk/client-direct-connect");
+const { DirectConnectClient, ListResiliencyGroupsCommand } = require("@aws-sdk/client-direct-connect");
 ```
 
 ```ts
 // ES6+ example
-import { DirectConnectClient, ListVirtualInterfaceRoutesCommand } from "@aws-sdk/client-direct-connect";
+import { DirectConnectClient, ListResiliencyGroupsCommand } from "@aws-sdk/client-direct-connect";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ To send a request:
 const client = new DirectConnectClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListVirtualInterfaceRoutesCommand(params);
+const command = new ListResiliencyGroupsCommand(params);
 ```
 
 #### Async/await
@@ -109,7 +109,7 @@ const client = new DirectConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listVirtualInterfaceRoutes(params);
+  const data = await client.listResiliencyGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -117,7 +117,7 @@ try {
 
 // Promises.
 client
-  .listVirtualInterfaceRoutes(params)
+  .listResiliencyGroups(params)
   .then((data) => {
     // process data.
   })
@@ -126,7 +126,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listVirtualInterfaceRoutes(params, (err, data) => {
+client.listResiliencyGroups(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -225,6 +225,13 @@ AllocateTransitVirtualInterface
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AllocateTransitVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocateTransitVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AllocateTransitVirtualInterfaceCommandOutput/)
+</details>
+<details>
+<summary>
+AssociateConnectionsToResiliencyGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/AssociateConnectionsToResiliencyGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateConnectionsToResiliencyGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/AssociateConnectionsToResiliencyGroupCommandOutput/)
 </details>
 <details>
 <summary>
@@ -354,6 +361,13 @@ CreatePublicVirtualInterface
 </details>
 <details>
 <summary>
+CreateResiliencyGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/CreateResiliencyGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateResiliencyGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/CreateResiliencyGroupCommandOutput/)
+</details>
+<details>
+<summary>
 CreateTransitVirtualInterface
 </summary>
 
@@ -407,6 +421,13 @@ DeleteLag
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteLagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteLagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteLagCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteResiliencyGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DeleteResiliencyGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteResiliencyGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DeleteResiliencyGroupCommandOutput/)
 </details>
 <details>
 <summary>
@@ -550,10 +571,38 @@ DisassociateConnectionFromLag
 </details>
 <details>
 <summary>
+DisassociateConnectionsFromResiliencyGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DisassociateConnectionsFromResiliencyGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateConnectionsFromResiliencyGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateConnectionsFromResiliencyGroupCommandOutput/)
+</details>
+<details>
+<summary>
 DisassociateMacSecKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DisassociateMacSecKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateMacSecKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateMacSecKeyCommandOutput/)
+</details>
+<details>
+<summary>
+GetResiliencyGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/GetResiliencyGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/GetResiliencyGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/GetResiliencyGroupCommandOutput/)
+</details>
+<details>
+<summary>
+ListResiliencyGroupAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/ListResiliencyGroupAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ListResiliencyGroupAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ListResiliencyGroupAssociationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListResiliencyGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/ListResiliencyGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ListResiliencyGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ListResiliencyGroupsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -606,6 +655,13 @@ UpdateConnection
 </details>
 <details>
 <summary>
+UpdateConnectionsBillingMode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/UpdateConnectionsBillingModeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateConnectionsBillingModeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateConnectionsBillingModeCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateDirectConnectGateway
 </summary>
 
@@ -624,6 +680,13 @@ UpdateLag
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/UpdateLagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateLagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateLagCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateResiliencyGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/UpdateResiliencyGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateResiliencyGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/UpdateResiliencyGroupCommandOutput/)
 </details>
 <details>
 <summary>

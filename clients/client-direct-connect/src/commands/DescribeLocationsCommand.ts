@@ -51,6 +51,17 @@ export interface DescribeLocationsCommandOutput extends Locations, __MetadataBea
  * //       availableMacSecPortSpeeds: [ // AvailableMacSecPortSpeeds
  * //         "STRING_VALUE",
  * //       ],
+ * //       availableBillingModes: [ // AvailableBillingModeList
+ * //         { // AvailableBillingMode
+ * //           billingMode: "PayAsYouGo" || "FlatRateTier1" || "FlatRateTier2" || "FlatRateTier3" || "FlatRateTier4" || "FlatRateTier5" || "PortPairFlatRateTier1" || "PortPairFlatRateTier2" || "PortPairFlatRateTier3" || "PortPairFlatRateTier4" || "PortPairFlatRateTier5",
+ * //           availablePortSpeeds: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           includedRegions: [ // IncludedRegionList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

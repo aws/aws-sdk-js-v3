@@ -1,6 +1,11 @@
+const _ABM = "AvailableBillingMode";
+const _ABML = "AvailableBillingModeList";
 const _ACN = "AssociatedCoreNetwork";
 const _ACOI = "AllocateConnectionOnInterconnect";
 const _ACOIR = "AllocateConnectionOnInterconnectRequest";
+const _ACTRG = "AssociateConnectionsToResiliencyGroup";
+const _ACTRGR = "AssociateConnectionsToResiliencyGroupRequest";
+const _ACTRGRs = "AssociateConnectionsToResiliencyGroupResult";
 const _ACWL = "AssociateConnectionWithLag";
 const _ACWLR = "AssociateConnectionWithLagRequest";
 const _ADCGAP = "AcceptDirectConnectGatewayAssociationProposal";
@@ -65,6 +70,9 @@ const _CPVIRre = "CreatePublicVirtualInterfaceRequest";
 const _CPVIo = "ConfirmPublicVirtualInterface";
 const _CPVIr = "CreatePrivateVirtualInterface";
 const _CPVIre = "CreatePublicVirtualInterface";
+const _CRG = "CreateResiliencyGroup";
+const _CRGR = "CreateResiliencyGroupRequest";
+const _CRGRr = "CreateResiliencyGroupResult";
 const _CTVI = "ConfirmTransitVirtualInterface";
 const _CTVIR = "ConfirmTransitVirtualInterfaceRequest";
 const _CTVIRo = "ConfirmTransitVirtualInterfaceResponse";
@@ -79,6 +87,9 @@ const _DC = "DeleteConnection";
 const _DCCE = "DirectConnectClientException";
 const _DCFL = "DisassociateConnectionFromLag";
 const _DCFLR = "DisassociateConnectionFromLagRequest";
+const _DCFRG = "DisassociateConnectionsFromResiliencyGroup";
+const _DCFRGR = "DisassociateConnectionsFromResiliencyGroupRequest";
+const _DCFRGRi = "DisassociateConnectionsFromResiliencyGroupResult";
 const _DCG = "DirectConnectGateway";
 const _DCGA = "DirectConnectGatewayAssociation";
 const _DCGAL = "DirectConnectGatewayAssociationList";
@@ -142,6 +153,9 @@ const _DMSKRi = "DisassociateMacSecKeyResponse";
 const _DRC = "DescribeRouterConfiguration";
 const _DRCR = "DescribeRouterConfigurationRequest";
 const _DRCRe = "DescribeRouterConfigurationResponse";
+const _DRG = "DeleteResiliencyGroup";
+const _DRGR = "DeleteResiliencyGroupRequest";
+const _DRGRe = "DeleteResiliencyGroupResult";
 const _DT = "DescribeTags";
 const _DTKE = "DuplicateTagKeysException";
 const _DTR = "DescribeTagsRequest";
@@ -152,6 +166,9 @@ const _DVIR = "DeleteVirtualInterfaceRequest";
 const _DVIRe = "DeleteVirtualInterfaceResponse";
 const _DVIRes = "DescribeVirtualInterfacesRequest";
 const _DVIe = "DescribeVirtualInterfaces";
+const _GRG = "GetResiliencyGroup";
+const _GRGR = "GetResiliencyGroupRequest";
+const _GRGRe = "GetResiliencyGroupResult";
 const _I = "Interconnect";
 const _IL = "InterconnectList";
 const _In = "Interconnects";
@@ -159,6 +176,12 @@ const _L = "Lag";
 const _LEE = "LimitExceededException";
 const _LL = "LagList";
 const _LLo = "LocationList";
+const _LRG = "ListResiliencyGroups";
+const _LRGA = "ListResiliencyGroupAssociations";
+const _LRGAR = "ListResiliencyGroupAssociationsRequest";
+const _LRGARi = "ListResiliencyGroupAssociationsResult";
+const _LRGR = "ListResiliencyGroupsRequest";
+const _LRGRi = "ListResiliencyGroupsResult";
 const _LVIR = "ListVirtualInterfaceRoutes";
 const _LVIRR = "ListVirtualInterfaceRoutesRequest";
 const _LVIRRi = "ListVirtualInterfaceRoutesResponse";
@@ -182,6 +205,11 @@ const _R = "Route";
 const _RF = "RouteFilters";
 const _RFP = "RouteFilterPrefix";
 const _RFPL = "RouteFilterPrefixList";
+const _RG = "ResiliencyGroup";
+const _RGA = "ResiliencyGroupAssociation";
+const _RGAL = "ResiliencyGroupAssociationList";
+const _RGS = "ResiliencyGroupSummary";
+const _RGSL = "ResiliencyGroupSummaryList";
 const _RL = "RouteList";
 const _RLS = "RateLimiterStatus";
 const _RT = "ResourceTag";
@@ -200,6 +228,9 @@ const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _UC = "UpdateConnection";
+const _UCBM = "UpdateConnectionsBillingMode";
+const _UCBMR = "UpdateConnectionsBillingModeRequest";
+const _UCBMRp = "UpdateConnectionsBillingModeResponse";
 const _UCR = "UpdateConnectionRequest";
 const _UDCG = "UpdateDirectConnectGateway";
 const _UDCGA = "UpdateDirectConnectGatewayAssociation";
@@ -210,6 +241,9 @@ const _UDCGRp = "UpdateDirectConnectGatewayResponse";
 const _UL = "UpdateLag";
 const _ULR = "UpdateLagRequest";
 const _UR = "UntagResource";
+const _URG = "UpdateResiliencyGroup";
+const _URGR = "UpdateResiliencyGroupRequest";
+const _URGRp = "UpdateResiliencyGroupResult";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _UVIA = "UpdateVirtualInterfaceAttributes";
@@ -225,6 +259,7 @@ const _VIi = "VirtualInterfaces";
 const _a = "asn";
 const _aA = "amazonAddress";
 const _aAPTDCG = "addAllowedPrefixesToDirectConnectGateway";
+const _aBM = "availableBillingModes";
 const _aCN = "associatedCoreNetwork";
 const _aD = "awsDevice";
 const _aDV = "awsDeviceV2";
@@ -250,18 +285,23 @@ const _aSt = "attachmentState";
 const _aT = "attachmentType";
 const _ag = "agreements";
 const _b = "bandwidth";
+const _bM = "billingMode";
 const _bP = "bgpPeers";
 const _bPI = "bgpPeerId";
 const _bPS = "bgpPeerState";
 const _bS = "bgpStatus";
 const _c = "client";
 const _cA = "customerAddress";
+const _cAo = "connectionArn";
 const _cB = "connectionsBandwidth";
 const _cCT = "childConnectionTags";
 const _cI = "connectionId";
+const _cIo = "connectionIdentifiers";
+const _cIon = "connectionIds";
 const _cN = "connectionName";
 const _cRC = "customerRouterConfig";
 const _cS = "connectionState";
+const _cT = "clientToken";
 const _ca = "cak";
 const _ci = "cidr";
 const _cid = "cidrs";
@@ -291,9 +331,12 @@ const _hLR = "hasLogicalRedundancy";
 const _i = "id";
 const _iI = "interconnectId";
 const _iN = "interconnectName";
+const _iR = "includedRegions";
+const _iRM = "intendedResiliencyModel";
 const _iS = "interconnectState";
 const _iU = "inUse";
 const _in = "interconnects";
+const _it = "items";
 const _jFC = "jumboFrameCapable";
 const _k = "key";
 const _l = "location";
@@ -351,6 +394,12 @@ const _rAPTDCGe = "requestedAllowedPrefixesToDirectConnectGateway";
 const _rAe = "resourceArn";
 const _rD = "routeDirection";
 const _rFP = "routeFilterPrefixes";
+const _rG = "resiliencyGroup";
+const _rGA = "resiliencyGroupAssociations";
+const _rGAe = "resiliencyGroupArn";
+const _rGI = "resiliencyGroupId";
+const _rGN = "resiliencyGroupName";
+const _rGT = "resiliencyGroupType";
 const _rIA = "routeInstalledAt";
 const _rL = "rateLimit";
 const _rLS = "rateLimiterStatus";
@@ -501,6 +550,16 @@ export var AsPathSegment$: StaticStructureSchema = [3, n0, _APS,
   [_pT, _p],
   [0, 64 | 1]
 ];
+export var AssociateConnectionsToResiliencyGroupRequest$: StaticStructureSchema = [3, n0, _ACTRGR,
+  0,
+  [_cIo, _rGI, _cT],
+  [64 | 0, 0, 0], 2
+];
+export var AssociateConnectionsToResiliencyGroupResult$: StaticStructureSchema = [3, n0, _ACTRGRs,
+  0,
+  [_rGA],
+  [() => ResiliencyGroupAssociationList]
+];
 export var AssociateConnectionWithLagRequest$: StaticStructureSchema = [3, n0, _ACWLR,
   0,
   [_cI, _lI],
@@ -535,6 +594,11 @@ export var AssociateVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _A
   0,
   [_vII, _cI],
   [0, 0], 2
+];
+export var AvailableBillingMode$: StaticStructureSchema = [3, n0, _ABM,
+  0,
+  [_bM, _aPS, _iR],
+  [0, 64 | 0, 64 | 0]
 ];
 export var BGPPeer$: StaticStructureSchema = [3, n0, _BGPP,
   0,
@@ -593,8 +657,8 @@ export var ConfirmTransitVirtualInterfaceResponse$: StaticStructureSchema = [3, 
 ];
 export var Connection$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_oA, _cI, _cN, _cS, _r, _l, _b, _v, _pN, _lIT, _lI, _aD, _jFC, _aDV, _aLDI, _hLR, _t, _pNr, _mSC, _pES, _eM, _mSK, _rLS, _pIMSC, _pPSI, _pPSIr, _pPUCI, _pPUCIr],
-  [0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 2, 0, 0, 0, () => TagList, 0, 2, 0, 0, () => MacSecKeyList, () => RateLimiterStatus$, 2, 1, 1, 1, 1]
+  [_oA, _cI, _cN, _cS, _r, _l, _b, _v, _pN, _lIT, _lI, _aD, _jFC, _aDV, _aLDI, _hLR, _t, _pNr, _mSC, _pES, _eM, _mSK, _rLS, _pIMSC, _pPSI, _pPSIr, _pPUCI, _pPUCIr, _bM],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 2, 0, 0, 0, () => TagList, 0, 2, 0, 0, () => MacSecKeyList, () => RateLimiterStatus$, 2, 1, 1, 1, 1, 0]
 ];
 export var Connections$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -613,8 +677,8 @@ export var CreateBGPPeerResponse$: StaticStructureSchema = [3, n0, _CBGPPRr,
 ];
 export var CreateConnectionRequest$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_l, _b, _cN, _lI, _t, _pNr, _rMACS],
-  [0, 0, 0, 0, () => TagList, 0, 2], 3
+  [_l, _b, _cN, _lI, _t, _pNr, _rMACS, _bM],
+  [0, 0, 0, 0, () => TagList, 0, 2, 0], 3
 ];
 export var CreateDirectConnectGatewayAssociationProposalRequest$: StaticStructureSchema = [3, n0, _CDCGAPR,
   0,
@@ -653,8 +717,8 @@ export var CreateInterconnectRequest$: StaticStructureSchema = [3, n0, _CIR,
 ];
 export var CreateLagRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
-  [_nOC, _l, _cB, _lN, _cI, _t, _cCT, _pNr, _rMACS],
-  [1, 0, 0, 0, 0, () => TagList, () => TagList, 0, 2], 4
+  [_nOC, _l, _cB, _lN, _cI, _t, _cCT, _pNr, _rMACS, _bM],
+  [1, 0, 0, 0, 0, () => TagList, () => TagList, 0, 2, 0], 4
 ];
 export var CreatePrivateVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CPVIRr,
   0,
@@ -665,6 +729,16 @@ export var CreatePublicVirtualInterfaceRequest$: StaticStructureSchema = [3, n0,
   0,
   [_cI, _nPVIe],
   [0, () => NewPublicVirtualInterface$], 2
+];
+export var CreateResiliencyGroupRequest$: StaticStructureSchema = [3, n0, _CRGR,
+  0,
+  [_rGN, _iRM, _cT, _t],
+  [0, 0, 0, () => TagList], 2
+];
+export var CreateResiliencyGroupResult$: StaticStructureSchema = [3, n0, _CRGRr,
+  0,
+  [_rG],
+  [() => ResiliencyGroup$]
 ];
 export var CreateTransitVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CTVIRr,
   0,
@@ -740,6 +814,16 @@ export var DeleteLagRequest$: StaticStructureSchema = [3, n0, _DLR,
   0,
   [_lI],
   [0], 1
+];
+export var DeleteResiliencyGroupRequest$: StaticStructureSchema = [3, n0, _DRGR,
+  0,
+  [_rGI],
+  [0], 1
+];
+export var DeleteResiliencyGroupResult$: StaticStructureSchema = [3, n0, _DRGRe,
+  0,
+  [_rG],
+  [() => ResiliencyGroup$]
 ];
 export var DeleteVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _DVIR,
   0,
@@ -896,6 +980,16 @@ export var DisassociateConnectionFromLagRequest$: StaticStructureSchema = [3, n0
   [_cI, _lI],
   [0, 0], 2
 ];
+export var DisassociateConnectionsFromResiliencyGroupRequest$: StaticStructureSchema = [3, n0, _DCFRGR,
+  0,
+  [_cIo, _rGI, _cT],
+  [64 | 0, 0, 0], 2
+];
+export var DisassociateConnectionsFromResiliencyGroupResult$: StaticStructureSchema = [3, n0, _DCFRGRi,
+  0,
+  [_rGA],
+  [() => ResiliencyGroupAssociationList]
+];
 export var DisassociateMacSecKeyRequest$: StaticStructureSchema = [3, n0, _DMSKR,
   0,
   [_cI, _sARN],
@@ -905,6 +999,16 @@ export var DisassociateMacSecKeyResponse$: StaticStructureSchema = [3, n0, _DMSK
   0,
   [_cI, _mSK],
   [0, () => MacSecKeyList]
+];
+export var GetResiliencyGroupRequest$: StaticStructureSchema = [3, n0, _GRGR,
+  0,
+  [_rGI],
+  [0], 1
+];
+export var GetResiliencyGroupResult$: StaticStructureSchema = [3, n0, _GRGRe,
+  0,
+  [_rG],
+  [() => ResiliencyGroup$]
 ];
 export var Interconnect$: StaticStructureSchema = [3, n0, _I,
   0,
@@ -918,13 +1022,33 @@ export var Interconnects$: StaticStructureSchema = [3, n0, _In,
 ];
 export var Lag$: StaticStructureSchema = [3, n0, _L,
   0,
-  [_cB, _nOC, _lI, _oA, _lN, _lS, _l, _r, _mL, _aD, _aDV, _aLDI, _co, _aHC, _jFC, _hLR, _t, _pNr, _mSC, _eM, _mSK, _pPSI, _pPSIr, _pPUCI, _pPUCIr, _rLS],
-  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, () => ConnectionList, 2, 2, 0, () => TagList, 0, 2, 0, () => MacSecKeyList, 1, 1, 1, 1, () => RateLimiterStatus$]
+  [_cB, _nOC, _lI, _oA, _lN, _lS, _l, _r, _mL, _aD, _aDV, _aLDI, _co, _aHC, _jFC, _hLR, _t, _pNr, _mSC, _eM, _mSK, _pPSI, _pPSIr, _pPUCI, _pPUCIr, _rLS, _bM],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, () => ConnectionList, 2, 2, 0, () => TagList, 0, 2, 0, () => MacSecKeyList, 1, 1, 1, 1, () => RateLimiterStatus$, 0]
 ];
 export var Lags$: StaticStructureSchema = [3, n0, _La,
   0,
   [_la, _nT],
   [() => LagList, 0]
+];
+export var ListResiliencyGroupAssociationsRequest$: StaticStructureSchema = [3, n0, _LRGAR,
+  0,
+  [_rGI, _mR, _nT],
+  [0, 1, 0], 1
+];
+export var ListResiliencyGroupAssociationsResult$: StaticStructureSchema = [3, n0, _LRGARi,
+  0,
+  [_it, _nT],
+  [() => ResiliencyGroupAssociationList, 0]
+];
+export var ListResiliencyGroupsRequest$: StaticStructureSchema = [3, n0, _LRGR,
+  0,
+  [_mR, _nT],
+  [1, 0]
+];
+export var ListResiliencyGroupsResult$: StaticStructureSchema = [3, n0, _LRGRi,
+  0,
+  [_it, _nT],
+  [() => ResiliencyGroupSummaryList, 0]
 ];
 export var ListVirtualInterfaceRoutesRequest$: StaticStructureSchema = [3, n0, _LVIRR,
   0,
@@ -953,8 +1077,8 @@ export var Loa$: StaticStructureSchema = [3, n0, _Lo,
 ];
 export var Location$: StaticStructureSchema = [3, n0, _Loc,
   0,
-  [_lCo, _lNo, _r, _aPS, _aP, _aMSPS],
-  [0, 0, 0, 64 | 0, 64 | 0, 64 | 0]
+  [_lCo, _lNo, _r, _aPS, _aP, _aMSPS, _aBM],
+  [0, 0, 0, 64 | 0, 64 | 0, 64 | 0, () => AvailableBillingModeList]
 ];
 export var Locations$: StaticStructureSchema = [3, n0, _Loca,
   0,
@@ -1005,6 +1129,21 @@ export var RateLimiterStatus$: StaticStructureSchema = [3, n0, _RLS,
   0,
   [_mA, _iU, _re, _tB],
   [1, 1, 1, 0]
+];
+export var ResiliencyGroup$: StaticStructureSchema = [3, n0, _RG,
+  0,
+  [_rGI, _rGAe, _rGN, _rGT, _oA, _sta, _t],
+  [0, 0, 0, 0, 0, 0, () => TagList]
+];
+export var ResiliencyGroupAssociation$: StaticStructureSchema = [3, n0, _RGA,
+  0,
+  [_rGI, _cAo, _sta],
+  [0, 0, 0]
+];
+export var ResiliencyGroupSummary$: StaticStructureSchema = [3, n0, _RGS,
+  0,
+  [_rGI, _rGAe, _rGN, _rGT, _oA, _sta],
+  [0, 0, 0, 0, 0, 0]
 ];
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
   0,
@@ -1081,6 +1220,16 @@ export var UpdateConnectionRequest$: StaticStructureSchema = [3, n0, _UCR,
   [_cI, _cN, _eM],
   [0, 0, 0], 1
 ];
+export var UpdateConnectionsBillingModeRequest$: StaticStructureSchema = [3, n0, _UCBMR,
+  0,
+  [_cIon, _bM],
+  [64 | 0, 0], 2
+];
+export var UpdateConnectionsBillingModeResponse$: StaticStructureSchema = [3, n0, _UCBMRp,
+  0,
+  [_bM, _co],
+  [0, () => ConnectionList]
+];
 export var UpdateDirectConnectGatewayAssociationRequest$: StaticStructureSchema = [3, n0, _UDCGAR,
   0,
   [_aIs, _aAPTDCG, _rAPTDCG],
@@ -1105,6 +1254,16 @@ export var UpdateLagRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
   [_lI, _lN, _mL, _eM],
   [0, 0, 1, 0], 1
+];
+export var UpdateResiliencyGroupRequest$: StaticStructureSchema = [3, n0, _URGR,
+  0,
+  [_rGI, _rGN, _cT],
+  [0, 0, 0], 2
+];
+export var UpdateResiliencyGroupResult$: StaticStructureSchema = [3, n0, _URGRp,
+  0,
+  [_rG],
+  [() => ResiliencyGroup$]
 ];
 export var UpdateVirtualInterfaceAttributesRequest$: StaticStructureSchema = [3, n0, _UVIAR,
   0,
@@ -1144,6 +1303,9 @@ var AsPathList = 64 | 1;
 var AsPathSegmentList: StaticListSchema = [1, n0, _APSL,
   0, () => AsPathSegment$
 ];
+var AvailableBillingModeList: StaticListSchema = [1, n0, _ABML,
+  0, () => AvailableBillingMode$
+];
 var AvailableMacSecPortSpeeds = 64 | 0;
 var AvailablePortSpeeds = 64 | 0;
 var BGPPeerIdList = 64 | 0;
@@ -1151,6 +1313,8 @@ var BGPPeerList: StaticListSchema = [1, n0, _BGPPL,
   0, () => BGPPeer$
 ];
 var CommunityList = 64 | 0;
+var ConnectionIdentifierList = 64 | 0;
+var ConnectionIdList = 64 | 0;
 var ConnectionList: StaticListSchema = [1, n0, _CL,
   0, () => Connection$
 ];
@@ -1166,6 +1330,7 @@ var DirectConnectGatewayAttachmentList: StaticListSchema = [1, n0, _DCGALi,
 var DirectConnectGatewayList: StaticListSchema = [1, n0, _DCGL,
   0, () => DirectConnectGateway$
 ];
+var IncludedRegionList = 64 | 0;
 var InterconnectList: StaticListSchema = [1, n0, _IL,
   0, () => Interconnect$
 ];
@@ -1179,6 +1344,12 @@ var MacSecKeyList: StaticListSchema = [1, n0, _MSKL,
   0, () => MacSecKey$
 ];
 var ProviderList = 64 | 0;
+var ResiliencyGroupAssociationList: StaticListSchema = [1, n0, _RGAL,
+  0, () => ResiliencyGroupAssociation$
+];
+var ResiliencyGroupSummaryList: StaticListSchema = [1, n0, _RGSL,
+  0, () => ResiliencyGroupSummary$
+];
 var ResourceArnList = 64 | 0;
 var ResourceTagList: StaticListSchema = [1, n0, _RTL,
   0, () => ResourceTag$
@@ -1220,6 +1391,9 @@ export var AllocatePublicVirtualInterface$: StaticOperationSchema = [9, n0, _APV
 ];
 export var AllocateTransitVirtualInterface$: StaticOperationSchema = [9, n0, _ATVI,
   0, () => AllocateTransitVirtualInterfaceRequest$, () => AllocateTransitVirtualInterfaceResult$
+];
+export var AssociateConnectionsToResiliencyGroup$: StaticOperationSchema = [9, n0, _ACTRG,
+  0, () => AssociateConnectionsToResiliencyGroupRequest$, () => AssociateConnectionsToResiliencyGroupResult$
 ];
 export var AssociateConnectionWithLag$: StaticOperationSchema = [9, n0, _ACWL,
   0, () => AssociateConnectionWithLagRequest$, () => Connection$
@@ -1275,6 +1449,9 @@ export var CreatePrivateVirtualInterface$: StaticOperationSchema = [9, n0, _CPVI
 export var CreatePublicVirtualInterface$: StaticOperationSchema = [9, n0, _CPVIre,
   0, () => CreatePublicVirtualInterfaceRequest$, () => VirtualInterface$
 ];
+export var CreateResiliencyGroup$: StaticOperationSchema = [9, n0, _CRG,
+  0, () => CreateResiliencyGroupRequest$, () => CreateResiliencyGroupResult$
+];
 export var CreateTransitVirtualInterface$: StaticOperationSchema = [9, n0, _CTVIr,
   0, () => CreateTransitVirtualInterfaceRequest$, () => CreateTransitVirtualInterfaceResult$
 ];
@@ -1298,6 +1475,9 @@ export var DeleteInterconnect$: StaticOperationSchema = [9, n0, _DI,
 ];
 export var DeleteLag$: StaticOperationSchema = [9, n0, _DL,
   0, () => DeleteLagRequest$, () => Lag$
+];
+export var DeleteResiliencyGroup$: StaticOperationSchema = [9, n0, _DRG,
+  0, () => DeleteResiliencyGroupRequest$, () => DeleteResiliencyGroupResult$
 ];
 export var DeleteVirtualInterface$: StaticOperationSchema = [9, n0, _DVI,
   0, () => DeleteVirtualInterfaceRequest$, () => DeleteVirtualInterfaceResponse$
@@ -1359,8 +1539,20 @@ export var DescribeVirtualInterfaces$: StaticOperationSchema = [9, n0, _DVIe,
 export var DisassociateConnectionFromLag$: StaticOperationSchema = [9, n0, _DCFL,
   0, () => DisassociateConnectionFromLagRequest$, () => Connection$
 ];
+export var DisassociateConnectionsFromResiliencyGroup$: StaticOperationSchema = [9, n0, _DCFRG,
+  0, () => DisassociateConnectionsFromResiliencyGroupRequest$, () => DisassociateConnectionsFromResiliencyGroupResult$
+];
 export var DisassociateMacSecKey$: StaticOperationSchema = [9, n0, _DMSK,
   0, () => DisassociateMacSecKeyRequest$, () => DisassociateMacSecKeyResponse$
+];
+export var GetResiliencyGroup$: StaticOperationSchema = [9, n0, _GRG,
+  0, () => GetResiliencyGroupRequest$, () => GetResiliencyGroupResult$
+];
+export var ListResiliencyGroupAssociations$: StaticOperationSchema = [9, n0, _LRGA,
+  0, () => ListResiliencyGroupAssociationsRequest$, () => ListResiliencyGroupAssociationsResult$
+];
+export var ListResiliencyGroups$: StaticOperationSchema = [9, n0, _LRG,
+  0, () => ListResiliencyGroupsRequest$, () => ListResiliencyGroupsResult$
 ];
 export var ListVirtualInterfaceRoutes$: StaticOperationSchema = [9, n0, _LVIR,
   0, () => ListVirtualInterfaceRoutesRequest$, () => ListVirtualInterfaceRoutesResponse$
@@ -1383,6 +1575,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 export var UpdateConnection$: StaticOperationSchema = [9, n0, _UC,
   0, () => UpdateConnectionRequest$, () => Connection$
 ];
+export var UpdateConnectionsBillingMode$: StaticOperationSchema = [9, n0, _UCBM,
+  0, () => UpdateConnectionsBillingModeRequest$, () => UpdateConnectionsBillingModeResponse$
+];
 export var UpdateDirectConnectGateway$: StaticOperationSchema = [9, n0, _UDCG,
   0, () => UpdateDirectConnectGatewayRequest$, () => UpdateDirectConnectGatewayResponse$
 ];
@@ -1391,6 +1586,9 @@ export var UpdateDirectConnectGatewayAssociation$: StaticOperationSchema = [9, n
 ];
 export var UpdateLag$: StaticOperationSchema = [9, n0, _UL,
   0, () => UpdateLagRequest$, () => Lag$
+];
+export var UpdateResiliencyGroup$: StaticOperationSchema = [9, n0, _URG,
+  0, () => UpdateResiliencyGroupRequest$, () => UpdateResiliencyGroupResult$
 ];
 export var UpdateVirtualInterfaceAttributes$: StaticOperationSchema = [9, n0, _UVIA,
   0, () => UpdateVirtualInterfaceAttributesRequest$, () => VirtualInterface$

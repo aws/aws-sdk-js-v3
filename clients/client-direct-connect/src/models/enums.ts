@@ -46,6 +46,28 @@ export type AddressFamily = (typeof AddressFamily)[keyof typeof AddressFamily];
  * @public
  * @enum
  */
+export const BillingMode = {
+  FlatRateTier1: "FlatRateTier1",
+  FlatRateTier2: "FlatRateTier2",
+  FlatRateTier3: "FlatRateTier3",
+  FlatRateTier4: "FlatRateTier4",
+  FlatRateTier5: "FlatRateTier5",
+  PayAsYouGo: "PayAsYouGo",
+  PortPairFlatRateTier1: "PortPairFlatRateTier1",
+  PortPairFlatRateTier2: "PortPairFlatRateTier2",
+  PortPairFlatRateTier3: "PortPairFlatRateTier3",
+  PortPairFlatRateTier4: "PortPairFlatRateTier4",
+  PortPairFlatRateTier5: "PortPairFlatRateTier5",
+} as const;
+/**
+ * @public
+ */
+export type BillingMode = (typeof BillingMode)[keyof typeof BillingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConnectionState = {
   available: "available",
   deleted: "deleted",
@@ -144,6 +166,39 @@ export type AsPathType = (typeof AsPathType)[keyof typeof AsPathType];
  * @public
  * @enum
  */
+export const ResiliencyGroupAssociationState = {
+  Associated: "associated",
+  Associating: "associating",
+  Disassociated: "disassociated",
+  Disassociating: "disassociating",
+} as const;
+/**
+ * @public
+ */
+export type ResiliencyGroupAssociationState =
+  (typeof ResiliencyGroupAssociationState)[keyof typeof ResiliencyGroupAssociationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const RequestBillingMode = {
+  FlatRateTier1: "FlatRateTier1",
+  FlatRateTier2: "FlatRateTier2",
+  FlatRateTier3: "FlatRateTier3",
+  FlatRateTier4: "FlatRateTier4",
+  FlatRateTier5: "FlatRateTier5",
+  PayAsYouGo: "PayAsYouGo",
+} as const;
+/**
+ * @public
+ */
+export type RequestBillingMode = (typeof RequestBillingMode)[keyof typeof RequestBillingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const DirectConnectGatewayState = {
   available: "available",
   deleted: "deleted",
@@ -205,6 +260,47 @@ export const LagState = {
  * @public
  */
 export type LagState = (typeof LagState)[keyof typeof LagState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResiliencyModel = {
+  BasicResiliency: "basic-resiliency",
+  HighResiliency: "high-resiliency",
+  MaximumResiliency: "maximum-resiliency",
+} as const;
+/**
+ * @public
+ */
+export type ResiliencyModel = (typeof ResiliencyModel)[keyof typeof ResiliencyModel];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResiliencyGroupType = {
+  Managed: "Managed",
+} as const;
+/**
+ * @public
+ */
+export type ResiliencyGroupType = (typeof ResiliencyGroupType)[keyof typeof ResiliencyGroupType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResiliencyGroupState = {
+  Available: "available",
+  Deleted: "deleted",
+  Deleting: "deleting",
+  Pending: "pending",
+} as const;
+/**
+ * @public
+ */
+export type ResiliencyGroupState = (typeof ResiliencyGroupState)[keyof typeof ResiliencyGroupState];
 
 /**
  * @public

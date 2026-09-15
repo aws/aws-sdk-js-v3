@@ -79,6 +79,10 @@ import type {
   AllocateTransitVirtualInterfaceCommandOutput,
 } from "./commands/AllocateTransitVirtualInterfaceCommand";
 import type {
+  AssociateConnectionsToResiliencyGroupCommandInput,
+  AssociateConnectionsToResiliencyGroupCommandOutput,
+} from "./commands/AssociateConnectionsToResiliencyGroupCommand";
+import type {
   AssociateConnectionWithLagCommandInput,
   AssociateConnectionWithLagCommandOutput,
 } from "./commands/AssociateConnectionWithLagCommand";
@@ -142,6 +146,10 @@ import type {
   CreatePublicVirtualInterfaceCommandOutput,
 } from "./commands/CreatePublicVirtualInterfaceCommand";
 import type {
+  CreateResiliencyGroupCommandInput,
+  CreateResiliencyGroupCommandOutput,
+} from "./commands/CreateResiliencyGroupCommand";
+import type {
   CreateTransitVirtualInterfaceCommandInput,
   CreateTransitVirtualInterfaceCommandOutput,
 } from "./commands/CreateTransitVirtualInterfaceCommand";
@@ -164,6 +172,10 @@ import type {
   DeleteInterconnectCommandOutput,
 } from "./commands/DeleteInterconnectCommand";
 import type { DeleteLagCommandInput, DeleteLagCommandOutput } from "./commands/DeleteLagCommand";
+import type {
+  DeleteResiliencyGroupCommandInput,
+  DeleteResiliencyGroupCommandOutput,
+} from "./commands/DeleteResiliencyGroupCommand";
 import type {
   DeleteVirtualInterfaceCommandInput,
   DeleteVirtualInterfaceCommandOutput,
@@ -236,9 +248,25 @@ import type {
   DisassociateConnectionFromLagCommandOutput,
 } from "./commands/DisassociateConnectionFromLagCommand";
 import type {
+  DisassociateConnectionsFromResiliencyGroupCommandInput,
+  DisassociateConnectionsFromResiliencyGroupCommandOutput,
+} from "./commands/DisassociateConnectionsFromResiliencyGroupCommand";
+import type {
   DisassociateMacSecKeyCommandInput,
   DisassociateMacSecKeyCommandOutput,
 } from "./commands/DisassociateMacSecKeyCommand";
+import type {
+  GetResiliencyGroupCommandInput,
+  GetResiliencyGroupCommandOutput,
+} from "./commands/GetResiliencyGroupCommand";
+import type {
+  ListResiliencyGroupAssociationsCommandInput,
+  ListResiliencyGroupAssociationsCommandOutput,
+} from "./commands/ListResiliencyGroupAssociationsCommand";
+import type {
+  ListResiliencyGroupsCommandInput,
+  ListResiliencyGroupsCommandOutput,
+} from "./commands/ListResiliencyGroupsCommand";
 import type {
   ListVirtualInterfaceRoutesCommandInput,
   ListVirtualInterfaceRoutesCommandOutput,
@@ -259,6 +287,10 @@ import type { TagResourceCommandInput, TagResourceCommandOutput } from "./comman
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
 import type {
+  UpdateConnectionsBillingModeCommandInput,
+  UpdateConnectionsBillingModeCommandOutput,
+} from "./commands/UpdateConnectionsBillingModeCommand";
+import type {
   UpdateDirectConnectGatewayAssociationCommandInput,
   UpdateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayAssociationCommand";
@@ -267,6 +299,10 @@ import type {
   UpdateDirectConnectGatewayCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayCommand";
 import type { UpdateLagCommandInput, UpdateLagCommandOutput } from "./commands/UpdateLagCommand";
+import type {
+  UpdateResiliencyGroupCommandInput,
+  UpdateResiliencyGroupCommandOutput,
+} from "./commands/UpdateResiliencyGroupCommand";
 import type {
   UpdateVirtualInterfaceAttributesCommandInput,
   UpdateVirtualInterfaceAttributesCommandOutput,
@@ -293,6 +329,7 @@ export type ServiceInputTypes =
   | AllocatePublicVirtualInterfaceCommandInput
   | AllocateTransitVirtualInterfaceCommandInput
   | AssociateConnectionWithLagCommandInput
+  | AssociateConnectionsToResiliencyGroupCommandInput
   | AssociateHostedConnectionCommandInput
   | AssociateMacSecKeyCommandInput
   | AssociateVirtualInterfaceCommandInput
@@ -310,6 +347,7 @@ export type ServiceInputTypes =
   | CreateLagCommandInput
   | CreatePrivateVirtualInterfaceCommandInput
   | CreatePublicVirtualInterfaceCommandInput
+  | CreateResiliencyGroupCommandInput
   | CreateTransitVirtualInterfaceCommandInput
   | DeleteBGPPeerCommandInput
   | DeleteConnectionCommandInput
@@ -318,6 +356,7 @@ export type ServiceInputTypes =
   | DeleteDirectConnectGatewayCommandInput
   | DeleteInterconnectCommandInput
   | DeleteLagCommandInput
+  | DeleteResiliencyGroupCommandInput
   | DeleteVirtualInterfaceCommandInput
   | DescribeConnectionLoaCommandInput
   | DescribeConnectionsCommandInput
@@ -338,7 +377,11 @@ export type ServiceInputTypes =
   | DescribeVirtualGatewaysCommandInput
   | DescribeVirtualInterfacesCommandInput
   | DisassociateConnectionFromLagCommandInput
+  | DisassociateConnectionsFromResiliencyGroupCommandInput
   | DisassociateMacSecKeyCommandInput
+  | GetResiliencyGroupCommandInput
+  | ListResiliencyGroupAssociationsCommandInput
+  | ListResiliencyGroupsCommandInput
   | ListVirtualInterfaceRoutesCommandInput
   | ListVirtualInterfaceTestHistoryCommandInput
   | StartBgpFailoverTestCommandInput
@@ -346,9 +389,11 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConnectionCommandInput
+  | UpdateConnectionsBillingModeCommandInput
   | UpdateDirectConnectGatewayAssociationCommandInput
   | UpdateDirectConnectGatewayCommandInput
   | UpdateLagCommandInput
+  | UpdateResiliencyGroupCommandInput
   | UpdateVirtualInterfaceAttributesCommandInput;
 
 /**
@@ -362,6 +407,7 @@ export type ServiceOutputTypes =
   | AllocatePublicVirtualInterfaceCommandOutput
   | AllocateTransitVirtualInterfaceCommandOutput
   | AssociateConnectionWithLagCommandOutput
+  | AssociateConnectionsToResiliencyGroupCommandOutput
   | AssociateHostedConnectionCommandOutput
   | AssociateMacSecKeyCommandOutput
   | AssociateVirtualInterfaceCommandOutput
@@ -379,6 +425,7 @@ export type ServiceOutputTypes =
   | CreateLagCommandOutput
   | CreatePrivateVirtualInterfaceCommandOutput
   | CreatePublicVirtualInterfaceCommandOutput
+  | CreateResiliencyGroupCommandOutput
   | CreateTransitVirtualInterfaceCommandOutput
   | DeleteBGPPeerCommandOutput
   | DeleteConnectionCommandOutput
@@ -387,6 +434,7 @@ export type ServiceOutputTypes =
   | DeleteDirectConnectGatewayCommandOutput
   | DeleteInterconnectCommandOutput
   | DeleteLagCommandOutput
+  | DeleteResiliencyGroupCommandOutput
   | DeleteVirtualInterfaceCommandOutput
   | DescribeConnectionLoaCommandOutput
   | DescribeConnectionsCommandOutput
@@ -407,7 +455,11 @@ export type ServiceOutputTypes =
   | DescribeVirtualGatewaysCommandOutput
   | DescribeVirtualInterfacesCommandOutput
   | DisassociateConnectionFromLagCommandOutput
+  | DisassociateConnectionsFromResiliencyGroupCommandOutput
   | DisassociateMacSecKeyCommandOutput
+  | GetResiliencyGroupCommandOutput
+  | ListResiliencyGroupAssociationsCommandOutput
+  | ListResiliencyGroupsCommandOutput
   | ListVirtualInterfaceRoutesCommandOutput
   | ListVirtualInterfaceTestHistoryCommandOutput
   | StartBgpFailoverTestCommandOutput
@@ -415,9 +467,11 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConnectionCommandOutput
+  | UpdateConnectionsBillingModeCommandOutput
   | UpdateDirectConnectGatewayAssociationCommandOutput
   | UpdateDirectConnectGatewayCommandOutput
   | UpdateLagCommandOutput
+  | UpdateResiliencyGroupCommandOutput
   | UpdateVirtualInterfaceAttributesCommandOutput;
 
 /**

@@ -33,6 +33,11 @@ import {
   AllocateTransitVirtualInterfaceCommand,
 } from "./commands/AllocateTransitVirtualInterfaceCommand";
 import {
+  type AssociateConnectionsToResiliencyGroupCommandInput,
+  type AssociateConnectionsToResiliencyGroupCommandOutput,
+  AssociateConnectionsToResiliencyGroupCommand,
+} from "./commands/AssociateConnectionsToResiliencyGroupCommand";
+import {
   type AssociateConnectionWithLagCommandInput,
   type AssociateConnectionWithLagCommandOutput,
   AssociateConnectionWithLagCommand,
@@ -119,6 +124,11 @@ import {
   CreatePublicVirtualInterfaceCommand,
 } from "./commands/CreatePublicVirtualInterfaceCommand";
 import {
+  type CreateResiliencyGroupCommandInput,
+  type CreateResiliencyGroupCommandOutput,
+  CreateResiliencyGroupCommand,
+} from "./commands/CreateResiliencyGroupCommand";
+import {
   type CreateTransitVirtualInterfaceCommandInput,
   type CreateTransitVirtualInterfaceCommandOutput,
   CreateTransitVirtualInterfaceCommand,
@@ -154,6 +164,11 @@ import {
   DeleteInterconnectCommand,
 } from "./commands/DeleteInterconnectCommand";
 import { type DeleteLagCommandInput, type DeleteLagCommandOutput, DeleteLagCommand } from "./commands/DeleteLagCommand";
+import {
+  type DeleteResiliencyGroupCommandInput,
+  type DeleteResiliencyGroupCommandOutput,
+  DeleteResiliencyGroupCommand,
+} from "./commands/DeleteResiliencyGroupCommand";
 import {
   type DeleteVirtualInterfaceCommandInput,
   type DeleteVirtualInterfaceCommandOutput,
@@ -255,10 +270,30 @@ import {
   DisassociateConnectionFromLagCommand,
 } from "./commands/DisassociateConnectionFromLagCommand";
 import {
+  type DisassociateConnectionsFromResiliencyGroupCommandInput,
+  type DisassociateConnectionsFromResiliencyGroupCommandOutput,
+  DisassociateConnectionsFromResiliencyGroupCommand,
+} from "./commands/DisassociateConnectionsFromResiliencyGroupCommand";
+import {
   type DisassociateMacSecKeyCommandInput,
   type DisassociateMacSecKeyCommandOutput,
   DisassociateMacSecKeyCommand,
 } from "./commands/DisassociateMacSecKeyCommand";
+import {
+  type GetResiliencyGroupCommandInput,
+  type GetResiliencyGroupCommandOutput,
+  GetResiliencyGroupCommand,
+} from "./commands/GetResiliencyGroupCommand";
+import {
+  type ListResiliencyGroupAssociationsCommandInput,
+  type ListResiliencyGroupAssociationsCommandOutput,
+  ListResiliencyGroupAssociationsCommand,
+} from "./commands/ListResiliencyGroupAssociationsCommand";
+import {
+  type ListResiliencyGroupsCommandInput,
+  type ListResiliencyGroupsCommandOutput,
+  ListResiliencyGroupsCommand,
+} from "./commands/ListResiliencyGroupsCommand";
 import {
   type ListVirtualInterfaceRoutesCommandInput,
   type ListVirtualInterfaceRoutesCommandOutput,
@@ -295,6 +330,11 @@ import {
   UpdateConnectionCommand,
 } from "./commands/UpdateConnectionCommand";
 import {
+  type UpdateConnectionsBillingModeCommandInput,
+  type UpdateConnectionsBillingModeCommandOutput,
+  UpdateConnectionsBillingModeCommand,
+} from "./commands/UpdateConnectionsBillingModeCommand";
+import {
   type UpdateDirectConnectGatewayAssociationCommandInput,
   type UpdateDirectConnectGatewayAssociationCommandOutput,
   UpdateDirectConnectGatewayAssociationCommand,
@@ -305,6 +345,11 @@ import {
   UpdateDirectConnectGatewayCommand,
 } from "./commands/UpdateDirectConnectGatewayCommand";
 import { type UpdateLagCommandInput, type UpdateLagCommandOutput, UpdateLagCommand } from "./commands/UpdateLagCommand";
+import {
+  type UpdateResiliencyGroupCommandInput,
+  type UpdateResiliencyGroupCommandOutput,
+  UpdateResiliencyGroupCommand,
+} from "./commands/UpdateResiliencyGroupCommand";
 import {
   type UpdateVirtualInterfaceAttributesCommandInput,
   type UpdateVirtualInterfaceAttributesCommandOutput,
@@ -319,6 +364,7 @@ const commands = {
   AllocatePrivateVirtualInterfaceCommand,
   AllocatePublicVirtualInterfaceCommand,
   AllocateTransitVirtualInterfaceCommand,
+  AssociateConnectionsToResiliencyGroupCommand,
   AssociateConnectionWithLagCommand,
   AssociateHostedConnectionCommand,
   AssociateMacSecKeyCommand,
@@ -337,6 +383,7 @@ const commands = {
   CreateLagCommand,
   CreatePrivateVirtualInterfaceCommand,
   CreatePublicVirtualInterfaceCommand,
+  CreateResiliencyGroupCommand,
   CreateTransitVirtualInterfaceCommand,
   DeleteBGPPeerCommand,
   DeleteConnectionCommand,
@@ -345,6 +392,7 @@ const commands = {
   DeleteDirectConnectGatewayAssociationProposalCommand,
   DeleteInterconnectCommand,
   DeleteLagCommand,
+  DeleteResiliencyGroupCommand,
   DeleteVirtualInterfaceCommand,
   DescribeConnectionLoaCommand,
   DescribeConnectionsCommand,
@@ -365,7 +413,11 @@ const commands = {
   DescribeVirtualGatewaysCommand,
   DescribeVirtualInterfacesCommand,
   DisassociateConnectionFromLagCommand,
+  DisassociateConnectionsFromResiliencyGroupCommand,
   DisassociateMacSecKeyCommand,
+  GetResiliencyGroupCommand,
+  ListResiliencyGroupAssociationsCommand,
+  ListResiliencyGroupsCommand,
   ListVirtualInterfaceRoutesCommand,
   ListVirtualInterfaceTestHistoryCommand,
   StartBgpFailoverTestCommand,
@@ -373,9 +425,11 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConnectionCommand,
+  UpdateConnectionsBillingModeCommand,
   UpdateDirectConnectGatewayCommand,
   UpdateDirectConnectGatewayAssociationCommand,
   UpdateLagCommand,
+  UpdateResiliencyGroupCommand,
   UpdateVirtualInterfaceAttributesCommand,
 };
 
@@ -480,6 +534,23 @@ export interface DirectConnect {
     args: AllocateTransitVirtualInterfaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AllocateTransitVirtualInterfaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateConnectionsToResiliencyGroupCommand}
+   */
+  associateConnectionsToResiliencyGroup(
+    args: AssociateConnectionsToResiliencyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateConnectionsToResiliencyGroupCommandOutput>;
+  associateConnectionsToResiliencyGroup(
+    args: AssociateConnectionsToResiliencyGroupCommandInput,
+    cb: (err: any, data?: AssociateConnectionsToResiliencyGroupCommandOutput) => void
+  ): void;
+  associateConnectionsToResiliencyGroup(
+    args: AssociateConnectionsToResiliencyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateConnectionsToResiliencyGroupCommandOutput) => void
   ): void;
 
   /**
@@ -791,6 +862,23 @@ export interface DirectConnect {
   ): void;
 
   /**
+   * @see {@link CreateResiliencyGroupCommand}
+   */
+  createResiliencyGroup(
+    args: CreateResiliencyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResiliencyGroupCommandOutput>;
+  createResiliencyGroup(
+    args: CreateResiliencyGroupCommandInput,
+    cb: (err: any, data?: CreateResiliencyGroupCommandOutput) => void
+  ): void;
+  createResiliencyGroup(
+    args: CreateResiliencyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResiliencyGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTransitVirtualInterfaceCommand}
    */
   createTransitVirtualInterface(
@@ -926,6 +1014,23 @@ export interface DirectConnect {
     args: DeleteLagCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLagCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResiliencyGroupCommand}
+   */
+  deleteResiliencyGroup(
+    args: DeleteResiliencyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResiliencyGroupCommandOutput>;
+  deleteResiliencyGroup(
+    args: DeleteResiliencyGroupCommandInput,
+    cb: (err: any, data?: DeleteResiliencyGroupCommandOutput) => void
+  ): void;
+  deleteResiliencyGroup(
+    args: DeleteResiliencyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResiliencyGroupCommandOutput) => void
   ): void;
 
   /**
@@ -1280,6 +1385,23 @@ export interface DirectConnect {
   ): void;
 
   /**
+   * @see {@link DisassociateConnectionsFromResiliencyGroupCommand}
+   */
+  disassociateConnectionsFromResiliencyGroup(
+    args: DisassociateConnectionsFromResiliencyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateConnectionsFromResiliencyGroupCommandOutput>;
+  disassociateConnectionsFromResiliencyGroup(
+    args: DisassociateConnectionsFromResiliencyGroupCommandInput,
+    cb: (err: any, data?: DisassociateConnectionsFromResiliencyGroupCommandOutput) => void
+  ): void;
+  disassociateConnectionsFromResiliencyGroup(
+    args: DisassociateConnectionsFromResiliencyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateConnectionsFromResiliencyGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateMacSecKeyCommand}
    */
   disassociateMacSecKey(
@@ -1294,6 +1416,58 @@ export interface DirectConnect {
     args: DisassociateMacSecKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateMacSecKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResiliencyGroupCommand}
+   */
+  getResiliencyGroup(
+    args: GetResiliencyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResiliencyGroupCommandOutput>;
+  getResiliencyGroup(
+    args: GetResiliencyGroupCommandInput,
+    cb: (err: any, data?: GetResiliencyGroupCommandOutput) => void
+  ): void;
+  getResiliencyGroup(
+    args: GetResiliencyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResiliencyGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResiliencyGroupAssociationsCommand}
+   */
+  listResiliencyGroupAssociations(
+    args: ListResiliencyGroupAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResiliencyGroupAssociationsCommandOutput>;
+  listResiliencyGroupAssociations(
+    args: ListResiliencyGroupAssociationsCommandInput,
+    cb: (err: any, data?: ListResiliencyGroupAssociationsCommandOutput) => void
+  ): void;
+  listResiliencyGroupAssociations(
+    args: ListResiliencyGroupAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResiliencyGroupAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResiliencyGroupsCommand}
+   */
+  listResiliencyGroups(): Promise<ListResiliencyGroupsCommandOutput>;
+  listResiliencyGroups(
+    args: ListResiliencyGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResiliencyGroupsCommandOutput>;
+  listResiliencyGroups(
+    args: ListResiliencyGroupsCommandInput,
+    cb: (err: any, data?: ListResiliencyGroupsCommandOutput) => void
+  ): void;
+  listResiliencyGroups(
+    args: ListResiliencyGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResiliencyGroupsCommandOutput) => void
   ): void;
 
   /**
@@ -1418,6 +1592,23 @@ export interface DirectConnect {
   ): void;
 
   /**
+   * @see {@link UpdateConnectionsBillingModeCommand}
+   */
+  updateConnectionsBillingMode(
+    args: UpdateConnectionsBillingModeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectionsBillingModeCommandOutput>;
+  updateConnectionsBillingMode(
+    args: UpdateConnectionsBillingModeCommandInput,
+    cb: (err: any, data?: UpdateConnectionsBillingModeCommandOutput) => void
+  ): void;
+  updateConnectionsBillingMode(
+    args: UpdateConnectionsBillingModeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectionsBillingModeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDirectConnectGatewayCommand}
    */
   updateDirectConnectGateway(
@@ -1467,6 +1658,23 @@ export interface DirectConnect {
     args: UpdateLagCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLagCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResiliencyGroupCommand}
+   */
+  updateResiliencyGroup(
+    args: UpdateResiliencyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResiliencyGroupCommandOutput>;
+  updateResiliencyGroup(
+    args: UpdateResiliencyGroupCommandInput,
+    cb: (err: any, data?: UpdateResiliencyGroupCommandOutput) => void
+  ): void;
+  updateResiliencyGroup(
+    args: UpdateResiliencyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResiliencyGroupCommandOutput) => void
   ): void;
 
   /**

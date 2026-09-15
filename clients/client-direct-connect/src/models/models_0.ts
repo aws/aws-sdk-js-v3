@@ -4,6 +4,7 @@ import type {
   AsPathType,
   BGPPeerState,
   BGPStatus,
+  BillingMode,
   ConnectionState,
   DirectConnectGatewayAssociationProposalState,
   DirectConnectGatewayAssociationState,
@@ -16,6 +17,11 @@ import type {
   LagState,
   LoaContentType,
   NniPartnerType,
+  RequestBillingMode,
+  ResiliencyGroupAssociationState,
+  ResiliencyGroupState,
+  ResiliencyGroupType,
+  ResiliencyModel,
   RouteDirection,
   VirtualInterfaceState,
 } from "./enums";
@@ -594,6 +600,12 @@ export interface Connection {
    * @public
    */
   prefixPoolUnallocatedCountIpv6?: number | undefined;
+
+  /**
+   * <p>The billing mode of the connection.</p>
+   * @public
+   */
+  billingMode?: BillingMode | undefined;
 }
 
 /**
@@ -1510,6 +1522,66 @@ export interface AsPathSegment {
 /**
  * @public
  */
+export interface AssociateConnectionsToResiliencyGroupRequest {
+  /**
+   * <p>The IDs or ARNs of the connections to associate with the resiliency group.</p>
+   * @public
+   */
+  connectionIdentifiers: string[] | undefined;
+
+  /**
+   * <p>The ID of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Information about an association between a connection and a resiliency group.</p>
+ * @public
+ */
+export interface ResiliencyGroupAssociation {
+  /**
+   * <p>The ID of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the associated connection.</p>
+   * @public
+   */
+  connectionArn?: string | undefined;
+
+  /**
+   * <p>The state of the association. The valid values are <code>associating</code>,
+   *       <code>associated</code>, <code>disassociating</code>, and <code>disassociated</code>.</p>
+   * @public
+   */
+  state?: ResiliencyGroupAssociationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateConnectionsToResiliencyGroupResult {
+  /**
+   * <p>The connection associations for the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupAssociations?: ResiliencyGroupAssociation[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface AssociateConnectionWithLagRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -1611,6 +1683,30 @@ export interface AssociateVirtualInterfaceRequest {
    * @public
    */
   connectionId: string | undefined;
+}
+
+/**
+ * <p>Information about a billing mode available at an Direct Connect location.</p>
+ * @public
+ */
+export interface AvailableBillingMode {
+  /**
+   * <p>The billing mode.</p>
+   * @public
+   */
+  billingMode?: BillingMode | undefined;
+
+  /**
+   * <p>The port speeds available for the billing mode.</p>
+   * @public
+   */
+  availablePortSpeeds?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Regions included with the billing mode.</p>
+   * @public
+   */
+  includedRegions?: string[] | undefined;
 }
 
 /**
@@ -2044,6 +2140,12 @@ export interface CreateConnectionRequest {
    * @public
    */
   requestMACSec?: boolean | undefined;
+
+  /**
+   * <p>The billing mode for the connection.</p>
+   * @public
+   */
+  billingMode?: RequestBillingMode | undefined;
 }
 
 /**
@@ -2570,6 +2672,12 @@ export interface CreateLagRequest {
    * @public
    */
   requestMACSec?: boolean | undefined;
+
+  /**
+   * <p>The billing mode for the LAG.</p>
+   * @public
+   */
+  billingMode?: RequestBillingMode | undefined;
 }
 
 /**
@@ -2770,6 +2878,12 @@ export interface Lag {
    * @public
    */
   rateLimiterStatus?: RateLimiterStatus | undefined;
+
+  /**
+   * <p>The billing mode of the LAG.</p>
+   * @public
+   */
+  billingMode?: BillingMode | undefined;
 }
 
 /**
@@ -3063,6 +3177,98 @@ export interface CreatePublicVirtualInterfaceRequest {
    * @public
    */
   newPublicVirtualInterface: NewPublicVirtualInterface | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateResiliencyGroupRequest {
+  /**
+   * <p>The name of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupName: string | undefined;
+
+  /**
+   * <p>The resiliency model that the resiliency group is intended to meet. The valid values are
+   *       <code>maximum-resiliency</code>, <code>high-resiliency</code>, and
+   *       <code>basic-resiliency</code>.</p>
+   * @public
+   */
+  intendedResiliencyModel: ResiliencyModel | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The tags to associate with the resiliency group.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Information about a resiliency group.</p>
+ * @public
+ */
+export interface ResiliencyGroup {
+  /**
+   * <p>The ID of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupArn?: string | undefined;
+
+  /**
+   * <p>The name of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupName?: string | undefined;
+
+  /**
+   * <p>The type of the resiliency group. The valid value is <code>Managed</code>.</p>
+   * @public
+   */
+  resiliencyGroupType?: ResiliencyGroupType | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the resiliency group.</p>
+   * @public
+   */
+  ownerAccount?: string | undefined;
+
+  /**
+   * <p>The state of the resiliency group. The valid values are <code>pending</code>,
+   *       <code>available</code>, <code>deleting</code>, and <code>deleted</code>.</p>
+   * @public
+   */
+  state?: ResiliencyGroupState | undefined;
+
+  /**
+   * <p>The tags associated with the resiliency group.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateResiliencyGroupResult {
+  /**
+   * <p>Information about the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroup?: ResiliencyGroup | undefined;
 }
 
 /**
@@ -3470,6 +3676,28 @@ export interface DeleteLagRequest {
    * @public
    */
   lagId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResiliencyGroupRequest {
+  /**
+   * <p>The ID of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResiliencyGroupResult {
+  /**
+   * <p>Information about the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroup?: ResiliencyGroup | undefined;
 }
 
 /**
@@ -4138,6 +4366,13 @@ export interface Location {
    * @public
    */
   availableMacSecPortSpeeds?: string[] | undefined;
+
+  /**
+   * <p>The billing modes available at the location, including the port speeds and
+   *       Amazon Web Services Regions supported by each mode.</p>
+   * @public
+   */
+  availableBillingModes?: AvailableBillingMode[] | undefined;
 }
 
 /**
@@ -4396,6 +4631,41 @@ export interface DisassociateConnectionFromLagRequest {
 /**
  * @public
  */
+export interface DisassociateConnectionsFromResiliencyGroupRequest {
+  /**
+   * <p>The IDs or ARNs of the connections to disassociate from the resiliency group.</p>
+   * @public
+   */
+  connectionIdentifiers: string[] | undefined;
+
+  /**
+   * <p>The ID of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateConnectionsFromResiliencyGroupResult {
+  /**
+   * <p>The connection associations for the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupAssociations?: ResiliencyGroupAssociation[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateMacSecKeyRequest {
   /**
    * <p>The ID of the dedicated connection (dxcon-xxxx), interconnect (dxcon-xxxx), or LAG (dxlag-xxxx).</p>
@@ -4427,6 +4697,150 @@ export interface DisassociateMacSecKeyResponse {
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResiliencyGroupRequest {
+  /**
+   * <p>The ID of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResiliencyGroupResult {
+  /**
+   * <p>Information about the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroup?: ResiliencyGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResiliencyGroupAssociationsRequest {
+  /**
+   * <p>The ID of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResiliencyGroupAssociationsResult {
+  /**
+   * <p>The connection associations for the resiliency group.</p>
+   * @public
+   */
+  items?: ResiliencyGroupAssociation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResiliencyGroupsRequest {
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a resiliency group.</p>
+ * @public
+ */
+export interface ResiliencyGroupSummary {
+  /**
+   * <p>The ID of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupArn?: string | undefined;
+
+  /**
+   * <p>The name of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupName?: string | undefined;
+
+  /**
+   * <p>The type of the resiliency group. The valid value is <code>Managed</code>.</p>
+   * @public
+   */
+  resiliencyGroupType?: ResiliencyGroupType | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the resiliency group.</p>
+   * @public
+   */
+  ownerAccount?: string | undefined;
+
+  /**
+   * <p>The state of the resiliency group.</p>
+   * @public
+   */
+  state?: ResiliencyGroupState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResiliencyGroupsResult {
+  /**
+   * <p>Summary information about the resiliency groups.</p>
+   * @public
+   */
+  items?: ResiliencyGroupSummary[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4818,6 +5232,43 @@ export interface UpdateConnectionRequest {
 /**
  * @public
  */
+export interface UpdateConnectionsBillingModeRequest {
+  /**
+   * <p>The IDs of the connections to update. You can specify from 1 to 200 connections.</p>
+   * @public
+   */
+  connectionIds: string[] | undefined;
+
+  /**
+   * <p>The billing mode to apply to the specified connections. The valid values are
+   *       <code>PayAsYouGo</code>, <code>FlatRateTier1</code>, <code>FlatRateTier2</code>,
+   *       <code>FlatRateTier3</code>, <code>FlatRateTier4</code>, and
+   *       <code>FlatRateTier5</code>.</p>
+   * @public
+   */
+  billingMode: RequestBillingMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectionsBillingModeResponse {
+  /**
+   * <p>The billing mode applied to the connections.</p>
+   * @public
+   */
+  billingMode?: BillingMode | undefined;
+
+  /**
+   * <p>The connections with the updated billing mode.</p>
+   * @public
+   */
+  connections?: Connection[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateDirectConnectGatewayRequest {
   /**
    * <p>The ID of the Direct Connect gateway to update.</p>
@@ -4905,6 +5356,41 @@ export interface UpdateLagRequest {
    * @public
    */
   encryptionMode?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateResiliencyGroupRequest {
+  /**
+   * <p>The ID of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupId: string | undefined;
+
+  /**
+   * <p>The new name of the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroupName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateResiliencyGroupResult {
+  /**
+   * <p>Information about the resiliency group.</p>
+   * @public
+   */
+  resiliencyGroup?: ResiliencyGroup | undefined;
 }
 
 /**

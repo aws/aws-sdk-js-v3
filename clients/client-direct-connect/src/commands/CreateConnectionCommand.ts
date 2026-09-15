@@ -52,6 +52,7 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  *   ],
  *   providerName: "STRING_VALUE",
  *   requestMACSec: true || false,
+ *   billingMode: "PayAsYouGo" || "FlatRateTier1" || "FlatRateTier2" || "FlatRateTier3" || "FlatRateTier4" || "FlatRateTier5",
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
@@ -101,6 +102,7 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  * //   prefixPoolSizeIpv6: Number("int"),
  * //   prefixPoolUnallocatedCountIpv4: Number("int"),
  * //   prefixPoolUnallocatedCountIpv6: Number("int"),
+ * //   billingMode: "PayAsYouGo" || "FlatRateTier1" || "FlatRateTier2" || "FlatRateTier3" || "FlatRateTier4" || "FlatRateTier5" || "PortPairFlatRateTier1" || "PortPairFlatRateTier2" || "PortPairFlatRateTier3" || "PortPairFlatRateTier4" || "PortPairFlatRateTier5",
  * // };
  *
  * ```
