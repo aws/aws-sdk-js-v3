@@ -654,7 +654,7 @@ export class S3TransferManager implements IS3TransferManager {
       // Multipart download path when PartsCount > 1.
       tempFilePath = await fileManager.createTempFile(resolvedDestination, totalSize);
       fileManager.registerCleanupHandler(tempFilePath);
-      
+
       let transferredBytes = 0;
 
       // Write Part 1 body, which starts at byte 0.
@@ -1089,12 +1089,26 @@ export class S3TransferManager implements IS3TransferManager {
         const abortError = Object.assign(new Error("Transfer aborted."), {
           name: "AbortError",
         });
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, abortError, emitEvents);
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalContentLength,
+          abortError,
+          emitEvents
+        );
         throw abortError;
       }
 
       if (failed) {
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, failureError, emitEvents);
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalContentLength,
+          failureError,
+          emitEvents
+        );
         throw failureError;
       }
 
