@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Amazon Bedrock AgentCore Runtime now supports specifying the platform version of an agent runtime through the new platformVersion field on CreateAgentRuntime, UpdateAgentRuntime, and GetAgentRuntime. ([d3a50d2](https://github.com/aws/aws-sdk-js-v3/commit/d3a50d22c67767226fab020893b9c46ea03a4f93))
+
+
+
+
+
 # [3.1132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1131.0...v3.1132.0) (2026-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
+
+
+### Features
+
+* **client-transfer:** AWS Transfer Family now preserves the original source IP address using Proxy Protocol v2 when you place a Network Load Balancer in front of your server for SFTP connections. ([b1d62fe](https://github.com/aws/aws-sdk-js-v3/commit/b1d62fea30de906f0c607a2a89fbe23b90442d01))
+
+
+
+
+
 # [3.1132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1131.0...v3.1132.0) (2026-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

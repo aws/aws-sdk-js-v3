@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
+
+
+### Features
+
+* **client-workspaces:** Added support for 4 new graphics-optimized compute types - Graphics.g7 (2xlarge, 4xlarge, 8xlarge, 12xlarge). ([271c68d](https://github.com/aws/aws-sdk-js-v3/commit/271c68d39ed31eea099af845df89033d58e7b18e))
+
+
+
+
+
 # [3.1132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1131.0...v3.1132.0) (2026-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

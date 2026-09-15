@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Amazon Bedrock AgentCore Runtime now supports specifying the platform version of an agent runtime through the new platformVersion field on CreateAgentRuntime, UpdateAgentRuntime, and GetAgentRuntime. ([d3a50d2](https://github.com/aws/aws-sdk-js-v3/commit/d3a50d22c67767226fab020893b9c46ea03a4f93))
+* **client-direct-connect:** AWS Direct Connect is introducing flat-rate pricing, a simplified billing model that gives you a fixed monthly price for dedicated connectivity with no per-gigabyte data transfer out charges within the selected pricing tier. ([b9956a5](https://github.com/aws/aws-sdk-js-v3/commit/b9956a5aa8abac3f99b857e0288c65a5f44b4461))
+* **client-transfer:** AWS Transfer Family now preserves the original source IP address using Proxy Protocol v2 when you place a Network Load Balancer in front of your server for SFTP connections. ([b1d62fe](https://github.com/aws/aws-sdk-js-v3/commit/b1d62fea30de906f0c607a2a89fbe23b90442d01))
+* **client-workspaces:** Added support for 4 new graphics-optimized compute types - Graphics.g7 (2xlarge, 4xlarge, 8xlarge, 12xlarge). ([271c68d](https://github.com/aws/aws-sdk-js-v3/commit/271c68d39ed31eea099af845df89033d58e7b18e))
+
+
+
+
+
 # [3.1132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1131.0...v3.1132.0) (2026-09-14)
 
 

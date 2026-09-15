@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
+
+
+### Features
+
+* **client-direct-connect:** AWS Direct Connect is introducing flat-rate pricing, a simplified billing model that gives you a fixed monthly price for dedicated connectivity with no per-gigabyte data transfer out charges within the selected pricing tier. ([b9956a5](https://github.com/aws/aws-sdk-js-v3/commit/b9956a5aa8abac3f99b857e0288c65a5f44b4461))
+
+
+
+
+
 # [3.1132.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1131.0...v3.1132.0) (2026-09-14)
 
 **Note:** Version bump only for package @aws-sdk/client-direct-connect
