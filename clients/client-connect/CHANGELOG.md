@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
+
+
+### Features
+
+* **client-connect:** Adds support for ContactAnalysis via ListContactReferences. ([983124f](https://github.com/aws/aws-sdk-js-v3/commit/983124f46ea68bd024741a22225b05caf6b73377))
+
+
+
+
+
 # [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
+
+
+### Features
+
+* **client-elastic-beanstalk:** Adds support to create and manage Elastic Beanstalk Cluster Environments. ([fc0ab53](https://github.com/aws/aws-sdk-js-v3/commit/fc0ab53f580557f8ca6e15b65b2249c91f908a32))
+
+
+
+
+
 # [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-beanstalk

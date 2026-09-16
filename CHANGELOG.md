@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** update transfer progress events ([#8292](https://github.com/aws/aws-sdk-js-v3/issues/8292)) ([8c690c2](https://github.com/aws/aws-sdk-js-v3/commit/8c690c23271c5971e7bd37d399b57da01d993b5f))
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for a new DELETE FAILED status for Bedrock AgentCore Runtimes and Bedrock AgentCore Runtime Endpoints. ([c5d8441](https://github.com/aws/aws-sdk-js-v3/commit/c5d8441514f9cd98ebd55ce5a3f1aac3942ea731))
+* **client-connect:** Adds support for ContactAnalysis via ListContactReferences. ([983124f](https://github.com/aws/aws-sdk-js-v3/commit/983124f46ea68bd024741a22225b05caf6b73377))
+* **client-customer-profiles:** This release introduces the SearchRecommendations API, which retrieves recommendations for a profile identified by a search key. ([a038865](https://github.com/aws/aws-sdk-js-v3/commit/a0388656b95d9c4f4ccb69cf5607ece9d47c501c))
+* **client-ec2:** Releasing new EC2 R9g and R9gd memory-optimized instances powered by AWS Graviton5 processors, with up to 25 percent better compute performance than R8g instances, faster DDR5 memory, and up to 100 Gbps network and 72 Gbps EBS bandwidth. R9gd instances additionally provide local NVMe SSD storage. ([30aea54](https://github.com/aws/aws-sdk-js-v3/commit/30aea54d19a29107a368df6bff4d1e3a9dc9c940))
+* **client-elastic-beanstalk:** Adds support to create and manage Elastic Beanstalk Cluster Environments. ([fc0ab53](https://github.com/aws/aws-sdk-js-v3/commit/fc0ab53f580557f8ca6e15b65b2249c91f908a32))
+* **client-marketplace-catalog:** This release enhances the ListEntities API to support issuerAccountId and SourceAuthorization filter for ResaleAuthorization entity. ([f2379c2](https://github.com/aws/aws-sdk-js-v3/commit/f2379c20f39f8a15fa1aad399b2adef95710bd58))
+* **client-resiliencehubv2:** Next Gen Resilience Hub now supports dependency insights (LLM-based insights about customer's service dependencies) and organization-level policy sharing (provision to share policy with member accounts for an organization) ([4d415b5](https://github.com/aws/aws-sdk-js-v3/commit/4d415b5134b8132c048200bf5973f4ee7cdb543a))
+
+
+
+
+
 # [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
 
 

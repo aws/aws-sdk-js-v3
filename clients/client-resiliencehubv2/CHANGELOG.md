@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
+
+
+### Features
+
+* **client-resiliencehubv2:** Next Gen Resilience Hub now supports dependency insights (LLM-based insights about customer's service dependencies) and organization-level policy sharing (provision to share policy with member accounts for an organization) ([4d415b5](https://github.com/aws/aws-sdk-js-v3/commit/4d415b5134b8132c048200bf5973f4ee7cdb543a))
+
+
+
+
+
 # [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
 
 **Note:** Version bump only for package @aws-sdk/client-resiliencehubv2

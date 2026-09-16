@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** update transfer progress events ([#8292](https://github.com/aws/aws-sdk-js-v3/issues/8292)) ([8c690c2](https://github.com/aws/aws-sdk-js-v3/commit/8c690c23271c5971e7bd37d399b57da01d993b5f))
+
+
+
+
+
 # [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
 
 **Note:** Version bump only for package @aws-sdk/lib-transfer-manager

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
+
+
+### Features
+
+* **client-customer-profiles:** This release introduces the SearchRecommendations API, which retrieves recommendations for a profile identified by a search key. ([a038865](https://github.com/aws/aws-sdk-js-v3/commit/a0388656b95d9c4f4ccb69cf5607ece9d47c501c))
+
+
+
+
+
 # [3.1133.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1132.0...v3.1133.0) (2026-09-15)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles
