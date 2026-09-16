@@ -23,7 +23,7 @@ export interface CreateConfigurationTemplateCommandInput extends CreateConfigura
 export interface CreateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
- * <p>Creates an AWS Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk
+ * <p>Creates an Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk
  *       application. You define application configuration settings in a configuration template. You
  *       can then use the configuration template to deploy different versions of the application with
  *       the same configuration settings.</p>
@@ -112,8 +112,7 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>

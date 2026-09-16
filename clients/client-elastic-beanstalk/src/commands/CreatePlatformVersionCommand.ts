@@ -93,8 +93,7 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  *  <p>A generic service exception has occurred.</p>
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link TooManyPlatformsException} (client fault)
  *  <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>

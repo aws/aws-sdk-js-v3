@@ -70,8 +70,7 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  *  <p>A generic service exception has occurred.</p>
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link OperationInProgressException} (client fault)
  *  <p>Unable to perform the specified operation because another operation that effects an

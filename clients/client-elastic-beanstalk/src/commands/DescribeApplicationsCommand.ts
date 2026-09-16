@@ -24,6 +24,19 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
 
 /**
  * <p>Returns the descriptions of existing applications.</p>
+ *          <p>This action only returns information about applications that the calling principle has IAM permissions to
+ *       access. For example, consider a case where a user only has permission to access two of three
+ *       applications. When the user calls the <i>DescribeApplications</i> action, the
+ *       response will only include the two applications that the user has permission to access
+ *       instead of all three applications. If the user doesn’t have access to any of the applications
+ *       an empty result is returned.</p>
+ *          <note>
+ *             <p>The <i>AWSElasticBeanstalkReadOnly</i> managed policy allows operators to
+ *         view information about resources related to Elastic Beanstalk environments. For more
+ *         information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html"> Managing Elastic Beanstalk user
+ *           policies</a> in the <i>Elastic Beanstalk Developer Guide</i>. For detailed
+ *         instructions to attach a policy to a user or group, see the section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed"> Controlling access with managed policies</a> in the same topic.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

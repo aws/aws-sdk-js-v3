@@ -25,8 +25,8 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
 /**
  * <p>Updates the specified application to have the specified properties.</p>
  *          <note>
- *             <p>If a property (for example, <code>description</code>) is not provided, the value
- *         remains unchanged. To clear these properties, specify an empty string.</p>
+ *             <p>If a property (for example, <code>description</code>) is not provided, the value remains
+ *         unchanged. To clear these properties, specify an empty string.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

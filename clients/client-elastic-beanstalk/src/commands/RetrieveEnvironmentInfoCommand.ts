@@ -23,8 +23,7 @@ export interface RetrieveEnvironmentInfoCommandInput extends RetrieveEnvironment
 export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmentInfoResultMessage, __MetadataBearer {}
 
 /**
- * <p>Retrieves the compiled information from a <a>RequestEnvironmentInfo</a>
- *       request.</p>
+ * <p>Retrieves the compiled information from a <a>RequestEnvironmentInfo</a> request.</p>
  *          <p>Related Topics</p>
  *          <ul>
  *             <li>

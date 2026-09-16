@@ -24,6 +24,15 @@ export interface DescribeApplicationVersionsCommandOutput extends ApplicationVer
 
 /**
  * <p>Retrieve a list of application versions.</p>
+ *          <p>This action only returns information about resources that the calling principle has IAM permissions to access. For example, consider a case where a
+ *       user only has permission to access one of three resources. When the user calls the this action, the response will only include the one resource that the
+ *       user has permission to access instead of all three resources. If the user doesn’t have access to any of the resources an empty result is returned.</p>
+ *          <note>
+ *             <p>The <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html">AWSElasticBeanstalkReadOnly</a>
+ *         managed policy allows operators to view information about resources related to Elastic Beanstalk. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html"> Managing Elastic Beanstalk user policies</a> in the <i>Elastic Beanstalk Developer
+ *           Guide</i>. For detailed instructions to attach a policy to a user or group, see the section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed"> Controlling access with managed policies</a> in the
+ *         same topic.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +68,19 @@ export interface DescribeApplicationVersionsCommandOutput extends ApplicationVer
  * //         S3Bucket: "STRING_VALUE",
  * //         S3Key: "STRING_VALUE",
  * //       },
+ * //       ImageSource: { // ImageSource
+ * //         Uri: "STRING_VALUE",
+ * //       },
+ * //       ImageBuildConfiguration: { // ImageBuildConfiguration
+ * //         Type: "docker" || "buildpack",
+ * //         DockerfileLocation: "STRING_VALUE",
+ * //         Buildpack: "STRING_VALUE",
+ * //         Architecture: "amd64" || "arm64",
+ * //         CodeBuildServiceRole: "STRING_VALUE",
+ * //         ComputeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE",
+ * //         TimeoutInMinutes: Number("int"),
+ * //       },
+ * //       Process: true || false,
  * //       DateCreated: new Date("TIMESTAMP"),
  * //       DateUpdated: new Date("TIMESTAMP"),
  * //       Status: "Processed" || "Unprocessed" || "Failed" || "Processing" || "Building",

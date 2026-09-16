@@ -93,8 +93,7 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>

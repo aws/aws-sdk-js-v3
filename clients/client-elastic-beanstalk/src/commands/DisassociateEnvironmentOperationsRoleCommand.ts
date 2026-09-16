@@ -23,10 +23,11 @@ export interface DisassociateEnvironmentOperationsRoleCommandInput extends Disas
 export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociate the operations role from an environment. After this call is made, Elastic Beanstalk uses
- *       the caller's permissions for permissions to downstream services during subsequent calls acting
- *       on this environment. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
- *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
+ * <important>
+ *             <p>The operations role feature of Elastic Beanstalk is in beta release and is subject to change.</p>
+ *          </important>
+ *          <p>Disassociate the operations role from an environment. After this call is made, Elastic Beanstalk uses the caller's permissions for permissions to downstream
+ *       services during subsequent calls acting on this environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,8 +52,7 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>

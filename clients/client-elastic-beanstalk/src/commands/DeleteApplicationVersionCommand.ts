@@ -25,8 +25,7 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
 /**
  * <p>Deletes the specified version from the specified application.</p>
  *          <note>
- *             <p>You cannot delete an application version that is associated with a running
- *         environment.</p>
+ *             <p>You cannot delete an application version that is associated with a running environment.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,8 +53,7 @@ export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer 
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link OperationInProgressException} (client fault)
  *  <p>Unable to perform the specified operation because another operation that effects an

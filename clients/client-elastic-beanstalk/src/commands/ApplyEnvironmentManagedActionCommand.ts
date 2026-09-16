@@ -23,9 +23,8 @@ export interface ApplyEnvironmentManagedActionCommandInput extends ApplyEnvironm
 export interface ApplyEnvironmentManagedActionCommandOutput extends ApplyEnvironmentManagedActionResult, __MetadataBearer {}
 
 /**
- * <p>Applies a scheduled managed action immediately. A managed action can be applied only if
- *       its status is <code>Scheduled</code>. Get the status and action ID of a managed action with
- *         <a>DescribeEnvironmentManagedActions</a>.</p>
+ * <p>Applies a scheduled managed action immediately. A managed action can be applied only if its status is <code>Scheduled</code>. Get the status and
+ *       action ID of a managed action with <a>DescribeEnvironmentManagedActions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

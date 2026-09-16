@@ -23,8 +23,8 @@ export interface CreateApplicationCommandInput extends CreateApplicationMessage 
 export interface CreateApplicationCommandOutput extends ApplicationDescriptionMessage, __MetadataBearer {}
 
 /**
- * <p>Creates an application that has one configuration template named <code>default</code>
- *       and no application versions.</p>
+ * <p>Creates an application that has one configuration template named <code>default</code> and
+ *       no application versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

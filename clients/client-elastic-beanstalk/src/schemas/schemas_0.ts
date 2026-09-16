@@ -40,6 +40,7 @@ const _AVQ = "ApplicationVersionQuota";
 const _AVp = "ApplicationVersions";
 const _AZ = "AvailabilityZone";
 const _Ap = "Applications";
+const _Ar = "Architecture";
 const _At = "Attribute";
 const _Av = "Available";
 const _B = "Builder";
@@ -47,13 +48,16 @@ const _BA = "BuildArn";
 const _BC = "BuildConfiguration";
 const _BN = "BranchName";
 const _BO = "BranchOrder";
-const _C = "Color";
-const _CA = "CustomAmi";
+const _Bu = "Buildpack";
+const _Bui = "Build";
+const _C = "Cluster";
+const _CA = "ClusterArn";
 const _CAL = "CustomAmiList";
 const _CAM = "CreateApplicationMessage";
 const _CAV = "CreateApplicationVersion";
 const _CAVM = "CreateApplicationVersionMessage";
 const _CAr = "CreateApplication";
+const _CAu = "CustomAmi";
 const _CBNISRE = "CodeBuildNotInServiceRegionException";
 const _CBSR = "CodeBuildServiceRole";
 const _CCT = "CreateConfigurationTemplate";
@@ -89,6 +93,7 @@ const _CT = "ConfigurationTemplates";
 const _CTQ = "ConfigurationTemplateQuota";
 const _CTo = "ComputeType";
 const _Ca = "Causes";
+const _Co = "Color";
 const _D = "Description";
 const _DA = "DeleteApplication";
 const _DAA = "DescribeAccountAttributes";
@@ -132,6 +137,7 @@ const _DI = "DeploymentId";
 const _DIH = "DescribeInstancesHealth";
 const _DIHR = "DescribeInstancesHealthRequest";
 const _DIHRe = "DescribeInstancesHealthResult";
+const _DL = "DockerfileLocation";
 const _DPV = "DeletePlatformVersion";
 const _DPVR = "DeletePlatformVersionRequest";
 const _DPVRe = "DeletePlatformVersionResult";
@@ -190,6 +196,8 @@ const _GN = "GroupName";
 const _H = "Health";
 const _HS = "HealthStatus";
 const _I = "Image";
+const _IBC = "ImageBuildConfiguration";
+const _IC = "ImageConfiguration";
 const _ID = "IncludeDeleted";
 const _IDBT = "IncludedDeletedBackTo";
 const _IH = "InstancesHealth";
@@ -202,6 +210,7 @@ const _IOW = "IOWait";
 const _IPE = "InsufficientPrivilegesException";
 const _IRE = "InvalidRequestException";
 const _IRQ = "IRQ";
+const _IS = "ImageSource";
 const _IT = "InfoType";
 const _ITn = "InstanceType";
 const _Id = "Idle";
@@ -276,7 +285,7 @@ const _OSp = "OptionSpecification";
 const _OTR = "OptionsToRemove";
 const _Ok = "Ok";
 const _Op = "Operator";
-const _P = "Privileged";
+const _P = "Process";
 const _PA = "PlatformArn";
 const _PBLS = "PlatformBranchLifecycleState";
 const _PBN = "PlatformBranchName";
@@ -312,7 +321,7 @@ const _P________ = "P10";
 const _Pa = "Pattern";
 const _Pe = "Pending";
 const _Po = "Port";
-const _Pr = "Process";
+const _Pr = "Privileged";
 const _Pro = "Protocol";
 const _Q = "Queues";
 const _QL = "QueueList";
@@ -374,6 +383,7 @@ const _STa = "SampleTimestamp";
 const _STo = "SourceType";
 const _Se = "Severity";
 const _Sev = "Severe";
+const _So = "Source";
 const _St = "Status2xx";
 const _Sta = "Status3xx";
 const _Stat = "Status4xx";
@@ -418,6 +428,7 @@ const _URL = "URL";
 const _UTFR = "UpdateTagsForResource";
 const _UTFRM = "UpdateTagsForResourceMessage";
 const _Un = "Unknown";
+const _Ur = "Uri";
 const _V = "Versions";
 const _VCS = "ValidateConfigurationSettings";
 const _VCSM = "ValidateConfigurationSettingsMessage";
@@ -634,8 +645,8 @@ export var ApplicationResourceLifecycleDescriptionMessage$: StaticStructureSchem
 ];
 export var ApplicationVersionDescription$: StaticStructureSchema = [3, n0, _AVD,
   0,
-  [_AVA, _AN, _D, _VL, _SBI, _BA, _SB, _DC, _DU, _S],
-  [0, 0, 0, 0, () => SourceBuildInformation$, 0, () => S3Location$, 4, 4, 0]
+  [_AVA, _AN, _D, _VL, _SBI, _BA, _SB, _IS, _IBC, _P, _DC, _DU, _S],
+  [0, 0, 0, 0, () => SourceBuildInformation$, 0, () => S3Location$, () => ImageSource$, () => ImageBuildConfiguration$, 2, 4, 4, 0]
 ];
 export var ApplicationVersionDescriptionMessage$: StaticStructureSchema = [3, n0, _AVDM,
   0,
@@ -692,6 +703,11 @@ export var CheckDNSAvailabilityResultMessage$: StaticStructureSchema = [3, n0, _
   [_Av, _FQCNAME],
   [2, 0]
 ];
+export var Cluster$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_CA],
+  [0]
+];
 export var ComposeEnvironmentsMessage$: StaticStructureSchema = [3, n0, _CEM,
   0,
   [_AN, _GN, _VLe],
@@ -729,7 +745,7 @@ export var ConfigurationSettingsValidationMessages$: StaticStructureSchema = [3,
 ];
 export var CPUUtilization$: StaticStructureSchema = [3, n0, _CPUU,
   0,
-  [_U, _Ni, _Sy, _Id, _IOW, _IRQ, _SIRQ, _P],
+  [_U, _Ni, _Sy, _Id, _IOW, _IRQ, _SIRQ, _Pr],
   [1, 1, 1, 1, 1, 1, 1, 1]
 ];
 export var CreateApplicationMessage$: StaticStructureSchema = [3, n0, _CAM,
@@ -739,8 +755,8 @@ export var CreateApplicationMessage$: StaticStructureSchema = [3, n0, _CAM,
 ];
 export var CreateApplicationVersionMessage$: StaticStructureSchema = [3, n0, _CAVM,
   0,
-  [_AN, _VL, _D, _SBI, _SB, _BC, _ACA, _Pr, _T],
-  [0, 0, 0, () => SourceBuildInformation$, () => S3Location$, () => BuildConfiguration$, 2, 2, () => Tags], 2
+  [_AN, _VL, _D, _SBI, _SB, _BC, _ACA, _P, _T, _IC],
+  [0, 0, 0, () => SourceBuildInformation$, () => S3Location$, () => BuildConfiguration$, 2, 2, () => Tags, () => ImageConfiguration$], 2
 ];
 export var CreateConfigurationTemplateMessage$: StaticStructureSchema = [3, n0, _CCTM,
   0,
@@ -767,7 +783,7 @@ export var CreateStorageLocationResultMessage$: StaticStructureSchema = [3, n0, 
   [_SBu],
   [0]
 ];
-export var CustomAmi$: StaticStructureSchema = [3, n0, _CA,
+export var CustomAmi$: StaticStructureSchema = [3, n0, _CAu,
   0,
   [_VTi, _II],
   [0, 0]
@@ -839,7 +855,7 @@ export var DescribeEnvironmentHealthRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeEnvironmentHealthResult$: StaticStructureSchema = [3, n0, _DEHRe,
   0,
-  [_EN, _HS, _S, _C, _Ca, _AM, _IH, _RA],
+  [_EN, _HS, _S, _Co, _Ca, _AM, _IH, _RA],
   [0, 0, 0, 0, 64 | 0, () => ApplicationMetrics$, () => InstanceHealthSummary$, 4]
 ];
 export var DescribeEnvironmentManagedActionHistoryRequest$: StaticStructureSchema = [3, n0, _DEMAHR,
@@ -924,8 +940,8 @@ export var EnvironmentLink$: StaticStructureSchema = [3, n0, _ELn,
 ];
 export var EnvironmentResourceDescription$: StaticStructureSchema = [3, n0, _ERD,
   0,
-  [_EN, _ASGu, _In, _LC, _LT, _LB, _Tr, _Q],
-  [0, () => AutoScalingGroupList, () => InstanceList, () => LaunchConfigurationList, () => LaunchTemplateList, () => LoadBalancerList, () => TriggerList, () => QueueList]
+  [_EN, _ASGu, _C, _In, _LC, _LT, _LB, _Tr, _Q],
+  [0, () => AutoScalingGroupList, () => Cluster$, () => InstanceList, () => LaunchConfigurationList, () => LaunchTemplateList, () => LoadBalancerList, () => TriggerList, () => QueueList]
 ];
 export var EnvironmentResourceDescriptionsMessage$: StaticStructureSchema = [3, n0, _ERDM,
   0,
@@ -951,6 +967,21 @@ export var EventDescriptionsMessage$: StaticStructureSchema = [3, n0, _EDMv,
   0,
   [_Ev, _NT],
   [() => EventDescriptionList, 0]
+];
+export var ImageBuildConfiguration$: StaticStructureSchema = [3, n0, _IBC,
+  0,
+  [_Ty, _DL, _Bu, _Ar, _CBSR, _CTo, _TIM],
+  [0, 0, 0, 0, 0, 0, 1]
+];
+export var ImageConfiguration$: StaticStructureSchema = [3, n0, _IC,
+  0,
+  [_So, _Bui],
+  [() => ImageSource$, () => ImageBuildConfiguration$]
+];
+export var ImageSource$: StaticStructureSchema = [3, n0, _IS,
+  0,
+  [_Ur],
+  [0]
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _Ins,
   0,
@@ -1139,7 +1170,7 @@ export var SearchFilter$: StaticStructureSchema = [3, n0, _SF,
 ];
 export var SingleInstanceHealth$: StaticStructureSchema = [3, n0, _SIH,
   0,
-  [_IIn, _HS, _C, _Ca, _LA, _AM, _Sy, _De, _AZ, _ITn],
+  [_IIn, _HS, _Co, _Ca, _LA, _AM, _Sy, _De, _AZ, _ITn],
   [0, 0, 0, 64 | 0, 4, () => ApplicationMetrics$, () => SystemStatus$, () => Deployment$, 0, 0]
 ];
 export var SolutionStackDescription$: StaticStructureSchema = [3, n0, _SSDo,

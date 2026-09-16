@@ -23,22 +23,16 @@ export interface CreateApplicationVersionCommandInput extends CreateApplicationV
 export interface CreateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**
- * <p>Creates an application version for the specified application. You can create an
- *       application version from a source bundle in Amazon S3, a commit in AWS CodeCommit, or the
- *       output of an AWS CodeBuild build as follows:</p>
- *          <p>Specify a commit in an AWS CodeCommit repository with
- *         <code>SourceBuildInformation</code>.</p>
- *          <p>Specify a build in an AWS CodeBuild with <code>SourceBuildInformation</code> and
- *         <code>BuildConfiguration</code>.</p>
- *          <p>Specify a source bundle in S3 with <code>SourceBundle</code>
+ * <p>Creates an application version for the specified application. You can create an application version from a source bundle in Amazon S3, a commit in
+ *       CodeCommit, or the output of an CodeBuild build as follows:</p>
+ *          <p>Specify a commit in an CodeCommit repository with <code>SourceBuildInformation</code>.</p>
+ *          <p>Specify a build in an CodeBuild with <code>SourceBuildInformation</code> and <code>BuildConfiguration</code>.</p>
+ *          <p>Specify a source bundle in Amazon S3 with <code>SourceBundle</code>
  *          </p>
- *          <p>Omit both <code>SourceBuildInformation</code> and <code>SourceBundle</code> to use the
- *       default sample application.</p>
+ *          <p>Omit both <code>SourceBuildInformation</code> and <code>SourceBundle</code> to use the default sample application.</p>
  *          <note>
- *             <p>After you create an application version with a specified Amazon S3 bucket and key
- *         location, you can't change that Amazon S3 location. If you change the Amazon S3 location,
- *         you receive an exception when you attempt to launch an environment from the application
- *         version.</p>
+ *             <p>After you create an application version with a specified Amazon S3 bucket and key location, you can't change that Amazon S3 location. If you change the Amazon S3
+ *         location, you receive an exception when you attempt to launch an environment from the application version.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +70,20 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   ImageConfiguration: { // ImageConfiguration
+ *     Source: { // ImageSource
+ *       Uri: "STRING_VALUE",
+ *     },
+ *     Build: { // ImageBuildConfiguration
+ *       Type: "docker" || "buildpack",
+ *       DockerfileLocation: "STRING_VALUE",
+ *       Buildpack: "STRING_VALUE",
+ *       Architecture: "amd64" || "arm64",
+ *       CodeBuildServiceRole: "STRING_VALUE",
+ *       ComputeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE",
+ *       TimeoutInMinutes: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new CreateApplicationVersionCommand(input);
  * const response = await client.send(command);
@@ -95,6 +103,19 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * //       S3Bucket: "STRING_VALUE",
  * //       S3Key: "STRING_VALUE",
  * //     },
+ * //     ImageSource: { // ImageSource
+ * //       Uri: "STRING_VALUE",
+ * //     },
+ * //     ImageBuildConfiguration: { // ImageBuildConfiguration
+ * //       Type: "docker" || "buildpack",
+ * //       DockerfileLocation: "STRING_VALUE",
+ * //       Buildpack: "STRING_VALUE",
+ * //       Architecture: "amd64" || "arm64",
+ * //       CodeBuildServiceRole: "STRING_VALUE",
+ * //       ComputeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE",
+ * //       TimeoutInMinutes: Number("int"),
+ * //     },
+ * //     Process: true || false,
  * //     DateCreated: new Date("TIMESTAMP"),
  * //     DateUpdated: new Date("TIMESTAMP"),
  * //     Status: "Processed" || "Unprocessed" || "Failed" || "Processing" || "Building",
@@ -110,11 +131,10 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link CodeBuildNotInServiceRegionException} (client fault)
- *  <p>AWS CodeBuild is not available in the specified region.</p>
+ *  <p>CodeBuild is not available in the specified region.</p>
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link S3LocationNotInServiceRegionException} (client fault)
  *  <p>The specified S3 bucket does not belong to the S3 region in which the service is

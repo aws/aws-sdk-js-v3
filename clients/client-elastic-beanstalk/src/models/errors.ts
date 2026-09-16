@@ -6,8 +6,7 @@ import {
 } from "./ElasticBeanstalkSyntheticServiceException";
 
 /**
- * <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ * <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  * @public
  */
 export class InsufficientPrivilegesException extends __BaseException {
@@ -107,7 +106,7 @@ export class TooManyApplicationsException extends __BaseException {
 }
 
 /**
- * <p>AWS CodeBuild is not available in the specified region.</p>
+ * <p>CodeBuild is not available in the specified region.</p>
  * @public
  */
 export class CodeBuildNotInServiceRegionException extends __BaseException {

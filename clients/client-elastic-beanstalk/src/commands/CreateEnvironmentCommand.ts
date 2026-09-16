@@ -23,8 +23,7 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentMessage 
 export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
- * <p>Launches an AWS Elastic Beanstalk environment for the specified application using the specified
- *       configuration.</p>
+ * <p>Launches an Elastic Beanstalk environment for the specified application using the specified configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,8 +125,7 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link TooManyEnvironmentsException} (client fault)
  *  <p>The specified account has reached its limit of environments.</p>

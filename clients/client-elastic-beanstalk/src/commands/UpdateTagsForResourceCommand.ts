@@ -23,23 +23,20 @@ export interface UpdateTagsForResourceCommandInput extends UpdateTagsForResource
 export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Update the list of tags applied to an AWS Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code>
- *       for tags to add or update, and <code>TagsToRemove</code>.</p>
- *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see
- *       <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application
- *         Resources</a>.</p>
- *          <p>If you create a custom IAM user policy to control permission to this operation, specify
- *       one of the following two virtual actions (or both) instead of the API operation name:</p>
+ * <p>Update the list of tags applied to an Elastic Beanstalk resource. Two lists can be passed: <code>TagsToAdd</code> for tags to add or update, and
+ *         <code>TagsToRemove</code>.</p>
+ *          <p>Elastic Beanstalk supports tagging of all of its resources. For details about resource tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application Resources</a>.</p>
+ *          <p>If you create a custom policy to control permission to this operation, specify one of the following two virtual actions (or both) instead of the API
+ *       operation name:</p>
  *          <dl>
  *             <dt>elasticbeanstalk:AddTags</dt>
  *             <dd>
- *                <p>Controls permission to call <code>UpdateTagsForResource</code> and pass a list of tags to add in the <code>TagsToAdd</code>
- *           parameter.</p>
+ *                <p>Controls permission to call <code>UpdateTagsForResource</code> and pass a list of tags to add in the <code>TagsToAdd</code> parameter.</p>
  *             </dd>
  *             <dt>elasticbeanstalk:RemoveTags</dt>
  *             <dd>
  *                <p>Controls permission to call <code>UpdateTagsForResource</code> and pass a list of tag keys to remove in the <code>TagsToRemove</code>
- *           parameter.</p>
+ *             parameter.</p>
  *             </dd>
  *          </dl>
  *          <p>For details about creating a custom user policy, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies">Creating a Custom User Policy</a>.</p>
@@ -76,8 +73,7 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link OperationInProgressException} (client fault)
  *  <p>Unable to perform the specified operation because another operation that effects an

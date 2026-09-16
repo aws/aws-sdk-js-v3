@@ -23,8 +23,7 @@ export interface RestartAppServerCommandInput extends RestartAppServerMessage {}
 export interface RestartAppServerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Causes the environment to restart the application container server running on each
- *       Amazon EC2 instance.</p>
+ * <p>Causes the environment to restart the application container server running on each Amazon EC2 instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

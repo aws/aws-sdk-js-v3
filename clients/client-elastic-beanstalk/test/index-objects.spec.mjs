@@ -20,6 +20,7 @@ import {
   ApplyEnvironmentManagedActionCommand,
   ApplyEnvironmentManagedActionRequest$,
   ApplyEnvironmentManagedActionResult$,
+  ArchitectureType,
   AssociateEnvironmentOperationsRole$,
   AssociateEnvironmentOperationsRoleCommand,
   AssociateEnvironmentOperationsRoleMessage$,
@@ -30,6 +31,7 @@ import {
   CheckDNSAvailabilityCommand,
   CheckDNSAvailabilityMessage$,
   CheckDNSAvailabilityResultMessage$,
+  Cluster$,
   CodeBuildNotInServiceRegionException,
   CodeBuildNotInServiceRegionException$,
   ComposeEnvironments$,
@@ -151,6 +153,10 @@ import {
   EventDescriptionsMessage$,
   EventSeverity,
   FailureType,
+  ImageBuildConfiguration$,
+  ImageBuildType,
+  ImageConfiguration$,
+  ImageSource$,
   Instance$,
   InstanceHealthSummary$,
   InstancesHealthAttribute,
@@ -409,6 +415,7 @@ assert(typeof BuildConfiguration$ === "object");
 assert(typeof Builder$ === "object");
 assert(typeof CheckDNSAvailabilityMessage$ === "object");
 assert(typeof CheckDNSAvailabilityResultMessage$ === "object");
+assert(typeof Cluster$ === "object");
 assert(typeof ComposeEnvironmentsMessage$ === "object");
 assert(typeof ConfigurationOptionDescription$ === "object");
 assert(typeof ConfigurationOptionsDescription$ === "object");
@@ -461,6 +468,9 @@ assert(typeof EnvironmentResourcesDescription$ === "object");
 assert(typeof EnvironmentTier$ === "object");
 assert(typeof EventDescription$ === "object");
 assert(typeof EventDescriptionsMessage$ === "object");
+assert(typeof ImageBuildConfiguration$ === "object");
+assert(typeof ImageConfiguration$ === "object");
+assert(typeof ImageSource$ === "object");
 assert(typeof Instance$ === "object");
 assert(typeof InstanceHealthSummary$ === "object");
 assert(typeof Latency$ === "object");
@@ -521,6 +531,7 @@ assert(typeof ActionHistoryStatus === "object");
 assert(typeof ActionStatus === "object");
 assert(typeof ActionType === "object");
 assert(typeof ApplicationVersionStatus === "object");
+assert(typeof ArchitectureType === "object");
 assert(typeof ComputeType === "object");
 assert(typeof ConfigurationDeploymentStatus === "object");
 assert(typeof ConfigurationOptionValueType === "object");
@@ -531,6 +542,7 @@ assert(typeof EnvironmentInfoType === "object");
 assert(typeof EnvironmentStatus === "object");
 assert(typeof EventSeverity === "object");
 assert(typeof FailureType === "object");
+assert(typeof ImageBuildType === "object");
 assert(typeof InstancesHealthAttribute === "object");
 assert(typeof PlatformStatus === "object");
 assert(typeof SourceRepository === "object");

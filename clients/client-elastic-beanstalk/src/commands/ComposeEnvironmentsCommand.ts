@@ -23,12 +23,9 @@ export interface ComposeEnvironmentsCommandInput extends ComposeEnvironmentsMess
 export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescriptionsMessage, __MetadataBearer {}
 
 /**
- * <p>Create or update a group of environments that each run a separate component of a single
- *       application. Takes a list of version labels that specify application source bundles for each
- *       of the environments to create or update. The name of each environment and other required
- *       information must be included in the source bundles in an environment manifest named
- *       <code>env.yaml</code>. See <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html">Compose Environments</a>
- *       for details.</p>
+ * <p>Create or update a group of environments that each run a separate component of a single application. Takes a list of version labels that specify
+ *       application source bundles for each of the environments to create or update. The name of each environment and other required information must be included
+ *       in the source bundles in an environment manifest named <code>env.yaml</code>. See <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html">Compose Environments</a> for details.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,8 +101,7 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link TooManyEnvironmentsException} (client fault)
  *  <p>The specified account has reached its limit of environments.</p>

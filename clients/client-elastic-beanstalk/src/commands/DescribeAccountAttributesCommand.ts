@@ -23,9 +23,17 @@ export interface DescribeAccountAttributesCommandInput {}
 export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
- * <p>Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS
- *       account.</p>
+ * <p>Returns attributes related to Elastic Beanstalk that are associated with the calling Amazon Web Services account.</p>
  *          <p>The result currently has one set of attributes—resource quotas.</p>
+ *          <p>This action only returns information about resources that the calling principle has IAM permissions to access. For example, consider a case where a
+ *       user only has permission to access one of three resources. When the user calls the this action, the response will only include the one resource that the
+ *       user has permission to access instead of all three resources. If the user doesn’t have access to any of the resources an empty result is returned.</p>
+ *          <note>
+ *             <p>The <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html">AWSElasticBeanstalkReadOnly</a>
+ *         managed policy allows operators to view information about resources related to Elastic Beanstalk. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html"> Managing Elastic Beanstalk user policies</a> in the <i>Elastic Beanstalk Developer
+ *           Guide</i>. For detailed instructions to attach a policy to a user or group, see the section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed"> Controlling access with managed policies</a> in the
+ *         same topic.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,8 +74,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link ElasticBeanstalkSyntheticServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>

@@ -46,6 +46,46 @@ export type ActionType = (typeof ActionType)[keyof typeof ActionType];
  * @public
  * @enum
  */
+export const ArchitectureType = {
+  amd64: "amd64",
+  arm64: "arm64",
+} as const;
+/**
+ * @public
+ */
+export type ArchitectureType = (typeof ArchitectureType)[keyof typeof ArchitectureType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputeType = {
+  BUILD_GENERAL1_LARGE: "BUILD_GENERAL1_LARGE",
+  BUILD_GENERAL1_MEDIUM: "BUILD_GENERAL1_MEDIUM",
+  BUILD_GENERAL1_SMALL: "BUILD_GENERAL1_SMALL",
+} as const;
+/**
+ * @public
+ */
+export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageBuildType = {
+  buildpack: "buildpack",
+  docker: "docker",
+} as const;
+/**
+ * @public
+ */
+export type ImageBuildType = (typeof ImageBuildType)[keyof typeof ImageBuildType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SourceRepository = {
   CodeCommit: "CodeCommit",
   S3: "S3",
@@ -137,20 +177,6 @@ export const EnvironmentStatus = {
  * @public
  */
 export type EnvironmentStatus = (typeof EnvironmentStatus)[keyof typeof EnvironmentStatus];
-
-/**
- * @public
- * @enum
- */
-export const ComputeType = {
-  BUILD_GENERAL1_LARGE: "BUILD_GENERAL1_LARGE",
-  BUILD_GENERAL1_MEDIUM: "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL: "BUILD_GENERAL1_SMALL",
-} as const;
-/**
- * @public
- */
-export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 /**
  * @public

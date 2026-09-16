@@ -27,6 +27,18 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  *       template or environment, or that a specified solution stack defines. The description includes
  *       the values the options, their default values, and an indication of the required action on a
  *       running environment if an option value is changed.</p>
+ *          <p>This action only returns information about resources that the calling principle has IAM permissions to
+ *       access. For example, consider a case where a user only has permission to access one of three
+ *       resources. When the user calls the this action, the
+ *       response will only include the one resource that the user has permission to access instead
+ *       of all three resources. If the user doesn’t have access to any of the resources an empty
+ *       result is returned.</p>
+ *          <note>
+ *             <p>The <a href="https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSElasticBeanstalkReadOnly.html">AWSElasticBeanstalkReadOnly</a>
+ *         managed policy allows operators to view information about resources related to Elastic Beanstalk. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html"> Managing Elastic Beanstalk user policies</a> in the <i>Elastic Beanstalk Developer
+ *             Guide</i>. For detailed instructions to attach a policy to a user or group, see the section <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#iam-userpolicies-managed"> Controlling access with managed policies</a> in the
+ *         same topic.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

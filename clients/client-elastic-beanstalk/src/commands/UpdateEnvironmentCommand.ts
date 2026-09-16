@@ -23,15 +23,10 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentMessage 
 export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
- * <p>Updates the environment description, deploys a new application version, updates the
- *       configuration settings to an entirely new configuration template, or updates select
- *       configuration option values in the running environment.</p>
- *          <p> Attempting to update both the release and configuration is not allowed and AWS Elastic
- *       Beanstalk returns an <code>InvalidParameterCombination</code> error. </p>
- *          <p> When updating the configuration settings to a new template or individual settings, a
- *       draft configuration is created and <a>DescribeConfigurationSettings</a> for this
- *       environment returns two setting descriptions with different <code>DeploymentStatus</code>
- *       values. </p>
+ * <p>Updates the environment description, deploys a new application version, updates the configuration settings to an entirely new configuration template,
+ *       or updates select configuration option values in the running environment.</p>
+ *          <p> Attempting to update both the release and configuration is not allowed and Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error. </p>
+ *          <p> When updating the configuration settings to a new template or individual settings, a draft configuration is created and <a>DescribeConfigurationSettings</a> for this environment returns two setting descriptions with different <code>DeploymentStatus</code> values. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -126,8 +121,7 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  * @throws {@link InsufficientPrivilegesException} (client fault)
- *  <p>The specified account does not have sufficient privileges for one or more AWS
- *       services.</p>
+ *  <p>The specified account does not have sufficient privileges for one or more Amazon Web Services services.</p>
  *
  * @throws {@link TooManyBucketsException} (client fault)
  *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>

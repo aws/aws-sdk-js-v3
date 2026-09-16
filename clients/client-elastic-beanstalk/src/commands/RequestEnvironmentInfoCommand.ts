@@ -23,16 +23,13 @@ export interface RequestEnvironmentInfoCommandInput extends RequestEnvironmentIn
 export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Initiates a request to compile the specified type of information of the deployed
- *       environment.</p>
- *          <p> Setting the <code>InfoType</code> to <code>tail</code> compiles the last lines from
- *       the application server log files of every Amazon EC2 instance in your environment. </p>
- *          <p> Setting the <code>InfoType</code> to <code>bundle</code> compresses the application
- *       server log files for every Amazon EC2 instance into a <code>.zip</code> file. Legacy and .NET
- *       containers do not support bundle logs. </p>
- *          <p> Setting the <code>InfoType</code> to <code>analyze</code> collects recent events,
- *       instance health, and logs from your environment and sends them to Amazon Bedrock in your
- *       account to generate diagnostic insights and recommended next steps. </p>
+ * <p>Initiates a request to compile the specified type of information of the deployed environment.</p>
+ *          <p> Setting the <code>InfoType</code> to <code>tail</code> compiles the last lines from the application server log files of every Amazon EC2 instance in
+ *       your environment. </p>
+ *          <p> Setting the <code>InfoType</code> to <code>bundle</code> compresses the application server log files for every Amazon EC2 instance into a
+ *         <code>.zip</code> file. Legacy and .NET containers do not support bundle logs. </p>
+ *          <p> Setting the <code>InfoType</code> to <code>analyze</code> collects recent events, instance health, and logs from your environment and sends them to
+ *       Amazon Bedrock in your account to generate diagnostic insights and recommended next steps. </p>
  *          <p> Use <a>RetrieveEnvironmentInfo</a> to obtain the set of logs. </p>
  *          <p>Related Topics</p>
  *          <ul>

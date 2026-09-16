@@ -25,8 +25,8 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
 /**
  * <p>Updates the specified application version to have the specified properties.</p>
  *          <note>
- *             <p>If a property (for example, <code>description</code>) is not provided, the value
- *         remains unchanged. To clear properties, specify an empty string.</p>
+ *             <p>If a property (for example, <code>description</code>) is not provided, the value remains unchanged. To clear properties, specify an empty
+ *         string.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,6 +59,19 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  * //       S3Bucket: "STRING_VALUE",
  * //       S3Key: "STRING_VALUE",
  * //     },
+ * //     ImageSource: { // ImageSource
+ * //       Uri: "STRING_VALUE",
+ * //     },
+ * //     ImageBuildConfiguration: { // ImageBuildConfiguration
+ * //       Type: "docker" || "buildpack",
+ * //       DockerfileLocation: "STRING_VALUE",
+ * //       Buildpack: "STRING_VALUE",
+ * //       Architecture: "amd64" || "arm64",
+ * //       CodeBuildServiceRole: "STRING_VALUE",
+ * //       ComputeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE",
+ * //       TimeoutInMinutes: Number("int"),
+ * //     },
+ * //     Process: true || false,
  * //     DateCreated: new Date("TIMESTAMP"),
  * //     DateUpdated: new Date("TIMESTAMP"),
  * //     Status: "Processed" || "Unprocessed" || "Failed" || "Processing" || "Building",
