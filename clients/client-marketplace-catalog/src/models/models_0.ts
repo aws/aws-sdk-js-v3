@@ -2236,6 +2236,18 @@ export interface ResaleAuthorizationEntityIdFilter {
 }
 
 /**
+ * <p>Allows filtering on the <code>IssuerAccountId</code> of a ResaleAuthorization.</p>
+ * @public
+ */
+export interface ResaleAuthorizationIssuerAccountIdFilter {
+  /**
+   * <p>Allows filtering on the <code>IssuerAccountId</code> of a ResaleAuthorization with list input.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
  * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization with date range as input.</p>
  * @public
  */
@@ -2416,6 +2428,18 @@ export interface ResaleAuthorizationResellerRoleFilter {
 }
 
 /**
+ * <p>Allows filtering on the <code>SourceAuthorization</code> of a ResaleAuthorization.</p>
+ * @public
+ */
+export interface ResaleAuthorizationSourceAuthorizationFilter {
+  /**
+   * <p>Allows filtering on the <code>SourceAuthorization</code> of a ResaleAuthorization with list input.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
  * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization.</p>
  * @public
  */
@@ -2515,6 +2539,18 @@ export interface ResaleAuthorizationFilters {
    * @public
    */
   ResellerRole?: ResaleAuthorizationResellerRoleFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>SourceAuthorization</code> of a ResaleAuthorization.</p>
+   * @public
+   */
+  SourceAuthorization?: ResaleAuthorizationSourceAuthorizationFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>IssuerAccountId</code> of a ResaleAuthorization.</p>
+   * @public
+   */
+  IssuerAccountId?: ResaleAuthorizationIssuerAccountIdFilter | undefined;
 }
 
 /**
@@ -3426,6 +3462,18 @@ export interface ResaleAuthorizationSummary {
    * @public
    */
   ResellerRole?: ResaleAuthorizationResellerRoleString | undefined;
+
+  /**
+   * <p>The source authorization of the ResaleAuthorization.</p>
+   * @public
+   */
+  SourceAuthorization?: string | undefined;
+
+  /**
+   * <p>The issuer account ID of the ResaleAuthorization.</p>
+   * @public
+   */
+  IssuerAccountId?: string | undefined;
 }
 
 /**

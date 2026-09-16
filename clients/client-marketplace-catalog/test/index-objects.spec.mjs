@@ -173,6 +173,7 @@ import {
   ResaleAuthorizationCreatedDateFilterDateRange$,
   ResaleAuthorizationEntityIdFilter$,
   ResaleAuthorizationFilters$,
+  ResaleAuthorizationIssuerAccountIdFilter$,
   ResaleAuthorizationLastModifiedDateFilter$,
   ResaleAuthorizationLastModifiedDateFilterDateRange$,
   ResaleAuthorizationManufacturerAccountIdFilter$,
@@ -187,6 +188,7 @@ import {
   ResaleAuthorizationResellerRoleString,
   ResaleAuthorizationSort$,
   ResaleAuthorizationSortBy,
+  ResaleAuthorizationSourceAuthorizationFilter$,
   ResaleAuthorizationStatusFilter$,
   ResaleAuthorizationStatusString,
   ResaleAuthorizationSummary$,
@@ -384,6 +386,7 @@ assert(typeof ResaleAuthorizationCreatedDateFilter$ === "object");
 assert(typeof ResaleAuthorizationCreatedDateFilterDateRange$ === "object");
 assert(typeof ResaleAuthorizationEntityIdFilter$ === "object");
 assert(typeof ResaleAuthorizationFilters$ === "object");
+assert(typeof ResaleAuthorizationIssuerAccountIdFilter$ === "object");
 assert(typeof ResaleAuthorizationLastModifiedDateFilter$ === "object");
 assert(typeof ResaleAuthorizationLastModifiedDateFilterDateRange$ === "object");
 assert(typeof ResaleAuthorizationManufacturerAccountIdFilter$ === "object");
@@ -396,6 +399,7 @@ assert(typeof ResaleAuthorizationResellerAccountIDFilter$ === "object");
 assert(typeof ResaleAuthorizationResellerLegalNameFilter$ === "object");
 assert(typeof ResaleAuthorizationResellerRoleFilter$ === "object");
 assert(typeof ResaleAuthorizationSort$ === "object");
+assert(typeof ResaleAuthorizationSourceAuthorizationFilter$ === "object");
 assert(typeof ResaleAuthorizationStatusFilter$ === "object");
 assert(typeof ResaleAuthorizationSummary$ === "object");
 assert(typeof SaaSProductEntityIdFilter$ === "object");

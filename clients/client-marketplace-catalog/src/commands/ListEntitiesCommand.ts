@@ -308,6 +308,16 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *           "ChannelPartner" || "Distributor",
  *         ],
  *       },
+ *       SourceAuthorization: { // ResaleAuthorizationSourceAuthorizationFilter
+ *         ValueList: [ // ResaleAuthorizationSourceAuthorizationFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       IssuerAccountId: { // ResaleAuthorizationIssuerAccountIdFilter
+ *         ValueList: [ // ResaleAuthorizationIssuerAccountIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *     MachineLearningProductFilters: { // MachineLearningProductFilters
  *       EntityId: { // MachineLearningProductEntityIdFilter
@@ -395,7 +405,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     ResaleAuthorizationSort: { // ResaleAuthorizationSort
- *       SortBy: "EntityId" || "Name" || "ProductId" || "ProductName" || "ManufacturerAccountId" || "ManufacturerLegalName" || "ResellerAccountID" || "ResellerLegalName" || "Status" || "OfferExtendedStatus" || "CreatedDate" || "AvailabilityEndDate" || "LastModifiedDate",
+ *       SortBy: "EntityId" || "Name" || "ProductId" || "ProductName" || "ManufacturerAccountId" || "ManufacturerLegalName" || "ResellerAccountID" || "ResellerLegalName" || "Status" || "OfferExtendedStatus" || "CreatedDate" || "AvailabilityEndDate" || "LastModifiedDate" || "ResellerRole" || "SourceAuthorization" || "IssuerAccountId",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     MachineLearningProductSort: { // MachineLearningProductSort
@@ -466,6 +476,8 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //         CreatedDate: "STRING_VALUE",
  * //         AvailabilityEndDate: "STRING_VALUE",
  * //         ResellerRole: "ChannelPartner" || "Distributor",
+ * //         SourceAuthorization: "STRING_VALUE",
+ * //         IssuerAccountId: "STRING_VALUE",
  * //       },
  * //       MachineLearningProductSummary: { // MachineLearningProductSummary
  * //         ProductTitle: "STRING_VALUE",

@@ -385,6 +385,7 @@ export const ResaleAuthorizationSortBy = {
   AvailabilityEndDate: "AvailabilityEndDate",
   CreatedDate: "CreatedDate",
   EntityId: "EntityId",
+  IssuerAccountId: "IssuerAccountId",
   LastModifiedDate: "LastModifiedDate",
   ManufacturerAccountId: "ManufacturerAccountId",
   ManufacturerLegalName: "ManufacturerLegalName",
@@ -394,6 +395,8 @@ export const ResaleAuthorizationSortBy = {
   ProductName: "ProductName",
   ResellerAccountID: "ResellerAccountID",
   ResellerLegalName: "ResellerLegalName",
+  ResellerRole: "ResellerRole",
+  SourceAuthorization: "SourceAuthorization",
   Status: "Status",
 } as const;
 /**

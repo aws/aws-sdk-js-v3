@@ -124,6 +124,7 @@ const _GRP = "GetResourcePolicy";
 const _GRPR = "GetResourcePolicyRequest";
 const _GRPRe = "GetResourcePolicyResponse";
 const _I = "Intent";
+const _IAI = "IssuerAccountId";
 const _ISE = "InternalServiceException";
 const _Id = "Identifier";
 const _K = "Key";
@@ -205,6 +206,7 @@ const _RACDFDR = "ResaleAuthorizationCreatedDateFilterDateRange";
 const _RAEIF = "ResaleAuthorizationEntityIdFilter";
 const _RAF = "ResaleAuthorizationFilters";
 const _RAI = "ResaleAuthorizationId";
+const _RAIAIF = "ResaleAuthorizationIssuerAccountIdFilter";
 const _RAID = "ResellerAccountID";
 const _RALMDF = "ResaleAuthorizationLastModifiedDateFilter";
 const _RALMDFDR = "ResaleAuthorizationLastModifiedDateFilterDateRange";
@@ -218,6 +220,7 @@ const _RARAIDF = "ResaleAuthorizationResellerAccountIDFilter";
 const _RARLNF = "ResaleAuthorizationResellerLegalNameFilter";
 const _RARRF = "ResaleAuthorizationResellerRoleFilter";
 const _RAS = "ResaleAuthorizationSummary";
+const _RASAF = "ResaleAuthorizationSourceAuthorizationFilter";
 const _RASF = "ResaleAuthorizationStatusFilter";
 const _RASe = "ResaleAuthorizationSort";
 const _RCL = "RequestedChangeList";
@@ -228,6 +231,7 @@ const _RNFE = "ResourceNotFoundException";
 const _RNSE = "ResourceNotSupportedException";
 const _RR = "ResellerRole";
 const _S = "Status";
+const _SA = "SourceAuthorization";
 const _SB = "SortBy";
 const _SCS = "StartChangeSet";
 const _SCSR = "StartChangeSetRequest";
@@ -934,8 +938,13 @@ export var ResaleAuthorizationEntityIdFilter$: StaticStructureSchema = [3, n0, _
 ];
 export var ResaleAuthorizationFilters$: StaticStructureSchema = [3, n0, _RAF,
   0,
-  [_EI, _N, _PI, _CD, _AED, _MAI, _PN, _MLN, _RAID, _RLN, _S, _OES, _LMD, _RR],
-  [() => ResaleAuthorizationEntityIdFilter$, () => ResaleAuthorizationNameFilter$, () => ResaleAuthorizationProductIdFilter$, () => ResaleAuthorizationCreatedDateFilter$, () => ResaleAuthorizationAvailabilityEndDateFilter$, () => ResaleAuthorizationManufacturerAccountIdFilter$, () => ResaleAuthorizationProductNameFilter$, () => ResaleAuthorizationManufacturerLegalNameFilter$, () => ResaleAuthorizationResellerAccountIDFilter$, () => ResaleAuthorizationResellerLegalNameFilter$, () => ResaleAuthorizationStatusFilter$, () => ResaleAuthorizationOfferExtendedStatusFilter$, () => ResaleAuthorizationLastModifiedDateFilter$, () => ResaleAuthorizationResellerRoleFilter$]
+  [_EI, _N, _PI, _CD, _AED, _MAI, _PN, _MLN, _RAID, _RLN, _S, _OES, _LMD, _RR, _SA, _IAI],
+  [() => ResaleAuthorizationEntityIdFilter$, () => ResaleAuthorizationNameFilter$, () => ResaleAuthorizationProductIdFilter$, () => ResaleAuthorizationCreatedDateFilter$, () => ResaleAuthorizationAvailabilityEndDateFilter$, () => ResaleAuthorizationManufacturerAccountIdFilter$, () => ResaleAuthorizationProductNameFilter$, () => ResaleAuthorizationManufacturerLegalNameFilter$, () => ResaleAuthorizationResellerAccountIDFilter$, () => ResaleAuthorizationResellerLegalNameFilter$, () => ResaleAuthorizationStatusFilter$, () => ResaleAuthorizationOfferExtendedStatusFilter$, () => ResaleAuthorizationLastModifiedDateFilter$, () => ResaleAuthorizationResellerRoleFilter$, () => ResaleAuthorizationSourceAuthorizationFilter$, () => ResaleAuthorizationIssuerAccountIdFilter$]
+];
+export var ResaleAuthorizationIssuerAccountIdFilter$: StaticStructureSchema = [3, n0, _RAIAIF,
+  0,
+  [_VL],
+  [64 | 0]
 ];
 export var ResaleAuthorizationLastModifiedDateFilter$: StaticStructureSchema = [3, n0, _RALMDF,
   0,
@@ -997,6 +1006,11 @@ export var ResaleAuthorizationSort$: StaticStructureSchema = [3, n0, _RASe,
   [_SB, _SO],
   [0, 0]
 ];
+export var ResaleAuthorizationSourceAuthorizationFilter$: StaticStructureSchema = [3, n0, _RASAF,
+  0,
+  [_VL],
+  [64 | 0]
+];
 export var ResaleAuthorizationStatusFilter$: StaticStructureSchema = [3, n0, _RASF,
   0,
   [_VL],
@@ -1004,8 +1018,8 @@ export var ResaleAuthorizationStatusFilter$: StaticStructureSchema = [3, n0, _RA
 ];
 export var ResaleAuthorizationSummary$: StaticStructureSchema = [3, n0, _RAS,
   0,
-  [_N, _PI, _PN, _MAI, _MLN, _RAID, _RLN, _S, _OES, _CD, _AED, _RR],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_N, _PI, _PN, _MAI, _MLN, _RAID, _RLN, _S, _OES, _CD, _AED, _RR, _SA, _IAI],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var SaaSProductEntityIdFilter$: StaticStructureSchema = [3, n0, _SSPEIF,
   0,
@@ -1158,6 +1172,7 @@ var RequestedChangeList: StaticListSchema = [1, n0, _RCL,
 var ResaleAuthorizationAvailabilityEndDateFilterValueList = 64 | 0;
 var ResaleAuthorizationCreatedDateFilterValueList = 64 | 0;
 var ResaleAuthorizationEntityIdFilterValueList = 64 | 0;
+var ResaleAuthorizationIssuerAccountIdFilterValueList = 64 | 0;
 var ResaleAuthorizationManufacturerAccountIdFilterValueList = 64 | 0;
 var ResaleAuthorizationManufacturerLegalNameFilterValueList = 64 | 0;
 var ResaleAuthorizationNameFilterValueList = 64 | 0;
@@ -1167,6 +1182,7 @@ var ResaleAuthorizationProductNameFilterValueList = 64 | 0;
 var ResaleAuthorizationResellerAccountIDFilterValueList = 64 | 0;
 var ResaleAuthorizationResellerLegalNameFilterValueList = 64 | 0;
 var ResaleAuthorizationResellerRoleFilterValueList = 64 | 0;
+var ResaleAuthorizationSourceAuthorizationFilterValueList = 64 | 0;
 var ResaleAuthorizationStatusFilterValueList = 64 | 0;
 var ResourceIdList = 64 | 0;
 var SaaSProductEntityIdFilterValueList = 64 | 0;
