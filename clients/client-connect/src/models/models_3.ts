@@ -149,6 +149,38 @@ import type { SignInConfig, TelephonyConfig } from "./models_2";
 /**
  * @public
  */
+export interface ReplicateInstanceRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where to replicate the Connect Customer instance.</p>
+   * @public
+   */
+  ReplicaRegion: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The alias for the replicated instance. The <code>ReplicaAlias</code> must be unique.</p>
+   * @public
+   */
+  ReplicaAlias: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ReplicateInstanceResponse {
   /**
    * <p>The identifier of the replicated instance. You can find the <code>instanceId</code> in the ARN of the instance.
@@ -8000,50 +8032,3 @@ export interface UpdateTrafficDistributionRequest {
  * @public
  */
 export interface UpdateTrafficDistributionResponse {}
-
-/**
- * @public
- */
-export interface UpdateUserConfigRequest {
-  /**
-   * <p>The list of auto-accept configuration settings for each channel. When auto-accept is enabled for a channel, available agents are automatically connected to contacts from that channel without needing to manually accept. Auto-accept connects agents to contacts in less than one second.</p>
-   * @public
-   */
-  AutoAcceptConfigs?: AutoAcceptConfig[] | undefined;
-
-  /**
-   * <p>The list of after contact work (ACW) timeout configuration settings for each channel. ACW timeout specifies how many seconds agents have for after contact work, such as entering notes about the contact. The minimum setting is 1 second, and the maximum is 2,000,000 seconds (24 days). Enter 0 for an indefinite amount of time, meaning agents must manually choose to end ACW.</p>
-   * @public
-   */
-  AfterContactWorkConfigs?: AfterContactWorkConfigPerChannel[] | undefined;
-
-  /**
-   * <p>The list of phone number configuration settings for each channel.</p>
-   * @public
-   */
-  PhoneNumberConfigs?: PhoneNumberConfig[] | undefined;
-
-  /**
-   * <p>The list of persistent connection configuration settings for each channel.</p>
-   * @public
-   */
-  PersistentConnectionConfigs?: PersistentConnectionConfig[] | undefined;
-
-  /**
-   * <p>The list of voice enhancement configuration settings for each channel.</p>
-   * @public
-   */
-  VoiceEnhancementConfigs?: VoiceEnhancementConfig[] | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}

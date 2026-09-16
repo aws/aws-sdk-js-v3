@@ -1524,6 +1524,7 @@ export type {
   ConnectionData,
   Contact,
   ContactAnalysis,
+  ContactAnalysisReference,
   ContactConfiguration,
   ContactDataRequest,
   ContactDetails,

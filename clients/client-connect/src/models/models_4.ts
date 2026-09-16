@@ -25,6 +25,7 @@ import type {
 } from "./enums";
 import type {
   AdditionalEmailRecipients,
+  AfterContactWorkConfigPerChannel,
   AgentInfo,
   AgentStatusSearchFilter,
   AllowedCapabilities,
@@ -48,6 +49,7 @@ import type {
 } from "./models_0";
 import type {
   AttributeCondition,
+  AutoAcceptConfig,
   ChatMetrics,
   ContactDetails,
   ContactEvaluation,
@@ -59,6 +61,8 @@ import type {
   Expiry,
   GlobalResiliencyMetadata,
   NextContactEntry,
+  PersistentConnectionConfig,
+  PhoneNumberConfig,
   QualityMetrics,
   QueueInfo,
   RecordingInfo,
@@ -67,6 +71,7 @@ import type {
   UserPhoneConfig,
   View,
   ViewInputContent,
+  VoiceEnhancementConfig,
   WisdomInfo,
   WorkspaceTheme,
 } from "./models_1";
@@ -115,6 +120,53 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateUserConfigRequest {
+  /**
+   * <p>The list of auto-accept configuration settings for each channel. When auto-accept is enabled for a channel, available agents are automatically connected to contacts from that channel without needing to manually accept. Auto-accept connects agents to contacts in less than one second.</p>
+   * @public
+   */
+  AutoAcceptConfigs?: AutoAcceptConfig[] | undefined;
+
+  /**
+   * <p>The list of after contact work (ACW) timeout configuration settings for each channel. ACW timeout specifies how many seconds agents have for after contact work, such as entering notes about the contact. The minimum setting is 1 second, and the maximum is 2,000,000 seconds (24 days). Enter 0 for an indefinite amount of time, meaning agents must manually choose to end ACW.</p>
+   * @public
+   */
+  AfterContactWorkConfigs?: AfterContactWorkConfigPerChannel[] | undefined;
+
+  /**
+   * <p>The list of phone number configuration settings for each channel.</p>
+   * @public
+   */
+  PhoneNumberConfigs?: PhoneNumberConfig[] | undefined;
+
+  /**
+   * <p>The list of persistent connection configuration settings for each channel.</p>
+   * @public
+   */
+  PersistentConnectionConfigs?: PersistentConnectionConfig[] | undefined;
+
+  /**
+   * <p>The list of voice enhancement configuration settings for each channel.</p>
+   * @public
+   */
+  VoiceEnhancementConfigs?: VoiceEnhancementConfig[] | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
 
 /**
  * @public

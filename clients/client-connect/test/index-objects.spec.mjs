@@ -228,6 +228,7 @@ import {
   ConnectServiceException,
   Contact$,
   ContactAnalysis$,
+  ContactAnalysisReference$,
   ContactConfiguration$,
   ContactDataRequest$,
   ContactDetails$,
@@ -3378,6 +3379,7 @@ assert(typeof Condition$ === "object");
 assert(typeof ConnectionData$ === "object");
 assert(typeof Contact$ === "object");
 assert(typeof ContactAnalysis$ === "object");
+assert(typeof ContactAnalysisReference$ === "object");
 assert(typeof ContactConfiguration$ === "object");
 assert(typeof ContactDataRequest$ === "object");
 assert(typeof ContactDetails$ === "object");

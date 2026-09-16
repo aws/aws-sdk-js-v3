@@ -152,7 +152,8 @@ const _AMAQI = "AssociatedManualAssignmentQueueIds";
 const _AMC = "AllowedMonitorCapabilities";
 const _AMDC = "AnswerMachineDetectionConfig";
 const _AMDS = "AnsweringMachineDetectionStatus";
-const _AMn = "AnalyticsModes";
+const _AMn = "AnalyticsMode";
+const _AMna = "AnalyticsModes";
 const _AN = "AttributeName";
 const _ANL = "AvailableNumbersList";
 const _ANS = "AvailableNumberSummary";
@@ -326,6 +327,7 @@ const _CAFURo = "CompleteAttachedFileUploadResponse";
 const _CAI = "ContactAssociationId";
 const _CAIo = "ContactAgentId";
 const _CAOCL = "CommonAttributeOrConditionList";
+const _CAR = "ContactAnalysisReference";
 const _CAS = "CreateAgentStatus";
 const _CASR = "CreateAgentStatusRequest";
 const _CASRr = "CreateAgentStatusResponse";
@@ -1391,13 +1393,14 @@ const _IPE = "InvalidParameterException";
 const _IPN = "ImportPhoneNumber";
 const _IPNR = "ImportPhoneNumberRequest";
 const _IPNRm = "ImportPhoneNumberResponse";
-const _IR = "IsolatedRegions";
+const _IR = "IsRedacted";
 const _IRE = "InvalidRequestException";
 const _IRER = "InvalidRequestExceptionReason";
 const _IRM = "IncludeRawMessage";
 const _IRMn = "InboundRawMessage";
 const _IRO = "IsReadOnly";
 const _IRT = "IvrRecordingTrack";
+const _IRs = "IsolatedRegions";
 const _IS = "InboundSubject";
 const _ISC = "InstanceStorageConfig";
 const _ISCn = "InstanceStorageConfigs";
@@ -3975,6 +3978,11 @@ export var ContactAnalysis$: StaticStructureSchema = [3, n0, _CAo,
   [_Tr],
   [[() => Transcript$, 0]]
 ];
+export var ContactAnalysisReference$: StaticStructureSchema = [3, n0, _CAR,
+  0,
+  [_N, _V, _St, _A, _AMn, _IR],
+  [0, 0, 0, 0, 0, 2]
+];
 export var ContactConfiguration$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_CI, _PR, _IRM],
@@ -6102,7 +6110,7 @@ export var GetCrossRegionRoutingRequest$: StaticStructureSchema = [3, n0, _GCRRR
 ];
 export var GetCrossRegionRoutingResponse$: StaticStructureSchema = [3, n0, _GCRRRe,
   0,
-  [_IR],
+  [_IRs],
   [64 | 0]
 ];
 export var GetCurrentMetricDataRequest$: StaticStructureSchema = [3, n0, _GCMDR,
@@ -8502,7 +8510,7 @@ export var StartChatContactResponse$: StaticStructureSchema = [3, n0, _SCCRt,
 ];
 export var StartContactConversationalAnalyticsJobRequest$: StaticStructureSchema = [3, n0, _SCCAJR,
   0,
-  [_II, _CI, _AMn, _ACna, _CT],
+  [_II, _CI, _AMna, _ACna, _CT],
   [[0, 1], [0, 1], 64 | 0, () => AnalyticsConfiguration$, 0], 4
 ];
 export var StartContactConversationalAnalyticsJobResponse$: StaticStructureSchema = [3, n0, _SCCAJRt,
@@ -10733,8 +10741,8 @@ export var RealTimeContactAnalysisTimeData$: StaticUnionSchema = [4, n0, _RTCATD
 ];
 export var ReferenceSummary$: StaticUnionSchema = [4, n0, _RSe,
   0,
-  [_Ur, _Attac, _EMm, _EMRm, _EMPT, _EMPTR, _Stri, _Nu, _Da, _E],
-  [() => UrlReference$, () => AttachmentReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => StringReference$, () => NumberReference$, () => DateReference$, () => EmailReference$]
+  [_Ur, _Attac, _EMm, _EMRm, _EMPT, _EMPTR, _Stri, _Nu, _Da, _E, _CAo],
+  [() => UrlReference$, () => AttachmentReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => EmailMessageReference$, () => StringReference$, () => NumberReference$, () => DateReference$, () => EmailReference$, () => ContactAnalysisReference$]
 ];
 export var ServiceQuotaExceededExceptionReason$: StaticUnionSchema = [4, n0, _SQEER,
   0,

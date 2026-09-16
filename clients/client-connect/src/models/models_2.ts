@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   AgentStatusType,
+  AnalyticsMode,
   ArtifactStatus,
   AttachmentScope,
   AutoEvaluationStatus,
@@ -5546,6 +5547,49 @@ export interface AttachmentReference {
 }
 
 /**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>CONTACT_ANALYSIS</code>. Otherwise,
+ *    null.</p>
+ * @public
+ */
+export interface ContactAnalysisReference {
+  /**
+   * <p>Identifier of the contact analysis reference.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The location path of the contact analysis reference.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>Status of the contact analysis reference type.</p>
+   * @public
+   */
+  Status?: ReferenceStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the contact analysis reference.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The analytics mode of the contact analysis.</p>
+   * @public
+   */
+  AnalyticsMode?: AnalyticsMode | undefined;
+
+  /**
+   * <p>Indicates whether sensitive data has been redacted from the contact analysis.</p>
+   * @public
+   */
+  IsRedacted?: boolean | undefined;
+}
+
+/**
  * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>. Otherwise, null.</p>
  * @public
  */
@@ -5662,6 +5706,7 @@ export interface UrlReference {
  */
 export type ReferenceSummary =
   | ReferenceSummary.AttachmentMember
+  | ReferenceSummary.ContactAnalysisMember
   | ReferenceSummary.DateMember
   | ReferenceSummary.EmailMember
   | ReferenceSummary.EmailMessageMember
@@ -5692,6 +5737,7 @@ export namespace ReferenceSummary {
     Number?: never;
     Date?: never;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown?: never;
   }
 
@@ -5711,6 +5757,7 @@ export namespace ReferenceSummary {
     Number?: never;
     Date?: never;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown?: never;
   }
 
@@ -5729,6 +5776,7 @@ export namespace ReferenceSummary {
     Number?: never;
     Date?: never;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown?: never;
   }
 
@@ -5747,6 +5795,7 @@ export namespace ReferenceSummary {
     Number?: never;
     Date?: never;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown?: never;
   }
 
@@ -5765,6 +5814,7 @@ export namespace ReferenceSummary {
     Number?: never;
     Date?: never;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown?: never;
   }
 
@@ -5783,6 +5833,7 @@ export namespace ReferenceSummary {
     Number?: never;
     Date?: never;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown?: never;
   }
 
@@ -5802,6 +5853,7 @@ export namespace ReferenceSummary {
     Number?: never;
     Date?: never;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown?: never;
   }
 
@@ -5821,6 +5873,7 @@ export namespace ReferenceSummary {
     Number: NumberReference;
     Date?: never;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown?: never;
   }
 
@@ -5839,6 +5892,7 @@ export namespace ReferenceSummary {
     Number?: never;
     Date: DateReference;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown?: never;
   }
 
@@ -5857,6 +5911,27 @@ export namespace ReferenceSummary {
     Number?: never;
     Date?: never;
     Email: EmailReference;
+    ContactAnalysis?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>CONTACT_ANALYSIS</code>. Otherwise,
+   *    null.</p>
+   * @public
+   */
+  export interface ContactAnalysisMember {
+    Url?: never;
+    Attachment?: never;
+    EmailMessage?: never;
+    EmailMessageRedacted?: never;
+    EmailMessagePlainText?: never;
+    EmailMessagePlainTextRedacted?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    ContactAnalysis: ContactAnalysisReference;
     $unknown?: never;
   }
 
@@ -5874,6 +5949,7 @@ export namespace ReferenceSummary {
     Number?: never;
     Date?: never;
     Email?: never;
+    ContactAnalysis?: never;
     $unknown: [string, any];
   }
 
@@ -5892,6 +5968,7 @@ export namespace ReferenceSummary {
     Number: (value: NumberReference) => T;
     Date: (value: DateReference) => T;
     Email: (value: EmailReference) => T;
+    ContactAnalysis: (value: ContactAnalysisReference) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11115,36 +11192,4 @@ export interface ReleasePhoneNumberRequest {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplicateInstanceRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where to replicate the Connect Customer instance.</p>
-   * @public
-   */
-  ReplicaRegion: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The alias for the replicated instance. The <code>ReplicaAlias</code> must be unique.</p>
-   * @public
-   */
-  ReplicaAlias: string | undefined;
 }

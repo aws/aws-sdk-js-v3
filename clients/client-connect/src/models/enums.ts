@@ -2609,6 +2609,21 @@ export type LexVersion = (typeof LexVersion)[keyof typeof LexVersion];
  * @public
  * @enum
  */
+export const AnalyticsMode = {
+  AutomatedInteraction: "AutomatedInteraction",
+  ContactLens: "ContactLens",
+  PostContact: "PostContact",
+  RealTime: "RealTime",
+} as const;
+/**
+ * @public
+ */
+export type AnalyticsMode = (typeof AnalyticsMode)[keyof typeof AnalyticsMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationFormAIVersionStatus = {
   ACTIVE: "ACTIVE",
   DEPRECATED: "DEPRECATED",
@@ -3170,21 +3185,6 @@ export const SummaryMode = {
  * @public
  */
 export type SummaryMode = (typeof SummaryMode)[keyof typeof SummaryMode];
-
-/**
- * @public
- * @enum
- */
-export const AnalyticsMode = {
-  AutomatedInteraction: "AutomatedInteraction",
-  ContactLens: "ContactLens",
-  PostContact: "PostContact",
-  RealTime: "RealTime",
-} as const;
-/**
- * @public
- */
-export type AnalyticsMode = (typeof AnalyticsMode)[keyof typeof AnalyticsMode];
 
 /**
  * @public
