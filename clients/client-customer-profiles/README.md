@@ -913,6 +913,13 @@ SearchProfiles
 </details>
 <details>
 <summary>
+SearchRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/SearchRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/SearchRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/SearchRecommendationsCommandOutput/)
+</details>
+<details>
+<summary>
 StartRecommender
 </summary>
 

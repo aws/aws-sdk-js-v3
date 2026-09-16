@@ -509,6 +509,11 @@ import {
   SearchProfilesCommand,
 } from "./commands/SearchProfilesCommand";
 import {
+  type SearchRecommendationsCommandInput,
+  type SearchRecommendationsCommandOutput,
+  SearchRecommendationsCommand,
+} from "./commands/SearchRecommendationsCommand";
+import {
   type StartRecommenderCommandInput,
   type StartRecommenderCommandOutput,
   StartRecommenderCommand,
@@ -687,6 +692,7 @@ const commands = {
   PutProfileObjectTypeCommand,
   PutSegmentSubscriptionCommand,
   SearchProfilesCommand,
+  SearchRecommendationsCommand,
   StartRecommenderCommand,
   StartUploadJobCommand,
   StopRecommenderCommand,
@@ -2453,6 +2459,23 @@ export interface CustomerProfiles {
     args: SearchProfilesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchRecommendationsCommand}
+   */
+  searchRecommendations(
+    args: SearchRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchRecommendationsCommandOutput>;
+  searchRecommendations(
+    args: SearchRecommendationsCommandInput,
+    cb: (err: any, data?: SearchRecommendationsCommandOutput) => void
+  ): void;
+  searchRecommendations(
+    args: SearchRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchRecommendationsCommandOutput) => void
   ): void;
 
   /**

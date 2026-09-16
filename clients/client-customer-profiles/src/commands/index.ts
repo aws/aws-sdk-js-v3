@@ -101,6 +101,7 @@ export * from "./PutProfileObjectCommand";
 export * from "./PutProfileObjectTypeCommand";
 export * from "./PutSegmentSubscriptionCommand";
 export * from "./SearchProfilesCommand";
+export * from "./SearchRecommendationsCommand";
 export * from "./StartRecommenderCommand";
 export * from "./StartUploadJobCommand";
 export * from "./StopRecommenderCommand";

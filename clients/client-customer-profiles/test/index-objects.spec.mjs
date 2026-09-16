@@ -566,6 +566,8 @@ import {
   ReadinessStatus,
   Recommendation$,
   RecommendationDiversityConfig$,
+  RecommendationMetadata$,
+  Recommender$,
   RecommenderConfig$,
   RecommenderFilter$,
   RecommenderFilterStatus,
@@ -600,6 +602,10 @@ import {
   SearchProfilesCommand,
   SearchProfilesRequest$,
   SearchProfilesResponse$,
+  SearchRecommendations$,
+  SearchRecommendationsCommand,
+  SearchRecommendationsRequest$,
+  SearchRecommendationsResponse$,
   SegmentDefinitionItem$,
   SegmentGroup$,
   SegmentGroupStructure$,
@@ -905,6 +911,8 @@ assert(typeof PutSegmentSubscriptionCommand === "function");
 assert(typeof PutSegmentSubscription$ === "object");
 assert(typeof SearchProfilesCommand === "function");
 assert(typeof SearchProfiles$ === "object");
+assert(typeof SearchRecommendationsCommand === "function");
+assert(typeof SearchRecommendations$ === "object");
 assert(typeof StartRecommenderCommand === "function");
 assert(typeof StartRecommender$ === "object");
 assert(typeof StartUploadJobCommand === "function");
@@ -1234,6 +1242,8 @@ assert(typeof RangeOverride$ === "object");
 assert(typeof Readiness$ === "object");
 assert(typeof Recommendation$ === "object");
 assert(typeof RecommendationDiversityConfig$ === "object");
+assert(typeof RecommendationMetadata$ === "object");
+assert(typeof Recommender$ === "object");
 assert(typeof RecommenderConfig$ === "object");
 assert(typeof RecommenderFilter$ === "object");
 assert(typeof RecommenderFilterSummary$ === "object");
@@ -1255,6 +1265,8 @@ assert(typeof ScheduledExecutions$ === "object");
 assert(typeof ScheduledTriggerProperties$ === "object");
 assert(typeof SearchProfilesRequest$ === "object");
 assert(typeof SearchProfilesResponse$ === "object");
+assert(typeof SearchRecommendationsRequest$ === "object");
+assert(typeof SearchRecommendationsResponse$ === "object");
 assert(typeof SegmentDefinitionItem$ === "object");
 assert(typeof SegmentGroup$ === "object");
 assert(typeof SegmentGroupStructure$ === "object");

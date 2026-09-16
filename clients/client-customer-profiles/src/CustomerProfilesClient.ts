@@ -372,6 +372,10 @@ import type {
   PutSegmentSubscriptionCommandOutput,
 } from "./commands/PutSegmentSubscriptionCommand";
 import type { SearchProfilesCommandInput, SearchProfilesCommandOutput } from "./commands/SearchProfilesCommand";
+import type {
+  SearchRecommendationsCommandInput,
+  SearchRecommendationsCommandOutput,
+} from "./commands/SearchRecommendationsCommand";
 import type { StartRecommenderCommandInput, StartRecommenderCommandOutput } from "./commands/StartRecommenderCommand";
 import type { StartUploadJobCommandInput, StartUploadJobCommandOutput } from "./commands/StartUploadJobCommand";
 import type { StopRecommenderCommandInput, StopRecommenderCommandOutput } from "./commands/StopRecommenderCommand";
@@ -513,6 +517,7 @@ export type ServiceInputTypes =
   | PutProfileObjectTypeCommandInput
   | PutSegmentSubscriptionCommandInput
   | SearchProfilesCommandInput
+  | SearchRecommendationsCommandInput
   | StartRecommenderCommandInput
   | StartUploadJobCommandInput
   | StopRecommenderCommandInput
@@ -632,6 +637,7 @@ export type ServiceOutputTypes =
   | PutProfileObjectTypeCommandOutput
   | PutSegmentSubscriptionCommandOutput
   | SearchProfilesCommandOutput
+  | SearchRecommendationsCommandOutput
   | StartRecommenderCommandOutput
   | StartUploadJobCommandOutput
   | StopRecommenderCommandOutput

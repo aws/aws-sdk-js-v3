@@ -145,6 +145,7 @@ const _CUJRr = "CreateUploadJobResponse";
 const _Ca = "Category";
 const _Co = "County";
 const _Cod = "Code";
+const _Col = "Columns";
 const _Con = "Consolidation";
 const _Cond = "Conditions";
 const _Cont = "Content";
@@ -246,6 +247,7 @@ const _DWR = "DeleteWorkflowRequest";
 const _DWRe = "DeleteWorkflowResponse";
 const _Di = "Dimensions";
 const _Dim = "Dimension";
+const _Div = "Diversity";
 const _E = "Expression";
 const _EA = "EmailAddress";
 const _EC = "EventsConfig";
@@ -310,6 +312,7 @@ const _FT = "FeatureType";
 const _Fa = "Failures";
 const _Fi = "Filter";
 const _Fie = "Fields";
+const _Fil = "Filters";
 const _G = "Gender";
 const _GAMP = "GetAutoMergingPreview";
 const _GAMPR = "GetAutoMergingPreviewRequest";
@@ -437,6 +440,8 @@ const _KA = "KmsArn";
 const _KM = "KeyMap";
 const _KN = "KeyName";
 const _KV = "KeyValue";
+const _KVL = "KeyValuesList";
+const _KVe = "KeyValues";
 const _L = "Link";
 const _LAI = "ListAccountIntegrations";
 const _LAIR = "ListAccountIntegrationsRequest";
@@ -570,6 +575,7 @@ const _MRa = "MatchingRequest";
 const _MRat = "MatchingResponse";
 const _MRatc = "MatchingRule";
 const _MRatch = "MatchingRules";
+const _MRax = "MaxRecommendations";
 const _MSP = "MarketoSourceProperties";
 const _MT = "MatchType";
 const _Ma = "Marketo";
@@ -577,6 +583,7 @@ const _Mat = "Matching";
 const _Matc = "Matches";
 const _Max = "Maximum";
 const _Me = "Metrics";
+const _Met = "Metadata";
 const _Mi = "Minimum";
 const _N = "Name";
 const _NEA = "NextExecutedAt";
@@ -612,6 +619,7 @@ const _PDOT = "PutDomainObjectType";
 const _PDOTR = "PutDomainObjectTypeRequest";
 const _PDOTRu = "PutDomainObjectTypeResponse";
 const _PEA = "PersonalEmailAddress";
+const _PF = "PromotionalFilters";
 const _PHR = "ProfileHistoryRecords";
 const _PHRr = "ProfileHistoryRecord";
 const _PI = "ProfileId";
@@ -681,6 +689,7 @@ const _RFSL = "RecommenderFilterSummaryList";
 const _RFV = "RecommenderFilterValues";
 const _RFe = "RecommenderFilter";
 const _RL = "RuleLevel";
+const _RM = "RecommendationMetadata";
 const _RN = "RecommenderName";
 const _RNFE = "ResourceNotFoundException";
 const _RNe = "RecipeName";
@@ -709,6 +718,7 @@ const _Re = "Readiness";
 const _Rec = "Recommendations";
 const _Reco = "Recommenders";
 const _Recom = "Recommendation";
+const _Recomm = "Recommender";
 const _Ru = "Rule";
 const _S = "Statistic";
 const _SA = "ShippingAddress";
@@ -761,10 +771,13 @@ const _SPRe = "SearchProfilesResponse";
 const _SPe = "SearchProfiles";
 const _SQ = "SegmentQuery";
 const _SR = "StatusReason";
-const _SRR = "StartRecommenderRequest";
-const _SRRt = "StartRecommenderResponse";
+const _SRR = "SearchRecommendationsRequest";
+const _SRRe = "SearchRecommendationsResponse";
+const _SRRt = "StartRecommenderRequest";
+const _SRRta = "StartRecommenderResponse";
 const _SRRto = "StopRecommenderRequest";
 const _SRRtop = "StopRecommenderResponse";
+const _SRe = "SearchRecommendations";
 const _SRt = "StartRecommender";
 const _SRto = "StopRecommender";
 const _SS = "SegmentSort";
@@ -2501,6 +2514,16 @@ export var RecommendationDiversityConfig$: StaticStructureSchema = [3, n0, _RDC,
   [_En, _V],
   [2, 128 | 1], 1
 ];
+export var RecommendationMetadata$: StaticStructureSchema = [3, n0, _RM,
+  0,
+  [_Col],
+  [64 | 0]
+];
+export var Recommender$: StaticStructureSchema = [3, n0, _Recomm,
+  0,
+  [_N, _Fil, _PF],
+  [0, [() => RecommenderFilters, 0], [() => RecommenderPromotionalFilters, 0]], 1
+];
 export var RecommenderConfig$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_EC, _TFr, _ICn, _ICnc, _ECxc, _DCi],
@@ -2606,6 +2629,16 @@ export var SearchProfilesResponse$: StaticStructureSchema = [3, n0, _SPRe,
   [_It, _NT],
   [[() => ProfileList, 0], 0]
 ];
+export var SearchRecommendationsRequest$: StaticStructureSchema = [3, n0, _SRR,
+  0,
+  [_DN, _KN, _KVe, _Recomm, _CIa, _Conte, _Div, _Met, _MRax],
+  [[0, 1], 0, [() => KeyValuesList, 0], [() => Recommender$, 0], 64 | 0, [() => RecommenderContext, 0], () => RecommendationDiversityConfig$, () => RecommendationMetadata$, 1], 4
+];
+export var SearchRecommendationsResponse$: StaticStructureSchema = [3, n0, _SRRe,
+  0,
+  [_PI, _Rec],
+  [0, [() => Recommendations, 0]]
+];
 export var SegmentDefinitionItem$: StaticStructureSchema = [3, n0, _SDI,
   0,
   [_SDN, _DNi, _D, _SDA, _CA, _Ta, _STe],
@@ -2651,12 +2684,12 @@ export var SourceSegment$: StaticStructureSchema = [3, n0, _SSou,
   [_SDN],
   [[0, { [_jN]: _SDN }]]
 ];
-export var StartRecommenderRequest$: StaticStructureSchema = [3, n0, _SRR,
+export var StartRecommenderRequest$: StaticStructureSchema = [3, n0, _SRRt,
   0,
   [_DN, _RN],
   [[0, 1], [0, 1]], 2
 ];
-export var StartRecommenderResponse$: StaticStructureSchema = [3, n0, _SRRt,
+export var StartRecommenderResponse$: StaticStructureSchema = [3, n0, _SRRta,
   0,
   [],
   []
@@ -2943,6 +2976,9 @@ var IdentityResolutionJobsList: StaticListSchema = [1, n0, _IRJL,
 ];
 var IntegrationList: StaticListSchema = [1, n0, _ILn,
   0, () => ListIntegrationItem$
+];
+var KeyValuesList: StaticListSchema = [1, n0, _KVL,
+  8, 0
 ];
 var LayoutList: StaticListSchema = [1, n0, _LL,
   0, [() => LayoutItem$,
@@ -3445,6 +3481,9 @@ export var PutSegmentSubscription$: StaticOperationSchema = [9, n0, _PSS,
 ];
 export var SearchProfiles$: StaticOperationSchema = [9, n0, _SPe,
   { [_h]: ["POST", "/domains/{DomainName}/profiles/search", 200] }, () => SearchProfilesRequest$, () => SearchProfilesResponse$
+];
+export var SearchRecommendations$: StaticOperationSchema = [9, n0, _SRe,
+  { [_h]: ["POST", "/domains/{DomainName}/recommendations", 200] }, () => SearchRecommendationsRequest$, () => SearchRecommendationsResponse$
 ];
 export var StartRecommender$: StaticOperationSchema = [9, n0, _SRt,
   { [_h]: ["PUT", "/domains/{DomainName}/recommenders/{RecommenderName}/start", 200] }, () => StartRecommenderRequest$, () => StartRecommenderResponse$
