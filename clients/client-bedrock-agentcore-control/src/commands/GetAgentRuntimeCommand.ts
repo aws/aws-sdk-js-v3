@@ -58,7 +58,7 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //       requireServiceS3Endpoint: true || false,
  * //     },
  * //   },
- * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //   lifecycleConfiguration: { // LifecycleConfiguration
  * //     idleRuntimeSessionTimeout: Number("int"),
  * //     maxLifetime: Number("int"),

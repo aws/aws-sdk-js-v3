@@ -46,7 +46,7 @@ export interface UpdateAgentRuntimeEndpointCommandOutput extends UpdateAgentRunt
  * //   targetVersion: "STRING_VALUE",
  * //   agentRuntimeEndpointArn: "STRING_VALUE", // required
  * //   agentRuntimeArn: "STRING_VALUE", // required
- * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * // };

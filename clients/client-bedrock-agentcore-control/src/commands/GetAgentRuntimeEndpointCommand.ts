@@ -44,7 +44,7 @@ export interface GetAgentRuntimeEndpointCommandOutput extends GetAgentRuntimeEnd
  * //   agentRuntimeEndpointArn: "STRING_VALUE", // required
  * //   agentRuntimeArn: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
- * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * //   failureReason: "STRING_VALUE",

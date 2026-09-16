@@ -50,7 +50,7 @@ export interface CreateAgentRuntimeEndpointCommandOutput extends CreateAgentRunt
  * //   agentRuntimeArn: "STRING_VALUE", // required
  * //   agentRuntimeId: "STRING_VALUE",
  * //   endpointName: "STRING_VALUE",
- * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * // };
  *

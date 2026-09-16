@@ -202,7 +202,7 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  * //   agentRuntimeId: "STRING_VALUE", // required
  * //   agentRuntimeVersion: "STRING_VALUE", // required
  * //   createdAt: new Date("TIMESTAMP"), // required
- * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * // };
  *
  * ```

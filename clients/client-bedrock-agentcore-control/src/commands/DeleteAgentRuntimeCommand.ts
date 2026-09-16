@@ -40,7 +40,7 @@ export interface DeleteAgentRuntimeCommandOutput extends DeleteAgentRuntimeRespo
  * const command = new DeleteAgentRuntimeCommand(input);
  * const response = await client.send(command);
  * // { // DeleteAgentRuntimeResponse
- * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //   status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //   agentRuntimeId: "STRING_VALUE",
  * //   agentRuntimeVersion: "STRING_VALUE",
  * // };

@@ -47,7 +47,7 @@ export interface ListAgentRuntimeEndpointsCommandOutput extends ListAgentRuntime
  * //       targetVersion: "STRING_VALUE",
  * //       agentRuntimeEndpointArn: "STRING_VALUE", // required
  * //       agentRuntimeArn: "STRING_VALUE", // required
- * //       status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //       status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //       id: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"), // required

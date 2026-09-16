@@ -47,7 +47,7 @@ export interface ListAgentRuntimeVersionsByCapacityProviderCommandOutput extends
  * //     { // AgentRuntimeVersionSummary
  * //       agentRuntimeArn: "STRING_VALUE", // required
  * //       agentRuntimeVersion: "STRING_VALUE", // required
- * //       status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING", // required
+ * //       status: "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

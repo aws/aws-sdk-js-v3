@@ -75,6 +75,7 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
 export const AgentRuntimeEndpointStatus = {
   CREATE_FAILED: "CREATE_FAILED",
   CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
   DELETING: "DELETING",
   READY: "READY",
   UPDATE_FAILED: "UPDATE_FAILED",
@@ -177,6 +178,7 @@ export type ServerProtocol = (typeof ServerProtocol)[keyof typeof ServerProtocol
 export const AgentRuntimeStatus = {
   CREATE_FAILED: "CREATE_FAILED",
   CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
   DELETING: "DELETING",
   READY: "READY",
   UPDATE_FAILED: "UPDATE_FAILED",
