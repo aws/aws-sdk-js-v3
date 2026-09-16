@@ -54,6 +54,7 @@
     "lint": "oxlint --fix packages/ packages-internal/ lib/ clients/ scripts/",
     "lint:api": "node scripts/validation/api-snapshot.js",
     "lint:ci": "yarn lint",
+    "format:check": "make format-check",
     "lint:dependencies": "node scripts/runtime-dependency-version-check/check-dependencies.js",
     "lint:release": "yarn lint",
     "lint:versions": "node scripts/runtime-dependency-version-check/runtime-dep-version-check.js",

@@ -29,3 +29,11 @@ jobs:
           yarn lint-staged
           yarn lint:versions
           yarn lint:dependencies
+
+      # Whole-tree, check-only formatting gate. `lint-staged` above only inspects
+      # staged files (empty on a fresh CI checkout) and runs `oxfmt --write`, which
+      # always exits 0. This step runs `oxfmt --check` over the entire tree and
+      # fails if anything is unformatted, blocking unformatted code from merging
+      # (which otherwise only surfaces post-merge in the preview build).
+      - name: check formatting
+        run: yarn format:check
