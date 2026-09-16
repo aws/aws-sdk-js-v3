@@ -68,6 +68,8 @@ export interface ImportPolicyCommandOutput extends ImportPolicyResponse, __Metad
  * //     dataRecovery: { // DataRecoveryTargets
  * //       timeBetweenBackupsInMinutes: Number("int"),
  * //     },
+ * //     sharingEnabled: true || false,
+ * //     organizationId: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",

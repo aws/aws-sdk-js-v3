@@ -6,6 +6,7 @@ export * from "./ListFailureModeAssessmentsPaginator";
 export * from "./ListFailureModeFindingsPaginator";
 export * from "./ListInputSourcesPaginator";
 export * from "./ListPoliciesPaginator";
+export * from "./ListPolicyEventsPaginator";
 export * from "./ListReportsPaginator";
 export * from "./ListResolvedTestRunTargetResourcesPaginator";
 export * from "./ListResourcesPaginator";

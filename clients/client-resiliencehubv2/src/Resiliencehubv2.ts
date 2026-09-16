@@ -108,6 +108,11 @@ import {
   DeleteUserJourneyCommand,
 } from "./commands/DeleteUserJourneyCommand";
 import {
+  type GetDependencyInsightsCommandInput,
+  type GetDependencyInsightsCommandOutput,
+  GetDependencyInsightsCommand,
+} from "./commands/GetDependencyInsightsCommand";
+import {
   type GetFailureModeFindingCommandInput,
   type GetFailureModeFindingCommandOutput,
   GetFailureModeFindingCommand,
@@ -171,6 +176,11 @@ import {
   type ListPoliciesCommandOutput,
   ListPoliciesCommand,
 } from "./commands/ListPoliciesCommand";
+import {
+  type ListPolicyEventsCommandInput,
+  type ListPolicyEventsCommandOutput,
+  ListPolicyEventsCommand,
+} from "./commands/ListPolicyEventsCommand";
 import {
   type ListReportsCommandInput,
   type ListReportsCommandOutput,
@@ -268,6 +278,11 @@ import {
   PutTestSourcesCommand,
 } from "./commands/PutTestSourcesCommand";
 import {
+  type StartDependencyInsightsCommandInput,
+  type StartDependencyInsightsCommandOutput,
+  StartDependencyInsightsCommand,
+} from "./commands/StartDependencyInsightsCommand";
+import {
   type StartFailureModeAssessmentCommandInput,
   type StartFailureModeAssessmentCommandOutput,
   StartFailureModeAssessmentCommand,
@@ -344,6 +359,7 @@ import { paginateListFailureModeAssessments } from "./pagination/ListFailureMode
 import { paginateListFailureModeFindings } from "./pagination/ListFailureModeFindingsPaginator";
 import { paginateListInputSources } from "./pagination/ListInputSourcesPaginator";
 import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
+import { paginateListPolicyEvents } from "./pagination/ListPolicyEventsPaginator";
 import { paginateListReports } from "./pagination/ListReportsPaginator";
 import { paginateListResolvedTestRunTargetResources } from "./pagination/ListResolvedTestRunTargetResourcesPaginator";
 import { paginateListResources } from "./pagination/ListResourcesPaginator";
@@ -388,6 +404,7 @@ const commands = {
   DeleteTestCommand,
   DeleteTestSourcesCommand,
   DeleteUserJourneyCommand,
+  GetDependencyInsightsCommand,
   GetFailureModeFindingCommand,
   GetPolicyCommand,
   GetServiceCommand,
@@ -404,6 +421,7 @@ const commands = {
   ListFailureModeFindingsCommand,
   ListInputSourcesCommand,
   ListPoliciesCommand,
+  ListPolicyEventsCommand,
   ListReportsCommand,
   ListResolvedTestRunTargetResourcesCommand,
   ListResourcesCommand,
@@ -424,6 +442,7 @@ const commands = {
   ListTestTemplatesCommand,
   ListUserJourneysCommand,
   PutTestSourcesCommand,
+  StartDependencyInsightsCommand,
   StartFailureModeAssessmentCommand,
   StartTestRunCommand,
   StopTestRunCommand,
@@ -446,6 +465,7 @@ const paginators = {
   paginateListFailureModeFindings,
   paginateListInputSources,
   paginateListPolicies,
+  paginateListPolicyEvents,
   paginateListReports,
   paginateListResolvedTestRunTargetResources,
   paginateListResources,
@@ -813,6 +833,23 @@ export interface Resiliencehubv2 {
   ): void;
 
   /**
+   * @see {@link GetDependencyInsightsCommand}
+   */
+  getDependencyInsights(
+    args: GetDependencyInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDependencyInsightsCommandOutput>;
+  getDependencyInsights(
+    args: GetDependencyInsightsCommandInput,
+    cb: (err: any, data?: GetDependencyInsightsCommandOutput) => void
+  ): void;
+  getDependencyInsights(
+    args: GetDependencyInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDependencyInsightsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFailureModeFindingCommand}
    */
   getFailureModeFinding(
@@ -1084,6 +1121,23 @@ export interface Resiliencehubv2 {
     args: ListPoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPolicyEventsCommand}
+   */
+  listPolicyEvents(
+    args: ListPolicyEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPolicyEventsCommandOutput>;
+  listPolicyEvents(
+    args: ListPolicyEventsCommandInput,
+    cb: (err: any, data?: ListPolicyEventsCommandOutput) => void
+  ): void;
+  listPolicyEvents(
+    args: ListPolicyEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPolicyEventsCommandOutput) => void
   ): void;
 
   /**
@@ -1431,6 +1485,23 @@ export interface Resiliencehubv2 {
   ): void;
 
   /**
+   * @see {@link StartDependencyInsightsCommand}
+   */
+  startDependencyInsights(
+    args: StartDependencyInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDependencyInsightsCommandOutput>;
+  startDependencyInsights(
+    args: StartDependencyInsightsCommandInput,
+    cb: (err: any, data?: StartDependencyInsightsCommandOutput) => void
+  ): void;
+  startDependencyInsights(
+    args: StartDependencyInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDependencyInsightsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartFailureModeAssessmentCommand}
    */
   startFailureModeAssessment(
@@ -1733,6 +1804,17 @@ export interface Resiliencehubv2 {
     args?: ListPoliciesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListPoliciesCommandOutput>;
+
+  /**
+   * @see {@link ListPolicyEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPolicyEventsCommandOutput}.
+   */
+  paginateListPolicyEvents(
+    args: ListPolicyEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPolicyEventsCommandOutput>;
 
   /**
    * @see {@link ListReportsCommand}

@@ -33,6 +33,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * const config = {}; // type is Resiliencehubv2ClientConfig
  * const client = new Resiliencehubv2Client(config);
  * const input = { // ListPoliciesRequest
+ *   accountId: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -59,6 +60,8 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  * //       dataRecovery: { // DataRecoveryTargets
  * //         timeBetweenBackupsInMinutes: Number("int"),
  * //       },
+ * //       sharingEnabled: true || false,
+ * //       organizationId: "STRING_VALUE",
  * //       associatedServiceCount: Number("int"),
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),

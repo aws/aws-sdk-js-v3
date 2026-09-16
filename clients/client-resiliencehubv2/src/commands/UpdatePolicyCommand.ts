@@ -51,6 +51,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *   dataRecovery: { // DataRecoveryTargets
  *     timeBetweenBackupsInMinutes: Number("int"),
  *   },
+ *   sharingEnabled: true || false,
  * };
  * const command = new UpdatePolicyCommand(input);
  * const response = await client.send(command);
@@ -75,6 +76,8 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * //     dataRecovery: { // DataRecoveryTargets
  * //       timeBetweenBackupsInMinutes: Number("int"),
  * //     },
+ * //     sharingEnabled: true || false,
+ * //     organizationId: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",

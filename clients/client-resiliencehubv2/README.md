@@ -321,6 +321,13 @@ DeleteUserJourney
 </details>
 <details>
 <summary>
+GetDependencyInsights
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/GetDependencyInsightsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetDependencyInsightsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetDependencyInsightsCommandOutput/)
+</details>
+<details>
+<summary>
 GetFailureModeFinding
 </summary>
 
@@ -430,6 +437,13 @@ ListPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListPoliciesCommandOutput/)
+</details>
+<details>
+<summary>
+ListPolicyEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListPolicyEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListPolicyEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListPolicyEventsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -570,6 +584,13 @@ PutTestSources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/PutTestSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/PutTestSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/PutTestSourcesCommandOutput/)
+</details>
+<details>
+<summary>
+StartDependencyInsights
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/StartDependencyInsightsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/StartDependencyInsightsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/StartDependencyInsightsCommandOutput/)
 </details>
 <details>
 <summary>

@@ -51,6 +51,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *   dataRecovery: { // DataRecoveryTargets
  *     timeBetweenBackupsInMinutes: Number("int"),
  *   },
+ *   sharingEnabled: true || false,
  *   kmsKeyId: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -80,6 +81,8 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * //     dataRecovery: { // DataRecoveryTargets
  * //       timeBetweenBackupsInMinutes: Number("int"),
  * //     },
+ * //     sharingEnabled: true || false,
+ * //     organizationId: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",

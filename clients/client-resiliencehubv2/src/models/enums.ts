@@ -383,6 +383,51 @@ export type DependencyCriticality = (typeof DependencyCriticality)[keyof typeof 
  * @public
  * @enum
  */
+export const InsightsCategory = {
+  AWS_SERVICE: "AWS_SERVICE",
+  CROSS_REGION: "CROSS_REGION",
+  NEW_DEPENDENCY: "NEW_DEPENDENCY",
+  THIRD_PARTY: "THIRD_PARTY",
+  UNEVEN_USAGE: "UNEVEN_USAGE",
+} as const;
+/**
+ * @public
+ */
+export type InsightsCategory = (typeof InsightsCategory)[keyof typeof InsightsCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const DependencyInsightsErrorCode = {
+  INSUFFICIENT_DATA: "INSUFFICIENT_DATA",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  LLM_GENERATION_FAILED: "LLM_GENERATION_FAILED",
+} as const;
+/**
+ * @public
+ */
+export type DependencyInsightsErrorCode =
+  (typeof DependencyInsightsErrorCode)[keyof typeof DependencyInsightsErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const DependencyInsightsStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type DependencyInsightsStatus = (typeof DependencyInsightsStatus)[keyof typeof DependencyInsightsStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const QueryGranularity = {
   DAILY: "DAILY",
   HOURLY: "HOURLY",
@@ -532,6 +577,21 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  * @public
  * @enum
  */
+export const PolicyEventType = {
+  POLICY_ATTACHED_TO_SERVICE: "POLICY_ATTACHED_TO_SERVICE",
+  POLICY_DELETED: "POLICY_DELETED",
+  POLICY_DETACHED_FROM_SERVICE: "POLICY_DETACHED_FROM_SERVICE",
+  POLICY_SHARING_REVOKED: "POLICY_SHARING_REVOKED",
+} as const;
+/**
+ * @public
+ */
+export type PolicyEventType = (typeof PolicyEventType)[keyof typeof PolicyEventType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ServiceEventType = {
   ASSERTION_CREATED: "ASSERTION_CREATED",
   ASSERTION_DELETED: "ASSERTION_DELETED",
@@ -557,6 +617,20 @@ export const ServiceEventType = {
  * @public
  */
 export type ServiceEventType = (typeof ServiceEventType)[keyof typeof ServiceEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PolicyDisassociationReason = {
+  POLICY_DELETED: "POLICY_DELETED",
+  REPLACED_BY_UPDATE: "REPLACED_BY_UPDATE",
+  SHARING_REVOKED: "SHARING_REVOKED",
+} as const;
+/**
+ * @public
+ */
+export type PolicyDisassociationReason = (typeof PolicyDisassociationReason)[keyof typeof PolicyDisassociationReason];
 
 /**
  * @public

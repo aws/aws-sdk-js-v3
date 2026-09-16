@@ -49,6 +49,8 @@ const _DA = "DeleteAssertion";
 const _DAR = "DeleteAssertionRequest";
 const _DARe = "DeleteAssertionResponse";
 const _DDC = "DependencyDiscoveryConfig";
+const _DI = "DependencyInsight";
+const _DIL = "DependencyInsightsList";
 const _DIS = "DeleteInputSource";
 const _DISR = "DeleteInputSourceRequest";
 const _DISRe = "DeleteInputSourceResponse";
@@ -95,6 +97,9 @@ const _F = "Finding";
 const _FL = "FindingsList";
 const _FRO = "FailedReportOutput";
 const _FS = "FindingSummary";
+const _GDI = "GetDependencyInsights";
+const _GDIR = "GetDependencyInsightsRequest";
+const _GDIRe = "GetDependencyInsightsResponse";
 const _GFMF = "GetFailureModeFinding";
 const _GFMFR = "GetFailureModeFindingRequest";
 const _GFMFRe = "GetFailureModeFindingResponse";
@@ -148,6 +153,9 @@ const _LIS = "ListInputSources";
 const _LISR = "ListInputSourcesRequest";
 const _LISRi = "ListInputSourcesResponse";
 const _LP = "ListPolicies";
+const _LPE = "ListPolicyEvents";
+const _LPER = "ListPolicyEventsRequest";
+const _LPERi = "ListPolicyEventsResponse";
 const _LPR = "ListPoliciesRequest";
 const _LPRi = "ListPoliciesResponse";
 const _LR = "ListReports";
@@ -214,9 +222,17 @@ const _OAS = "ObservabilityAlarmSummary";
 const _OR = "ObservabilityRecommendation";
 const _ORL = "ObservabilityRecommendationsList";
 const _P = "Policy";
+const _PATSM = "PolicyAttachedToServiceMetadata";
+const _PDFSM = "PolicyDetachedFromServiceMetadata";
+const _PDM = "PolicyDeletedMetadata";
+const _PE = "PolicyEvent";
+const _PED = "PolicyEventDetails";
+const _PEL = "PolicyEventList";
+const _PEM = "PolicyEventMetadata";
 const _PM = "PermissionModel";
 const _PS = "PolicySummary";
 const _PSL = "PolicySummaryList";
+const _PSRM = "PolicySharingRevokedMetadata";
 const _PTS = "PutTestSources";
 const _PTSR = "PutTestSourcesRequest";
 const _PTSRu = "PutTestSourcesResponse";
@@ -245,6 +261,9 @@ const _SCL = "StopConditionList";
 const _SCM = "ServiceCreatedMetadata";
 const _SCMy = "SystemCreatedMetadata";
 const _SCt = "StringChange";
+const _SDI = "StartDependencyInsights";
+const _SDIR = "StartDependencyInsightsRequest";
+const _SDIRt = "StartDependencyInsightsResponse";
 const _SDM = "ServiceDeletedMetadata";
 const _SDMy = "SystemDeletedMetadata";
 const _SE = "ServiceEvent";
@@ -397,6 +416,7 @@ const _aR = "awsRegion";
 const _aS = "availabilitySlo";
 const _aSAD = "associatedServicesAtDeletion";
 const _aSC = "associatedServiceCount";
+const _aSCf = "affectedServiceCount";
 const _aSCl = "alarmStateChange";
 const _aSs = "assessmentStatus";
 const _aSss = "assessmentStep";
@@ -426,6 +446,7 @@ const _cSA = "cfnStackArn";
 const _cT = "clientToken";
 const _cTr = "creationTime";
 const _cWLGA = "cloudWatchLogGroupArn";
+const _ca = "category";
 const _ch = "changes";
 const _co = "comment";
 const _cr = "criticality";
@@ -479,12 +500,13 @@ const _g = "granularity";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _i = "identifier";
+const _i = "insights";
 const _iACR = "infrastructureAndCodeRecommendations";
 const _iRN = "invokerRoleName";
 const _iS = "inputSource";
 const _iSI = "inputSourceId";
 const _iSS = "inputSourceSummaries";
+const _id = "identifier";
 const _jD = "journeyDescription";
 const _k = "key";
 const _kKI = "kmsKeyId";
@@ -525,14 +547,21 @@ const _oR = "observabilityRecommendations";
 const _oRu = "outcomeReason";
 const _oV = "oldValue";
 const _ou = "outcome";
+const _ov = "overview";
 const _p = "policy";
 const _pA = "policyArn";
+const _pATS = "policyAttachedToService";
 const _pC = "policyComponent";
+const _pD = "policyDeleted";
+const _pDFS = "policyDetachedFromService";
 const _pI = "principalId";
 const _pM = "permissionModel";
 const _pN = "policyName";
+const _pOAI = "policyOwnerAccountId";
 const _pS = "previousState";
+const _pSR = "policySharingRevoked";
 const _pSo = "policySummaries";
+const _pSol = "policySource";
 const _pa = "parameters";
 const _pr = "provider";
 const _pro = "properties";
@@ -836,8 +865,8 @@ export var CreateInputSourceResponse$: StaticStructureSchema = [3, n0, _CISRr,
 ];
 export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_n, _d, _aS, _mA, _mR, _dR, _kKI, _tag, _cT],
-  [0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$, 0, [() => TagMap, 0], [0, 4]], 1
+  [_n, _d, _aS, _mA, _mR, _dR, _sE, _kKI, _tag, _cT],
+  [0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$, 2, 0, [() => TagMap, 0], [0, 4]], 1
 ];
 export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -1029,6 +1058,11 @@ export var DependencyDiscoveryConfig$: StaticStructureSchema = [3, n0, _DDC,
   [_sta, _uA, _eRC, _m],
   [0, 4, 1, 0], 1
 ];
+export var DependencyInsight$: StaticStructureSchema = [3, n0, _DI,
+  0,
+  [_ca, _d],
+  [0, 0], 2
+];
 export var DependencySummary$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_dI, _sA, _dN, _dNn, _l, _lDT, _sR, _qR, _cr, _pr, _co],
@@ -1088,6 +1122,16 @@ export var FindingSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_sA, _fI, _n, _d, _fC, _sev, _sta, _pC, _uA],
   [0, 0, 0, 0, 0, 0, 0, 0, 4]
+];
+export var GetDependencyInsightsRequest$: StaticStructureSchema = [3, n0, _GDIR,
+  0,
+  [_sA],
+  [[0, { [_hQ]: _sA }]], 1
+];
+export var GetDependencyInsightsResponse$: StaticStructureSchema = [3, n0, _GDIRe,
+  0,
+  [_sta, _ov, _i, _cA, _eC, _eM],
+  [0, 0, () => DependencyInsightsList, 4, 0, 0], 1
 ];
 export var GetFailureModeFindingRequest$: StaticStructureSchema = [3, n0, _GFMFR,
   0,
@@ -1196,7 +1240,7 @@ export var InfrastructureAndCodeRecommendation$: StaticStructureSchema = [3, n0,
 ];
 export var InputSource$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_i, _ty],
+  [_id, _ty],
   [0, 0], 2
 ];
 export var InputSourceSummary$: StaticStructureSchema = [3, n0, _ISS,
@@ -1256,13 +1300,23 @@ export var ListInputSourcesResponse$: StaticStructureSchema = [3, n0, _LISRi,
 ];
 export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
-  [_mRa, _nT],
-  [[1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
+  [_aIc, _mRa, _nT],
+  [[0, { [_hQ]: _aIc }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
 export var ListPoliciesResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
   [_pSo, _nT],
   [() => PolicySummaryList, 0], 1
+];
+export var ListPolicyEventsRequest$: StaticStructureSchema = [3, n0, _LPER,
+  0,
+  [_pA, _eT, _sT, _eTn, _mRa, _nT],
+  [[0, { [_hQ]: _pA }], [64 | 0, { [_hQ]: _eT }], [4, { [_hQ]: _sT }], [4, { [_hQ]: _eTn }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListPolicyEventsResponse$: StaticStructureSchema = [3, n0, _LPERi,
+  0,
+  [_ev, _nT],
+  [() => PolicyEventList, 0], 1
 ];
 export var ListReportsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -1491,13 +1545,43 @@ export var PermissionModel$: StaticStructureSchema = [3, n0, _PM,
 ];
 export var Policy$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_pA, _n, _d, _aS, _mA, _mR, _dR, _kKI, _tag, _aSC, _cA, _uA],
-  [0, 0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$, 0, [() => TagMap, 0], 1, 4, 4], 2
+  [_pA, _n, _d, _aS, _mA, _mR, _dR, _sE, _oIr, _kKI, _tag, _aSC, _cA, _uA],
+  [0, 0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$, 2, 0, 0, [() => TagMap, 0], 1, 4, 4], 2
+];
+export var PolicyAttachedToServiceMetadata$: StaticStructureSchema = [3, n0, _PATSM,
+  0,
+  [_sA, _aIc],
+  [0, 0]
+];
+export var PolicyDeletedMetadata$: StaticStructureSchema = [3, n0, _PDM,
+  0,
+  [_aSCf],
+  [1]
+];
+export var PolicyDetachedFromServiceMetadata$: StaticStructureSchema = [3, n0, _PDFSM,
+  0,
+  [_sA, _aIc],
+  [0, 0]
+];
+export var PolicyEvent$: StaticStructureSchema = [3, n0, _PE,
+  0,
+  [_eIv, _ti, _eTv, _pA, _act, _eD],
+  [0, 4, 0, 0, () => EventActor$, () => PolicyEventDetails$], 6
+];
+export var PolicyEventDetails$: StaticStructureSchema = [3, n0, _PED,
+  0,
+  [_tit, _d, _eMv],
+  [0, 0, () => PolicyEventMetadata$], 2
+];
+export var PolicySharingRevokedMetadata$: StaticStructureSchema = [3, n0, _PSRM,
+  0,
+  [_aSCf],
+  [1]
 ];
 export var PolicySummary$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_pA, _n, _aS, _mA, _mR, _dR, _aSC, _cA, _uA],
-  [0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$, 1, 4, 4], 2
+  [_pA, _n, _aS, _mA, _mR, _dR, _sE, _oIr, _aSC, _cA, _uA],
+  [0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$, 2, 0, 1, 4, 4], 2
 ];
 export var PutTestSourcesRequest$: StaticStructureSchema = [3, n0, _PTSR,
   0,
@@ -1531,7 +1615,7 @@ export var ResolvedTargetResource$: StaticStructureSchema = [3, n0, _RTR,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_i, _aR, _aAI, _rT],
+  [_id, _aR, _aAI, _rT],
   [0, 0, 0, 0], 1
 ];
 export var ResourceDiscoveryStatus$: StaticStructureSchema = [3, n0, _RDS,
@@ -1621,13 +1705,13 @@ export var ServiceInputSourcesUpdatedMetadata$: StaticStructureSchema = [3, n0, 
 ];
 export var ServicePolicyAssociatedMetadata$: StaticStructureSchema = [3, n0, _SPAM,
   0,
-  [_pN, _pA],
-  [0, 0]
+  [_pN, _pA, _pOAI, _pSol],
+  [0, 0, 0, 0]
 ];
 export var ServicePolicyDisassociatedMetadata$: StaticStructureSchema = [3, n0, _SPDM,
   0,
-  [_pN, _pA],
-  [0, 0]
+  [_pN, _pA, _pOAI, _pSol, _r],
+  [0, 0, 0, 0, 0]
 ];
 export var ServiceReference$: StaticStructureSchema = [3, n0, _SR,
   0,
@@ -1688,6 +1772,16 @@ export var SloSource$: StaticStructureSchema = [3, n0, _SSl,
   0,
   [_v, _pN, _so],
   [1, 0, 0]
+];
+export var StartDependencyInsightsRequest$: StaticStructureSchema = [3, n0, _SDIR,
+  0,
+  [_sA, _cT],
+  [0, [0, 4]], 1
+];
+export var StartDependencyInsightsResponse$: StaticStructureSchema = [3, n0, _SDIRt,
+  0,
+  [_sta],
+  [0], 1
 ];
 export var StartFailureModeAssessmentRequest$: StaticStructureSchema = [3, n0, _SFMAR,
   0,
@@ -1946,8 +2040,8 @@ export var UpdateFailureModeFindingResponse$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_pA, _d, _aS, _mA, _mR, _dR],
-  [0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$], 1
+  [_pA, _d, _aS, _mA, _mR, _dR, _sE],
+  [0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$, 2], 1
 ];
 export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -2038,6 +2132,9 @@ var AssociatedSystemList: StaticListSchema = [1, n0, _ASLs,
 var CrossAccountRoleList: StaticListSchema = [1, n0, _CARL,
   0, () => CrossAccountRole$
 ];
+var DependencyInsightsList: StaticListSchema = [1, n0, _DIL,
+  0, () => DependencyInsight$
+];
 var DependencySummaryList: StaticListSchema = [1, n0, _DSL,
   0, () => DependencySummary$
 ];
@@ -2067,6 +2164,10 @@ var InputSourceSummaryList: StaticListSchema = [1, n0, _ISSL,
 var ObservabilityRecommendationsList: StaticListSchema = [1, n0, _ORL,
   0, () => ObservabilityRecommendation$
 ];
+var PolicyEventList: StaticListSchema = [1, n0, _PEL,
+  0, () => PolicyEvent$
+];
+var PolicyEventTypeList = 64 | 0;
 var PolicySummaryList: StaticListSchema = [1, n0, _PSL,
   0, () => PolicySummary$
 ];
@@ -2179,6 +2280,11 @@ var TestParameters: StaticMapSchema = [2, n0, _TP,
   0, 0, 64 | 0
 ];
 var TestRunEventAttributes = 128 | 0;
+export var PolicyEventMetadata$: StaticUnionSchema = [4, n0, _PEM,
+  0,
+  [_pATS, _pDFS, _pSR, _pD],
+  [() => PolicyAttachedToServiceMetadata$, () => PolicyDetachedFromServiceMetadata$, () => PolicySharingRevokedMetadata$, () => PolicyDeletedMetadata$]
+];
 export var ReportOutput$: StaticUnionSchema = [4, n0, _RO,
   0,
   [_sRO, _fRO],
@@ -2284,6 +2390,9 @@ export var DeleteTestSources$: StaticOperationSchema = [9, n0, _DTS,
 export var DeleteUserJourney$: StaticOperationSchema = [9, n0, _DUJ,
   { [_h]: ["POST", "/v2/delete-user-journey", 200] }, () => DeleteUserJourneyRequest$, () => DeleteUserJourneyResponse$
 ];
+export var GetDependencyInsights$: StaticOperationSchema = [9, n0, _GDI,
+  { [_h]: ["GET", "/v2/get-dependency-insights", 200] }, () => GetDependencyInsightsRequest$, () => GetDependencyInsightsResponse$
+];
 export var GetFailureModeFinding$: StaticOperationSchema = [9, n0, _GFMF,
   { [_h]: ["GET", "/v2/get-failure-mode-finding", 200] }, () => GetFailureModeFindingRequest$, () => GetFailureModeFindingResponse$
 ];
@@ -2331,6 +2440,9 @@ export var ListInputSources$: StaticOperationSchema = [9, n0, _LIS,
 ];
 export var ListPolicies$: StaticOperationSchema = [9, n0, _LP,
   { [_h]: ["GET", "/v2/list-policies", 200] }, () => ListPoliciesRequest$, () => ListPoliciesResponse$
+];
+export var ListPolicyEvents$: StaticOperationSchema = [9, n0, _LPE,
+  { [_h]: ["GET", "/v2/list-policy-events", 200] }, () => ListPolicyEventsRequest$, () => ListPolicyEventsResponse$
 ];
 export var ListReports$: StaticOperationSchema = [9, n0, _LR,
   { [_h]: ["GET", "/v2/list-reports", 200] }, () => ListReportsRequest$, () => ListReportsResponse$
@@ -2391,6 +2503,9 @@ export var ListUserJourneys$: StaticOperationSchema = [9, n0, _LUJ,
 ];
 export var PutTestSources$: StaticOperationSchema = [9, n0, _PTS,
   { [_h]: ["POST", "/v2/put-test-sources", 200] }, () => PutTestSourcesRequest$, () => PutTestSourcesResponse$
+];
+export var StartDependencyInsights$: StaticOperationSchema = [9, n0, _SDI,
+  { [_h]: ["POST", "/v2/start-dependency-insights", 202] }, () => StartDependencyInsightsRequest$, () => StartDependencyInsightsResponse$
 ];
 export var StartFailureModeAssessment$: StaticOperationSchema = [9, n0, _SFMA,
   { [_h]: ["POST", "/v2/start-failure-mode-assessment", 200] }, () => StartFailureModeAssessmentRequest$, () => StartFailureModeAssessmentResponse$

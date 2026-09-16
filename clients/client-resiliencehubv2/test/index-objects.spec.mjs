@@ -109,6 +109,9 @@ import {
   DependencyDiscoveryConfig$,
   DependencyDiscoveryInput,
   DependencyDiscoveryStatus,
+  DependencyInsight$,
+  DependencyInsightsErrorCode,
+  DependencyInsightsStatus,
   DependencySummary$,
   DisasterRecoverySource$,
   EdgePropertySummary$,
@@ -125,6 +128,10 @@ import {
   FindingSeverity,
   FindingStatus,
   FindingSummary$,
+  GetDependencyInsights$,
+  GetDependencyInsightsCommand,
+  GetDependencyInsightsRequest$,
+  GetDependencyInsightsResponse$,
   GetFailureModeFinding$,
   GetFailureModeFindingCommand,
   GetFailureModeFindingRequest$,
@@ -169,6 +176,7 @@ import {
   InputSource$,
   InputSourceSummary$,
   InputSourceType,
+  InsightsCategory,
   InternalServerException,
   InternalServerException$,
   ListAssertions$,
@@ -195,6 +203,10 @@ import {
   ListPoliciesCommand,
   ListPoliciesRequest$,
   ListPoliciesResponse$,
+  ListPolicyEvents$,
+  ListPolicyEventsCommand,
+  ListPolicyEventsRequest$,
+  ListPolicyEventsResponse$,
   ListReports$,
   ListReportsCommand,
   ListReportsRequest$,
@@ -285,6 +297,7 @@ import {
   paginateListFailureModeFindings,
   paginateListInputSources,
   paginateListPolicies,
+  paginateListPolicyEvents,
   paginateListReports,
   paginateListResolvedTestRunTargetResources,
   paginateListResources,
@@ -305,7 +318,16 @@ import {
   ParameterType,
   PermissionModel$,
   Policy$,
+  PolicyAttachedToServiceMetadata$,
   PolicyComponent,
+  PolicyDeletedMetadata$,
+  PolicyDetachedFromServiceMetadata$,
+  PolicyDisassociationReason,
+  PolicyEvent$,
+  PolicyEventDetails$,
+  PolicyEventMetadata$,
+  PolicyEventType,
+  PolicySharingRevokedMetadata$,
   PolicySummary$,
   PolicyValueSource,
   PutTestSources$,
@@ -369,6 +391,10 @@ import {
   ServiceWorkflowUpdatedMetadata$,
   SloSource$,
   SortOrder,
+  StartDependencyInsights$,
+  StartDependencyInsightsCommand,
+  StartDependencyInsightsRequest$,
+  StartDependencyInsightsResponse$,
   StartFailureModeAssessment$,
   StartFailureModeAssessmentCommand,
   StartFailureModeAssessmentRequest$,
@@ -538,6 +564,8 @@ assert(typeof DeleteTestSourcesCommand === "function");
 assert(typeof DeleteTestSources$ === "object");
 assert(typeof DeleteUserJourneyCommand === "function");
 assert(typeof DeleteUserJourney$ === "object");
+assert(typeof GetDependencyInsightsCommand === "function");
+assert(typeof GetDependencyInsights$ === "object");
 assert(typeof GetFailureModeFindingCommand === "function");
 assert(typeof GetFailureModeFinding$ === "object");
 assert(typeof GetPolicyCommand === "function");
@@ -570,6 +598,8 @@ assert(typeof ListInputSourcesCommand === "function");
 assert(typeof ListInputSources$ === "object");
 assert(typeof ListPoliciesCommand === "function");
 assert(typeof ListPolicies$ === "object");
+assert(typeof ListPolicyEventsCommand === "function");
+assert(typeof ListPolicyEvents$ === "object");
 assert(typeof ListReportsCommand === "function");
 assert(typeof ListReports$ === "object");
 assert(typeof ListResolvedTestRunTargetResourcesCommand === "function");
@@ -610,6 +640,8 @@ assert(typeof ListUserJourneysCommand === "function");
 assert(typeof ListUserJourneys$ === "object");
 assert(typeof PutTestSourcesCommand === "function");
 assert(typeof PutTestSources$ === "object");
+assert(typeof StartDependencyInsightsCommand === "function");
+assert(typeof StartDependencyInsights$ === "object");
 assert(typeof StartFailureModeAssessmentCommand === "function");
 assert(typeof StartFailureModeAssessment$ === "object");
 assert(typeof StartTestRunCommand === "function");
@@ -692,6 +724,7 @@ assert(typeof DeleteTestSourcesResponse$ === "object");
 assert(typeof DeleteUserJourneyRequest$ === "object");
 assert(typeof DeleteUserJourneyResponse$ === "object");
 assert(typeof DependencyDiscoveryConfig$ === "object");
+assert(typeof DependencyInsight$ === "object");
 assert(typeof DependencySummary$ === "object");
 assert(typeof DisasterRecoverySource$ === "object");
 assert(typeof EdgePropertySummary$ === "object");
@@ -704,6 +737,8 @@ assert(typeof ExperimentDetails$ === "object");
 assert(typeof FailedReportOutput$ === "object");
 assert(typeof Finding$ === "object");
 assert(typeof FindingSummary$ === "object");
+assert(typeof GetDependencyInsightsRequest$ === "object");
+assert(typeof GetDependencyInsightsResponse$ === "object");
 assert(typeof GetFailureModeFindingRequest$ === "object");
 assert(typeof GetFailureModeFindingResponse$ === "object");
 assert(typeof GetPolicyRequest$ === "object");
@@ -739,6 +774,8 @@ assert(typeof ListInputSourcesRequest$ === "object");
 assert(typeof ListInputSourcesResponse$ === "object");
 assert(typeof ListPoliciesRequest$ === "object");
 assert(typeof ListPoliciesResponse$ === "object");
+assert(typeof ListPolicyEventsRequest$ === "object");
+assert(typeof ListPolicyEventsResponse$ === "object");
 assert(typeof ListReportsRequest$ === "object");
 assert(typeof ListReportsResponse$ === "object");
 assert(typeof ListResolvedTestRunTargetResourcesRequest$ === "object");
@@ -785,6 +822,13 @@ assert(typeof ObservabilityAlarmSummary$ === "object");
 assert(typeof ObservabilityRecommendation$ === "object");
 assert(typeof PermissionModel$ === "object");
 assert(typeof Policy$ === "object");
+assert(typeof PolicyAttachedToServiceMetadata$ === "object");
+assert(typeof PolicyDeletedMetadata$ === "object");
+assert(typeof PolicyDetachedFromServiceMetadata$ === "object");
+assert(typeof PolicyEvent$ === "object");
+assert(typeof PolicyEventDetails$ === "object");
+assert(typeof PolicyEventMetadata$ === "object");
+assert(typeof PolicySharingRevokedMetadata$ === "object");
 assert(typeof PolicySummary$ === "object");
 assert(typeof PutTestSourcesRequest$ === "object");
 assert(typeof PutTestSourcesResponse$ === "object");
@@ -828,6 +872,8 @@ assert(typeof ServiceSystemDisassociatedMetadata$ === "object");
 assert(typeof ServiceTopologyEdgeSummary$ === "object");
 assert(typeof ServiceWorkflowUpdatedMetadata$ === "object");
 assert(typeof SloSource$ === "object");
+assert(typeof StartDependencyInsightsRequest$ === "object");
+assert(typeof StartDependencyInsightsResponse$ === "object");
 assert(typeof StartFailureModeAssessmentRequest$ === "object");
 assert(typeof StartFailureModeAssessmentResponse$ === "object");
 assert(typeof StartTestRunRequest$ === "object");
@@ -914,15 +960,20 @@ assert(typeof CostCurrency === "object");
 assert(typeof DependencyCriticality === "object");
 assert(typeof DependencyDiscoveryInput === "object");
 assert(typeof DependencyDiscoveryStatus === "object");
+assert(typeof DependencyInsightsErrorCode === "object");
+assert(typeof DependencyInsightsStatus === "object");
 assert(typeof EksLabelSelectorOperator === "object");
 assert(typeof FailureCategory === "object");
 assert(typeof FindingSeverity === "object");
 assert(typeof FindingStatus === "object");
 assert(typeof InputSourceType === "object");
+assert(typeof InsightsCategory === "object");
 assert(typeof MultiAzDisasterRecoveryApproach === "object");
 assert(typeof MultiRegionDisasterRecoveryApproach === "object");
 assert(typeof ParameterType === "object");
 assert(typeof PolicyComponent === "object");
+assert(typeof PolicyDisassociationReason === "object");
+assert(typeof PolicyEventType === "object");
 assert(typeof PolicyValueSource === "object");
 assert(typeof QueryGranularity === "object");
 assert(typeof ReportGenerationErrorCode === "object");
@@ -977,6 +1028,7 @@ assert(typeof paginateListFailureModeAssessments === "function");
 assert(typeof paginateListFailureModeFindings === "function");
 assert(typeof paginateListInputSources === "function");
 assert(typeof paginateListPolicies === "function");
+assert(typeof paginateListPolicyEvents === "function");
 assert(typeof paginateListReports === "function");
 assert(typeof paginateListResolvedTestRunTargetResources === "function");
 assert(typeof paginateListResources === "function");

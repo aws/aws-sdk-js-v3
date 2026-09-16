@@ -58,6 +58,8 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * //     dataRecovery: { // DataRecoveryTargets
  * //       timeBetweenBackupsInMinutes: Number("int"),
  * //     },
+ * //     sharingEnabled: true || false,
+ * //     organizationId: "STRING_VALUE",
  * //     kmsKeyId: "STRING_VALUE",
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",

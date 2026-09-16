@@ -102,6 +102,10 @@ import type {
   DeleteUserJourneyCommandOutput,
 } from "./commands/DeleteUserJourneyCommand";
 import type {
+  GetDependencyInsightsCommandInput,
+  GetDependencyInsightsCommandOutput,
+} from "./commands/GetDependencyInsightsCommand";
+import type {
   GetFailureModeFindingCommandInput,
   GetFailureModeFindingCommandOutput,
 } from "./commands/GetFailureModeFindingCommand";
@@ -126,6 +130,7 @@ import type {
 } from "./commands/ListFailureModeFindingsCommand";
 import type { ListInputSourcesCommandInput, ListInputSourcesCommandOutput } from "./commands/ListInputSourcesCommand";
 import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
+import type { ListPolicyEventsCommandInput, ListPolicyEventsCommandOutput } from "./commands/ListPolicyEventsCommand";
 import type { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
 import type {
   ListResolvedTestRunTargetResourcesCommandInput,
@@ -176,6 +181,10 @@ import type {
 } from "./commands/ListTestTemplatesCommand";
 import type { ListUserJourneysCommandInput, ListUserJourneysCommandOutput } from "./commands/ListUserJourneysCommand";
 import type { PutTestSourcesCommandInput, PutTestSourcesCommandOutput } from "./commands/PutTestSourcesCommand";
+import type {
+  StartDependencyInsightsCommandInput,
+  StartDependencyInsightsCommandOutput,
+} from "./commands/StartDependencyInsightsCommand";
 import type {
   StartFailureModeAssessmentCommandInput,
   StartFailureModeAssessmentCommandOutput,
@@ -237,6 +246,7 @@ export type ServiceInputTypes =
   | DeleteTestCommandInput
   | DeleteTestSourcesCommandInput
   | DeleteUserJourneyCommandInput
+  | GetDependencyInsightsCommandInput
   | GetFailureModeFindingCommandInput
   | GetPolicyCommandInput
   | GetServiceCommandInput
@@ -253,6 +263,7 @@ export type ServiceInputTypes =
   | ListFailureModeFindingsCommandInput
   | ListInputSourcesCommandInput
   | ListPoliciesCommandInput
+  | ListPolicyEventsCommandInput
   | ListReportsCommandInput
   | ListResolvedTestRunTargetResourcesCommandInput
   | ListResourcesCommandInput
@@ -273,6 +284,7 @@ export type ServiceInputTypes =
   | ListTestsCommandInput
   | ListUserJourneysCommandInput
   | PutTestSourcesCommandInput
+  | StartDependencyInsightsCommandInput
   | StartFailureModeAssessmentCommandInput
   | StartTestRunCommandInput
   | StopTestRunCommandInput
@@ -312,6 +324,7 @@ export type ServiceOutputTypes =
   | DeleteTestCommandOutput
   | DeleteTestSourcesCommandOutput
   | DeleteUserJourneyCommandOutput
+  | GetDependencyInsightsCommandOutput
   | GetFailureModeFindingCommandOutput
   | GetPolicyCommandOutput
   | GetServiceCommandOutput
@@ -328,6 +341,7 @@ export type ServiceOutputTypes =
   | ListFailureModeFindingsCommandOutput
   | ListInputSourcesCommandOutput
   | ListPoliciesCommandOutput
+  | ListPolicyEventsCommandOutput
   | ListReportsCommandOutput
   | ListResolvedTestRunTargetResourcesCommandOutput
   | ListResourcesCommandOutput
@@ -348,6 +362,7 @@ export type ServiceOutputTypes =
   | ListTestsCommandOutput
   | ListUserJourneysCommandOutput
   | PutTestSourcesCommandOutput
+  | StartDependencyInsightsCommandOutput
   | StartFailureModeAssessmentCommandOutput
   | StartTestRunCommandOutput
   | StopTestRunCommandOutput

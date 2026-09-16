@@ -13,15 +13,20 @@ import type {
   DependencyCriticality,
   DependencyDiscoveryInput,
   DependencyDiscoveryStatus,
+  DependencyInsightsErrorCode,
+  DependencyInsightsStatus,
   EksLabelSelectorOperator,
   FailureCategory,
   FindingSeverity,
   FindingStatus,
   InputSourceType,
+  InsightsCategory,
   MultiAzDisasterRecoveryApproach,
   MultiRegionDisasterRecoveryApproach,
   ParameterType,
   PolicyComponent,
+  PolicyDisassociationReason,
+  PolicyEventType,
   PolicyValueSource,
   QueryGranularity,
   ReportGenerationErrorCode,
@@ -711,6 +716,12 @@ export interface CreatePolicyRequest {
   dataRecovery?: DataRecoveryTargets | undefined;
 
   /**
+   * <p>Specifies whether cross-account sharing is enabled for the policy. Only a delegated administrator or the management account can enable sharing.</p>
+   * @public
+   */
+  sharingEnabled?: boolean | undefined;
+
+  /**
    * <p>KMS key identifier — accepts key ID, key ARN, alias name, or alias ARN.</p>
    * @public
    */
@@ -775,6 +786,18 @@ export interface Policy {
    * @public
    */
   dataRecovery?: DataRecoveryTargets | undefined;
+
+  /**
+   * <p>Specifies whether cross-account sharing is enabled.</p>
+   * @public
+   */
+  sharingEnabled?: boolean | undefined;
+
+  /**
+   * <p>The identifier of the organization this policy is shared with.</p>
+   * @public
+   */
+  organizationId?: string | undefined;
 
   /**
    * <p>KMS key identifier — accepts key ID, key ARN, alias name, or alias ARN.</p>
@@ -2436,6 +2459,24 @@ export interface DeleteUserJourneyResponse {
 }
 
 /**
+ * <p>Contains a single insight about a service's dependencies.</p>
+ * @public
+ */
+export interface DependencyInsight {
+  /**
+   * <p>The category of the insight. Valid values:</p> <ul> <li> <p>CROSS_REGION - The insight relates to dependencies used across multiple Regions.</p> </li> <li> <p>NEW_DEPENDENCY - The insight relates to a recently detected dependency.</p> </li> <li> <p>THIRD_PARTY - The insight relates to a third-party dependency.</p> </li> <li> <p>UNEVEN_USAGE - The insight relates to a dependency with uneven usage across the service.</p> </li> <li> <p>AWS_SERVICE - The insight relates to a dependency on an Amazon Web Services service.</p> </li> </ul>
+   * @public
+   */
+  category: InsightsCategory | undefined;
+
+  /**
+   * <p>A human-readable explanation of the insight, describing the dependency behavior or condition that was detected.</p>
+   * @public
+   */
+  description: string | undefined;
+}
+
+/**
  * <p>A data point in a dependency query range.</p>
  * @public
  */
@@ -2805,6 +2846,58 @@ export interface FindingSummary {
    * @public
    */
   updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDependencyInsightsRequest {
+  /**
+   * <p>ARN identifier.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDependencyInsightsResponse {
+  /**
+   * <p>A summary of the dependency insights for the service. This field is not returned until the status is COMPLETED.</p>
+   * @public
+   */
+  overview?: string | undefined;
+
+  /**
+   * <p>The list of dependency insights generated for the service. This field is not returned until the status is COMPLETED.</p>
+   * @public
+   */
+  insights?: DependencyInsight[] | undefined;
+
+  /**
+   * <p>The status of the dependency insights generation. Valid values:</p> <ul> <li> <p>IN_PROGRESS - Insights generation is in progress.</p> </li> <li> <p>COMPLETED - Insights generation completed successfully.</p> </li> <li> <p>FAILED - Insights generation failed. See errorCode and errorMessage for details.</p> </li> </ul>
+   * @public
+   */
+  status: DependencyInsightsStatus | undefined;
+
+  /**
+   * <p>The timestamp when the dependency insights were generated.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The error code returned when insights generation failed. Valid values:</p> <ul> <li> <p>INSUFFICIENT_DATA - There was not enough dependency data to generate insights.</p> </li> <li> <p>LLM_GENERATION_FAILED - The insights could not be generated.</p> </li> <li> <p>INTERNAL_ERROR - An internal error occurred while generating insights.</p> </li> </ul>
+   * @public
+   */
+  errorCode?: DependencyInsightsErrorCode | undefined;
+
+  /**
+   * <p>A message describing why insights generation failed.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -3748,6 +3841,12 @@ export interface ListInputSourcesResponse {
  */
 export interface ListPoliciesRequest {
   /**
+   * <p>The identifier of the account that owns the policies to include in the results.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
    * <p>Pagination page size.</p>
    * @public
    */
@@ -3802,6 +3901,18 @@ export interface PolicySummary {
   dataRecovery?: DataRecoveryTargets | undefined;
 
   /**
+   * <p>Specifies whether cross-account sharing is enabled.</p>
+   * @public
+   */
+  sharingEnabled?: boolean | undefined;
+
+  /**
+   * <p>The identifier of the organization this policy is shared with.</p>
+   * @public
+   */
+  organizationId?: string | undefined;
+
+  /**
    * <p>The number of services associated with this policy.</p>
    * @public
    */
@@ -3829,6 +3940,277 @@ export interface ListPoliciesResponse {
    * @public
    */
   policySummaries: PolicySummary[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEventsRequest {
+  /**
+   * <p>ARN identifier.</p>
+   * @public
+   */
+  policyArn: string | undefined;
+
+  /**
+   * <p>The type of events to include in the results.</p>
+   * @public
+   */
+  eventTypes?: PolicyEventType[] | undefined;
+
+  /**
+   * <p>The start time for filtering events.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The end time for filtering events.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains details about the service that started using the policy, such as the account that owns the service.</p>
+ * @public
+ */
+export interface PolicyAttachedToServiceMetadata {
+  /**
+   * <p>ARN identifier.</p>
+   * @public
+   */
+  serviceArn?: string | undefined;
+
+  /**
+   * <p>The account that owns the service.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a policy that was deleted, including the number of services that were affected.</p>
+ * @public
+ */
+export interface PolicyDeletedMetadata {
+  /**
+   * <p>The number of services that were using the policy when it was deleted.</p>
+   * @public
+   */
+  affectedServiceCount?: number | undefined;
+}
+
+/**
+ * <p>Contains details about the service that stopped using the policy, such as the account that owns the service.</p>
+ * @public
+ */
+export interface PolicyDetachedFromServiceMetadata {
+  /**
+   * <p>ARN identifier.</p>
+   * @public
+   */
+  serviceArn?: string | undefined;
+
+  /**
+   * <p>The account that owns the service.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a policy for which organization sharing was revoked, including the number of services that were affected.</p>
+ * @public
+ */
+export interface PolicySharingRevokedMetadata {
+  /**
+   * <p>The number of services that were using the policy when sharing was revoked.</p>
+   * @public
+   */
+  affectedServiceCount?: number | undefined;
+}
+
+/**
+ * <p>Contains the event-specific metadata for a policy event. Exactly one member is populated, according to the event type.</p> <ul> <li> <p>policyAttachedToService — a service started using the policy.</p> </li> <li> <p>policyDetachedFromService — a service stopped using the policy.</p> </li> <li> <p>policySharingRevoked — cross-account sharing was disabled for the policy.</p> </li> <li> <p>policyDeleted — the policy was deleted.</p> </li> </ul>
+ * @public
+ */
+export type PolicyEventMetadata =
+  | PolicyEventMetadata.PolicyAttachedToServiceMember
+  | PolicyEventMetadata.PolicyDeletedMember
+  | PolicyEventMetadata.PolicyDetachedFromServiceMember
+  | PolicyEventMetadata.PolicySharingRevokedMember
+  | PolicyEventMetadata.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PolicyEventMetadata {
+  /**
+   * <p>Contains details about the service that started using the policy, such as the account that owns the service.</p>
+   * @public
+   */
+  export interface PolicyAttachedToServiceMember {
+    policyAttachedToService: PolicyAttachedToServiceMetadata;
+    policyDetachedFromService?: never;
+    policySharingRevoked?: never;
+    policyDeleted?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains details about the service that stopped using the policy, such as the account that owns the service.</p>
+   * @public
+   */
+  export interface PolicyDetachedFromServiceMember {
+    policyAttachedToService?: never;
+    policyDetachedFromService: PolicyDetachedFromServiceMetadata;
+    policySharingRevoked?: never;
+    policyDeleted?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains details about a policy for which organization sharing was revoked, including the number of services that were affected.</p>
+   * @public
+   */
+  export interface PolicySharingRevokedMember {
+    policyAttachedToService?: never;
+    policyDetachedFromService?: never;
+    policySharingRevoked: PolicySharingRevokedMetadata;
+    policyDeleted?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains details about a policy that was deleted, including the number of services that were affected.</p>
+   * @public
+   */
+  export interface PolicyDeletedMember {
+    policyAttachedToService?: never;
+    policyDetachedFromService?: never;
+    policySharingRevoked?: never;
+    policyDeleted: PolicyDeletedMetadata;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    policyAttachedToService?: never;
+    policyDetachedFromService?: never;
+    policySharingRevoked?: never;
+    policyDeleted?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    policyAttachedToService: (value: PolicyAttachedToServiceMetadata) => T;
+    policyDetachedFromService: (value: PolicyDetachedFromServiceMetadata) => T;
+    policySharingRevoked: (value: PolicySharingRevokedMetadata) => T;
+    policyDeleted: (value: PolicyDeletedMetadata) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains the title, description, and event-specific metadata for a single event on the timeline of a resilience policy.</p>
+ * @public
+ */
+export interface PolicyEventDetails {
+  /**
+   * <p>A short summary of the event.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>A description of the event.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The event-specific metadata, with one member populated according to the event type.</p>
+   * @public
+   */
+  eventMetadata?: PolicyEventMetadata | undefined;
+}
+
+/**
+ * <p>An event on the timeline of a resilience policy.</p>
+ * @public
+ */
+export interface PolicyEvent {
+  /**
+   * <p>The identifier of the event.</p>
+   * @public
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>The time the event occurred.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>The type of the event.</p>
+   * @public
+   */
+  eventType: PolicyEventType | undefined;
+
+  /**
+   * <p>ARN identifier.</p>
+   * @public
+   */
+  policyArn: string | undefined;
+
+  /**
+   * <p>Identifies the actor that triggered an event.</p>
+   * @public
+   */
+  actor: EventActor | undefined;
+
+  /**
+   * <p>The details of the event.</p>
+   * @public
+   */
+  eventDetails: PolicyEventDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyEventsResponse {
+  /**
+   * <p>The list of policy events.</p>
+   * @public
+   */
+  events: PolicyEvent[] | undefined;
 
   /**
    * <p>Pagination token.</p>
@@ -4094,7 +4476,7 @@ export interface ListServiceEventsRequest {
   serviceArn: string | undefined;
 
   /**
-   * <p>Filter events by type.</p>
+   * <p>The type of events to include in the results.</p>
    * @public
    */
   eventTypes?: ServiceEventType[] | undefined;
@@ -4302,6 +4684,18 @@ export interface ServicePolicyAssociatedMetadata {
    * @public
    */
   policyArn?: string | undefined;
+
+  /**
+   * <p>The account that owns the policy.</p>
+   * @public
+   */
+  policyOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>The source of the policy.</p> <ul> <li> <p>SELF — the policy belongs to the account that owns the service.</p> </li> <li> <p>CROSS_ACCOUNT — the policy belongs to another account and was shared with the organization.</p> </li> </ul>
+   * @public
+   */
+  policySource?: PolicyValueSource | undefined;
 }
 
 /**
@@ -4320,6 +4714,24 @@ export interface ServicePolicyDisassociatedMetadata {
    * @public
    */
   policyArn?: string | undefined;
+
+  /**
+   * <p>The account that owns the policy.</p>
+   * @public
+   */
+  policyOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>The source of the policy.</p> <ul> <li> <p>SELF — the policy belongs to the account that owns the service.</p> </li> <li> <p>CROSS_ACCOUNT — the policy belongs to another account and was shared with the organization.</p> </li> </ul>
+   * @public
+   */
+  policySource?: PolicyValueSource | undefined;
+
+  /**
+   * <p>The reason the policy was disassociated from the service.</p>
+   * @public
+   */
+  reason?: PolicyDisassociationReason | undefined;
 }
 
 /**
@@ -5403,7 +5815,7 @@ export interface ListSystemEventsRequest {
   systemArn: string | undefined;
 
   /**
-   * <p>Filter events by type.</p>
+   * <p>The type of events to include in the results.</p>
    * @public
    */
   eventTypes?: SystemEventType[] | undefined;
@@ -7097,6 +7509,34 @@ export interface PutTestSourcesResponse {}
 /**
  * @public
  */
+export interface StartDependencyInsightsRequest {
+  /**
+   * <p>ARN identifier.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>Idempotency token.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDependencyInsightsResponse {
+  /**
+   * <p>The status of the dependency insights generation. Valid values:</p> <ul> <li> <p>IN_PROGRESS - Insights generation is in progress.</p> </li> <li> <p>COMPLETED - Insights generation completed successfully.</p> </li> <li> <p>FAILED - Insights generation failed. Call GetDependencyInsights for the error code and message.</p> </li> </ul>
+   * @public
+   */
+  status: DependencyInsightsStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartFailureModeAssessmentRequest {
   /**
    * <p>ARN identifier.</p>
@@ -7447,6 +7887,12 @@ export interface UpdatePolicyRequest {
    * @public
    */
   dataRecovery?: DataRecoveryTargets | undefined;
+
+  /**
+   * <p>Specifies whether cross-account sharing is enabled for the policy. Disabling sharing stops member services from using the policy.</p>
+   * @public
+   */
+  sharingEnabled?: boolean | undefined;
 }
 
 /**

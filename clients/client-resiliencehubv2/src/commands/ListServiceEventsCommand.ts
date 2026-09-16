@@ -92,10 +92,15 @@ export interface ListServiceEventsCommandOutput extends ListServiceEventsRespons
  * //           servicePolicyAssociated: { // ServicePolicyAssociatedMetadata
  * //             policyName: "STRING_VALUE",
  * //             policyArn: "STRING_VALUE",
+ * //             policyOwnerAccountId: "STRING_VALUE",
+ * //             policySource: "SELF" || "CROSS_ACCOUNT",
  * //           },
  * //           servicePolicyDisassociated: { // ServicePolicyDisassociatedMetadata
  * //             policyName: "STRING_VALUE",
  * //             policyArn: "STRING_VALUE",
+ * //             policyOwnerAccountId: "STRING_VALUE",
+ * //             policySource: "SELF" || "CROSS_ACCOUNT",
+ * //             reason: "REPLACED_BY_UPDATE" || "SHARING_REVOKED" || "POLICY_DELETED",
  * //           },
  * //           serviceFunctionCreated: { // ServiceFunctionCreatedMetadata
  * //             serviceFunctionId: "STRING_VALUE",
