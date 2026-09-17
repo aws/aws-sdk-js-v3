@@ -56,7 +56,7 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * //   VpcEndpoints: [ // VpcEndpointSet
  * //     { // VpcEndpoint
  * //       VpcEndpointId: "STRING_VALUE",
- * //       VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork",
+ * //       VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork" || "Tunnel",
  * //       VpcId: "STRING_VALUE",
  * //       ServiceName: "STRING_VALUE",
  * //       State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired" || "Partial",
@@ -127,8 +127,8 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * //       ServiceRegion: "STRING_VALUE",
  * //       PayerResponsibilities: [ // PayerResponsibilitySet
  * //         { // PayerResponsibilityEntry
- * //           Scope: "vpc-endpoint-charges",
- * //           PayerResponsibilityType: "vpc-endpoint-account" || "vpc-endpoint-service-account",
+ * //           Scope: "vpc-endpoint-charges" || "resource-gateway-charges",
+ * //           PayerResponsibilityType: "vpc-endpoint-account" || "resource-gateway-account" || "vpc-endpoint-service-account",
  * //         },
  * //       ],
  * //     },

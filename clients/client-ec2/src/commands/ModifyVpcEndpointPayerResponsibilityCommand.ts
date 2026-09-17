@@ -39,8 +39,8 @@ export interface ModifyVpcEndpointPayerResponsibilityCommandOutput extends Modif
  *   DryRun: true || false,
  *   ServiceId: "STRING_VALUE",
  *   VpcEndpointId: "STRING_VALUE", // required
- *   PayerResponsibility: "vpc-endpoint-account" || "vpc-endpoint-service-account", // required
- *   Scope: "vpc-endpoint-charges", // required
+ *   PayerResponsibility: "vpc-endpoint-account" || "resource-gateway-account" || "vpc-endpoint-service-account", // required
+ *   Scope: "vpc-endpoint-charges" || "resource-gateway-charges", // required
  * };
  * const command = new ModifyVpcEndpointPayerResponsibilityCommand(input);
  * const response = await client.send(command);
@@ -48,8 +48,8 @@ export interface ModifyVpcEndpointPayerResponsibilityCommandOutput extends Modif
  * //   VpcEndpointId: "STRING_VALUE",
  * //   PayerResponsibilities: [ // PayerResponsibilitySet
  * //     { // PayerResponsibilityEntry
- * //       Scope: "vpc-endpoint-charges",
- * //       PayerResponsibilityType: "vpc-endpoint-account" || "vpc-endpoint-service-account",
+ * //       Scope: "vpc-endpoint-charges" || "resource-gateway-charges",
+ * //       PayerResponsibilityType: "vpc-endpoint-account" || "resource-gateway-account" || "vpc-endpoint-service-account",
  * //     },
  * //   ],
  * // };

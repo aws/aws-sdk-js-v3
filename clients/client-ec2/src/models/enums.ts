@@ -5673,6 +5673,7 @@ export const VpcEndpointType = {
   Interface: "Interface",
   Resource: "Resource",
   ServiceNetwork: "ServiceNetwork",
+  Tunnel: "Tunnel",
 } as const;
 /**
  * @public
@@ -5684,6 +5685,7 @@ export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointT
  * @enum
  */
 export const PayerResponsibilityType = {
+  ResourceGatewayAccount: "resource-gateway-account",
   VpcEndpointAccount: "vpc-endpoint-account",
   VpcEndpointServiceAccount: "vpc-endpoint-service-account",
 } as const;
@@ -5697,6 +5699,7 @@ export type PayerResponsibilityType = (typeof PayerResponsibilityType)[keyof typ
  * @enum
  */
 export const PayerResponsibilityScope = {
+  ResourceGatewayCharges: "resource-gateway-charges",
   VpcEndpointCharges: "vpc-endpoint-charges",
 } as const;
 /**

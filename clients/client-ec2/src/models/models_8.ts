@@ -3777,9 +3777,9 @@ export interface ValidateSecurityGroupQuotasForInterfaceRequest {
  */
 export interface ValidateSecurityGroupQuotasForInterfaceResult {
   /**
-   * <p>The operation returns <code>true</code> if the specified security groups can be
-   *             associated with a single network interface without exceeding the quotas. It returns
-   *             an error if associating the security groups would exceed a quota.</p>
+   * <p>Specifies whether the specified security groups can be associated with a single
+   *             network interface without exceeding the quotas. If associating the security groups
+   *             would exceed a quota, the operation returns an error.</p>
    * @public
    */
   Valid?: boolean | undefined;

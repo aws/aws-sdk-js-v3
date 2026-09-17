@@ -79,8 +79,8 @@ export interface DescribeVpcEndpointConnectionsCommandOutput extends DescribeVpc
  * //       VpcEndpointRegion: "STRING_VALUE",
  * //       PayerResponsibilities: [ // PayerResponsibilitySet
  * //         { // PayerResponsibilityEntry
- * //           Scope: "vpc-endpoint-charges",
- * //           PayerResponsibilityType: "vpc-endpoint-account" || "vpc-endpoint-service-account",
+ * //           Scope: "vpc-endpoint-charges" || "resource-gateway-charges",
+ * //           PayerResponsibilityType: "vpc-endpoint-account" || "resource-gateway-account" || "vpc-endpoint-service-account",
  * //         },
  * //       ],
  * //     },

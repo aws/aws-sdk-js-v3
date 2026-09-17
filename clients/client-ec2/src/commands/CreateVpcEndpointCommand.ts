@@ -37,7 +37,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * const client = new EC2Client(config);
  * const input = { // CreateVpcEndpointRequest
  *   DryRun: true || false,
- *   VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork",
+ *   VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork" || "Tunnel",
  *   VpcId: "STRING_VALUE", // required
  *   ServiceName: "STRING_VALUE",
  *   PolicyDocument: "STRING_VALUE",
@@ -88,7 +88,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * // { // CreateVpcEndpointResult
  * //   VpcEndpoint: { // VpcEndpoint
  * //     VpcEndpointId: "STRING_VALUE",
- * //     VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork",
+ * //     VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork" || "Tunnel",
  * //     VpcId: "STRING_VALUE",
  * //     ServiceName: "STRING_VALUE",
  * //     State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired" || "Partial",
@@ -159,8 +159,8 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * //     ServiceRegion: "STRING_VALUE",
  * //     PayerResponsibilities: [ // PayerResponsibilitySet
  * //       { // PayerResponsibilityEntry
- * //         Scope: "vpc-endpoint-charges",
- * //         PayerResponsibilityType: "vpc-endpoint-account" || "vpc-endpoint-service-account",
+ * //         Scope: "vpc-endpoint-charges" || "resource-gateway-charges",
+ * //         PayerResponsibilityType: "vpc-endpoint-account" || "resource-gateway-account" || "vpc-endpoint-service-account",
  * //       },
  * //     ],
  * //   },
