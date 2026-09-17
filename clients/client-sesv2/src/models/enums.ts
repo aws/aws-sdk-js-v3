@@ -77,6 +77,7 @@ export const MetricDimensionName = {
   CONFIGURATION_SET: "CONFIGURATION_SET",
   EMAIL_IDENTITY: "EMAIL_IDENTITY",
   ISP: "ISP",
+  TENANT_NAME: "TENANT_NAME",
 } as const;
 /**
  * @public

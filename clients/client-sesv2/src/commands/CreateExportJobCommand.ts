@@ -67,6 +67,9 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  *         Isp: [ // IspFilterList
  *           "STRING_VALUE",
  *         ],
+ *         TenantName: [ // TenantNameFilterList
+ *           "STRING_VALUE",
+ *         ],
  *         LastDeliveryEvent: [ // LastDeliveryEventList
  *           "SEND" || "DELIVERY" || "TRANSIENT_BOUNCE" || "PERMANENT_BOUNCE" || "UNDETERMINED_BOUNCE" || "COMPLAINT",
  *         ],
@@ -85,6 +88,9 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  *           "STRING_VALUE",
  *         ],
  *         Isp: [
+ *           "STRING_VALUE",
+ *         ],
+ *         TenantName: [
  *           "STRING_VALUE",
  *         ],
  *         LastDeliveryEvent: [

@@ -3054,6 +3054,12 @@ export interface MessageInsightsFilters {
   Isp?: string[] | undefined;
 
   /**
+   * <p>The name of the tenant used when sending the message.</p>
+   * @public
+   */
+  TenantName?: string[] | undefined;
+
+  /**
    * <p>
    *             The last delivery-related event for the email, where the ordering is as follows:
    *             <code>SEND</code> < <code>BOUNCE</code> < <code>DELIVERY</code> < <code>COMPLAINT</code>.

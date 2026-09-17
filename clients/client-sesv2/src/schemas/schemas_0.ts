@@ -2078,8 +2078,8 @@ export var MessageInsightsDataSource$: StaticStructureSchema = [3, n0, _MIDS,
 ];
 export var MessageInsightsFilters$: StaticStructureSchema = [3, n0, _MIF,
   0,
-  [_FEA, _Des, _Su, _Is, _LDE, _LEEa],
-  [[() => EmailAddressFilterList, 0], [() => EmailAddressFilterList, 0], [() => EmailSubjectFilterList, 0], 64 | 0, 64 | 0, 64 | 0]
+  [_FEA, _Des, _Su, _Is, _TNe, _LDE, _LEEa],
+  [[() => EmailAddressFilterList, 0], [() => EmailAddressFilterList, 0], [() => EmailSubjectFilterList, 0], 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var MessageSecurityOptions$: StaticStructureSchema = [3, n0, _MSO,
   0,
@@ -2870,6 +2870,7 @@ var TagList: StaticListSchema = [1, n0, _TL,
 var TenantInfoList: StaticListSchema = [1, n0, _TIL,
   0, () => TenantInfo$
 ];
+var TenantNameFilterList = 64 | 0;
 var TenantResourceList: StaticListSchema = [1, n0, _TRL,
   0, () => TenantResource$
 ];

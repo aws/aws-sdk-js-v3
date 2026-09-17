@@ -78,6 +78,9 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
  * //         Isp: [ // IspFilterList
  * //           "STRING_VALUE",
  * //         ],
+ * //         TenantName: [ // TenantNameFilterList
+ * //           "STRING_VALUE",
+ * //         ],
  * //         LastDeliveryEvent: [ // LastDeliveryEventList
  * //           "SEND" || "DELIVERY" || "TRANSIENT_BOUNCE" || "PERMANENT_BOUNCE" || "UNDETERMINED_BOUNCE" || "COMPLAINT",
  * //         ],
@@ -96,6 +99,9 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
  * //           "STRING_VALUE",
  * //         ],
  * //         Isp: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         TenantName: [
  * //           "STRING_VALUE",
  * //         ],
  * //         LastDeliveryEvent: [
