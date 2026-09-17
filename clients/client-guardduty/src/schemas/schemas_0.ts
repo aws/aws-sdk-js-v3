@@ -89,6 +89,7 @@ const _As = "Asn";
 const _B = "Behavior";
 const _BG = "BedrockGuardrail";
 const _BGD = "BedrockGuardrailDetails";
+const _BGR = "BedrockGuardrailResource";
 const _BGe = "BedrockGuardrails";
 const _BLP = "BucketLevelPermissions";
 const _BN = "BucketName";
@@ -1199,6 +1200,7 @@ const _ar = "arn";
 const _arc = "archived";
 const _as = "asn";
 const _b = "behavior";
+const _bG = "bedrockGuardrail";
 const _bGD = "bedrockGuardrailDetails";
 const _bLP = "bucketLevelPermissions";
 const _bN = "bucketName";
@@ -2007,6 +2009,11 @@ export var BedrockGuardrailDetails$: StaticStructureSchema = [3, n0, _BGD,
   0,
   [_GA, _GV, _G, _GAu, _GS, _CPF],
   [[0, { [_jN]: _gA }], [0, { [_jN]: _gV }], [() => BedrockGuardrails, { [_jN]: _g }], [0, { [_jN]: _gAu }], [0, { [_jN]: _gS }], [() => ContentPolicyFilters, { [_jN]: _cPF }]]
+];
+export var BedrockGuardrailResource$: StaticStructureSchema = [3, n0, _BGR,
+  0,
+  [_V, _GAu, _GS],
+  [[0, { [_jN]: _v }], [0, { [_jN]: _gAu }], [0, { [_jN]: _gS }]]
 ];
 export var BlockPublicAccess$: StaticStructureSchema = [3, n0, _BPA,
   0,
@@ -3665,8 +3672,8 @@ export var Resource$: StaticStructureSchema = [3, n0, _Res,
 ];
 export var ResourceData$: StaticStructureSchema = [3, n0, _RDe,
   0,
-  [_SB, _EIc, _AK, _ENI, _SO, _ECk, _KW, _Con, _ECc, _ETc, _IIP, _AASG, _ELT, _EV, _EI, _CS],
-  [[() => S3Bucket$, { [_jN]: _sB }], [() => Ec2Instance$, { [_jN]: _eI }], [() => AccessKey$, { [_jN]: _aK }], [() => Ec2NetworkInterface$, { [_jN]: _eNI }], [() => S3Object$, { [_jN]: _sO }], [() => EksCluster$, { [_jN]: _eCk }], [() => KubernetesWorkload$, { [_jN]: _kW }], [() => ContainerFindingResource$, { [_jN]: _conta }], [() => EcsCluster$, { [_jN]: _eCc }], [() => EcsTask$, { [_jN]: _eTc }], [() => IamInstanceProfileV2$, { [_jN]: _iIP }], [() => AutoscalingAutoScalingGroup$, { [_jN]: _aASG }], [() => Ec2LaunchTemplate$, { [_jN]: _eLT }], [() => Ec2Vpc$, { [_jN]: _eVc }], [() => Ec2Image$, { [_jN]: _eIc }], [() => CloudformationStack$, { [_jN]: _cSl }]]
+  [_SB, _EIc, _AK, _ENI, _SO, _ECk, _KW, _Con, _ECc, _ETc, _IIP, _AASG, _ELT, _EV, _EI, _CS, _BG],
+  [[() => S3Bucket$, { [_jN]: _sB }], [() => Ec2Instance$, { [_jN]: _eI }], [() => AccessKey$, { [_jN]: _aK }], [() => Ec2NetworkInterface$, { [_jN]: _eNI }], [() => S3Object$, { [_jN]: _sO }], [() => EksCluster$, { [_jN]: _eCk }], [() => KubernetesWorkload$, { [_jN]: _kW }], [() => ContainerFindingResource$, { [_jN]: _conta }], [() => EcsCluster$, { [_jN]: _eCc }], [() => EcsTask$, { [_jN]: _eTc }], [() => IamInstanceProfileV2$, { [_jN]: _iIP }], [() => AutoscalingAutoScalingGroup$, { [_jN]: _aASG }], [() => Ec2LaunchTemplate$, { [_jN]: _eLT }], [() => Ec2Vpc$, { [_jN]: _eVc }], [() => Ec2Image$, { [_jN]: _eIc }], [() => CloudformationStack$, { [_jN]: _cSl }], [() => BedrockGuardrailResource$, { [_jN]: _bG }]]
 ];
 export var ResourceDetails$: StaticStructureSchema = [3, n0, _RD,
   0,

@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  GetCustomDetectionRuleOrgConfigurationRequest,
-  GetCustomDetectionRuleOrgConfigurationResponse,
-} from "../models/models_0";
+import type { GetCustomDetectionRuleOrgConfigurationRequest } from "../models/models_0";
+import type { GetCustomDetectionRuleOrgConfigurationResponse } from "../models/models_1";
 import { GetCustomDetectionRuleOrgConfiguration$ } from "../schemas/schemas_0";
 
 /**

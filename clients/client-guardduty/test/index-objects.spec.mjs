@@ -47,6 +47,7 @@ import {
   BadRequestException$,
   BedrockGuardrail$,
   BedrockGuardrailDetails$,
+  BedrockGuardrailResource$,
   BlockPublicAccess$,
   BucketLevelPermissions$,
   BucketPolicy$,
@@ -1041,6 +1042,7 @@ assert(typeof AutoscalingAutoScalingGroup$ === "object");
 assert(typeof AwsApiCallAction$ === "object");
 assert(typeof BedrockGuardrail$ === "object");
 assert(typeof BedrockGuardrailDetails$ === "object");
+assert(typeof BedrockGuardrailResource$ === "object");
 assert(typeof BlockPublicAccess$ === "object");
 assert(typeof BucketLevelPermissions$ === "object");
 assert(typeof BucketPolicy$ === "object");

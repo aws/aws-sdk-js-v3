@@ -60,6 +60,7 @@ import type {
   Destination,
   DestinationProperties,
   DetectionRuleFilter,
+  DetectionRuleOrgConfiguration,
   DetectionRuleOrgConfigurationSummary,
   DetectorFeatureConfiguration,
   DetectorFeatureConfigurationResult,
@@ -77,6 +78,17 @@ import type {
   UnprocessedAccount,
   VolumeDetail,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetCustomDetectionRuleOrgConfigurationResponse {
+  /**
+   * <p>The details of the organization configuration.</p>
+   * @public
+   */
+  Configuration: DetectionRuleOrgConfiguration | undefined;
+}
 
 /**
  * @public

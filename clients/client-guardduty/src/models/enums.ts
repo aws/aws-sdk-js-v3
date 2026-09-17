@@ -787,6 +787,42 @@ export type PublicBucketRestrictBehavior =
 export const FindingResourceType = {
   ACCESS_KEY: "ACCESS_KEY",
   AUTOSCALING_AUTO_SCALING_GROUP: "AUTOSCALING_AUTO_SCALING_GROUP",
+  /**
+   * <p>An application-scoped Amazon Bedrock inference profile used to track invocation usage.</p>
+   */
+  BEDROCK_APPLICATION_INFERENCE_PROFILE: "BEDROCK_APPLICATION_INFERENCE_PROFILE",
+  /**
+   * <p>An Amazon Bedrock custom model fine-tuned by the customer.</p>
+   */
+  BEDROCK_CUSTOM_MODEL: "BEDROCK_CUSTOM_MODEL",
+  /**
+   * <p>A deployment of an Amazon Bedrock custom model.</p>
+   */
+  BEDROCK_CUSTOM_MODEL_DEPLOYMENT: "BEDROCK_CUSTOM_MODEL_DEPLOYMENT",
+  /**
+   * <p>An Amazon Bedrock guardrail evaluated during a model invocation.</p>
+   */
+  BEDROCK_GUARDRAIL: "BEDROCK_GUARDRAIL",
+  /**
+   * <p>An Amazon Bedrock imported model brought in from an external source.</p>
+   */
+  BEDROCK_IMPORTED_MODEL: "BEDROCK_IMPORTED_MODEL",
+  /**
+   * <p>An Amazon Bedrock inference profile that routes model invocations across Regions.</p>
+   */
+  BEDROCK_INFERENCE_PROFILE: "BEDROCK_INFERENCE_PROFILE",
+  /**
+   * <p>A managed prompt stored in Amazon Bedrock Prompt Management.</p>
+   */
+  BEDROCK_PROMPT: "BEDROCK_PROMPT",
+  /**
+   * <p>An Amazon Bedrock prompt router that selects a model per request.</p>
+   */
+  BEDROCK_PROMPT_ROUTER: "BEDROCK_PROMPT_ROUTER",
+  /**
+   * <p>An Amazon Bedrock model with provisioned throughput.</p>
+   */
+  BEDROCK_PROVISIONED_MODEL: "BEDROCK_PROVISIONED_MODEL",
   CLOUDFORMATION_STACK: "CLOUDFORMATION_STACK",
   CONTAINER: "CONTAINER",
   EC2_IMAGE: "EC2_IMAGE",
@@ -801,6 +837,10 @@ export const FindingResourceType = {
   KUBERNETES_WORKLOAD: "KUBERNETES_WORKLOAD",
   S3_BUCKET: "S3_BUCKET",
   S3_OBJECT: "S3_OBJECT",
+  /**
+   * <p>An Amazon SageMaker inference endpoint.</p>
+   */
+  SAGEMAKER_ENDPOINT: "SAGEMAKER_ENDPOINT",
 } as const;
 /**
  * @public

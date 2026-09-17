@@ -429,6 +429,7 @@ export type {
   AwsApiCallAction,
   BedrockGuardrail,
   BedrockGuardrailDetails,
+  BedrockGuardrailResource,
   BlockPublicAccess,
   BucketLevelPermissions,
   BucketPolicy,

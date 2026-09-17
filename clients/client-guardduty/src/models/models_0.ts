@@ -1670,6 +1670,30 @@ export interface BedrockGuardrailDetails {
 }
 
 /**
+ * <p>Contains details about an Amazon Bedrock guardrail evaluated during a model invocation.</p>
+ * @public
+ */
+export interface BedrockGuardrailResource {
+  /**
+   * <p>The version of the Amazon Bedrock guardrail. Valid values are a numeric version, <code>DRAFT</code>, or <code>ENFORCED</code>.</p>
+   * @public
+   */
+  Version?: string | undefined;
+
+  /**
+   * <p>Indicates whether the guardrail intervened during the model invocation.</p>
+   * @public
+   */
+  GuardrailAction?: GuardrailAction | undefined;
+
+  /**
+   * <p>Indicates whether the guardrail was applied on the input or output of the model invocation.</p>
+   * @public
+   */
+  GuardrailSource?: GuardrailSource | undefined;
+}
+
+/**
  * <p>Contains information on the current bucket policies for the S3 bucket.</p>
  * @public
  */
@@ -4874,6 +4898,12 @@ export interface ResourceData {
    * @public
    */
   CloudformationStack?: CloudformationStack | undefined;
+
+  /**
+   * <p>Contains detailed information about the Amazon Bedrock guardrail associated with the activity that prompted GuardDuty to generate a finding.</p>
+   * @public
+   */
+  BedrockGuardrail?: BedrockGuardrailResource | undefined;
 }
 
 /**
@@ -7835,15 +7865,4 @@ export interface GetCustomDetectionRuleOrgConfigurationRequest {
    * @public
    */
   Mode: AssociationMode | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCustomDetectionRuleOrgConfigurationResponse {
-  /**
-   * <p>The details of the organization configuration.</p>
-   * @public
-   */
-  Configuration: DetectionRuleOrgConfiguration | undefined;
 }
