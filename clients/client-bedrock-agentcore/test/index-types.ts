@@ -591,6 +591,7 @@ export type {
   SessionLimits,
   SessionMetadataShape,
   SessionSummary,
+  SessionTraceIds,
   SkillDefinition,
   SkillMdDefinition,
   SpanContext,

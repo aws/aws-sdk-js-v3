@@ -34,6 +34,17 @@ import type {
 /**
  * @public
  */
+export interface DeleteMemoryRecordOutput {
+  /**
+   * <p>The identifier of the memory record that was deleted.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetEventInput {
   /**
    * <p>The identifier of the AgentCore Memory resource containing the event.</p>

@@ -63,6 +63,14 @@ export interface StartBatchEvaluationCommandOutput extends StartBatchEvaluationR
  *           startTime: new Date("TIMESTAMP"),
  *           endTime: new Date("TIMESTAMP"),
  *         },
+ *         sessionTraceIds: [ // SessionTraceIdsList
+ *           { // SessionTraceIds
+ *             sessionId: "STRING_VALUE", // required
+ *             traceIds: [ // TraceIdList // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
  *       },
  *     },
  *     onlineEvaluationConfigSource: { // OnlineEvaluationConfigSource

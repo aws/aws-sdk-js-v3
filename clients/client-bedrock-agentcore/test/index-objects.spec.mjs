@@ -530,6 +530,7 @@ import {
   SessionMetadataShape$,
   SessionStatus,
   SessionSummary$,
+  SessionTraceIds$,
   SkillDefinition$,
   SkillMdDefinition$,
   SpanContext$,
@@ -1097,6 +1098,7 @@ assert(typeof SessionFilterConfig$ === "object");
 assert(typeof SessionLimits$ === "object");
 assert(typeof SessionMetadataShape$ === "object");
 assert(typeof SessionSummary$ === "object");
+assert(typeof SessionTraceIds$ === "object");
 assert(typeof SkillDefinition$ === "object");
 assert(typeof SkillMdDefinition$ === "object");
 assert(typeof SpanContext$ === "object");

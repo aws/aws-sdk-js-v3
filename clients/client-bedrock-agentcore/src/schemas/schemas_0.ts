@@ -531,6 +531,8 @@ const _SS = "SensitiveString";
 const _SSL = "SessionSummaryList";
 const _SSe = "SessionSummary";
 const _ST = "SensitiveText";
+const _STI = "SessionTraceIds";
+const _STIL = "SessionTraceIdsList";
 const _SU = "StreamUpdate";
 const _Sp = "Spans";
 const _TA = "ToolArguments";
@@ -1024,6 +1026,7 @@ const _sSe = "sessionStatus";
 const _sSes = "sessionSummaries";
 const _sSess = "sessionSpans";
 const _sT = "startTime";
+const _sTI = "sessionTraceIds";
 const _sTS = "sessionTimeoutSeconds";
 const _sU = "subscriptionUrl";
 const _sUe = "sessionUri";
@@ -1438,8 +1441,8 @@ export var Certificate$: StaticStructureSchema = [3, n0, _C,
 ];
 export var CloudWatchFilterConfig$: StaticStructureSchema = [3, n0, _CWFC,
   0,
-  [_sIe, _tR],
-  [64 | 0, () => SessionFilterConfig$]
+  [_sIe, _tR, _sTI],
+  [64 | 0, () => SessionFilterConfig$, () => SessionTraceIdsList]
 ];
 export var CloudWatchLogsFilter$: StaticStructureSchema = [3, n0, _CWLF,
   0,
@@ -2701,6 +2704,11 @@ export var SessionSummary$: StaticStructureSchema = [3, n0, _SSe,
   [_sI, _aI, _cA],
   [0, 0, 4], 3
 ];
+export var SessionTraceIds$: StaticStructureSchema = [3, n0, _STI,
+  0,
+  [_sI, _tIr],
+  [0, 64 | 0], 2
+];
 export var SkillDefinition$: StaticStructureSchema = [3, n0, _SDk,
   0,
   [_sV, _iC],
@@ -3157,6 +3165,9 @@ var SessionMetadataList: StaticListSchema = [1, n0, _SMLe,
 var SessionSummaryList: StaticListSchema = [1, n0, _SSL,
   0, () => SessionSummary$
 ];
+var SessionTraceIdsList: StaticListSchema = [1, n0, _STIL,
+  0, () => SessionTraceIds$
+];
 var SpanIds = 64 | 0;
 var Spans: StaticListSchema = [1, n0, _Sp,
   8, 15
@@ -3175,6 +3186,7 @@ var ToolDescriptionResultList: StaticListSchema = [1, n0, _TDRL,
 var ToolsFileSystemConfigurations: StaticListSchema = [1, n0, _TFSC,
   0, () => ToolsFileSystemConfiguration$
 ];
+var TraceIdList = 64 | 0;
 var TraceIds = 64 | 0;
 var UserIntentAffectedSessionList: StaticListSchema = [1, n0, _UIASL,
   0, () => UserIntentAffectedSession$

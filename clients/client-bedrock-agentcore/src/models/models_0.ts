@@ -4388,6 +4388,24 @@ export interface GetBatchEvaluationRequest {
 }
 
 /**
+ * <p>A pairing of a session with the specific trace IDs to evaluate within that session. Use this to evaluate individual traces rather than an entire session.</p>
+ * @public
+ */
+export interface SessionTraceIds {
+  /**
+   * <p>The unique identifier of the session that contains the traces to evaluate.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The list of trace IDs within the session to evaluate.</p>
+   * @public
+   */
+  traceIds: string[] | undefined;
+}
+
+/**
  * <p>A time range filter for selecting sessions. Specifies the start and end times to narrow down which sessions are included.</p>
  * @public
  */
@@ -4421,6 +4439,12 @@ export interface CloudWatchFilterConfig {
    * @public
    */
   timeRange?: SessionFilterConfig | undefined;
+
+  /**
+   * <p>A list of session and trace ID pairs that restrict evaluation to specific traces within a session. If specified, only the listed traces are evaluated instead of the entire session.</p>
+   * @public
+   */
+  sessionTraceIds?: SessionTraceIds[] | undefined;
 }
 
 /**
@@ -10107,15 +10131,4 @@ export interface DeleteMemoryRecordInput {
    * @public
    */
   namespace?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMemoryRecordOutput {
-  /**
-   * <p>The identifier of the memory record that was deleted.</p>
-   * @public
-   */
-  memoryRecordId: string | undefined;
 }

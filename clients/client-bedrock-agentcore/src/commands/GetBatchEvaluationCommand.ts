@@ -72,6 +72,14 @@ export interface GetBatchEvaluationCommandOutput extends GetBatchEvaluationRespo
  * //           startTime: new Date("TIMESTAMP"),
  * //           endTime: new Date("TIMESTAMP"),
  * //         },
+ * //         sessionTraceIds: [ // SessionTraceIdsList
+ * //           { // SessionTraceIds
+ * //             sessionId: "STRING_VALUE", // required
+ * //             traceIds: [ // TraceIdList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //     onlineEvaluationConfigSource: { // OnlineEvaluationConfigSource
