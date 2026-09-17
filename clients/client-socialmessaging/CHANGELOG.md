@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1134.0...v3.1135.0) (2026-09-17)
+
+
+### Features
+
+* **client-socialmessaging:** Add support for WhatsApp Calling APIs. ([b897c28](https://github.com/aws/aws-sdk-js-v3/commit/b897c28ff92c04614e86b620a47b6d19dbece84d))
+
+
+
+
+
 # [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
 
 **Note:** Version bump only for package @aws-sdk/client-socialmessaging

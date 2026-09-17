@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1134.0...v3.1135.0) (2026-09-17)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Batch evaluation now supports evaluating specific traces within a session. Each session can specify up to 100 trace IDs to evaluate. ([fac9ee4](https://github.com/aws/aws-sdk-js-v3/commit/fac9ee4c410aabb1f3a2abc9501b6c23058e981a))
+
+
+
+
+
 # [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

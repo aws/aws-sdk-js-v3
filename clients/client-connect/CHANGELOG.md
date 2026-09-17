@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1134.0...v3.1135.0) (2026-09-17)
+
+
+### Features
+
+* **client-connect:** Made the replicaAlias attribute optional in the ReplicateInstance API to support Global routing for Amazon Connect Global Resiliency (ACGR) instances. This change maintains backward compatibility. When onboarding to ACGR without Global routing, you must specify a custom replicaAlias in your API call ([f134c35](https://github.com/aws/aws-sdk-js-v3/commit/f134c352192cca95ad5bc151b74ccbdb0589d757))
+
+
+
+
+
 # [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
 
 

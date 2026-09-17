@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1134.0...v3.1135.0) (2026-09-17)
+
+
+### Features
+
+* **client-iot-wireless:** Adds Multi-frame GNSS support to the AWS IoT Core Device Location GetPositionEstimate API. The new GnssMultiFrame measurement type improves location accuracy by combining multiple GNSS signal captures (2, 4, 8, 16, or 32) from the same device to estimate its position. ([294ad0a](https://github.com/aws/aws-sdk-js-v3/commit/294ad0a30921edcba485dce267ea289d7f7b1364))
+
+
+
+
+
 # [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-wireless

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1134.0...v3.1135.0) (2026-09-17)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Batch evaluation now supports evaluating specific traces within a session. Each session can specify up to 100 trace IDs to evaluate. ([fac9ee4](https://github.com/aws/aws-sdk-js-v3/commit/fac9ee4c410aabb1f3a2abc9501b6c23058e981a))
+* **client-connect:** Made the replicaAlias attribute optional in the ReplicateInstance API to support Global routing for Amazon Connect Global Resiliency (ACGR) instances. This change maintains backward compatibility. When onboarding to ACGR without Global routing, you must specify a custom replicaAlias in your API call ([f134c35](https://github.com/aws/aws-sdk-js-v3/commit/f134c352192cca95ad5bc151b74ccbdb0589d757))
+* **client-ec2:** Adding support for "Tunnel" VPC Endpoint ([cb7c9bc](https://github.com/aws/aws-sdk-js-v3/commit/cb7c9bc5cf6f5a1534e7215500bde8a8275aa397))
+* **client-guardduty:** This change surfaces AI Protection resources on existing public IAM attack sequences. Customers will now see which model was accessed and whether a guardrail intervened as part of the credential-compromise sequence. ([854ccbf](https://github.com/aws/aws-sdk-js-v3/commit/854ccbfa245337ba9e586156296f6da87b6aceab))
+* **client-iot-wireless:** Adds Multi-frame GNSS support to the AWS IoT Core Device Location GetPositionEstimate API. The new GnssMultiFrame measurement type improves location accuracy by combining multiple GNSS signal captures (2, 4, 8, 16, or 32) from the same device to estimate its position. ([294ad0a](https://github.com/aws/aws-sdk-js-v3/commit/294ad0a30921edcba485dce267ea289d7f7b1364))
+* **client-notifications:** Added support for attachments on managed notification events. Added support to access and subscribe sensitive managed notification events. ([c8a9cc1](https://github.com/aws/aws-sdk-js-v3/commit/c8a9cc106280e164537670af804b26f48bf509dc))
+* **client-sesv2:** Added support to query the tenant name for BatchGetMetricData and CreateExportJob APIs to filter metrics and messages at the tenant level. ([3beafcb](https://github.com/aws/aws-sdk-js-v3/commit/3beafcbca856bb8fc4589a3c28def8a8781e6cad))
+* **client-socialmessaging:** Add support for WhatsApp Calling APIs. ([b897c28](https://github.com/aws/aws-sdk-js-v3/commit/b897c28ff92c04614e86b620a47b6d19dbece84d))
+* **client-vpc-lattice:** Adding support for CIDR Resource Configuration ([46656ca](https://github.com/aws/aws-sdk-js-v3/commit/46656caf857d45bb9df2c9cc8013bafe117d7c39))
+
+
+
+
+
 # [3.1134.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1133.0...v3.1134.0) (2026-09-16)
 
 
