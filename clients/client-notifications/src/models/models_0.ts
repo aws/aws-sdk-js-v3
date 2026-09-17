@@ -188,6 +188,12 @@ export interface AssociateManagedNotificationAccountContactRequest {
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
+
+  /**
+   * <p>Specifies whether this contact is subscribed to sensitive events. The <code>notifications:SubscribeSensitiveEvents</code> permission controls access to sensitive events. Defaults to false.</p>
+   * @public
+   */
+  isSensitiveEventsSubscribed?: boolean | undefined;
 }
 
 /**
@@ -210,6 +216,12 @@ export interface AssociateManagedNotificationAdditionalChannelRequest {
    * @public
    */
   managedNotificationConfigurationArn: string | undefined;
+
+  /**
+   * <p>Specifies whether this channel is subscribed to sensitive events. The <code>notifications:SubscribeSensitiveEvents</code> permission controls access to sensitive events. Defaults to false.</p>
+   * @public
+   */
+  isSensitiveEventsSubscribed?: boolean | undefined;
 }
 
 /**
@@ -460,7 +472,7 @@ export interface DeleteNotificationConfigurationResponse {}
  */
 export interface DeregisterNotificationHubRequest {
   /**
-   * <p>The <code>NotificationConfiguration</code> Region.</p>
+   * <p>The <code>NotificationHub</code> Region.</p>
    * @public
    */
   notificationHubRegion: string | undefined;
@@ -489,13 +501,13 @@ export interface NotificationHubStatusSummary {
  */
 export interface DeregisterNotificationHubResponse {
   /**
-   * <p>The <code>NotificationConfiguration</code> Region.</p>
+   * <p>The <code>NotificationHub</code> Region.</p>
    * @public
    */
   notificationHubRegion: string | undefined;
 
   /**
-   * <p> <code>NotificationConfiguration</code> status information.</p>
+   * <p> <code>NotificationHub</code> status information.</p>
    * @public
    */
   statusSummary: NotificationHubStatusSummary | undefined;
@@ -862,6 +874,12 @@ export interface MessageComponents {
   completeDescription?: string | undefined;
 
   /**
+   * <p>A rich description in Portable Text format, which you can convert to markup formats such as HTML, Markdown, or plain text. Channels that don't support rich rendering ignore this field and use the plain text components instead.</p>
+   * @public
+   */
+  markupDescription?: string | undefined;
+
+  /**
    * <p>A list of properties in key-value pairs. Pairs are shown in order of importance from most important to least important. Channels may limit the number of dimensions shown to the notification viewer.</p> <note> <p>Included dimensions, keys, and values are subject to change.</p> </note>
    * @public
    */
@@ -899,7 +917,7 @@ export interface TextPartValue {
 }
 
 /**
- * <p>A ManagedNotificationChildEvent is a notification-focused representation of an event. They contain semantic information used to create aggregated or non-aggregated end-user notifications.</p>
+ * <p>A notification-focused representation of an event. They contain semantic information used to create aggregated or non-aggregated end-user notifications.</p>
  * @public
  */
 export interface ManagedNotificationChildEvent {
@@ -1075,6 +1093,30 @@ export interface GetManagedNotificationEventRequest {
 }
 
 /**
+ * <p>A file attached to a notification event.</p>
+ * @public
+ */
+export interface NotificationEventAttachment {
+  /**
+   * <p>The name of the attachment that recipients see.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>A temporary URL for downloading the attachment. The URL expires shortly after it's issued.</p>
+   * @public
+   */
+  attachmentDownloadUrl?: string | undefined;
+
+  /**
+   * <p>The MIME content type of the attachment, for example <code>application/pdf</code>.</p>
+   * @public
+   */
+  contentType: string | undefined;
+}
+
+/**
  * <p>A notification-focused representation of an event. They contain semantic information used by AccountContacts or Additional Channels to create end-user notifications.</p>
  * @public
  */
@@ -1156,6 +1198,12 @@ export interface ManagedNotificationEvent {
    * @public
    */
   organizationalUnitId?: string | undefined;
+
+  /**
+   * <p>A list of files attached to the notification event.</p>
+   * @public
+   */
+  attachments?: NotificationEventAttachment[] | undefined;
 }
 
 /**
@@ -1580,6 +1628,12 @@ export interface ManagedNotificationChannelAssociationSummary {
    * @public
    */
   overrideOption?: ChannelAssociationOverrideOption | undefined;
+
+  /**
+   * <p>Specifies whether this channel association is subscribed to sensitive events. Defaults to false for associations created without the flag.</p>
+   * @public
+   */
+  isSensitiveEventsSubscribed?: boolean | undefined;
 }
 
 /**
@@ -1910,6 +1964,12 @@ export interface ListManagedNotificationEventsRequest {
    * @public
    */
   relatedAccount?: string | undefined;
+
+  /**
+   * <p>Specifies whether to include sensitive events in the result. By default, only non-sensitive events are returned. The <code>notifications:AccessSensitiveEvents</code> permission controls access to sensitive events.</p>
+   * @public
+   */
+  includeSensitiveEvents?: boolean | undefined;
 }
 
 /**
@@ -2609,7 +2669,7 @@ export interface RegisterNotificationHubResponse {
   notificationHubRegion: string | undefined;
 
   /**
-   * <p>Provides additional information about the current <code>NotificationConfiguration</code> status information.</p>
+   * <p>Provides additional information about the current <code>NotificationHub</code> status information.</p>
    * @public
    */
   statusSummary: NotificationHubStatusSummary | undefined;
@@ -2670,3 +2730,31 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateManagedNotificationChannelAssociationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationConfiguration</code> whose Channel association property you want to update.</p>
+   * @public
+   */
+  managedNotificationConfigurationArn: string | undefined;
+
+  /**
+   * <p>The identifier of the channel association to update. You can specify one of the following:</p> <ul> <li> <p>An Account contact identifier.</p> </li> <li> <p>A Channel ARN.</p> </li> </ul>
+   * @public
+   */
+  channelIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies whether the association is subscribed to sensitive events. The <code>notifications:SubscribeSensitiveEvents</code> permission controls access to sensitive events.</p>
+   * @public
+   */
+  isSensitiveEventsSubscribed?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateManagedNotificationChannelAssociationResponse {}

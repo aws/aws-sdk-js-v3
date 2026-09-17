@@ -52,6 +52,7 @@ export interface GetManagedNotificationChildEventCommandOutput extends GetManage
  * //       headline: "STRING_VALUE",
  * //       paragraphSummary: "STRING_VALUE",
  * //       completeDescription: "STRING_VALUE",
+ * //       markupDescription: "STRING_VALUE",
  * //       dimensions: [ // Dimensions
  * //         { // Dimension
  * //           name: "STRING_VALUE", // required

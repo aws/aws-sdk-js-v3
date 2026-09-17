@@ -38,6 +38,7 @@ export interface AssociateManagedNotificationAdditionalChannelCommandOutput exte
  * const input = { // AssociateManagedNotificationAdditionalChannelRequest
  *   channelArn: "STRING_VALUE", // required
  *   managedNotificationConfigurationArn: "STRING_VALUE", // required
+ *   isSensitiveEventsSubscribed: true || false,
  * };
  * const command = new AssociateManagedNotificationAdditionalChannelCommand(input);
  * const response = await client.send(command);

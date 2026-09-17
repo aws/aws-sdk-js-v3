@@ -49,6 +49,7 @@ export interface GetManagedNotificationEventCommandOutput extends GetManagedNoti
  * //       headline: "STRING_VALUE",
  * //       paragraphSummary: "STRING_VALUE",
  * //       completeDescription: "STRING_VALUE",
+ * //       markupDescription: "STRING_VALUE",
  * //       dimensions: [ // Dimensions
  * //         { // Dimension
  * //           name: "STRING_VALUE", // required
@@ -113,6 +114,13 @@ export interface GetManagedNotificationEventCommandOutput extends GetManagedNoti
  * //       },
  * //     },
  * //     organizationalUnitId: "STRING_VALUE",
+ * //     attachments: [ // NotificationEventAttachmentList
+ * //       { // NotificationEventAttachment
+ * //         displayName: "STRING_VALUE", // required
+ * //         attachmentDownloadUrl: "STRING_VALUE",
+ * //         contentType: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

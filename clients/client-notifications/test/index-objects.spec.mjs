@@ -174,6 +174,7 @@ import {
   NotificationConfigurationStatus,
   NotificationConfigurationStructure$,
   NotificationConfigurationSubtype,
+  NotificationEventAttachment$,
   NotificationEventOverview$,
   NotificationEventSchema$,
   NotificationEventSummary$,
@@ -226,6 +227,10 @@ import {
   UpdateEventRuleCommand,
   UpdateEventRuleRequest$,
   UpdateEventRuleResponse$,
+  UpdateManagedNotificationChannelAssociation$,
+  UpdateManagedNotificationChannelAssociationCommand,
+  UpdateManagedNotificationChannelAssociationRequest$,
+  UpdateManagedNotificationChannelAssociationResponse$,
   UpdateNotificationConfiguration$,
   UpdateNotificationConfigurationCommand,
   UpdateNotificationConfigurationRequest$,
@@ -316,6 +321,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateEventRuleCommand === "function");
 assert(typeof UpdateEventRule$ === "object");
+assert(typeof UpdateManagedNotificationChannelAssociationCommand === "function");
+assert(typeof UpdateManagedNotificationChannelAssociation$ === "object");
 assert(typeof UpdateNotificationConfigurationCommand === "function");
 assert(typeof UpdateNotificationConfiguration$ === "object");
 // structural schemas
@@ -407,6 +414,7 @@ assert(typeof MemberAccount$ === "object");
 assert(typeof MessageComponents$ === "object");
 assert(typeof MessageComponentsSummary$ === "object");
 assert(typeof NotificationConfigurationStructure$ === "object");
+assert(typeof NotificationEventAttachment$ === "object");
 assert(typeof NotificationEventOverview$ === "object");
 assert(typeof NotificationEventSchema$ === "object");
 assert(typeof NotificationEventSummary$ === "object");
@@ -427,6 +435,8 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateEventRuleRequest$ === "object");
 assert(typeof UpdateEventRuleResponse$ === "object");
+assert(typeof UpdateManagedNotificationChannelAssociationRequest$ === "object");
+assert(typeof UpdateManagedNotificationChannelAssociationResponse$ === "object");
 assert(typeof UpdateNotificationConfigurationRequest$ === "object");
 assert(typeof UpdateNotificationConfigurationResponse$ === "object");
 assert(typeof ValidationExceptionField$ === "object");

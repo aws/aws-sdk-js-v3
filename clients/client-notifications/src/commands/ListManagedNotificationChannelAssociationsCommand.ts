@@ -47,8 +47,9 @@ export interface ListManagedNotificationChannelAssociationsCommandOutput extends
  * //   channelAssociations: [ // ManagedNotificationChannelAssociations // required
  * //     { // ManagedNotificationChannelAssociationSummary
  * //       channelIdentifier: "STRING_VALUE", // required
- * //       channelType: "STRING_VALUE", // required
+ * //       channelType: "MOBILE" || "CHATBOT" || "EMAIL" || "ACCOUNT_CONTACT", // required
  * //       overrideOption: "STRING_VALUE",
+ * //       isSensitiveEventsSubscribed: true || false,
  * //     },
  * //   ],
  * // };

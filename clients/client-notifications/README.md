@@ -447,6 +447,13 @@ UpdateEventRule
 </details>
 <details>
 <summary>
+UpdateManagedNotificationChannelAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/notifications/command/UpdateManagedNotificationChannelAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/UpdateManagedNotificationChannelAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-notifications/Interface/UpdateManagedNotificationChannelAssociationCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateNotificationConfiguration
 </summary>
 

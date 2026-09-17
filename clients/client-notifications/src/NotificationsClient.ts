@@ -180,6 +180,10 @@ import type { TagResourceCommandInput, TagResourceCommandOutput } from "./comman
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateEventRuleCommandInput, UpdateEventRuleCommandOutput } from "./commands/UpdateEventRuleCommand";
 import type {
+  UpdateManagedNotificationChannelAssociationCommandInput,
+  UpdateManagedNotificationChannelAssociationCommandOutput,
+} from "./commands/UpdateManagedNotificationChannelAssociationCommand";
+import type {
   UpdateNotificationConfigurationCommandInput,
   UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
@@ -236,6 +240,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateEventRuleCommandInput
+  | UpdateManagedNotificationChannelAssociationCommandInput
   | UpdateNotificationConfigurationCommandInput;
 
 /**
@@ -280,6 +285,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateEventRuleCommandOutput
+  | UpdateManagedNotificationChannelAssociationCommandOutput
   | UpdateNotificationConfigurationCommandOutput;
 
 /**

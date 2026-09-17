@@ -38,6 +38,7 @@ export interface AssociateManagedNotificationAccountContactCommandOutput extends
  * const input = { // AssociateManagedNotificationAccountContactRequest
  *   contactIdentifier: "STRING_VALUE", // required
  *   managedNotificationConfigurationArn: "STRING_VALUE", // required
+ *   isSensitiveEventsSubscribed: true || false,
  * };
  * const command = new AssociateManagedNotificationAccountContactCommand(input);
  * const response = await client.send(command);

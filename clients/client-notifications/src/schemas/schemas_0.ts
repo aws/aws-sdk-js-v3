@@ -135,6 +135,8 @@ const _NAFO = "NotificationsAccessForOrganization";
 const _NC = "NotificationConfigurations";
 const _NCS = "NotificationConfigurationStructure";
 const _NE = "NotificationEvents";
+const _NEA = "NotificationEventAttachment";
+const _NEAL = "NotificationEventAttachmentList";
 const _NEO = "NotificationEventOverview";
 const _NES = "NotificationEventSchema";
 const _NESo = "NotificationEventSummary";
@@ -156,6 +158,7 @@ const _SEM = "SourceEventMetadata";
 const _SEMS = "SourceEventMetadataSummary";
 const _SQEE = "ServiceQuotaExceededException";
 const _SSBR = "StatusSummaryByRegion";
+const _SU = "SensitiveUrl";
 const _TE = "ThrottlingException";
 const _TP = "TextParts";
 const _TPV = "TextPartValue";
@@ -165,6 +168,9 @@ const _TRRa = "TagResourceResponse";
 const _UER = "UpdateEventRule";
 const _UERR = "UpdateEventRuleRequest";
 const _UERRp = "UpdateEventRuleResponse";
+const _UMNCA = "UpdateManagedNotificationChannelAssociation";
+const _UMNCAR = "UpdateManagedNotificationChannelAssociationRequest";
+const _UMNCARp = "UpdateManagedNotificationChannelAssociationResponse";
 const _UNC = "UpdateNotificationConfiguration";
 const _UNCR = "UpdateNotificationConfigurationRequest";
 const _UNCRp = "UpdateNotificationConfigurationResponse";
@@ -178,6 +184,7 @@ const _a = "arn";
 const _aA = "aggregatedAccounts";
 const _aB = "aggregatedBy";
 const _aD = "aggregationDuration";
+const _aDU = "attachmentDownloadUrl";
 const _aDg = "aggregationDetail";
 const _aET = "aggregationEventType";
 const _aI = "accountId";
@@ -189,6 +196,7 @@ const _aR = "aggregatedRegions";
 const _aS = "aggregationSummary";
 const _aSD = "additionalSummarizationDimensions";
 const _aSc = "accessStatus";
+const _at = "attachments";
 const _c = "client";
 const _cA = "channelArn";
 const _cAh = "channelAssociations";
@@ -198,12 +206,14 @@ const _cI = "contactIdentifier";
 const _cIh = "channelIdentifier";
 const _cT = "creationTime";
 const _cTh = "channelType";
+const _cTo = "contentType";
 const _ca = "category";
 const _cap = "caption";
 const _ch = "channels";
 const _co = "content";
 const _cou = "count";
 const _d = "description";
+const _dN = "displayName";
 const _dT = "displayText";
 const _dU = "detailUrl";
 const _di = "dimensions";
@@ -226,12 +236,15 @@ const _hQ = "httpQuery";
 const _ht = "http";
 const _i = "id";
 const _iCE = "includeChildEvents";
+const _iSE = "includeSensitiveEvents";
+const _iSES = "isSensitiveEventsSubscribed";
 const _l = "locale";
 const _lAT = "lastActivationTime";
 const _m = "message";
 const _mA = "memberAccount";
 const _mAe = "memberAccounts";
 const _mC = "messageComponents";
+const _mD = "markupDescription";
 const _mI = "mediaId";
 const _mNC = "managedNotificationConfigurations";
 const _mNCA = "managedNotificationConfigurationArn";
@@ -296,6 +309,7 @@ import type {
   StaticListSchema,
   StaticMapSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
 } from "@smithy/types";
 
@@ -366,6 +380,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var SensitiveUrl: StaticSimpleSchema = [0, n0, _SU, 8, 0];
 export var AggregationDetail$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_sD],
@@ -393,8 +408,8 @@ export var AssociateChannelResponse$: StaticStructureSchema = [3, n0, _ACRs,
 ];
 export var AssociateManagedNotificationAccountContactRequest$: StaticStructureSchema = [3, n0, _AMNACR,
   0,
-  [_cI, _mNCA],
-  [[0, 1], 0], 2
+  [_cI, _mNCA, _iSES],
+  [[0, 1], 0, 2], 2
 ];
 export var AssociateManagedNotificationAccountContactResponse$: StaticStructureSchema = [3, n0, _AMNACRs,
   0,
@@ -403,8 +418,8 @@ export var AssociateManagedNotificationAccountContactResponse$: StaticStructureS
 ];
 export var AssociateManagedNotificationAdditionalChannelRequest$: StaticStructureSchema = [3, n0, _AMNACRss,
   0,
-  [_cA, _mNCA],
-  [[0, 1], 0], 2
+  [_cA, _mNCA, _iSES],
+  [[0, 1], 0, 2], 2
 ];
 export var AssociateManagedNotificationAdditionalChannelResponse$: StaticStructureSchema = [3, n0, _AMNACRsso,
   0,
@@ -584,7 +599,7 @@ export var GetManagedNotificationEventRequest$: StaticStructureSchema = [3, n0, 
 export var GetManagedNotificationEventResponse$: StaticStructureSchema = [3, n0, _GMNERe,
   0,
   [_a, _mNCA, _cT, _co],
-  [0, 0, 5, () => ManagedNotificationEvent$], 4
+  [0, 0, 5, [() => ManagedNotificationEvent$, 0]], 4
 ];
 export var GetNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _GNCR,
   0,
@@ -668,8 +683,8 @@ export var ListManagedNotificationConfigurationsResponse$: StaticStructureSchema
 ];
 export var ListManagedNotificationEventsRequest$: StaticStructureSchema = [3, n0, _LMNER,
   0,
-  [_sT, _eTn, _l, _so, _mRa, _nT, _oUI, _rA],
-  [[5, { [_hQ]: _sT }], [5, { [_hQ]: _eTn }], [0, { [_hQ]: _l }], [0, { [_hQ]: _so }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _rA }]]
+  [_sT, _eTn, _l, _so, _mRa, _nT, _oUI, _rA, _iSE],
+  [[5, { [_hQ]: _sT }], [5, { [_hQ]: _eTn }], [0, { [_hQ]: _l }], [0, { [_hQ]: _so }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _rA }], [2, { [_hQ]: _iSE }]]
 ];
 export var ListManagedNotificationEventsResponse$: StaticStructureSchema = [3, n0, _LMNERi,
   0,
@@ -738,8 +753,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ManagedNotificationChannelAssociationSummary$: StaticStructureSchema = [3, n0, _MNCAS,
   0,
-  [_cIh, _cTh, _oO],
-  [0, 0, 0], 2
+  [_cIh, _cTh, _oO, _iSES],
+  [0, 0, 0, 2], 2
 ];
 export var ManagedNotificationChildEvent$: StaticStructureSchema = [3, n0, _MNCE,
   0,
@@ -763,8 +778,8 @@ export var ManagedNotificationConfigurationStructure$: StaticStructureSchema = [
 ];
 export var ManagedNotificationEvent$: StaticStructureSchema = [3, n0, _MNE,
   0,
-  [_sV, _i, _mC, _nTo, _tP, _sEDU, _sEDUDT, _eS, _aET, _aS, _sT, _eTn, _oUI],
-  [0, 0, () => MessageComponents$, 0, () => TextParts, 0, 0, 0, 0, () => AggregationSummary$, 5, 5, 0], 5
+  [_sV, _i, _mC, _nTo, _tP, _sEDU, _sEDUDT, _eS, _aET, _aS, _sT, _eTn, _oUI, _at],
+  [0, 0, () => MessageComponents$, 0, () => TextParts, 0, 0, 0, 0, () => AggregationSummary$, 5, 5, 0, [() => NotificationEventAttachmentList, 0]], 5
 ];
 export var ManagedNotificationEventOverview$: StaticStructureSchema = [3, n0, _MNEO,
   0,
@@ -793,8 +808,8 @@ export var MemberAccount$: StaticStructureSchema = [3, n0, _MA,
 ];
 export var MessageComponents$: StaticStructureSchema = [3, n0, _MC,
   0,
-  [_h, _pS, _cD, _di],
-  [0, 0, 0, () => Dimensions]
+  [_h, _pS, _cD, _mD, _di],
+  [0, 0, 0, 0, () => Dimensions]
 ];
 export var MessageComponentsSummary$: StaticStructureSchema = [3, n0, _MCS,
   0,
@@ -805,6 +820,11 @@ export var NotificationConfigurationStructure$: StaticStructureSchema = [3, n0, 
   0,
   [_a, _n, _d, _st, _cT, _aD, _su],
   [0, 0, 0, 0, 5, 0, 0], 5
+];
+export var NotificationEventAttachment$: StaticStructureSchema = [3, n0, _NEA,
+  0,
+  [_dN, _cTo, _aDU],
+  [0, 0, [() => SensitiveUrl, 0]], 2
 ];
 export var NotificationEventOverview$: StaticStructureSchema = [3, n0, _NEO,
   0,
@@ -906,6 +926,16 @@ export var UpdateEventRuleResponse$: StaticStructureSchema = [3, n0, _UERRp,
   [_a, _nCA, _sSBR],
   [0, 0, () => StatusSummaryByRegion], 3
 ];
+export var UpdateManagedNotificationChannelAssociationRequest$: StaticStructureSchema = [3, n0, _UMNCAR,
+  0,
+  [_mNCA, _cIh, _iSES],
+  [0, 0, 2], 2
+];
+export var UpdateManagedNotificationChannelAssociationResponse$: StaticStructureSchema = [3, n0, _UMNCARp,
+  0,
+  [],
+  []
+];
 export var UpdateNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _UNCR,
   0,
   [_a, _n, _d, _aD],
@@ -953,6 +983,10 @@ var MemberAccounts: StaticListSchema = [1, n0, _MAe,
 ];
 var NotificationConfigurations: StaticListSchema = [1, n0, _NC,
   0, () => NotificationConfigurationStructure$
+];
+var NotificationEventAttachmentList: StaticListSchema = [1, n0, _NEAL,
+  0, [() => NotificationEventAttachment$,
+    0]
 ];
 var NotificationEvents: StaticListSchema = [1, n0, _NE,
   0, () => NotificationEventOverview$
@@ -1098,6 +1132,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateEventRule$: StaticOperationSchema = [9, n0, _UER,
   { [_ht]: ["PUT", "/event-rules/{arn}", 200] }, () => UpdateEventRuleRequest$, () => UpdateEventRuleResponse$
+];
+export var UpdateManagedNotificationChannelAssociation$: StaticOperationSchema = [9, n0, _UMNCA,
+  { [_ht]: ["PUT", "/channels/update-managed-notification-channel-association", 200] }, () => UpdateManagedNotificationChannelAssociationRequest$, () => UpdateManagedNotificationChannelAssociationResponse$
 ];
 export var UpdateNotificationConfiguration$: StaticOperationSchema = [9, n0, _UNC,
   { [_ht]: ["PUT", "/notification-configurations/{arn}", 200] }, () => UpdateNotificationConfigurationRequest$, () => UpdateNotificationConfigurationResponse$

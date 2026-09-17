@@ -37,4 +37,5 @@ export * from "./RegisterNotificationHubCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateEventRuleCommand";
+export * from "./UpdateManagedNotificationChannelAssociationCommand";
 export * from "./UpdateNotificationConfigurationCommand";

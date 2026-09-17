@@ -123,23 +123,19 @@ export type ChannelAssociationOverrideOption =
  */
 export const ChannelType = {
   /**
-   *     User Notification Service sends notifications to Account Managed contacts.
-   *
+   * User Notification Service sends notifications to Account Managed contacts.
    */
   ACCOUNT_CONTACT: "ACCOUNT_CONTACT",
   /**
-   *     Chatbot sends notifications to group platforms, like Slack or Chime. Link:https://aws.amazon.com/chatbot/
-   *
+   * Chatbot sends notifications to group platforms, like Slack or Chime. Link:https://aws.amazon.com/chatbot/
    */
   CHATBOT: "CHATBOT",
   /**
-   *     Email sends notifications to email addresses.
-   *
+   * Email sends notifications to email addresses.
    */
   EMAIL: "EMAIL",
   /**
-   *     AWS Console Mobile App sends notifications to mobile devices. Link:https://aws.amazon.com/console/mobile/
-   *
+   * AWS Console Mobile App sends notifications to mobile devices. Link:https://aws.amazon.com/console/mobile/
    */
   MOBILE: "MOBILE",
 } as const;
@@ -352,6 +348,7 @@ export type SchemaVersion = (typeof SchemaVersion)[keyof typeof SchemaVersion];
 export const TextPartType = {
   LOCALIZED_TEXT: "LOCALIZED_TEXT",
   PLAIN_TEXT: "PLAIN_TEXT",
+  PORTABLE_TEXT: "PORTABLE_TEXT",
   URL: "URL",
 } as const;
 /**

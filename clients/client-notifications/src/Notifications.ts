@@ -193,6 +193,11 @@ import {
   UpdateEventRuleCommand,
 } from "./commands/UpdateEventRuleCommand";
 import {
+  type UpdateManagedNotificationChannelAssociationCommandInput,
+  type UpdateManagedNotificationChannelAssociationCommandOutput,
+  UpdateManagedNotificationChannelAssociationCommand,
+} from "./commands/UpdateManagedNotificationChannelAssociationCommand";
+import {
   type UpdateNotificationConfigurationCommandInput,
   type UpdateNotificationConfigurationCommandOutput,
   UpdateNotificationConfigurationCommand,
@@ -253,6 +258,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateEventRuleCommand,
+  UpdateManagedNotificationChannelAssociationCommand,
   UpdateNotificationConfigurationCommand,
 };
 const paginators = {
@@ -922,6 +928,23 @@ export interface Notifications {
     args: UpdateEventRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateEventRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateManagedNotificationChannelAssociationCommand}
+   */
+  updateManagedNotificationChannelAssociation(
+    args: UpdateManagedNotificationChannelAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateManagedNotificationChannelAssociationCommandOutput>;
+  updateManagedNotificationChannelAssociation(
+    args: UpdateManagedNotificationChannelAssociationCommandInput,
+    cb: (err: any, data?: UpdateManagedNotificationChannelAssociationCommandOutput) => void
+  ): void;
+  updateManagedNotificationChannelAssociation(
+    args: UpdateManagedNotificationChannelAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateManagedNotificationChannelAssociationCommandOutput) => void
   ): void;
 
   /**

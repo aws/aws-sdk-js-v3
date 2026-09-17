@@ -41,6 +41,7 @@ export interface ListManagedNotificationEventsCommandOutput extends ListManagedN
  *   nextToken: "STRING_VALUE",
  *   organizationalUnitId: "STRING_VALUE",
  *   relatedAccount: "STRING_VALUE",
+ *   includeSensitiveEvents: true || false,
  * };
  * const command = new ListManagedNotificationEventsCommand(input);
  * const response = await client.send(command);
