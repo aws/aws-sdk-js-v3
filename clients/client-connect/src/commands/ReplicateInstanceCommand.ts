@@ -39,7 +39,7 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  *   InstanceId: "STRING_VALUE", // required
  *   ReplicaRegion: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
- *   ReplicaAlias: "STRING_VALUE", // required
+ *   ReplicaAlias: "STRING_VALUE",
  * };
  * const command = new ReplicateInstanceCommand(input);
  * const response = await client.send(command);

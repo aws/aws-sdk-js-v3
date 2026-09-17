@@ -175,7 +175,7 @@ export interface ReplicateInstanceRequest {
    * <p>The alias for the replicated instance. The <code>ReplicaAlias</code> must be unique.</p>
    * @public
    */
-  ReplicaAlias: string | undefined;
+  ReplicaAlias?: string | undefined;
 }
 
 /**

@@ -7855,8 +7855,8 @@ export var ReleasePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR,
 ];
 export var ReplicateInstanceRequest$: StaticStructureSchema = [3, n0, _RIR,
   0,
-  [_II, _RRe, _RAep, _CT],
-  [[0, 1], 0, [() => DirectoryAlias, 0], [0, 4]], 3
+  [_II, _RRe, _CT, _RAep],
+  [[0, 1], 0, [0, 4], [() => DirectoryAlias, 0]], 2
 ];
 export var ReplicateInstanceResponse$: StaticStructureSchema = [3, n0, _RIRe,
   0,
