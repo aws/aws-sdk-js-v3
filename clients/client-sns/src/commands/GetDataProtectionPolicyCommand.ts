@@ -23,7 +23,12 @@ export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPo
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
+ * <important>
+ *             <p>Amazon SNS message data protection is no longer available to new customers.
+ *   For more information and guidance on alternatives, see
+ * <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html">Amazon SNS message data protection availability change</a>.</p>
+ *          </important>
+ *          <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
  *             stored in the specified Amazon SNS topic. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

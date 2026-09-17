@@ -34,9 +34,16 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  *             Because the batch request can result in a combination of successful and unsuccessful
  *             actions, you should check for batch errors even when the call returns an HTTP status
  *             code of 200.</p>
- *          <p>The maximum allowed individual message size and the maximum total payload size (the sum
- *             of the individual lengths of all of the batched messages) are both 256 KB (262,144
- *             bytes).</p>
+ *          <p>By default, the maximum allowed individual message size and the maximum total payload
+ *             size (the sum of the individual lengths of all of the batched messages) are both 256 KiB
+ *             (262,144 bytes). To publish larger batches, set the topic's
+ *                 <code>MaximumMessageSize</code> attribute, which supports values up to 1 MiB
+ *             (1,048,576 bytes). The combined size of all messages in the batch, including each
+ *             message's body and attributes, must not exceed the topic's
+ *                 <code>MaximumMessageSize</code>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/large-message-payloads.html">Large message payloads</a> in
+ *             the <i>Amazon SNS Developer Guide.</i>
+ *          </p>
  *          <important>
  *             <p>The <code>PublishBatch</code> API can send up to 10 messages at a time. If you
  *                 attempt to send more than 10 messages in one request, you will encounter a
