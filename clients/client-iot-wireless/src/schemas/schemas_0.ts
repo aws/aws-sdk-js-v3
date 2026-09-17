@@ -111,6 +111,7 @@ const _CWGTDR = "CreateWirelessGatewayTaskDefinitionRequest";
 const _CWGTDRr = "CreateWirelessGatewayTaskDefinitionResponse";
 const _CWGTR = "CreateWirelessGatewayTaskRequest";
 const _CWGTRr = "CreateWirelessGatewayTaskResponse";
+const _Ca = "Captures";
 const _D = "Description";
 const _DA = "DevAddr";
 const _DAAFPA = "DisassociateAwsAccountFromPartnerAccount";
@@ -255,6 +256,8 @@ const _Fu = "Fuota";
 const _G = "Gsm";
 const _GAK = "GenAppKey";
 const _GC = "GeranCid";
+const _GCn = "GnssCapture";
+const _GCns = "GnssCaptures";
 const _GD = "GetDestination";
 const _GDP = "GetDeviceProfile";
 const _GDPR = "GetDeviceProfileRequest";
@@ -283,6 +286,7 @@ const _GM = "GetMetrics";
 const _GMC = "GetMetricConfiguration";
 const _GMCR = "GetMetricConfigurationRequest";
 const _GMCRe = "GetMetricConfigurationResponse";
+const _GMF = "GnssMultiFrame";
 const _GMG = "GetMulticastGroup";
 const _GMGR = "GetMulticastGroupRequest";
 const _GMGRe = "GetMulticastGroupResponse";
@@ -1585,8 +1589,8 @@ export var GetPositionConfigurationResponse$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetPositionEstimateRequest$: StaticStructureSchema = [3, n0, _GPER,
   0,
-  [_WFAP, _CT, _Ip, _Gn, _Ti, _AC],
-  [() => WiFiAccessPoints, () => CellTowers$, () => Ip$, () => Gnss$, 4, () => AdvancedConfiguration$]
+  [_WFAP, _CT, _Ip, _Gn, _GMF, _Ti, _AC],
+  [() => WiFiAccessPoints, () => CellTowers$, () => Ip$, () => Gnss$, () => GnssMultiFrame$, 4, () => AdvancedConfiguration$]
 ];
 export var GetPositionEstimateResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
@@ -1752,6 +1756,16 @@ export var Gnss$: StaticStructureSchema = [3, n0, _Gn,
   0,
   [_Pa, _CTa, _CTA, _AP, _AA, _UDS],
   [0, 1, 1, 64 | 1, 1, 2], 1
+];
+export var GnssCapture$: StaticStructureSchema = [3, n0, _GCn,
+  0,
+  [_Pa, _CTa],
+  [0, 1], 1
+];
+export var GnssMultiFrame$: StaticStructureSchema = [3, n0, _GMF,
+  0,
+  [_Ca, _CTA, _AP, _AA, _UDS],
+  [() => GnssCaptures, 1, 64 | 1, 1, 2], 1
 ];
 export var GsmLocalId$: StaticStructureSchema = [3, n0, _GLIs,
   0,
@@ -2780,6 +2794,9 @@ var GatewayList: StaticListSchema = [1, n0, _GL,
   0, () => GatewayListItem$
 ];
 var GatewayListMulticast = 64 | 0;
+var GnssCaptures: StaticListSchema = [1, n0, _GCns,
+  0, () => GnssCapture$
+];
 var GsmList: StaticListSchema = [1, n0, _GLs,
   0, () => GsmObj$
 ];

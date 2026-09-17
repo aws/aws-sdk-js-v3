@@ -4,6 +4,7 @@ import type {
   ExpressionType,
   IdentifierType,
   LogLevel,
+  MessageType,
   PartnerType,
   PositioningConfigStatus,
   PositionResourceType,
@@ -20,6 +21,7 @@ import type {
   LoRaWANFuotaTask,
   LoRaWANMulticast,
   LoRaWANMulticastSession,
+  LoRaWANSendDataToDevice,
   MessageDeliveryStatusEventConfiguration,
   MessageDeliveryStatusResourceTypeEventConfiguration,
   Positioning,
@@ -31,8 +33,50 @@ import type {
   TraceContent,
   WirelessDeviceLogOption,
   WirelessGatewayLogOption,
-  WirelessMetadata,
 } from "./models_0";
+
+/**
+ * <p>Information about a Sidewalk router.</p>
+ * @public
+ */
+export interface SidewalkSendDataToDevice {
+  /**
+   * <p>The sequence number.</p>
+   * @public
+   */
+  Seq?: number | undefined;
+
+  /**
+   * <p>Sidewalk device message type. Default value is
+   *             <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
+   * @public
+   */
+  MessageType?: MessageType | undefined;
+
+  /**
+   * <p>The duration of time in seconds to retry sending the ACK.</p>
+   * @public
+   */
+  AckModeRetryDurationSecs?: number | undefined;
+}
+
+/**
+ * <p>WirelessMetadata object.</p>
+ * @public
+ */
+export interface WirelessMetadata {
+  /**
+   * <p>LoRaWAN device info.</p>
+   * @public
+   */
+  LoRaWAN?: LoRaWANSendDataToDevice | undefined;
+
+  /**
+   * <p>The Sidewalk account credentials.</p>
+   * @public
+   */
+  Sidewalk?: SidewalkSendDataToDevice | undefined;
+}
 
 /**
  * @public

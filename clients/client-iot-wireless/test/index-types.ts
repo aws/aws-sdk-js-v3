@@ -547,6 +547,8 @@ export type {
   GetWirelessGatewayTaskResponse,
   GlobalIdentity,
   Gnss,
+  GnssCapture,
+  GnssMultiFrame,
   GsmLocalId,
   GsmNmrObj,
   GsmObj,

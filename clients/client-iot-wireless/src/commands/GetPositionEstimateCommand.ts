@@ -184,6 +184,20 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateCom
  *     AssistAltitude: Number("float"),
  *     Use2DSolver: true || false,
  *   },
+ *   GnssMultiFrame: { // GnssMultiFrame
+ *     Captures: [ // GnssCaptures // required
+ *       { // GnssCapture
+ *         Payload: "STRING_VALUE", // required
+ *         CaptureTime: Number("float"),
+ *       },
+ *     ],
+ *     CaptureTimeAccuracy: Number("float"),
+ *     AssistPosition: [
+ *       Number("float"),
+ *     ],
+ *     AssistAltitude: Number("float"),
+ *     Use2DSolver: true || false,
+ *   },
  *   Timestamp: new Date("TIMESTAMP"),
  *   AdvancedConfiguration: { // AdvancedConfiguration
  *     WiFiCellular: { // WiFiCellular

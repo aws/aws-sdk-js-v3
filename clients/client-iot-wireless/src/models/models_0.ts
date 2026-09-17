@@ -21,7 +21,6 @@ import type {
   IdentifierType,
   ImportTaskStatus,
   LogLevel,
-  MessageType,
   MetricName,
   MetricQueryStatus,
   MulticastFrameInfo,
@@ -169,25 +168,34 @@ export interface Accuracy {
 }
 
 /**
- * Configuration for WiFi and cellular location payloads.
+ * <p>Configuration for WiFi and cellular location payloads. Contains the confidence
+ *             level that determines the size of the uncertainty radius in the position estimate.</p>
  * @public
  */
 export interface WiFiCellular {
   /**
-   * Confidence level for WiFi and cellular position estimates, expressed as a
-   *         percentage. Valid range: 50–99 inclusive. Defaults to 68 if not specified.
+   * <p>The confidence level for WiFi and cellular position estimates, expressed as a
+   *             percentage. This value determines the size of the confidence area or uncertainty
+   *             radius for the estimated position. A higher confidence level produces a larger uncertainty radius, while a lower
+   *             confidence level produces a smaller, more precise radius.</p>
+   *          <p>Valid range: 50 to 99 inclusive. If not specified, the default value of 68 is
+   *             used, which corresponds to approximately one standard deviation of the normal
+   *             distribution.</p>
    * @public
    */
   ConfidencePercent?: number | undefined;
 }
 
 /**
- * Optional configuration to customize location estimates.
+ * <p>Optional configuration for customizing position estimates, including parameters
+ *             that affect the accuracy and uncertainty of WiFi and cellular-based location
+ *             estimates.</p>
  * @public
  */
 export interface AdvancedConfiguration {
   /**
-   * Configuration for WiFi and cellular-based payloads for location estimates.
+   * <p>Configuration for WiFi and cellular-based location estimate payloads resolved
+   *             by HERE's solvers.</p>
    * @public
    */
   WiFiCellular?: WiFiCellular | undefined;
@@ -4553,6 +4561,71 @@ export interface Gnss {
 }
 
 /**
+ * <p>A single GNSS scan capture containing the scan payload and optional capture time.</p>
+ * @public
+ */
+export interface GnssCapture {
+  /**
+   * <p>Payload that contains the GNSS scan result, or NAV message, in hexadecimal
+   *             notation.</p>
+   * @public
+   */
+  Payload: string | undefined;
+
+  /**
+   * <p>Optional parameter that gives an estimate of the time when the GNSS scan information
+   *             is taken, in seconds GPS time (GPST). If capture time is not specified, the local server
+   *             time is used.</p>
+   * @public
+   */
+  CaptureTime?: number | undefined;
+}
+
+/**
+ * <p>Global navigation satellite system (GNSS) multi-frame object used for positioning.
+ *             Contains multiple GNSS scan captures that are combined by the solver.</p>
+ * @public
+ */
+export interface GnssMultiFrame {
+  /**
+   * <p>List of GNSS scan captures. Each capture contains a payload from a single GNSS scan.
+   *             The number of captures must be 2, 4, 8, 16, or 32.</p>
+   * @public
+   */
+  Captures: GnssCapture[] | undefined;
+
+  /**
+   * <p>Optional value that gives the capture time estimate accuracy, in seconds. If capture
+   *             time accuracy is not specified, default value of 300 is used.</p>
+   * @public
+   */
+  CaptureTimeAccuracy?: number | undefined;
+
+  /**
+   * <p>Optional assistance position information, specified using latitude and longitude
+   *             values in degrees. The coordinates are inside the WGS84 reference frame.</p>
+   * @public
+   */
+  AssistPosition?: number[] | undefined;
+
+  /**
+   * <p>Optional assistance altitude, which is the altitude of the device at capture time,
+   *             specified in meters above the WGS84 reference ellipsoid. This parameter is required
+   *             when Use2DSolver is enabled.</p>
+   * @public
+   */
+  AssistAltitude?: number | undefined;
+
+  /**
+   * <p>Optional parameter that forces 2D solve, which modifies the positioning algorithm to a
+   *             2D solution problem. When this parameter is specified, the assistance altitude should
+   *             have an accuracy of at least 10 meters.</p>
+   * @public
+   */
+  Use2DSolver?: boolean | undefined;
+}
+
+/**
  * <p>IP address used for resolving device location.</p>
  * @public
  */
@@ -4610,10 +4683,19 @@ export interface GetPositionEstimateRequest {
   /**
    * <p>Retrieves an estimated device position by resolving the global navigation satellite
    *             system (GNSS) scan data. The position is resolved using the GNSS solver powered by LoRa
-   *             Cloud.</p>
+   *             Cloud. This field is mutually exclusive with the GnssMultiFrame field.</p>
    * @public
    */
   Gnss?: Gnss | undefined;
+
+  /**
+   * <p>Retrieves an estimated device position by resolving multiple global navigation
+   *             satellite system (GNSS) scan captures. The position is resolved using the multi-frame
+   *             GNSS solver powered by LoRa Cloud. This field is mutually exclusive with the Gnss
+   *             field.</p>
+   * @public
+   */
+  GnssMultiFrame?: GnssMultiFrame | undefined;
 
   /**
    * <p>Optional information that specifies the time when the position information will be
@@ -4624,8 +4706,7 @@ export interface GetPositionEstimateRequest {
   Timestamp?: Date | undefined;
 
   /**
-   * Optional configuration to customize position estimates.
-   *         If not provided, defaults are applied.
+   * <p>Optional configuration for customizing position measurement data.</p>
    * @public
    */
   AdvancedConfiguration?: AdvancedConfiguration | undefined;
@@ -7101,47 +7182,4 @@ export interface SendDataToMulticastGroupResponse {
    * @public
    */
   MessageId?: string | undefined;
-}
-
-/**
- * <p>Information about a Sidewalk router.</p>
- * @public
- */
-export interface SidewalkSendDataToDevice {
-  /**
-   * <p>The sequence number.</p>
-   * @public
-   */
-  Seq?: number | undefined;
-
-  /**
-   * <p>Sidewalk device message type. Default value is
-   *             <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
-   * @public
-   */
-  MessageType?: MessageType | undefined;
-
-  /**
-   * <p>The duration of time in seconds to retry sending the ACK.</p>
-   * @public
-   */
-  AckModeRetryDurationSecs?: number | undefined;
-}
-
-/**
- * <p>WirelessMetadata object.</p>
- * @public
- */
-export interface WirelessMetadata {
-  /**
-   * <p>LoRaWAN device info.</p>
-   * @public
-   */
-  LoRaWAN?: LoRaWANSendDataToDevice | undefined;
-
-  /**
-   * <p>The Sidewalk account credentials.</p>
-   * @public
-   */
-  Sidewalk?: SidewalkSendDataToDevice | undefined;
 }

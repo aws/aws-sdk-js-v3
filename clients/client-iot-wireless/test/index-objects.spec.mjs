@@ -315,6 +315,8 @@ import {
   GetWirelessGatewayTaskResponse$,
   GlobalIdentity$,
   Gnss$,
+  GnssCapture$,
+  GnssMultiFrame$,
   GsmLocalId$,
   GsmNmrObj$,
   GsmObj$,
@@ -1049,6 +1051,8 @@ assert(typeof GetWirelessGatewayTaskRequest$ === "object");
 assert(typeof GetWirelessGatewayTaskResponse$ === "object");
 assert(typeof GlobalIdentity$ === "object");
 assert(typeof Gnss$ === "object");
+assert(typeof GnssCapture$ === "object");
+assert(typeof GnssMultiFrame$ === "object");
 assert(typeof GsmLocalId$ === "object");
 assert(typeof GsmNmrObj$ === "object");
 assert(typeof GsmObj$ === "object");
