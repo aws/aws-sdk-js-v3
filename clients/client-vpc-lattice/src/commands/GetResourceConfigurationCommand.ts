@@ -43,12 +43,12 @@ export interface GetResourceConfigurationCommandOutput extends GetResourceConfig
  * //   arn: "STRING_VALUE",
  * //   resourceGatewayId: "STRING_VALUE",
  * //   resourceConfigurationGroupId: "STRING_VALUE",
- * //   type: "GROUP" || "CHILD" || "SINGLE" || "ARN",
+ * //   type: "GROUP" || "CHILD" || "SINGLE" || "ARN" || "CIDR",
  * //   allowAssociationToShareableServiceNetwork: true || false,
  * //   portRanges: [ // PortRangeList
  * //     "STRING_VALUE",
  * //   ],
- * //   protocol: "TCP",
+ * //   protocol: "TCP" || "TCP_UDP",
  * //   customDomainName: "STRING_VALUE",
  * //   status: "STRING_VALUE",
  * //   resourceConfigurationDefinition: { // ResourceConfigurationDefinition Union: only one key present
@@ -61,6 +61,11 @@ export interface GetResourceConfigurationCommandOutput extends GetResourceConfig
  * //     },
  * //     arnResource: { // ArnResource
  * //       arn: "STRING_VALUE",
+ * //     },
+ * //     cidrResource: { // CidrResource
+ * //       cidrRanges: [ // CidrRangeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),

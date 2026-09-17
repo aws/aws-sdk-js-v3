@@ -57,6 +57,12 @@ export interface ListResourceEndpointAssociationsCommandOutput extends ListResou
  * //       vpcEndpointOwner: "STRING_VALUE",
  * //       createdBy: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
+ * //       payerResponsibility: [ // PayerResponsibilityList
+ * //         { // PayerResponsibilityEntry
+ * //           scope: "ResourceGatewayCharges",
+ * //           payerResponsibilityType: "VpcEndpointAccount" || "ResourceGatewayAccount",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

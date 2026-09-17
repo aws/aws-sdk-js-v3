@@ -34,11 +34,11 @@ export interface CreateResourceConfigurationCommandOutput extends CreateResource
  * const client = new VPCLatticeClient(config);
  * const input = { // CreateResourceConfigurationRequest
  *   name: "STRING_VALUE", // required
- *   type: "GROUP" || "CHILD" || "SINGLE" || "ARN", // required
+ *   type: "GROUP" || "CHILD" || "SINGLE" || "ARN" || "CIDR", // required
  *   portRanges: [ // PortRangeList
  *     "STRING_VALUE",
  *   ],
- *   protocol: "TCP",
+ *   protocol: "TCP" || "TCP_UDP",
  *   resourceGatewayIdentifier: "STRING_VALUE",
  *   resourceConfigurationGroupIdentifier: "STRING_VALUE",
  *   resourceConfigurationDefinition: { // ResourceConfigurationDefinition Union: only one key present
@@ -51,6 +51,11 @@ export interface CreateResourceConfigurationCommandOutput extends CreateResource
  *     },
  *     arnResource: { // ArnResource
  *       arn: "STRING_VALUE",
+ *     },
+ *     cidrResource: { // CidrResource
+ *       cidrRanges: [ // CidrRangeList
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   },
  *   allowAssociationToShareableServiceNetwork: true || false,
@@ -70,11 +75,11 @@ export interface CreateResourceConfigurationCommandOutput extends CreateResource
  * //   arn: "STRING_VALUE",
  * //   resourceGatewayId: "STRING_VALUE",
  * //   resourceConfigurationGroupId: "STRING_VALUE",
- * //   type: "GROUP" || "CHILD" || "SINGLE" || "ARN",
+ * //   type: "GROUP" || "CHILD" || "SINGLE" || "ARN" || "CIDR",
  * //   portRanges: [ // PortRangeList
  * //     "STRING_VALUE",
  * //   ],
- * //   protocol: "TCP",
+ * //   protocol: "TCP" || "TCP_UDP",
  * //   status: "STRING_VALUE",
  * //   resourceConfigurationDefinition: { // ResourceConfigurationDefinition Union: only one key present
  * //     dnsResource: { // DnsResource
@@ -86,6 +91,11 @@ export interface CreateResourceConfigurationCommandOutput extends CreateResource
  * //     },
  * //     arnResource: { // ArnResource
  * //       arn: "STRING_VALUE",
+ * //     },
+ * //     cidrResource: { // CidrResource
+ * //       cidrRanges: [ // CidrRangeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   },
  * //   allowAssociationToShareableServiceNetwork: true || false,

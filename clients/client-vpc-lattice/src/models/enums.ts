@@ -91,6 +91,10 @@ export const ProtocolType = {
    * Resource Configuration protocol type TCP
    */
   TCP: "TCP",
+  /**
+   * Resource Configuration protocol type TCP_UDP
+   */
+  TCP_UDP: "TCP_UDP",
 } as const;
 /**
  * @public
@@ -134,6 +138,10 @@ export const ResourceConfigurationType = {
    * Resource Configuration of type CHILD
    */
   CHILD: "CHILD",
+  /**
+   * Resource Configuration of type CIDR
+   */
+  CIDR: "CIDR",
   /**
    * Resource Configuration of type GROUP
    */
@@ -600,6 +608,40 @@ export const VerificationStatus = {
  * @public
  */
 export type VerificationStatus = (typeof VerificationStatus)[keyof typeof VerificationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PayerResponsibilityPayer = {
+  /**
+   * The resource gateway account pays
+   */
+  ResourceGatewayAccount: "ResourceGatewayAccount",
+  /**
+   * The VPC endpoint account pays
+   */
+  VpcEndpointAccount: "VpcEndpointAccount",
+} as const;
+/**
+ * @public
+ */
+export type PayerResponsibilityPayer = (typeof PayerResponsibilityPayer)[keyof typeof PayerResponsibilityPayer];
+
+/**
+ * @public
+ * @enum
+ */
+export const PayerResponsibilityScope = {
+  /**
+   * Charges for the resource gateway
+   */
+  ResourceGatewayCharges: "ResourceGatewayCharges",
+} as const;
+/**
+ * @public
+ */
+export type PayerResponsibilityScope = (typeof PayerResponsibilityScope)[keyof typeof PayerResponsibilityScope];
 
 /**
  * @public

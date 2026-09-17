@@ -12,7 +12,7 @@ const _CE = "ConflictException";
 const _CL = "CreateListener";
 const _CLR = "CreateListenerRequest";
 const _CLRr = "CreateListenerResponse";
-const _CR = "CreateRule";
+const _CR = "CidrResource";
 const _CRC = "CreateResourceConfiguration";
 const _CRCR = "CreateResourceConfigurationRequest";
 const _CRCRr = "CreateResourceConfigurationResponse";
@@ -21,6 +21,7 @@ const _CRGR = "CreateResourceGatewayRequest";
 const _CRGRr = "CreateResourceGatewayResponse";
 const _CRR = "CreateRuleRequest";
 const _CRRr = "CreateRuleResponse";
+const _CRr = "CreateRule";
 const _CS = "CreateService";
 const _CSN = "CreateServiceNetwork";
 const _CSNR = "CreateServiceNetworkRequest";
@@ -199,6 +200,8 @@ const _PAPR = "PutAuthPolicyRequest";
 const _PAPRu = "PutAuthPolicyResponse";
 const _PM = "PathMatch";
 const _PMT = "PathMatchType";
+const _PRE = "PayerResponsibilityEntry";
+const _PRL = "PayerResponsibilityList";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
@@ -302,6 +305,8 @@ const _cA = "createdAt";
 const _cAe = "certificateArn";
 const _cB = "createdBy";
 const _cDN = "customDomainName";
+const _cR = "cidrRanges";
+const _cRi = "cidrResource";
 const _cS = "caseSensitive";
 const _cT = "clientToken";
 const _co = "config";
@@ -370,6 +375,8 @@ const _pDP = "privateDnsPreference";
 const _pDSD = "privateDnsSpecifiedDomains";
 const _pM = "pathMatch";
 const _pR = "portRanges";
+const _pRT = "payerResponsibilityType";
+const _pRa = "payerResponsibility";
 const _pV = "protocolVersion";
 const _pa = "path";
 const _po = "port";
@@ -417,6 +424,7 @@ const _sNN = "serviceNetworkName";
 const _sNRAI = "serviceNetworkResourceAssociationIdentifier";
 const _sNSAI = "serviceNetworkServiceAssociationIdentifier";
 const _sNVAI = "serviceNetworkVpcAssociationIdentifier";
+const _sc = "scope";
 const _se = "server";
 const _st = "status";
 const _sta = "state";
@@ -537,6 +545,11 @@ export var BatchUpdateRuleResponse$: StaticStructureSchema = [3, n0, _BURRa,
   0,
   [_su, _u],
   [() => RuleUpdateSuccessList, () => RuleUpdateFailureList]
+];
+export var CidrResource$: StaticStructureSchema = [3, n0, _CR,
+  0,
+  [_cR],
+  [64 | 0]
 ];
 export var CreateAccessLogSubscriptionRequest$: StaticStructureSchema = [3, n0, _CALSR,
   0,
@@ -1168,6 +1181,11 @@ export var PathMatch$: StaticStructureSchema = [3, n0, _PM,
   [_ma, _cS],
   [() => PathMatchType$, 2], 1
 ];
+export var PayerResponsibilityEntry$: StaticStructureSchema = [3, n0, _PRE,
+  0,
+  [_sc, _pRT],
+  [0, 0]
+];
 export var PutAuthPolicyRequest$: StaticStructureSchema = [3, n0, _PAPR,
   0,
   [_rIe, _pol],
@@ -1205,8 +1223,8 @@ export var ResourceConfigurationSummary$: StaticStructureSchema = [3, n0, _RCS,
 ];
 export var ResourceEndpointAssociationSummary$: StaticStructureSchema = [3, n0, _REAS,
   0,
-  [_i, _a, _rCIe, _rCA, _rCN, _vEI, _vEO, _cB, _cA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 5]
+  [_i, _a, _rCIe, _rCA, _rCN, _vEI, _vEO, _cB, _cA, _pRa],
+  [0, 0, 0, 0, 0, 0, 0, 0, 5, () => PayerResponsibilityList]
 ];
 export var ResourceGatewaySummary$: StaticStructureSchema = [3, n0, _RGS,
   0,
@@ -1431,6 +1449,7 @@ export var WeightedTargetGroup$: StaticStructureSchema = [3, n0, _WTG,
 var AccessLogSubscriptionList: StaticListSchema = [1, n0, _ALSL,
   0, () => AccessLogSubscriptionSummary$
 ];
+var CidrRangeList = 64 | 0;
 var DomainVerificationList: StaticListSchema = [1, n0, _DVL,
   0, () => DomainVerificationSummary$
 ];
@@ -1439,6 +1458,9 @@ var HeaderMatchList: StaticListSchema = [1, n0, _HML,
 ];
 var ListenerSummaryList: StaticListSchema = [1, n0, _LSL,
   0, () => ListenerSummary$
+];
+var PayerResponsibilityList: StaticListSchema = [1, n0, _PRL,
+  0, () => PayerResponsibilityEntry$
 ];
 var PortRangeList = 64 | 0;
 var PrivateDnsSpecifiedDomainsList = 64 | 0;
@@ -1521,8 +1543,8 @@ export var PathMatchType$: StaticUnionSchema = [4, n0, _PMT,
 ];
 export var ResourceConfigurationDefinition$: StaticUnionSchema = [4, n0, _RCD,
   0,
-  [_dR, _iR, _aR],
-  [() => DnsResource$, () => IpResource$, () => ArnResource$]
+  [_dR, _iR, _aR, _cRi],
+  [() => DnsResource$, () => IpResource$, () => ArnResource$, () => CidrResource$]
 ];
 export var RuleAction$: StaticUnionSchema = [4, n0, _RAu,
   0,
@@ -1549,7 +1571,7 @@ export var CreateResourceConfiguration$: StaticOperationSchema = [9, n0, _CRC,
 export var CreateResourceGateway$: StaticOperationSchema = [9, n0, _CRG,
   { [_h]: ["POST", "/resourcegateways", 201] }, () => CreateResourceGatewayRequest$, () => CreateResourceGatewayResponse$
 ];
-export var CreateRule$: StaticOperationSchema = [9, n0, _CR,
+export var CreateRule$: StaticOperationSchema = [9, n0, _CRr,
   { [_h]: ["POST", "/services/{serviceIdentifier}/listeners/{listenerIdentifier}/rules", 201] }, () => CreateRuleRequest$, () => CreateRuleResponse$
 ];
 export var CreateService$: StaticOperationSchema = [9, n0, _CS,

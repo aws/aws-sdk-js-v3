@@ -9,6 +9,7 @@ import {
   BatchUpdateRuleCommand,
   BatchUpdateRuleRequest$,
   BatchUpdateRuleResponse$,
+  CidrResource$,
   ConflictException,
   ConflictException$,
   CreateAccessLogSubscription$,
@@ -275,6 +276,9 @@ import {
   paginateListTargets,
   PathMatch$,
   PathMatchType$,
+  PayerResponsibilityEntry$,
+  PayerResponsibilityPayer,
+  PayerResponsibilityScope,
   PrivateDnsPreference,
   ProtocolType,
   PutAuthPolicy$,
@@ -548,6 +552,7 @@ assert(typeof AccessLogSubscriptionSummary$ === "object");
 assert(typeof ArnResource$ === "object");
 assert(typeof BatchUpdateRuleRequest$ === "object");
 assert(typeof BatchUpdateRuleResponse$ === "object");
+assert(typeof CidrResource$ === "object");
 assert(typeof CreateAccessLogSubscriptionRequest$ === "object");
 assert(typeof CreateAccessLogSubscriptionResponse$ === "object");
 assert(typeof CreateListenerRequest$ === "object");
@@ -677,6 +682,7 @@ assert(typeof ListTargetsResponse$ === "object");
 assert(typeof Matcher$ === "object");
 assert(typeof PathMatch$ === "object");
 assert(typeof PathMatchType$ === "object");
+assert(typeof PayerResponsibilityEntry$ === "object");
 assert(typeof PutAuthPolicyRequest$ === "object");
 assert(typeof PutAuthPolicyResponse$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
@@ -739,6 +745,8 @@ assert(typeof HealthCheckProtocolVersion === "object");
 assert(typeof IpAddressType === "object");
 assert(typeof LambdaEventStructureVersion === "object");
 assert(typeof ListenerProtocol === "object");
+assert(typeof PayerResponsibilityPayer === "object");
+assert(typeof PayerResponsibilityScope === "object");
 assert(typeof PrivateDnsPreference === "object");
 assert(typeof ProtocolType === "object");
 assert(typeof ResourceConfigDnsResolution === "object");

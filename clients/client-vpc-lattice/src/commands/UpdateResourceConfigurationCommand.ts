@@ -45,6 +45,11 @@ export interface UpdateResourceConfigurationCommandOutput extends UpdateResource
  *     arnResource: { // ArnResource
  *       arn: "STRING_VALUE",
  *     },
+ *     cidrResource: { // CidrResource
+ *       cidrRanges: [ // CidrRangeList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   allowAssociationToShareableServiceNetwork: true || false,
  *   portRanges: [ // PortRangeList
@@ -59,12 +64,12 @@ export interface UpdateResourceConfigurationCommandOutput extends UpdateResource
  * //   arn: "STRING_VALUE",
  * //   resourceGatewayId: "STRING_VALUE",
  * //   resourceConfigurationGroupId: "STRING_VALUE",
- * //   type: "GROUP" || "CHILD" || "SINGLE" || "ARN",
+ * //   type: "GROUP" || "CHILD" || "SINGLE" || "ARN" || "CIDR",
  * //   portRanges: [ // PortRangeList
  * //     "STRING_VALUE",
  * //   ],
  * //   allowAssociationToShareableServiceNetwork: true || false,
- * //   protocol: "TCP",
+ * //   protocol: "TCP" || "TCP_UDP",
  * //   status: "STRING_VALUE",
  * //   resourceConfigurationDefinition: { // ResourceConfigurationDefinition Union: only one key present
  * //     dnsResource: { // DnsResource
@@ -76,6 +81,11 @@ export interface UpdateResourceConfigurationCommandOutput extends UpdateResource
  * //     },
  * //     arnResource: { // ArnResource
  * //       arn: "STRING_VALUE",
+ * //     },
+ * //     cidrResource: { // CidrResource
+ * //       cidrRanges: [ // CidrRangeList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   },
  * // };
