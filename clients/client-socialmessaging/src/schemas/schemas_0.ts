@@ -4,6 +4,7 @@ const _AIPT = "AssociateInProgressToken";
 const _AWABA = "AssociateWhatsAppBusinessAccount";
 const _AWABAI = "AssociateWhatsAppBusinessAccountInput";
 const _AWABAO = "AssociateWhatsAppBusinessAccountOutput";
+const _CE = "ConflictException";
 const _CWAD = "CreateWhatsAppDataset";
 const _CWADI = "CreateWhatsAppDatasetInput";
 const _CWADO = "CreateWhatsAppDatasetOutput";
@@ -44,6 +45,9 @@ const _GLWABAPNO = "GetLinkedWhatsAppBusinessAccountPhoneNumberOutput";
 const _GWABPK = "GetWhatsAppBusinessPublicKey";
 const _GWABPKI = "GetWhatsAppBusinessPublicKeyInput";
 const _GWABPKO = "GetWhatsAppBusinessPublicKeyOutput";
+const _GWACP = "GetWhatsAppCallPermission";
+const _GWACPI = "GetWhatsAppCallPermissionInput";
+const _GWACPO = "GetWhatsAppCallPermissionOutput";
 const _GWAF = "GetWhatsAppFlow";
 const _GWAFI = "GetWhatsAppFlowInput";
 const _GWAFO = "GetWhatsAppFlowOutput";
@@ -116,9 +120,12 @@ const _RNFE = "ResourceNotFoundException";
 const _SA = "SupportedApps";
 const _SF = "S3File";
 const _SPU = "S3PresignedUrl";
-const _SWACE = "SendWhatsAppConversionEvent";
-const _SWACEI = "SendWhatsAppConversionEventInput";
-const _SWACEO = "SendWhatsAppConversionEventOutput";
+const _SWACE = "SendWhatsAppCallEvent";
+const _SWACEI = "SendWhatsAppCallEventInput";
+const _SWACEIe = "SendWhatsAppConversionEventInput";
+const _SWACEO = "SendWhatsAppCallEventOutput";
+const _SWACEOe = "SendWhatsAppConversionEventOutput";
+const _SWACEe = "SendWhatsAppConversionEvent";
 const _SWAM = "SendWhatsAppMessage";
 const _SWAMI = "SendWhatsAppMessageInput";
 const _SWAMO = "SendWhatsAppMessageOutput";
@@ -131,6 +138,9 @@ const _TRI = "TagResourceInput";
 const _TRO = "TagResourceOutput";
 const _TS = "TemplateSummary";
 const _TSL = "TemplateSummaryList";
+const _ULWABAPN = "UpdateLinkedWhatsAppBusinessAccountPhoneNumber";
+const _ULWABAPNI = "UpdateLinkedWhatsAppBusinessAccountPhoneNumberInput";
+const _ULWABAPNO = "UpdateLinkedWhatsAppBusinessAccountPhoneNumberOutput";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
@@ -146,7 +156,19 @@ const _UWAMTO = "UpdateWhatsAppMessageTemplateOutput";
 const _VE = "ValidationException";
 const _WABAED = "WhatsAppBusinessAccountEventDestination";
 const _WABAEDh = "WhatsAppBusinessAccountEventDestinations";
-const _WACEB = "WhatsAppConversionEventBlob";
+const _WABSUI = "WhatsAppBusinessScopedUserId";
+const _WACEB = "WhatsAppCallEventBlob";
+const _WACEBh = "WhatsAppConversionEventBlob";
+const _WACH = "WhatsAppCallHours";
+const _WACP = "WhatsAppCallPermission";
+const _WACPA = "WhatsAppCallPermissionAction";
+const _WACPAL = "WhatsAppCallPermissionActionList";
+const _WACPL = "WhatsAppCallPermissionLimit";
+const _WACPLL = "WhatsAppCallPermissionLimitList";
+const _WACS = "WhatsAppCallSettings";
+const _WADPN = "WhatsAppDestinationPhoneNumber";
+const _WAHSE = "WhatsAppHolidayScheduleEntry";
+const _WAHSL = "WhatsAppHolidayScheduleList";
 const _WAMB = "WhatsAppMessageBlob";
 const _WAPND = "WhatsAppPhoneNumberDetail";
 const _WAPNDL = "WhatsAppPhoneNumberDetailList";
@@ -155,6 +177,9 @@ const _WAPNSL = "WhatsAppPhoneNumberSummaryList";
 const _WASC = "WhatsAppSignupCallback";
 const _WASCR = "WhatsAppSignupCallbackResult";
 const _WASF = "WhatsAppSetupFinalization";
+const _WATOD = "WhatsAppTimeOfDay";
+const _WAWOHE = "WhatsAppWeeklyOperatingHoursEntry";
+const _WAWOHL = "WhatsAppWeeklyOperatingHoursList";
 const _WPNSF = "WabaPhoneNumberSetupFinalization";
 const _WPNSFL = "WabaPhoneNumberSetupFinalizationList";
 const _WSF = "WabaSetupFinalization";
@@ -163,31 +188,46 @@ const _aCN = "addContactNumber";
 const _aIPT = "associateInProgressToken";
 const _aLML = "addLearnMoreLink";
 const _aN = "accountName";
+const _aNc = "actionName";
 const _aSR = "addSecurityRecommendation";
 const _aT = "assetType";
 const _aTPL = "addTrackPackageLink";
 const _aTc = "accessToken";
+const _ac = "actions";
 const _ap = "application";
 const _ar = "arn";
 const _bN = "bucketName";
 const _bPK = "businessPublicKey";
 const _bPKSS = "businessPublicKeySignatureStatus";
 const _c = "client";
+const _cE = "callEvent";
 const _cEM = "codeExpirationMinutes";
+const _cEa = "callEnabled";
 const _cFI = "cloneFlowId";
+const _cH = "callHours";
+const _cI = "callId";
+const _cIV = "callIconVisibility";
+const _cPA = "canPerformAction";
+const _cPS = "callbackPermissionStatus";
+const _cS = "callSettings";
 const _cSM = "canSendMessage";
-const _cU = "callbackUrl";
+const _cT = "closeTime";
+const _cU = "currentUsage";
 const _cULTOO = "ctaUrlLinkTrackingOptedOut";
+const _cUa = "callbackUrl";
 const _ca = "categories";
 const _cat = "category";
 const _cu = "currency";
+const _d = "date";
 const _dAL = "deleteAllLanguages";
 const _dAT = "deleteAllTemplates";
 const _dAV = "dataApiVersion";
 const _dI = "datasetId";
 const _dLR = "dataLocalizationRegion";
-const _dPN = "displayPhoneNumber";
+const _dOW = "dayOfWeek";
+const _dPN = "destinationPhoneNumber";
 const _dPNN = "displayPhoneNumberName";
+const _dPNi = "displayPhoneNumber";
 const _dSF = "destinationS3File";
 const _dSPU = "destinationS3PresignedUrl";
 const _dU = "downloadUrl";
@@ -197,8 +237,12 @@ const _eD = "eventDestinations";
 const _eDA = "eventDestinationArn";
 const _eDv = "eventData";
 const _eT = "entityType";
+const _eTn = "endTime";
+const _eTx = "expirationTime";
 const _eU = "endpointUri";
+const _eUB = "endUserBsuid";
 const _en = "entities";
+const _ena = "enabled";
 const _f = "flows";
 const _fA = "flowAssets";
 const _fC = "flowCategories";
@@ -212,6 +256,8 @@ const _h = "headers";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _hS = "healthStatus";
+const _hSo = "holidaySchedule";
+const _ho = "hours";
 const _ht = "http";
 const _i = "id";
 const _in = "invalidate";
@@ -222,11 +268,14 @@ const _l = "link";
 const _lA = "linkedAccounts";
 const _lAWIS = "linkedAccountsWithIncompleteSetup";
 const _lD = "linkDate";
+const _lET = "limitExpirationTime";
 const _lTBI = "libraryTemplateButtonInputs";
 const _lTBIi = "libraryTemplateBodyInputs";
 const _lTN = "libraryTemplateName";
 const _lWABAI = "linkedWhatsAppBusinessAccountId";
+const _li = "limits";
 const _m = "message";
+const _mA = "maxAllowed";
 const _mAI = "metaAppId";
 const _mAV = "metaApiVersion";
 const _mHH = "metaHeaderHandle";
@@ -241,10 +290,12 @@ const _mR = "maxResults";
 const _mT = "mimeType";
 const _mTI = "metaTemplateId";
 const _mTN = "messageTemplateNamespace";
+const _mi = "minutes";
 const _n = "name";
 const _nT = "nextToken";
 const _oPNI = "originationPhoneNumberId";
 const _oT = "otpType";
+const _oTp = "openTime";
 const _p = "publish";
 const _pF = "parameterFormat";
 const _pN = "phoneNumber";
@@ -252,6 +303,7 @@ const _pNI = "phoneNumberId";
 const _pNP = "phoneNumberParent";
 const _pNh = "phoneNumbers";
 const _pU = "previewUrl";
+const _pe = "permission";
 const _pr = "preview";
 const _qR = "qualityRating";
 const _rA = "resourceArn";
@@ -266,7 +318,9 @@ const _sCt = "statusCode";
 const _sF = "setupFinalization";
 const _sSF = "sourceS3File";
 const _sSPU = "sourceS3PresignedUrl";
+const _sT = "startTime";
 const _se = "server";
+const _st = "status";
 const _su = "success";
 const _t = "template";
 const _tB = "templateBody";
@@ -284,6 +338,7 @@ const _tK = "tagKeys";
 const _tL = "templateLanguage";
 const _tLC = "templateLanguageCode";
 const _tN = "templateName";
+const _tP = "timePeriod";
 const _tQS = "templateQualityScore";
 const _tS = "templateStatus";
 const _tT = "templateTopic";
@@ -291,6 +346,7 @@ const _tUC = "templateUseCase";
 const _ta = "tags";
 const _te = "text";
 const _tem = "templates";
+const _ti = "timezone";
 const _ty = "type";
 const _u = "url";
 const _uWAPN = "unregisteredWhatsAppPhoneNumbers";
@@ -300,6 +356,7 @@ const _w = "waba";
 const _wABA = "whatsAppBusinessAccount";
 const _wI = "wabaId";
 const _wN = "wabaName";
+const _wOH = "weeklyOperatingHours";
 const _zTTA = "zeroTapTermsAccepted";
 const n0 = "com.amazonaws.socialmessaging";
 
@@ -317,6 +374,7 @@ import type {
 import {
   AccessDeniedByMetaException,
   AccessDeniedException,
+  ConflictException,
   DependencyException,
   InternalServiceException,
   InvalidParametersException,
@@ -344,6 +402,12 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   [0]
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
 export var DependencyException$: StaticErrorSchema = [-3, n0, _DE,
   { [_e]: _se, [_hE]: 502 },
   [_m],
@@ -397,7 +461,10 @@ export const errorTypeRegistries = [
 ]
 var AssociateInProgressToken: StaticSimpleSchema = [0, n0, _AIPT, 8, 0];
 var TwoFactorPin: StaticSimpleSchema = [0, n0, _TFP, 8, 0];
-var WhatsAppConversionEventBlob: StaticSimpleSchema = [0, n0, _WACEB, 8, 21];
+var WhatsAppBusinessScopedUserId: StaticSimpleSchema = [0, n0, _WABSUI, 8, 0];
+var WhatsAppCallEventBlob: StaticSimpleSchema = [0, n0, _WACEB, 8, 21];
+var WhatsAppConversionEventBlob: StaticSimpleSchema = [0, n0, _WACEBh, 8, 21];
+var WhatsAppDestinationPhoneNumber: StaticSimpleSchema = [0, n0, _WADPN, 8, 0];
 var WhatsAppMessageBlob: StaticSimpleSchema = [0, n0, _WAMB, 8, 21];
 export var AssociateWhatsAppBusinessAccountInput$: StaticStructureSchema = [3, n0, _AWABAI,
   0,
@@ -526,8 +593,8 @@ export var GetLinkedWhatsAppBusinessAccountPhoneNumberInput$: StaticStructureSch
 ];
 export var GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$: StaticStructureSchema = [3, n0, _GLWABAPNO,
   0,
-  [_pN, _lWABAI],
-  [() => WhatsAppPhoneNumberDetail$, 0]
+  [_pN, _lWABAI, _cS],
+  [() => WhatsAppPhoneNumberDetail$, 0, () => WhatsAppCallSettings$]
 ];
 export var GetWhatsAppBusinessPublicKeyInput$: StaticStructureSchema = [3, n0, _GWABPKI,
   0,
@@ -538,6 +605,16 @@ export var GetWhatsAppBusinessPublicKeyOutput$: StaticStructureSchema = [3, n0, 
   0,
   [_bPK, _bPKSS],
   [0, 0]
+];
+export var GetWhatsAppCallPermissionInput$: StaticStructureSchema = [3, n0, _GWACPI,
+  0,
+  [_oPNI, _dPN, _eUB],
+  [0, [() => WhatsAppDestinationPhoneNumber, 0], [() => WhatsAppBusinessScopedUserId, 0]], 1
+];
+export var GetWhatsAppCallPermissionOutput$: StaticStructureSchema = [3, n0, _GWACPO,
+  0,
+  [_pe, _ac],
+  [() => WhatsAppCallPermission$, () => WhatsAppCallPermissionActionList], 2
 ];
 export var GetWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _GWAFI,
   0,
@@ -764,12 +841,22 @@ export var S3PresignedUrl$: StaticStructureSchema = [3, n0, _SPU,
   [_u, _h],
   [0, 128 | 0], 2
 ];
-export var SendWhatsAppConversionEventInput$: StaticStructureSchema = [3, n0, _SWACEI,
+export var SendWhatsAppCallEventInput$: StaticStructureSchema = [3, n0, _SWACEI,
+  0,
+  [_oPNI, _mAV, _cE],
+  [0, 0, [() => WhatsAppCallEventBlob, 0]], 3
+];
+export var SendWhatsAppCallEventOutput$: StaticStructureSchema = [3, n0, _SWACEO,
+  0,
+  [_cI],
+  [0], 1
+];
+export var SendWhatsAppConversionEventInput$: StaticStructureSchema = [3, n0, _SWACEIe,
   0,
   [_i, _dI, _eDv],
   [0, 0, [() => WhatsAppConversionEventBlob, 0]], 3
 ];
-export var SendWhatsAppConversionEventOutput$: StaticStructureSchema = [3, n0, _SWACEO,
+export var SendWhatsAppConversionEventOutput$: StaticStructureSchema = [3, n0, _SWACEOe,
   0,
   [_rI],
   [0], 1
@@ -813,6 +900,16 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   0,
   [_sCt],
   [1]
+];
+export var UpdateLinkedWhatsAppBusinessAccountPhoneNumberInput$: StaticStructureSchema = [3, n0, _ULWABAPNI,
+  0,
+  [_i, _cS],
+  [[0, { [_hQ]: _i }], () => WhatsAppCallSettings$], 2
+];
+export var UpdateLinkedWhatsAppBusinessAccountPhoneNumberOutput$: StaticStructureSchema = [3, n0, _ULWABAPNO,
+  0,
+  [_pNI],
+  [0], 1
 ];
 export var UpdateWhatsAppFlowAssetsInput$: StaticStructureSchema = [3, n0, _UWAFAI,
   0,
@@ -859,14 +956,44 @@ export var WhatsAppBusinessAccountEventDestination$: StaticStructureSchema = [3,
   [_eDA, _rAo],
   [0, 0], 1
 ];
+export var WhatsAppCallHours$: StaticStructureSchema = [3, n0, _WACH,
+  0,
+  [_ena, _ti, _wOH, _hSo],
+  [2, 0, () => WhatsAppWeeklyOperatingHoursList, () => WhatsAppHolidayScheduleList], 3
+];
+export var WhatsAppCallPermission$: StaticStructureSchema = [3, n0, _WACP,
+  0,
+  [_st, _eTx],
+  [0, 4], 1
+];
+export var WhatsAppCallPermissionAction$: StaticStructureSchema = [3, n0, _WACPA,
+  0,
+  [_aNc, _cPA, _li],
+  [0, 2, () => WhatsAppCallPermissionLimitList], 3
+];
+export var WhatsAppCallPermissionLimit$: StaticStructureSchema = [3, n0, _WACPL,
+  0,
+  [_tP, _mA, _cU, _lET],
+  [0, 1, 1, 4], 3
+];
+export var WhatsAppCallSettings$: StaticStructureSchema = [3, n0, _WACS,
+  0,
+  [_cEa, _cH, _cIV, _cPS],
+  [2, () => WhatsAppCallHours$, 0, 0], 1
+];
+export var WhatsAppHolidayScheduleEntry$: StaticStructureSchema = [3, n0, _WAHSE,
+  0,
+  [_d, _sT, _eTn],
+  [0, () => WhatsAppTimeOfDay$, () => WhatsAppTimeOfDay$], 3
+];
 export var WhatsAppPhoneNumberDetail$: StaticStructureSchema = [3, n0, _WAPND,
   0,
-  [_ar, _pN, _pNI, _mPNI, _dPNN, _dPN, _qR, _dLR],
+  [_ar, _pN, _pNI, _mPNI, _dPNN, _dPNi, _qR, _dLR],
   [0, 0, 0, 0, 0, 0, 0, 0], 7
 ];
 export var WhatsAppPhoneNumberSummary$: StaticStructureSchema = [3, n0, _WAPNS,
   0,
-  [_ar, _pN, _pNI, _mPNI, _dPNN, _dPN, _qR, _dLR],
+  [_ar, _pN, _pNI, _mPNI, _dPNN, _dPNi, _qR, _dLR],
   [0, 0, 0, 0, 0, 0, 0, 0], 7
 ];
 export var WhatsAppSetupFinalization$: StaticStructureSchema = [3, n0, _WASF,
@@ -876,13 +1003,23 @@ export var WhatsAppSetupFinalization$: StaticStructureSchema = [3, n0, _WASF,
 ];
 export var WhatsAppSignupCallback$: StaticStructureSchema = [3, n0, _WASC,
   0,
-  [_aTc, _cU],
+  [_aTc, _cUa],
   [0, 0], 1
 ];
 export var WhatsAppSignupCallbackResult$: StaticStructureSchema = [3, n0, _WASCR,
   0,
   [_aIPT, _lAWIS],
   [[() => AssociateInProgressToken, 0], () => LinkedAccountWithIncompleteSetup]
+];
+export var WhatsAppTimeOfDay$: StaticStructureSchema = [3, n0, _WATOD,
+  0,
+  [_ho, _mi],
+  [1, 1], 2
+];
+export var WhatsAppWeeklyOperatingHoursEntry$: StaticStructureSchema = [3, n0, _WAWOHE,
+  0,
+  [_dOW, _oTp, _cT],
+  [0, () => WhatsAppTimeOfDay$, () => WhatsAppTimeOfDay$], 3
 ];
 var LinkedWhatsAppBusinessAccountSummaryList: StaticListSchema = [1, n0, _LWABASL,
   0, () => LinkedWhatsAppBusinessAccountSummary$
@@ -926,11 +1063,23 @@ var WabaPhoneNumberSetupFinalizationList: StaticListSchema = [1, n0, _WPNSFL,
 var WhatsAppBusinessAccountEventDestinations: StaticListSchema = [1, n0, _WABAEDh,
   0, () => WhatsAppBusinessAccountEventDestination$
 ];
+var WhatsAppCallPermissionActionList: StaticListSchema = [1, n0, _WACPAL,
+  0, () => WhatsAppCallPermissionAction$
+];
+var WhatsAppCallPermissionLimitList: StaticListSchema = [1, n0, _WACPLL,
+  0, () => WhatsAppCallPermissionLimit$
+];
+var WhatsAppHolidayScheduleList: StaticListSchema = [1, n0, _WAHSL,
+  0, () => WhatsAppHolidayScheduleEntry$
+];
 var WhatsAppPhoneNumberDetailList: StaticListSchema = [1, n0, _WAPNDL,
   0, () => WhatsAppPhoneNumberDetail$
 ];
 var WhatsAppPhoneNumberSummaryList: StaticListSchema = [1, n0, _WAPNSL,
   0, () => WhatsAppPhoneNumberSummary$
+];
+var WhatsAppWeeklyOperatingHoursList: StaticListSchema = [1, n0, _WAWOHL,
+  0, () => WhatsAppWeeklyOperatingHoursEntry$
 ];
 var Filter = 128 | 0;
 var Headers = 128 | 0;
@@ -981,6 +1130,9 @@ export var GetLinkedWhatsAppBusinessAccountPhoneNumber$: StaticOperationSchema =
 export var GetWhatsAppBusinessPublicKey$: StaticOperationSchema = [9, n0, _GWABPK,
   { [_ht]: ["GET", "/v1/whatsapp/business-public-key", 200] }, () => GetWhatsAppBusinessPublicKeyInput$, () => GetWhatsAppBusinessPublicKeyOutput$
 ];
+export var GetWhatsAppCallPermission$: StaticOperationSchema = [9, n0, _GWACP,
+  { [_ht]: ["POST", "/v1/whatsapp/call/permission/get", 200] }, () => GetWhatsAppCallPermissionInput$, () => GetWhatsAppCallPermissionOutput$
+];
 export var GetWhatsAppFlow$: StaticOperationSchema = [9, n0, _GWAF,
   { [_ht]: ["GET", "/v1/whatsapp/flow", 200] }, () => GetWhatsAppFlowInput$, () => GetWhatsAppFlowOutput$
 ];
@@ -1023,7 +1175,10 @@ export var PutWhatsAppBusinessAccountEventDestinations$: StaticOperationSchema =
 export var PutWhatsAppBusinessPublicKey$: StaticOperationSchema = [9, n0, _PWABPK,
   { [_ht]: ["PUT", "/v1/whatsapp/business-public-key", 200] }, () => PutWhatsAppBusinessPublicKeyInput$, () => PutWhatsAppBusinessPublicKeyOutput$
 ];
-export var SendWhatsAppConversionEvent$: StaticOperationSchema = [9, n0, _SWACE,
+export var SendWhatsAppCallEvent$: StaticOperationSchema = [9, n0, _SWACE,
+  { [_ht]: ["POST", "/v1/whatsapp/call/event", 200] }, () => SendWhatsAppCallEventInput$, () => SendWhatsAppCallEventOutput$
+];
+export var SendWhatsAppConversionEvent$: StaticOperationSchema = [9, n0, _SWACEe,
   { [_ht]: ["POST", "/v1/whatsapp/waba/dataset/events", 200] }, () => SendWhatsAppConversionEventInput$, () => SendWhatsAppConversionEventOutput$
 ];
 export var SendWhatsAppMessage$: StaticOperationSchema = [9, n0, _SWAM,
@@ -1034,6 +1189,9 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_ht]: ["POST", "/v1/tags/untag-resource", 200] }, () => UntagResourceInput$, () => UntagResourceOutput$
+];
+export var UpdateLinkedWhatsAppBusinessAccountPhoneNumber$: StaticOperationSchema = [9, n0, _ULWABAPN,
+  { [_ht]: ["PUT", "/v1/whatsapp/waba/phone", 200] }, () => UpdateLinkedWhatsAppBusinessAccountPhoneNumberInput$, () => UpdateLinkedWhatsAppBusinessAccountPhoneNumberOutput$
 ];
 export var UpdateWhatsAppFlow$: StaticOperationSchema = [9, n0, _UWAF,
   { [_ht]: ["POST", "/v1/whatsapp/flow/update", 200] }, () => UpdateWhatsAppFlowInput$, () => UpdateWhatsAppFlowOutput$

@@ -23,7 +23,7 @@ export interface GetWhatsAppBusinessPublicKeyCommandInput extends GetWhatsAppBus
 export interface GetWhatsAppBusinessPublicKeyCommandOutput extends GetWhatsAppBusinessPublicKeyOutput, __MetadataBearer {}
 
 /**
- * Retrieves the business public key for a phone number and its signature status.
+ * <p>Retrieves the business public key for a phone number and its signature status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

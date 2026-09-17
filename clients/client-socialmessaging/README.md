@@ -304,6 +304,13 @@ GetWhatsAppBusinessPublicKey
 </details>
 <details>
 <summary>
+GetWhatsAppCallPermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/GetWhatsAppCallPermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppCallPermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/GetWhatsAppCallPermissionCommandOutput/)
+</details>
+<details>
+<summary>
 GetWhatsAppFlow
 </summary>
 
@@ -402,6 +409,13 @@ PutWhatsAppBusinessPublicKey
 </details>
 <details>
 <summary>
+SendWhatsAppCallEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/SendWhatsAppCallEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/SendWhatsAppCallEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/SendWhatsAppCallEventCommandOutput/)
+</details>
+<details>
+<summary>
 SendWhatsAppConversionEvent
 </summary>
 
@@ -427,6 +441,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateLinkedWhatsAppBusinessAccountPhoneNumber
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput/)
 </details>
 <details>
 <summary>

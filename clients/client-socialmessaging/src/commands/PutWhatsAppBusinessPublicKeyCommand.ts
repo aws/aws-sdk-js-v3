@@ -23,7 +23,7 @@ export interface PutWhatsAppBusinessPublicKeyCommandInput extends PutWhatsAppBus
 export interface PutWhatsAppBusinessPublicKeyCommandOutput extends PutWhatsAppBusinessPublicKeyOutput, __MetadataBearer {}
 
 /**
- * Sets the business public key used to encrypt the data exchanged with the endpoint of a data exchange Flow.
+ * <p>Sets the business public key used to encrypt the data exchanged with the endpoint of a data exchange Flow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

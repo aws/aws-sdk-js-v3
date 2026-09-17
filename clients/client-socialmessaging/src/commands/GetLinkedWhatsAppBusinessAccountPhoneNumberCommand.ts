@@ -52,6 +52,41 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput extend
  * //     dataLocalizationRegion: "STRING_VALUE",
  * //   },
  * //   linkedWhatsAppBusinessAccountId: "STRING_VALUE",
+ * //   callSettings: { // WhatsAppCallSettings
+ * //     callEnabled: true || false, // required
+ * //     callHours: { // WhatsAppCallHours
+ * //       enabled: true || false, // required
+ * //       timezone: "STRING_VALUE", // required
+ * //       weeklyOperatingHours: [ // WhatsAppWeeklyOperatingHoursList // required
+ * //         { // WhatsAppWeeklyOperatingHoursEntry
+ * //           dayOfWeek: "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY" || "SUNDAY", // required
+ * //           openTime: { // WhatsAppTimeOfDay
+ * //             hours: Number("int"), // required
+ * //             minutes: Number("int"), // required
+ * //           },
+ * //           closeTime: {
+ * //             hours: Number("int"), // required
+ * //             minutes: Number("int"), // required
+ * //           },
+ * //         },
+ * //       ],
+ * //       holidaySchedule: [ // WhatsAppHolidayScheduleList
+ * //         { // WhatsAppHolidayScheduleEntry
+ * //           date: "STRING_VALUE", // required
+ * //           startTime: {
+ * //             hours: Number("int"), // required
+ * //             minutes: Number("int"), // required
+ * //           },
+ * //           endTime: {
+ * //             hours: Number("int"), // required
+ * //             minutes: Number("int"), // required
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
+ * //     callIconVisibility: "STRING_VALUE",
+ * //     callbackPermissionStatus: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

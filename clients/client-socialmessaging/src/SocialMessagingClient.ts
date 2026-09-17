@@ -110,6 +110,10 @@ import type {
   GetWhatsAppBusinessPublicKeyCommandInput,
   GetWhatsAppBusinessPublicKeyCommandOutput,
 } from "./commands/GetWhatsAppBusinessPublicKeyCommand";
+import type {
+  GetWhatsAppCallPermissionCommandInput,
+  GetWhatsAppCallPermissionCommandOutput,
+} from "./commands/GetWhatsAppCallPermissionCommand";
 import type { GetWhatsAppFlowCommandInput, GetWhatsAppFlowCommandOutput } from "./commands/GetWhatsAppFlowCommand";
 import type {
   GetWhatsAppFlowPreviewCommandInput,
@@ -164,6 +168,10 @@ import type {
   PutWhatsAppBusinessPublicKeyCommandOutput,
 } from "./commands/PutWhatsAppBusinessPublicKeyCommand";
 import type {
+  SendWhatsAppCallEventCommandInput,
+  SendWhatsAppCallEventCommandOutput,
+} from "./commands/SendWhatsAppCallEventCommand";
+import type {
   SendWhatsAppConversionEventCommandInput,
   SendWhatsAppConversionEventCommandOutput,
 } from "./commands/SendWhatsAppConversionEventCommand";
@@ -173,6 +181,10 @@ import type {
 } from "./commands/SendWhatsAppMessageCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
+  UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput,
+} from "./commands/UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommand";
 import type {
   UpdateWhatsAppFlowAssetsCommandInput,
   UpdateWhatsAppFlowAssetsCommandOutput,
@@ -214,6 +226,7 @@ export type ServiceInputTypes =
   | GetLinkedWhatsAppBusinessAccountCommandInput
   | GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput
   | GetWhatsAppBusinessPublicKeyCommandInput
+  | GetWhatsAppCallPermissionCommandInput
   | GetWhatsAppFlowCommandInput
   | GetWhatsAppFlowPreviewCommandInput
   | GetWhatsAppMessageMediaCommandInput
@@ -228,10 +241,12 @@ export type ServiceInputTypes =
   | PublishWhatsAppFlowCommandInput
   | PutWhatsAppBusinessAccountEventDestinationsCommandInput
   | PutWhatsAppBusinessPublicKeyCommandInput
+  | SendWhatsAppCallEventCommandInput
   | SendWhatsAppConversionEventCommandInput
   | SendWhatsAppMessageCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput
   | UpdateWhatsAppFlowAssetsCommandInput
   | UpdateWhatsAppFlowCommandInput
   | UpdateWhatsAppMessageTemplateCommandInput;
@@ -254,6 +269,7 @@ export type ServiceOutputTypes =
   | GetLinkedWhatsAppBusinessAccountCommandOutput
   | GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput
   | GetWhatsAppBusinessPublicKeyCommandOutput
+  | GetWhatsAppCallPermissionCommandOutput
   | GetWhatsAppFlowCommandOutput
   | GetWhatsAppFlowPreviewCommandOutput
   | GetWhatsAppMessageMediaCommandOutput
@@ -268,10 +284,12 @@ export type ServiceOutputTypes =
   | PublishWhatsAppFlowCommandOutput
   | PutWhatsAppBusinessAccountEventDestinationsCommandOutput
   | PutWhatsAppBusinessPublicKeyCommandOutput
+  | SendWhatsAppCallEventCommandOutput
   | SendWhatsAppConversionEventCommandOutput
   | SendWhatsAppMessageCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput
   | UpdateWhatsAppFlowAssetsCommandOutput
   | UpdateWhatsAppFlowCommandOutput
   | UpdateWhatsAppMessageTemplateCommandOutput;

@@ -31,3 +31,21 @@ export const MetaFlowCategory = {
  * @public
  */
 export type MetaFlowCategory = (typeof MetaFlowCategory)[keyof typeof MetaFlowCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const WhatsAppDayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+/**
+ * @public
+ */
+export type WhatsAppDayOfWeek = (typeof WhatsAppDayOfWeek)[keyof typeof WhatsAppDayOfWeek];

@@ -7,6 +7,8 @@ import {
   AssociateWhatsAppBusinessAccountCommand,
   AssociateWhatsAppBusinessAccountInput$,
   AssociateWhatsAppBusinessAccountOutput$,
+  ConflictException,
+  ConflictException$,
   CreateWhatsAppDataset$,
   CreateWhatsAppDatasetCommand,
   CreateWhatsAppDatasetInput$,
@@ -61,6 +63,10 @@ import {
   GetWhatsAppBusinessPublicKeyCommand,
   GetWhatsAppBusinessPublicKeyInput$,
   GetWhatsAppBusinessPublicKeyOutput$,
+  GetWhatsAppCallPermission$,
+  GetWhatsAppCallPermissionCommand,
+  GetWhatsAppCallPermissionInput$,
+  GetWhatsAppCallPermissionOutput$,
   GetWhatsAppFlow$,
   GetWhatsAppFlowCommand,
   GetWhatsAppFlowInput$,
@@ -149,6 +155,10 @@ import {
   ResourceNotFoundException$,
   S3File$,
   S3PresignedUrl$,
+  SendWhatsAppCallEvent$,
+  SendWhatsAppCallEventCommand,
+  SendWhatsAppCallEventInput$,
+  SendWhatsAppCallEventOutput$,
   SendWhatsAppConversionEvent$,
   SendWhatsAppConversionEventCommand,
   SendWhatsAppConversionEventInput$,
@@ -172,6 +182,10 @@ import {
   UntagResourceCommand,
   UntagResourceInput$,
   UntagResourceOutput$,
+  UpdateLinkedWhatsAppBusinessAccountPhoneNumber$,
+  UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommand,
+  UpdateLinkedWhatsAppBusinessAccountPhoneNumberInput$,
+  UpdateLinkedWhatsAppBusinessAccountPhoneNumberOutput$,
   UpdateWhatsAppFlow$,
   UpdateWhatsAppFlowAssets$,
   UpdateWhatsAppFlowAssetsCommand,
@@ -189,11 +203,20 @@ import {
   WabaPhoneNumberSetupFinalization$,
   WabaSetupFinalization$,
   WhatsAppBusinessAccountEventDestination$,
+  WhatsAppCallHours$,
+  WhatsAppCallPermission$,
+  WhatsAppCallPermissionAction$,
+  WhatsAppCallPermissionLimit$,
+  WhatsAppCallSettings$,
+  WhatsAppDayOfWeek,
+  WhatsAppHolidayScheduleEntry$,
   WhatsAppPhoneNumberDetail$,
   WhatsAppPhoneNumberSummary$,
   WhatsAppSetupFinalization$,
   WhatsAppSignupCallback$,
   WhatsAppSignupCallbackResult$,
+  WhatsAppTimeOfDay$,
+  WhatsAppWeeklyOperatingHoursEntry$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -228,6 +251,8 @@ assert(typeof GetLinkedWhatsAppBusinessAccountPhoneNumberCommand === "function")
 assert(typeof GetLinkedWhatsAppBusinessAccountPhoneNumber$ === "object");
 assert(typeof GetWhatsAppBusinessPublicKeyCommand === "function");
 assert(typeof GetWhatsAppBusinessPublicKey$ === "object");
+assert(typeof GetWhatsAppCallPermissionCommand === "function");
+assert(typeof GetWhatsAppCallPermission$ === "object");
 assert(typeof GetWhatsAppFlowCommand === "function");
 assert(typeof GetWhatsAppFlow$ === "object");
 assert(typeof GetWhatsAppFlowPreviewCommand === "function");
@@ -256,6 +281,8 @@ assert(typeof PutWhatsAppBusinessAccountEventDestinationsCommand === "function")
 assert(typeof PutWhatsAppBusinessAccountEventDestinations$ === "object");
 assert(typeof PutWhatsAppBusinessPublicKeyCommand === "function");
 assert(typeof PutWhatsAppBusinessPublicKey$ === "object");
+assert(typeof SendWhatsAppCallEventCommand === "function");
+assert(typeof SendWhatsAppCallEvent$ === "object");
 assert(typeof SendWhatsAppConversionEventCommand === "function");
 assert(typeof SendWhatsAppConversionEvent$ === "object");
 assert(typeof SendWhatsAppMessageCommand === "function");
@@ -264,6 +291,8 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommand === "function");
+assert(typeof UpdateLinkedWhatsAppBusinessAccountPhoneNumber$ === "object");
 assert(typeof UpdateWhatsAppFlowCommand === "function");
 assert(typeof UpdateWhatsAppFlow$ === "object");
 assert(typeof UpdateWhatsAppFlowAssetsCommand === "function");
@@ -299,6 +328,8 @@ assert(typeof GetLinkedWhatsAppBusinessAccountPhoneNumberInput$ === "object");
 assert(typeof GetLinkedWhatsAppBusinessAccountPhoneNumberOutput$ === "object");
 assert(typeof GetWhatsAppBusinessPublicKeyInput$ === "object");
 assert(typeof GetWhatsAppBusinessPublicKeyOutput$ === "object");
+assert(typeof GetWhatsAppCallPermissionInput$ === "object");
+assert(typeof GetWhatsAppCallPermissionOutput$ === "object");
 assert(typeof GetWhatsAppFlowInput$ === "object");
 assert(typeof GetWhatsAppFlowOutput$ === "object");
 assert(typeof GetWhatsAppFlowPreviewInput$ === "object");
@@ -344,6 +375,8 @@ assert(typeof PutWhatsAppBusinessPublicKeyInput$ === "object");
 assert(typeof PutWhatsAppBusinessPublicKeyOutput$ === "object");
 assert(typeof S3File$ === "object");
 assert(typeof S3PresignedUrl$ === "object");
+assert(typeof SendWhatsAppCallEventInput$ === "object");
+assert(typeof SendWhatsAppCallEventOutput$ === "object");
 assert(typeof SendWhatsAppConversionEventInput$ === "object");
 assert(typeof SendWhatsAppConversionEventOutput$ === "object");
 assert(typeof SendWhatsAppMessageInput$ === "object");
@@ -354,6 +387,8 @@ assert(typeof TagResourceOutput$ === "object");
 assert(typeof TemplateSummary$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
+assert(typeof UpdateLinkedWhatsAppBusinessAccountPhoneNumberInput$ === "object");
+assert(typeof UpdateLinkedWhatsAppBusinessAccountPhoneNumberOutput$ === "object");
 assert(typeof UpdateWhatsAppFlowAssetsInput$ === "object");
 assert(typeof UpdateWhatsAppFlowAssetsOutput$ === "object");
 assert(typeof UpdateWhatsAppFlowInput$ === "object");
@@ -363,19 +398,30 @@ assert(typeof UpdateWhatsAppMessageTemplateOutput$ === "object");
 assert(typeof WabaPhoneNumberSetupFinalization$ === "object");
 assert(typeof WabaSetupFinalization$ === "object");
 assert(typeof WhatsAppBusinessAccountEventDestination$ === "object");
+assert(typeof WhatsAppCallHours$ === "object");
+assert(typeof WhatsAppCallPermission$ === "object");
+assert(typeof WhatsAppCallPermissionAction$ === "object");
+assert(typeof WhatsAppCallPermissionLimit$ === "object");
+assert(typeof WhatsAppCallSettings$ === "object");
+assert(typeof WhatsAppHolidayScheduleEntry$ === "object");
 assert(typeof WhatsAppPhoneNumberDetail$ === "object");
 assert(typeof WhatsAppPhoneNumberSummary$ === "object");
 assert(typeof WhatsAppSetupFinalization$ === "object");
 assert(typeof WhatsAppSignupCallback$ === "object");
 assert(typeof WhatsAppSignupCallbackResult$ === "object");
+assert(typeof WhatsAppTimeOfDay$ === "object");
+assert(typeof WhatsAppWeeklyOperatingHoursEntry$ === "object");
 // enums
 assert(typeof MetaFlowCategory === "object");
 assert(typeof RegistrationStatus === "object");
+assert(typeof WhatsAppDayOfWeek === "object");
 // errors
 assert(AccessDeniedByMetaException.prototype instanceof SocialMessagingServiceException);
 assert(typeof AccessDeniedByMetaException$ === "object");
 assert(AccessDeniedException.prototype instanceof SocialMessagingServiceException);
 assert(typeof AccessDeniedException$ === "object");
+assert(ConflictException.prototype instanceof SocialMessagingServiceException);
+assert(typeof ConflictException$ === "object");
 assert(DependencyException.prototype instanceof SocialMessagingServiceException);
 assert(typeof DependencyException$ === "object");
 assert(InternalServiceException.prototype instanceof SocialMessagingServiceException);

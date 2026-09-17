@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { MetaFlowCategory, RegistrationStatus } from "./enums";
+import type { MetaFlowCategory, RegistrationStatus, WhatsAppDayOfWeek } from "./enums";
 
 /**
  * <p>The tag for a resource.</p>
@@ -433,11 +433,7 @@ export interface CreateWhatsAppFlowInput {
   cloneFlowId?: string | undefined;
 
   /**
-   * Optional HTTPS endpoint for a dynamic Flow, registered with Meta as the
-   * Flow's endpoint_uri and called by Meta directly. When omitted, the Flow
-   * has no endpoint (static Flow). Meta only calls the endpoint when the
-   * Flow JSON also declares data_api_version. To verify that requests
-   * originate from Meta, attach your own Meta app via UpdateWhatsAppFlow.
+   * <p>The HTTPS endpoint that Meta calls for a data exchange Flow.</p>
    * @public
    */
   endpointUri?: string | undefined;
@@ -999,6 +995,132 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberInput {
 }
 
 /**
+ * <p>A time of day, expressed as an hour and minute.</p>
+ * @public
+ */
+export interface WhatsAppTimeOfDay {
+  /**
+   * <p>The hour of the day, from 0 to 23.</p>
+   * @public
+   */
+  hours: number | undefined;
+
+  /**
+   * <p>The minute of the hour, from 0 to 59.</p>
+   * @public
+   */
+  minutes: number | undefined;
+}
+
+/**
+ * <p>A date-specific override to the weekly operating hours, such as a holiday.</p>
+ * @public
+ */
+export interface WhatsAppHolidayScheduleEntry {
+  /**
+   * <p>The date that the override applies to, in ISO 8601 format (<code>YYYY-MM-DD</code>).</p>
+   * @public
+   */
+  date: string | undefined;
+
+  /**
+   * <p>The time of day when the business begins accepting calls on the override date.</p>
+   * @public
+   */
+  startTime: WhatsAppTimeOfDay | undefined;
+
+  /**
+   * <p>The time of day when the business stops accepting calls on the override date.</p>
+   * @public
+   */
+  endTime: WhatsAppTimeOfDay | undefined;
+}
+
+/**
+ * <p>A single entry in a weekly calling schedule, defining the open and close times for one day of the week.</p>
+ * @public
+ */
+export interface WhatsAppWeeklyOperatingHoursEntry {
+  /**
+   * <p>The day of the week that the entry applies to.</p>
+   * @public
+   */
+  dayOfWeek: WhatsAppDayOfWeek | undefined;
+
+  /**
+   * <p>The time of day when the business begins accepting calls.</p>
+   * @public
+   */
+  openTime: WhatsAppTimeOfDay | undefined;
+
+  /**
+   * <p>The time of day when the business stops accepting calls.</p>
+   * @public
+   */
+  closeTime: WhatsAppTimeOfDay | undefined;
+}
+
+/**
+ * <p>The operating hours during which a business phone number accepts WhatsApp calls, including the time zone, weekly schedule, and any holiday overrides.</p>
+ * @public
+ */
+export interface WhatsAppCallHours {
+  /**
+   * <p>Specifies whether call hours are enforced. When disabled, the business accepts calls at any time.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>The IANA time zone in which the operating hours are interpreted, such as <code>America/New_York</code>.</p>
+   * @public
+   */
+  timezone: string | undefined;
+
+  /**
+   * <p>The weekly schedule of hours during which the business accepts calls.</p>
+   * @public
+   */
+  weeklyOperatingHours: WhatsAppWeeklyOperatingHoursEntry[] | undefined;
+
+  /**
+   * <p>Date-specific overrides to the weekly operating hours, such as holidays.</p>
+   * @public
+   */
+  holidaySchedule?: WhatsAppHolidayScheduleEntry[] | undefined;
+}
+
+/**
+ * <p>The calling configuration for a WhatsApp business phone number.</p>
+ * @public
+ */
+export interface WhatsAppCallSettings {
+  /**
+   * <p>Specifies whether calling is enabled for the phone number.</p>
+   * @public
+   */
+  callEnabled: boolean | undefined;
+
+  /**
+   * <p>The hours during which the business accepts calls on the phone number.</p>
+   * @public
+   */
+  callHours?: WhatsAppCallHours | undefined;
+
+  /**
+   * <p>The visibility setting for the call icon shown to end users in WhatsApp.</p>
+   * @public
+   */
+  callIconVisibility?: string | undefined;
+
+  /**
+   * <p>The callback permission status for the phone number.</p>
+   * @public
+   */
+  callbackPermissionStatus?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetLinkedWhatsAppBusinessAccountPhoneNumberOutput {
@@ -1014,6 +1136,12 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberOutput {
    * @public
    */
   linkedWhatsAppBusinessAccountId?: string | undefined;
+
+  /**
+   * <p>The calling settings configured for the phone number. This value is absent when calling is not configured.</p>
+   * @public
+   */
+  callSettings?: WhatsAppCallSettings | undefined;
 }
 
 /**
@@ -1021,7 +1149,7 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberOutput {
  */
 export interface GetWhatsAppBusinessPublicKeyInput {
   /**
-   * The unique identifier of the phone number whose business public key to retrieve.
+   * <p>The unique identifier of the phone number whose business public key to retrieve.</p>
    * @public
    */
   originationPhoneNumberId: string | undefined;
@@ -1032,16 +1160,128 @@ export interface GetWhatsAppBusinessPublicKeyInput {
  */
 export interface GetWhatsAppBusinessPublicKeyOutput {
   /**
-   * The stored RSA business public key (PEM), if present.
+   * <p>The stored PEM-encoded 2048-bit RSA public key.</p>
    * @public
    */
   businessPublicKey?: string | undefined;
 
   /**
-   * Meta's signing status: "VALID" | "MISMATCH".
+   * <p>The signature status of the stored business public key. Valid values are VALID and MISMATCH.</p>
    * @public
    */
   businessPublicKeySignatureStatus?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppCallPermissionInput {
+  /**
+   * <p>The unique identifier of the business phone number for which to retrieve the calling permission. The phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>.</p>
+   * @public
+   */
+  originationPhoneNumberId: string | undefined;
+
+  /**
+   * <p>The end user's phone number, in E.164 format, for which to retrieve the calling permission.</p>
+   * @public
+   */
+  destinationPhoneNumber?: string | undefined;
+
+  /**
+   * <p>The business-scoped user identifier (BSUID) of the end user for which to retrieve the calling permission.</p>
+   * @public
+   */
+  endUserBsuid?: string | undefined;
+}
+
+/**
+ * <p>A time-bound restriction on a calling action, such as the number of calls allowed within a time period.</p>
+ * @public
+ */
+export interface WhatsAppCallPermissionLimit {
+  /**
+   * <p>The time period over which the limit applies, as an ISO 8601 duration.</p>
+   * @public
+   */
+  timePeriod: string | undefined;
+
+  /**
+   * <p>The maximum number of times the action is allowed within the time period.</p>
+   * @public
+   */
+  maxAllowed: number | undefined;
+
+  /**
+   * <p>The number of times the action has been used within the current time period.</p>
+   * @public
+   */
+  currentUsage: number | undefined;
+
+  /**
+   * <p>The time when the limit resets. This value is present only when the current usage has reached the maximum allowed.</p>
+   * @public
+   */
+  limitExpirationTime?: Date | undefined;
+}
+
+/**
+ * <p>Describes a single calling action the business can take with an end user, including whether the action is currently allowed and any limits that apply to it. Returned as an item in the actions list from <code>GetWhatsAppCallPermission</code>.</p>
+ * @public
+ */
+export interface WhatsAppCallPermissionAction {
+  /**
+   * <p>The name of the calling action.</p>
+   * @public
+   */
+  actionName: string | undefined;
+
+  /**
+   * <p>Specifies whether the business can currently perform the action.</p>
+   * @public
+   */
+  canPerformAction: boolean | undefined;
+
+  /**
+   * <p>The time-bound limits that apply to the action.</p>
+   * @public
+   */
+  limits: WhatsAppCallPermissionLimit[] | undefined;
+}
+
+/**
+ * <p>The current calling permission state for a business phone number and a specific WhatsApp end user.</p>
+ * @public
+ */
+export interface WhatsAppCallPermission {
+  /**
+   * <p>The permission status for the end user.</p>
+   * @public
+   */
+  status: string | undefined;
+
+  /**
+   * <p>The time when a temporary permission expires. This value is absent for permanent permissions and when there is no permission.</p>
+   * @public
+   */
+  expirationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetWhatsAppCallPermissionOutput {
+  /**
+   * <p>The current calling permission state for the end user.</p>
+   * @public
+   */
+  permission: WhatsAppCallPermission | undefined;
+
+  /**
+   * <p>The calling actions the business can take with the end user, and any limits that apply to each action.</p>
+   * @public
+   */
+  actions: WhatsAppCallPermissionAction[] | undefined;
 }
 
 /**
@@ -1228,7 +1468,7 @@ export interface GetWhatsAppFlowOutput {
   dataApiVersion?: string | undefined;
 
   /**
-   * <p>The endpoint URI for data exchange Flows, if configured.</p>
+   * <p>The HTTPS endpoint that Meta calls for a data exchange Flow.</p>
    * @public
    */
   endpointUri?: string | undefined;
@@ -2012,22 +2252,13 @@ export interface UpdateWhatsAppFlowInput {
   categories?: MetaFlowCategory[] | undefined;
 
   /**
-   * Optional HTTPS endpoint for a dynamic Flow, registered with Meta as the
-   * Flow's endpoint_uri and called by Meta directly. When omitted, the
-   * Flow's endpoint is unchanged.
+   * <p>The updated HTTPS endpoint for a data exchange Flow.</p>
    * @public
    */
   endpointUri?: string | undefined;
 
   /**
-   * Optional Meta app ID to attach to the Flow. Meta signs data-exchange
-   * requests with the attached app's secret, so attaching your own app is
-   * what enables X-Hub-Signature-256 and flow_token_signature verification
-   * at your endpoint. Meta requires the app to be owned by the same business
-   * that owns the WABA. Attaching your own app is one-way: the service's
-   * app cannot be re-attached afterwards. When omitted, the attached app is
-   * unchanged. (Set via update because Meta ignores application_id at
-   * creation time.)
+   * <p>The ID of the Meta application to attach to the Flow.</p>
    * @public
    */
   metaAppId?: string | undefined;
@@ -2172,19 +2403,19 @@ export interface PostWhatsAppMessageMediaOutput {
  */
 export interface PutWhatsAppBusinessPublicKeyInput {
   /**
-   * The unique identifier of the phone number to associate with the business public key.
+   * <p>The unique identifier of the phone number to associate with the business public key.</p>
    * @public
    */
   originationPhoneNumberId: string | undefined;
 
   /**
-   * PEM-encoded RSA public key. Mutually exclusive with kmsKeyArn.
+   * <p>The PEM-encoded 2048-bit RSA public key to set. Mutually exclusive with <code>kmsKeyArn</code>.</p>
    * @public
    */
   businessPublicKey?: string | undefined;
 
   /**
-   * Customer-managed KMS asymmetric RSA key ARN. Mutually exclusive with businessPublicKey.
+   * <p>The ARN of a customer managed asymmetric RSA key in Amazon Web Services KMS. Mutually exclusive with <code>businessPublicKey</code>.</p>
    * @public
    */
   kmsKeyArn?: string | undefined;
@@ -2194,6 +2425,40 @@ export interface PutWhatsAppBusinessPublicKeyInput {
  * @public
  */
 export interface PutWhatsAppBusinessPublicKeyOutput {}
+
+/**
+ * @public
+ */
+export interface SendWhatsAppCallEventInput {
+  /**
+   * <p>The unique identifier of the origination phone number for the call. The phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use <code>GetLinkedWhatsAppBusinessAccount</code> to find a phone number's ID.</p>
+   * @public
+   */
+  originationPhoneNumberId: string | undefined;
+
+  /**
+   * <p>The version of the Meta Graph API to use for the request.</p>
+   * @public
+   */
+  metaApiVersion: string | undefined;
+
+  /**
+   * <p>The call event payload to send, as a JSON blob in the format defined by the Meta calling API.</p>
+   * @public
+   */
+  callEvent: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendWhatsAppCallEventOutput {
+  /**
+   * <p>The unique identifier that Meta assigns to the call.</p>
+   * @public
+   */
+  callId: string | undefined;
+}
 
 /**
  * @public
@@ -2235,6 +2500,34 @@ export interface SendWhatsAppMessageOutput {
    * @public
    */
   messageId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLinkedWhatsAppBusinessAccountPhoneNumberInput {
+  /**
+   * <p>The unique identifier of the phone number to update. The phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The calling settings to apply to the phone number.</p>
+   * @public
+   */
+  callSettings: WhatsAppCallSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLinkedWhatsAppBusinessAccountPhoneNumberOutput {
+  /**
+   * <p>The unique identifier of the phone number that was updated.</p>
+   * @public
+   */
+  phoneNumberId: string | undefined;
 }
 
 /**

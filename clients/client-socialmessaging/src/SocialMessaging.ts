@@ -73,6 +73,11 @@ import {
   GetWhatsAppBusinessPublicKeyCommand,
 } from "./commands/GetWhatsAppBusinessPublicKeyCommand";
 import {
+  type GetWhatsAppCallPermissionCommandInput,
+  type GetWhatsAppCallPermissionCommandOutput,
+  GetWhatsAppCallPermissionCommand,
+} from "./commands/GetWhatsAppCallPermissionCommand";
+import {
   type GetWhatsAppFlowCommandInput,
   type GetWhatsAppFlowCommandOutput,
   GetWhatsAppFlowCommand,
@@ -143,6 +148,11 @@ import {
   PutWhatsAppBusinessPublicKeyCommand,
 } from "./commands/PutWhatsAppBusinessPublicKeyCommand";
 import {
+  type SendWhatsAppCallEventCommandInput,
+  type SendWhatsAppCallEventCommandOutput,
+  SendWhatsAppCallEventCommand,
+} from "./commands/SendWhatsAppCallEventCommand";
+import {
   type SendWhatsAppConversionEventCommandInput,
   type SendWhatsAppConversionEventCommandOutput,
   SendWhatsAppConversionEventCommand,
@@ -162,6 +172,11 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import {
+  type UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
+  type UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput,
+  UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommand,
+} from "./commands/UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommand";
 import {
   type UpdateWhatsAppFlowAssetsCommandInput,
   type UpdateWhatsAppFlowAssetsCommandOutput,
@@ -199,6 +214,7 @@ const commands = {
   GetLinkedWhatsAppBusinessAccountCommand,
   GetLinkedWhatsAppBusinessAccountPhoneNumberCommand,
   GetWhatsAppBusinessPublicKeyCommand,
+  GetWhatsAppCallPermissionCommand,
   GetWhatsAppFlowCommand,
   GetWhatsAppFlowPreviewCommand,
   GetWhatsAppMessageMediaCommand,
@@ -213,10 +229,12 @@ const commands = {
   PublishWhatsAppFlowCommand,
   PutWhatsAppBusinessAccountEventDestinationsCommand,
   PutWhatsAppBusinessPublicKeyCommand,
+  SendWhatsAppCallEventCommand,
   SendWhatsAppConversionEventCommand,
   SendWhatsAppMessageCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommand,
   UpdateWhatsAppFlowCommand,
   UpdateWhatsAppFlowAssetsCommand,
   UpdateWhatsAppMessageTemplateCommand,
@@ -470,6 +488,23 @@ export interface SocialMessaging {
   ): void;
 
   /**
+   * @see {@link GetWhatsAppCallPermissionCommand}
+   */
+  getWhatsAppCallPermission(
+    args: GetWhatsAppCallPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWhatsAppCallPermissionCommandOutput>;
+  getWhatsAppCallPermission(
+    args: GetWhatsAppCallPermissionCommandInput,
+    cb: (err: any, data?: GetWhatsAppCallPermissionCommandOutput) => void
+  ): void;
+  getWhatsAppCallPermission(
+    args: GetWhatsAppCallPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWhatsAppCallPermissionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetWhatsAppFlowCommand}
    */
   getWhatsAppFlow(
@@ -709,6 +744,23 @@ export interface SocialMessaging {
   ): void;
 
   /**
+   * @see {@link SendWhatsAppCallEventCommand}
+   */
+  sendWhatsAppCallEvent(
+    args: SendWhatsAppCallEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendWhatsAppCallEventCommandOutput>;
+  sendWhatsAppCallEvent(
+    args: SendWhatsAppCallEventCommandInput,
+    cb: (err: any, data?: SendWhatsAppCallEventCommandOutput) => void
+  ): void;
+  sendWhatsAppCallEvent(
+    args: SendWhatsAppCallEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendWhatsAppCallEventCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SendWhatsAppConversionEventCommand}
    */
   sendWhatsAppConversionEvent(
@@ -774,6 +826,23 @@ export interface SocialMessaging {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommand}
+   */
+  updateLinkedWhatsAppBusinessAccountPhoneNumber(
+    args: UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput>;
+  updateLinkedWhatsAppBusinessAccountPhoneNumber(
+    args: UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
+    cb: (err: any, data?: UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput) => void
+  ): void;
+  updateLinkedWhatsAppBusinessAccountPhoneNumber(
+    args: UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput) => void
   ): void;
 
   /**
