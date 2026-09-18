@@ -127,6 +127,59 @@ export interface AgentAttributes {
 }
 
 /**
+ * <p>A union that identifies a collaborator agent to engage. Specify either an Amazon Connect AI Agent or a third-party agent.</p>
+ * @public
+ */
+export type AgentTarget =
+  | AgentTarget.AiAgentIdMember
+  | AgentTarget.ApplicationIdMember
+  | AgentTarget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgentTarget {
+  /**
+   * <p>The identifier of an Amazon Connect AI Agent to use as the collaborator agent.</p>
+   * @public
+   */
+  export interface AiAgentIdMember {
+    aiAgentId: string;
+    applicationId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The identifier of a third-party agent to use as the collaborator agent.</p>
+   * @public
+   */
+  export interface ApplicationIdMember {
+    aiAgentId?: never;
+    applicationId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    aiAgentId?: never;
+    applicationId?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    aiAgentId: (value: string) => T;
+    applicationId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>A leaf node condition which can be used to specify a tag condition. </p>
  * @public
  */
@@ -558,6 +611,125 @@ export interface NoteTakingAIAgentConfiguration {
 }
 
 /**
+ * <p>The instruction that guides how the Orchestration AI Agent works with a collaborator agent.</p>
+ * @public
+ */
+export interface MultiAgentInstruction {
+  /**
+   * <p>The natural-language instruction that tells the Orchestration AI Agent when and how to engage the collaborator agent.</p>
+   * @public
+   */
+  instruction?: string | undefined;
+
+  /**
+   * <p>Example interactions that illustrate when the Orchestration AI Agent should engage the collaborator agent.</p>
+   * @public
+   */
+  examples?: string[] | undefined;
+}
+
+/**
+ * <p>A collaborator agent configuration in which the Orchestration AI Agent invokes the collaborator, resuming when the collaborator returns.</p>
+ * @public
+ */
+export interface DelegateAgentConfiguration {
+  /**
+   * <p>The collaborator agent to delegate to.</p>
+   * @public
+   */
+  agentTarget: AgentTarget | undefined;
+
+  /**
+   * <p>The instruction that tells the Orchestration AI Agent when and how to delegate to this collaborator agent.</p>
+   * @public
+   */
+  instruction?: MultiAgentInstruction | undefined;
+}
+
+/**
+ * <p>A collaborator agent configuration in which the Orchestration AI Agent transfers control of the conversation to the collaborator agent.</p>
+ * @public
+ */
+export interface HandoffAgentConfiguration {
+  /**
+   * <p>The collaborator agent to hand off to.</p>
+   * @public
+   */
+  agentTarget: AgentTarget | undefined;
+
+  /**
+   * <p>The instruction that tells the Orchestration AI Agent when and how to hand off to this collaborator agent.</p>
+   * @public
+   */
+  instruction?: MultiAgentInstruction | undefined;
+
+  /**
+   * <p>Specifies whether the caller's audio is streamed directly to the collaborator agent and the collaborator's audio response is played back during the handoff. This applies only to voice handoffs.</p>
+   * @public
+   */
+  audioStreamingEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the conversation is handed off to this collaborator agent immediately on the first turn, without any orchestration reasoning. At most one handoff in an AI Agent's configuration can set this to <code>true</code>.</p>
+   * @public
+   */
+  immediateHandoff?: boolean | undefined;
+}
+
+/**
+ * <p>A union that configures a single collaborator agent for an Orchestration AI Agent, as either a delegate or a handoff.</p>
+ * @public
+ */
+export type MultiAgentConfiguration =
+  | MultiAgentConfiguration.DelegateAgentConfigurationMember
+  | MultiAgentConfiguration.HandoffAgentConfigurationMember
+  | MultiAgentConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MultiAgentConfiguration {
+  /**
+   * <p>Configures the collaborator agent as a delegate that the Orchestration AI Agent invokes while retaining control of the conversation.</p>
+   * @public
+   */
+  export interface DelegateAgentConfigurationMember {
+    delegateAgentConfiguration: DelegateAgentConfiguration;
+    handoffAgentConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configures the collaborator agent as a handoff target that the Orchestration AI Agent transfers control of the conversation to.</p>
+   * @public
+   */
+  export interface HandoffAgentConfigurationMember {
+    delegateAgentConfiguration?: never;
+    handoffAgentConfiguration: HandoffAgentConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    delegateAgentConfiguration?: never;
+    handoffAgentConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    delegateAgentConfiguration: (value: DelegateAgentConfiguration) => T;
+    handoffAgentConfiguration: (value: HandoffAgentConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>An annotation that provides additional context or metadata.</p>
  * @public
  */
@@ -803,7 +975,7 @@ export interface OrchestrationAIAgentConfiguration {
    * <p>The AI Prompt identifier used by the Orchestration AI Agent.</p>
    * @public
    */
-  orchestrationAIPromptId: string | undefined;
+  orchestrationAIPromptId?: string | undefined;
 
   /**
    * <p>The AI Guardrail identifier used by the Orchestration AI Agent.</p>
@@ -818,6 +990,12 @@ export interface OrchestrationAIAgentConfiguration {
   toolConfigurations?: ToolConfiguration[] | undefined;
 
   /**
+   * <p>The collaborator agents that the Orchestration AI Agent can work with. Each entry defines another agent that the orchestrator either delegates to or hands the conversation off to.</p>
+   * @public
+   */
+  multiAgentConfigurations?: MultiAgentConfiguration[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Connect instance used by the Orchestration AI Agent.</p>
    * @public
    */
@@ -828,6 +1006,18 @@ export interface OrchestrationAIAgentConfiguration {
    * @public
    */
   locale?: string | undefined;
+
+  /**
+   * <p>The JSON schemas that define the structure of the structured data input accepted by the Orchestration AI Agent. The data in a <code>DATA</code> message sent to the agent is validated against these schemas. You can specify at most one schema.</p>
+   * @public
+   */
+  inputSchemas?: __DocumentType[] | undefined;
+
+  /**
+   * <p>The JSON schemas that define the structure of the structured output generated by the Orchestration AI Agent. You can specify at most one schema.</p>
+   * @public
+   */
+  outputSchemas?: __DocumentType[] | undefined;
 }
 
 /**
@@ -1681,7 +1871,7 @@ export interface AIGuardrailContextualGroundingPolicyConfig {
  */
 export interface GuardrailPiiEntityConfig {
   /**
-   * <p>Configure AI Guardrail type when the PII entity is detected.</p> <p>The following PIIs are used to block or mask sensitive information:</p> <ul> <li> <p> <b>General</b> </p> <ul> <li> <p> <b>ADDRESS</b> </p> <p>A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood. </p> </li> <li> <p> <b>AGE</b> </p> <p>An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age. </p> </li> <li> <p> <b>NAME</b> </p> <p>An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. AI Guardrail doesn't apply this entity type to names that are part of organizations or addresses. For example, AI Guardrail recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address. </p> </li> <li> <p> <b>EMAIL</b> </p> <p>An email address, such as <i>marymajor@email.com</i>.</p> </li> <li> <p> <b>PHONE</b> </p> <p>A phone number. This entity type also includes fax and pager numbers. </p> </li> <li> <p> <b>USERNAME</b> </p> <p>A user name that identifies an account, such as a login name, screen name, nick name, or handle. </p> </li> <li> <p> <b>PASSWORD</b> </p> <p>An alphanumeric string that is used as a password, such as "*<i> very20special#pass*</i>". </p> </li> <li> <p> <b>DRIVER_ID</b> </p> <p>The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters. </p> </li> <li> <p> <b>LICENSE_PLATE</b> </p> <p>A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country. </p> </li> <li> <p> <b>VEHICLE_IDENTIFICATION_NUMBER</b> </p> <p>A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the <i>ISO 3779</i> specification. Each country has specific codes and formats for VINs. </p> </li> </ul> </li> <li> <p> <b>Finance</b> </p> <ul> <li> <p> <b>CREDIT_DEBIT_CARD_CVV</b> </p> <p>A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code. </p> </li> <li> <p> <b>CREDIT_DEBIT_CARD_EXPIRY</b> </p> <p>The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as <i>month/year</i> or <i>MM/YY</i>. AI Guardrail recognizes expiration dates such as <i>01/21</i>, <i>01/2021</i>, and <i>Jan 2021</i>. </p> </li> <li> <p> <b>CREDIT_DEBIT_CARD_NUMBER</b> </p> <p>The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present. </p> </li> <li> <p> <b>PIN</b> </p> <p>A four-digit personal identification number (PIN) with which you can access your bank account. </p> </li> <li> <p> <b>INTERNATIONAL_BANK_ACCOUNT_NUMBER</b> </p> <p>An International Bank Account Number has specific formats in each country. For more information, see <a href="https://www.iban.com/structure"> www.iban.com/structure</a>.</p> </li> <li> <p> <b>SWIFT_CODE</b> </p> <p>A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.</p> <p>SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.</p> </li> </ul> </li> <li> <p> <b>IT</b> </p> <ul> <li> <p> <b>IP_ADDRESS</b> </p> <p>An IPv4 address, such as <i>198.51.100.0</i>. </p> </li> <li> <p> <b>MAC_ADDRESS</b> </p> <p>A <i>media access control</i> (MAC) address is a unique identifier assigned to a network interface controller (NIC). </p> </li> <li> <p> <b>URL</b> </p> <p>A web address, such as <i>www.example.com</i>. </p> </li> <li> <p> <b>AWS_ACCESS_KEY</b> </p> <p>A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically. </p> </li> <li> <p> <b>AWS_SECRET_KEY</b> </p> <p>A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically. </p> </li> </ul> </li> <li> <p> <b>USA specific</b> </p> <ul> <li> <p> <b>US_BANK_ACCOUNT_NUMBER</b> </p> <p>A US bank account number, which is typically 10 to 12 digits long. </p> </li> <li> <p> <b>US_BANK_ROUTING_NUMBER</b> </p> <p>A US bank account routing number. These are typically nine digits long, </p> </li> <li> <p> <b>US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER</b> </p> <p>A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits. </p> </li> <li> <p> <b>US_PASSPORT_NUMBER</b> </p> <p>A US passport number. Passport numbers range from six to nine alphanumeric characters. </p> </li> <li> <p> <b>US_SOCIAL_SECURITY_NUMBER</b> </p> <p>A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents. </p> </li> </ul> </li> <li> <p> <b>Canada specific</b> </p> <ul> <li> <p> <b>CA_HEALTH_NUMBER</b> </p> <p>A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits. </p> </li> <li> <p> <b>CA_SOCIAL_INSURANCE_NUMBER</b> </p> <p>A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.</p> <p>The SIN is formatted as three groups of three digits, such as <i> 123-456-789</i>. A SIN can be validated through a simple check-digit process called the <a href="https://www.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a> .</p> </li> </ul> </li> <li> <p> <b>UK Specific</b> </p> <ul> <li> <p> <b>UK_NATIONAL_HEALTH_SERVICE_NUMBER</b> </p> <p>A UK National Health Service Number is a 10-17 digit number, such as <i>485 555 3456</i>. The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.</p> </li> <li> <p> <b>UK_NATIONAL_INSURANCE_NUMBER</b> </p> <p>A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.</p> <p>The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.</p> </li> <li> <p> <b>UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER</b> </p> <p>A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business. </p> </li> </ul> </li> <li> <p> <b>Custom</b> </p> <ul> <li> <p> <b>Regex filter</b> - You can use a regular expressions to define patterns for an AI Guardrail to recognize and act upon such as serial number, booking ID etc..</p> </li> </ul> </li> </ul>
+   * <p>Configure AI Guardrail type when the PII entity is detected.</p> <p>The following PIIs are used to block or mask sensitive information:</p> <ul> <li> <p> <b>General</b> </p> <ul> <li> <p> <b>ADDRESS</b> </p> <p>A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood. </p> </li> <li> <p> <b>AGE</b> </p> <p>An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age. </p> </li> <li> <p> <b>NAME</b> </p> <p>An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. AI Guardrail doesn't apply this entity type to names that are part of organizations or addresses. For example, AI Guardrail recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address. </p> </li> <li> <p> <b>EMAIL</b> </p> <p>An email address, such as <i>marymajor@email.com</i>.</p> </li> <li> <p> <b>PHONE</b> </p> <p>A phone number. This entity type also includes fax and pager numbers. </p> </li> <li> <p> <b>USERNAME</b> </p> <p>A user name that identifies an account, such as a login name, screen name, nick name, or handle. </p> </li> <li> <p> <b>PASSWORD</b> </p> <p>An alphanumeric string that is used as a password, such as "*<i> very20special#pass*</i>". </p> </li> <li> <p> <b>DRIVER_ID</b> </p> <p>The number assigned to a driver's license, which is an official document permitting an individual to operate one or more motorized vehicles on a public road. A driver's license number consists of alphanumeric characters. </p> </li> <li> <p> <b>LICENSE_PLATE</b> </p> <p>A license plate for a vehicle is issued by the state or country where the vehicle is registered. The format for passenger vehicles is typically five to eight digits, consisting of upper-case letters and numbers. The format varies depending on the location of the issuing state or country. </p> </li> <li> <p> <b>VEHICLE_IDENTIFICATION_NUMBER</b> </p> <p>A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the <i>ISO 3779</i> specification. Each country has specific codes and formats for VINs. </p> </li> </ul> </li> <li> <p> <b>Finance</b> </p> <ul> <li> <p> <b>CREDIT_DEBIT_CARD_CVV</b> </p> <p>A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code. </p> </li> <li> <p> <b>CREDIT_DEBIT_CARD_EXPIRY</b> </p> <p>The expiration date for a credit or debit card. This number is usually four digits long and is often formatted as <i>month/year</i> or <i>MM/YY</i>. AI Guardrail recognizes expiration dates such as <i>01/21</i>, <i>01/2021</i>, and <i>Jan 2021</i>. </p> </li> <li> <p> <b>CREDIT_DEBIT_CARD_NUMBER</b> </p> <p>The number for a credit or debit card. These numbers can vary from 13 to 16 digits in length. However, Amazon Comprehend also recognizes credit or debit card numbers when only the last four digits are present. </p> </li> <li> <p> <b>PIN</b> </p> <p>A four-digit personal identification number (PIN) with which you can access your bank account. </p> </li> <li> <p> <b>INTERNATIONAL_BANK_ACCOUNT_NUMBER</b> </p> <p>An International Bank Account Number has specific formats in each country. For more information, see <a href="https://www.iban.com/structure"> www.iban.com/structure</a>.</p> </li> <li> <p> <b>SWIFT_CODE</b> </p> <p>A SWIFT code is a standard format of Bank Identifier Code (BIC) used to specify a particular bank or branch. Banks use these codes for money transfers such as international wire transfers.</p> <p>SWIFT codes consist of eight or 11 characters. The 11-digit codes refer to specific branches, while eight-digit codes (or 11-digit codes ending in 'XXX') refer to the head or primary office.</p> </li> </ul> </li> <li> <p> <b>IT</b> </p> <ul> <li> <p> <b>IP_ADDRESS</b> </p> <p>An IPv4 address, such as <i>198.51.100.0</i>. </p> </li> <li> <p> <b>MAC_ADDRESS</b> </p> <p>A <i>media access control</i> (MAC) address is a unique identifier assigned to a network interface controller (NIC). </p> </li> <li> <p> <b>URL</b> </p> <p>A web address, such as <i>www.example.com</i>. </p> </li> <li> <p> <b>AWS_ACCESS_KEY</b> </p> <p>A unique identifier that's associated with a secret access key; you use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically. </p> </li> <li> <p> <b>AWS_SECRET_KEY</b> </p> <p>A unique identifier that's associated with an access key. You use the access key ID and secret access key to sign programmatic Amazon Web Services requests cryptographically. </p> </li> </ul> </li> <li> <p> <b>USA specific</b> </p> <ul> <li> <p> <b>US_BANK_ACCOUNT_NUMBER</b> </p> <p>A US bank account number, which is typically 10 to 12 digits long. </p> </li> <li> <p> <b>US_BANK_ROUTING_NUMBER</b> </p> <p>A US bank account routing number. These are typically nine digits long, </p> </li> <li> <p> <b>US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER</b> </p> <p>A US Individual Taxpayer Identification Number (ITIN) is a nine-digit number that starts with a "9" and contain a "7" or "8" as the fourth digit. An ITIN can be formatted with a space or a dash after the third and forth digits. </p> </li> <li> <p> <b>US_PASSPORT_NUMBER</b> </p> <p>A US passport number. Passport numbers range from six to nine alphanumeric characters. </p> </li> <li> <p> <b>US_SOCIAL_SECURITY_NUMBER</b> </p> <p>A US Social Security Number (SSN) is a nine-digit number that is issued to US citizens, permanent residents, and temporary working residents. </p> </li> </ul> </li> <li> <p> <b>Canada specific</b> </p> <ul> <li> <p> <b>CA_HEALTH_NUMBER</b> </p> <p>A Canadian Health Service Number is a 10-digit unique identifier, required for individuals to access healthcare benefits. </p> </li> <li> <p> <b>CA_SOCIAL_INSURANCE_NUMBER</b> </p> <p>A Canadian Social Insurance Number (SIN) is a nine-digit unique identifier, required for individuals to access government programs and benefits.</p> <p>The SIN is formatted as three groups of three digits, such as <i> 123-456-789</i>. A SIN can be validated through a simple check-digit process called the Luhn algorithm. For more information, see <a href="https://www.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</a> on the Wikipedia website.</p> </li> </ul> </li> <li> <p> <b>UK Specific</b> </p> <ul> <li> <p> <b>UK_NATIONAL_HEALTH_SERVICE_NUMBER</b> </p> <p>A UK National Health Service Number is a 10-17 digit number, such as <i>485 555 3456</i>. The current system formats the 10-digit number with spaces after the third and sixth digits. The final digit is an error-detecting checksum.</p> </li> <li> <p> <b>UK_NATIONAL_INSURANCE_NUMBER</b> </p> <p>A UK National Insurance Number (NINO) provides individuals with access to National Insurance (social security) benefits. It is also used for some purposes in the UK tax system.</p> <p>The number is nine digits long and starts with two letters, followed by six numbers and one letter. A NINO can be formatted with a space or a dash after the two letters and after the second, forth, and sixth digits.</p> </li> <li> <p> <b>UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER</b> </p> <p>A UK Unique Taxpayer Reference (UTR) is a 10-digit number that identifies a taxpayer or a business. </p> </li> </ul> </li> <li> <p> <b>Custom</b> </p> <ul> <li> <p> <b>Regex filter</b> - You can use a regular expressions to define patterns for an AI Guardrail to recognize and act upon such as serial number, booking ID etc..</p> </li> </ul> </li> </ul>
    * @public
    */
   type: GuardrailPiiEntityType | undefined;
@@ -3116,7 +3306,7 @@ export interface UpdateAIPromptResponse {
  */
 export interface AmazonConnectGuideAssociationData {
   /**
-   * <p> The Amazon Resource Name (ARN) of an Amazon Connect flow. Step-by-step guides are a type of flow.</p>
+   * <p> The Amazon Resource Name (ARN) of an Connect Customer flow. Step-by-step guides are a type of flow.</p>
    * @public
    */
   flowId?: string | undefined;
@@ -5196,7 +5386,7 @@ export interface CreateSessionRequest {
   aiAgentConfiguration?: Partial<Record<AIAgentType, AIAgentConfigurationData>> | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the email contact in Amazon Connect. Used to retrieve email content and establish session context for AI-powered email assistance.</p>
+   * <p>The Amazon Resource Name (ARN) of the email contact in Connect Customer. Used to retrieve email content and establish session context for AI-powered email assistance.</p>
    * @public
    */
   contactArn?: string | undefined;
@@ -5502,6 +5692,7 @@ export interface ToolUseResultData {
  * @public
  */
 export type MessageData =
+  | MessageData.DataMember
   | MessageData.TextMember
   | MessageData.ToolUseResultMember
   | MessageData.$UnknownMember;
@@ -5517,6 +5708,7 @@ export namespace MessageData {
   export interface TextMember {
     text: TextMessage;
     toolUseResult?: never;
+    data?: never;
     $unknown?: never;
   }
 
@@ -5527,6 +5719,18 @@ export namespace MessageData {
   export interface ToolUseResultMember {
     text?: never;
     toolUseResult: ToolUseResultData;
+    data?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The message data as a structured JSON document. This is the payload for a message of type <code>DATA</code>, and must be a JSON object at the root level.</p>
+   * @public
+   */
+  export interface DataMember {
+    text?: never;
+    toolUseResult?: never;
+    data: __DocumentType;
     $unknown?: never;
   }
 
@@ -5536,6 +5740,7 @@ export namespace MessageData {
   export interface $UnknownMember {
     text?: never;
     toolUseResult?: never;
+    data?: never;
     $unknown: [string, any];
   }
 
@@ -5546,6 +5751,7 @@ export namespace MessageData {
   export interface Visitor<T> {
     text: (value: TextMessage) => T;
     toolUseResult: (value: ToolUseResultData) => T;
+    data: (value: __DocumentType) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6023,7 +6229,7 @@ export interface SendMessageRequest {
   metadata?: Record<string, string> | undefined;
 
   /**
-   * Request identifier from the origin system, used for end-to-end tracing across spans.
+   * <p>Request identifier from the origin system, used for end-to-end tracing across spans.</p>
    * @public
    */
   originRequestId?: string | undefined;
@@ -6341,12 +6547,12 @@ export interface ChunkingConfiguration {
 }
 
 /**
- * <p>The configuration information of the Amazon Connect data source.</p>
+ * <p>The configuration information of the Connect Customer data source.</p>
  * @public
  */
 export interface ConnectConfiguration {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>
    * @public
    */
   instanceId?: string | undefined;
@@ -6365,7 +6571,7 @@ export type Configuration =
  */
 export namespace Configuration {
   /**
-   * <p>The configuration information of the Amazon Connect data source.</p>
+   * <p>The configuration information of the Connect Customer data source.</p>
    * @public
    */
   export interface ConnectConfigurationMember {
@@ -8402,7 +8608,7 @@ export interface GroupingConfiguration {
   criteria?: string | undefined;
 
   /**
-   * <p>The list of values that define different groups of Amazon Q in Connect users.</p> <ul> <li> <p>When setting <code>criteria</code> to <code>RoutingProfileArn</code>, you need to provide a list of ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon Connect routing profiles</a> as values of this parameter.</p> </li> </ul>
+   * <p>The list of values that define different groups of Amazon Q in Connect users.</p> <ul> <li> <p>When setting <code>criteria</code> to <code>RoutingProfileArn</code>, you need to provide a list of ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Connect Customer routing profiles</a> as values of this parameter.</p> </li> </ul>
    * @public
    */
   values?: string[] | undefined;
@@ -8875,308 +9081,4 @@ export interface CreateMessageTemplateVersionRequest {
    * @public
    */
   messageTemplateContentSha256?: string | undefined;
-}
-
-/**
- * <p>The extended data of a message template.</p>
- * @public
- */
-export interface ExtendedMessageTemplateData {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   * @public
-   */
-  messageTemplateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the message template.</p>
-   * @public
-   */
-  messageTemplateId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the message template.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The channel of the message template.</p>
-   * @public
-   */
-  channel?: string | undefined;
-
-  /**
-   * <p>The channel subtype this message template applies to.</p>
-   * @public
-   */
-  channelSubtype: ChannelSubtype | undefined;
-
-  /**
-   * <p>The timestamp when the message template was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the message template data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
-   * @public
-   */
-  lastModifiedBy: string | undefined;
-
-  /**
-   * <p>The content of the message template.</p>
-   * @public
-   */
-  content?: MessageTemplateContentProvider | undefined;
-
-  /**
-   * <p>The description of the message template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>The source configuration summary of the message template.</p>
-   * @public
-   */
-  sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
-
-  /**
-   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
-   * @public
-   */
-  defaultAttributes?: MessageTemplateAttributes | undefined;
-
-  /**
-   * <p>The types of attributes contain the message template.</p>
-   * @public
-   */
-  attributeTypes?: MessageTemplateAttributeType[] | undefined;
-
-  /**
-   * <p>The message template attachments.</p>
-   * @public
-   */
-  attachments?: MessageTemplateAttachment[] | undefined;
-
-  /**
-   * <p>Whether the version of the message template is activated.</p>
-   * @public
-   */
-  isActive?: boolean | undefined;
-
-  /**
-   * <p>The version number of the message template version.</p>
-   * @public
-   */
-  versionNumber?: number | undefined;
-
-  /**
-   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
-   * @public
-   */
-  messageTemplateContentSha256: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateMessageTemplateVersionResponse {
-  /**
-   * <p>The message template.</p>
-   * @public
-   */
-  messageTemplate?: ExtendedMessageTemplateData | undefined;
-}
-
-/**
- * <p>The container of quick response data.</p>
- * @public
- */
-export type QuickResponseDataProvider =
-  | QuickResponseDataProvider.ContentMember
-  | QuickResponseDataProvider.$UnknownMember;
-
-/**
- * @public
- */
-export namespace QuickResponseDataProvider {
-  /**
-   * <p>The content of the quick response.</p>
-   * @public
-   */
-  export interface ContentMember {
-    content: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    content?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    content: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateQuickResponseRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the quick response.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The content of the quick response.</p>
-   * @public
-   */
-  content: QuickResponseDataProvider | undefined;
-
-  /**
-   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response written in richtext.</p> </li> </ul>
-   * @public
-   */
-  contentType?: string | undefined;
-
-  /**
-   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>The description of the quick response.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base. </p>
-   * @public
-   */
-  shortcutKey?: string | undefined;
-
-  /**
-   * <p>Whether the quick response is active.</p>
-   * @public
-   */
-  isActive?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Connect channels this quick response applies to.</p>
-   * @public
-   */
-  channels?: string[] | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The container quick response content.</p>
- * @public
- */
-export type QuickResponseContentProvider =
-  | QuickResponseContentProvider.ContentMember
-  | QuickResponseContentProvider.$UnknownMember;
-
-/**
- * @public
- */
-export namespace QuickResponseContentProvider {
-  /**
-   * <p>The content of the quick response.</p>
-   * @public
-   */
-  export interface ContentMember {
-    content: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    content?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    content: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
 }

@@ -70,6 +70,7 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //           toolResult: "DOCUMENT_VALUE", // required
  * //           inputSchema: "DOCUMENT_VALUE",
  * //         },
+ * //         data: "DOCUMENT_VALUE",
  * //       },
  * //       messageId: "STRING_VALUE", // required
  * //       participant: "STRING_VALUE", // required

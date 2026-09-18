@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateQuickResponseRequest } from "../models/models_0";
-import type { CreateQuickResponseResponse } from "../models/models_1";
+import type { CreateQuickResponseRequest, CreateQuickResponseResponse } from "../models/models_1";
 import { CreateQuickResponse$ } from "../schemas/schemas_0";
 
 /**

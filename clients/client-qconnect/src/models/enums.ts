@@ -624,6 +624,7 @@ export type Participant = (typeof Participant)[keyof typeof Participant];
  * @enum
  */
 export const MessageType = {
+  DATA: "DATA",
   TEXT: "TEXT",
   TOOL_USE_RESULT: "TOOL_USE_RESULT",
 } as const;
@@ -688,6 +689,34 @@ export const GuardrailSource = {
  * @public
  */
 export type GuardrailSource = (typeof GuardrailSource)[keyof typeof GuardrailSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const InteractionMode = {
+  DELEGATE: "DELEGATE",
+  HANDOFF: "HANDOFF",
+} as const;
+/**
+ * @public
+ */
+export type InteractionMode = (typeof InteractionMode)[keyof typeof InteractionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReturnReason = {
+  COMPLETE: "COMPLETE",
+  COMPLETE_WITH_ERROR: "COMPLETE_WITH_ERROR",
+  ESCALATE: "ESCALATE",
+  OUT_OF_DOMAIN: "OUT_OF_DOMAIN",
+} as const;
+/**
+ * @public
+ */
+export type ReturnReason = (typeof ReturnReason)[keyof typeof ReturnReason];
 
 /**
  * @public

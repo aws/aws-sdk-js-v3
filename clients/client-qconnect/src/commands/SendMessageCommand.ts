@@ -63,6 +63,7 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *         toolResult: "DOCUMENT_VALUE", // required
  *         inputSchema: "DOCUMENT_VALUE",
  *       },
+ *       data: "DOCUMENT_VALUE",
  *     },
  *   },
  *   aiAgentId: "STRING_VALUE",

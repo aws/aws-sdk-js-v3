@@ -68,6 +68,7 @@ export interface GetNextMessageCommandOutput extends GetNextMessageResponse, __M
  * //         toolResult: "DOCUMENT_VALUE", // required
  * //         inputSchema: "DOCUMENT_VALUE",
  * //       },
+ * //       data: "DOCUMENT_VALUE",
  * //     },
  * //     messageId: "STRING_VALUE", // required
  * //     participant: "STRING_VALUE", // required

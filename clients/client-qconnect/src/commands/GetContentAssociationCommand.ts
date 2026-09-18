@@ -23,7 +23,7 @@ export interface GetContentAssociationCommandInput extends GetContentAssociation
 export interface GetContentAssociationCommandOutput extends GetContentAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the content association.</p> <p>For more information about content associations--what they are and when they are used--see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html">Integrate Amazon Q in Connect with step-by-step guides</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>Returns the content association.</p> <p>For more information about content associations--what they are and when they are used--see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html">Integrate Amazon Q in Connect with step-by-step guides</a> in the <i>Connect Customer Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

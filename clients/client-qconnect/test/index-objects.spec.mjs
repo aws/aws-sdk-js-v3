@@ -6,6 +6,7 @@ import {
   ActivateMessageTemplateRequest$,
   ActivateMessageTemplateResponse$,
   AgentAttributes$,
+  AgentTarget$,
   AIAgentAssociationConfigurationType,
   AIAgentConfiguration$,
   AIAgentConfigurationData$,
@@ -149,6 +150,7 @@ import {
   DeactivateMessageTemplateCommand,
   DeactivateMessageTemplateRequest$,
   DeactivateMessageTemplateResponse$,
+  DelegateAgentConfiguration$,
   DeleteAIAgent$,
   DeleteAIAgentCommand,
   DeleteAIAgentRequest$,
@@ -314,6 +316,7 @@ import {
   GuardrailTopicConfig$,
   GuardrailTopicType,
   GuardrailWordConfig$,
+  HandoffAgentConfiguration$,
   HierarchicalChunkingConfiguration$,
   HierarchicalChunkingLevelConfiguration$,
   Highlight$,
@@ -323,6 +326,7 @@ import {
   ImportJobType,
   IntentDetectedDataDetails$,
   IntentInputData$,
+  InteractionMode,
   KnowledgeBaseAssociationConfigurationData$,
   KnowledgeBaseAssociationData$,
   KnowledgeBaseData$,
@@ -434,6 +438,8 @@ import {
   MessageType,
   ModelLifecycle,
   ModelSummary$,
+  MultiAgentConfiguration$,
+  MultiAgentInstruction$,
   NotesChunkDataDetails$,
   NotesDataDetails$,
   NoteTakingAIAgentConfiguration$,
@@ -550,6 +556,7 @@ import {
   RetrieveRequest$,
   RetrieveResponse$,
   RetrieveResult$,
+  ReturnReason,
   RuntimeSessionData$,
   RuntimeSessionDataValue$,
   SearchContent$,
@@ -902,6 +909,7 @@ assert(typeof UpdateSessionData$ === "object");
 assert(typeof ActivateMessageTemplateRequest$ === "object");
 assert(typeof ActivateMessageTemplateResponse$ === "object");
 assert(typeof AgentAttributes$ === "object");
+assert(typeof AgentTarget$ === "object");
 assert(typeof AIAgentConfiguration$ === "object");
 assert(typeof AIAgentConfigurationData$ === "object");
 assert(typeof AIAgentData$ === "object");
@@ -992,6 +1000,7 @@ assert(typeof DataReference$ === "object");
 assert(typeof DataSummary$ === "object");
 assert(typeof DeactivateMessageTemplateRequest$ === "object");
 assert(typeof DeactivateMessageTemplateResponse$ === "object");
+assert(typeof DelegateAgentConfiguration$ === "object");
 assert(typeof DeleteAIAgentRequest$ === "object");
 assert(typeof DeleteAIAgentResponse$ === "object");
 assert(typeof DeleteAIAgentVersionRequest$ === "object");
@@ -1082,6 +1091,7 @@ assert(typeof GuardrailPolicyResult$ === "object");
 assert(typeof GuardrailRegexConfig$ === "object");
 assert(typeof GuardrailTopicConfig$ === "object");
 assert(typeof GuardrailWordConfig$ === "object");
+assert(typeof HandoffAgentConfiguration$ === "object");
 assert(typeof HierarchicalChunkingConfiguration$ === "object");
 assert(typeof HierarchicalChunkingLevelConfiguration$ === "object");
 assert(typeof Highlight$ === "object");
@@ -1153,6 +1163,8 @@ assert(typeof MessageTemplateSourceConfigurationSummary$ === "object");
 assert(typeof MessageTemplateSummary$ === "object");
 assert(typeof MessageTemplateVersionSummary$ === "object");
 assert(typeof ModelSummary$ === "object");
+assert(typeof MultiAgentConfiguration$ === "object");
+assert(typeof MultiAgentInstruction$ === "object");
 assert(typeof NotesChunkDataDetails$ === "object");
 assert(typeof NotesDataDetails$ === "object");
 assert(typeof NoteTakingAIAgentConfiguration$ === "object");
@@ -1328,6 +1340,7 @@ assert(typeof GuardrailSource === "object");
 assert(typeof GuardrailTopicType === "object");
 assert(typeof ImportJobStatus === "object");
 assert(typeof ImportJobType === "object");
+assert(typeof InteractionMode === "object");
 assert(typeof KnowledgeBaseSearchType === "object");
 assert(typeof KnowledgeBaseStatus === "object");
 assert(typeof KnowledgeBaseType === "object");
@@ -1355,6 +1368,7 @@ assert(typeof RecommendationType === "object");
 assert(typeof ReferenceType === "object");
 assert(typeof Relevance === "object");
 assert(typeof RelevanceLevel === "object");
+assert(typeof ReturnReason === "object");
 assert(typeof SessionDataNamespace === "object");
 assert(typeof SourceContentType === "object");
 assert(typeof SpanStatus === "object");

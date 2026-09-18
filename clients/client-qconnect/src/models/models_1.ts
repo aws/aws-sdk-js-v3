@@ -6,9 +6,11 @@ import type {
   ExternalSource,
   ImportJobStatus,
   ImportJobType,
+  InteractionMode,
   KnowledgeBaseSearchType,
   KnowledgeBaseStatus,
   KnowledgeBaseType,
+  MessageTemplateAttributeType,
   MessageTemplateFilterOperator,
   MessageTemplateQueryOperator,
   Order,
@@ -20,6 +22,7 @@ import type {
   QuickResponseStatus,
   RecommendationType,
   RelevanceLevel,
+  ReturnReason,
   SpanStatus,
   SpanType,
 } from "./enums";
@@ -32,7 +35,6 @@ import type {
   Document,
   EmailOverviewChunkDataDetails,
   EmailResponseChunkDataDetails,
-  ExtendedMessageTemplateData,
   FilterAttribute,
   GroupingConfiguration,
   IntentDetectedDataDetails,
@@ -46,8 +48,6 @@ import type {
   MessageTemplateSourceConfigurationSummary,
   NotesChunkDataDetails,
   NotesDataDetails,
-  QuickResponseContentProvider,
-  QuickResponseDataProvider,
   RankingData,
   RecommendationTrigger,
   RenderingConfiguration,
@@ -62,6 +62,310 @@ import type {
   SuggestedMessageDataDetails,
   VectorIngestionConfiguration,
 } from "./models_0";
+
+/**
+ * <p>The extended data of a message template.</p>
+ * @public
+ */
+export interface ExtendedMessageTemplateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel of the message template.</p>
+   * @public
+   */
+  channel?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content?: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The source configuration summary of the message template.</p>
+   * @public
+   */
+  sourceConfigurationSummary?: MessageTemplateSourceConfigurationSummary | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The types of attributes contain the message template.</p>
+   * @public
+   */
+  attributeTypes?: MessageTemplateAttributeType[] | undefined;
+
+  /**
+   * <p>The message template attachments.</p>
+   * @public
+   */
+  attachments?: MessageTemplateAttachment[] | undefined;
+
+  /**
+   * <p>Whether the version of the message template is activated.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The version number of the message template version.</p>
+   * @public
+   */
+  versionNumber?: number | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language, <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * @public
+   */
+  messageTemplateContentSha256: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateVersionResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: ExtendedMessageTemplateData | undefined;
+}
+
+/**
+ * <p>The container of quick response data.</p>
+ * @public
+ */
+export type QuickResponseDataProvider =
+  | QuickResponseDataProvider.ContentMember
+  | QuickResponseDataProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickResponseDataProvider {
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  export interface ContentMember {
+    content: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    content?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    content: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateQuickResponseRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the quick response.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  content: QuickResponseDataProvider | undefined;
+
+  /**
+   * <p>The media type of the quick response content.</p> <ul> <li> <p>Use <code>application/x.quickresponse;format=plain</code> for a quick response written in plain text.</p> </li> <li> <p>Use <code>application/x.quickresponse;format=markdown</code> for a quick response written in richtext.</p> </li> </ul>
+   * @public
+   */
+  contentType?: string | undefined;
+
+  /**
+   * <p>The configuration information of the user groups that the quick response is accessible to.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>The description of the quick response.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The shortcut key of the quick response. The value should be unique across the knowledge base. </p>
+   * @public
+   */
+  shortcutKey?: string | undefined;
+
+  /**
+   * <p>Whether the quick response is active.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The Connect Customer channels this quick response applies to.</p>
+   * @public
+   */
+  channels?: string[] | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>, <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>, <code>zh_CN</code>, <code>zh_TW</code> </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The container quick response content.</p>
+ * @public
+ */
+export type QuickResponseContentProvider =
+  | QuickResponseContentProvider.ContentMember
+  | QuickResponseContentProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickResponseContentProvider {
+  /**
+   * <p>The content of the quick response.</p>
+   * @public
+   */
+  export interface ContentMember {
+    content: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    content?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    content: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>The content of the quick response stored in different media types.</p>
@@ -177,7 +481,7 @@ export interface QuickResponseData {
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Connect Customer contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[] | undefined;
@@ -1269,7 +1573,7 @@ export interface QuickResponseSummary {
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Connect Customer contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[] | undefined;
@@ -1375,7 +1679,7 @@ export interface UpdateQuickResponseRequest {
   isActive?: boolean | undefined;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Connect Customer contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[] | undefined;
@@ -1859,7 +2163,7 @@ export interface SearchQuickResponsesRequest {
   maxResults?: number | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Amazon Connect contact attributes</a> to be resolved when search results are returned.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Connect Customer contact attributes</a> to be resolved when search results are returned.</p>
    * @public
    */
   attributes?: Record<string, string> | undefined;
@@ -1961,7 +2265,7 @@ export interface QuickResponseSearchResultData {
   lastModifiedBy?: string | undefined;
 
   /**
-   * <p>The Amazon Connect contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
+   * <p>The Connect Customer contact channels this quick response applies to. The supported contact channel types include <code>Chat</code>.</p>
    * @public
    */
   channels?: string[] | undefined;
@@ -3304,6 +3608,24 @@ export interface SpanAttributes {
    * @public
    */
   aiAgentOrchestratorUseCase?: string | undefined;
+
+  /**
+   * <p>How the orchestrator engaged the collaborator agent. Present on spans that invoke a collaborator agent.</p>
+   * @public
+   */
+  interactionMode?: InteractionMode | undefined;
+
+  /**
+   * <p>Identifier of the collaborator agent being invoked. For first-party collaborators this is the Amazon Connect AI agent ID; for third-party collaborators this is the external application ID.</p>
+   * @public
+   */
+  targetAgentId?: string | undefined;
+
+  /**
+   * <p>Reason a sub-agent returned control to the calling agent. Present on return_to_agent spans.</p>
+   * @public
+   */
+  returnReason?: ReturnReason | undefined;
 
   /**
    * <p>LLM model ID for request (e.g., anthropic.claude-3-sonnet)</p>

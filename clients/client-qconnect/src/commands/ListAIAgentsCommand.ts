@@ -213,7 +213,7 @@ export interface ListAIAgentsCommandOutput extends ListAIAgentsResponse, __Metad
  * //           ],
  * //         },
  * //         orchestrationAIAgentConfiguration: { // OrchestrationAIAgentConfiguration
- * //           orchestrationAIPromptId: "STRING_VALUE", // required
+ * //           orchestrationAIPromptId: "STRING_VALUE",
  * //           orchestrationAIGuardrailId: "STRING_VALUE",
  * //           toolConfigurations: [ // ToolConfigurationList
  * //             { // ToolConfiguration
@@ -259,8 +259,44 @@ export interface ListAIAgentsCommandOutput extends ListAIAgentsResponse, __Metad
  * //               },
  * //             },
  * //           ],
+ * //           multiAgentConfigurations: [ // MultiAgentConfigurationList
+ * //             { // MultiAgentConfiguration Union: only one key present
+ * //               delegateAgentConfiguration: { // DelegateAgentConfiguration
+ * //                 agentTarget: { // AgentTarget Union: only one key present
+ * //                   aiAgentId: "STRING_VALUE",
+ * //                   applicationId: "STRING_VALUE",
+ * //                 },
+ * //                 instruction: { // MultiAgentInstruction
+ * //                   instruction: "STRING_VALUE",
+ * //                   examples: [ // MultiAgentExampleList
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               handoffAgentConfiguration: { // HandoffAgentConfiguration
+ * //                 agentTarget: {//  Union: only one key present
+ * //                   aiAgentId: "STRING_VALUE",
+ * //                   applicationId: "STRING_VALUE",
+ * //                 },
+ * //                 instruction: {
+ * //                   instruction: "STRING_VALUE",
+ * //                   examples: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //                 audioStreamingEnabled: true || false,
+ * //                 immediateHandoff: true || false,
+ * //               },
+ * //             },
+ * //           ],
  * //           connectInstanceArn: "STRING_VALUE",
  * //           locale: "STRING_VALUE",
+ * //           inputSchemas: [ // JSONDocumentList
+ * //             "DOCUMENT_VALUE",
+ * //           ],
+ * //           outputSchemas: [
+ * //             "DOCUMENT_VALUE",
+ * //           ],
  * //         },
  * //         noteTakingAIAgentConfiguration: { // NoteTakingAIAgentConfiguration
  * //           noteTakingAIPromptId: "STRING_VALUE",

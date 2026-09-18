@@ -50,6 +50,7 @@ const _AMTR = "ActivateMessageTemplateRequest";
 const _AMTRc = "ActivateMessageTemplateResponse";
 const _ARAIAC = "AnswerRecommendationAIAgentConfiguration";
 const _AS = "AssistantSummary";
+const _AT = "AgentTarget";
 const _BFMCFP = "BedrockFoundationModelConfigurationForParsing";
 const _C = "Channel";
 const _CA = "ContactAttributes";
@@ -132,6 +133,7 @@ const _DA = "DeleteAssistant";
 const _DAA = "DeleteAssistantAssociation";
 const _DAAR = "DeleteAssistantAssociationRequest";
 const _DAARe = "DeleteAssistantAssociationResponse";
+const _DAC = "DelegateAgentConfiguration";
 const _DAIA = "DeleteAIAgent";
 const _DAIAR = "DeleteAIAgentRequest";
 const _DAIARe = "DeleteAIAgentResponse";
@@ -286,6 +288,7 @@ const _GWC = "GuardrailWordConfig";
 const _GWCu = "GuardrailWordsConfig";
 const _GWT = "GuardrailWordText";
 const _H = "Highlight";
+const _HAC = "HandoffAgentConfiguration";
 const _HCC = "HierarchicalChunkingConfiguration";
 const _HCLC = "HierarchicalChunkingLevelConfiguration";
 const _HCLCi = "HierarchicalChunkingLevelConfigurations";
@@ -296,6 +299,7 @@ const _IJD = "ImportJobData";
 const _IJL = "ImportJobList";
 const _IJS = "ImportJobSummary";
 const _JSOND = "JSONDocument";
+const _JSONDL = "JSONDocumentList";
 const _KBACD = "KnowledgeBaseAssociationConfigurationData";
 const _KBAD = "KnowledgeBaseAssociationData";
 const _KBD = "KnowledgeBaseData";
@@ -359,6 +363,9 @@ const _LSRi = "ListSpansResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _MAC = "MultiAgentConfiguration";
+const _MACL = "MultiAgentConfigurationList";
+const _MAI = "MultiAgentInstruction";
 const _MC = "MessageConfiguration";
 const _MD = "MessageData";
 const _MI = "MessageInput";
@@ -647,7 +654,8 @@ const _aI = "assistantId";
 const _aIA = "appIntegrationArn";
 const _aId = "additionalInformation";
 const _aIg = "agentId";
-const _aIp = "appIntegrations";
+const _aIp = "applicationId";
+const _aIpp = "appIntegrations";
 const _aIs = "associationId";
 const _aIt = "attachmentId";
 const _aItt = "attributesInterpolated";
@@ -663,7 +671,9 @@ const _aPVS = "aiPromptVersionSummaries";
 const _aRA = "accessRoleArn";
 const _aRAIAC = "answerRecommendationAIAgentConfiguration";
 const _aS = "assistantSummaries";
+const _aSE = "audioStreamingEnabled";
 const _aT = "associationType";
+const _aTg = "agentTarget";
 const _aTt = "attributeTypes";
 const _aVN = "activeVersionNumber";
 const _ac = "action";
@@ -769,6 +779,7 @@ const _cr = "criteria";
 const _cu = "custom";
 const _d = "description";
 const _dA = "defaultAttributes";
+const _dAC = "delegateAgentConfiguration";
 const _dH = "destructiveHint";
 const _dN = "displayName";
 const _da = "data";
@@ -823,6 +834,7 @@ const _gR = "generativeReference";
 const _gT = "greaterThan";
 const _gTOE = "greaterThanOrEquals";
 const _h = "highlights";
+const _hAC = "handoffAgentConfiguration";
 const _hCC = "hierarchicalChunkingConfiguration";
 const _hE = "httpError";
 const _hPN = "homePhoneNumber";
@@ -831,7 +843,7 @@ const _hTI = "headersToInclude";
 const _he = "headers";
 const _ht = "html";
 const _htt = "http";
-const _i = "intent";
+const _i = "instruction";
 const _iA = "isActive";
 const _iAn = "instanceArn";
 const _iC = "inferenceConfiguration";
@@ -840,6 +852,7 @@ const _iCn = "integrationConfiguration";
 const _iDD = "intentDetectedData";
 const _iF = "inclusionFilters";
 const _iFR = "ingestionFailureReasons";
+const _iH = "immediateHandoff";
 const _iI = "instanceId";
 const _iID = "intentInputData";
 const _iIU = "imageIconUrl";
@@ -849,16 +862,18 @@ const _iJI = "importJobId";
 const _iJS = "importJobSummaries";
 const _iJT = "importJobType";
 const _iLGAIPI = "intentLabelingGenerationAIPromptId";
-const _iM = "inputMessages";
+const _iM = "interactionMode";
+const _iMn = "inputMessages";
 const _iNE = "includeNoExistence";
 const _iS = "inputStrength";
 const _iSn = "ingestionStatus";
-const _iSnp = "inputSchema";
+const _iSnp = "inputSchemas";
+const _iSnpu = "inputSchema";
 const _iT = "inputTranscript";
 const _iU = "imageUrl";
 const _iUCR = "isUserConfirmationRequired";
 const _id = "id";
-const _in = "instruction";
+const _in = "intent";
 const _in_ = "in";
 const _jP = "jsonPath";
 const _k = "key";
@@ -885,6 +900,7 @@ const _lTe = "lessThan";
 const _la = "language";
 const _m = "message";
 const _mA = "modelArn";
+const _mAC = "multiAgentConfigurations";
 const _mAa = "mailingAddress1";
 const _mAai = "mailingAddress2";
 const _mAail = "mailingAddress3";
@@ -951,7 +967,8 @@ const _oOF = "orderOnField";
 const _oP = "overlapPercentage";
 const _oRI = "originRequestId";
 const _oS = "outputStrength";
-const _oSu = "outputSchema";
+const _oSu = "outputSchemas";
+const _oSut = "outputSchema";
 const _oT = "overlapTokens";
 const _oUC = "orchestratorUseCase";
 const _oVNO = "outputVariableNameOverride";
@@ -1019,6 +1036,7 @@ const _rN = "resourceName";
 const _rOCL = "removeOrchestratorConfigurationList";
 const _rOLOU = "removeOverrideLinkOutUri";
 const _rQ = "retrievalQuery";
+const _rR = "returnReason";
 const _rS = "relevanceScore";
 const _rSK = "removeShortcutKey";
 const _rT = "referenceType";
@@ -1091,6 +1109,7 @@ const _st = "status";
 const _sta = "state";
 const _su = "subject";
 const _t = "type";
+const _tAI = "targetAgentId";
 const _tC = "topicsConfig";
 const _tCa = "tagCondition";
 const _tCe = "templateConfiguration";
@@ -1709,6 +1728,11 @@ export var DeactivateMessageTemplateResponse$: StaticStructureSchema = [3, n0, _
   [_mTA, _mTI, _vN],
   [0, 0, 1], 3
 ];
+export var DelegateAgentConfiguration$: StaticStructureSchema = [3, n0, _DAC,
+  0,
+  [_aTg, _i],
+  [() => AgentTarget$, [() => MultiAgentInstruction$, 0]], 1
+];
 export var DeleteAIAgentRequest$: StaticStructureSchema = [3, n0, _DAIAR,
   0,
   [_aI, _aAI],
@@ -2159,6 +2183,11 @@ export var GuardrailWordConfig$: StaticStructureSchema = [3, n0, _GWC,
   [_tex],
   [[() => GuardrailWordText, 0]], 1
 ];
+export var HandoffAgentConfiguration$: StaticStructureSchema = [3, n0, _HAC,
+  0,
+  [_aTg, _i, _aSE, _iH],
+  [() => AgentTarget$, [() => MultiAgentInstruction$, 0], 2, 2], 1
+];
 export var HierarchicalChunkingConfiguration$: StaticStructureSchema = [3, n0, _HCC,
   0,
   [_lC, _oT],
@@ -2186,7 +2215,7 @@ export var ImportJobSummary$: StaticStructureSchema = [3, n0, _IJS,
 ];
 export var IntentDetectedDataDetails$: StaticStructureSchema = [3, n0, _IDDD,
   0,
-  [_i, _iIn, _rL],
+  [_in, _iIn, _rL],
   [[() => SensitiveString, 0], 0, 0], 2
 ];
 export var IntentInputData$: StaticStructureSchema = [3, n0, _IID,
@@ -2479,6 +2508,11 @@ export var ModelSummary$: StaticStructureSchema = [3, n0, _MS,
   [_mI, _dN, _cRS, _sPCu, _sAIPT, _mL, _lT, _eOLT],
   [0, 0, 0, 2, 64 | 0, 0, 4, 4], 2
 ];
+export var MultiAgentInstruction$: StaticStructureSchema = [3, n0, _MAI,
+  8,
+  [_i, _exa],
+  [0, 64 | 0]
+];
 export var NotesChunkDataDetails$: StaticStructureSchema = [3, n0, _NCDD,
   0,
   [_com, _nCT],
@@ -2511,8 +2545,8 @@ export var NotifyRecommendationsReceivedResponse$: StaticStructureSchema = [3, n
 ];
 export var OrchestrationAIAgentConfiguration$: StaticStructureSchema = [3, n0, _OAIAC,
   0,
-  [_oAIPI, _oAIGI, _tCo, _cIA, _l],
-  [0, 0, [() => ToolConfigurationList, 0], 0, 0], 1
+  [_oAIPI, _oAIGI, _tCo, _mAC, _cIA, _l, _iSnp, _oSu],
+  [0, 0, [() => ToolConfigurationList, 0], [() => MultiAgentConfigurationList, 0], 0, 0, [() => JSONDocumentList, 0], [() => JSONDocumentList, 0]]
 ];
 export var OrchestratorConfigurationEntry$: StaticStructureSchema = [3, n0, _OCE,
   0,
@@ -2826,8 +2860,8 @@ export var Span$: StaticStructureSchema = [3, n0, _S,
 ];
 export var SpanAttributes$: StaticStructureSchema = [3, n0, _SA,
   0,
-  [_oN, _pNr, _eTr, _aIg, _iAn, _cIo, _iCI, _sNe, _aAA, _aAT, _aAN, _aAI, _aAV, _aAIi, _aAOUC, _rM, _rMT, _te, _tP, _rMe, _rFR, _uIT, _uOT, _uTT, _cRIT, _cWIT, _iM, _oM, _sIy, _pA, _pIr, _pTr, _pNro, _pV, _tTFTM, _gA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 1, 1, 1, 1, 1, [() => SpanMessageList, 0], [() => SpanMessageList, 0], [() => SpanMessageValueList, 0], 0, 0, 0, 0, 1, 1, () => SpanGuardrailAssessmentList]
+  [_oN, _pNr, _eTr, _aIg, _iAn, _cIo, _iCI, _sNe, _aAA, _aAT, _aAN, _aAI, _aAV, _aAIi, _aAOUC, _iM, _tAI, _rR, _rM, _rMT, _te, _tP, _rMe, _rFR, _uIT, _uOT, _uTT, _cRIT, _cWIT, _iMn, _oM, _sIy, _pA, _pIr, _pTr, _pNro, _pV, _tTFTM, _gA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 64 | 0, 1, 1, 1, 1, 1, [() => SpanMessageList, 0], [() => SpanMessageList, 0], [() => SpanMessageValueList, 0], 0, 0, 0, 0, 1, 1, () => SpanGuardrailAssessmentList]
 ];
 export var SpanCitation$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -2936,12 +2970,12 @@ export var TextMessage$: StaticStructureSchema = [3, n0, _TM,
 ];
 export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TCo,
   0,
-  [_tNo, _tTo, _ti, _tIo, _d, _in, _oIV, _oFu, _iSnp, _oSu, _an, _uIC],
+  [_tNo, _tTo, _ti, _tIo, _d, _i, _oIV, _oFu, _iSnpu, _oSut, _an, _uIC],
   [0, 0, [() => NonEmptySensitiveString, 0], 0, [() => NonEmptySensitiveString, 0], [() => ToolInstruction$, 0], [() => ToolOverrideInputValueList, 0], [() => ToolOutputFilterList, 0], [() => JSONDocument, 0], [() => JSONDocument, 0], [() => Annotation$, 0], () => UserInteractionConfiguration$], 2
 ];
 export var ToolInstruction$: StaticStructureSchema = [3, n0, _TI,
   8,
-  [_in, _exa],
+  [_i, _exa],
   [0, 64 | 0]
 ];
 export var ToolOutputConfiguration$: StaticStructureSchema = [3, n0, _TOC,
@@ -2966,7 +3000,7 @@ export var ToolOverrideInputValue$: StaticStructureSchema = [3, n0, _TOIV,
 ];
 export var ToolUseResultData$: StaticStructureSchema = [3, n0, _TURD,
   0,
-  [_tUI, _tNo, _tR, _iSnp],
+  [_tUI, _tNo, _tR, _iSnpu],
   [0, 0, [() => JSONDocument, 0], [() => JSONDocument, 0]], 3
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -3242,6 +3276,10 @@ var Highlights: StaticListSchema = [1, n0, _Hi,
 var ImportJobList: StaticListSchema = [1, n0, _IJL,
   0, () => ImportJobSummary$
 ];
+var JSONDocumentList: StaticListSchema = [1, n0, _JSONDL,
+  0, [() => JSONDocument,
+    0]
+];
 var KnowledgeBaseList: StaticListSchema = [1, n0, _KBL,
   0, [() => KnowledgeBaseSummary$,
     0]
@@ -3281,6 +3319,11 @@ var MessageTemplateVersionSummaryList: StaticListSchema = [1, n0, _MTVSL,
 var ModelSummaryList: StaticListSchema = [1, n0, _MSL,
   0, () => ModelSummary$
 ];
+var MultiAgentConfigurationList: StaticListSchema = [1, n0, _MACL,
+  0, [() => MultiAgentConfiguration$,
+    0]
+];
+var MultiAgentExampleList = 64 | 0;
 var NotifyRecommendationsReceivedErrorList: StaticListSchema = [1, n0, _NRREL,
   0, () => NotifyRecommendationsReceivedError$
 ];
@@ -3402,6 +3445,11 @@ var CustomAttributes: StaticMapSchema = [2, n0, _CAu,
 var Headers = 128 | 0;
 var MessageMetadata = 128 | 0;
 var Tags = 128 | 0;
+export var AgentTarget$: StaticUnionSchema = [4, n0, _AT,
+  0,
+  [_aAI, _aIp],
+  [0, 0]
+];
 export var AIAgentConfiguration$: StaticUnionSchema = [4, n0, _AIAC,
   0,
   [_mSAIAC, _aRAIAC, _sSAIAC, _eRAIAC, _eOAIAC, _eGAAIAC, _oAIAC, _nTAIAC, _cSAIAC],
@@ -3464,8 +3512,8 @@ export var ManagedSourceConfiguration$: StaticUnionSchema = [4, n0, _MSC,
 ];
 export var MessageData$: StaticUnionSchema = [4, n0, _MD,
   0,
-  [_tex, _tUR],
-  [[() => TextMessage$, 0], [() => ToolUseResultData$, 0]]
+  [_tex, _tUR, _da],
+  [[() => TextMessage$, 0], [() => ToolUseResultData$, 0], [() => JSONDocument, 0]]
 ];
 export var MessageTemplateBodyContentProvider$: StaticUnionSchema = [4, n0, _MTBCP,
   0,
@@ -3486,6 +3534,11 @@ export var MessageTemplateSourceConfigurationSummary$: StaticUnionSchema = [4, n
   0,
   [_wA],
   [[() => WhatsAppMessageTemplateSourceConfigurationSummary$, 0]]
+];
+export var MultiAgentConfiguration$: StaticUnionSchema = [4, n0, _MAC,
+  0,
+  [_dAC, _hAC],
+  [[() => DelegateAgentConfiguration$, 0], [() => HandoffAgentConfiguration$, 0]]
 ];
 export var OrCondition$: StaticUnionSchema = [4, n0, _OCr,
   0,
@@ -3529,7 +3582,7 @@ export var RuntimeSessionDataValue$: StaticUnionSchema = [4, n0, _RSDV,
 ];
 export var SourceConfiguration$: StaticUnionSchema = [4, n0, _SCo,
   0,
-  [_aIp, _mSC],
+  [_aIpp, _mSC],
   [() => AppIntegrationsConfiguration$, [() => ManagedSourceConfiguration$, 0]]
 ];
 export var SpanMessageValue$: StaticUnionSchema = [4, n0, _SMV,
