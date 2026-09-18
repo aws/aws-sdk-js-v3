@@ -23,8 +23,7 @@ export interface ListStorageConfigurationsCommandInput extends ListStorageConfig
 export interface ListStorageConfigurationsCommandOutput extends ListStorageConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets summary information about all storage configurations in your account,
- * 	  in the AWS region where the API request is processed.</p>
+ * <p>Gets summary information about all storage configurations in your account, in the AWS region where the API request is processed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,19 +63,19 @@ export interface ListStorageConfigurationsCommandOutput extends ListStorageConfi
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
+ *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p/>
+ *  <p>Unexpected error during processing of request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
+ *  <p>Request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>

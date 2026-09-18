@@ -49,6 +49,13 @@ export interface CreateIngestConfigurationCommandOutput extends CreateIngestConf
  * const command = new CreateIngestConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // CreateIngestConfigurationResponse
+ * //   accessControlAllowOrigin: "STRING_VALUE",
+ * //   accessControlExposeHeaders: "STRING_VALUE",
+ * //   cacheControl: "STRING_VALUE",
+ * //   contentSecurityPolicy: "STRING_VALUE",
+ * //   strictTransportSecurity: "STRING_VALUE",
+ * //   xContentTypeOptions: "STRING_VALUE",
+ * //   xFrameOptions: "STRING_VALUE",
  * //   ingestConfiguration: { // IngestConfiguration
  * //     name: "STRING_VALUE",
  * //     arn: "STRING_VALUE", // required
@@ -83,16 +90,16 @@ export interface CreateIngestConfigurationCommandOutput extends CreateIngestConf
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
+ *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p/>
+ *  <p>Your account is pending verification.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
+ *  <p>Request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>

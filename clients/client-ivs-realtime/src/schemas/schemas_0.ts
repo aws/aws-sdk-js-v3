@@ -468,8 +468,8 @@ export var CreateIngestConfigurationRequest$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _CICRr,
   0,
-  [_iC],
-  [[() => IngestConfiguration$, 0]]
+  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _iC],
+  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [() => IngestConfiguration$, 0]]
 ];
 export var CreateParticipantTokenRequest$: StaticStructureSchema = [3, n0, _CPTR,
   0,
@@ -998,8 +998,8 @@ export var UpdateIngestConfigurationRequest$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateIngestConfigurationResponse$: StaticStructureSchema = [3, n0, _UICRp,
   0,
-  [_iC],
-  [[() => IngestConfiguration$, 0]]
+  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _iC],
+  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [() => IngestConfiguration$, 0]]
 ];
 export var UpdateStageRequest$: StaticStructureSchema = [3, n0, _USR,
   0,

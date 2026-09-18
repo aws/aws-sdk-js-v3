@@ -23,30 +23,7 @@ export interface StartCompositionCommandInput extends StartCompositionRequest {}
 export interface StartCompositionCommandOutput extends StartCompositionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a Composition from a stage based on the configuration provided in the
- *          request.</p>
- *          <p>A Composition is an ephemeral resource that exists after this operation returns
- *          successfully. Composition stops and the resource is deleted:</p>
- *          <ul>
- *             <li>
- *                <p>When <a>StopComposition</a> is called.</p>
- *             </li>
- *             <li>
- *                <p>After a 1-minute timeout, when all participants are disconnected from the
- *                stage.</p>
- *             </li>
- *             <li>
- *                <p>After a 1-minute timeout, if there are no participants in the stage when
- *                StartComposition is called.</p>
- *             </li>
- *             <li>
- *                <p>When broadcasting to the IVS channel fails and all retries are exhausted.</p>
- *             </li>
- *             <li>
- *                <p>When broadcasting is disconnected and all attempts to reconnect are
- *                exhausted.</p>
- *             </li>
- *          </ul>
+ * <p>Starts a Composition from a stage based on the configuration provided in the request.</p> <p>A Composition is an ephemeral resource that exists after this operation returns successfully. Composition stops and the resource is deleted:</p> <ul> <li> <p>When <a>StopComposition</a> is called.</p> </li> <li> <p>After a 1-minute timeout, when all participants are disconnected from the stage.</p> </li> <li> <p>After a 1-minute timeout, if there are no participants in the stage when StartComposition is called.</p> </li> <li> <p>When broadcasting to the IVS channel fails and all retries are exhausted.</p> </li> <li> <p>When broadcasting is disconnected and all attempts to reconnect are exhausted.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -201,25 +178,25 @@ export interface StartCompositionCommandOutput extends StartCompositionResponse,
  * @see {@link IVSRealTimeClientResolvedConfig | config} for IVSRealTimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
+ *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p/>
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p/>
+ *  <p>Unexpected error during processing of request.</p>
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p/>
+ *  <p>Your account is pending verification.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
+ *  <p>Request references a resource which does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p/>
+ *  <p>Request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
