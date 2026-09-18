@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1135.0...v3.1136.0) (2026-09-18)
+
+
+### Features
+
+* **client-datazone:** Adds support for specifying Notebook type ([dfe90a4](https://github.com/aws/aws-sdk-js-v3/commit/dfe90a44db3799e4ec7349f64987df5560bff6bf))
+
+
+
+
+
 # [3.1135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1134.0...v3.1135.0) (2026-09-17)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1135.0...v3.1136.0) (2026-09-18)
+
+
+### Features
+
+* **client-appintegrations:** This release adds support for A2A servers via the ApplicationType and AuthConfig fields, allowing customers to register their agent-to-agent servers with API key authentication. ([6be76cb](https://github.com/aws/aws-sdk-js-v3/commit/6be76cb1f88ef7190424d30b8f3e8bb5ec4bcb1f))
+* **client-connect:** This release adds the ListSecurityProfileAIAgents API and updates the CreateSecurityProfile and UpdateSecurityProfile APIs to support the AllowedAIAgents field on security profiles, allowing customers to manage the 3P AI agents associated with a security profile for Agent-to-Agent interactions. ([2c765d8](https://github.com/aws/aws-sdk-js-v3/commit/2c765d8dd6ded8ede8a7999d80fadd4c1c862255))
+* **client-datazone:** Adds support for specifying Notebook type ([dfe90a4](https://github.com/aws/aws-sdk-js-v3/commit/dfe90a44db3799e4ec7349f64987df5560bff6bf))
+* **client-ec2:** This release adds documentation for the T8i instance family to the EC2 ModifyDefaultCreditSpecification and GetDefaultCreditSpecification APIs. ([27cc9e3](https://github.com/aws/aws-sdk-js-v3/commit/27cc9e36fc67080fa5bd9b33207bd111405e36ef))
+* **client-glue:** Introducing AWS Glue Data Quality advanced rule recommendations for faster recommendations. This capability uses Amazon Athena to analyze a sample of table data and Amazon Bedrock to recommend DQDL rules. ([984a842](https://github.com/aws/aws-sdk-js-v3/commit/984a8422c42df5a240df5626d48aea583e84690e))
+* **client-ivs-realtime:** GetParticipant, ListParticipantEvents, ListParticipantReplicas, StartParticipantReplication, and StopParticipantReplication now accept participant IDs containing underscores. ([dc23e6f](https://github.com/aws/aws-sdk-js-v3/commit/dc23e6f2154ff47db6ea29bd287ccda4b03089d5))
+* **client-qconnect:** Amazon Connect AI Agents now support multi-agent orchestration and structured JSON input and output messaging for orchestration agents. ([299b4e0](https://github.com/aws/aws-sdk-js-v3/commit/299b4e03089787bb0cbb8dc61c428c4ffcdec318))
+* **client-sagemaker:** Adds support for the hub content resource in SageMaker Search. ([5733f29](https://github.com/aws/aws-sdk-js-v3/commit/5733f294dff6ad613c3c59a8997482e36f62d40f))
+* **client-transcribe:** Amazon Transcribe now lets you encrypt your custom vocabularies, custom vocabulary filters, and custom language models with a customer managed AWS KMS key instead of an AWS owned key, and adds a new UpdateLanguageModel operation to transition CLM encryption to a different KMS key. ([22124b1](https://github.com/aws/aws-sdk-js-v3/commit/22124b1c4bcf6c6fd7f400e95b57e44dfc554172))
+
+
+
+
+
 # [3.1135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1134.0...v3.1135.0) (2026-09-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1135.0...v3.1136.0) (2026-09-18)
+
+
+### Features
+
+* **client-appintegrations:** This release adds support for A2A servers via the ApplicationType and AuthConfig fields, allowing customers to register their agent-to-agent servers with API key authentication. ([6be76cb](https://github.com/aws/aws-sdk-js-v3/commit/6be76cb1f88ef7190424d30b8f3e8bb5ec4bcb1f))
+
+
+
+
+
 # [3.1135.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1134.0...v3.1135.0) (2026-09-17)
 
 **Note:** Version bump only for package @aws-sdk/client-appintegrations

@@ -12,6 +12,13 @@
 
 
 
+
+# 3.0.6 (2026-09-18)
+### Tests
+* **undici-http-handler:** skip invokeModelWithBidirectionalStream test ([#8309](https://github.com/aws/aws-sdk-js-v3/issues/8309)) ([82637a1](https://github.com/aws/aws-sdk-js-v3/commit/82637a1c3d40b22a439f77fff3f16d0aa128a386))
+
+
+
 # 3.0.5 (2026-08-14)
 ### Chores
 * upgrade to typescript 7 ([#8264](https://github.com/aws/aws-sdk-js-v3/issues/8264)) ([ca81fbb](https://github.com/aws/aws-sdk-js-v3/commit/ca81fbb7398345aa31482dd7aa1971bccf278989))
