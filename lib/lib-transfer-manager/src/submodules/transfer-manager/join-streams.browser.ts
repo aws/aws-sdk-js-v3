@@ -44,7 +44,7 @@ export async function* iterateStreams(
     try {
       stream = await streamPromise;
     } catch (e) {
-      await destroy(promises);
+      await destroyStreams(promises);
       eventListeners?.onFailure?.(e, index);
       throw e;
     }
@@ -63,7 +63,7 @@ export async function* iterateStreams(
         }
       } catch (e) {
         reader.releaseLock();
-        await destroy(promises);
+        await destroyStreams(promises);
         eventListeners?.onFailure?.(e, index);
         throw e;
       } finally {
@@ -84,14 +84,14 @@ export async function* iterateStreams(
           eventListeners?.onBytes?.(bytesTransferred, index);
         }
       } catch (e) {
-        await destroy(promises);
+        await destroyStreams(promises);
         eventListeners?.onFailure?.(e, index);
         throw e;
       } finally {
         reader.releaseLock();
       }
     } else {
-      await destroy(promises);
+      await destroyStreams(promises);
       const failure = new Error(`unhandled stream type ${(stream as any)?.constructor?.name}`);
       eventListeners?.onFailure?.(failure, index);
       throw failure;
@@ -104,11 +104,15 @@ export async function* iterateStreams(
 }
 
 /**
+ * Browser equivalent of the Node.js `destroyStreams`. Cancels any
+ * still-unconsumed response bodies so their underlying resources are released.
+ *
  * @internal
  */
-async function destroy(promises: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
+export async function destroyStreams(promises: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
   await Promise.all(
     promises.map(async (streamPromise) => {
+      if (!streamPromise) return;
       return streamPromise
         .then((stream) => {
           if (isReadableStream(stream)) {
