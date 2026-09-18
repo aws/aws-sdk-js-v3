@@ -39,6 +39,7 @@ import type {
   ListingStatus,
   ManagedPolicyType,
   NotebookStatus,
+  NotebookType,
   OAuth2GrantType,
   OverallDeploymentStatus,
   PackageManager,
@@ -11026,6 +11027,12 @@ export interface CreateNotebookInput {
   description?: string | undefined;
 
   /**
+   * <p>The type of the notebook.</p>
+   * @public
+   */
+  type?: NotebookType | undefined;
+
+  /**
    * <p>The metadata for the notebook, specified as key-value pairs. You can specify up to 50 entries, with keys up to 128 characters and values up to 1024 characters.</p>
    * @public
    */
@@ -11179,6 +11186,12 @@ export interface CreateNotebookOutput {
    * @public
    */
   status: NotebookStatus | undefined;
+
+  /**
+   * <p>The type of the notebook.</p>
+   * @public
+   */
+  type?: NotebookType | undefined;
 
   /**
    * <p>The description of the notebook.</p>

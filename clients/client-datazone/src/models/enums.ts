@@ -798,6 +798,25 @@ export type EntityType = (typeof EntityType)[keyof typeof EntityType];
  * @public
  * @enum
  */
+export const NotebookType = {
+  /**
+   * <p>A data notebook.</p>
+   */
+  DATA: "DATA",
+  /**
+   * <p>A SQL notebook.</p>
+   */
+  SQL: "SQL",
+} as const;
+/**
+ * @public
+ */
+export type NotebookType = (typeof NotebookType)[keyof typeof NotebookType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PackageManager = {
   /**
    * <p>The UV package manager.</p>

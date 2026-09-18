@@ -848,6 +848,7 @@ import {
   NotebookRunSummary$,
   NotebookStatus,
   NotebookSummary$,
+  NotebookType,
   NotEqualToExpression$,
   NotificationOutput$,
   NotificationResource$,
@@ -2437,6 +2438,7 @@ assert(typeof NetworkAccessType === "object");
 assert(typeof NotebookExportStatus === "object");
 assert(typeof NotebookRunStatus === "object");
 assert(typeof NotebookStatus === "object");
+assert(typeof NotebookType === "object");
 assert(typeof NotificationResourceType === "object");
 assert(typeof NotificationRole === "object");
 assert(typeof NotificationType === "object");

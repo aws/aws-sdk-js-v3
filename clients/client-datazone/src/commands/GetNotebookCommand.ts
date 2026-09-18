@@ -47,6 +47,7 @@ export interface GetNotebookCommandOutput extends GetNotebookOutput, __MetadataB
  * //     {},
  * //   ],
  * //   status: "ACTIVE" || "ARCHIVED" || "SYNC_IN_PROGRESS" || "SYNC_FAILED", // required
+ * //   type: "DATA" || "SQL",
  * //   description: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   createdBy: "STRING_VALUE",

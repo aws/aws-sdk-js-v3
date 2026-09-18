@@ -32,6 +32,7 @@ import type {
   MetadataGenerationRunType,
   MetadataGenerationTargetType,
   NotebookStatus,
+  NotebookType,
   NotificationResourceType,
   NotificationRole,
   NotificationType,
@@ -10947,6 +10948,12 @@ export interface GetNotebookOutput {
   status: NotebookStatus | undefined;
 
   /**
+   * <p>The type of the notebook.</p>
+   * @public
+   */
+  type?: NotebookType | undefined;
+
+  /**
    * <p>The description of the notebook.</p>
    * @public
    */
@@ -11072,6 +11079,12 @@ export interface ListNotebooksInput {
   status?: NotebookStatus | undefined;
 
   /**
+   * <p>The type to filter notebooks by.</p>
+   * @public
+   */
+  type?: NotebookType | undefined;
+
+  /**
    * <p>When the number of notebooks is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of notebooks, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListNotebooks</code> to list the next set of notebooks.</p>
    * @public
    */
@@ -11112,6 +11125,12 @@ export interface NotebookSummary {
    * @public
    */
   status: NotebookStatus | undefined;
+
+  /**
+   * <p>The type of the notebook.</p>
+   * @public
+   */
+  type?: NotebookType | undefined;
 
   /**
    * <p>The description of the notebook.</p>
@@ -11202,6 +11221,12 @@ export interface UpdateNotebookInput {
   cellOrder?: CellInformation[] | undefined;
 
   /**
+   * <p>The updated type of the notebook.</p>
+   * @public
+   */
+  type?: NotebookType | undefined;
+
+  /**
    * <p>The updated metadata for the notebook, specified as key-value pairs.</p>
    * @public
    */
@@ -11265,6 +11290,12 @@ export interface UpdateNotebookOutput {
    * @public
    */
   status: NotebookStatus | undefined;
+
+  /**
+   * <p>The type of the notebook.</p>
+   * @public
+   */
+  type?: NotebookType | undefined;
 
   /**
    * <p>The description of the notebook.</p>

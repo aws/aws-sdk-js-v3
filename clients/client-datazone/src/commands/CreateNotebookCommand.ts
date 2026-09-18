@@ -37,6 +37,7 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  *   owningProjectIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   type: "DATA" || "SQL",
  *   metadata: { // Metadata
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -56,6 +57,7 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * //     {},
  * //   ],
  * //   status: "ACTIVE" || "ARCHIVED" || "SYNC_IN_PROGRESS" || "SYNC_FAILED", // required
+ * //   type: "DATA" || "SQL",
  * //   description: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   createdBy: "STRING_VALUE",

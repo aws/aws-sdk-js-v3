@@ -2530,13 +2530,13 @@ export var CreateListingChangeSetOutput$: StaticStructureSchema = [3, n0, _CLCSO
 ];
 export var CreateNotebookInput$: StaticStructureSchema = [3, n0, _CNI,
   0,
-  [_dI, _oPIw, _n, _de, _me, _par, _cT],
-  [[0, 1], 0, [() => NotebookName, 0], [() => Description, 0], [() => Metadata, 0], [() => _Parameters, 0], [0, 4]], 3
+  [_dI, _oPIw, _n, _de, _ty, _me, _par, _cT],
+  [[0, 1], 0, [() => NotebookName, 0], [() => Description, 0], 0, [() => Metadata, 0], [() => _Parameters, 0], [0, 4]], 3
 ];
 export var CreateNotebookOutput$: StaticStructureSchema = [3, n0, _CNO,
   0,
-  [_id, _n, _oPI, _dIo, _cO, _st, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e, _gM],
-  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$, [() => GitMetadata$, 0]], 6
+  [_id, _n, _oPI, _dIo, _cO, _st, _ty, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e, _gM],
+  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$, [() => GitMetadata$, 0]], 6
 ];
 export var CreateProjectFromProjectProfilePolicyGrantDetail$: StaticStructureSchema = [3, n0, _CPFPPPGD,
   0,
@@ -3445,8 +3445,8 @@ export var GetNotebookInput$: StaticStructureSchema = [3, n0, _GNI,
 ];
 export var GetNotebookOutput$: StaticStructureSchema = [3, n0, _GNO,
   0,
-  [_id, _n, _oPI, _dIo, _cO, _st, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e, _gM],
-  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$, [() => GitMetadata$, 0]], 6
+  [_id, _n, _oPI, _dIo, _cO, _st, _ty, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e, _gM],
+  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$, [() => GitMetadata$, 0]], 6
 ];
 export var GetNotebookRunInput$: StaticStructureSchema = [3, n0, _GNRI,
   0,
@@ -4060,8 +4060,8 @@ export var ListNotebookRunsOutput$: StaticStructureSchema = [3, n0, _LNRO,
 ];
 export var ListNotebooksInput$: StaticStructureSchema = [3, n0, _LNIi,
   0,
-  [_dI, _oPIw, _mRa, _sO, _sB, _st, _nT],
-  [[0, 1], [0, { [_hQ]: _oPIw }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _sO }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }]], 2
+  [_dI, _oPIw, _mRa, _sO, _sB, _st, _ty, _nT],
+  [[0, 1], [0, { [_hQ]: _oPIw }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _sO }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _st }], [0, { [_hQ]: _ty }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListNotebooksOutput$: StaticStructureSchema = [3, n0, _LNO,
   0,
@@ -4275,8 +4275,8 @@ export var NotebookRunSummary$: StaticStructureSchema = [3, n0, _NRS,
 ];
 export var NotebookSummary$: StaticStructureSchema = [3, n0, _NS,
   0,
-  [_id, _n, _oPI, _dIo, _st, _de, _cA, _cB, _uA, _uB],
-  [0, [() => NotebookName, 0], 0, 0, 0, [() => Description, 0], 4, 0, 4, 0], 5
+  [_id, _n, _oPI, _dIo, _st, _ty, _de, _cA, _cB, _uA, _uB],
+  [0, [() => NotebookName, 0], 0, 0, 0, 0, [() => Description, 0], 4, 0, 4, 0], 5
 ];
 export var NotEqualToExpression$: StaticStructureSchema = [3, n0, _NETE,
   0,
@@ -5150,13 +5150,13 @@ export var UpdateGroupProfileOutput$: StaticStructureSchema = [3, n0, _UGPO,
 ];
 export var UpdateNotebookInput$: StaticStructureSchema = [3, n0, _UNI,
   0,
-  [_dI, _i, _de, _st, _n, _cO, _me, _par, _eC, _cT],
-  [[0, 1], [0, 1], [() => Description, 0], 0, [() => NotebookName, 0], () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, [0, 4]], 2
+  [_dI, _i, _de, _st, _n, _cO, _ty, _me, _par, _eC, _cT],
+  [[0, 1], [0, 1], [() => Description, 0], 0, [() => NotebookName, 0], () => CellOrder, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, [0, 4]], 2
 ];
 export var UpdateNotebookOutput$: StaticStructureSchema = [3, n0, _UNO,
   0,
-  [_id, _n, _oPI, _dIo, _cO, _st, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e, _gM],
-  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$, [() => GitMetadata$, 0]], 6
+  [_id, _n, _oPI, _dIo, _cO, _st, _ty, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e, _gM],
+  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$, [() => GitMetadata$, 0]], 6
 ];
 export var UpdateProjectInput$: StaticStructureSchema = [3, n0, _UPI,
   0,

@@ -631,6 +631,7 @@ export type {
   NotebookExportStatus,
   NotebookRunStatus,
   NotebookStatus,
+  NotebookType,
   NotificationResourceType,
   NotificationRole,
   NotificationType,
