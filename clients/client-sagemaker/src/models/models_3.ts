@@ -8268,6 +8268,138 @@ export interface GitConfigForUpdate {
 }
 
 /**
+ * <p>Contains information about a hub content resource, including its name, version, type, associated documents, dependencies, and status, as returned by a search result.</p>
+ * @public
+ */
+export interface HubContent {
+  /**
+   * <p>The name of the hub content.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub content.</p>
+   * @public
+   */
+  HubContentArn: string | undefined;
+
+  /**
+   * <p>The version of the hub content.</p>
+   * @public
+   */
+  HubContentVersion: string | undefined;
+
+  /**
+   * <p>The type of hub content.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The document schema version for the hub content.</p>
+   * @public
+   */
+  DocumentSchemaVersion: string | undefined;
+
+  /**
+   * <p>The name of the hub that contains the content.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hub that contains the content.</p>
+   * @public
+   */
+  HubArn: string | undefined;
+
+  /**
+   * <p>The display name of the hub content.</p>
+   * @public
+   */
+  HubContentDisplayName?: string | undefined;
+
+  /**
+   * <p>A description of the hub content.</p>
+   * @public
+   */
+  HubContentDescription?: string | undefined;
+
+  /**
+   * <p>A string that provides a description of the hub content. This string can include links, tables, and standard markdown formatting.</p>
+   * @public
+   */
+  HubContentMarkdown?: string | undefined;
+
+  /**
+   * <p>The hub content document that describes information about the hub content such as type, associated containers, scripts, and more.</p>
+   * @public
+   */
+  HubContentDocument?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the public hub content.</p>
+   * @public
+   */
+  SageMakerPublicHubContentArn?: string | undefined;
+
+  /**
+   * <p>The minimum version of the hub content.</p>
+   * @public
+   */
+  ReferenceMinVersion?: string | undefined;
+
+  /**
+   * <p>The support status of the hub content.</p>
+   * @public
+   */
+  SupportStatus?: HubContentSupportStatus | undefined;
+
+  /**
+   * <p>The searchable keywords for the hub content.</p>
+   * @public
+   */
+  HubContentSearchKeywords?: string[] | undefined;
+
+  /**
+   * <p>The location of any dependencies that the hub content has, such as scripts, model artifacts, datasets, or notebooks.</p>
+   * @public
+   */
+  HubContentDependencies?: HubContentDependency[] | undefined;
+
+  /**
+   * <p>The status of the hub content.</p>
+   * @public
+   */
+  HubContentStatus: HubContentStatus | undefined;
+
+  /**
+   * <p>The failure reason if importing hub content failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The date and time that hub content was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The last modified time of the hub content.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Any tags associated with the hub content.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
  * <p>Information about hub content.</p>
  * @public
  */
@@ -11778,77 +11910,6 @@ export interface ListHubContentsResponse {
 
   /**
    * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of hub content, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHubContentVersionsRequest {
-  /**
-   * <p>The name of the hub to list the content versions of.</p>
-   * @public
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>The type of hub content to list versions of.</p>
-   * @public
-   */
-  HubContentType: HubContentType | undefined;
-
-  /**
-   * <p>The name of the hub content.</p>
-   * @public
-   */
-  HubContentName: string | undefined;
-
-  /**
-   * <p>The lower bound of the hub content versions to list.</p>
-   * @public
-   */
-  MinVersion?: string | undefined;
-
-  /**
-   * <p>The upper bound of the hub content schema version.</p>
-   * @public
-   */
-  MaxSchemaVersion?: string | undefined;
-
-  /**
-   * <p>Only list hub content versions that were created before the time specified.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>Only list hub content versions that were created after the time specified.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>Sort hub content versions by either name or creation time.</p>
-   * @public
-   */
-  SortBy?: HubContentSortBy | undefined;
-
-  /**
-   * <p>Sort hub content versions by ascending or descending order.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>The maximum number of hub content versions to list.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the response to a previous <code>ListHubContentVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hub content versions, use the token in the next request.</p>
    * @public
    */
   NextToken?: string | undefined;

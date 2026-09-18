@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateInferenceComponentInput, UpdateInferenceComponentOutput } from "../models/models_4";
+import type { UpdateInferenceComponentInput } from "../models/models_4";
+import type { UpdateInferenceComponentOutput } from "../models/models_5";
 import { UpdateInferenceComponent$ } from "../schemas/schemas_0";
 
 /**

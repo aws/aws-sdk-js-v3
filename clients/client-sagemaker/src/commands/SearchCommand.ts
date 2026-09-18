@@ -34,7 +34,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * const config = {}; // type is SageMakerClientConfig
  * const client = new SageMakerClient(config);
  * const input = { // SearchRequest
- *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "Model" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "FeatureMetadata" || "Image" || "ImageVersion" || "Project" || "HyperParameterTuningJob" || "ModelCard" || "PipelineVersion" || "Job", // required
+ *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "Model" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "FeatureMetadata" || "Image" || "ImageVersion" || "Project" || "HyperParameterTuningJob" || "ModelCard" || "PipelineVersion" || "Job" || "HubContent", // required
  *   SearchExpression: { // SearchExpression
  *     Filters: [ // FilterList
  *       { // Filter
@@ -2365,6 +2365,36 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           },
  * //         ],
  * //         FailureReason: "STRING_VALUE",
+ * //         Tags: "<TagList>",
+ * //       },
+ * //       HubContent: { // HubContent
+ * //         HubContentName: "STRING_VALUE", // required
+ * //         HubContentArn: "STRING_VALUE", // required
+ * //         HubContentVersion: "STRING_VALUE", // required
+ * //         HubContentType: "Model" || "Notebook" || "ModelReference" || "DataSet" || "JsonDoc", // required
+ * //         DocumentSchemaVersion: "STRING_VALUE", // required
+ * //         HubName: "STRING_VALUE", // required
+ * //         HubArn: "STRING_VALUE", // required
+ * //         HubContentDisplayName: "STRING_VALUE",
+ * //         HubContentDescription: "STRING_VALUE",
+ * //         HubContentMarkdown: "STRING_VALUE",
+ * //         HubContentDocument: "STRING_VALUE",
+ * //         SageMakerPublicHubContentArn: "STRING_VALUE",
+ * //         ReferenceMinVersion: "STRING_VALUE",
+ * //         SupportStatus: "Supported" || "Deprecated" || "Restricted",
+ * //         HubContentSearchKeywords: [ // HubContentSearchKeywordList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         HubContentDependencies: [ // HubContentDependencyList
+ * //           { // HubContentDependency
+ * //             DependencyOriginPath: "STRING_VALUE",
+ * //             DependencyCopyPath: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed" || "PendingImport" || "PendingDelete", // required
+ * //         FailureReason: "STRING_VALUE",
+ * //         CreationTime: new Date("TIMESTAMP"), // required
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
  * //         Tags: "<TagList>",
  * //       },
  * //     },

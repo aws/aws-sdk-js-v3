@@ -5779,6 +5779,7 @@ export const ResourceType = {
   EXPERIMENT_TRIAL_COMPONENT: "ExperimentTrialComponent",
   FEATURE_GROUP: "FeatureGroup",
   FEATURE_METADATA: "FeatureMetadata",
+  HUB_CONTENT: "HubContent",
   HYPER_PARAMETER_TUNING_JOB: "HyperParameterTuningJob",
   IMAGE: "Image",
   IMAGE_VERSION: "ImageVersion",

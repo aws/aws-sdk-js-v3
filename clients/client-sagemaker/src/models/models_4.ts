@@ -16,6 +16,7 @@ import type {
   ExecutionStatus,
   FeatureStatus,
   HomeEfsFileSystemCreation,
+  HubContentSortBy,
   HubContentSupportStatus,
   HubContentType,
   HubSortBy,
@@ -237,6 +238,7 @@ import type {
   FeatureMetadata,
   Filter,
   GitConfigForUpdate,
+  HubContent,
   HubContentInfo,
   HubInfo,
   HumanTaskUiSummary,
@@ -278,6 +280,77 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListHubContentVersionsRequest {
+  /**
+   * <p>The name of the hub to list the content versions of.</p>
+   * @public
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>The type of hub content to list versions of.</p>
+   * @public
+   */
+  HubContentType: HubContentType | undefined;
+
+  /**
+   * <p>The name of the hub content.</p>
+   * @public
+   */
+  HubContentName: string | undefined;
+
+  /**
+   * <p>The lower bound of the hub content versions to list.</p>
+   * @public
+   */
+  MinVersion?: string | undefined;
+
+  /**
+   * <p>The upper bound of the hub content schema version.</p>
+   * @public
+   */
+  MaxSchemaVersion?: string | undefined;
+
+  /**
+   * <p>Only list hub content versions that were created before the time specified.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>Only list hub content versions that were created after the time specified.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>Sort hub content versions by either name or creation time.</p>
+   * @public
+   */
+  SortBy?: HubContentSortBy | undefined;
+
+  /**
+   * <p>Sort hub content versions by ascending or descending order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The maximum number of hub content versions to list.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListHubContentVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of hub content versions, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -8595,6 +8668,12 @@ export interface SearchRecord {
    * @public
    */
   Job?: Job | undefined;
+
+  /**
+   * <p>The properties of a hub content resource.</p>
+   * @public
+   */
+  HubContent?: HubContent | undefined;
 }
 
 /**
@@ -10536,15 +10615,4 @@ export interface UpdateInferenceComponentInput {
    * @public
    */
   DeploymentConfig?: InferenceComponentDeploymentConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateInferenceComponentOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the inference component.</p>
-   * @public
-   */
-  InferenceComponentArn: string | undefined;
 }

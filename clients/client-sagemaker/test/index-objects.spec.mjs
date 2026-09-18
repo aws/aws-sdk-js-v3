@@ -1345,6 +1345,7 @@ import {
   HolidayConfigAttributes$,
   HomeEfsFileSystemCreation,
   HubAccessConfig$,
+  HubContent$,
   HubContentDependency$,
   HubContentInfo$,
   HubContentSortBy,
@@ -4414,6 +4415,7 @@ assert(typeof GitConfigForUpdate$ === "object");
 assert(typeof HiddenSageMakerImage$ === "object");
 assert(typeof HolidayConfigAttributes$ === "object");
 assert(typeof HubAccessConfig$ === "object");
+assert(typeof HubContent$ === "object");
 assert(typeof HubContentDependency$ === "object");
 assert(typeof HubContentInfo$ === "object");
 assert(typeof HubInfo$ === "object");

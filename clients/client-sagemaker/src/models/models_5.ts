@@ -67,6 +67,17 @@ import type {
 /**
  * @public
  */
+export interface UpdateInferenceComponentOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the inference component.</p>
+   * @public
+   */
+  InferenceComponentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateInferenceComponentRuntimeConfigInput {
   /**
    * <p>The name of the inference component to update.</p>

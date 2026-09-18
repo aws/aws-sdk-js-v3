@@ -1639,7 +1639,7 @@ const _H = "Horovod";
 const _HA = "HubArn";
 const _HAC = "HubAccessConfig";
 const _HAT = "HiddenAppTypes";
-const _HC = "HolidayConfig";
+const _HC = "HubContent";
 const _HCA = "HubContentArn";
 const _HCAo = "HolidayConfigAttributes";
 const _HCD = "HubContentDocument";
@@ -1657,6 +1657,7 @@ const _HCSK = "HubContentSearchKeywords";
 const _HCSu = "HubContentSummaries";
 const _HCT = "HubContentType";
 const _HCV = "HubContentVersion";
+const _HCo = "HolidayConfig";
 const _HD = "HubDescription";
 const _HDN = "HubDisplayName";
 const _HEFS = "HomeEfsFileSystem";
@@ -7494,6 +7495,11 @@ export var HubAccessConfig$: StaticStructureSchema = [3, n0, _HAC,
   [_HCA],
   [0], 1
 ];
+export var HubContent$: StaticStructureSchema = [3, n0, _HC,
+  0,
+  [_HCN, _HCA, _HCV, _HCT, _DSV, _HN, _HA, _HCS, _CT, _HCDN, _HCDu, _HCM, _HCD, _SMPHCA, _RMV, _SSu, _HCSK, _HCDub, _FR, _LMT, _Ta],
+  [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, () => HubContentDependencyList, 0, 4, () => TagList], 9
+];
 export var HubContentDependency$: StaticStructureSchema = [3, n0, _HCDubo,
   0,
   [_DOP, _DCP],
@@ -10211,8 +10217,8 @@ export var SearchExpression$: StaticStructureSchema = [3, n0, _SEe,
 ];
 export var SearchRecord$: StaticStructureSchema = [3, n0, _SRe,
   0,
-  [_TJ, _Exp, _Tr, _TCr, _En, _MPo, _MPG, _Pi, _PE, _PVi, _FG, _FMe, _Proj, _HPTJ, _MCod, _Mode, _J],
-  [() => TrainingJob$, () => Experiment$, () => Trial$, () => TrialComponent$, () => Endpoint$, [() => ModelPackage$, 0], () => ModelPackageGroup$, () => Pipeline$, () => PipelineExecution$, () => PipelineVersion$, () => FeatureGroup$, () => FeatureMetadata$, () => Project$, () => HyperParameterTuningJobSearchEntity$, [() => ModelCard$, 0], () => ModelDashboardModel$, () => Job$]
+  [_TJ, _Exp, _Tr, _TCr, _En, _MPo, _MPG, _Pi, _PE, _PVi, _FG, _FMe, _Proj, _HPTJ, _MCod, _Mode, _J, _HC],
+  [() => TrainingJob$, () => Experiment$, () => Trial$, () => TrialComponent$, () => Endpoint$, [() => ModelPackage$, 0], () => ModelPackageGroup$, () => Pipeline$, () => PipelineExecution$, () => PipelineVersion$, () => FeatureGroup$, () => FeatureMetadata$, () => Project$, () => HyperParameterTuningJobSearchEntity$, [() => ModelCard$, 0], () => ModelDashboardModel$, () => Job$, () => HubContent$]
 ];
 export var SearchRequest$: StaticStructureSchema = [3, n0, _SRea,
   0,
@@ -10681,7 +10687,7 @@ export var TimeSeriesConfig$: StaticStructureSchema = [3, n0, _TSCim,
 ];
 export var TimeSeriesForecastingJobConfig$: StaticStructureSchema = [3, n0, _TSFJC,
   0,
-  [_FF, _FHo, _TSCim, _FSSU, _CCo, _FQ, _Tra, _HC, _CGC],
+  [_FF, _FHo, _TSCim, _FSSU, _CCo, _FQ, _Tra, _HCo, _CGC],
   [0, 1, () => TimeSeriesConfig$, 0, () => AutoMLJobCompletionCriteria$, 64 | 0, () => TimeSeriesTransformations$, () => HolidayConfig, () => CandidateGenerationConfig$], 3
 ];
 export var TimeSeriesForecastingSettings$: StaticStructureSchema = [3, n0, _TSFS,
@@ -11854,7 +11860,7 @@ var HiddenMlToolsList = 64 | 0;
 var HiddenSageMakerImageVersionAliasesList: StaticListSchema = [1, n0, _HSMIVAL,
   0, () => HiddenSageMakerImage$
 ];
-var HolidayConfig: StaticListSchema = [1, n0, _HC,
+var HolidayConfig: StaticListSchema = [1, n0, _HCo,
   0, () => HolidayConfigAttributes$
 ];
 var HubContentDependencyList: StaticListSchema = [1, n0, _HCDL,

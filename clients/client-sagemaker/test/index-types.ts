@@ -2330,6 +2330,7 @@ export type {
   HiddenSageMakerImage,
   HolidayConfigAttributes,
   HubAccessConfig,
+  HubContent,
   HubContentDependency,
   HubContentInfo,
   HubInfo,
