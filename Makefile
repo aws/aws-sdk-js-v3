@@ -1,7 +1,7 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
-.PHONY: login sync bundles test-unit test-types test-typescript-versions test-indices test-protocols test-schema test-integration test-endpoints test-e2e build build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis lint format
+.PHONY: login sync bundles test-unit test-types test-typescript-versions test-indices test-protocols test-schema test-integration test-endpoints test-e2e build build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle build-transfer-manager-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis lint format
 
 # fetch AWS testing credentials
 login:
@@ -103,7 +103,7 @@ test-canary:
 	make test-bundlers;
 	node ./tests/canary/canary-runner.js
 
-bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle
+bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle build-transfer-manager-browser-bundle
 	node ./packages-internal/core/scripts/browser-build/esbuild.js
 
 test-bundlers:
@@ -118,6 +118,9 @@ build-s3-browser-bundle:
 
 build-signature-v4-multi-region-browser-bundle:
 	node ./packages-internal/signature-v4-multi-region/test-browser/browser-build/esbuild.js
+
+build-transfer-manager-browser-bundle:
+	node ./lib/lib-transfer-manager/test/browser-build/esbuild.js
 
 # removes nested node_modules folders
 clean-nested:
