@@ -1936,7 +1936,8 @@ const _RLR = "RowLevelResults";
 const _RLRO = "RowLevelResultsOptions";
 const _RM = "RequestMethod";
 const _RMM = "RuleMetricsMap";
-const _RMe = "RetentionMetrics";
+const _RMe = "RecommendationMode";
+const _RMet = "RetentionMetrics";
 const _RMu = "RuleMetrics";
 const _RMun = "RunMetrics";
 const _RN = "RegistryName";
@@ -4257,8 +4258,8 @@ export var DataQualityRuleRecommendationRunAdditionalRunOptions$: StaticStructur
 ];
 export var DataQualityRuleRecommendationRunDescription$: StaticStructureSchema = [3, n0, _DQRRRD,
   0,
-  [_RIun, _St, _SO, _DSa, _CRN],
-  [0, 0, 4, () => DataSource$, 0]
+  [_RIun, _St, _SO, _DSa, _CRN, _RMe],
+  [0, 0, 4, () => DataSource$, 0, 0]
 ];
 export var DataQualityRuleRecommendationRunFilter$: StaticStructureSchema = [3, n0, _DQRRRF,
   0,
@@ -5357,8 +5358,8 @@ export var GetDataQualityRuleRecommendationRunRequest$: StaticStructureSchema = 
 ];
 export var GetDataQualityRuleRecommendationRunResponse$: StaticStructureSchema = [3, n0, _GDQRRRRe,
   0,
-  [_RIun, _DSa, _Rol, _NOW, _T, _St, _ES, _SO, _LMO, _COo, _ETx, _RRe, _CRN, _DQSC, _ARO],
-  [0, () => DataSource$, 0, 1, 1, 0, 0, 4, 4, 4, 1, 0, 0, 0, () => DataQualityRuleRecommendationRunAdditionalRunOptions$]
+  [_RIun, _DSa, _Rol, _NOW, _T, _St, _ES, _SO, _LMO, _COo, _ETx, _RRe, _CRN, _DQSC, _ARO, _RMe],
+  [0, () => DataSource$, 0, 1, 1, 0, 0, 4, 4, 4, 1, 0, 0, 0, () => DataQualityRuleRecommendationRunAdditionalRunOptions$, 0]
 ];
 export var GetDataQualityRulesetEvaluationRunRequest$: StaticStructureSchema = [3, n0, _GDQRERR,
   0,
@@ -7115,7 +7116,7 @@ export var RetentionConfiguration$: StaticStructureSchema = [3, n0, _RCet,
   [_iC],
   [() => IcebergRetentionConfiguration$]
 ];
-export var RetentionMetrics$: StaticStructureSchema = [3, n0, _RMe,
+export var RetentionMetrics$: StaticStructureSchema = [3, n0, _RMet,
   0,
   [_IM],
   [() => IcebergRetentionMetrics$]
@@ -7522,8 +7523,8 @@ export var StartCrawlerScheduleResponse$: StaticStructureSchema = [3, n0, _SCSRt
 ];
 export var StartDataQualityRuleRecommendationRunRequest$: StaticStructureSchema = [3, n0, _SDQRRRR,
   0,
-  [_DSa, _Rol, _NOW, _T, _CRN, _DQSC, _CTl, _ARO],
-  [() => DataSource$, 0, 1, 1, 0, 0, 0, () => DataQualityRuleRecommendationRunAdditionalRunOptions$], 2
+  [_DSa, _Rol, _NOW, _T, _CRN, _DQSC, _CTl, _ARO, _RMe],
+  [() => DataSource$, 0, 1, 1, 0, 0, 0, () => DataQualityRuleRecommendationRunAdditionalRunOptions$, 0], 2
 ];
 export var StartDataQualityRuleRecommendationRunResponse$: StaticStructureSchema = [3, n0, _SDQRRRRt,
   0,

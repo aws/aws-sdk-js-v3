@@ -1490,6 +1490,7 @@ import {
   RecipeAction$,
   RecipeReference$,
   RecipeStep$,
+  RecommendationMode,
   RecrawlBehavior,
   RecrawlPolicy$,
   RedshiftSource$,
@@ -3736,6 +3737,7 @@ assert(typeof PrincipalType === "object");
 assert(typeof PropertyLocation === "object");
 assert(typeof PropertyType === "object");
 assert(typeof QuoteChar === "object");
+assert(typeof RecommendationMode === "object");
 assert(typeof RecrawlBehavior === "object");
 assert(typeof RegistryStatus === "object");
 assert(typeof ResourceAction === "object");

@@ -10,6 +10,7 @@ import type {
   IcebergUpdateAction,
   JobMode,
   Permission,
+  RecommendationMode,
   ResourceAction,
   ResourceShareType,
   ResourceState,
@@ -734,7 +735,8 @@ export interface StartDataQualityRuleRecommendationRunRequest {
   DataSource: DataSource | undefined;
 
   /**
-   * <p>An IAM role supplied to encrypt the results of the run.</p>
+   * <p>The IAM role that Glue assumes to access resources for the run.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/data-quality-authorization.html">Configure IAM permissions for Glue Data Quality</a>.</p>
    * @public
    */
   Role: string | undefined;
@@ -774,6 +776,13 @@ export interface StartDataQualityRuleRecommendationRunRequest {
    * @public
    */
   AdditionalRunOptions?: DataQualityRuleRecommendationRunAdditionalRunOptions | undefined;
+
+  /**
+   * <p>The mode that Glue Data Quality uses to recommend rules.</p>
+   *          <p>The default is <code>BASIC</code>.</p>
+   * @public
+   */
+  RecommendationMode?: RecommendationMode | undefined;
 }
 
 /**

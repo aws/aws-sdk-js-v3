@@ -97,6 +97,7 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput extends List
  * //         },
  * //       },
  * //       CreatedRulesetName: "STRING_VALUE",
+ * //       RecommendationMode: "BASIC" || "ADVANCED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

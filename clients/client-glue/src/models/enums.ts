@@ -1908,6 +1908,19 @@ export type DataQualityModelStatus = (typeof DataQualityModelStatus)[keyof typeo
  * @public
  * @enum
  */
+export const RecommendationMode = {
+  ADVANCED: "ADVANCED",
+  BASIC: "BASIC",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationMode = (typeof RecommendationMode)[keyof typeof RecommendationMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const MaterializedViewRefreshType = {
   FULL: "FULL",
   INCREMENTAL: "INCREMENTAL",

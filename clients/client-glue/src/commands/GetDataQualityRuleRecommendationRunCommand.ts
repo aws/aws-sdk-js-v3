@@ -78,6 +78,7 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput extends GetDat
  * //   AdditionalRunOptions: { // DataQualityRuleRecommendationRunAdditionalRunOptions
  * //     CustomLogGroupPrefix: "STRING_VALUE",
  * //   },
+ * //   RecommendationMode: "BASIC" || "ADVANCED",
  * // };
  *
  * ```

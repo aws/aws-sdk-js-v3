@@ -30,6 +30,7 @@ import type {
   Permission,
   PermissionType,
   PrincipalType,
+  RecommendationMode,
   RegistryStatus,
   ResourceState,
   SchemaDiffType,
@@ -504,7 +505,7 @@ export interface GetDataQualityRuleRecommendationRunResponse {
   DataSource?: DataSource | undefined;
 
   /**
-   * <p>An IAM role supplied to encrypt the results of the run.</p>
+   * <p>The IAM role that Glue assumes to access resources for the run.</p>
    * @public
    */
   Role?: string | undefined;
@@ -580,6 +581,13 @@ export interface GetDataQualityRuleRecommendationRunResponse {
    * @public
    */
   AdditionalRunOptions?: DataQualityRuleRecommendationRunAdditionalRunOptions | undefined;
+
+  /**
+   * <p>The mode that Glue Data Quality uses to recommend rules.</p>
+   *          <p>The default is <code>BASIC</code>.</p>
+   * @public
+   */
+  RecommendationMode?: RecommendationMode | undefined;
 }
 
 /**
@@ -5854,6 +5862,13 @@ export interface DataQualityRuleRecommendationRunDescription {
    * @public
    */
   CreatedRulesetName?: string | undefined;
+
+  /**
+   * <p>The mode that Glue Data Quality uses to recommend rules.</p>
+   *          <p>The default is <code>BASIC</code>.</p>
+   * @public
+   */
+  RecommendationMode?: RecommendationMode | undefined;
 }
 
 /**

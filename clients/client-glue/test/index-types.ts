@@ -1003,6 +1003,7 @@ export type {
   PropertyLocation,
   PropertyType,
   QuoteChar,
+  RecommendationMode,
   RecrawlBehavior,
   RegistryStatus,
   ResourceAction,
