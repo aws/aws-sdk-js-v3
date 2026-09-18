@@ -8039,6 +8039,7 @@ export const UnlimitedSupportedInstanceFamily = {
   t3: "t3",
   t3a: "t3a",
   t4g: "t4g",
+  t8i: "t8i",
 } as const;
 /**
  * @public
