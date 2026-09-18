@@ -56,6 +56,7 @@ import type {
   RulePublishStatus,
   Status,
   StorageType,
+  TaskTemplateFieldType,
   TaskTemplateStatus,
   TestCaseEntryPointType,
   TestCaseStatus,
@@ -109,9 +110,39 @@ import type {
   SuccessfulBatchAssociationSummary,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
-  TaskTemplateField,
+  TaskTemplateFieldIdentifier,
   Validation,
 } from "./models_0";
+
+/**
+ * <p>Describes a single task template field.</p>
+ * @public
+ */
+export interface TaskTemplateField {
+  /**
+   * <p>The unique identifier for the field.</p>
+   * @public
+   */
+  Id: TaskTemplateFieldIdentifier | undefined;
+
+  /**
+   * <p>The description of the field.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates the type of field.</p>
+   * @public
+   */
+  Type?: TaskTemplateFieldType | undefined;
+
+  /**
+   * <p>A list of options for a single select field.</p>
+   * @public
+   */
+  SingleSelectOptions?: string[] | undefined;
+}
 
 /**
  * @public
@@ -8235,45 +8266,4 @@ export interface GetContactMetricsRequest {
    * @public
    */
   Metrics: ContactMetricInfo[] | undefined;
-}
-
-/**
- * <p>Contains the numeric value of a contact metric result.</p>
- * @public
- */
-export type ContactMetricValue =
-  | ContactMetricValue.NumberMember
-  | ContactMetricValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ContactMetricValue {
-  /**
-   * <p>The numeric value of the metric result. For POSITION_IN_QUEUE, this represents the contact's
-   *    current position in the queue (e.g., 3.00 means third in line). For ESTIMATED_WAIT_TIME, this represents
-   *    the predicted wait time in seconds (e.g., 120.00 means approximately 2 minutes).</p>
-   * @public
-   */
-  export interface NumberMember {
-    Number: number;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Number?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    Number: (value: number) => T;
-    _: (name: string, value: any) => T;
-  }
 }

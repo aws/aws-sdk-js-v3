@@ -238,6 +238,7 @@ export * from "./ListRoutingProfileQueuesCommand";
 export * from "./ListRoutingProfilesCommand";
 export * from "./ListRulesCommand";
 export * from "./ListSecurityKeysCommand";
+export * from "./ListSecurityProfileAIAgentsCommand";
 export * from "./ListSecurityProfileApplicationsCommand";
 export * from "./ListSecurityProfileFlowModulesCommand";
 export * from "./ListSecurityProfilePermissionsCommand";

@@ -67,6 +67,12 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  *       FlowModuleId: "STRING_VALUE",
  *     },
  *   ],
+ *   AllowedAIAgents: [ // AllowedAIAgents
+ *     { // AIAgent
+ *       Arn: "STRING_VALUE",
+ *       Type: "THIRD_PARTY",
+ *     },
+ *   ],
  *   GranularAccessControlConfiguration: { // GranularAccessControlConfiguration
  *     DataTableAccessControlConfiguration: { // DataTableAccessControlConfiguration
  *       PrimaryAttributeAccessControlConfiguration: { // PrimaryAttributeAccessControlConfigurationItem

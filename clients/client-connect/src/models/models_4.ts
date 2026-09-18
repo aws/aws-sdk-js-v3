@@ -26,6 +26,7 @@ import type {
 import type {
   AdditionalEmailRecipients,
   AfterContactWorkConfigPerChannel,
+  AgentConfig,
   AgentInfo,
   AgentStatusSearchFilter,
   AllowedCapabilities,
@@ -75,6 +76,7 @@ import type {
   WisdomInfo,
   WorkspaceTheme,
 } from "./models_1";
+import type { SignInConfig, TelephonyConfig } from "./models_2";
 import type {
   BooleanCondition,
   ChatMessage,
@@ -120,6 +122,48 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateTestCaseResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateTrafficDistributionRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region. </p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The distribution of traffic between the instance and its replica(s).</p>
+   * @public
+   */
+  TelephonyConfig?: TelephonyConfig | undefined;
+
+  /**
+   * <p>The distribution that determines which Amazon Web Services Regions should be used to sign in agents in to both
+   *    the instance and its replica(s).</p>
+   * @public
+   */
+  SignInConfig?: SignInConfig | undefined;
+
+  /**
+   * <p>The distribution of agents between the instance and its replica(s).</p>
+   * @public
+   */
+  AgentConfig?: AgentConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTrafficDistributionResponse {}
 
 /**
  * @public

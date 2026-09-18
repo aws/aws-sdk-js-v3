@@ -28,10 +28,12 @@ import {
   AgentStatusState,
   AgentStatusSummary$,
   AgentStatusType,
+  AIAgent$,
   AiAgentInfo$,
   AiAgentInput$,
   AiAgentsCriteria$,
   AiAgentSearchCriteria$,
+  AIAgentType,
   AiUseCase,
   AliasConfiguration$,
   AllowedCapabilities$,
@@ -1361,6 +1363,10 @@ import {
   ListSecurityKeysCommand,
   ListSecurityKeysRequest$,
   ListSecurityKeysResponse$,
+  ListSecurityProfileAIAgents$,
+  ListSecurityProfileAIAgentsCommand,
+  ListSecurityProfileAIAgentsRequest$,
+  ListSecurityProfileAIAgentsResponse$,
   ListSecurityProfileApplications$,
   ListSecurityProfileApplicationsCommand,
   ListSecurityProfileApplicationsRequest$,
@@ -1578,6 +1584,7 @@ import {
   paginateListRoutingProfiles,
   paginateListRules,
   paginateListSecurityKeys,
+  paginateListSecurityProfileAIAgents,
   paginateListSecurityProfileApplications,
   paginateListSecurityProfileFlowModules,
   paginateListSecurityProfilePermissions,
@@ -2933,6 +2940,8 @@ assert(typeof ListRulesCommand === "function");
 assert(typeof ListRules$ === "object");
 assert(typeof ListSecurityKeysCommand === "function");
 assert(typeof ListSecurityKeys$ === "object");
+assert(typeof ListSecurityProfileAIAgentsCommand === "function");
+assert(typeof ListSecurityProfileAIAgents$ === "object");
 assert(typeof ListSecurityProfileApplicationsCommand === "function");
 assert(typeof ListSecurityProfileApplications$ === "object");
 assert(typeof ListSecurityProfileFlowModulesCommand === "function");
@@ -3268,6 +3277,7 @@ assert(typeof AgentStatusReference$ === "object");
 assert(typeof AgentStatusSearchCriteria$ === "object");
 assert(typeof AgentStatusSearchFilter$ === "object");
 assert(typeof AgentStatusSummary$ === "object");
+assert(typeof AIAgent$ === "object");
 assert(typeof AiAgentInfo$ === "object");
 assert(typeof AiAgentInput$ === "object");
 assert(typeof AiAgentsCriteria$ === "object");
@@ -3995,6 +4005,8 @@ assert(typeof ListRulesRequest$ === "object");
 assert(typeof ListRulesResponse$ === "object");
 assert(typeof ListSecurityKeysRequest$ === "object");
 assert(typeof ListSecurityKeysResponse$ === "object");
+assert(typeof ListSecurityProfileAIAgentsRequest$ === "object");
+assert(typeof ListSecurityProfileAIAgentsResponse$ === "object");
 assert(typeof ListSecurityProfileApplicationsRequest$ === "object");
 assert(typeof ListSecurityProfileApplicationsResponse$ === "object");
 assert(typeof ListSecurityProfileFlowModulesRequest$ === "object");
@@ -4558,6 +4570,7 @@ assert(typeof ActionType === "object");
 assert(typeof AgentAvailabilityTimer === "object");
 assert(typeof AgentStatusState === "object");
 assert(typeof AgentStatusType === "object");
+assert(typeof AIAgentType === "object");
 assert(typeof AiUseCase === "object");
 assert(typeof AllowedUserAction === "object");
 assert(typeof AnalyticsMode === "object");
@@ -4867,6 +4880,7 @@ assert(typeof paginateListRoutingProfileQueues === "function");
 assert(typeof paginateListRoutingProfiles === "function");
 assert(typeof paginateListRules === "function");
 assert(typeof paginateListSecurityKeys === "function");
+assert(typeof paginateListSecurityProfileAIAgents === "function");
 assert(typeof paginateListSecurityProfileApplications === "function");
 assert(typeof paginateListSecurityProfileFlowModules === "function");
 assert(typeof paginateListSecurityProfilePermissions === "function");

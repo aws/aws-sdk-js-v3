@@ -1190,6 +1190,11 @@ import {
   ListSecurityKeysCommand,
 } from "./commands/ListSecurityKeysCommand";
 import {
+  type ListSecurityProfileAIAgentsCommandInput,
+  type ListSecurityProfileAIAgentsCommandOutput,
+  ListSecurityProfileAIAgentsCommand,
+} from "./commands/ListSecurityProfileAIAgentsCommand";
+import {
   type ListSecurityProfileApplicationsCommandInput,
   type ListSecurityProfileApplicationsCommandOutput,
   ListSecurityProfileApplicationsCommand,
@@ -2021,6 +2026,7 @@ import { paginateListRoutingProfileQueues } from "./pagination/ListRoutingProfil
 import { paginateListRoutingProfiles } from "./pagination/ListRoutingProfilesPaginator";
 import { paginateListRules } from "./pagination/ListRulesPaginator";
 import { paginateListSecurityKeys } from "./pagination/ListSecurityKeysPaginator";
+import { paginateListSecurityProfileAIAgents } from "./pagination/ListSecurityProfileAIAgentsPaginator";
 import { paginateListSecurityProfileApplications } from "./pagination/ListSecurityProfileApplicationsPaginator";
 import { paginateListSecurityProfileFlowModules } from "./pagination/ListSecurityProfileFlowModulesPaginator";
 import { paginateListSecurityProfilePermissions } from "./pagination/ListSecurityProfilePermissionsPaginator";
@@ -2302,6 +2308,7 @@ const commands = {
   ListRoutingProfilesCommand,
   ListRulesCommand,
   ListSecurityKeysCommand,
+  ListSecurityProfileAIAgentsCommand,
   ListSecurityProfileApplicationsCommand,
   ListSecurityProfileFlowModulesCommand,
   ListSecurityProfilePermissionsCommand,
@@ -2511,6 +2518,7 @@ const paginators = {
   paginateListRoutingProfiles,
   paginateListRules,
   paginateListSecurityKeys,
+  paginateListSecurityProfileAIAgents,
   paginateListSecurityProfileApplications,
   paginateListSecurityProfileFlowModules,
   paginateListSecurityProfilePermissions,
@@ -6620,6 +6628,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListSecurityProfileAIAgentsCommand}
+   */
+  listSecurityProfileAIAgents(
+    args: ListSecurityProfileAIAgentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityProfileAIAgentsCommandOutput>;
+  listSecurityProfileAIAgents(
+    args: ListSecurityProfileAIAgentsCommandInput,
+    cb: (err: any, data?: ListSecurityProfileAIAgentsCommandOutput) => void
+  ): void;
+  listSecurityProfileAIAgents(
+    args: ListSecurityProfileAIAgentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityProfileAIAgentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSecurityProfileApplicationsCommand}
    */
   listSecurityProfileApplications(
@@ -9840,6 +9865,17 @@ export interface Connect {
     args: ListSecurityKeysCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListSecurityKeysCommandOutput>;
+
+  /**
+   * @see {@link ListSecurityProfileAIAgentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSecurityProfileAIAgentsCommandOutput}.
+   */
+  paginateListSecurityProfileAIAgents(
+    args: ListSecurityProfileAIAgentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSecurityProfileAIAgentsCommandOutput>;
 
   /**
    * @see {@link ListSecurityProfileApplicationsCommand}

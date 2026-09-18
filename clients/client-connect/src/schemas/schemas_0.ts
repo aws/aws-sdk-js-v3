@@ -11,6 +11,7 @@ const _AADSR = "AssociateAnalyticsDataSetRequest";
 const _AADSRs = "AssociateAnalyticsDataSetResponse";
 const _AAE = "AiAgentEscalated";
 const _AAI = "AiAgentInfo";
+const _AAIA = "AllowedAIAgents";
 const _AAIi = "AiAgentInput";
 const _AAIig = "AiAgentId";
 const _AAMP = "AwaitAnswerMachinePrompt";
@@ -123,6 +124,7 @@ const _AHOO = "AssociateHoursOfOperations";
 const _AHOOR = "AssociateHoursOfOperationsRequest";
 const _AHU = "AudioHostUrl";
 const _AI = "AgentInfo";
+const _AIA = "AIAgent";
 const _AIHD = "AgentInitiatedHoldDuration";
 const _AISC = "AssociateInstanceStorageConfig";
 const _AISCR = "AssociateInstanceStorageConfigRequest";
@@ -1625,6 +1627,9 @@ const _LSKR = "ListSecurityKeysRequest";
 const _LSKRi = "ListSecurityKeysResponse";
 const _LSP = "ListSecurityProfiles";
 const _LSPA = "ListSecurityProfileApplications";
+const _LSPAIA = "ListSecurityProfileAIAgents";
+const _LSPAIAR = "ListSecurityProfileAIAgentsRequest";
+const _LSPAIARi = "ListSecurityProfileAIAgentsResponse";
 const _LSPAR = "ListSecurityProfileApplicationsRequest";
 const _LSPARi = "ListSecurityProfileApplicationsResponse";
 const _LSPFM = "ListSecurityProfileFlowModules";
@@ -3423,6 +3428,11 @@ export var AgentStatusSummary$: StaticStructureSchema = [3, n0, _ASS,
   [_I, _A, _N, _T, _LMT, _LMR],
   [0, 0, 0, 0, 4, 0]
 ];
+export var AIAgent$: StaticStructureSchema = [3, n0, _AIA,
+  0,
+  [_A, _T],
+  [0, 0]
+];
 export var AiAgentInfo$: StaticStructureSchema = [3, n0, _AAI,
   0,
   [_AUC, _AAVI, _AAE],
@@ -4450,8 +4460,8 @@ export var CreateRuleResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var CreateSecurityProfileRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
-  [_SPNe, _II, _D, _Pe, _Ta, _AACT, _TRR, _App, _HRR, _AACHGI, _AFM, _GACC],
-  [0, [0, 1], 0, 64 | 0, 128 | 0, 128 | 0, 64 | 0, () => Applications, 64 | 0, 0, () => AllowedFlowModules, () => GranularAccessControlConfiguration$], 2
+  [_SPNe, _II, _D, _Pe, _Ta, _AACT, _TRR, _App, _HRR, _AACHGI, _AFM, _AAIA, _GACC],
+  [0, [0, 1], 0, 64 | 0, 128 | 0, 128 | 0, 64 | 0, () => Applications, 64 | 0, 0, () => AllowedFlowModules, () => AllowedAIAgents, () => GranularAccessControlConfiguration$], 2
 ];
 export var CreateSecurityProfileResponse$: StaticStructureSchema = [3, n0, _CSPRr,
   0,
@@ -6998,6 +7008,16 @@ export var ListSecurityKeysResponse$: StaticStructureSchema = [3, n0, _LSKRi,
   [_SK, _NT],
   [() => SecurityKeysList, 0]
 ];
+export var ListSecurityProfileAIAgentsRequest$: StaticStructureSchema = [3, n0, _LSPAIAR,
+  0,
+  [_SPIe, _II, _NT, _MR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
+];
+export var ListSecurityProfileAIAgentsResponse$: StaticStructureSchema = [3, n0, _LSPAIARi,
+  0,
+  [_AAIA, _NT, _LMT, _LMR],
+  [() => AllowedAIAgents, 0, 4, 0]
+];
 export var ListSecurityProfileApplicationsRequest$: StaticStructureSchema = [3, n0, _LSPAR,
   0,
   [_SPIe, _II, _NT, _MR],
@@ -9325,8 +9345,8 @@ export var UpdateRuleRequest$: StaticStructureSchema = [3, n0, _URRp,
 ];
 export var UpdateSecurityProfileRequest$: StaticStructureSchema = [3, n0, _USPR,
   0,
-  [_SPIe, _II, _D, _Pe, _AACT, _TRR, _App, _HRR, _AACHGI, _AFM, _GACC],
-  [[0, 1], [0, 1], 0, 64 | 0, 128 | 0, 64 | 0, () => Applications, 64 | 0, 0, () => AllowedFlowModules, () => GranularAccessControlConfiguration$], 2
+  [_SPIe, _II, _D, _Pe, _AACT, _TRR, _App, _HRR, _AACHGI, _AFM, _AAIA, _GACC],
+  [[0, 1], [0, 1], 0, 64 | 0, 128 | 0, 64 | 0, () => Applications, 64 | 0, 0, () => AllowedFlowModules, () => AllowedAIAgents, () => GranularAccessControlConfiguration$], 2
 ];
 export var UpdateTaskTemplateRequest$: StaticStructureSchema = [3, n0, _UTTR,
   0,
@@ -9776,6 +9796,9 @@ var AiAgentSearchCriteriaList: StaticListSchema = [1, n0, _AASCL,
 ];
 var AliasConfigurationList: StaticListSchema = [1, n0, _ACL,
   0, () => AliasConfiguration$
+];
+var AllowedAIAgents: StaticListSchema = [1, n0, _AAIA,
+  0, () => AIAgent$
 ];
 var AllowedExtensionsList: StaticListSchema = [1, n0, _AEL,
   0, () => AllowedExtension$
@@ -11470,6 +11493,9 @@ export var ListRules$: StaticOperationSchema = [9, n0, _LRi,
 ];
 export var ListSecurityKeys$: StaticOperationSchema = [9, n0, _LSK,
   { [_h]: ["GET", "/instance/{InstanceId}/security-keys", 200] }, () => ListSecurityKeysRequest$, () => ListSecurityKeysResponse$
+];
+export var ListSecurityProfileAIAgents$: StaticOperationSchema = [9, n0, _LSPAIA,
+  { [_h]: ["GET", "/security-profiles-ai-agents/{InstanceId}/{SecurityProfileId}", 200] }, () => ListSecurityProfileAIAgentsRequest$, () => ListSecurityProfileAIAgentsResponse$
 ];
 export var ListSecurityProfileApplications$: StaticOperationSchema = [9, n0, _LSPA,
   { [_h]: ["GET", "/security-profiles-applications/{InstanceId}/{SecurityProfileId}", 200] }, () => ListSecurityProfileApplicationsRequest$, () => ListSecurityProfileApplicationsResponse$

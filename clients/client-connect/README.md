@@ -1879,6 +1879,13 @@ ListSecurityKeys
 </details>
 <details>
 <summary>
+ListSecurityProfileAIAgents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListSecurityProfileAIAgentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListSecurityProfileAIAgentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListSecurityProfileAIAgentsCommandOutput/)
+</details>
+<details>
+<summary>
 ListSecurityProfileApplications
 </summary>
 

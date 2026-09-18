@@ -80,9 +80,9 @@ import type {
 import type {
   ActionSummary,
   AfterContactWorkConfigPerChannel,
-  AgentConfig,
   AgentHierarchyGroups,
   AgentStatus,
+  AIAgent,
   AiAgentInput,
   AiAgentsCriteria,
   AliasConfiguration,
@@ -116,7 +116,6 @@ import type {
   TagCondition,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
-  TaskTemplateField,
   Validation,
 } from "./models_0";
 import type {
@@ -138,13 +137,61 @@ import type {
   Queue,
   QuickConnect,
   RoutingProfile,
+  TaskTemplateField,
   TestCase,
   TestCaseEntryPoint,
   UserPhoneConfig,
   View,
   VoiceEnhancementConfig,
 } from "./models_1";
-import type { SignInConfig, TelephonyConfig } from "./models_2";
+
+/**
+ * @public
+ */
+export interface PutUserStatusRequest {
+  /**
+   * <p>The identifier of the user.</p>
+   * @public
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the agent status.</p>
+   * @public
+   */
+  AgentStatusId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutUserStatusResponse {}
+
+/**
+ * @public
+ */
+export interface ReleasePhoneNumberRequest {
+  /**
+   * <p>A unique identifier for the phone number.</p>
+   * @public
+   */
+  PhoneNumberId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
 
 /**
  * @public
@@ -7761,6 +7808,12 @@ export interface UpdateSecurityProfileRequest {
   AllowedFlowModules?: FlowModule[] | undefined;
 
   /**
+   * <p>A list of AI agents that the security profile will give access to.</p>
+   * @public
+   */
+  AllowedAIAgents?: AIAgent[] | undefined;
+
+  /**
    * <p>The granular access control configuration for the security profile, including data table permissions.</p>
    * @public
    */
@@ -7990,45 +8043,3 @@ export interface UpdateTestCaseRequest {
    */
   LastModifiedRegion?: string | undefined;
 }
-
-/**
- * @public
- */
-export interface UpdateTestCaseResponse {}
-
-/**
- * @public
- */
-export interface UpdateTrafficDistributionRequest {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region. </p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The distribution of traffic between the instance and its replica(s).</p>
-   * @public
-   */
-  TelephonyConfig?: TelephonyConfig | undefined;
-
-  /**
-   * <p>The distribution that determines which Amazon Web Services Regions should be used to sign in agents in to both
-   *    the instance and its replica(s).</p>
-   * @public
-   */
-  SignInConfig?: SignInConfig | undefined;
-
-  /**
-   * <p>The distribution of agents between the instance and its replica(s).</p>
-   * @public
-   */
-  AgentConfig?: AgentConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTrafficDistributionResponse {}

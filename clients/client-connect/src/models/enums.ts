@@ -214,6 +214,18 @@ export type StringComparisonType = (typeof StringComparisonType)[keyof typeof St
  * @public
  * @enum
  */
+export const AIAgentType = {
+  THIRD_PARTY: "THIRD_PARTY",
+} as const;
+/**
+ * @public
+ */
+export type AIAgentType = (typeof AIAgentType)[keyof typeof AIAgentType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AiUseCase = {
   AgentAssistance: "AgentAssistance",
   SelfService: "SelfService",

@@ -70,6 +70,12 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  *       FlowModuleId: "STRING_VALUE",
  *     },
  *   ],
+ *   AllowedAIAgents: [ // AllowedAIAgents
+ *     { // AIAgent
+ *       Arn: "STRING_VALUE",
+ *       Type: "THIRD_PARTY",
+ *     },
+ *   ],
  *   GranularAccessControlConfiguration: { // GranularAccessControlConfiguration
  *     DataTableAccessControlConfiguration: { // DataTableAccessControlConfiguration
  *       PrimaryAttributeAccessControlConfiguration: { // PrimaryAttributeAccessControlConfigurationItem

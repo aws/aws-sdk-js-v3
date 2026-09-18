@@ -5,6 +5,7 @@ import type {
   AgentAvailabilityTimer,
   AgentStatusState,
   AgentStatusType,
+  AIAgentType,
   AiUseCase,
   AllowedUserAction,
   ApplicationType,
@@ -82,7 +83,6 @@ import type {
   SourceType,
   StorageType,
   StringComparisonType,
-  TaskTemplateFieldType,
   TrendIndicator,
   VideoCapability,
   VocabularyLanguageCode,
@@ -932,6 +932,24 @@ export interface AgentStatusSummary {
    * @public
    */
   LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * <p>Information about an AI agent that a security profile allows access to for Agent-to-Agent authorization.</p>
+ * @public
+ */
+export interface AIAgent {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AI agent.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The type of the AI agent. The valid value is <code>THIRD_PARTY</code>.</p>
+   * @public
+   */
+  Type?: AIAgentType | undefined;
 }
 
 /**
@@ -7724,6 +7742,12 @@ export interface CreateSecurityProfileRequest {
   AllowedFlowModules?: FlowModule[] | undefined;
 
   /**
+   * <p>A list of AI agents that the security profile will give access to.</p>
+   * @public
+   */
+  AllowedAIAgents?: AIAgent[] | undefined;
+
+  /**
    * <p>The granular access control configuration for the security profile, including data table permissions.</p>
    * @public
    */
@@ -7847,34 +7871,4 @@ export interface TaskTemplateDefaults {
    * @public
    */
   DefaultFieldValues?: TaskTemplateDefaultFieldValue[] | undefined;
-}
-
-/**
- * <p>Describes a single task template field.</p>
- * @public
- */
-export interface TaskTemplateField {
-  /**
-   * <p>The unique identifier for the field.</p>
-   * @public
-   */
-  Id: TaskTemplateFieldIdentifier | undefined;
-
-  /**
-   * <p>The description of the field.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Indicates the type of field.</p>
-   * @public
-   */
-  Type?: TaskTemplateFieldType | undefined;
-
-  /**
-   * <p>A list of options for a single select field.</p>
-   * @public
-   */
-  SingleSelectOptions?: string[] | undefined;
 }

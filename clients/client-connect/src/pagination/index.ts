@@ -50,6 +50,7 @@ export * from "./ListRoutingProfileQueuesPaginator";
 export * from "./ListRoutingProfilesPaginator";
 export * from "./ListRulesPaginator";
 export * from "./ListSecurityKeysPaginator";
+export * from "./ListSecurityProfileAIAgentsPaginator";
 export * from "./ListSecurityProfileApplicationsPaginator";
 export * from "./ListSecurityProfileFlowModulesPaginator";
 export * from "./ListSecurityProfilePermissionsPaginator";

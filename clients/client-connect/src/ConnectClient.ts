@@ -834,6 +834,10 @@ import type {
 import type { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import type { ListSecurityKeysCommandInput, ListSecurityKeysCommandOutput } from "./commands/ListSecurityKeysCommand";
 import type {
+  ListSecurityProfileAIAgentsCommandInput,
+  ListSecurityProfileAIAgentsCommandOutput,
+} from "./commands/ListSecurityProfileAIAgentsCommand";
+import type {
   ListSecurityProfileApplicationsCommandInput,
   ListSecurityProfileApplicationsCommandOutput,
 } from "./commands/ListSecurityProfileApplicationsCommand";
@@ -1613,6 +1617,7 @@ export type ServiceInputTypes =
   | ListRoutingProfilesCommandInput
   | ListRulesCommandInput
   | ListSecurityKeysCommandInput
+  | ListSecurityProfileAIAgentsCommandInput
   | ListSecurityProfileApplicationsCommandInput
   | ListSecurityProfileFlowModulesCommandInput
   | ListSecurityProfilePermissionsCommandInput
@@ -2014,6 +2019,7 @@ export type ServiceOutputTypes =
   | ListRoutingProfilesCommandOutput
   | ListRulesCommandOutput
   | ListSecurityKeysCommandOutput
+  | ListSecurityProfileAIAgentsCommandOutput
   | ListSecurityProfileApplicationsCommandOutput
   | ListSecurityProfileFlowModulesCommandOutput
   | ListSecurityProfilePermissionsCommandOutput

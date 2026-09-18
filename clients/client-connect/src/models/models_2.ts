@@ -83,6 +83,7 @@ import type {
   AgentStatusIdentifier,
   AgentStatusReference,
   AgentStatusSummary,
+  AIAgent,
   AnalyticsDataAssociationResult,
   Application,
   DataTableLockVersion,
@@ -98,12 +99,10 @@ import type {
   SecurityProfileItem,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
-  TaskTemplateField,
   UserProficiency,
 } from "./models_0";
 import type {
   Attribute,
-  ContactMetricValue,
   DataTableAttribute,
   EvaluationContactParticipant,
   EvaluationScore,
@@ -112,7 +111,49 @@ import type {
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
+  TaskTemplateField,
 } from "./models_1";
+
+/**
+ * <p>Contains the numeric value of a contact metric result.</p>
+ * @public
+ */
+export type ContactMetricValue =
+  | ContactMetricValue.NumberMember
+  | ContactMetricValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ContactMetricValue {
+  /**
+   * <p>The numeric value of the metric result. For POSITION_IN_QUEUE, this represents the contact's
+   *    current position in the queue (e.g., 3.00 means third in line). For ESTIMATED_WAIT_TIME, this represents
+   *    the predicted wait time in seconds (e.g., 120.00 means approximately 2 minutes).</p>
+   * @public
+   */
+  export interface NumberMember {
+    Number: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Number?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Number: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>Contains the result of a requested metric for the contact. This object is returned as part of the
@@ -9458,6 +9499,65 @@ export interface ListSecurityKeysResponse {
 /**
  * @public
  */
+export interface ListSecurityProfileAIAgentsRequest {
+  /**
+   * <p>The identifier for the security profle.</p>
+   * @public
+   */
+  SecurityProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityProfileAIAgentsResponse {
+  /**
+   * <p>A list of the allowed AI agents and their types.</p>
+   * @public
+   */
+  AllowedAIAgents?: AIAgent[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListSecurityProfileApplicationsRequest {
   /**
    * <p>The identifier for the security profle.</p>
@@ -11145,51 +11245,3 @@ export interface PauseContactRequest {
  * @public
  */
 export interface PauseContactResponse {}
-
-/**
- * @public
- */
-export interface PutUserStatusRequest {
-  /**
-   * <p>The identifier of the user.</p>
-   * @public
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the agent status.</p>
-   * @public
-   */
-  AgentStatusId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutUserStatusResponse {}
-
-/**
- * @public
- */
-export interface ReleasePhoneNumberRequest {
-  /**
-   * <p>A unique identifier for the phone number.</p>
-   * @public
-   */
-  PhoneNumberId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
