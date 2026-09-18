@@ -68,6 +68,7 @@ const _DV = "DeleteVocabulary";
 const _DVF = "DeleteVocabularyFilter";
 const _DVFR = "DeleteVocabularyFilterRequest";
 const _DVR = "DeleteVocabularyRequest";
+const _EC = "EncryptionConfiguration";
 const _EP = "EndPercentage";
 const _ET = "EndTime";
 const _F = "First";
@@ -110,6 +111,7 @@ const _JES = "JobExecutionSettings";
 const _JNC = "JobNameContains";
 const _K = "Key";
 const _KMSEC = "KMSEncryptionContext";
+const _KMSK = "KMSKey";
 const _L = "Last";
 const _LC = "LanguageCode";
 const _LCAC = "ListCallAnalyticsCategories";
@@ -267,6 +269,9 @@ const _UA = "UpgradeAvailability";
 const _UCAC = "UpdateCallAnalyticsCategory";
 const _UCACR = "UpdateCallAnalyticsCategoryRequest";
 const _UCACRp = "UpdateCallAnalyticsCategoryResponse";
+const _ULM = "UpdateLanguageModel";
+const _ULMR = "UpdateLanguageModelRequest";
+const _ULMRp = "UpdateLanguageModelResponse";
 const _UMV = "UpdateMedicalVocabulary";
 const _UMVR = "UpdateMedicalVocabularyRequest";
 const _UMVRp = "UpdateMedicalVocabularyResponse";
@@ -429,8 +434,8 @@ export var CreateCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateLanguageModelRequest$: StaticStructureSchema = [3, n0, _CLMR,
   0,
-  [_LC, _BMN, _MN, _IDC, _Ta],
-  [0, 0, [0, 1], () => InputDataConfig$, () => TagList], 4
+  [_LC, _BMN, _MN, _IDC, _EC, _Ta],
+  [0, 0, [0, 1], () => InputDataConfig$, () => EncryptionConfiguration$, () => TagList], 4
 ];
 export var CreateLanguageModelResponse$: StaticStructureSchema = [3, n0, _CLMRr,
   0,
@@ -449,8 +454,8 @@ export var CreateMedicalVocabularyResponse$: StaticStructureSchema = [3, n0, _CM
 ];
 export var CreateVocabularyFilterRequest$: StaticStructureSchema = [3, n0, _CVFR,
   0,
-  [_VFN, _LC, _W, _VFFU, _Ta, _DARA],
-  [[0, 1], 0, 64 | 0, 0, () => TagList, 0], 2
+  [_VFN, _LC, _W, _VFFU, _Ta, _DARA, _EC],
+  [[0, 1], 0, 64 | 0, 0, () => TagList, 0, () => EncryptionConfiguration$], 2
 ];
 export var CreateVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _CVFRr,
   0,
@@ -459,8 +464,8 @@ export var CreateVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _CVF
 ];
 export var CreateVocabularyRequest$: StaticStructureSchema = [3, n0, _CVR,
   0,
-  [_VN, _LC, _Ph, _VFU, _Ta, _DARA],
-  [[0, 1], 0, 64 | 0, 0, () => TagList, 0], 2
+  [_VN, _LC, _Ph, _VFU, _Ta, _DARA, _EC],
+  [[0, 1], 0, 64 | 0, 0, () => TagList, 0, () => EncryptionConfiguration$], 2
 ];
 export var CreateVocabularyResponse$: StaticStructureSchema = [3, n0, _CVRr,
   0,
@@ -532,6 +537,11 @@ export var DescribeLanguageModelResponse$: StaticStructureSchema = [3, n0, _DLMR
   [_LM],
   [() => LanguageModel$]
 ];
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
+  0,
+  [_KMSK, _KMSEC],
+  [0, 128 | 0], 1
+];
 export var GetCallAnalyticsCategoryRequest$: StaticStructureSchema = [3, n0, _GCACR,
   0,
   [_CN],
@@ -599,8 +609,8 @@ export var GetVocabularyFilterRequest$: StaticStructureSchema = [3, n0, _GVFR,
 ];
 export var GetVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _GVFRe,
   0,
-  [_VFN, _LC, _LMT, _DU],
-  [0, 0, 4, 0]
+  [_VFN, _LC, _LMT, _DU, _DARA, _EC],
+  [0, 0, 4, 0, 0, () => EncryptionConfiguration$]
 ];
 export var GetVocabularyRequest$: StaticStructureSchema = [3, n0, _GVR,
   0,
@@ -609,8 +619,8 @@ export var GetVocabularyRequest$: StaticStructureSchema = [3, n0, _GVR,
 ];
 export var GetVocabularyResponse$: StaticStructureSchema = [3, n0, _GVRe,
   0,
-  [_VN, _LC, _VS, _LMT, _FR, _DU],
-  [0, 0, 0, 4, 0, 0]
+  [_VN, _LC, _VS, _LMT, _FR, _DU, _DARA, _EC],
+  [0, 0, 0, 4, 0, 0, 0, () => EncryptionConfiguration$]
 ];
 export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   0,
@@ -639,8 +649,8 @@ export var LanguageIdSettings$: StaticStructureSchema = [3, n0, _LIS,
 ];
 export var LanguageModel$: StaticStructureSchema = [3, n0, _LM,
   0,
-  [_MN, _CTr, _LMT, _LC, _BMN, _MS, _UA, _FR, _IDC],
-  [0, 4, 4, 0, 0, 0, 2, 0, () => InputDataConfig$]
+  [_MN, _CTr, _LMT, _LC, _BMN, _MS, _UA, _FR, _IDC, _EC],
+  [0, 4, 4, 0, 0, 0, 2, 0, () => InputDataConfig$, () => EncryptionConfiguration$]
 ];
 export var ListCallAnalyticsCategoriesRequest$: StaticStructureSchema = [3, n0, _LCACR,
   0,
@@ -942,6 +952,16 @@ export var UpdateCallAnalyticsCategoryResponse$: StaticStructureSchema = [3, n0,
   [_CP],
   [() => CategoryProperties$]
 ];
+export var UpdateLanguageModelRequest$: StaticStructureSchema = [3, n0, _ULMR,
+  0,
+  [_MN, _DARA, _EC],
+  [[0, 1], 0, () => EncryptionConfiguration$], 1
+];
+export var UpdateLanguageModelResponse$: StaticStructureSchema = [3, n0, _ULMRp,
+  0,
+  [_MN, _MS, _LMT],
+  [0, 0, 4]
+];
 export var UpdateMedicalVocabularyRequest$: StaticStructureSchema = [3, n0, _UMVR,
   0,
   [_VN, _LC, _VFU],
@@ -954,8 +974,8 @@ export var UpdateMedicalVocabularyResponse$: StaticStructureSchema = [3, n0, _UM
 ];
 export var UpdateVocabularyFilterRequest$: StaticStructureSchema = [3, n0, _UVFR,
   0,
-  [_VFN, _W, _VFFU, _DARA],
-  [[0, 1], 64 | 0, 0, 0], 1
+  [_VFN, _W, _VFFU, _DARA, _EC],
+  [[0, 1], 64 | 0, 0, 0, () => EncryptionConfiguration$], 1
 ];
 export var UpdateVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _UVFRp,
   0,
@@ -964,8 +984,8 @@ export var UpdateVocabularyFilterResponse$: StaticStructureSchema = [3, n0, _UVF
 ];
 export var UpdateVocabularyRequest$: StaticStructureSchema = [3, n0, _UVR,
   0,
-  [_VN, _LC, _Ph, _VFU, _DARA],
-  [[0, 1], 0, 64 | 0, 0, 0], 2
+  [_VN, _LC, _Ph, _VFU, _DARA, _EC],
+  [[0, 1], 0, 64 | 0, 0, 0, () => EncryptionConfiguration$], 2
 ];
 export var UpdateVocabularyResponse$: StaticStructureSchema = [3, n0, _UVRp,
   0,
@@ -1166,6 +1186,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateCallAnalyticsCategory$: StaticOperationSchema = [9, n0, _UCAC,
   { [_h]: ["PATCH", "/callanalyticscategories/{CategoryName}", 200] }, () => UpdateCallAnalyticsCategoryRequest$, () => UpdateCallAnalyticsCategoryResponse$
+];
+export var UpdateLanguageModel$: StaticOperationSchema = [9, n0, _ULM,
+  { [_h]: ["PATCH", "/languagemodels/{ModelName}", 200] }, () => UpdateLanguageModelRequest$, () => UpdateLanguageModelResponse$
 ];
 export var UpdateMedicalVocabulary$: StaticOperationSchema = [9, n0, _UMV,
   { [_h]: ["PATCH", "/medicalvocabularies/{VocabularyName}", 200] }, () => UpdateMedicalVocabularyRequest$, () => UpdateMedicalVocabularyResponse$

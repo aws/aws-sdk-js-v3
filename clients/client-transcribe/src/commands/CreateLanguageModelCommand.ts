@@ -57,6 +57,12 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  *     TuningDataS3Uri: "STRING_VALUE",
  *     DataAccessRoleArn: "STRING_VALUE", // required
  *   },
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KMSEncryptionContext: { // KMSEncryptionContextMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KMSKey: "STRING_VALUE", // required
+ *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

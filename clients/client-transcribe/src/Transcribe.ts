@@ -208,6 +208,11 @@ import {
   UpdateCallAnalyticsCategoryCommand,
 } from "./commands/UpdateCallAnalyticsCategoryCommand";
 import {
+  type UpdateLanguageModelCommandInput,
+  type UpdateLanguageModelCommandOutput,
+  UpdateLanguageModelCommand,
+} from "./commands/UpdateLanguageModelCommand";
+import {
   type UpdateMedicalVocabularyCommandInput,
   type UpdateMedicalVocabularyCommandOutput,
   UpdateMedicalVocabularyCommand,
@@ -282,6 +287,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateCallAnalyticsCategoryCommand,
+  UpdateLanguageModelCommand,
   UpdateMedicalVocabularyCommand,
   UpdateVocabularyCommand,
   UpdateVocabularyFilterCommand,
@@ -995,6 +1001,23 @@ export interface Transcribe {
     args: UpdateCallAnalyticsCategoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCallAnalyticsCategoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLanguageModelCommand}
+   */
+  updateLanguageModel(
+    args: UpdateLanguageModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLanguageModelCommandOutput>;
+  updateLanguageModel(
+    args: UpdateLanguageModelCommandInput,
+    cb: (err: any, data?: UpdateLanguageModelCommandOutput) => void
+  ): void;
+  updateLanguageModel(
+    args: UpdateLanguageModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLanguageModelCommandOutput) => void
   ): void;
 
   /**

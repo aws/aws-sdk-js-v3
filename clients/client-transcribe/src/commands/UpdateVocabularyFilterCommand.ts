@@ -26,6 +26,8 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
  * <p>Updates an existing custom vocabulary filter with a new list of words. The new list
  *             you provide overwrites all previous entries; you cannot append new terms onto an
  *             existing custom vocabulary filter.</p>
+ *          <p>You must include either <code>Words</code> or <code>VocabularyFilterFileUri</code>
+ *             in your request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,6 +43,12 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
  *   ],
  *   VocabularyFilterFileUri: "STRING_VALUE",
  *   DataAccessRoleArn: "STRING_VALUE",
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KMSEncryptionContext: { // KMSEncryptionContextMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KMSKey: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new UpdateVocabularyFilterCommand(input);
  * const response = await client.send(command);
@@ -63,6 +71,10 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
  *             you're trying to delete doesn't exist or if it's in a non-terminal state (such as
  *                 <code>IN PROGRESS</code>). See the exception message field for more
  *             information.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A resource already exists with this name. Resource names must be unique within an
+ *                 Amazon Web Services account.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>There was an internal error. Check the error message, correct the issue, and try your

@@ -55,6 +55,12 @@ export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFil
  *     },
  *   ],
  *   DataAccessRoleArn: "STRING_VALUE",
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KMSEncryptionContext: { // KMSEncryptionContextMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KMSKey: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new CreateVocabularyFilterCommand(input);
  * const response = await client.send(command);

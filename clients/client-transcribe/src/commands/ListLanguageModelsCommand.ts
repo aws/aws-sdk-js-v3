@@ -59,6 +59,12 @@ export interface ListLanguageModelsCommandOutput extends ListLanguageModelsRespo
  * //         TuningDataS3Uri: "STRING_VALUE",
  * //         DataAccessRoleArn: "STRING_VALUE", // required
  * //       },
+ * //       EncryptionConfiguration: { // EncryptionConfiguration
+ * //         KMSEncryptionContext: { // KMSEncryptionContextMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         KMSKey: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * // };

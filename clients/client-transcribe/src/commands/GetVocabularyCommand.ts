@@ -50,6 +50,13 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * //   FailureReason: "STRING_VALUE",
  * //   DownloadUri: "STRING_VALUE",
+ * //   DataAccessRoleArn: "STRING_VALUE",
+ * //   EncryptionConfiguration: { // EncryptionConfiguration
+ * //     KMSEncryptionContext: { // KMSEncryptionContextMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     KMSKey: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```

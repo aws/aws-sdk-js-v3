@@ -71,6 +71,7 @@ import {
   DescribeLanguageModelCommand,
   DescribeLanguageModelRequest$,
   DescribeLanguageModelResponse$,
+  EncryptionConfiguration$,
   GetCallAnalyticsCategory$,
   GetCallAnalyticsCategoryCommand,
   GetCallAnalyticsCategoryRequest$,
@@ -244,6 +245,10 @@ import {
   UpdateCallAnalyticsCategoryCommand,
   UpdateCallAnalyticsCategoryRequest$,
   UpdateCallAnalyticsCategoryResponse$,
+  UpdateLanguageModel$,
+  UpdateLanguageModelCommand,
+  UpdateLanguageModelRequest$,
+  UpdateLanguageModelResponse$,
   UpdateMedicalVocabulary$,
   UpdateMedicalVocabularyCommand,
   UpdateMedicalVocabularyRequest$,
@@ -360,6 +365,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateCallAnalyticsCategoryCommand === "function");
 assert(typeof UpdateCallAnalyticsCategory$ === "object");
+assert(typeof UpdateLanguageModelCommand === "function");
+assert(typeof UpdateLanguageModel$ === "object");
 assert(typeof UpdateMedicalVocabularyCommand === "function");
 assert(typeof UpdateMedicalVocabulary$ === "object");
 assert(typeof UpdateVocabularyCommand === "function");
@@ -400,6 +407,7 @@ assert(typeof DeleteVocabularyFilterRequest$ === "object");
 assert(typeof DeleteVocabularyRequest$ === "object");
 assert(typeof DescribeLanguageModelRequest$ === "object");
 assert(typeof DescribeLanguageModelResponse$ === "object");
+assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof GetCallAnalyticsCategoryRequest$ === "object");
 assert(typeof GetCallAnalyticsCategoryResponse$ === "object");
 assert(typeof GetCallAnalyticsJobRequest$ === "object");
@@ -483,6 +491,8 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateCallAnalyticsCategoryRequest$ === "object");
 assert(typeof UpdateCallAnalyticsCategoryResponse$ === "object");
+assert(typeof UpdateLanguageModelRequest$ === "object");
+assert(typeof UpdateLanguageModelResponse$ === "object");
 assert(typeof UpdateMedicalVocabularyRequest$ === "object");
 assert(typeof UpdateMedicalVocabularyResponse$ === "object");
 assert(typeof UpdateVocabularyFilterRequest$ === "object");

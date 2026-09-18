@@ -197,6 +197,10 @@ import type {
   UpdateCallAnalyticsCategoryCommandOutput,
 } from "./commands/UpdateCallAnalyticsCategoryCommand";
 import type {
+  UpdateLanguageModelCommandInput,
+  UpdateLanguageModelCommandOutput,
+} from "./commands/UpdateLanguageModelCommand";
+import type {
   UpdateMedicalVocabularyCommandInput,
   UpdateMedicalVocabularyCommandOutput,
 } from "./commands/UpdateMedicalVocabularyCommand";
@@ -260,6 +264,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateCallAnalyticsCategoryCommandInput
+  | UpdateLanguageModelCommandInput
   | UpdateMedicalVocabularyCommandInput
   | UpdateVocabularyCommandInput
   | UpdateVocabularyFilterCommandInput;
@@ -308,6 +313,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateCallAnalyticsCategoryCommandOutput
+  | UpdateLanguageModelCommandOutput
   | UpdateMedicalVocabularyCommandOutput
   | UpdateVocabularyCommandOutput
   | UpdateVocabularyFilterCommandOutput;

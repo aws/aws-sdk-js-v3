@@ -56,6 +56,12 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  *     },
  *   ],
  *   DataAccessRoleArn: "STRING_VALUE",
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KMSEncryptionContext: { // KMSEncryptionContextMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KMSKey: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new CreateVocabularyCommand(input);
  * const response = await client.send(command);

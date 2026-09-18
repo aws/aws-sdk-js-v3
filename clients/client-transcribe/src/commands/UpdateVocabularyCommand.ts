@@ -26,6 +26,9 @@ export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse,
  * <p>Updates an existing custom vocabulary with new values. This operation overwrites all
  *             existing information with your new values; you cannot append new terms onto an existing
  *             custom vocabulary.</p>
+ *          <p>Your custom vocabulary must be in a terminal state (<code>READY</code> or
+ *             <code>FAILED</code>) before you can update it. You must include either
+ *             <code>Phrases</code> or <code>VocabularyFileUri</code> in your request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,6 +45,12 @@ export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse,
  *   ],
  *   VocabularyFileUri: "STRING_VALUE",
  *   DataAccessRoleArn: "STRING_VALUE",
+ *   EncryptionConfiguration: { // EncryptionConfiguration
+ *     KMSEncryptionContext: { // KMSEncryptionContextMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     KMSKey: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new UpdateVocabularyCommand(input);
  * const response = await client.send(command);

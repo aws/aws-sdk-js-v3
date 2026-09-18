@@ -482,6 +482,13 @@ UpdateCallAnalyticsCategory
 </details>
 <details>
 <summary>
+UpdateLanguageModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/UpdateLanguageModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateLanguageModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-transcribe/Interface/UpdateLanguageModelCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateMedicalVocabulary
 </summary>
 
