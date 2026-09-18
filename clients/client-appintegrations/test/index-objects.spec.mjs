@@ -9,6 +9,8 @@ import {
   ApplicationSourceConfig$,
   ApplicationSummary$,
   ApplicationType,
+  AuthConfig$,
+  AuthType,
   ConflictException,
   ConflictException$,
   ContactHandling$,
@@ -198,6 +200,7 @@ assert(typeof ApplicationAssociationSummary$ === "object");
 assert(typeof ApplicationConfig$ === "object");
 assert(typeof ApplicationSourceConfig$ === "object");
 assert(typeof ApplicationSummary$ === "object");
+assert(typeof AuthConfig$ === "object");
 assert(typeof ContactHandling$ === "object");
 assert(typeof CreateApplicationRequest$ === "object");
 assert(typeof CreateApplicationResponse$ === "object");
@@ -261,6 +264,7 @@ assert(typeof UpdateEventIntegrationRequest$ === "object");
 assert(typeof UpdateEventIntegrationResponse$ === "object");
 // enums
 assert(typeof ApplicationType === "object");
+assert(typeof AuthType === "object");
 assert(typeof ContactHandlingScope === "object");
 assert(typeof ExecutionMode === "object");
 assert(typeof ExecutionStatus === "object");

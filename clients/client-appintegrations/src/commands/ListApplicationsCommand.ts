@@ -35,7 +35,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * const input = { // ListApplicationsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER",
+ *   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER" || "A2A_SERVER",
  * };
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);
@@ -49,7 +49,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * //       CreatedTime: new Date("TIMESTAMP"),
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       IsService: true || false,
- * //       ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER",
+ * //       ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER" || "A2A_SERVER",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

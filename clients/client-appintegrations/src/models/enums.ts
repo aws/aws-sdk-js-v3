@@ -17,6 +17,7 @@ export type ContactHandlingScope = (typeof ContactHandlingScope)[keyof typeof Co
  * @enum
  */
 export const ApplicationType = {
+  A2A_SERVER: "A2A_SERVER",
   MCP_SERVER: "MCP_SERVER",
   SERVICE: "SERVICE",
   STANDARD: "STANDARD",
@@ -25,6 +26,18 @@ export const ApplicationType = {
  * @public
  */
 export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthType = {
+  API_KEY: "API_KEY",
+} as const;
+/**
+ * @public
+ */
+export type AuthType = (typeof AuthType)[keyof typeof AuthType];
 
 /**
  * @public

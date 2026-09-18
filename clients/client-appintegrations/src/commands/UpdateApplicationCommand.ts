@@ -75,7 +75,11 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *       "STRING_VALUE",
  *     ],
  *   },
- *   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER",
+ *   ApplicationType: "STANDARD" || "SERVICE" || "MCP_SERVER" || "A2A_SERVER",
+ *   AuthConfig: { // AuthConfig
+ *     AuthType: "API_KEY",
+ *     CredentialProviderIdentifier: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

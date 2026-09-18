@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import type { ApplicationType, ContactHandlingScope, ExecutionMode, ExecutionStatus } from "./enums";
+import type { ApplicationType, AuthType, ContactHandlingScope, ExecutionMode, ExecutionStatus } from "./enums";
 
 /**
  * <p>The contact handling configuration for the application.</p>
@@ -53,6 +53,24 @@ export interface ApplicationSourceConfig {
    * @public
    */
   ExternalUrlConfig?: ExternalUrlConfig | undefined;
+}
+
+/**
+ * <p>Contains the authentication settings that Connect Customer uses to call an external application endpoint. The configuration includes the authentication type and credential location.</p>
+ * @public
+ */
+export interface AuthConfig {
+  /**
+   * <p>The type of authentication used when calling the external application.</p>
+   * @public
+   */
+  AuthType?: AuthType | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret that stores the credentials. The secret must be accessible to Connect Customer.</p>
+   * @public
+   */
+  CredentialProviderIdentifier?: string | undefined;
 }
 
 /**
@@ -211,6 +229,12 @@ export interface CreateApplicationRequest {
    * @public
    */
   ApplicationType?: ApplicationType | undefined;
+
+  /**
+   * <p>The authentication settings that Connect Customer uses when calling the external application.</p>
+   * @public
+   */
+  AuthConfig?: AuthConfig | undefined;
 }
 
 /**
@@ -771,6 +795,12 @@ export interface GetApplicationResponse {
    * @public
    */
   ApplicationType?: ApplicationType | undefined;
+
+  /**
+   * <p>The authentication settings that Connect Customer uses when calling the external application.</p>
+   * @public
+   */
+  AuthConfig?: AuthConfig | undefined;
 }
 
 /**
@@ -1531,6 +1561,12 @@ export interface UpdateApplicationRequest {
    * @public
    */
   ApplicationType?: ApplicationType | undefined;
+
+  /**
+   * <p>The authentication settings that Connect Customer uses when calling the external application.</p>
+   * @public
+   */
+  AuthConfig?: AuthConfig | undefined;
 }
 
 /**

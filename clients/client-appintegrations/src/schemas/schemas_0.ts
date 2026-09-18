@@ -5,6 +5,7 @@ const _AAL = "ApplicationAssociationsList";
 const _AAS = "ApplicationAssociationSummary";
 const _AAp = "ApplicationAssociations";
 const _AC = "ApplicationConfig";
+const _ACu = "AuthConfig";
 const _ADE = "AccessDeniedException";
 const _AI = "ApplicationId";
 const _AL = "ApplicationsList";
@@ -12,6 +13,7 @@ const _AO = "ApprovedOrigins";
 const _AS = "ApplicationSummary";
 const _ASC = "ApplicationSourceConfig";
 const _AT = "ApplicationType";
+const _ATu = "AuthType";
 const _AU = "AccessUrl";
 const _Al = "Allow";
 const _Ap = "Applications";
@@ -31,6 +33,7 @@ const _CEIR = "CreateEventIntegrationRequest";
 const _CEIRr = "CreateEventIntegrationResponse";
 const _CH = "ContactHandling";
 const _CI = "ClientId";
+const _CPI = "CredentialProviderIdentifier";
 const _CT = "CreatedTime";
 const _CTl = "ClientToken";
 const _D = "Description";
@@ -296,6 +299,11 @@ export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   [_A, _I, _N, _Na, _CT, _LMT, _IS, _AT],
   [0, 0, 0, 0, 4, 4, 2, 0]
 ];
+export var AuthConfig$: StaticStructureSchema = [3, n0, _ACu,
+  0,
+  [_ATu, _CPI],
+  [0, 0]
+];
 export var ContactHandling$: StaticStructureSchema = [3, n0, _CH,
   0,
   [_S],
@@ -303,8 +311,8 @@ export var ContactHandling$: StaticStructureSchema = [3, n0, _CH,
 ];
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_N, _Na, _ASC, _D, _Su, _P, _CTl, _T, _Pe, _IS, _IT, _AC, _IC, _AT],
-  [0, 0, () => ApplicationSourceConfig$, 0, () => SubscriptionList, () => PublicationList, [0, 4], 128 | 0, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0], 3
+  [_N, _Na, _ASC, _D, _Su, _P, _CTl, _T, _Pe, _IS, _IT, _AC, _IC, _AT, _ACu],
+  [0, 0, () => ApplicationSourceConfig$, 0, () => SubscriptionList, () => PublicationList, [0, 4], 128 | 0, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0, () => AuthConfig$], 3
 ];
 export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
@@ -418,8 +426,8 @@ export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_A, _I, _N, _Na, _D, _ASC, _Su, _P, _CT, _LMT, _T, _Pe, _IS, _IT, _AC, _IC, _AT],
-  [0, 0, 0, 0, 0, () => ApplicationSourceConfig$, () => SubscriptionList, () => PublicationList, 4, 4, 128 | 0, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0]
+  [_A, _I, _N, _Na, _D, _ASC, _Su, _P, _CT, _LMT, _T, _Pe, _IS, _IT, _AC, _IC, _AT, _ACu],
+  [0, 0, 0, 0, 0, () => ApplicationSourceConfig$, () => SubscriptionList, () => PublicationList, 4, 4, 128 | 0, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0, () => AuthConfig$]
 ];
 export var GetDataIntegrationRequest$: StaticStructureSchema = [3, n0, _GDIR,
   0,
@@ -563,8 +571,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_A, _N, _D, _ASC, _Su, _P, _Pe, _IS, _IT, _AC, _IC, _AT],
-  [[0, 1], 0, 0, () => ApplicationSourceConfig$, () => SubscriptionList, () => PublicationList, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0], 1
+  [_A, _N, _D, _ASC, _Su, _P, _Pe, _IS, _IT, _AC, _IC, _AT, _ACu],
+  [[0, 1], 0, 0, () => ApplicationSourceConfig$, () => SubscriptionList, () => PublicationList, 64 | 0, 2, 1, () => ApplicationConfig$, () => IframeConfig$, 0, () => AuthConfig$], 1
 ];
 export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
