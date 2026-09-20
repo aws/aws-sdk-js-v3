@@ -21,6 +21,9 @@ export default defineConfig({
       "clients/client-kinesis/test/Kinesis.e2e.spec.ts",
       // S3 has a different browser testing setup.
       "clients/client-s3/**/*.e2e.spec.ts",
+      // lib-transfer-manager has a package-level browser e2e setup (see
+      // lib/lib-transfer-manager/vitest.config.browser.mts).
+      "lib/lib-transfer-manager/**/*.e2e.spec.ts",
       // requires Node.js.
       "clients/client-cognito-identity/test/e2e/CognitoIdentity.e2e.spec.ts",
     ],

@@ -22,6 +22,7 @@
     "node_modules/",
     "vitest.*.ts",
     "clients/client-s3/test/e2e/S3.browser.e2e.spec.ts",
+    "lib/lib-transfer-manager/test/e2e/S3TransferManager.browser.e2e.spec.ts",
     "private/aws-restjson-server/**/*.spec.ts",
     "private/aws-restjson-validation-server/**/*.spec.ts",
     "packages-internal/signature-v4-multi-region/src/SignatureV4MultiRegion.browser.spec.ts",
