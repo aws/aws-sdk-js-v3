@@ -1,18 +1,13 @@
 import type { S3TransferManager as S3TransferManagerType } from "@aws-sdk/lib-transfer-manager/transfer-manager";
+import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { S3 } from "@aws-sdk/client-s3";
+import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 import { S3TransferManager as S3TransferManagerImpl } from "../browser-build/browser-transfer-manager-bundle.js";
 
 const S3TransferManager = S3TransferManagerImpl as unknown as typeof S3TransferManagerType;
-
-declare global {
-  // eslint-disable-next-line no-var
-  var aws: {
-    testCredentials?: any;
-  };
-}
 
 describe("S3TransferManager browser e2e", () => {
   const PATTERN = new Uint8Array([0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37]); // "01234567"
@@ -58,11 +53,10 @@ describe("S3TransferManager browser e2e", () => {
   };
 
   beforeAll(async () => {
-    const credentials = await (typeof aws?.testCredentials === "function"
-      ? aws.testCredentials()
-      : aws.testCredentials);
+    const e2eTestResourcesEnv = await getE2eTestResources();
+    Object.assign(process.env, e2eTestResourcesEnv);
 
-    region = (process?.env?.AWS_SMOKE_TEST_REGION as string) ?? "us-west-2";
+    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
 
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
     if (!Bucket) {
@@ -71,6 +65,9 @@ describe("S3TransferManager browser e2e", () => {
           "(e.g. AWS_SMOKE_TEST_BUCKET=<bucket> yarn ...)."
       );
     }
+
+    const provider = fromNodeProviderChain();
+    const credentials = await provider();
 
     client = new S3({
       region,
