@@ -60,6 +60,7 @@ export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataB
  * //       openAiModelConfig: { // HarnessOpenAiModelConfig
  * //         modelId: "STRING_VALUE", // required
  * //         apiKeyArn: "STRING_VALUE", // required
+ * //         apiBase: "STRING_VALUE",
  * //         maxTokens: Number("int"),
  * //         temperature: Number("float"),
  * //         topP: Number("float"),
@@ -327,6 +328,74 @@ export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataB
  * //       },
  * //       disabled: {},
  * //     },
+ * //     hooks: [ // HarnessHooks
+ * //       { // HarnessHook Union: only one key present
+ * //         beforeInvocation: { // HarnessBeforeInvocationHook
+ * //           name: "STRING_VALUE", // required
+ * //           target: { // HarnessHookTarget Union: only one key present
+ * //             lambda: { // HarnessHookLambdaTarget
+ * //               arn: "STRING_VALUE", // required
+ * //               timeoutSeconds: Number("int"),
+ * //               failureMode: "allow" || "deny",
+ * //             },
+ * //             sns: { // HarnessHookSnsTarget
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //             eventBridge: { // HarnessHookEventBridgeTarget
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         afterInvocation: { // HarnessAfterInvocationHook
+ * //           name: "STRING_VALUE", // required
+ * //           target: {//  Union: only one key present
+ * //             lambda: {
+ * //               arn: "STRING_VALUE", // required
+ * //               timeoutSeconds: Number("int"),
+ * //               failureMode: "allow" || "deny",
+ * //             },
+ * //             sns: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //             eventBridge: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         beforeToolCall: { // HarnessBeforeToolCallHook
+ * //           name: "STRING_VALUE", // required
+ * //           target: {//  Union: only one key present
+ * //             lambda: {
+ * //               arn: "STRING_VALUE", // required
+ * //               timeoutSeconds: Number("int"),
+ * //               failureMode: "allow" || "deny",
+ * //             },
+ * //             sns: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //             eventBridge: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         afterToolCall: { // HarnessAfterToolCallHook
+ * //           name: "STRING_VALUE", // required
+ * //           target: {//  Union: only one key present
+ * //             lambda: {
+ * //               arn: "STRING_VALUE", // required
+ * //               timeoutSeconds: Number("int"),
+ * //               failureMode: "allow" || "deny",
+ * //             },
+ * //             sns: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //             eventBridge: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
  * //     maxIterations: Number("int"),
  * //     maxTokens: Number("int"),
  * //     timeoutSeconds: Number("int"),

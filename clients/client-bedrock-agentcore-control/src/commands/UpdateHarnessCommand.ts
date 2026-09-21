@@ -184,6 +184,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  *     openAiModelConfig: { // HarnessOpenAiModelConfig
  *       modelId: "STRING_VALUE", // required
  *       apiKeyArn: "STRING_VALUE", // required
+ *       apiBase: "STRING_VALUE",
  *       maxTokens: Number("int"),
  *       temperature: Number("float"),
  *       topP: Number("float"),
@@ -318,6 +319,74 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  *       },
  *     },
  *   },
+ *   hooks: [ // HarnessHooks
+ *     { // HarnessHook Union: only one key present
+ *       beforeInvocation: { // HarnessBeforeInvocationHook
+ *         name: "STRING_VALUE", // required
+ *         target: { // HarnessHookTarget Union: only one key present
+ *           lambda: { // HarnessHookLambdaTarget
+ *             arn: "STRING_VALUE", // required
+ *             timeoutSeconds: Number("int"),
+ *             failureMode: "allow" || "deny",
+ *           },
+ *           sns: { // HarnessHookSnsTarget
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *           eventBridge: { // HarnessHookEventBridgeTarget
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       afterInvocation: { // HarnessAfterInvocationHook
+ *         name: "STRING_VALUE", // required
+ *         target: {//  Union: only one key present
+ *           lambda: {
+ *             arn: "STRING_VALUE", // required
+ *             timeoutSeconds: Number("int"),
+ *             failureMode: "allow" || "deny",
+ *           },
+ *           sns: {
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *           eventBridge: {
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       beforeToolCall: { // HarnessBeforeToolCallHook
+ *         name: "STRING_VALUE", // required
+ *         target: {//  Union: only one key present
+ *           lambda: {
+ *             arn: "STRING_VALUE", // required
+ *             timeoutSeconds: Number("int"),
+ *             failureMode: "allow" || "deny",
+ *           },
+ *           sns: {
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *           eventBridge: {
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *       afterToolCall: { // HarnessAfterToolCallHook
+ *         name: "STRING_VALUE", // required
+ *         target: {//  Union: only one key present
+ *           lambda: {
+ *             arn: "STRING_VALUE", // required
+ *             timeoutSeconds: Number("int"),
+ *             failureMode: "allow" || "deny",
+ *           },
+ *           sns: {
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *           eventBridge: {
+ *             arn: "STRING_VALUE", // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
  *   maxIterations: Number("int"),
  *   maxTokens: Number("int"),
  *   timeoutSeconds: Number("int"),
@@ -346,6 +415,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  * //       openAiModelConfig: { // HarnessOpenAiModelConfig
  * //         modelId: "STRING_VALUE", // required
  * //         apiKeyArn: "STRING_VALUE", // required
+ * //         apiBase: "STRING_VALUE",
  * //         maxTokens: Number("int"),
  * //         temperature: Number("float"),
  * //         topP: Number("float"),
@@ -613,6 +683,74 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  * //       },
  * //       disabled: {},
  * //     },
+ * //     hooks: [ // HarnessHooks
+ * //       { // HarnessHook Union: only one key present
+ * //         beforeInvocation: { // HarnessBeforeInvocationHook
+ * //           name: "STRING_VALUE", // required
+ * //           target: { // HarnessHookTarget Union: only one key present
+ * //             lambda: { // HarnessHookLambdaTarget
+ * //               arn: "STRING_VALUE", // required
+ * //               timeoutSeconds: Number("int"),
+ * //               failureMode: "allow" || "deny",
+ * //             },
+ * //             sns: { // HarnessHookSnsTarget
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //             eventBridge: { // HarnessHookEventBridgeTarget
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         afterInvocation: { // HarnessAfterInvocationHook
+ * //           name: "STRING_VALUE", // required
+ * //           target: {//  Union: only one key present
+ * //             lambda: {
+ * //               arn: "STRING_VALUE", // required
+ * //               timeoutSeconds: Number("int"),
+ * //               failureMode: "allow" || "deny",
+ * //             },
+ * //             sns: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //             eventBridge: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         beforeToolCall: { // HarnessBeforeToolCallHook
+ * //           name: "STRING_VALUE", // required
+ * //           target: {//  Union: only one key present
+ * //             lambda: {
+ * //               arn: "STRING_VALUE", // required
+ * //               timeoutSeconds: Number("int"),
+ * //               failureMode: "allow" || "deny",
+ * //             },
+ * //             sns: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //             eventBridge: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         afterToolCall: { // HarnessAfterToolCallHook
+ * //           name: "STRING_VALUE", // required
+ * //           target: {//  Union: only one key present
+ * //             lambda: {
+ * //               arn: "STRING_VALUE", // required
+ * //               timeoutSeconds: Number("int"),
+ * //               failureMode: "allow" || "deny",
+ * //             },
+ * //             sns: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //             eventBridge: {
+ * //               arn: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
  * //     maxIterations: Number("int"),
  * //     maxTokens: Number("int"),
  * //     timeoutSeconds: Number("int"),
@@ -639,6 +777,9 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This exception is thrown when a request is made beyond the service quota</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>

@@ -3,6 +3,10 @@ import type {
   DescriptorType,
   EnforcementMode,
   FindingType,
+  PaymentConnectorStatus,
+  PaymentConnectorType,
+  PaymentManagerStatus,
+  PaymentsAuthorizerType,
   PolicyEngineStatus,
   PolicyGenerationStatus,
   PolicyStatus,
@@ -25,6 +29,7 @@ import type {
   SkillDefinition,
   SkillMdDefinition,
   UpdatedDescription,
+  WorkloadIdentityDetails,
 } from "./models_0";
 import type {
   ApiGatewayTargetConfiguration,
@@ -32,6 +37,7 @@ import type {
   AuthorizationData,
   ConnectorTargetConfiguration,
   CredentialProviderConfiguration,
+  CredentialsProviderConfiguration,
   HttpTargetConfiguration,
   InferenceTargetConfiguration,
   KmsConfiguration,
@@ -41,6 +47,376 @@ import type {
   S3Configuration,
   UpdatedAuthorizerConfiguration,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetPaymentConnectorResponse {
+  /**
+   * <p>The unique identifier of the payment connector.</p>
+   * @public
+   */
+  paymentConnectorId: string | undefined;
+
+  /**
+   * <p>The name of the payment connector.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the payment connector.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The type of the payment connector, which determines the payment provider integration.</p>
+   * @public
+   */
+  type: PaymentConnectorType | undefined;
+
+  /**
+   * <p>The credential provider configurations for the payment connector.</p>
+   * @public
+   */
+  credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
+
+  /**
+   * <p>The timestamp when the payment connector was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the payment connector was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the payment connector. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentConnectorStatus | undefined;
+
+  /**
+   * <p>The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is <code>PENDING_AUTHENTICATION</code>.</p>
+   * @public
+   */
+  authorizationUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPaymentConnectorsRequest {
+  /**
+   * <p>The unique identifier of the payment manager whose connectors to list.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a payment connector.</p>
+ * @public
+ */
+export interface PaymentConnectorSummary {
+  /**
+   * <p>The unique identifier of the payment connector.</p>
+   * @public
+   */
+  paymentConnectorId: string | undefined;
+
+  /**
+   * <p>The name of the payment connector.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the payment connector, which determines the payment provider integration.</p>
+   * @public
+   */
+  type: PaymentConnectorType | undefined;
+
+  /**
+   * <p>The current status of the payment connector. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentConnectorStatus | undefined;
+
+  /**
+   * <p>The timestamp when the payment connector was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPaymentConnectorsResponse {
+  /**
+   * <p>The list of payment connector summaries. For details about the fields in each summary, see the <code>PaymentConnectorSummary</code> data type.</p>
+   * @public
+   */
+  paymentConnectors: PaymentConnectorSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePaymentConnectorRequest {
+  /**
+   * <p>The unique identifier of the parent payment manager.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the payment connector to update.</p>
+   * @public
+   */
+  paymentConnectorId: string | undefined;
+
+  /**
+   * <p>The updated description of the payment connector.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated type of the payment connector.</p>
+   * @public
+   */
+  type?: PaymentConnectorType | undefined;
+
+  /**
+   * <p>The updated credential provider configurations for the payment connector.</p>
+   * @public
+   */
+  credentialProviderConfigurations?: CredentialsProviderConfiguration[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePaymentConnectorResponse {
+  /**
+   * <p>The unique identifier of the updated payment connector.</p>
+   * @public
+   */
+  paymentConnectorId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the parent payment manager.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The name of the updated payment connector.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the updated payment connector.</p>
+   * @public
+   */
+  type: PaymentConnectorType | undefined;
+
+  /**
+   * <p>The credential provider configurations for the updated payment connector.</p>
+   * @public
+   */
+  credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
+
+  /**
+   * <p>The timestamp when the payment connector was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the updated payment connector. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentConnectorStatus | undefined;
+
+  /**
+   * <p>The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is <code>PENDING_AUTHENTICATION</code>.</p>
+   * @public
+   */
+  authorizationUrl?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePaymentManagerRequest {
+  /**
+   * <p>The unique identifier of the payment manager to update.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The updated description of the payment manager.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated authorizer type for the payment manager.</p>
+   * @public
+   */
+  authorizerType?: PaymentsAuthorizerType | undefined;
+
+  /**
+   * <p>The updated authorizer configuration for the payment manager.</p>
+   * @public
+   */
+  authorizerConfiguration?: AuthorizerConfiguration | undefined;
+
+  /**
+   * <p>The updated Amazon Resource Name (ARN) of the IAM role for the payment manager.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The updated Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt sensitive payment manager data at rest.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePaymentManagerResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated payment manager.</p>
+   * @public
+   */
+  paymentManagerArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the updated payment manager.</p>
+   * @public
+   */
+  paymentManagerId: string | undefined;
+
+  /**
+   * <p>The name of the updated payment manager.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of authorizer for the updated payment manager.</p>
+   * @public
+   */
+  authorizerType: PaymentsAuthorizerType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the updated payment manager.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The information about the workload identity.</p>
+   * @public
+   */
+  workloadIdentityDetails?: WorkloadIdentityDetails | undefined;
+
+  /**
+   * <p>The timestamp when the payment manager was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the updated payment manager. Possible values include <code>CREATING</code>, <code>READY</code>, <code>UPDATING</code>, <code>DELETING</code>, <code>CREATE_FAILED</code>, <code>UPDATE_FAILED</code>, and <code>DELETE_FAILED</code>.</p>
+   * @public
+   */
+  status: PaymentManagerStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePolicyEngineRequest {
+  /**
+   * <p>The customer-assigned immutable name for the policy engine. This name identifies the policy engine and cannot be changed after creation.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A human-readable description of the policy engine's purpose and scope (1-4,096 characters). This helps administrators understand the policy engine's role in the overall governance strategy. Document which Gateway this engine will be associated with, what types of tools or workflows it governs, and the team or service responsible for maintaining it. Clear descriptions are essential when managing multiple policy engines across different services or environments.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy engine.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to an AgentCore Policy. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
 
 /**
  * @public

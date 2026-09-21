@@ -490,8 +490,12 @@ const _HACMRC = "HarnessAgentCoreMemoryRetrievalConfig";
 const _HACMRCa = "HarnessAgentCoreMemoryRetrievalConfigs";
 const _HACRE = "HarnessAgentCoreRuntimeEnvironment";
 const _HACRER = "HarnessAgentCoreRuntimeEnvironmentRequest";
+const _HAIH = "HarnessAfterInvocationHook";
 const _HASC = "HttpApiSchemaConfiguration";
+const _HATCH = "HarnessAfterToolCallHook";
+const _HBIH = "HarnessBeforeInvocationHook";
 const _HBMC = "HarnessBedrockModelConfig";
+const _HBTCH = "HarnessBeforeToolCallHook";
 const _HCS = "HttpConnectorSource";
 const _HCTC = "HttpConnectorTargetConfiguration";
 const _HDMC = "HarnessDisabledMemoryConfiguration";
@@ -504,7 +508,13 @@ const _HEa = "HarnessEndpoints";
 const _HEo = "HostingEnvironment";
 const _HGMC = "HarnessGeminiModelConfig";
 const _HGOA = "HarnessGatewayOutboundAuth";
+const _HH = "HarnessHooks";
+const _HHEBT = "HarnessHookEventBridgeTarget";
+const _HHLT = "HarnessHookLambdaTarget";
 const _HHM = "HttpHeadersMap";
+const _HHST = "HarnessHookSnsTarget";
+const _HHT = "HarnessHookTarget";
+const _HHa = "HarnessHook";
 const _HIFC = "HarnessInlineFunctionConfig";
 const _HIFD = "HarnessInlineFunctionDescription";
 const _HLLAB = "HarnessLiteLlmApiBase";
@@ -512,6 +522,7 @@ const _HLLMC = "HarnessLiteLlmModelConfig";
 const _HMC = "HarnessMemoryConfiguration";
 const _HMCa = "HarnessModelConfiguration";
 const _HMMC = "HarnessManagedMemoryConfiguration";
+const _HOAAB = "HarnessOpenAiApiBase";
 const _HOAMC = "HarnessOpenAiModelConfig";
 const _HRMC = "HarnessRemoteMcpConfig";
 const _HRMU = "HarnessRemoteMcpUrl";
@@ -1075,6 +1086,7 @@ const _aHC = "additionalHeaderClaims";
 const _aI = "actorId";
 const _aIK = "addIndexedKeys";
 const _aIT = "allowedInstanceTypes";
+const _aIf = "afterInvocation";
 const _aIp = "appId";
 const _aIu = "authorizationId";
 const _aIw = "awsIam";
@@ -1123,6 +1135,7 @@ const _aSp = "appSecret";
 const _aSw = "awsSkills";
 const _aT = "authorizerType";
 const _aTC = "actorTokenContent";
+const _aTCf = "afterToolCall";
 const _aTP = "appendToPrompt";
 const _aTS = "actorTokenScopes";
 const _aTl = "allowedTools";
@@ -1139,6 +1152,7 @@ const _bAu = "bundleArn";
 const _bEI = "baseEvaluatorId";
 const _bEMC = "bedrockEvaluatorModelConfig";
 const _bI = "browserId";
+const _bIe = "beforeInvocation";
 const _bIu = "bundleId";
 const _bMC = "bedrockModelConfig";
 const _bN = "bundleName";
@@ -1146,6 +1160,7 @@ const _bNr = "branchName";
 const _bOAI = "bucketOwnerAccountId";
 const _bS = "browserSigning";
 const _bSr = "browserSummaries";
+const _bTC = "beforeToolCall";
 const _bV = "bundleVersion";
 const _bVo = "booleanValue";
 const _bu = "bucket";
@@ -1261,6 +1276,7 @@ const _e = "error";
 const _eA = "evaluatorArn";
 const _eAP = "efsAccessPoint";
 const _eAn = "environmentArtifact";
+const _eB = "eventBridge";
 const _eC = "evaluatorConfig";
 const _eCI = "ebsCardIndex";
 const _eCO = "episodicConsolidationOverride";
@@ -1329,7 +1345,7 @@ const _gOPCi = "githubOauth2ProviderConfig";
 const _gR = "gatewayRules";
 const _gT = "grantType";
 const _gU = "gatewayUrl";
-const _h = "harness";
+const _h = "hooks";
 const _hCWS = "historicalContextWindowSize";
 const _hE = "httpError";
 const _hEo = "hostingEnvironments";
@@ -1338,7 +1354,8 @@ const _hN = "harnessName";
 const _hQ = "httpQuery";
 const _hV = "harnessVersion";
 const _hVa = "harnessVersions";
-const _ha = "harnesses";
+const _ha = "harness";
+const _har = "harnesses";
 const _he = "headers";
 const _ht = "http";
 const _i = "id";
@@ -1672,6 +1689,7 @@ const _se = "server";
 const _sep = "separator";
 const _ser = "service";
 const _sk = "skills";
+const _sn = "sns";
 const _so = "source";
 const _sou = "sources";
 const _st = "status";
@@ -1711,7 +1729,8 @@ const _tT = "targetType";
 const _tV = "targetVersion";
 const _tVI = "tokenVaultId";
 const _ta = "tags";
-const _tar = "targets";
+const _tar = "target";
+const _targ = "targets";
 const _te = "temperature";
 const _tex = "text";
 const _th = "throughput";
@@ -1922,6 +1941,7 @@ var EvaluatorInstructions: StaticSimpleSchema = [0, n0, _EI, 8, 0];
 var GatewayDescription: StaticSimpleSchema = [0, n0, _GD, 8, 0];
 var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
 var HarnessLiteLlmApiBase: StaticSimpleSchema = [0, n0, _HLLAB, 8, 0];
+var HarnessOpenAiApiBase: StaticSimpleSchema = [0, n0, _HOAAB, 8, 0];
 var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
 var InlinePayload: StaticSimpleSchema = [0, n0, _IP, 8, 0];
 var LlmExtractionInstruction: StaticSimpleSchema = [0, n0, _LEI, 8, 0];
@@ -2390,12 +2410,12 @@ export var CreateHarnessEndpointResponse$: StaticStructureSchema = [3, n0, _CHER
 ];
 export var CreateHarnessRequest$: StaticStructureSchema = [3, n0, _CHR,
   0,
-  [_hN, _eRA, _cT, _env, _eAn, _eV, _aCu, _mo, _sP, _to, _sk, _aTl, _mem, _tr, _mIa, _mT, _tS, _ta],
-  [0, 0, [0, 4], () => HarnessEnvironmentProviderRequest$, () => HarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => HarnessMemoryConfiguration$, () => HarnessTruncationConfiguration$, 1, 1, 1, 128 | 0], 2
+  [_hN, _eRA, _cT, _env, _eAn, _eV, _aCu, _mo, _sP, _to, _sk, _aTl, _mem, _tr, _h, _mIa, _mT, _tS, _ta],
+  [0, 0, [0, 4], () => HarnessEnvironmentProviderRequest$, () => HarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => HarnessMemoryConfiguration$, () => HarnessTruncationConfiguration$, () => HarnessHooks, 1, 1, 1, 128 | 0], 2
 ];
 export var CreateHarnessResponse$: StaticStructureSchema = [3, n0, _CHRr,
   0,
-  [_h],
+  [_ha],
   [[() => Harness$, 0]], 1
 ];
 export var CreateMemoryInput$: StaticStructureSchema = [3, n0, _CMI,
@@ -2735,7 +2755,7 @@ export var DeleteHarnessRequest$: StaticStructureSchema = [3, n0, _DHR,
 ];
 export var DeleteHarnessResponse$: StaticStructureSchema = [3, n0, _DHRe,
   0,
-  [_h],
+  [_ha],
   [[() => Harness$, 0]]
 ];
 export var DeleteMemoryInput$: StaticStructureSchema = [3, n0, _DMI,
@@ -3185,7 +3205,7 @@ export var GetHarnessRequest$: StaticStructureSchema = [3, n0, _GHR,
 ];
 export var GetHarnessResponse$: StaticStructureSchema = [3, n0, _GHRe,
   0,
-  [_h],
+  [_ha],
   [[() => Harness$, 0]], 1
 ];
 export var GetMemoryInput$: StaticStructureSchema = [3, n0, _GMI,
@@ -3380,8 +3400,18 @@ export var GoogleOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _G
 ];
 export var Harness$: StaticStructureSchema = [3, n0, _H,
   0,
-  [_hI, _hN, _ar, _st, _eRA, _cA, _uA, _mo, _sP, _to, _sk, _aTl, _tr, _env, _hV, _eAn, _eV, _aCu, _mem, _mIa, _mT, _tS, _fR],
-  [0, 0, 0, 0, 0, 5, 5, [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => HarnessTruncationConfiguration$, () => HarnessEnvironmentProvider$, 0, () => HarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => HarnessMemoryConfiguration$, 1, 1, 1, 0], 14
+  [_hI, _hN, _ar, _st, _eRA, _cA, _uA, _mo, _sP, _to, _sk, _aTl, _tr, _env, _hV, _eAn, _eV, _aCu, _mem, _h, _mIa, _mT, _tS, _fR],
+  [0, 0, 0, 0, 0, 5, 5, [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => HarnessTruncationConfiguration$, () => HarnessEnvironmentProvider$, 0, () => HarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => HarnessMemoryConfiguration$, () => HarnessHooks, 1, 1, 1, 0], 14
+];
+export var HarnessAfterInvocationHook$: StaticStructureSchema = [3, n0, _HAIH,
+  0,
+  [_n, _tar],
+  [0, () => HarnessHookTarget$], 2
+];
+export var HarnessAfterToolCallHook$: StaticStructureSchema = [3, n0, _HATCH,
+  0,
+  [_n, _tar],
+  [0, () => HarnessHookTarget$], 2
 ];
 export var HarnessAgentCoreBrowserConfig$: StaticStructureSchema = [3, n0, _HACBC,
   0,
@@ -3423,6 +3453,16 @@ export var HarnessBedrockModelConfig$: StaticStructureSchema = [3, n0, _HBMC,
   [_mI, _mT, _te, _tP, _aF, _aP],
   [0, 1, 1, 1, 0, 15], 1
 ];
+export var HarnessBeforeInvocationHook$: StaticStructureSchema = [3, n0, _HBIH,
+  0,
+  [_n, _tar],
+  [0, () => HarnessHookTarget$], 2
+];
+export var HarnessBeforeToolCallHook$: StaticStructureSchema = [3, n0, _HBTCH,
+  0,
+  [_n, _tar],
+  [0, () => HarnessHookTarget$], 2
+];
 export var HarnessDisabledMemoryConfiguration$: StaticStructureSchema = [3, n0, _HDMC,
   0,
   [],
@@ -3437,6 +3477,21 @@ export var HarnessGeminiModelConfig$: StaticStructureSchema = [3, n0, _HGMC,
   0,
   [_mI, _aKA, _mT, _te, _tP, _tK, _aP],
   [0, 0, 1, 1, 1, 1, 15], 2
+];
+export var HarnessHookEventBridgeTarget$: StaticStructureSchema = [3, n0, _HHEBT,
+  0,
+  [_ar],
+  [0], 1
+];
+export var HarnessHookLambdaTarget$: StaticStructureSchema = [3, n0, _HHLT,
+  0,
+  [_ar, _tS, _fM],
+  [0, 1, 0], 1
+];
+export var HarnessHookSnsTarget$: StaticStructureSchema = [3, n0, _HHST,
+  0,
+  [_ar],
+  [0], 1
 ];
 export var HarnessInlineFunctionConfig$: StaticStructureSchema = [3, n0, _HIFC,
   0,
@@ -3455,8 +3510,8 @@ export var HarnessManagedMemoryConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var HarnessOpenAiModelConfig$: StaticStructureSchema = [3, n0, _HOAMC,
   0,
-  [_mI, _aKA, _mT, _te, _tP, _aF, _aP],
-  [0, 0, 1, 1, 1, 0, 15], 2
+  [_mI, _aKA, _aB, _mT, _te, _tP, _aF, _aP],
+  [0, 0, [() => HarnessOpenAiApiBase, 0], 1, 1, 1, 0, 15], 2
 ];
 export var HarnessRemoteMcpConfig$: StaticStructureSchema = [3, n0, _HRMC,
   0,
@@ -3900,7 +3955,7 @@ export var ListHarnessesRequest$: StaticStructureSchema = [3, n0, _LHR,
 ];
 export var ListHarnessesResponse$: StaticStructureSchema = [3, n0, _LHRi,
   0,
-  [_ha, _nTe],
+  [_har, _nTe],
   [() => HarnessSummaries, 0], 1
 ];
 export var ListHarnessVersionsRequest$: StaticStructureSchema = [3, n0, _LHVR,
@@ -4700,7 +4755,7 @@ export var SynchronizeGatewayTargetsRequest$: StaticStructureSchema = [3, n0, _S
 ];
 export var SynchronizeGatewayTargetsResponse$: StaticStructureSchema = [3, n0, _SGTRy,
   0,
-  [_tar],
+  [_targ],
   [[() => GatewayTargetList, 0]]
 ];
 export var SystemManagedBlock$: StaticStructureSchema = [3, n0, _SMB,
@@ -5015,12 +5070,12 @@ export var UpdateHarnessEndpointResponse$: StaticStructureSchema = [3, n0, _UHER
 ];
 export var UpdateHarnessRequest$: StaticStructureSchema = [3, n0, _UHR,
   0,
-  [_hI, _cT, _eRA, _env, _eAn, _eV, _aCu, _mo, _sP, _to, _sk, _aTl, _mem, _tr, _mIa, _mT, _tS],
-  [[0, 1], [0, 4], 0, () => HarnessEnvironmentProviderRequest$, () => UpdatedHarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => UpdatedAuthorizerConfiguration$, [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => UpdatedHarnessMemoryConfiguration$, () => HarnessTruncationConfiguration$, 1, 1, 1], 1
+  [_hI, _cT, _eRA, _env, _eAn, _eV, _aCu, _mo, _sP, _to, _sk, _aTl, _mem, _tr, _h, _mIa, _mT, _tS],
+  [[0, 1], [0, 4], 0, () => HarnessEnvironmentProviderRequest$, () => UpdatedHarnessEnvironmentArtifact$, [() => EnvironmentVariablesMap, 0], () => UpdatedAuthorizerConfiguration$, [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, () => UpdatedHarnessMemoryConfiguration$, () => HarnessTruncationConfiguration$, () => HarnessHooks, 1, 1, 1], 1
 ];
 export var UpdateHarnessResponse$: StaticStructureSchema = [3, n0, _UHRp,
   0,
-  [_h],
+  [_ha],
   [[() => Harness$, 0]], 1
 ];
 export var UpdateMemoryInput$: StaticStructureSchema = [3, n0, _UMI,
@@ -5385,6 +5440,9 @@ var HarnessAllowedTools = 64 | 0;
 var HarnessAwsSkillPaths = 64 | 0;
 var HarnessEndpoints: StaticListSchema = [1, n0, _HEa,
   0, () => HarnessEndpoint$
+];
+var HarnessHooks: StaticListSchema = [1, n0, _HH,
+  0, () => HarnessHook$
 ];
 var HarnessManagedMemoryStrategyList = 64 | 0;
 var HarnessSkills: StaticListSchema = [1, n0, _HSa,
@@ -5808,6 +5866,16 @@ export var HarnessGatewayOutboundAuth$: StaticUnionSchema = [4, n0, _HGOA,
   [_aIw, _no, _oau],
   [() => __Unit, () => __Unit, [() => OAuthCredentialProvider$, 0]]
 ];
+export var HarnessHook$: StaticUnionSchema = [4, n0, _HHa,
+  0,
+  [_bIe, _aIf, _bTC, _aTCf],
+  [() => HarnessBeforeInvocationHook$, () => HarnessAfterInvocationHook$, () => HarnessBeforeToolCallHook$, () => HarnessAfterToolCallHook$]
+];
+export var HarnessHookTarget$: StaticUnionSchema = [4, n0, _HHT,
+  0,
+  [_lam, _sn, _eB],
+  [() => HarnessHookLambdaTarget$, () => HarnessHookSnsTarget$, () => HarnessHookEventBridgeTarget$]
+];
 export var HarnessMemoryConfiguration$: StaticUnionSchema = [4, n0, _HMC,
   0,
   [_aCMC, _mMC, _dis],
@@ -5816,7 +5884,7 @@ export var HarnessMemoryConfiguration$: StaticUnionSchema = [4, n0, _HMC,
 export var HarnessModelConfiguration$: StaticUnionSchema = [4, n0, _HMCa,
   0,
   [_bMC, _oAMC, _gMC, _lLMC],
-  [() => HarnessBedrockModelConfig$, () => HarnessOpenAiModelConfig$, () => HarnessGeminiModelConfig$, [() => HarnessLiteLlmModelConfig$, 0]]
+  [() => HarnessBedrockModelConfig$, [() => HarnessOpenAiModelConfig$, 0], () => HarnessGeminiModelConfig$, [() => HarnessLiteLlmModelConfig$, 0]]
 ];
 export var HarnessSkill$: StaticUnionSchema = [4, n0, _HSarn,
   0,

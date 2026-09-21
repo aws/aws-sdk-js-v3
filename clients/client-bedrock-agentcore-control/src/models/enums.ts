@@ -948,6 +948,25 @@ export type HarnessEndpointStatus = (typeof HarnessEndpointStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const HarnessHookFailureMode = {
+  /**
+   * <p>Specifies that the current action continues when the hook target fails.</p>
+   */
+  ALLOW: "allow",
+  /**
+   * <p>Specifies that the service denies the current action when the hook target fails.</p>
+   */
+  DENY: "deny",
+} as const;
+/**
+ * @public
+ */
+export type HarnessHookFailureMode = (typeof HarnessHookFailureMode)[keyof typeof HarnessHookFailureMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const HarnessManagedMemoryStrategyType = {
   EPISODIC: "EPISODIC",
   SEMANTIC: "SEMANTIC",

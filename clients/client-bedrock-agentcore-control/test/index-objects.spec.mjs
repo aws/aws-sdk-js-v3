@@ -572,6 +572,8 @@ import {
   GoogleOauth2ProviderConfigInput$,
   GoogleOauth2ProviderConfigOutput$,
   Harness$,
+  HarnessAfterInvocationHook$,
+  HarnessAfterToolCallHook$,
   HarnessAgentCoreBrowserConfig$,
   HarnessAgentCoreCodeInterpreterConfig$,
   HarnessAgentCoreGatewayConfig$,
@@ -581,6 +583,8 @@ import {
   HarnessAgentCoreRuntimeEnvironmentRequest$,
   HarnessBedrockApiFormat,
   HarnessBedrockModelConfig$,
+  HarnessBeforeInvocationHook$,
+  HarnessBeforeToolCallHook$,
   HarnessDisabledMemoryConfiguration$,
   HarnessEndpoint$,
   HarnessEndpointStatus,
@@ -589,6 +593,12 @@ import {
   HarnessEnvironmentProviderRequest$,
   HarnessGatewayOutboundAuth$,
   HarnessGeminiModelConfig$,
+  HarnessHook$,
+  HarnessHookEventBridgeTarget$,
+  HarnessHookFailureMode,
+  HarnessHookLambdaTarget$,
+  HarnessHookSnsTarget$,
+  HarnessHookTarget$,
   HarnessInlineFunctionConfig$,
   HarnessLiteLlmModelConfig$,
   HarnessManagedMemoryConfiguration$,
@@ -1938,6 +1948,8 @@ assert(typeof GithubOauth2ProviderConfigOutput$ === "object");
 assert(typeof GoogleOauth2ProviderConfigInput$ === "object");
 assert(typeof GoogleOauth2ProviderConfigOutput$ === "object");
 assert(typeof Harness$ === "object");
+assert(typeof HarnessAfterInvocationHook$ === "object");
+assert(typeof HarnessAfterToolCallHook$ === "object");
 assert(typeof HarnessAgentCoreBrowserConfig$ === "object");
 assert(typeof HarnessAgentCoreCodeInterpreterConfig$ === "object");
 assert(typeof HarnessAgentCoreGatewayConfig$ === "object");
@@ -1946,6 +1958,8 @@ assert(typeof HarnessAgentCoreMemoryRetrievalConfig$ === "object");
 assert(typeof HarnessAgentCoreRuntimeEnvironment$ === "object");
 assert(typeof HarnessAgentCoreRuntimeEnvironmentRequest$ === "object");
 assert(typeof HarnessBedrockModelConfig$ === "object");
+assert(typeof HarnessBeforeInvocationHook$ === "object");
+assert(typeof HarnessBeforeToolCallHook$ === "object");
 assert(typeof HarnessDisabledMemoryConfiguration$ === "object");
 assert(typeof HarnessEndpoint$ === "object");
 assert(typeof HarnessEnvironmentArtifact$ === "object");
@@ -1953,6 +1967,11 @@ assert(typeof HarnessEnvironmentProvider$ === "object");
 assert(typeof HarnessEnvironmentProviderRequest$ === "object");
 assert(typeof HarnessGatewayOutboundAuth$ === "object");
 assert(typeof HarnessGeminiModelConfig$ === "object");
+assert(typeof HarnessHook$ === "object");
+assert(typeof HarnessHookEventBridgeTarget$ === "object");
+assert(typeof HarnessHookLambdaTarget$ === "object");
+assert(typeof HarnessHookSnsTarget$ === "object");
+assert(typeof HarnessHookTarget$ === "object");
 assert(typeof HarnessInlineFunctionConfig$ === "object");
 assert(typeof HarnessLiteLlmModelConfig$ === "object");
 assert(typeof HarnessManagedMemoryConfiguration$ === "object");
@@ -2401,6 +2420,7 @@ assert(typeof GatewayRuleStatus === "object");
 assert(typeof GatewayStatus === "object");
 assert(typeof HarnessBedrockApiFormat === "object");
 assert(typeof HarnessEndpointStatus === "object");
+assert(typeof HarnessHookFailureMode === "object");
 assert(typeof HarnessManagedMemoryStrategyType === "object");
 assert(typeof HarnessOpenAiApiFormat === "object");
 assert(typeof HarnessStatus === "object");
