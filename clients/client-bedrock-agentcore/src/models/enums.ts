@@ -550,9 +550,38 @@ export type HarnessToolType = (typeof HarnessToolType)[keyof typeof HarnessToolT
  * @public
  * @enum
  */
+export const HarnessHookDecision = {
+  ALLOW: "allow",
+  DENY: "deny",
+} as const;
+/**
+ * @public
+ */
+export type HarnessHookDecision = (typeof HarnessHookDecision)[keyof typeof HarnessHookDecision];
+
+/**
+ * @public
+ * @enum
+ */
+export const HarnessHookEventType = {
+  AFTER_INVOCATION: "after_invocation",
+  AFTER_TOOL_CALL: "after_tool_call",
+  BEFORE_INVOCATION: "before_invocation",
+  BEFORE_TOOL_CALL: "before_tool_call",
+} as const;
+/**
+ * @public
+ */
+export type HarnessHookEventType = (typeof HarnessHookEventType)[keyof typeof HarnessHookEventType];
+
+/**
+ * @public
+ * @enum
+ */
 export const HarnessStopReason = {
   CONTENT_FILTERED: "content_filtered",
   END_TURN: "end_turn",
+  HOOK_STOPPED: "hook_stopped",
   INTERRUPTED: "interrupted",
   MALFORMED_MODEL_OUTPUT: "malformed_model_output",
   MALFORMED_TOOL_USE: "malformed_tool_use",

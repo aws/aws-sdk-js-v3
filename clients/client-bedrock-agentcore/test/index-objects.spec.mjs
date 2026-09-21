@@ -267,6 +267,9 @@ import {
   HarnessConversationRole,
   HarnessGatewayOutboundAuth$,
   HarnessGeminiModelConfig$,
+  HarnessHookDecision,
+  HarnessHookEvent$,
+  HarnessHookEventType,
   HarnessInlineFunctionConfig$,
   HarnessLiteLlmModelConfig$,
   HarnessMessage$,
@@ -933,6 +936,7 @@ assert(typeof HarnessContentBlockStartEvent$ === "object");
 assert(typeof HarnessContentBlockStopEvent$ === "object");
 assert(typeof HarnessGatewayOutboundAuth$ === "object");
 assert(typeof HarnessGeminiModelConfig$ === "object");
+assert(typeof HarnessHookEvent$ === "object");
 assert(typeof HarnessInlineFunctionConfig$ === "object");
 assert(typeof HarnessLiteLlmModelConfig$ === "object");
 assert(typeof HarnessMessage$ === "object");
@@ -1177,6 +1181,8 @@ assert(typeof ExtractionJobStatus === "object");
 assert(typeof ExtractionMode === "object");
 assert(typeof HarnessBedrockApiFormat === "object");
 assert(typeof HarnessConversationRole === "object");
+assert(typeof HarnessHookDecision === "object");
+assert(typeof HarnessHookEventType === "object");
 assert(typeof HarnessOpenAiApiFormat === "object");
 assert(typeof HarnessStopReason === "object");
 assert(typeof HarnessToolType === "object");

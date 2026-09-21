@@ -17,6 +17,8 @@ import type {
   ExtractionMode,
   HarnessBedrockApiFormat,
   HarnessConversationRole,
+  HarnessHookDecision,
+  HarnessHookEventType,
   HarnessOpenAiApiFormat,
   HarnessStopReason,
   HarnessToolType,
@@ -7904,6 +7906,12 @@ export interface HarnessOpenAiModelConfig {
   apiKeyArn: string | undefined;
 
   /**
+   * <p>Optional custom endpoint URL for an OpenAI-compatible endpoint.</p>
+   * @public
+   */
+  apiBase?: string | undefined;
+
+  /**
    * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
    * @public
    */
@@ -9048,6 +9056,42 @@ export interface HarnessContentBlockStopEvent {
 }
 
 /**
+ * <p>A lifecycle hook event emitted in the invocation stream for visibility into hook decisions.</p>
+ * @public
+ */
+export interface HarnessHookEvent {
+  /**
+   * <p>The unique identifier for this hook event.</p>
+   * @public
+   */
+  hookEventId: string | undefined;
+
+  /**
+   * <p>The name of the hook that ran.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of lifecycle hook event.</p>
+   * @public
+   */
+  type: HarnessHookEventType | undefined;
+
+  /**
+   * <p>The decision applied to the hook event. This field is present only for blocking Lambda targets.</p>
+   * @public
+   */
+  decision?: HarnessHookDecision | undefined;
+
+  /**
+   * <p>The optional reason for the applied decision.</p>
+   * @public
+   */
+  reason?: string | undefined;
+}
+
+/**
  * <p>Event indicating the start of a message.</p>
  * @public
  */
@@ -9145,6 +9189,7 @@ export type InvokeHarnessStreamOutput =
   | InvokeHarnessStreamOutput.ContentBlockDeltaMember
   | InvokeHarnessStreamOutput.ContentBlockStartMember
   | InvokeHarnessStreamOutput.ContentBlockStopMember
+  | InvokeHarnessStreamOutput.HookEventMember
   | InvokeHarnessStreamOutput.InternalServerExceptionMember
   | InvokeHarnessStreamOutput.MessageStartMember
   | InvokeHarnessStreamOutput.MessageStopMember
@@ -9171,6 +9216,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException?: never;
     validationException?: never;
     runtimeClientError?: never;
+    hookEvent?: never;
     $unknown?: never;
   }
 
@@ -9188,6 +9234,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException?: never;
     validationException?: never;
     runtimeClientError?: never;
+    hookEvent?: never;
     $unknown?: never;
   }
 
@@ -9205,6 +9252,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException?: never;
     validationException?: never;
     runtimeClientError?: never;
+    hookEvent?: never;
     $unknown?: never;
   }
 
@@ -9222,6 +9270,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException?: never;
     validationException?: never;
     runtimeClientError?: never;
+    hookEvent?: never;
     $unknown?: never;
   }
 
@@ -9239,6 +9288,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException?: never;
     validationException?: never;
     runtimeClientError?: never;
+    hookEvent?: never;
     $unknown?: never;
   }
 
@@ -9256,6 +9306,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException?: never;
     validationException?: never;
     runtimeClientError?: never;
+    hookEvent?: never;
     $unknown?: never;
   }
 
@@ -9273,6 +9324,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException: InternalServerException;
     validationException?: never;
     runtimeClientError?: never;
+    hookEvent?: never;
     $unknown?: never;
   }
 
@@ -9290,6 +9342,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException?: never;
     validationException: ValidationException;
     runtimeClientError?: never;
+    hookEvent?: never;
     $unknown?: never;
   }
 
@@ -9307,6 +9360,25 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException?: never;
     validationException?: never;
     runtimeClientError: RuntimeClientError;
+    hookEvent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A lifecycle hook event emitted when a configured hook runs.</p>
+   * @public
+   */
+  export interface HookEventMember {
+    messageStart?: never;
+    contentBlockStart?: never;
+    contentBlockDelta?: never;
+    contentBlockStop?: never;
+    messageStop?: never;
+    metadata?: never;
+    internalServerException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    hookEvent: HarnessHookEvent;
     $unknown?: never;
   }
 
@@ -9323,6 +9395,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException?: never;
     validationException?: never;
     runtimeClientError?: never;
+    hookEvent?: never;
     $unknown: [string, any];
   }
 
@@ -9340,6 +9413,7 @@ export namespace InvokeHarnessStreamOutput {
     internalServerException: (value: InternalServerException) => T;
     validationException: (value: ValidationException) => T;
     runtimeClientError: (value: RuntimeClientError) => T;
+    hookEvent: (value: HarnessHookEvent) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -10108,27 +10182,4 @@ export interface DeleteEventOutput {
    * @public
    */
   eventId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteMemoryRecordInput {
-  /**
-   * <p>The identifier of the AgentCore Memory resource from which to delete the memory record.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The identifier of the memory record to delete.</p>
-   * @public
-   */
-  memoryRecordId: string | undefined;
-
-  /**
-   * <p>The namespace of the memory record to delete. This value is used for IAM condition key authorization.</p>
-   * @public
-   */
-  namespace?: string | undefined;
 }

@@ -88,6 +88,7 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *     openAiModelConfig: { // HarnessOpenAiModelConfig
  *       modelId: "STRING_VALUE", // required
  *       apiKeyArn: "STRING_VALUE", // required
+ *       apiBase: "STRING_VALUE",
  *       maxTokens: Number("int"),
  *       temperature: Number("float"),
  *       topP: Number("float"),
@@ -238,7 +239,7 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  * //       contentBlockIndex: Number("int"), // required
  * //     },
  * //     messageStop: { // HarnessMessageStopEvent
- * //       stopReason: "end_turn" || "tool_use" || "tool_result" || "max_tokens" || "stop_sequence" || "content_filtered" || "malformed_model_output" || "malformed_tool_use" || "interrupted" || "partial_turn" || "model_context_window_exceeded" || "max_iterations_exceeded" || "max_output_tokens_exceeded" || "timeout_exceeded", // required
+ * //       stopReason: "end_turn" || "tool_use" || "tool_result" || "max_tokens" || "stop_sequence" || "content_filtered" || "malformed_model_output" || "malformed_tool_use" || "interrupted" || "partial_turn" || "model_context_window_exceeded" || "max_iterations_exceeded" || "max_output_tokens_exceeded" || "timeout_exceeded" || "hook_stopped", // required
  * //     },
  * //     metadata: { // HarnessMetadataEvent
  * //       usage: { // HarnessTokenUsage
@@ -267,6 +268,13 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  * //     },
  * //     runtimeClientError: { // RuntimeClientError
  * //       message: "STRING_VALUE",
+ * //     },
+ * //     hookEvent: { // HarnessHookEvent
+ * //       hookEventId: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       type: "before_tool_call" || "after_tool_call" || "before_invocation" || "after_invocation", // required
+ * //       decision: "allow" || "deny",
+ * //       reason: "STRING_VALUE",
  * //     },
  * //   },
  * // };

@@ -34,6 +34,29 @@ import type {
 /**
  * @public
  */
+export interface DeleteMemoryRecordInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource from which to delete the memory record.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The identifier of the memory record to delete.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+
+  /**
+   * <p>The namespace of the memory record to delete. This value is used for IAM condition key authorization.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteMemoryRecordOutput {
   /**
    * <p>The identifier of the memory record that was deleted.</p>

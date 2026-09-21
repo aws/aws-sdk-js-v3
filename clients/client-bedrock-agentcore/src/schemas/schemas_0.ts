@@ -245,6 +245,7 @@ const _HCBSEa = "HarnessContentBlockStopEvent";
 const _HCBa = "HarnessContentBlock";
 const _HGMC = "HarnessGeminiModelConfig";
 const _HGOA = "HarnessGatewayOutboundAuth";
+const _HHE = "HarnessHookEvent";
 const _HHM = "HttpHeadersMap";
 const _HIFC = "HarnessInlineFunctionConfig";
 const _HIFD = "HarnessInlineFunctionDescription";
@@ -256,6 +257,7 @@ const _HME = "HarnessMetadataEvent";
 const _HMSE = "HarnessMessageStartEvent";
 const _HMSEa = "HarnessMessageStopEvent";
 const _HMa = "HarnessMessages";
+const _HOAAB = "HarnessOpenAiApiBase";
 const _HOAMC = "HarnessOpenAiModelConfig";
 const _HRCB = "HarnessReasoningContentBlock";
 const _HRCBD = "HarnessReasoningContentBlockDelta";
@@ -716,7 +718,8 @@ const _dX = "deltaX";
 const _dY = "deltaY";
 const _da = "data";
 const _de = "delta";
-const _dec = "decimals";
+const _dec = "decision";
+const _deci = "decimals";
 const _des = "descriptors";
 const _e = "error";
 const _eA = "evaluatorArn";
@@ -790,6 +793,8 @@ const _go = "google";
 const _h = "headers";
 const _hA = "harnessArn";
 const _hE = "httpError";
+const _hEI = "hookEventId";
+const _hEo = "hookEvent";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _he = "height";
@@ -1280,6 +1285,7 @@ var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var EvaluationExplanation: StaticSimpleSchema = [0, n0, _EE, 8, 0];
 var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
 var HarnessLiteLlmApiBase: StaticSimpleSchema = [0, n0, _HLLAB, 8, 0];
+var HarnessOpenAiApiBase: StaticSimpleSchema = [0, n0, _HOAAB, 8, 0];
 var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
 var MemoryDocument: StaticSimpleSchema = [0, n0, _MD, 8, 15];
 var MemoryJsonDataContent: StaticSimpleSchema = [0, n0, _MJDC, 8, 15];
@@ -2039,6 +2045,11 @@ export var HarnessGeminiModelConfig$: StaticStructureSchema = [3, n0, _HGMC,
   [_mIo, _aKA, _mTa, _tem, _tPo, _tK, _aP],
   [0, 0, 1, 1, 1, 1, 15], 2
 ];
+export var HarnessHookEvent$: StaticStructureSchema = [3, n0, _HHE,
+  0,
+  [_hEI, _n, _t, _dec, _r],
+  [0, 0, 0, 0, 0], 3
+];
 export var HarnessInlineFunctionConfig$: StaticStructureSchema = [3, n0, _HIFC,
   0,
   [_d, _iS],
@@ -2071,8 +2082,8 @@ export var HarnessMetadataEvent$: StaticStructureSchema = [3, n0, _HME,
 ];
 export var HarnessOpenAiModelConfig$: StaticStructureSchema = [3, n0, _HOAMC,
   0,
-  [_mIo, _aKA, _mTa, _tem, _tPo, _aF, _aP],
-  [0, 0, 1, 1, 1, 0, 15], 2
+  [_mIo, _aKA, _aB, _mTa, _tem, _tPo, _aF, _aP],
+  [0, 0, [() => HarnessOpenAiApiBase, 0], 1, 1, 1, 0, 15], 2
 ];
 export var HarnessReasoningTextBlock$: StaticStructureSchema = [3, n0, _HRTB,
   8,
@@ -2846,7 +2857,7 @@ export var TargetRef$: StaticStructureSchema = [3, n0, _TR,
 ];
 export var TokenBalance$: StaticStructureSchema = [3, n0, _TB,
   0,
-  [_am, _dec, _to, _ne, _ch],
+  [_am, _deci, _to, _ne, _ch],
   [0, 1, 0, 0, 0], 5
 ];
 export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
@@ -3342,7 +3353,7 @@ export var HarnessGatewayOutboundAuth$: StaticUnionSchema = [4, n0, _HGOA,
 export var HarnessModelConfiguration$: StaticUnionSchema = [4, n0, _HMC,
   0,
   [_bMC, _oAMC, _gMC, _lLMC],
-  [() => HarnessBedrockModelConfig$, () => HarnessOpenAiModelConfig$, () => HarnessGeminiModelConfig$, [() => HarnessLiteLlmModelConfig$, 0]]
+  [() => HarnessBedrockModelConfig$, [() => HarnessOpenAiModelConfig$, 0], () => HarnessGeminiModelConfig$, [() => HarnessLiteLlmModelConfig$, 0]]
 ];
 export var HarnessReasoningContentBlock$: StaticUnionSchema = [4, n0, _HRCB,
   8,
@@ -3391,8 +3402,8 @@ export var InvokeAgentRuntimeCommandStreamOutput$: StaticUnionSchema = [4, n0, _
 ];
 export var InvokeHarnessStreamOutput$: StaticUnionSchema = [4, n0, _IHSO,
   { [_st]: 1 },
-  [_mSe, _cBS, _cBD, _cBSo, _mSes, _met, _iSE, _vE, _rCE],
-  [() => HarnessMessageStartEvent$, () => HarnessContentBlockStartEvent$, [() => HarnessContentBlockDeltaEvent$, 0], () => HarnessContentBlockStopEvent$, () => HarnessMessageStopEvent$, () => HarnessMetadataEvent$, [() => InternalServerException$, 0], [() => ValidationException$, 0], [() => RuntimeClientError$, 0]]
+  [_mSe, _cBS, _cBD, _cBSo, _mSes, _met, _iSE, _vE, _rCE, _hEo],
+  [() => HarnessMessageStartEvent$, () => HarnessContentBlockStartEvent$, [() => HarnessContentBlockDeltaEvent$, 0], () => HarnessContentBlockStopEvent$, () => HarnessMessageStopEvent$, () => HarnessMetadataEvent$, [() => InternalServerException$, 0], [() => ValidationException$, 0], [() => RuntimeClientError$, 0], () => HarnessHookEvent$]
 ];
 export var LeftExpression$: StaticUnionSchema = [4, n0, _LE,
   0,
