@@ -1,13 +1,16 @@
+import type { S3 as S3Type } from "@aws-sdk/client-s3";
 import type { S3TransferManager as S3TransferManagerType } from "@aws-sdk/lib-transfer-manager/transfer-manager";
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
-import { S3 } from "@aws-sdk/client-s3";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
+import {
+  S3 as S3Browser,
+  S3TransferManager as S3TransferManagerBrowser,
+} from "../browser-build/browser-transfer-manager-bundle.js";
 
-import { S3TransferManager as S3TransferManagerImpl } from "../browser-build/browser-transfer-manager-bundle.js";
-
-const S3TransferManager = S3TransferManagerImpl as unknown as typeof S3TransferManagerType;
+const S3 = S3Browser as unknown as typeof S3Type;
+const S3TransferManager = S3TransferManagerBrowser as unknown as typeof S3TransferManagerType;
 
 describe("S3TransferManager browser e2e", () => {
   const PATTERN = new Uint8Array([0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37]); // "01234567"
@@ -36,7 +39,7 @@ describe("S3TransferManager browser e2e", () => {
     }
   }
 
-  let client: S3;
+  let client: InstanceType<typeof S3>;
   let tmPart: InstanceType<typeof S3TransferManager>;
   let tmRange: InstanceType<typeof S3TransferManager>;
   let Bucket: string;
