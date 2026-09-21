@@ -15,6 +15,7 @@ import {
   AssociateResourceErrorReason,
   AssociateResourceResponseElement$,
   Attribute$,
+  AutoTransferBillingGroupCreationPreference$,
   BatchAssociateResourcesToCustomLineItem$,
   BatchAssociateResourcesToCustomLineItemCommand,
   BatchAssociateResourcesToCustomLineItemInput$,
@@ -95,6 +96,10 @@ import {
   GetBillingGroupCostReportCommand,
   GetBillingGroupCostReportInput$,
   GetBillingGroupCostReportOutput$,
+  GetBillingTransferPreference$,
+  GetBillingTransferPreferenceCommand,
+  GetBillingTransferPreferenceInput$,
+  GetBillingTransferPreferenceOutput$,
   GroupByAttributeName,
   InternalServerException,
   InternalServerException$,
@@ -198,6 +203,10 @@ import {
   UpdateBillingGroupCommand,
   UpdateBillingGroupInput$,
   UpdateBillingGroupOutput$,
+  UpdateBillingTransferPreference$,
+  UpdateBillingTransferPreferenceCommand,
+  UpdateBillingTransferPreferenceInput$,
+  UpdateBillingTransferPreferenceOutput$,
   UpdateCustomLineItem$,
   UpdateCustomLineItemChargeDetails$,
   UpdateCustomLineItemCommand,
@@ -255,6 +264,8 @@ assert(typeof DisassociatePricingRulesCommand === "function");
 assert(typeof DisassociatePricingRules$ === "object");
 assert(typeof GetBillingGroupCostReportCommand === "function");
 assert(typeof GetBillingGroupCostReport$ === "object");
+assert(typeof GetBillingTransferPreferenceCommand === "function");
+assert(typeof GetBillingTransferPreference$ === "object");
 assert(typeof ListAccountAssociationsCommand === "function");
 assert(typeof ListAccountAssociations$ === "object");
 assert(typeof ListBillingGroupCostReportsCommand === "function");
@@ -283,6 +294,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateBillingGroupCommand === "function");
 assert(typeof UpdateBillingGroup$ === "object");
+assert(typeof UpdateBillingTransferPreferenceCommand === "function");
+assert(typeof UpdateBillingTransferPreference$ === "object");
 assert(typeof UpdateCustomLineItemCommand === "function");
 assert(typeof UpdateCustomLineItem$ === "object");
 assert(typeof UpdatePricingPlanCommand === "function");
@@ -299,6 +312,7 @@ assert(typeof AssociatePricingRulesOutput$ === "object");
 assert(typeof AssociateResourceError$ === "object");
 assert(typeof AssociateResourceResponseElement$ === "object");
 assert(typeof Attribute$ === "object");
+assert(typeof AutoTransferBillingGroupCreationPreference$ === "object");
 assert(typeof BatchAssociateResourcesToCustomLineItemInput$ === "object");
 assert(typeof BatchAssociateResourcesToCustomLineItemOutput$ === "object");
 assert(typeof BatchDisassociateResourcesFromCustomLineItemInput$ === "object");
@@ -341,6 +355,8 @@ assert(typeof DisassociateResourceResponseElement$ === "object");
 assert(typeof FreeTierConfig$ === "object");
 assert(typeof GetBillingGroupCostReportInput$ === "object");
 assert(typeof GetBillingGroupCostReportOutput$ === "object");
+assert(typeof GetBillingTransferPreferenceInput$ === "object");
+assert(typeof GetBillingTransferPreferenceOutput$ === "object");
 assert(typeof LineItemFilter$ === "object");
 assert(typeof ListAccountAssociationsFilter$ === "object");
 assert(typeof ListAccountAssociationsInput$ === "object");
@@ -390,6 +406,8 @@ assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateBillingGroupAccountGrouping$ === "object");
 assert(typeof UpdateBillingGroupInput$ === "object");
 assert(typeof UpdateBillingGroupOutput$ === "object");
+assert(typeof UpdateBillingTransferPreferenceInput$ === "object");
+assert(typeof UpdateBillingTransferPreferenceOutput$ === "object");
 assert(typeof UpdateCustomLineItemChargeDetails$ === "object");
 assert(typeof UpdateCustomLineItemFlatChargeDetails$ === "object");
 assert(typeof UpdateCustomLineItemInput$ === "object");

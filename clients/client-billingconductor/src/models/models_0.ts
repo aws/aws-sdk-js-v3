@@ -199,6 +199,24 @@ export interface Attribute {
 }
 
 /**
+ * <p> The auto billing group creation preference for a billing transfer. When the preference is enabled, Billing Conductor automatically creates an indirect billing transfer billing group, with the specified pricing plan, for each account that transfers its bill to the bill source account of the billing transfer. </p>
+ * @public
+ */
+export interface AutoTransferBillingGroupCreationPreference {
+  /**
+   * <p> Specifies whether Billing Conductor automatically creates billing groups for the billing transfer. The preference is disabled by default. </p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the pricing plan to apply to the automatically created billing groups. This value is required when <code>Enabled</code> is <code>true</code>, and must be omitted when <code>Enabled</code> is <code>false</code>. </p>
+   * @public
+   */
+  PricingPlanArn?: string | undefined;
+}
+
+/**
  * <p>The preferences and settings that will be used to compute the Amazon Web Services charges for a billing group.</p>
  * @public
  */
@@ -1713,6 +1731,40 @@ export interface GetBillingGroupCostReportOutput {
 }
 
 /**
+ * @public
+ */
+export interface GetBillingTransferPreferenceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the billing transfer whose preference you want to retrieve.</p>
+   * @public
+   */
+  ResponsibilityTransferArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBillingTransferPreferenceOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the billing transfer that the preference applies to.</p>
+   * @public
+   */
+  ResponsibilityTransferArn: string | undefined;
+
+  /**
+   * <p>The auto billing group creation preference for the billing transfer.</p>
+   * @public
+   */
+  AutoBillingTransferBillingGroupCreation: AutoTransferBillingGroupCreationPreference | undefined;
+
+  /**
+   * <p>The most recent time when the preference was modified. This value is empty if the preference has never been set for the billing transfer.</p>
+   * @public
+   */
+  LastModifiedTime?: number | undefined;
+}
+
+/**
  * <p>The filter on the account ID of the linked account, or any of the following:</p> <p> <code>MONITORED</code>: linked accounts that are associated to billing groups.</p> <p> <code>UNMONITORED</code>: linked accounts that are not associated to billing groups.</p> <p> <code>Billing Group Arn</code>: linked accounts that are associated to the provided Billing Group Arn.</p>
  * @public
  */
@@ -2819,3 +2871,49 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateBillingTransferPreferenceInput {
+  /**
+   * <p>A unique, case-sensitive identifier that you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the billing transfer whose preference you want to set.</p>
+   * @public
+   */
+  ResponsibilityTransferArn: string | undefined;
+
+  /**
+   * <p>The auto billing group creation preference to set for the billing transfer.</p>
+   * @public
+   */
+  AutoBillingTransferBillingGroupCreation: AutoTransferBillingGroupCreationPreference | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBillingTransferPreferenceOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the billing transfer that the preference applies to.</p>
+   * @public
+   */
+  ResponsibilityTransferArn: string | undefined;
+
+  /**
+   * <p>The updated auto billing group creation preference for the billing transfer.</p>
+   * @public
+   */
+  AutoBillingTransferBillingGroupCreation: AutoTransferBillingGroupCreationPreference | undefined;
+
+  /**
+   * <p>The most recent time when the preference was modified.</p>
+   * @public
+   */
+  LastModifiedTime: number | undefined;
+}

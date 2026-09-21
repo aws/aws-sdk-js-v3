@@ -5,6 +5,7 @@ const _AAL = "AccountAssociationsList";
 const _AALE = "AccountAssociationsListElement";
 const _AAO = "AssociateAccountsOutput";
 const _AAs = "AssociateAccounts";
+const _ABTBGC = "AutoBillingTransferBillingGroupCreation";
 const _ADE = "AccessDeniedException";
 const _AE = "AccountEmail";
 const _AG = "AccountGrouping";
@@ -21,6 +22,7 @@ const _ARE = "AssociateResourceError";
 const _ARRE = "AssociateResourceResponseElement";
 const _ARRL = "AssociateResourcesResponseList";
 const _AS = "AssociationSize";
+const _ATBGCP = "AutoTransferBillingGroupCreationPreference";
 const _AV = "AssociatedValues";
 const _AVt = "AttributeValues";
 const _AWSC = "AWSCost";
@@ -118,6 +120,7 @@ const _E = "Error";
 const _EBP = "EndBillingPeriod";
 const _EEBP = "ExclusiveEndBillingPeriod";
 const _ERE = "EndRangeExclusive";
+const _En = "Enabled";
 const _F = "Fields";
 const _FAR = "FailedAssociatedResources";
 const _FDR = "FailedDisassociatedResources";
@@ -129,6 +132,9 @@ const _GB = "GroupBy";
 const _GBGCR = "GetBillingGroupCostReport";
 const _GBGCRI = "GetBillingGroupCostReportInput";
 const _GBGCRO = "GetBillingGroupCostReportOutput";
+const _GBTP = "GetBillingTransferPreference";
+const _GBTPI = "GetBillingTransferPreferenceInput";
+const _GBTPO = "GetBillingTransferPreferenceOutput";
 const _ISBP = "InclusiveStartBillingPeriod";
 const _ISE = "InternalServerException";
 const _K = "Key";
@@ -261,6 +267,9 @@ const _UBG = "UpdateBillingGroup";
 const _UBGAG = "UpdateBillingGroupAccountGrouping";
 const _UBGI = "UpdateBillingGroupInput";
 const _UBGO = "UpdateBillingGroupOutput";
+const _UBTP = "UpdateBillingTransferPreference";
+const _UBTPI = "UpdateBillingTransferPreferenceInput";
+const _UBTPO = "UpdateBillingTransferPreferenceOutput";
 const _UCLI = "UpdateCustomLineItem";
 const _UCLICD = "UpdateCustomLineItemChargeDetails";
 const _UCLIFCD = "UpdateCustomLineItemFlatChargeDetails";
@@ -429,6 +438,11 @@ export var Attribute$: StaticStructureSchema = [3, n0, _At,
   0,
   [_K, _V],
   [0, 0]
+];
+export var AutoTransferBillingGroupCreationPreference$: StaticStructureSchema = [3, n0, _ATBGCP,
+  0,
+  [_En, _PPA],
+  [2, 0], 1
 ];
 export var BatchAssociateResourcesToCustomLineItemInput$: StaticStructureSchema = [3, n0, _BARTCLII,
   0,
@@ -639,6 +653,16 @@ export var GetBillingGroupCostReportOutput$: StaticStructureSchema = [3, n0, _GB
   0,
   [_BGCRR, _NT],
   [() => BillingGroupCostReportResultsList, 0]
+];
+export var GetBillingTransferPreferenceInput$: StaticStructureSchema = [3, n0, _GBTPI,
+  0,
+  [_RTA],
+  [0], 1
+];
+export var GetBillingTransferPreferenceOutput$: StaticStructureSchema = [3, n0, _GBTPO,
+  0,
+  [_RTA, _ABTBGC, _LMT],
+  [0, () => AutoTransferBillingGroupCreationPreference$, 1], 2
 ];
 export var LineItemFilter$: StaticStructureSchema = [3, n0, _LIFi,
   0,
@@ -885,6 +909,16 @@ export var UpdateBillingGroupOutput$: StaticStructureSchema = [3, n0, _UBGO,
   [_A, _N, _D, _PAI, _PPA, _S, _LMT, _St, _SR, _AG],
   [0, [() => BillingGroupName, 0], [() => BillingGroupDescription, 0], 0, 0, 1, 1, 0, 0, () => UpdateBillingGroupAccountGrouping$]
 ];
+export var UpdateBillingTransferPreferenceInput$: StaticStructureSchema = [3, n0, _UBTPI,
+  0,
+  [_RTA, _ABTBGC, _CTl],
+  [0, () => AutoTransferBillingGroupCreationPreference$, [0, { [_hH]: _XACT, [_iT]: 1 }]], 2
+];
+export var UpdateBillingTransferPreferenceOutput$: StaticStructureSchema = [3, n0, _UBTPO,
+  0,
+  [_RTA, _ABTBGC, _LMT],
+  [0, () => AutoTransferBillingGroupCreationPreference$, 1], 3
+];
 export var UpdateCustomLineItemChargeDetails$: StaticStructureSchema = [3, n0, _UCLICD,
   0,
   [_Fl, _P, _LIF],
@@ -1068,6 +1102,9 @@ export var DisassociatePricingRules$: StaticOperationSchema = [9, n0, _DPRi,
 export var GetBillingGroupCostReport$: StaticOperationSchema = [9, n0, _GBGCR,
   { [_h]: ["POST", "/get-billing-group-cost-report", 200] }, () => GetBillingGroupCostReportInput$, () => GetBillingGroupCostReportOutput$
 ];
+export var GetBillingTransferPreference$: StaticOperationSchema = [9, n0, _GBTP,
+  { [_h]: ["POST", "/get-billing-transfer-preference", 200] }, () => GetBillingTransferPreferenceInput$, () => GetBillingTransferPreferenceOutput$
+];
 export var ListAccountAssociations$: StaticOperationSchema = [9, n0, _LAA,
   { [_h]: ["POST", "/list-account-associations", 200] }, () => ListAccountAssociationsInput$, () => ListAccountAssociationsOutput$
 ];
@@ -1109,6 +1146,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateBillingGroup$: StaticOperationSchema = [9, n0, _UBG,
   { [_h]: ["POST", "/update-billing-group", 200] }, () => UpdateBillingGroupInput$, () => UpdateBillingGroupOutput$
+];
+export var UpdateBillingTransferPreference$: StaticOperationSchema = [9, n0, _UBTP,
+  { [_h]: ["PUT", "/update-billing-transfer-preference", 200] }, () => UpdateBillingTransferPreferenceInput$, () => UpdateBillingTransferPreferenceOutput$
 ];
 export var UpdateCustomLineItem$: StaticOperationSchema = [9, n0, _UCLI,
   { [_h]: ["POST", "/update-custom-line-item", 200] }, () => UpdateCustomLineItemInput$, () => UpdateCustomLineItemOutput$

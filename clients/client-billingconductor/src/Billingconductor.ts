@@ -79,6 +79,11 @@ import {
   GetBillingGroupCostReportCommand,
 } from "./commands/GetBillingGroupCostReportCommand";
 import {
+  type GetBillingTransferPreferenceCommandInput,
+  type GetBillingTransferPreferenceCommandOutput,
+  GetBillingTransferPreferenceCommand,
+} from "./commands/GetBillingTransferPreferenceCommand";
+import {
   type ListAccountAssociationsCommandInput,
   type ListAccountAssociationsCommandOutput,
   ListAccountAssociationsCommand,
@@ -149,6 +154,11 @@ import {
   UpdateBillingGroupCommand,
 } from "./commands/UpdateBillingGroupCommand";
 import {
+  type UpdateBillingTransferPreferenceCommandInput,
+  type UpdateBillingTransferPreferenceCommandOutput,
+  UpdateBillingTransferPreferenceCommand,
+} from "./commands/UpdateBillingTransferPreferenceCommand";
+import {
   type UpdateCustomLineItemCommandInput,
   type UpdateCustomLineItemCommandOutput,
   UpdateCustomLineItemCommand,
@@ -197,6 +207,7 @@ const commands = {
   DisassociateAccountsCommand,
   DisassociatePricingRulesCommand,
   GetBillingGroupCostReportCommand,
+  GetBillingTransferPreferenceCommand,
   ListAccountAssociationsCommand,
   ListBillingGroupCostReportsCommand,
   ListBillingGroupsCommand,
@@ -211,6 +222,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateBillingGroupCommand,
+  UpdateBillingTransferPreferenceCommand,
   UpdateCustomLineItemCommand,
   UpdatePricingPlanCommand,
   UpdatePricingRuleCommand,
@@ -486,6 +498,23 @@ export interface Billingconductor {
   ): void;
 
   /**
+   * @see {@link GetBillingTransferPreferenceCommand}
+   */
+  getBillingTransferPreference(
+    args: GetBillingTransferPreferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBillingTransferPreferenceCommandOutput>;
+  getBillingTransferPreference(
+    args: GetBillingTransferPreferenceCommandInput,
+    cb: (err: any, data?: GetBillingTransferPreferenceCommandOutput) => void
+  ): void;
+  getBillingTransferPreference(
+    args: GetBillingTransferPreferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBillingTransferPreferenceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAccountAssociationsCommand}
    */
   listAccountAssociations(): Promise<ListAccountAssociationsCommandOutput>;
@@ -727,6 +756,23 @@ export interface Billingconductor {
     args: UpdateBillingGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBillingGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateBillingTransferPreferenceCommand}
+   */
+  updateBillingTransferPreference(
+    args: UpdateBillingTransferPreferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBillingTransferPreferenceCommandOutput>;
+  updateBillingTransferPreference(
+    args: UpdateBillingTransferPreferenceCommandInput,
+    cb: (err: any, data?: UpdateBillingTransferPreferenceCommandOutput) => void
+  ): void;
+  updateBillingTransferPreference(
+    args: UpdateBillingTransferPreferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBillingTransferPreferenceCommandOutput) => void
   ): void;
 
   /**

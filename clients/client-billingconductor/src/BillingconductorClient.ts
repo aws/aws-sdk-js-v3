@@ -115,6 +115,10 @@ import type {
   GetBillingGroupCostReportCommandOutput,
 } from "./commands/GetBillingGroupCostReportCommand";
 import type {
+  GetBillingTransferPreferenceCommandInput,
+  GetBillingTransferPreferenceCommandOutput,
+} from "./commands/GetBillingTransferPreferenceCommand";
+import type {
   ListAccountAssociationsCommandInput,
   ListAccountAssociationsCommandOutput,
 } from "./commands/ListAccountAssociationsCommand";
@@ -159,6 +163,10 @@ import type {
   UpdateBillingGroupCommandOutput,
 } from "./commands/UpdateBillingGroupCommand";
 import type {
+  UpdateBillingTransferPreferenceCommandInput,
+  UpdateBillingTransferPreferenceCommandOutput,
+} from "./commands/UpdateBillingTransferPreferenceCommand";
+import type {
   UpdateCustomLineItemCommandInput,
   UpdateCustomLineItemCommandOutput,
 } from "./commands/UpdateCustomLineItemCommand";
@@ -200,6 +208,7 @@ export type ServiceInputTypes =
   | DisassociateAccountsCommandInput
   | DisassociatePricingRulesCommandInput
   | GetBillingGroupCostReportCommandInput
+  | GetBillingTransferPreferenceCommandInput
   | ListAccountAssociationsCommandInput
   | ListBillingGroupCostReportsCommandInput
   | ListBillingGroupsCommandInput
@@ -214,6 +223,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBillingGroupCommandInput
+  | UpdateBillingTransferPreferenceCommandInput
   | UpdateCustomLineItemCommandInput
   | UpdatePricingPlanCommandInput
   | UpdatePricingRuleCommandInput;
@@ -237,6 +247,7 @@ export type ServiceOutputTypes =
   | DisassociateAccountsCommandOutput
   | DisassociatePricingRulesCommandOutput
   | GetBillingGroupCostReportCommandOutput
+  | GetBillingTransferPreferenceCommandOutput
   | ListAccountAssociationsCommandOutput
   | ListBillingGroupCostReportsCommandOutput
   | ListBillingGroupsCommandOutput
@@ -251,6 +262,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBillingGroupCommandOutput
+  | UpdateBillingTransferPreferenceCommandOutput
   | UpdateCustomLineItemCommandOutput
   | UpdatePricingPlanCommandOutput
   | UpdatePricingRuleCommandOutput;

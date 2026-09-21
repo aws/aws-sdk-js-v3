@@ -286,6 +286,13 @@ GetBillingGroupCostReport
 </details>
 <details>
 <summary>
+GetBillingTransferPreference
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/GetBillingTransferPreferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/GetBillingTransferPreferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/GetBillingTransferPreferenceCommandOutput/)
+</details>
+<details>
+<summary>
 ListAccountAssociations
 </summary>
 
@@ -381,6 +388,13 @@ UpdateBillingGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/UpdateBillingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdateBillingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdateBillingGroupCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateBillingTransferPreference
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/UpdateBillingTransferPreferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdateBillingTransferPreferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdateBillingTransferPreferenceCommandOutput/)
 </details>
 <details>
 <summary>
