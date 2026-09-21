@@ -2,7 +2,9 @@ import type { S3 as S3Type } from "@aws-sdk/client-s3";
 import type { S3TransferManager as S3TransferManagerType } from "@aws-sdk/lib-transfer-manager/transfer-manager";
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
+import { XhrHttpHandler } from "@aws-sdk/xhr-http-handler";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
+import type { AwsCredentialIdentity } from "@smithy/types";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 import {
   S3 as S3Browser,
@@ -40,6 +42,7 @@ describe("S3TransferManager browser e2e", () => {
   }
 
   let client: InstanceType<typeof S3>;
+  let credentials: AwsCredentialIdentity;
   let tmPart: InstanceType<typeof S3TransferManager>;
   let tmRange: InstanceType<typeof S3TransferManager>;
   let Bucket: string;
@@ -70,7 +73,7 @@ describe("S3TransferManager browser e2e", () => {
     }
 
     const provider = fromNodeProviderChain();
-    const credentials = await provider();
+    credentials = await provider();
 
     client = new S3({
       region,
@@ -180,5 +183,24 @@ describe("S3TransferManager browser e2e", () => {
     const downloaded = await download.Body?.transformToByteArray();
     check(downloaded!, body.subarray(0, SIZE_5MB));
     expect(download.ContentLength).toEqual(SIZE_5MB);
+  });
+
+  it("should upload then download using XhrHttpHandler", async () => {
+    const Key = key("xhr");
+    const body = data(SIZE_11MB);
+
+    const xhrClient = new S3({
+      region,
+      credentials,
+      requestHandler: XhrHttpHandler.create(),
+    });
+    const tmXhr = new S3TransferManager({ s3: xhrClient, multipartDownloadType: "PART" });
+
+    await tmXhr.upload({ Bucket, Key, Body: body });
+
+    const download = await tmXhr.download({ Bucket, Key });
+    const downloaded = await download.Body?.transformToByteArray();
+    check(downloaded!, body);
+    expect(download.ContentLength).toEqual(body.length);
   });
 });
