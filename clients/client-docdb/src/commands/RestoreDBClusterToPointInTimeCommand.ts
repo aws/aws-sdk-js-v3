@@ -64,6 +64,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClu
  *   },
  *   StorageType: "STRING_VALUE",
  *   NetworkType: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -136,6 +137,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClu
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     NetworkType: "STRING_VALUE",
+ * //     CopyTagsToSnapshot: true || false,
  * //   },
  * // };
  *

@@ -123,6 +123,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         KmsKeyId: "STRING_VALUE",
  * //       },
  * //       NetworkType: "STRING_VALUE",
+ * //       CopyTagsToSnapshot: true || false,
  * //     },
  * //   ],
  * // };

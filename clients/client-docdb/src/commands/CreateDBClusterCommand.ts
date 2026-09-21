@@ -72,6 +72,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   NetworkType: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -144,6 +145,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     NetworkType: "STRING_VALUE",
+ * //     CopyTagsToSnapshot: true || false,
  * //   },
  * // };
  *

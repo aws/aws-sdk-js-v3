@@ -67,6 +67,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   RotateMasterUserPassword: true || false,
  *   NetworkType: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
@@ -139,6 +140,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     NetworkType: "STRING_VALUE",
+ * //     CopyTagsToSnapshot: true || false,
  * //   },
  * // };
  *

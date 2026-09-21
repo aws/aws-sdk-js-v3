@@ -1016,8 +1016,8 @@ export var CopyDBClusterSnapshotResult$: StaticStructureSchema = [3, n0, _CDBCSR
 ];
 export var CreateDBClusterMessage$: StaticStructureSchema = [3, n0, _CDBCM,
   0,
-  [_DBCI, _E, _AZv, _BRP, _DBCPGN, _VSGI, _DBSGN, _EV, _P, _MU, _MUP, _PBW, _PMW, _T, _SE, _KKI, _PSU, _ECLE, _DP, _GCI, _ST, _SVSC, _MMUP, _MUSKKI, _NT],
-  [0, 0, [() => AvailabilityZones, 0], 1, 0, [() => VpcSecurityGroupIdList, 0], 0, 0, 1, 0, 0, 0, 0, [() => TagList, 0], 2, 0, 0, 64 | 0, 2, 0, 0, () => ServerlessV2ScalingConfiguration$, 2, 0, 0], 2
+  [_DBCI, _E, _AZv, _BRP, _DBCPGN, _VSGI, _DBSGN, _EV, _P, _MU, _MUP, _PBW, _PMW, _T, _SE, _KKI, _PSU, _ECLE, _DP, _GCI, _ST, _SVSC, _MMUP, _MUSKKI, _NT, _CTTS],
+  [0, 0, [() => AvailabilityZones, 0], 1, 0, [() => VpcSecurityGroupIdList, 0], 0, 0, 1, 0, 0, 0, 0, [() => TagList, 0], 2, 0, 0, 64 | 0, 2, 0, 0, () => ServerlessV2ScalingConfiguration$, 2, 0, 0, 2], 2
 ];
 export var CreateDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _CDBCPGMr,
   0,
@@ -1086,8 +1086,8 @@ export var CreateGlobalClusterResult$: StaticStructureSchema = [3, n0, _CGCR,
 ];
 export var DBCluster$: StaticStructureSchema = [3, n0, _DBC,
   0,
-  [_AZv, _BRP, _DBCI, _DBCPG, _DBSG, _S, _PP, _ERT, _End, _RE, _MAZ, _E, _EV, _LRT, _P, _MU, _PBW, _PMW, _RSI, _RRI, _DBCM, _VSG, _HZI, _SE, _KKI, _DCRI, _DBCA, _AR, _CGI, _CCT, _ECLEn, _DP, _IOONAMT, _ST, _SVSC, _MUS, _NT],
-  [[() => AvailabilityZones, 0], 1, 0, 0, 0, 0, 0, 4, 0, 0, 2, 0, 0, 4, 1, 0, 0, 0, 0, [() => ReadReplicaIdentifierList, 0], [() => DBClusterMemberList, 0], [() => VpcSecurityGroupMembershipList, 0], 0, 2, 0, 0, 0, [() => DBClusterRoles, 0], 0, 4, 64 | 0, 2, 4, 0, () => ServerlessV2ScalingConfigurationInfo$, () => ClusterMasterUserSecret$, 0]
+  [_AZv, _BRP, _DBCI, _DBCPG, _DBSG, _S, _PP, _ERT, _End, _RE, _MAZ, _E, _EV, _LRT, _P, _MU, _PBW, _PMW, _RSI, _RRI, _DBCM, _VSG, _HZI, _SE, _KKI, _DCRI, _DBCA, _AR, _CGI, _CCT, _ECLEn, _DP, _IOONAMT, _ST, _SVSC, _MUS, _NT, _CTTS],
+  [[() => AvailabilityZones, 0], 1, 0, 0, 0, 0, 0, 4, 0, 0, 2, 0, 0, 4, 1, 0, 0, 0, 0, [() => ReadReplicaIdentifierList, 0], [() => DBClusterMemberList, 0], [() => VpcSecurityGroupMembershipList, 0], 0, 2, 0, 0, 0, [() => DBClusterRoles, 0], 0, 4, 64 | 0, 2, 4, 0, () => ServerlessV2ScalingConfigurationInfo$, () => ClusterMasterUserSecret$, 0, 2]
 ];
 export var DBClusterMember$: StaticStructureSchema = [3, n0, _DBCMl,
   0,
@@ -1421,8 +1421,8 @@ export var ListTagsForResourceMessage$: StaticStructureSchema = [3, n0, _LTFRM,
 ];
 export var ModifyDBClusterMessage$: StaticStructureSchema = [3, n0, _MDBCM,
   0,
-  [_DBCI, _NDBCI, _AI, _BRP, _DBCPGN, _VSGI, _P, _MUP, _PBW, _PMW, _CLEC, _EV, _AMVUl, _DP, _ST, _SVSC, _MMUP, _MUSKKI, _RMUP, _NT],
-  [0, 0, 2, 1, 0, [() => VpcSecurityGroupIdList, 0], 1, 0, 0, 0, () => CloudwatchLogsExportConfiguration$, 0, 2, 2, 0, () => ServerlessV2ScalingConfiguration$, 2, 0, 2, 0], 1
+  [_DBCI, _NDBCI, _AI, _BRP, _DBCPGN, _VSGI, _P, _MUP, _PBW, _PMW, _CLEC, _EV, _AMVUl, _DP, _ST, _SVSC, _MMUP, _MUSKKI, _RMUP, _NT, _CTTS],
+  [0, 0, 2, 1, 0, [() => VpcSecurityGroupIdList, 0], 1, 0, 0, 0, () => CloudwatchLogsExportConfiguration$, 0, 2, 2, 0, () => ServerlessV2ScalingConfiguration$, 2, 0, 2, 0, 2], 1
 ];
 export var ModifyDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _MDBCPGM,
   0,
@@ -1566,8 +1566,8 @@ export var ResourcePendingMaintenanceActions$: StaticStructureSchema = [3, n0, _
 ];
 export var RestoreDBClusterFromSnapshotMessage$: StaticStructureSchema = [3, n0, _RDBCFSM,
   0,
-  [_DBCI, _SIn, _E, _AZv, _EV, _P, _DBSGN, _VSGI, _T, _KKI, _ECLE, _DP, _DBCPGN, _SVSC, _ST, _NT],
-  [0, 0, 0, [() => AvailabilityZones, 0], 0, 1, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 64 | 0, 2, 0, () => ServerlessV2ScalingConfiguration$, 0, 0], 3
+  [_DBCI, _SIn, _E, _AZv, _EV, _P, _DBSGN, _VSGI, _T, _KKI, _ECLE, _DP, _DBCPGN, _SVSC, _ST, _NT, _CTTS],
+  [0, 0, 0, [() => AvailabilityZones, 0], 0, 1, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 64 | 0, 2, 0, () => ServerlessV2ScalingConfiguration$, 0, 0, 2], 3
 ];
 export var RestoreDBClusterFromSnapshotResult$: StaticStructureSchema = [3, n0, _RDBCFSR,
   0,
@@ -1576,8 +1576,8 @@ export var RestoreDBClusterFromSnapshotResult$: StaticStructureSchema = [3, n0, 
 ];
 export var RestoreDBClusterToPointInTimeMessage$: StaticStructureSchema = [3, n0, _RDBCTPITM,
   0,
-  [_DBCI, _SDBCI, _RT, _RTT, _ULRT, _P, _DBSGN, _VSGI, _T, _KKI, _ECLE, _DP, _SVSC, _ST, _NT],
-  [0, 0, 0, 4, 2, 1, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 64 | 0, 2, () => ServerlessV2ScalingConfiguration$, 0, 0], 2
+  [_DBCI, _SDBCI, _RT, _RTT, _ULRT, _P, _DBSGN, _VSGI, _T, _KKI, _ECLE, _DP, _SVSC, _ST, _NT, _CTTS],
+  [0, 0, 0, 4, 2, 1, 0, [() => VpcSecurityGroupIdList, 0], [() => TagList, 0], 0, 64 | 0, 2, () => ServerlessV2ScalingConfiguration$, 0, 0, 2], 2
 ];
 export var RestoreDBClusterToPointInTimeResult$: StaticStructureSchema = [3, n0, _RDBCTPITR,
   0,

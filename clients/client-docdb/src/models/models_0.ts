@@ -874,9 +874,9 @@ export interface CreateDBClusterMessage {
   /**
    * <p>A list of log types that need to be enabled for exporting to Amazon
    *             CloudWatch Logs. You can enable audit logs or profiler logs. For more
-   *             information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html">
+   *             information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/event-auditing.html">
    *                 Auditing Amazon DocumentDB Events</a>
-   *             and <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/profiling.html">
+   *             and <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/profiling.html">
    *                 Profiling Amazon DocumentDB Operations</a>.
    *         </p>
    * @public
@@ -945,12 +945,18 @@ export interface CreateDBClusterMessage {
    * <p>The network type of the cluster.</p>
    *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
    *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
    *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
    *          </p>
    * @public
    */
   NetworkType?: string | undefined;
+
+  /**
+   * <p>Specifies whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.</p>
+   * @public
+   */
+  CopyTagsToSnapshot?: boolean | undefined;
 }
 
 /**
@@ -1347,12 +1353,18 @@ export interface DBCluster {
    * <p>The network type of the cluster.</p>
    *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
    *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
    *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
    *          </p>
    * @public
    */
   NetworkType?: string | undefined;
+
+  /**
+   * <p>Specifies whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.</p>
+   * @public
+   */
+  CopyTagsToSnapshot?: boolean | undefined;
 }
 
 /**
@@ -1578,7 +1590,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>A value that indicates whether to enable Performance Insights for the DB Instance. For
-   *             more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html">Using Amazon
+   *             more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/performance-insights.html">Using Amazon
    *                 Performance Insights</a>.</p>
    * @public
    */
@@ -1599,9 +1611,9 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The CA certificate identifier to use for the DB instance's server certificate.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
    *             Certificates</a> and
-   *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+   *             <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/security.encryption.ssl.html">
    *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
    *                     Guide</i>.</p>
    * @public
@@ -1611,9 +1623,9 @@ export interface CreateDBInstanceMessage {
 
 /**
  * <p>Returns the details of the DB instance’s server certificate.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
  *             Certificates</a> and
- *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+ *             <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/security.encryption.ssl.html">
  *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
  *                     Guide</i>.</p>
  * @public
@@ -3389,9 +3401,9 @@ export interface DBEngineVersion {
 
   /**
    * <p>A list of the supported CA certificate identifiers.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
    *             Certificates</a> and
-   *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+   *             <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/security.encryption.ssl.html">
    *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
    *                     Guide</i>.</p>
    * @public
@@ -4671,12 +4683,18 @@ export interface ModifyDBClusterMessage {
    * <p>The network type of the cluster.</p>
    *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
    *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
    *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
    *          </p>
    * @public
    */
   NetworkType?: string | undefined;
+
+  /**
+   * <p>Specifies whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.</p>
+   * @public
+   */
+  CopyTagsToSnapshot?: boolean | undefined;
 }
 
 /**
@@ -4887,7 +4905,7 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>A value that indicates whether to enable Performance Insights for the DB Instance. For
-   *             more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html">Using Amazon
+   *             more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/performance-insights.html">Using Amazon
    *                 Performance Insights</a>.</p>
    * @public
    */
@@ -4914,9 +4932,9 @@ export interface ModifyDBInstanceMessage {
    *          <important>
    *             <p>Set this parameter only if you are <i>not</i> using SSL/TLS to connect to the DB instance.</p>
    *          </important>
-   *          <p>If you are using SSL/TLS to connect to the DB instance, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+   *          <p>If you are using SSL/TLS to connect to the DB instance, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
    *             Certificates</a> and
-   *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+   *             <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/security.encryption.ssl.html">
    *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
    *                     Guide</i>.</p>
    * @public
@@ -5377,12 +5395,18 @@ export interface RestoreDBClusterFromSnapshotMessage {
    * <p>The network type of the cluster.</p>
    *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
    *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
    *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
    *          </p>
    * @public
    */
   NetworkType?: string | undefined;
+
+  /**
+   * <p>Specifies whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
+   * @public
+   */
+  CopyTagsToSnapshot?: boolean | undefined;
 }
 
 /**
@@ -5571,12 +5595,18 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * <p>The network type of the cluster.</p>
    *          <p>The network type is determined by the <code>DBSubnetGroup</code> specified for the cluster.
    *             A <code>DBSubnetGroup</code> can support only the IPv4 protocol or the IPv4 and the IPv6 protocols (<code>DUAL</code>).</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/vpc-clusters.html">DocumentDB clusters in a VPC</a> in the Amazon DocumentDB Developer Guide.</p>
    *          <p>Valid Values: <code>IPV4</code> | <code>DUAL</code>
    *          </p>
    * @public
    */
   NetworkType?: string | undefined;
+
+  /**
+   * <p>Specifies whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.</p>
+   * @public
+   */
+  CopyTagsToSnapshot?: boolean | undefined;
 }
 
 /**

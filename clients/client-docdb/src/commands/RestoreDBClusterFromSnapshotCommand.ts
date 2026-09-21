@@ -65,6 +65,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *   },
  *   StorageType: "STRING_VALUE",
  *   NetworkType: "STRING_VALUE",
+ *   CopyTagsToSnapshot: true || false,
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -137,6 +138,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     NetworkType: "STRING_VALUE",
+ * //     CopyTagsToSnapshot: true || false,
  * //   },
  * // };
  *

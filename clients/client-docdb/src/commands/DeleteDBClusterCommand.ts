@@ -109,6 +109,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     NetworkType: "STRING_VALUE",
+ * //     CopyTagsToSnapshot: true || false,
  * //   },
  * // };
  *

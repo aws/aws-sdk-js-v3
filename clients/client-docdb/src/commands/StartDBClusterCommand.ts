@@ -24,7 +24,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
 
 /**
  * <p>Restarts the stopped cluster that is specified by <code>DBClusterIdentifier</code>.
- *             For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
+ *             For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-stop-start.html">Stopping and
  *                 Starting an Amazon DocumentDB Cluster</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -108,6 +108,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     NetworkType: "STRING_VALUE",
+ * //     CopyTagsToSnapshot: true || false,
  * //   },
  * // };
  *

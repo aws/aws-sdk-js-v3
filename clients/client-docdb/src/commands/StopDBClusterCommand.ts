@@ -25,7 +25,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
 /**
  * <p>Stops the running cluster that is specified by <code>DBClusterIdentifier</code>. The
  *             cluster must be in the <i>available</i> state. For more information, see
- *                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-stop-start.html">Stopping and
+ *                 <a href="https://docs.aws.amazon.com/documentdb/latest/devguide/db-cluster-stop-start.html">Stopping and
  *                 Starting an Amazon DocumentDB Cluster</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -109,6 +109,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     NetworkType: "STRING_VALUE",
+ * //     CopyTagsToSnapshot: true || false,
  * //   },
  * // };
  *

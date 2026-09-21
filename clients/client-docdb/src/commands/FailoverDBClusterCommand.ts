@@ -109,6 +109,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     NetworkType: "STRING_VALUE",
+ * //     CopyTagsToSnapshot: true || false,
  * //   },
  * // };
  *
