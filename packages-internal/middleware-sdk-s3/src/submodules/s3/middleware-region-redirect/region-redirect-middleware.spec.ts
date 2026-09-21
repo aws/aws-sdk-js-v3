@@ -1,3 +1,4 @@
+import type { AwsHandlerExecutionContext } from "@aws-sdk/types";
 import type { HandlerExecutionContext } from "@smithy/types";
 import { beforeEach, describe, expect, test as it } from "vitest";
 
@@ -52,6 +53,7 @@ describe(regionRedirectMiddleware.name, () => {
     const handler = middleware(next, context);
     await handler({ input: null });
     expect(context.__s3RegionRedirect).toEqual(redirectRegion);
+    expect(features(context)).toEqual({ S3_REGION_REDIRECT: "Ah" });
   });
 
   it("set S3 region redirect on context if receiving an error with status 400", async () => {
@@ -60,6 +62,7 @@ describe(regionRedirectMiddleware.name, () => {
     const handler = middleware(next400, context);
     await handler({ input: null });
     expect(context.__s3RegionRedirect).toEqual(redirectRegion);
+    expect(features(context)).toEqual({ S3_REGION_REDIRECT: "Ah" });
   });
 
   it("set S3 region redirect on context for HeadBucket with 400 status and x-amz-bucket-region header", async () => {
@@ -68,6 +71,7 @@ describe(regionRedirectMiddleware.name, () => {
     const handler = middleware(nextHeadBucket400, context);
     await handler({ input: null });
     expect(context.__s3RegionRedirect).toEqual(redirectRegion);
+    expect(features(context)).toEqual({ S3_REGION_REDIRECT: "Ah" });
   });
 
   it("does not follow the redirect when followRegionRedirects is false", async () => {
@@ -86,5 +90,13 @@ describe(regionRedirectMiddleware.name, () => {
     );
     // Ensure that context.__s3RegionRedirect is not set
     expect(context.__s3RegionRedirect).toBeUndefined();
+    expect(features(context)).toBeUndefined();
   });
 });
+
+/**
+ * @returns the user agent features tracked on the given context.
+ */
+function features(context: HandlerExecutionContext) {
+  return (context as AwsHandlerExecutionContext).__aws_sdk_context?.features;
+}
