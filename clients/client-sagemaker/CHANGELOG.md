@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1136.0...v3.1137.0) (2026-09-21)
+
+
+### Features
+
+* **client-sagemaker:** Add support for r6i, m8i, c8i, r8i instance types in Training and Processing ([cd872ff](https://github.com/aws/aws-sdk-js-v3/commit/cd872ff2df69801709f11dd90dc2e1ffd1c5889f))
+
+
+
+
+
 # [3.1136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1135.0...v3.1136.0) (2026-09-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1136.0...v3.1137.0) (2026-09-21)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Amazon Bedrock AgentCore Harness now supports lifecycle hooks for invocations and tool calls, with Lambda, SNS, and EventBridge targets. This release also adds apiBase for custom OpenAI-compatible endpoints ([74c149a](https://github.com/aws/aws-sdk-js-v3/commit/74c149a82cb6dfef9f775901ea6276533d41d0e8))
+
+
+
+
+
 # [3.1136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1135.0...v3.1136.0) (2026-09-18)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1136.0...v3.1137.0) (2026-09-21)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Amazon Bedrock AgentCore Harness now supports lifecycle hooks for invocations and tool calls, with Lambda, SNS, and EventBridge targets. This release also adds apiBase for custom OpenAI-compatible endpoints ([74c149a](https://github.com/aws/aws-sdk-js-v3/commit/74c149a82cb6dfef9f775901ea6276533d41d0e8))
+* **client-bedrock-agentcore:** Amazon Bedrock AgentCore Harness now supports lifecycle hooks for invocations and tool calls, with Lambda, SNS, and EventBridge targets. This release also adds apiBase for custom OpenAI-compatible endpoints. ([d665aa0](https://github.com/aws/aws-sdk-js-v3/commit/d665aa0c5852fdc8be986eb6fd96b8861ed30b6a))
+* **client-billingconductor:** Launching Auto Billing Transfer Billing Group Creation Preference feature ([16130cc](https://github.com/aws/aws-sdk-js-v3/commit/16130cc729c39e041d433f7092562efa6b49417c))
+* **client-docdb:** Add support for CopyTagsToSnapshot field in CreateDbCluster, ModifyDbCluster, RestoreDbClusterFromSnapshot and RestoreDbClusterToPointInTime for DocumentDB. ([c02fad3](https://github.com/aws/aws-sdk-js-v3/commit/c02fad3afc87c13bd25f98d98df8e03840da6726))
+* **client-sagemaker:** Add support for r6i, m8i, c8i, r8i instance types in Training and Processing ([cd872ff](https://github.com/aws/aws-sdk-js-v3/commit/cd872ff2df69801709f11dd90dc2e1ffd1c5889f))
+
+
+
+
+
 # [3.1136.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1135.0...v3.1136.0) (2026-09-18)
 
 
