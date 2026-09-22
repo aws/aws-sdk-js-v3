@@ -71,6 +71,7 @@ export const ResourceType = {
   capacity_reservation: "capacity-reservation",
   capacity_reservation_cancellation_quote: "capacity-reservation-cancellation-quote",
   capacity_reservation_fleet: "capacity-reservation-fleet",
+  capacity_reservation_modification_quote: "capacity-reservation-modification-quote",
   carrier_gateway: "carrier-gateway",
   client_vpn_endpoint: "client-vpn-endpoint",
   coip_pool: "coip-pool",
@@ -1491,6 +1492,21 @@ export type CapacityReservationTenancy = (typeof CapacityReservationTenancy)[key
  * @public
  * @enum
  */
+export const CapacityReservationAdjustmentStatus = {
+  applied: "applied",
+  rejected: "rejected",
+  requested: "requested",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationAdjustmentStatus =
+  (typeof CapacityReservationAdjustmentStatus)[keyof typeof CapacityReservationAdjustmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const InterruptionType = {
   adhoc: "adhoc",
 } as const;
@@ -1581,6 +1597,20 @@ export const CapacityReservationCancellationQuoteState = {
  */
 export type CapacityReservationCancellationQuoteState =
   (typeof CapacityReservationCancellationQuoteState)[keyof typeof CapacityReservationCancellationQuoteState];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationModificationQuoteState = {
+  active: "active",
+  expired: "expired",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationModificationQuoteState =
+  (typeof CapacityReservationModificationQuoteState)[keyof typeof CapacityReservationModificationQuoteState];
 
 /**
  * @public

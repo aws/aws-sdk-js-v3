@@ -383,6 +383,8 @@ import {
   CapacityManagerStatus,
   CapacityManagerTagDimension$,
   CapacityReservation$,
+  CapacityReservationAdjustmentDetails$,
+  CapacityReservationAdjustmentStatus,
   CapacityReservationBillingRequest$,
   CapacityReservationBillingRequestStatus,
   CapacityReservationCancellationQuote$,
@@ -396,6 +398,8 @@ import {
   CapacityReservationGroup$,
   CapacityReservationInfo$,
   CapacityReservationInstancePlatform,
+  CapacityReservationModificationQuote$,
+  CapacityReservationModificationQuoteState,
   CapacityReservationOptions$,
   CapacityReservationOptionsRequest$,
   CapacityReservationPreference,
@@ -508,6 +512,10 @@ import {
   CreateCapacityReservationCancellationQuoteRequest$,
   CreateCapacityReservationCancellationQuoteResult$,
   CreateCapacityReservationCommand,
+  CreateCapacityReservationDateChangeQuote$,
+  CreateCapacityReservationDateChangeQuoteCommand,
+  CreateCapacityReservationDateChangeQuoteRequest$,
+  CreateCapacityReservationDateChangeQuoteResult$,
   CreateCapacityReservationFleet$,
   CreateCapacityReservationFleetCommand,
   CreateCapacityReservationFleetRequest$,
@@ -1453,6 +1461,10 @@ import {
   DescribeCapacityReservationCancellationQuotesCommand,
   DescribeCapacityReservationCancellationQuotesRequest$,
   DescribeCapacityReservationCancellationQuotesResult$,
+  DescribeCapacityReservationDateChangeQuotes$,
+  DescribeCapacityReservationDateChangeQuotesCommand,
+  DescribeCapacityReservationDateChangeQuotesRequest$,
+  DescribeCapacityReservationDateChangeQuotesResult$,
   DescribeCapacityReservationFleets$,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationFleetsRequest$,
@@ -3344,6 +3356,9 @@ import {
   MetricPoint$,
   MetricType,
   MetricValue$,
+  ModificationQuoteCurrentConfiguration$,
+  ModificationReservationUpdate$,
+  ModificationTerms$,
   ModifyAccountVpcEncryptionControl$,
   ModifyAccountVpcEncryptionControlCommand,
   ModifyAccountVpcEncryptionControlRequest$,
@@ -3775,6 +3790,7 @@ import {
   paginateDescribeCapacityBlockStatus,
   paginateDescribeCapacityManagerDataExports,
   paginateDescribeCapacityReservationBillingRequests,
+  paginateDescribeCapacityReservationDateChangeQuotes,
   paginateDescribeCapacityReservationFleets,
   paginateDescribeCapacityReservations,
   paginateDescribeCarrierGateways,
@@ -4996,6 +5012,8 @@ assert(typeof CreateCapacityReservationBySplittingCommand === "function");
 assert(typeof CreateCapacityReservationBySplitting$ === "object");
 assert(typeof CreateCapacityReservationCancellationQuoteCommand === "function");
 assert(typeof CreateCapacityReservationCancellationQuote$ === "object");
+assert(typeof CreateCapacityReservationDateChangeQuoteCommand === "function");
+assert(typeof CreateCapacityReservationDateChangeQuote$ === "object");
 assert(typeof CreateCapacityReservationFleetCommand === "function");
 assert(typeof CreateCapacityReservationFleet$ === "object");
 assert(typeof CreateCarrierGatewayCommand === "function");
@@ -5456,6 +5474,8 @@ assert(typeof DescribeCapacityReservationBillingRequestsCommand === "function");
 assert(typeof DescribeCapacityReservationBillingRequests$ === "object");
 assert(typeof DescribeCapacityReservationCancellationQuotesCommand === "function");
 assert(typeof DescribeCapacityReservationCancellationQuotes$ === "object");
+assert(typeof DescribeCapacityReservationDateChangeQuotesCommand === "function");
+assert(typeof DescribeCapacityReservationDateChangeQuotes$ === "object");
 assert(typeof DescribeCapacityReservationFleetsCommand === "function");
 assert(typeof DescribeCapacityReservationFleets$ === "object");
 assert(typeof DescribeCapacityReservationsCommand === "function");
@@ -6662,6 +6682,7 @@ assert(typeof CapacityManagerDimension$ === "object");
 assert(typeof CapacityManagerMonitoredTagKey$ === "object");
 assert(typeof CapacityManagerTagDimension$ === "object");
 assert(typeof CapacityReservation$ === "object");
+assert(typeof CapacityReservationAdjustmentDetails$ === "object");
 assert(typeof CapacityReservationBillingRequest$ === "object");
 assert(typeof CapacityReservationCancellationQuote$ === "object");
 assert(typeof CapacityReservationCommitmentInfo$ === "object");
@@ -6670,6 +6691,7 @@ assert(typeof CapacityReservationFleet$ === "object");
 assert(typeof CapacityReservationFleetCancellationState$ === "object");
 assert(typeof CapacityReservationGroup$ === "object");
 assert(typeof CapacityReservationInfo$ === "object");
+assert(typeof CapacityReservationModificationQuote$ === "object");
 assert(typeof CapacityReservationOptions$ === "object");
 assert(typeof CapacityReservationOptionsRequest$ === "object");
 assert(typeof CapacityReservationSpecification$ === "object");
@@ -6740,6 +6762,8 @@ assert(typeof CreateCapacityReservationBySplittingRequest$ === "object");
 assert(typeof CreateCapacityReservationBySplittingResult$ === "object");
 assert(typeof CreateCapacityReservationCancellationQuoteRequest$ === "object");
 assert(typeof CreateCapacityReservationCancellationQuoteResult$ === "object");
+assert(typeof CreateCapacityReservationDateChangeQuoteRequest$ === "object");
+assert(typeof CreateCapacityReservationDateChangeQuoteResult$ === "object");
 assert(typeof CreateCapacityReservationFleetRequest$ === "object");
 assert(typeof CreateCapacityReservationFleetResult$ === "object");
 assert(typeof CreateCapacityReservationRequest$ === "object");
@@ -7215,6 +7239,8 @@ assert(typeof DescribeCapacityReservationBillingRequestsRequest$ === "object");
 assert(typeof DescribeCapacityReservationBillingRequestsResult$ === "object");
 assert(typeof DescribeCapacityReservationCancellationQuotesRequest$ === "object");
 assert(typeof DescribeCapacityReservationCancellationQuotesResult$ === "object");
+assert(typeof DescribeCapacityReservationDateChangeQuotesRequest$ === "object");
+assert(typeof DescribeCapacityReservationDateChangeQuotesResult$ === "object");
 assert(typeof DescribeCapacityReservationFleetsRequest$ === "object");
 assert(typeof DescribeCapacityReservationFleetsResult$ === "object");
 assert(typeof DescribeCapacityReservationsRequest$ === "object");
@@ -8251,6 +8277,9 @@ assert(typeof MemoryMiBRequest$ === "object");
 assert(typeof MetricDataResult$ === "object");
 assert(typeof MetricPoint$ === "object");
 assert(typeof MetricValue$ === "object");
+assert(typeof ModificationQuoteCurrentConfiguration$ === "object");
+assert(typeof ModificationReservationUpdate$ === "object");
+assert(typeof ModificationTerms$ === "object");
 assert(typeof ModifyAccountVpcEncryptionControlRequest$ === "object");
 assert(typeof ModifyAccountVpcEncryptionControlResult$ === "object");
 assert(typeof ModifyAddressAttributeRequest$ === "object");
@@ -9033,11 +9062,13 @@ assert(typeof CapacityBlockResourceState === "object");
 assert(typeof CapacityManagerDataExportStatus === "object");
 assert(typeof CapacityManagerMonitoredTagKeyStatus === "object");
 assert(typeof CapacityManagerStatus === "object");
+assert(typeof CapacityReservationAdjustmentStatus === "object");
 assert(typeof CapacityReservationBillingRequestStatus === "object");
 assert(typeof CapacityReservationCancellationQuoteState === "object");
 assert(typeof CapacityReservationDeliveryPreference === "object");
 assert(typeof CapacityReservationFleetState === "object");
 assert(typeof CapacityReservationInstancePlatform === "object");
+assert(typeof CapacityReservationModificationQuoteState === "object");
 assert(typeof CapacityReservationPreference === "object");
 assert(typeof CapacityReservationState === "object");
 assert(typeof CapacityReservationTenancy === "object");
@@ -9551,6 +9582,7 @@ assert(typeof paginateDescribeCapacityBlockStatus === "function");
 assert(typeof paginateDescribeCapacityBlocks === "function");
 assert(typeof paginateDescribeCapacityManagerDataExports === "function");
 assert(typeof paginateDescribeCapacityReservationBillingRequests === "function");
+assert(typeof paginateDescribeCapacityReservationDateChangeQuotes === "function");
 assert(typeof paginateDescribeCapacityReservationFleets === "function");
 assert(typeof paginateDescribeCapacityReservations === "function");
 assert(typeof paginateDescribeCarrierGateways === "function");

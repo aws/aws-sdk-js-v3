@@ -239,6 +239,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <commitmentEndDate>
                     2000-01-01T04:59:59.999Z
                 </commitmentEndDate>
+                <commitmentDuration>
+                    0
+                </commitmentDuration>
             </commitmentInfo>
             <deliveryPreference>
                 __DeliveryPreference__
@@ -277,6 +280,29 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __InterruptionType__
                 </interruptionType>
             </interruptionInfo>
+            <adjustmentStatus>
+                __AdjustmentStatus__
+            </adjustmentStatus>
+            <adjustmentDetails>
+                <startDate>
+                    2000-01-01T04:59:59.999Z
+                </startDate>
+                <endDate>
+                    2000-01-01T04:59:59.999Z
+                </endDate>
+                <commitmentEndDate>
+                    2000-01-01T04:59:59.999Z
+                </commitmentEndDate>
+                <endDateType>
+                    __EndDateType__
+                </endDateType>
+                <commitmentDuration>
+                    0
+                </commitmentDuration>
+            </adjustmentDetails>
+            <originalStartDate>
+                2000-01-01T04:59:59.999Z
+            </originalStartDate>
             <zeroSizePreference>
                 __ZeroSizePreference__
             </zeroSizePreference>
@@ -488,6 +514,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <commitmentEndDate>
                     2000-01-01T04:59:59.999Z
                 </commitmentEndDate>
+                <commitmentDuration>
+                    0
+                </commitmentDuration>
             </commitmentInfo>
             <deliveryPreference>
                 __DeliveryPreference__
@@ -526,6 +555,29 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __InterruptionType__
                 </interruptionType>
             </interruptionInfo>
+            <adjustmentStatus>
+                __AdjustmentStatus__
+            </adjustmentStatus>
+            <adjustmentDetails>
+                <startDate>
+                    2000-01-01T04:59:59.999Z
+                </startDate>
+                <endDate>
+                    2000-01-01T04:59:59.999Z
+                </endDate>
+                <commitmentEndDate>
+                    2000-01-01T04:59:59.999Z
+                </commitmentEndDate>
+                <endDateType>
+                    __EndDateType__
+                </endDateType>
+                <commitmentDuration>
+                    0
+                </commitmentDuration>
+            </adjustmentDetails>
+            <originalStartDate>
+                2000-01-01T04:59:59.999Z
+            </originalStartDate>
             <zeroSizePreference>
                 __ZeroSizePreference__
             </zeroSizePreference>
@@ -737,6 +789,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <commitmentEndDate>
                     2000-01-01T04:59:59.999Z
                 </commitmentEndDate>
+                <commitmentDuration>
+                    0
+                </commitmentDuration>
             </commitmentInfo>
             <deliveryPreference>
                 __DeliveryPreference__
@@ -775,6 +830,29 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     __InterruptionType__
                 </interruptionType>
             </interruptionInfo>
+            <adjustmentStatus>
+                __AdjustmentStatus__
+            </adjustmentStatus>
+            <adjustmentDetails>
+                <startDate>
+                    2000-01-01T04:59:59.999Z
+                </startDate>
+                <endDate>
+                    2000-01-01T04:59:59.999Z
+                </endDate>
+                <commitmentEndDate>
+                    2000-01-01T04:59:59.999Z
+                </commitmentEndDate>
+                <endDateType>
+                    __EndDateType__
+                </endDateType>
+                <commitmentDuration>
+                    0
+                </commitmentDuration>
+            </adjustmentDetails>
+            <originalStartDate>
+                2000-01-01T04:59:59.999Z
+            </originalStartDate>
             <zeroSizePreference>
                 __ZeroSizePreference__
             </zeroSizePreference>
@@ -883,7 +961,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       UnusedReservationBillingOwnerId: "__UnusedReservationBillingOwnerId__",
       CommitmentInfo: {
         CommittedInstanceCount: (number) 0,
-        CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        CommitmentDuration: (number) 0
       },
       DeliveryPreference: "__DeliveryPreference__",
       CapacityBlockId: "__CapacityBlockId__",
@@ -900,6 +979,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SourceCapacityReservationId: "__SourceCapacityReservationId__",
         InterruptionType: "__InterruptionType__"
       },
+      AdjustmentStatus: "__AdjustmentStatus__",
+      AdjustmentDetails: {
+        StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndDateType: "__EndDateType__",
+        CommitmentDuration: (number) 0
+      },
+      OriginalStartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ZeroSizePreference: "__ZeroSizePreference__"
     },
     {
@@ -998,7 +1086,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       UnusedReservationBillingOwnerId: "__UnusedReservationBillingOwnerId__",
       CommitmentInfo: {
         CommittedInstanceCount: (number) 0,
-        CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        CommitmentDuration: (number) 0
       },
       DeliveryPreference: "__DeliveryPreference__",
       CapacityBlockId: "__CapacityBlockId__",
@@ -1015,6 +1104,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SourceCapacityReservationId: "__SourceCapacityReservationId__",
         InterruptionType: "__InterruptionType__"
       },
+      AdjustmentStatus: "__AdjustmentStatus__",
+      AdjustmentDetails: {
+        StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndDateType: "__EndDateType__",
+        CommitmentDuration: (number) 0
+      },
+      OriginalStartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ZeroSizePreference: "__ZeroSizePreference__"
     },
     {
@@ -1113,7 +1211,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       UnusedReservationBillingOwnerId: "__UnusedReservationBillingOwnerId__",
       CommitmentInfo: {
         CommittedInstanceCount: (number) 0,
-        CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        CommitmentDuration: (number) 0
       },
       DeliveryPreference: "__DeliveryPreference__",
       CapacityBlockId: "__CapacityBlockId__",
@@ -1130,6 +1229,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SourceCapacityReservationId: "__SourceCapacityReservationId__",
         InterruptionType: "__InterruptionType__"
       },
+      AdjustmentStatus: "__AdjustmentStatus__",
+      AdjustmentDetails: {
+        StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        EndDateType: "__EndDateType__",
+        CommitmentDuration: (number) 0
+      },
+      OriginalStartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       ZeroSizePreference: "__ZeroSizePreference__"
     }
   ],

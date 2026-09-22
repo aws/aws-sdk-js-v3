@@ -16,6 +16,7 @@ import type {
   BootModeValues,
   CapacityReservationPreference,
   CurrencyCodeValues,
+  DefaultTargetCapacityType,
   DestinationFileFormat,
   DeviceType,
   DiskType,
@@ -26,6 +27,14 @@ import type {
   EphemeralNvmeSupport,
   EventCode,
   FindingsFound,
+  FleetActivityStatus,
+  FleetCapacityReservationUsageStrategy,
+  FleetExcessCapacityTerminationPolicy,
+  FleetOnDemandAllocationStrategy,
+  FleetReplacementStrategy,
+  FleetReservationType,
+  FleetStateCode,
+  FleetType,
   FlexibleEnaQueuesSupport,
   FpgaImageAttributeName,
   FpgaImageStateCode,
@@ -77,18 +86,23 @@ import type {
   RebootMigrationSupport,
   RecurringChargeFrequency,
   ReservationState,
+  ReservedCapacityAllocationStrategy,
+  ReservedCapacityFallbackMarketType,
   ReservedInstanceState,
   RIProductDescription,
   RootDeviceType,
   Scope,
   SecondaryInterfaceStatus,
   SecondaryInterfaceType,
+  SpotAllocationStrategy,
+  SpotInstanceInterruptionBehavior,
   SqlServerLicenseUsage,
   StatusName,
   StatusType,
   SummaryStatus,
   SupportedAdditionalProcessorFeature,
   TaggableResourceType,
+  TargetCapacityUnitType,
   Tenancy,
   TpmSupportValues,
   TrafficType,
@@ -113,7 +127,6 @@ import type {
   BlockDeviceMapping,
   CapacityReservationTargetResponse,
   Ec2InstanceConnectEndpoint,
-  GroupIdentifier,
   InstanceIpv6Address,
   InternetGateway,
   Ipam,
@@ -138,21 +151,580 @@ import type {
   NetworkAcl,
   NetworkInsightsAccessScope,
   NetworkInsightsPath,
-  NetworkInterface,
   NetworkInterfaceAttachment,
   Placement,
   StateReason,
 } from "./models_1";
 import type {
+  GroupIdentifier,
+  NetworkInterface,
   NetworkInterfacePermission,
   PlacementGroup,
   ReplaceRootVolumeTask,
-  RouteServer,
   RouteServerEndpoint,
-  RouteServerPeer,
-  RouteTable,
 } from "./models_2";
-import type { Byoasn, Filter, FleetData, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+import type {
+  Byoasn,
+  DescribeFleetError,
+  DescribeFleetsInstances,
+  Filter,
+  FleetLaunchTemplateConfig,
+  IdFormat,
+  InstanceTagNotificationAttribute,
+} from "./models_3";
+
+/**
+ * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
+ *          capacity.</p>
+ *          <note>
+ *             <p>This strategy can only be used if the EC2 Fleet is of type
+ *             <code>instant</code>.</p>
+ *          </note>
+ *          <p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity
+ *             Reservations</a> in the <i>Amazon EC2 User Guide</i>. For examples of using
+ *          Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example
+ *             configurations</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface CapacityReservationOptions {
+  /**
+   * <p>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</p>
+   *          <p>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
+   *          Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If
+   *          multiple instance pools have unused Capacity Reservations, the On-Demand allocation
+   *          strategy (<code>lowest-price</code> or <code>prioritized</code>) is applied. If the number
+   *          of unused Capacity Reservations is less than the On-Demand target capacity, the remaining
+   *          On-Demand target capacity is launched according to the On-Demand allocation strategy
+   *             (<code>lowest-price</code> or <code>prioritized</code>).</p>
+   *          <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the
+   *          chosen On-Demand allocation strategy.</p>
+   * @public
+   */
+  UsageStrategy?: FleetCapacityReservationUsageStrategy | undefined;
+}
+
+/**
+ * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
+ * @public
+ */
+export interface OnDemandOptions {
+  /**
+   * <p>The strategy that determines the order of the launch template overrides to use in
+   *          fulfilling On-Demand capacity.</p>
+   *          <p>
+   *             <code>lowest-price</code> - EC2 Fleet uses price to determine the order, launching the lowest
+   *          price first.</p>
+   *          <p>
+   *             <code>prioritized</code> - EC2 Fleet uses the priority that you assigned to each launch
+   *          template override, launching the highest priority first.</p>
+   *          <p>Default: <code>lowest-price</code>
+   *          </p>
+   * @public
+   */
+  AllocationStrategy?: FleetOnDemandAllocationStrategy | undefined;
+
+  /**
+   * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand
+   *          capacity.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  CapacityReservationOptions?: CapacityReservationOptions | undefined;
+
+  /**
+   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the
+   *          fleet.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  SingleInstanceType?: boolean | undefined;
+
+  /**
+   * <p>Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  SingleAvailabilityZone?: boolean | undefined;
+
+  /**
+   * <p>The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't
+   *          reached, no instances are launched.</p>
+   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
+   *             <code>instant</code>.</p>
+   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
+   *          <code>SingleInstanceType</code>
+   *          </p>
+   * @public
+   */
+  MinTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and
+   *             if their average CPU usage exceeds the baseline utilization, you will incur a charge for
+   *             surplus credits. The <code>maxTotalPrice</code> does not account for surplus credits,
+   *             and, if you use surplus credits, your final cost might be higher than what you specified
+   *             for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
+   *                <i>Amazon EC2 User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  MaxTotalPrice?: string | undefined;
+}
+
+/**
+ * <p>Describes the fallback behavior for an EC2 Fleet that uses reserved capacity when the
+ *             reserved capacity is not enough to meet the target capacity. If you don't specify
+ *             fallback options, EC2 Fleet does not fall back to any other market type after the specified
+ *             reservation types are exhausted.</p>
+ * @public
+ */
+export interface ReservedCapacityFallbackOptions {
+  /**
+   * <p>The instance purchasing options to fall back to when the reserved capacity is not
+   *             enough to meet the target capacity. The only supported value is <code>on-demand</code>,
+   *             which launches On-Demand Instances to fulfill the remaining target capacity.</p>
+   * @public
+   */
+  MarketTypes?: ReservedCapacityFallbackMarketType[] | undefined;
+}
+
+/**
+ * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when <code>DefaultTargetCapacityType</code>
+ *             is set to <code>reserved-capacity</code>. EC2 Fleet can fulfill reserved capacity using On-Demand Capacity Reservations,
+ *             Capacity Blocks for ML, and interruptible Capacity Reservations.</p>
+ * @public
+ */
+export interface ReservedCapacityOptions {
+  /**
+   * <p>The strategy that determines the order in which EC2 Fleet launches instances across the
+   *             reservation types that you specify. The only supported value is <code>prioritized</code>,
+   *             which launches instances in the priority order that you specify in your launch template
+   *             overrides. If you don't specify an allocation strategy, instances are launched in a
+   *             random order.</p>
+   * @public
+   */
+  AllocationStrategy?: ReservedCapacityAllocationStrategy | undefined;
+
+  /**
+   * <p>The types of Capacity Reservations used for fulfilling the EC2 Fleet request.</p>
+   * @public
+   */
+  ReservationTypes?: FleetReservationType[] | undefined;
+
+  /**
+   * <p>The fallback behavior for the EC2 Fleet when there is not enough reserved capacity available
+   *             to meet the target capacity.</p>
+   * @public
+   */
+  ReservedCapacityFallbackOptions?: ReservedCapacityFallbackOptions | undefined;
+}
+
+/**
+ * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
+ *          elevated risk of being interrupted.</p>
+ * @public
+ */
+export interface FleetSpotCapacityRebalance {
+  /**
+   * <p>The replacement strategy to use. Only available for fleets of type
+   *          <code>maintain</code>.</p>
+   *          <p>
+   *             <code>launch</code> - EC2 Fleet launches a new replacement Spot Instance when a
+   *          rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet
+   *          does not terminate the instances that receive a rebalance notification. You can terminate
+   *          the old instances, or you can leave them running. You are charged for all instances while
+   *          they are running. </p>
+   *          <p>
+   *             <code>launch-before-terminate</code> - EC2 Fleet launches a new replacement Spot
+   *          Instance when a rebalance notification is emitted for an existing Spot Instance in the
+   *          fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
+   *          terminates the instances that received a rebalance notification.</p>
+   * @public
+   */
+  ReplacementStrategy?: FleetReplacementStrategy | undefined;
+
+  /**
+   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
+   *          Instance after launching a new replacement Spot Instance.</p>
+   *          <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
+   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
+   * @public
+   */
+  TerminationDelay?: number | undefined;
+}
+
+/**
+ * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
+ *          interrupted.</p>
+ * @public
+ */
+export interface FleetSpotMaintenanceStrategies {
+  /**
+   * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
+   *          elevated risk of being interrupted.</p>
+   * @public
+   */
+  CapacityRebalance?: FleetSpotCapacityRebalance | undefined;
+}
+
+/**
+ * <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
+ * @public
+ */
+export interface SpotOptions {
+  /**
+   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
+   *          pools specified by the EC2 Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the
+   *          <i>Amazon EC2 User Guide</i>.</p>
+   *          <dl>
+   *             <dt>price-capacity-optimized (recommended)</dt>
+   *             <dd>
+   *                <p>EC2 Fleet identifies the pools with
+   *                   the highest capacity availability for the number of instances that are launching. This means
+   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                   in the near term. EC2 Fleet then requests Spot Instances from the lowest priced of these pools.</p>
+   *             </dd>
+   *             <dt>capacity-optimized</dt>
+   *             <dd>
+   *                <p>EC2 Fleet identifies the pools with
+   *                   the highest capacity availability for the number of instances that are launching. This means
+   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                   in the near term. To give certain
+   *                   instance types a higher chance of launching first, use
+   *                   <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
+   *                   using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
+   *                   assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
+   *                   the priorities on a best-effort basis, but optimizes for capacity first.
+   *                   <code>capacity-optimized-prioritized</code> is supported only if your EC2 Fleet uses a
+   *                   launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
+   *                   <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
+   *                   capacity.</p>
+   *             </dd>
+   *             <dt>diversified</dt>
+   *             <dd>
+   *                <p>EC2 Fleet requests instances from all of the Spot Instance pools that you
+   *                   specify.</p>
+   *             </dd>
+   *             <dt>lowest-price (not recommended)</dt>
+   *             <dd>
+   *                <important>
+   *                   <p>We don't recommend the <code>lowest-price</code> allocation strategy because
+   *                      it has the highest risk of interruption for your Spot Instances.</p>
+   *                </important>
+   *                <p>EC2 Fleet requests instances from the lowest priced Spot Instance pool that has available
+   *                   capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
+   *                   come from the next lowest priced pool that has available capacity. If a pool runs
+   *                   out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to
+   *                   fulfill your request by drawing from the next lowest priced pool. To ensure that
+   *                   your desired capacity is met, you might receive Spot Instances from several pools. Because
+   *                   this strategy only considers instance price and not capacity availability, it
+   *                   might lead to high interruption rates.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>Default: <code>lowest-price</code>
+   *          </p>
+   * @public
+   */
+  AllocationStrategy?: SpotAllocationStrategy | undefined;
+
+  /**
+   * <p>The strategies for managing your workloads on your Spot Instances that will be
+   *          interrupted. Currently only the capacity rebalance strategy is available.</p>
+   * @public
+   */
+  MaintenanceStrategies?: FleetSpotMaintenanceStrategies | undefined;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted.</p>
+   *          <p>Default: <code>terminate</code>
+   *          </p>
+   * @public
+   */
+  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | undefined;
+
+  /**
+   * <p>The number of Spot pools across which to allocate your target Spot capacity. Supported
+   *          only when <code>AllocationStrategy</code> is set to <code>lowest-price</code>. EC2 Fleet selects
+   *          the cheapest Spot pools and evenly allocates your target Spot capacity across the number of
+   *          Spot pools that you specify.</p>
+   *          <p>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a
+   *          best effort basis. If a pool runs out of Spot capacity before fulfilling your target
+   *          capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest
+   *          pool. To ensure that your target capacity is met, you might receive Spot Instances from more than
+   *          the number of pools that you specified. Similarly, if most of the pools have no Spot
+   *          capacity, you might receive your full target capacity from fewer than the number of pools
+   *          that you specified.</p>
+   * @public
+   */
+  InstancePoolsToUseCount?: number | undefined;
+
+  /**
+   * <p>Indicates that the fleet uses a single instance type to launch all Spot Instances in the
+   *          fleet.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  SingleInstanceType?: boolean | undefined;
+
+  /**
+   * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  SingleAvailabilityZone?: boolean | undefined;
+
+  /**
+   * <p>The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't
+   *          reached, no instances are launched.</p>
+   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
+   *             <code>instant</code>.</p>
+   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
+   *             <code>SingleInstanceType</code>
+   *          </p>
+   * @public
+   */
+  MinTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend
+   *          using this parameter because it can lead to increased interruptions. If you do not specify
+   *          this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and
+   *             if their average CPU usage exceeds the baseline utilization, you will incur a charge for
+   *             surplus credits. The <code>maxTotalPrice</code> does not account for surplus credits,
+   *             and, if you use surplus credits, your final cost might be higher than what you specified
+   *             for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
+   *                <i>Amazon EC2 User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  MaxTotalPrice?: string | undefined;
+}
+
+/**
+ * <p>The number of units to request. You can choose to set the target capacity in terms of
+ *          instances or a performance characteristic that is important to your application workload,
+ *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
+ *          specify a target capacity of 0 and add capacity later.</p>
+ *          <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance
+ *             <code>MaxTotalPrice</code>, or both to ensure that your fleet cost does not exceed your
+ *          budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet
+ *          will launch instances until it reaches the maximum amount that you're willing to pay. When
+ *          the maximum amount you're willing to pay is reached, the fleet stops launching instances
+ *          even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are
+ *          located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html">OnDemandOptions</a>
+ *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions">SpotOptions</a>.</p>
+ * @public
+ */
+export interface TargetCapacitySpecification {
+  /**
+   * <p>The number of units to request, filled the default target capacity type.</p>
+   * @public
+   */
+  TotalTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.</p>
+   * @public
+   */
+  OnDemandTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.</p>
+   * @public
+   */
+  SpotTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The default target capacity type.</p>
+   * @public
+   */
+  DefaultTargetCapacityType?: DefaultTargetCapacityType | undefined;
+
+  /**
+   * <p>The unit for the target capacity.</p>
+   * @public
+   */
+  TargetCapacityUnitType?: TargetCapacityUnitType | undefined;
+}
+
+/**
+ * <p>Describes an EC2 Fleet.</p>
+ * @public
+ */
+export interface FleetData {
+  /**
+   * <p>The progress of the EC2 Fleet.</p>
+   *          <p>For fleets of type <code>instant</code>, the status is <code>fulfilled</code> after all
+   *          requests are placed, regardless of whether target capacity is met (this is the only
+   *          possible status for <code>instant</code> fleets).</p>
+   *          <p>For fleets of type <code>request</code> or <code>maintain</code>, the status is
+   *             <code>pending_fulfillment</code> after all requests are placed, <code>fulfilled</code>
+   *          when the fleet size meets or exceeds target capacity, <code>pending_termination</code>
+   *          while instances are terminating when fleet size is decreased, and <code>error</code> if
+   *          there's an error.</p>
+   * @public
+   */
+  ActivityStatus?: FleetActivityStatus | undefined;
+
+  /**
+   * <p>The creation date and time of the EC2 Fleet.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The ID of the EC2 Fleet.</p>
+   * @public
+   */
+  FleetId?: string | undefined;
+
+  /**
+   * <p>The state of the EC2 Fleet.</p>
+   * @public
+   */
+  FleetState?: FleetStateCode | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *             idempotency</a>.</p>
+   *          <p>Constraints: Maximum 64 ASCII characters</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Indicates whether running instances should be terminated if the target capacity of the
+   *          EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
+   * @public
+   */
+  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | undefined;
+
+  /**
+   * <p>The number of units fulfilled by this request compared to the set target
+   *          capacity.</p>
+   * @public
+   */
+  FulfilledCapacity?: number | undefined;
+
+  /**
+   * <p>The number of units fulfilled by this request compared to the set target On-Demand
+   *          capacity.</p>
+   * @public
+   */
+  FulfilledOnDemandCapacity?: number | undefined;
+
+  /**
+   * <p>The launch template and overrides.</p>
+   * @public
+   */
+  LaunchTemplateConfigs?: FleetLaunchTemplateConfig[] | undefined;
+
+  /**
+   * <p>The number of units to request. You can choose to set the target capacity in terms of
+   *          instances or a performance characteristic that is important to your application workload,
+   *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
+   *          specify a target capacity of 0 and add capacity later.</p>
+   * @public
+   */
+  TargetCapacitySpecification?: TargetCapacitySpecification | undefined;
+
+  /**
+   * <p>Indicates whether running instances should be terminated when the EC2 Fleet expires. </p>
+   * @public
+   */
+  TerminateInstancesWithExpiration?: boolean | undefined;
+
+  /**
+   * <p>The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target
+   *          capacity, or also attempts to <code>maintain</code> it. If you request a certain target
+   *          capacity, EC2 Fleet only places the required requests; it does not attempt to replenish
+   *          instances if capacity is diminished, and it does not submit requests in alternative
+   *          capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet
+   *          places the required requests to meet this target capacity. It also automatically
+   *          replenishes any interrupted Spot Instances. Default: <code>maintain</code>.</p>
+   * @public
+   */
+  Type?: FleetType | undefined;
+
+  /**
+   * <p>The start date and time of the request, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *          The default is to start fulfilling the request immediately. </p>
+   * @public
+   */
+  ValidFrom?: Date | undefined;
+
+  /**
+   * <p>The end date and time of the request, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *          At this point, no new instance requests are placed or able to fulfill the request. The
+   *          default end date is 7 days from the current date. </p>
+   * @public
+   */
+  ValidUntil?: Date | undefined;
+
+  /**
+   * <p>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for
+   *          fleets of type <code>maintain</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2 Fleet
+   *             health checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ReplaceUnhealthyInstances?: boolean | undefined;
+
+  /**
+   * <p>The configuration of Spot Instances in an EC2 Fleet.</p>
+   * @public
+   */
+  SpotOptions?: SpotOptions | undefined;
+
+  /**
+   * <p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>
+   * @public
+   */
+  OnDemandOptions?: OnDemandOptions | undefined;
+
+  /**
+   * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when DefaultTargetCapacityType is set to <code>reserved-capacity</code>.</p>
+   * @public
+   */
+  ReservedCapacityOptions?: ReservedCapacityOptions | undefined;
+
+  /**
+   * <p>The tags for an EC2 Fleet resource.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Information about the instances that could not be launched by the fleet. Valid only when
+   *          <b>Type</b> is set to <code>instant</code>.</p>
+   * @public
+   */
+  Errors?: DescribeFleetError[] | undefined;
+
+  /**
+   * <p>Information about the instances that were launched by the fleet. Valid only when
+   *          <b>Type</b> is set to <code>instant</code>.</p>
+   * @public
+   */
+  Instances?: DescribeFleetsInstances[] | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Context?: string | undefined;
+}
 
 /**
  * @public
@@ -13857,407 +14429,4 @@ export interface DescribeRouteServerPeersRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRouteServerPeersResult {
-  /**
-   * <p>Information about the described route server peers.</p>
-   * @public
-   */
-  RouteServerPeers?: RouteServerPeer[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRouteServersRequest {
-  /**
-   * <p>The IDs of the route servers to describe.</p>
-   * @public
-   */
-  RouteServerIds?: string[] | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>One or more filters to apply to the describe request.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRouteServersResult {
-  /**
-   * <p>Information about the described route servers.</p>
-   * @public
-   */
-  RouteServers?: RouteServer[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRouteTablesRequest {
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the route tables.</p>
-   * @public
-   */
-  RouteTableIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>association.gateway-id</code> - The ID of the gateway involved in the
-   * 		                association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.route-table-association-id</code> - The ID of an association
-   *                     ID for the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.route-table-id</code> - The ID of the route table involved in
-   *                     the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.subnet-id</code> - The ID of the subnet involved in the
-   *                     association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.main</code> - Indicates whether the route table is the main
-   *                     route table for the VPC (<code>true</code> | <code>false</code>). Route tables
-   *                     that do not have an association ID are not returned in the response.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-table-id</code> - The ID of the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a
-   *                     route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in a route in the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Services
-   * 				      service specified in a route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.egress-only-internet-gateway-id</code> - The ID of an
-   *                     egress-only Internet gateway specified in a route in the route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.instance-id</code> - The ID of an instance specified in a route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.nat-gateway-id</code> - The ID of a NAT gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.transit-gateway-id</code> - The ID of a transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.origin</code> - Describes how the route was created.
-   *                         <code>CreateRouteTable</code> indicates that the route was automatically
-   *                     created when the route table was created; <code>CreateRoute</code> indicates
-   *                     that the route was manually added to the route table;
-   *                         <code>EnableVgwRoutePropagation</code> indicates that the route was
-   *                     propagated by route propagation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.state</code> - The state of a route in the route table
-   *                         (<code>active</code> | <code>blackhole</code>). The blackhole state
-   *                     indicates that the route's target isn't available (for example, the specified
-   *                     gateway isn't attached to the VPC, the specified NAT instance has been
-   *                     terminated, and so on).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route.vpc-peering-connection-id</code> - The ID of a VPC peering
-   * 		                connection specified in a route in the table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC for the route table.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeRouteTables.</p>
- * @public
- */
-export interface DescribeRouteTablesResult {
-  /**
-   * <p>Information about the route tables.</p>
-   * @public
-   */
-  RouteTables?: RouteTable[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
- * @public
- */
-export interface SlotDateTimeRangeRequest {
-  /**
-   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
-   * @public
-   */
-  EarliestTime: Date | undefined;
-
-  /**
-   * <p>The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.</p>
-   * @public
-   */
-  LatestTime: Date | undefined;
-}
-
-/**
- * <p>Describes the recurring schedule for a Scheduled Instance.</p>
- * @public
- */
-export interface ScheduledInstanceRecurrenceRequest {
-  /**
-   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
-   * @public
-   */
-  Frequency?: string | undefined;
-
-  /**
-   * <p>The interval quantity. The interval unit depends on the value of <code>Frequency</code>. For example, every 2
-   *          weeks or every 2 months.</p>
-   * @public
-   */
-  Interval?: number | undefined;
-
-  /**
-   * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday). You can't specify this value with a daily schedule. If the occurrence is relative to the end of the month, you can specify only a single day.</p>
-   * @public
-   */
-  OccurrenceDays?: number[] | undefined;
-
-  /**
-   * <p>Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.</p>
-   * @public
-   */
-  OccurrenceRelativeToEnd?: boolean | undefined;
-
-  /**
-   * <p>The unit for <code>OccurrenceDays</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).
-   *         This value is required for a monthly schedule.
-   *         You can't specify <code>DayOfWeek</code> with a weekly schedule.
-   *         You can't specify this value with a daily schedule.</p>
-   * @public
-   */
-  OccurrenceUnit?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeScheduledInstanceAvailability.</p>
- * @public
- */
-export interface DescribeScheduledInstanceAvailabilityRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone (for example, <code>us-west-2a</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The time period for the first schedule to start.</p>
-   * @public
-   */
-  FirstSlotStartTimeRange: SlotDateTimeRangeRequest | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.
-   *          This value can be between 5 and 300. The default value is 300.
-   *          To retrieve the remaining results, make another call with the returned
-   *          <code>NextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The maximum available duration, in hours. This value must be greater than <code>MinSlotDurationInHours</code>
-   *          and less than 1,720.</p>
-   * @public
-   */
-  MaxSlotDurationInHours?: number | undefined;
-
-  /**
-   * <p>The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
-   * @public
-   */
-  MinSlotDurationInHours?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The schedule recurrence.</p>
-   * @public
-   */
-  Recurrence: ScheduledInstanceRecurrenceRequest | undefined;
-}
-
-/**
- * <p>Describes the recurring schedule for a Scheduled Instance.</p>
- * @public
- */
-export interface ScheduledInstanceRecurrence {
-  /**
-   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
-   * @public
-   */
-  Frequency?: string | undefined;
-
-  /**
-   * <p>The interval quantity. The interval unit depends on the value of <code>frequency</code>. For example, every 2
-   *          weeks or every 2 months.</p>
-   * @public
-   */
-  Interval?: number | undefined;
-
-  /**
-   * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).</p>
-   * @public
-   */
-  OccurrenceDaySet?: number[] | undefined;
-
-  /**
-   * <p>Indicates whether the occurrence is relative to the end of the specified week or month.</p>
-   * @public
-   */
-  OccurrenceRelativeToEnd?: boolean | undefined;
-
-  /**
-   * <p>The unit for <code>occurrenceDaySet</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).</p>
-   * @public
-   */
-  OccurrenceUnit?: string | undefined;
 }

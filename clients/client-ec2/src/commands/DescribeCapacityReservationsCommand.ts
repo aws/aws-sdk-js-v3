@@ -100,6 +100,7 @@ export interface DescribeCapacityReservationsCommandOutput extends DescribeCapac
  * //       CommitmentInfo: { // CapacityReservationCommitmentInfo
  * //         CommittedInstanceCount: Number("int"),
  * //         CommitmentEndDate: new Date("TIMESTAMP"),
+ * //         CommitmentDuration: Number("long"),
  * //       },
  * //       DeliveryPreference: "fixed" || "incremental",
  * //       CapacityBlockId: "STRING_VALUE",
@@ -116,6 +117,15 @@ export interface DescribeCapacityReservationsCommandOutput extends DescribeCapac
  * //         SourceCapacityReservationId: "STRING_VALUE",
  * //         InterruptionType: "adhoc",
  * //       },
+ * //       AdjustmentStatus: "requested" || "applied" || "rejected",
+ * //       AdjustmentDetails: { // CapacityReservationAdjustmentDetails
+ * //         StartDate: new Date("TIMESTAMP"),
+ * //         EndDate: new Date("TIMESTAMP"),
+ * //         CommitmentEndDate: new Date("TIMESTAMP"),
+ * //         EndDateType: "STRING_VALUE",
+ * //         CommitmentDuration: Number("long"),
+ * //       },
+ * //       OriginalStartDate: new Date("TIMESTAMP"),
  * //       ZeroSizePreference: "retain" || "default",
  * //     },
  * //   ],

@@ -11,6 +11,7 @@ export * from "./DescribeCapacityBlocksPaginator";
 export * from "./DescribeCapacityBlockStatusPaginator";
 export * from "./DescribeCapacityManagerDataExportsPaginator";
 export * from "./DescribeCapacityReservationBillingRequestsPaginator";
+export * from "./DescribeCapacityReservationDateChangeQuotesPaginator";
 export * from "./DescribeCapacityReservationFleetsPaginator";
 export * from "./DescribeCapacityReservationsPaginator";
 export * from "./DescribeCarrierGatewaysPaginator";

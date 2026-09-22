@@ -4,7 +4,6 @@ import type {
   ActivityStatus,
   AllocationStrategy,
   AllowedImagesSettingsDisabledState,
-  AllowedImagesSettingsEnabledState,
   AttachmentStatus,
   BatchState,
   CapacityManagerStatus,
@@ -100,7 +99,6 @@ import type {
   ConnectionTrackingSpecificationRequest,
   EnaSrdSpecificationRequest,
   FleetLaunchTemplateSpecification,
-  GroupIdentifier,
   InstanceIpv6Address,
   InstanceRequirements,
   Ipv4PrefixSpecificationRequest,
@@ -113,7 +111,11 @@ import type {
 import type {
   ConnectionNotification,
   DnsEntry,
+  GroupIdentifier,
   PayerResponsibilityEntry,
+  RouteServer,
+  RouteServerPeer,
+  RouteTable,
   SecondaryNetwork,
   SecondarySubnet,
   ServiceConfiguration,
@@ -147,7 +149,410 @@ import type {
   FastLaunchSnapshotConfigurationResponse,
   Filter,
 } from "./models_3";
-import type { AttributeBooleanValue, ProductCode, RegisteredInstance, ScheduledInstanceRecurrence } from "./models_4";
+import type { AttributeBooleanValue, ProductCode, RegisteredInstance } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeRouteServerPeersResult {
+  /**
+   * <p>Information about the described route server peers.</p>
+   * @public
+   */
+  RouteServerPeers?: RouteServerPeer[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRouteServersRequest {
+  /**
+   * <p>The IDs of the route servers to describe.</p>
+   * @public
+   */
+  RouteServerIds?: string[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters to apply to the describe request.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRouteServersResult {
+  /**
+   * <p>Information about the described route servers.</p>
+   * @public
+   */
+  RouteServers?: RouteServer[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRouteTablesRequest {
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the route tables.</p>
+   * @public
+   */
+  RouteTableIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>association.gateway-id</code> - The ID of the gateway involved in the
+   * 		                association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.route-table-association-id</code> - The ID of an association
+   *                     ID for the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.route-table-id</code> - The ID of the route table involved in
+   *                     the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.subnet-id</code> - The ID of the subnet involved in the
+   *                     association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.main</code> - Indicates whether the route table is the main
+   *                     route table for the VPC (<code>true</code> | <code>false</code>). Route tables
+   *                     that do not have an association ID are not returned in the response.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-table-id</code> - The ID of the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a
+   *                     route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in a route in the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.destination-prefix-list-id</code> - The ID (prefix) of the Amazon Web Services
+   * 				      service specified in a route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.egress-only-internet-gateway-id</code> - The ID of an
+   *                     egress-only Internet gateway specified in a route in the route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.instance-id</code> - The ID of an instance specified in a route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.nat-gateway-id</code> - The ID of a NAT gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.transit-gateway-id</code> - The ID of a transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.origin</code> - Describes how the route was created.
+   *                         <code>CreateRouteTable</code> indicates that the route was automatically
+   *                     created when the route table was created; <code>CreateRoute</code> indicates
+   *                     that the route was manually added to the route table;
+   *                         <code>EnableVgwRoutePropagation</code> indicates that the route was
+   *                     propagated by route propagation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.state</code> - The state of a route in the route table
+   *                         (<code>active</code> | <code>blackhole</code>). The blackhole state
+   *                     indicates that the route's target isn't available (for example, the specified
+   *                     gateway isn't attached to the VPC, the specified NAT instance has been
+   *                     terminated, and so on).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route.vpc-peering-connection-id</code> - The ID of a VPC peering
+   * 		                connection specified in a route in the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC for the route table.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeRouteTables.</p>
+ * @public
+ */
+export interface DescribeRouteTablesResult {
+  /**
+   * <p>Information about the route tables.</p>
+   * @public
+   */
+  RouteTables?: RouteTable[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
+ * @public
+ */
+export interface SlotDateTimeRangeRequest {
+  /**
+   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
+   * @public
+   */
+  EarliestTime: Date | undefined;
+
+  /**
+   * <p>The latest date and time, in UTC, for the Scheduled Instance to start. This value must be later than or equal to the earliest date and at most three months in the future.</p>
+   * @public
+   */
+  LatestTime: Date | undefined;
+}
+
+/**
+ * <p>Describes the recurring schedule for a Scheduled Instance.</p>
+ * @public
+ */
+export interface ScheduledInstanceRecurrenceRequest {
+  /**
+   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
+   * @public
+   */
+  Frequency?: string | undefined;
+
+  /**
+   * <p>The interval quantity. The interval unit depends on the value of <code>Frequency</code>. For example, every 2
+   *          weeks or every 2 months.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+
+  /**
+   * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday). You can't specify this value with a daily schedule. If the occurrence is relative to the end of the month, you can specify only a single day.</p>
+   * @public
+   */
+  OccurrenceDays?: number[] | undefined;
+
+  /**
+   * <p>Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.</p>
+   * @public
+   */
+  OccurrenceRelativeToEnd?: boolean | undefined;
+
+  /**
+   * <p>The unit for <code>OccurrenceDays</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).
+   *         This value is required for a monthly schedule.
+   *         You can't specify <code>DayOfWeek</code> with a weekly schedule.
+   *         You can't specify this value with a daily schedule.</p>
+   * @public
+   */
+  OccurrenceUnit?: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeScheduledInstanceAvailability.</p>
+ * @public
+ */
+export interface DescribeScheduledInstanceAvailabilityRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone (for example, <code>us-west-2a</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The time period for the first schedule to start.</p>
+   * @public
+   */
+  FirstSlotStartTimeRange: SlotDateTimeRangeRequest | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.
+   *          This value can be between 5 and 300. The default value is 300.
+   *          To retrieve the remaining results, make another call with the returned
+   *          <code>NextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The maximum available duration, in hours. This value must be greater than <code>MinSlotDurationInHours</code>
+   *          and less than 1,720.</p>
+   * @public
+   */
+  MaxSlotDurationInHours?: number | undefined;
+
+  /**
+   * <p>The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
+   * @public
+   */
+  MinSlotDurationInHours?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The schedule recurrence.</p>
+   * @public
+   */
+  Recurrence: ScheduledInstanceRecurrenceRequest | undefined;
+}
+
+/**
+ * <p>Describes the recurring schedule for a Scheduled Instance.</p>
+ * @public
+ */
+export interface ScheduledInstanceRecurrence {
+  /**
+   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
+   * @public
+   */
+  Frequency?: string | undefined;
+
+  /**
+   * <p>The interval quantity. The interval unit depends on the value of <code>frequency</code>. For example, every 2
+   *          weeks or every 2 months.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+
+  /**
+   * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).</p>
+   * @public
+   */
+  OccurrenceDaySet?: number[] | undefined;
+
+  /**
+   * <p>Indicates whether the occurrence is relative to the end of the specified week or month.</p>
+   * @public
+   */
+  OccurrenceRelativeToEnd?: boolean | undefined;
+
+  /**
+   * <p>The unit for <code>occurrenceDaySet</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).</p>
+   * @public
+   */
+  OccurrenceUnit?: string | undefined;
+}
 
 /**
  * <p>Describes a schedule that is available for your Scheduled Instances.</p>
@@ -10989,195 +11394,4 @@ export interface EnableAddressTransferRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAddressTransferResult {
-  /**
-   * <p>An Elastic IP address transfer.</p>
-   * @public
-   */
-  AddressTransfer?: AddressTransfer | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAllowedImagesSettingsRequest {
-  /**
-   * <p>Specify <code>enabled</code> to apply the image criteria specified by the Allowed AMIs
-   *       settings. Specify <code>audit-mode</code> so that you can check which AMIs will be allowed or
-   *       not allowed by the image criteria.</p>
-   * @public
-   */
-  AllowedImagesSettingsState: AllowedImagesSettingsEnabledState | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAllowedImagesSettingsResult {
-  /**
-   * <p>Returns <code>enabled</code> or <code>audit-mode</code> if the request succeeds;
-   *       otherwise, it returns an error.</p>
-   * @public
-   */
-  AllowedImagesSettingsState?: AllowedImagesSettingsEnabledState | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableApplicationStatusCheckSuppressionRequest {
-  /**
-   * <p>The IDs of the instances for which to suppress application status checks.</p>
-   * @public
-   */
-  InstanceIds?: string[] | undefined;
-
-  /**
-   * <p>The duration, in seconds, for which to suppress application status checks. If omitted, the application status check is suppressed indefinitely until you call <code>DisableApplicationStatusCheckSuppression</code>.</p>
-   * @public
-   */
-  DurationSeconds?: number | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you retry a request with the same token, the service ignores the request but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableApplicationStatusCheckSuppressionResult {
-  /**
-   * <p>The instances for which suppression was successfully enabled.</p>
-   * @public
-   */
-  SuccessfulResults?: SuccessfulSuppressionResponseObject[] | undefined;
-
-  /**
-   * <p>The instances for which suppression failed to be enabled.</p>
-   * @public
-   */
-  UnsuccessfulResults?: UnsuccessfulSuppressionResponseObject[] | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
-  /**
-   * <p>The source Region (like <code>us-east-1</code>) or Availability Zone ID (like <code>use1-az1</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>The target Region (like <code>us-east-2</code>) or Availability Zone ID (like <code>use2-az2</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * <p>The metric used for the enabled subscription.</p>
-   * @public
-   */
-  Metric?: MetricType | undefined;
-
-  /**
-   * <p>The statistic used for the enabled subscription.</p>
-   * @public
-   */
-  Statistic?: StatisticType | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
-  /**
-   * <p>Indicates whether the subscribe action was successful.</p>
-   * @public
-   */
-  Output?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableCapacityManagerRequest {
-  /**
-   * <p>
-   * Specifies whether to enable cross-account access for Amazon Web Services Organizations. When enabled, Capacity Manager can aggregate data from all accounts in your organization. Default is false.
-   * </p>
-   * @public
-   */
-  OrganizationsAccess?: boolean | undefined;
-
-  /**
-   * <p>
-   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
-   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
-   * </p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>
-   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   * </p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableCapacityManagerResult {
-  /**
-   * <p>
-   * The current status of Capacity Manager after the enable operation.
-   * </p>
-   * @public
-   */
-  CapacityManagerStatus?: CapacityManagerStatus | undefined;
-
-  /**
-   * <p>
-   * Indicates whether Organizations access is enabled for cross-account data aggregation.
-   * </p>
-   * @public
-   */
-  OrganizationsAccess?: boolean | undefined;
 }

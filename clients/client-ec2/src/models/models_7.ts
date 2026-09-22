@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  _InstanceType,
   AccountVpcEncryptionControlMode,
   Affinity,
   AggregationStatusEnum,
@@ -8,6 +9,7 @@ import type {
   AutoAcceptSharedAttachmentsValue,
   AutoPlacement,
   BootModeValues,
+  CapacityReservationAdjustmentStatus,
   CapacityReservationInstancePlatform,
   CapacityReservationPreference,
   CurrencyCodeValues,
@@ -16,6 +18,7 @@ import type {
   DefaultInstanceMetadataTagsState,
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
+  DiskImageFormat,
   DnsSupportValue,
   EncryptionSupportOptionValue,
   EndDateType,
@@ -57,13 +60,12 @@ import type {
   PayerResponsibilityScope,
   PayerResponsibilityType,
   PermissionGroup,
+  PlatformValues,
   PublicIpDnsOption,
-  ReportInstanceReasonCodes,
-  ReportStatusType,
   RouteServerPersistRoutesAction,
-  RuleAction,
   SecurityGroupReferencingSupportValue,
   SelfServicePortal,
+  ShutdownBehavior,
   SnapshotAttributeName,
   Status,
   TargetStorageTier,
@@ -95,9 +97,7 @@ import type {
   ApplicationStatusCheckResponseObject,
   ByoipCidr,
   CapacityReservation,
-  ClientConnectOptions,
-  ClientLoginBannerOptions,
-  ClientRouteEnforcementOptions,
+  CapacityReservationAdjustmentDetails,
   EnaSrdSpecification,
   HealthCheckPathRequestObject,
   IamInstanceProfileAssociation,
@@ -106,8 +106,6 @@ import type {
   IpamPoolAllocation,
   IpamRoutingPolicyRegistrationDelta,
   OperatorResponse,
-  PortRange,
-  RouteTableAssociationState,
   Tag,
   TagSpecification,
   TransitGatewayClientVpnAttachment,
@@ -123,11 +121,13 @@ import type {
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationTarget,
+  ClientConnectOptions,
+  ClientLoginBannerOptions,
+  ClientRouteEnforcementOptions,
   ConnectionLogOptions,
   ConnectionTrackingSpecificationRequest,
   ExternalAuthorityConfiguration,
   FleetLaunchTemplateConfigRequest,
-  IcmpTypeCode,
   InstanceEventWindowTimeRangeRequest,
   Ipam,
   IpamPool,
@@ -139,6 +139,7 @@ import type {
   LaunchTemplate,
   LocalGatewayRoute,
   ManagedPrefixList,
+  Placement,
   RequestIpamResourceTag,
   TargetCapacitySpecificationRequest,
   TransitGatewayConfigurationInputStructure,
@@ -165,7 +166,6 @@ import type {
   TransitGatewayPolicyTableEntry,
   TransitGatewayPrefixListReference,
   TransitGatewayRequestPolicyRule,
-  TransitGatewayRoute,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
@@ -184,12 +184,14 @@ import type {
 import type {
   AttributeBooleanValue,
   FpgaImageAttribute,
+  ImportImageLicenseConfigurationResponse,
   InstanceMetadataOptionsResponse,
   InstanceStatusEvent,
   LaunchPermission,
   Monitoring,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
+  SnapshotDetail,
   SnapshotTaskDetail,
 } from "./models_4";
 import type {
@@ -202,15 +204,463 @@ import type {
 } from "./models_5";
 import type {
   ClientData,
-  DiskImageDetail,
+  ImageDiskContainer,
+  ImportImageLicenseConfigurationRequest,
   InstanceFamilyCreditSpecification,
   IpamPolicyDocument,
   IpamResourceCidr,
   ManagedResourceVisibilitySettings,
   Purchase,
   UserBucket,
-  VolumeDetail,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ImportImageRequest {
+  /**
+   * <p>The architecture of the virtual machine.</p>
+   *          <p>Valid values: <code>i386</code> | <code>x86_64</code>
+   *          </p>
+   * @public
+   */
+  Architecture?: string | undefined;
+
+  /**
+   * <p>The client-specific data.</p>
+   * @public
+   */
+  ClientData?: ClientData | undefined;
+
+  /**
+   * <p>The token to enable idempotency for VM import requests.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A description string for the import image task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Information about the disk containers.</p>
+   * @public
+   */
+  DiskContainers?: ImageDiskContainer[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether the destination AMI of the imported image should be encrypted. The default KMS key for EBS is used
+   *    unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
+   *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>The target hypervisor platform.</p>
+   *          <p>Valid values: <code>xen</code>
+   *          </p>
+   * @public
+   */
+  Hypervisor?: string | undefined;
+
+  /**
+   * <p>An identifier for the symmetric KMS key to use when creating the
+   *    encrypted AMI. This parameter is only required if you want to use a non-default KMS key; if this
+   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
+   *    specified, the <code>Encrypted</code> flag must also be set. </p>
+   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID</p>
+   *             </li>
+   *             <li>
+   *                <p>Key alias</p>
+   *             </li>
+   *             <li>
+   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
+   *    though you provided an invalid identifier. This action will eventually report failure. </p>
+   *          <p>The specified KMS key must exist in the Region that the AMI is being copied to.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p>
+   *          <p>Specify <code>AWS</code> to replace the source-system license with an Amazon Web Services
+   *    license or <code>BYOL</code> to retain the source-system license. Leaving this parameter
+   *    undefined is the same as choosing <code>AWS</code> when importing a Windows Server operating
+   *    system, and the same as choosing <code>BYOL</code> when importing a Windows client operating
+   *    system (such as Windows 10) or a Linux operating system.</p>
+   *          <p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party
+   *    cloud, such as Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the
+   *    VM Import/Export User Guide.</p>
+   * @public
+   */
+  LicenseType?: string | undefined;
+
+  /**
+   * <p>The operating system of the virtual machine. If you import a VM that is compatible with
+   *    Unified Extensible Firmware Interface (UEFI) using an EBS snapshot, you must specify a value for
+   *    the platform.</p>
+   *          <p>Valid values: <code>Windows</code> | <code>Linux</code>
+   *          </p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
+   * @public
+   */
+  RoleName?: string | undefined;
+
+  /**
+   * <p>The ARNs of the license configurations.</p>
+   * @public
+   */
+  LicenseSpecifications?: ImportImageLicenseConfigurationRequest[] | undefined;
+
+  /**
+   * <p>The tags to apply to the import image task during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#prerequisites">Licensing options</a> in the <i>VM Import/Export User Guide</i>.</p>
+   * @public
+   */
+  UsageOperation?: string | undefined;
+
+  /**
+   * <p>The boot mode of the virtual machine.</p>
+   *          <note>
+   *             <p>The <code>uefi-preferred</code> boot mode isn't supported for importing images. For more
+   *     information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/prerequisites.html#vmimport-boot-modes">Boot modes</a> in
+   *     the <i>VM Import/Export User Guide</i>.</p>
+   *          </note>
+   * @public
+   */
+  BootMode?: BootModeValues | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportImageResult {
+  /**
+   * <p>The architecture of the virtual machine.</p>
+   * @public
+   */
+  Architecture?: string | undefined;
+
+  /**
+   * <p>A description of the import task.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the AMI is encrypted.</p>
+   * @public
+   */
+  Encrypted?: boolean | undefined;
+
+  /**
+   * <p>The target hypervisor of the import task.</p>
+   * @public
+   */
+  Hypervisor?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) created by the import task.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The task ID of the import image task.</p>
+   * @public
+   */
+  ImportTaskId?: string | undefined;
+
+  /**
+   * <p>The identifier for the symmetric KMS key that was used to create the encrypted AMI.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>The license type of the virtual machine.</p>
+   * @public
+   */
+  LicenseType?: string | undefined;
+
+  /**
+   * <p>The operating system of the virtual machine.</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The progress of the task.</p>
+   * @public
+   */
+  Progress?: string | undefined;
+
+  /**
+   * <p>Information about the snapshots.</p>
+   * @public
+   */
+  SnapshotDetails?: SnapshotDetail[] | undefined;
+
+  /**
+   * <p>A brief status of the task.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>A detailed status message of the import task.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The ARNs of the license configurations.</p>
+   * @public
+   */
+  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[] | undefined;
+
+  /**
+   * <p>Any tags assigned to the import image task.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The usage operation value.</p>
+   * @public
+   */
+  UsageOperation?: string | undefined;
+}
+
+/**
+ * <p>Describes a disk image.</p>
+ * @public
+ */
+export interface DiskImageDetail {
+  /**
+   * <p>The disk image format.</p>
+   * @public
+   */
+  Format: DiskImageFormat | undefined;
+
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   * @public
+   */
+  Bytes: number | undefined;
+
+  /**
+   * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
+   *    For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication
+   *    Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer
+   *     Guide</i>.</p>
+   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+   * @public
+   */
+  ImportManifestUrl: string | undefined;
+}
+
+/**
+ * <p>Describes an EBS volume.</p>
+ * @public
+ */
+export interface VolumeDetail {
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  Size: number | undefined;
+}
+
+/**
+ * <p>Describes a disk image.</p>
+ * @public
+ */
+export interface DiskImage {
+  /**
+   * <p>A description of the disk image.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Information about the disk image.</p>
+   * @public
+   */
+  Image?: DiskImageDetail | undefined;
+
+  /**
+   * <p>Information about the volume.</p>
+   * @public
+   */
+  Volume?: VolumeDetail | undefined;
+}
+
+/**
+ * <p>Describes the user data for an instance.</p>
+ * @public
+ */
+export interface UserData {
+  /**
+   * <p>The user data. If you are using an Amazon Web Services SDK or command line tool, Base64-encoding is performed for you, and you
+   *    can load the text from a file. Otherwise, you must provide Base64-encoded text.</p>
+   * @public
+   */
+  Data?: string | undefined;
+}
+
+/**
+ * <p>Describes the launch specification for VM import.</p>
+ * @public
+ */
+export interface ImportInstanceLaunchSpecification {
+  /**
+   * <p>The architecture of the instance.</p>
+   * @public
+   */
+  Architecture?: ArchitectureValues | undefined;
+
+  /**
+   * <p>The security group names.</p>
+   * @public
+   */
+  GroupNames?: string[] | undefined;
+
+  /**
+   * <p>The security group IDs.</p>
+   * @public
+   */
+  GroupIds?: string[] | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  AdditionalInfo?: string | undefined;
+
+  /**
+   * <p>The Base64-encoded user data to make available to the instance.</p>
+   * @public
+   */
+  UserData?: UserData | undefined;
+
+  /**
+   * <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance Types</a> in the
+   *    VM Import/Export User Guide.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The placement information for the instance.</p>
+   * @public
+   */
+  Placement?: Placement | undefined;
+
+  /**
+   * <p>Indicates whether monitoring is enabled.</p>
+   * @public
+   */
+  Monitoring?: boolean | undefined;
+
+  /**
+   * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
+   *    operating system command for system shutdown).</p>
+   * @public
+   */
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | undefined;
+
+  /**
+   * <p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportInstanceRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A description for the instance being imported.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The launch specification.</p>
+   * @public
+   */
+  LaunchSpecification?: ImportInstanceLaunchSpecification | undefined;
+
+  /**
+   * <p>The disk image.</p>
+   * @public
+   */
+  DiskImages?: DiskImage[] | undefined;
+
+  /**
+   * <p>The instance operating system.</p>
+   * @public
+   */
+  Platform: PlatformValues | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportInstanceResult {
+  /**
+   * <p>Information about the conversion task.</p>
+   * @public
+   */
+  ConversionTask?: ConversionTask | undefined;
+}
 
 /**
  * @public
@@ -1340,6 +1790,33 @@ export interface ModifyCapacityReservationRequest {
    * @public
    */
   InstanceMatchCriteria?: InstanceMatchCriteria | undefined;
+
+  /**
+   * <p>Indicates that you accept the modification terms of the quote identified by
+   * 			<code>QuoteId</code>. To apply a quoted modification, set this parameter to
+   * 			<code>true</code>.</p>
+   * @public
+   */
+  AcceptModificationTerms?: boolean | undefined;
+
+  /**
+   * <p>The new start date for the Capacity Reservation, in the ISO8601 format in the UTC time
+   * 			zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>). Applies to future-dated Capacity
+   * 			Reservations only. Requires a quote from
+   * 			<code>CreateCapacityReservationDateChangeQuote</code>; pass the quote ID in
+   * 			<code>QuoteId</code> with <code>AcceptModificationTerms</code> set to
+   * 			<code>true</code>.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The ID of the quote that describes the modification you want to apply. Generate a quote
+   * 			by using <code>CreateCapacityReservationDateChangeQuote</code>. The quote must be in the
+   * 			<code>active</code> state, and each quote can be used only once.</p>
+   * @public
+   */
+  QuoteId?: string | undefined;
 }
 
 /**
@@ -1351,6 +1828,21 @@ export interface ModifyCapacityReservationResult {
    * @public
    */
   Return?: boolean | undefined;
+
+  /**
+   * <p>The status of the requested modification. For a description of each possible value, see
+   * 			the <code>adjustmentStatus</code> field of the <code>CapacityReservation</code> data
+   * 			type.</p>
+   * @public
+   */
+  AdjustmentStatus?: CapacityReservationAdjustmentStatus | undefined;
+
+  /**
+   * <p>The configuration that the Capacity Reservation will have after the adjustment is
+   * 			applied.</p>
+   * @public
+   */
+  AdjustmentDetails?: CapacityReservationAdjustmentDetails | undefined;
 }
 
 /**
@@ -9369,423 +9861,4 @@ export interface ReplaceNetworkAclAssociationResult {
    * @public
    */
   NewAssociationId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceNetworkAclEntryRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the ACL.</p>
-   * @public
-   */
-  NetworkAclId: string | undefined;
-
-  /**
-   * <p>The rule number of the entry to replace.</p>
-   * @public
-   */
-  RuleNumber: number | undefined;
-
-  /**
-   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
-   *            protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
-   *            allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
-   *            protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
-   *            codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
-   *            and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
-   * @public
-   */
-  Protocol: string | undefined;
-
-  /**
-   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
-   * @public
-   */
-  RuleAction: RuleAction | undefined;
-
-  /**
-   * <p>Indicates whether to replace the egress rule.</p>
-   *          <p>Default: If no value is specified, we replace the ingress rule.</p>
-   * @public
-   */
-  Egress: boolean | undefined;
-
-  /**
-   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
-   *                 <code>172.16.0.0/24</code>).</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
-   *                 <code>2001:bd8:1234:1a00::/64</code>).</p>
-   * @public
-   */
-  Ipv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
-   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
-   * @public
-   */
-  IcmpTypeCode?: IcmpTypeCode | undefined;
-
-  /**
-   * <p>TCP or UDP protocols: The range of ports the rule applies to.
-   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
-   * @public
-   */
-  PortRange?: PortRange | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceRouteRequest {
-  /**
-   * <p>The ID of the prefix list for the route.</p>
-   * @public
-   */
-  DestinationPrefixListId?: string | undefined;
-
-  /**
-   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
-   * @public
-   */
-  VpcEndpointId?: string | undefined;
-
-  /**
-   * <p>Specifies whether to reset the local route to its default target (<code>local</code>).</p>
-   * @public
-   */
-  LocalTarget?: boolean | undefined;
-
-  /**
-   * <p>The ID of a transit gateway.</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   * @public
-   */
-  LocalGatewayId?: string | undefined;
-
-  /**
-   * <p>[IPv4 traffic only] The ID of a carrier gateway.</p>
-   * @public
-   */
-  CarrierGatewayId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the core network.</p>
-   * @public
-   */
-  CoreNetworkArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the ODB network.</p>
-   * @public
-   */
-  OdbNetworkArn?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  RouteTableId: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR address block used for the destination match. The value that you
-   * 			provide must match the CIDR of an existing route in the table.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The ID of an internet gateway or virtual private gateway.</p>
-   * @public
-   */
-  GatewayId?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR address block used for the destination match. The value that you
-   * 			provide must match the CIDR of an existing route in the table.</p>
-   * @public
-   */
-  DestinationIpv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
-   * @public
-   */
-  EgressOnlyInternetGatewayId?: string | undefined;
-
-  /**
-   * <p>The ID of a NAT instance in your VPC.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The ID of a network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>The ID of a VPC peering connection.</p>
-   * @public
-   */
-  VpcPeeringConnectionId?: string | undefined;
-
-  /**
-   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceRouteTableAssociationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The association ID.</p>
-   * @public
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>The ID of the new route table to associate with the subnet.</p>
-   * @public
-   */
-  RouteTableId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceRouteTableAssociationResult {
-  /**
-   * <p>The ID of the new association.</p>
-   * @public
-   */
-  NewAssociationId?: string | undefined;
-
-  /**
-   * <p>The state of the association.</p>
-   * @public
-   */
-  AssociationState?: RouteTableAssociationState | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceTransitGatewayRouteRequest {
-  /**
-   * <p>The CIDR range used for the destination match. Routing decisions are based on the most specific match.</p>
-   * @public
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>Indicates whether traffic matching this route is to be dropped.</p>
-   * @public
-   */
-  Blackhole?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceTransitGatewayRouteResult {
-  /**
-   * <p>Information about the modified route.</p>
-   * @public
-   */
-  Route?: TransitGatewayRoute | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceVpnTunnelRequest {
-  /**
-   * <p>The ID of the Site-to-Site VPN connection. </p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Trigger pending tunnel endpoint maintenance.</p>
-   * @public
-   */
-  ApplyPendingMaintenance?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReplaceVpnTunnelResult {
-  /**
-   * <p>Confirmation of replace tunnel operation.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ReportInstanceStatusRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The instances.</p>
-   * @public
-   */
-  Instances: string[] | undefined;
-
-  /**
-   * <p>The status of all instances listed.</p>
-   * @public
-   */
-  Status: ReportStatusType | undefined;
-
-  /**
-   * <p>The time at which the reported instance health state began.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The time at which the reported instance health state ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The reason codes that describe the health state of your instance.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-stuck-in-state</code>: My instance is stuck in a state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unresponsive</code>: My instance is unresponsive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>not-accepting-credentials</code>: My instance is not accepting my
-   *                     credentials.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>password-not-available</code>: A password is not available for my
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>performance-network</code>: My instance is experiencing performance
-   *                     problems that I believe are network related.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>performance-instance-store</code>: My instance is experiencing performance
-   *                     problems that I believe are related to the instance stores.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>performance-ebs-volume</code>: My instance is experiencing performance
-   *                     problems that I believe are related to an EBS volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>performance-other</code>: My instance is experiencing performance
-   *                     problems.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>other</code>: [explain using the description parameter]</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ReasonCodes: ReportInstanceReasonCodes[] | undefined;
-
-  /**
-   * <p>Descriptive text about the health state of your instance.</p>
-   *
-   * @deprecated This member has been deprecated.
-   * @public
-   */
-  Description?: string | undefined;
 }

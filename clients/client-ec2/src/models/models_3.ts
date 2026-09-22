@@ -23,7 +23,6 @@ import type {
   ClientVpnConnectionStatusCode,
   ClientVpnEndpointAttributeStatusCode,
   ConversionTaskState,
-  DefaultTargetCapacityType,
   DeleteQueuedReservedInstancesErrorCode,
   DiskImageFormat,
   ElasticGpuState,
@@ -32,17 +31,9 @@ import type {
   FastLaunchResourceType,
   FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
-  FleetActivityStatus,
   FleetCapacityReservationTenancy,
-  FleetCapacityReservationUsageStrategy,
   FleetEventType,
-  FleetExcessCapacityTerminationPolicy,
   FleetInstanceMatchCriteria,
-  FleetOnDemandAllocationStrategy,
-  FleetReplacementStrategy,
-  FleetReservationType,
-  FleetStateCode,
-  FleetType,
   InstanceLifecycle,
   IpamPoolCidrFailureCode,
   IpamPoolCidrState,
@@ -51,14 +42,9 @@ import type {
   PeriodType,
   PlatformValues,
   ReportState,
-  ReservedCapacityAllocationStrategy,
-  ReservedCapacityFallbackMarketType,
   Schedule,
   SnapshotReturnCodes,
-  SpotAllocationStrategy,
-  SpotInstanceInterruptionBehavior,
   StatisticType,
-  TargetCapacityUnitType,
   TrafficIpAddressType,
   TransportProtocol,
   VpnProtocol,
@@ -76,6 +62,7 @@ import type {
   ByoipCidr,
   CapacityReservation,
   CapacityReservationCancellationQuote,
+  CapacityReservationModificationQuote,
   CarrierGateway,
   ClientVpnAuthorizationRuleStatus,
   FleetCapacityReservation,
@@ -97,8 +84,10 @@ import type {
   ExportTask,
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateSpecification,
-  GroupIdentifier,
   LaunchTemplateAndOverridesResponse,
+  LocalGatewayRoute,
+  LocalGatewayRouteTable,
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
@@ -106,6 +95,9 @@ import type {
   VpcEncryptionControl,
 } from "./models_1";
 import type {
+  DeleteLaunchTemplateVersionsResponseErrorItem,
+  DeleteLaunchTemplateVersionsResponseSuccessItem,
+  GroupIdentifier,
   RouteServer,
   RouteServerEndpoint,
   RouteServerPeer,
@@ -128,6 +120,132 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteLaunchTemplateVersionsResult {
+  /**
+   * <p>Information about the launch template versions that were successfully deleted.</p>
+   * @public
+   */
+  SuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseSuccessItem[] | undefined;
+
+  /**
+   * <p>Information about the launch template versions that could not be deleted.</p>
+   * @public
+   */
+  UnsuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseErrorItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteRequest {
+  /**
+   * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   *          Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use
+   *          <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
+   *       </p>
+   * @public
+   */
+  DestinationPrefixListId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteResult {
+  /**
+   * <p>Information about the route.</p>
+   * @public
+   */
+  Route?: LocalGatewayRoute | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteTableRequest {
+  /**
+   * <p>
+   *       The ID of the local gateway route table.
+   *       </p>
+   * @public
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteTableResult {
+  /**
+   * <p>Information about the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTable?: LocalGatewayRouteTable | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
+  /**
+   * <p>
+   *          The ID of the local gateway route table virtual interface group association.
+   *       </p>
+   * @public
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
+  /**
+   * <p>Information about the association.</p>
+   * @public
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation | undefined;
+}
 
 /**
  * @public
@@ -5138,6 +5256,59 @@ export interface DescribeCapacityReservationCancellationQuotesResult {
 /**
  * @public
  */
+export interface DescribeCapacityReservationDateChangeQuotesRequest {
+  /**
+   * <p>The IDs of the date change quotes to describe.</p>
+   * @public
+   */
+  CapacityReservationModificationQuoteIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationDateChangeQuotesResult {
+  /**
+   * <p>Information about the Capacity Reservation date change quotes.</p>
+   * @public
+   */
+  CapacityReservationModificationQuotes?: CapacityReservationModificationQuote[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeCapacityReservationFleetsRequest {
   /**
    * <p>The IDs of the Capacity Reservation Fleets to describe.</p>
@@ -8744,557 +8915,4 @@ export interface FleetLaunchTemplateConfig {
    * @public
    */
   Overrides?: FleetLaunchTemplateOverrides[] | undefined;
-}
-
-/**
- * <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
- *          capacity.</p>
- *          <note>
- *             <p>This strategy can only be used if the EC2 Fleet is of type
- *             <code>instant</code>.</p>
- *          </note>
- *          <p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity
- *             Reservations</a> in the <i>Amazon EC2 User Guide</i>. For examples of using
- *          Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example
- *             configurations</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface CapacityReservationOptions {
-  /**
-   * <p>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</p>
-   *          <p>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
-   *          Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If
-   *          multiple instance pools have unused Capacity Reservations, the On-Demand allocation
-   *          strategy (<code>lowest-price</code> or <code>prioritized</code>) is applied. If the number
-   *          of unused Capacity Reservations is less than the On-Demand target capacity, the remaining
-   *          On-Demand target capacity is launched according to the On-Demand allocation strategy
-   *             (<code>lowest-price</code> or <code>prioritized</code>).</p>
-   *          <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the
-   *          chosen On-Demand allocation strategy.</p>
-   * @public
-   */
-  UsageStrategy?: FleetCapacityReservationUsageStrategy | undefined;
-}
-
-/**
- * <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
- * @public
- */
-export interface OnDemandOptions {
-  /**
-   * <p>The strategy that determines the order of the launch template overrides to use in
-   *          fulfilling On-Demand capacity.</p>
-   *          <p>
-   *             <code>lowest-price</code> - EC2 Fleet uses price to determine the order, launching the lowest
-   *          price first.</p>
-   *          <p>
-   *             <code>prioritized</code> - EC2 Fleet uses the priority that you assigned to each launch
-   *          template override, launching the highest priority first.</p>
-   *          <p>Default: <code>lowest-price</code>
-   *          </p>
-   * @public
-   */
-  AllocationStrategy?: FleetOnDemandAllocationStrategy | undefined;
-
-  /**
-   * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand
-   *          capacity.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   * @public
-   */
-  CapacityReservationOptions?: CapacityReservationOptions | undefined;
-
-  /**
-   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the
-   *          fleet.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   * @public
-   */
-  SingleInstanceType?: boolean | undefined;
-
-  /**
-   * <p>Indicates that the fleet launches all On-Demand Instances into a single Availability Zone.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   * @public
-   */
-  SingleAvailabilityZone?: boolean | undefined;
-
-  /**
-   * <p>The minimum target capacity for On-Demand Instances in the fleet. If this minimum capacity isn't
-   *          reached, no instances are launched.</p>
-   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
-   *             <code>instant</code>.</p>
-   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
-   *          <code>SingleInstanceType</code>
-   *          </p>
-   * @public
-   */
-  MinTargetCapacity?: number | undefined;
-
-  /**
-   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
-   *          <note>
-   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and
-   *             if their average CPU usage exceeds the baseline utilization, you will incur a charge for
-   *             surplus credits. The <code>maxTotalPrice</code> does not account for surplus credits,
-   *             and, if you use surplus credits, your final cost might be higher than what you specified
-   *             for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
-   *                <i>Amazon EC2 User Guide</i>.</p>
-   *          </note>
-   * @public
-   */
-  MaxTotalPrice?: string | undefined;
-}
-
-/**
- * <p>Describes the fallback behavior for an EC2 Fleet that uses reserved capacity when the
- *             reserved capacity is not enough to meet the target capacity. If you don't specify
- *             fallback options, EC2 Fleet does not fall back to any other market type after the specified
- *             reservation types are exhausted.</p>
- * @public
- */
-export interface ReservedCapacityFallbackOptions {
-  /**
-   * <p>The instance purchasing options to fall back to when the reserved capacity is not
-   *             enough to meet the target capacity. The only supported value is <code>on-demand</code>,
-   *             which launches On-Demand Instances to fulfill the remaining target capacity.</p>
-   * @public
-   */
-  MarketTypes?: ReservedCapacityFallbackMarketType[] | undefined;
-}
-
-/**
- * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when <code>DefaultTargetCapacityType</code>
- *             is set to <code>reserved-capacity</code>. EC2 Fleet can fulfill reserved capacity using On-Demand Capacity Reservations,
- *             Capacity Blocks for ML, and interruptible Capacity Reservations.</p>
- * @public
- */
-export interface ReservedCapacityOptions {
-  /**
-   * <p>The strategy that determines the order in which EC2 Fleet launches instances across the
-   *             reservation types that you specify. The only supported value is <code>prioritized</code>,
-   *             which launches instances in the priority order that you specify in your launch template
-   *             overrides. If you don't specify an allocation strategy, instances are launched in a
-   *             random order.</p>
-   * @public
-   */
-  AllocationStrategy?: ReservedCapacityAllocationStrategy | undefined;
-
-  /**
-   * <p>The types of Capacity Reservations used for fulfilling the EC2 Fleet request.</p>
-   * @public
-   */
-  ReservationTypes?: FleetReservationType[] | undefined;
-
-  /**
-   * <p>The fallback behavior for the EC2 Fleet when there is not enough reserved capacity available
-   *             to meet the target capacity.</p>
-   * @public
-   */
-  ReservedCapacityFallbackOptions?: ReservedCapacityFallbackOptions | undefined;
-}
-
-/**
- * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
- *          elevated risk of being interrupted.</p>
- * @public
- */
-export interface FleetSpotCapacityRebalance {
-  /**
-   * <p>The replacement strategy to use. Only available for fleets of type
-   *          <code>maintain</code>.</p>
-   *          <p>
-   *             <code>launch</code> - EC2 Fleet launches a new replacement Spot Instance when a
-   *          rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet
-   *          does not terminate the instances that receive a rebalance notification. You can terminate
-   *          the old instances, or you can leave them running. You are charged for all instances while
-   *          they are running. </p>
-   *          <p>
-   *             <code>launch-before-terminate</code> - EC2 Fleet launches a new replacement Spot
-   *          Instance when a rebalance notification is emitted for an existing Spot Instance in the
-   *          fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
-   *          terminates the instances that received a rebalance notification.</p>
-   * @public
-   */
-  ReplacementStrategy?: FleetReplacementStrategy | undefined;
-
-  /**
-   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
-   *          Instance after launching a new replacement Spot Instance.</p>
-   *          <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
-   *          <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
-   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
-   * @public
-   */
-  TerminationDelay?: number | undefined;
-}
-
-/**
- * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
- *          interrupted.</p>
- * @public
- */
-export interface FleetSpotMaintenanceStrategies {
-  /**
-   * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
-   *          elevated risk of being interrupted.</p>
-   * @public
-   */
-  CapacityRebalance?: FleetSpotCapacityRebalance | undefined;
-}
-
-/**
- * <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
- * @public
- */
-export interface SpotOptions {
-  /**
-   * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
-   *          pools specified by the EC2 Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the
-   *          <i>Amazon EC2 User Guide</i>.</p>
-   *          <dl>
-   *             <dt>price-capacity-optimized (recommended)</dt>
-   *             <dd>
-   *                <p>EC2 Fleet identifies the pools with
-   *                   the highest capacity availability for the number of instances that are launching. This means
-   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
-   *                   in the near term. EC2 Fleet then requests Spot Instances from the lowest priced of these pools.</p>
-   *             </dd>
-   *             <dt>capacity-optimized</dt>
-   *             <dd>
-   *                <p>EC2 Fleet identifies the pools with
-   *                   the highest capacity availability for the number of instances that are launching. This means
-   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
-   *                   in the near term. To give certain
-   *                   instance types a higher chance of launching first, use
-   *                   <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
-   *                   using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
-   *                   assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
-   *                   the priorities on a best-effort basis, but optimizes for capacity first.
-   *                   <code>capacity-optimized-prioritized</code> is supported only if your EC2 Fleet uses a
-   *                   launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
-   *                   <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
-   *                   capacity.</p>
-   *             </dd>
-   *             <dt>diversified</dt>
-   *             <dd>
-   *                <p>EC2 Fleet requests instances from all of the Spot Instance pools that you
-   *                   specify.</p>
-   *             </dd>
-   *             <dt>lowest-price (not recommended)</dt>
-   *             <dd>
-   *                <important>
-   *                   <p>We don't recommend the <code>lowest-price</code> allocation strategy because
-   *                      it has the highest risk of interruption for your Spot Instances.</p>
-   *                </important>
-   *                <p>EC2 Fleet requests instances from the lowest priced Spot Instance pool that has available
-   *                   capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
-   *                   come from the next lowest priced pool that has available capacity. If a pool runs
-   *                   out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to
-   *                   fulfill your request by drawing from the next lowest priced pool. To ensure that
-   *                   your desired capacity is met, you might receive Spot Instances from several pools. Because
-   *                   this strategy only considers instance price and not capacity availability, it
-   *                   might lead to high interruption rates.</p>
-   *             </dd>
-   *          </dl>
-   *          <p>Default: <code>lowest-price</code>
-   *          </p>
-   * @public
-   */
-  AllocationStrategy?: SpotAllocationStrategy | undefined;
-
-  /**
-   * <p>The strategies for managing your workloads on your Spot Instances that will be
-   *          interrupted. Currently only the capacity rebalance strategy is available.</p>
-   * @public
-   */
-  MaintenanceStrategies?: FleetSpotMaintenanceStrategies | undefined;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted.</p>
-   *          <p>Default: <code>terminate</code>
-   *          </p>
-   * @public
-   */
-  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | undefined;
-
-  /**
-   * <p>The number of Spot pools across which to allocate your target Spot capacity. Supported
-   *          only when <code>AllocationStrategy</code> is set to <code>lowest-price</code>. EC2 Fleet selects
-   *          the cheapest Spot pools and evenly allocates your target Spot capacity across the number of
-   *          Spot pools that you specify.</p>
-   *          <p>Note that EC2 Fleet attempts to draw Spot Instances from the number of pools that you specify on a
-   *          best effort basis. If a pool runs out of Spot capacity before fulfilling your target
-   *          capacity, EC2 Fleet will continue to fulfill your request by drawing from the next cheapest
-   *          pool. To ensure that your target capacity is met, you might receive Spot Instances from more than
-   *          the number of pools that you specified. Similarly, if most of the pools have no Spot
-   *          capacity, you might receive your full target capacity from fewer than the number of pools
-   *          that you specified.</p>
-   * @public
-   */
-  InstancePoolsToUseCount?: number | undefined;
-
-  /**
-   * <p>Indicates that the fleet uses a single instance type to launch all Spot Instances in the
-   *          fleet.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   * @public
-   */
-  SingleInstanceType?: boolean | undefined;
-
-  /**
-   * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</p>
-   *          <p>Supported only for fleets of type <code>instant</code>.</p>
-   * @public
-   */
-  SingleAvailabilityZone?: boolean | undefined;
-
-  /**
-   * <p>The minimum target capacity for Spot Instances in the fleet. If this minimum capacity isn't
-   *          reached, no instances are launched.</p>
-   *          <p>Constraints: Maximum value of <code>1000</code>. Supported only for fleets of type
-   *             <code>instant</code>.</p>
-   *          <p>At least one of the following must be specified: <code>SingleAvailabilityZone</code> |
-   *             <code>SingleInstanceType</code>
-   *          </p>
-   * @public
-   */
-  MinTargetCapacity?: number | undefined;
-
-  /**
-   * <p>The maximum amount per hour for Spot Instances that you're willing to pay. We do not recommend
-   *          using this parameter because it can lead to increased interruptions. If you do not specify
-   *          this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   *          <note>
-   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>, and
-   *             if their average CPU usage exceeds the baseline utilization, you will incur a charge for
-   *             surplus credits. The <code>maxTotalPrice</code> does not account for surplus credits,
-   *             and, if you use surplus credits, your final cost might be higher than what you specified
-   *             for <code>maxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the
-   *                <i>Amazon EC2 User Guide</i>.</p>
-   *          </note>
-   * @public
-   */
-  MaxTotalPrice?: string | undefined;
-}
-
-/**
- * <p>The number of units to request. You can choose to set the target capacity in terms of
- *          instances or a performance characteristic that is important to your application workload,
- *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
- *          specify a target capacity of 0 and add capacity later.</p>
- *          <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance
- *             <code>MaxTotalPrice</code>, or both to ensure that your fleet cost does not exceed your
- *          budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet
- *          will launch instances until it reaches the maximum amount that you're willing to pay. When
- *          the maximum amount you're willing to pay is reached, the fleet stops launching instances
- *          even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are
- *          located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html">OnDemandOptions</a>
- *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions">SpotOptions</a>.</p>
- * @public
- */
-export interface TargetCapacitySpecification {
-  /**
-   * <p>The number of units to request, filled the default target capacity type.</p>
-   * @public
-   */
-  TotalTargetCapacity?: number | undefined;
-
-  /**
-   * <p>The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.</p>
-   * @public
-   */
-  OnDemandTargetCapacity?: number | undefined;
-
-  /**
-   * <p>The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.</p>
-   * @public
-   */
-  SpotTargetCapacity?: number | undefined;
-
-  /**
-   * <p>The default target capacity type.</p>
-   * @public
-   */
-  DefaultTargetCapacityType?: DefaultTargetCapacityType | undefined;
-
-  /**
-   * <p>The unit for the target capacity.</p>
-   * @public
-   */
-  TargetCapacityUnitType?: TargetCapacityUnitType | undefined;
-}
-
-/**
- * <p>Describes an EC2 Fleet.</p>
- * @public
- */
-export interface FleetData {
-  /**
-   * <p>The progress of the EC2 Fleet.</p>
-   *          <p>For fleets of type <code>instant</code>, the status is <code>fulfilled</code> after all
-   *          requests are placed, regardless of whether target capacity is met (this is the only
-   *          possible status for <code>instant</code> fleets).</p>
-   *          <p>For fleets of type <code>request</code> or <code>maintain</code>, the status is
-   *             <code>pending_fulfillment</code> after all requests are placed, <code>fulfilled</code>
-   *          when the fleet size meets or exceeds target capacity, <code>pending_termination</code>
-   *          while instances are terminating when fleet size is decreased, and <code>error</code> if
-   *          there's an error.</p>
-   * @public
-   */
-  ActivityStatus?: FleetActivityStatus | undefined;
-
-  /**
-   * <p>The creation date and time of the EC2 Fleet.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-
-  /**
-   * <p>The state of the EC2 Fleet.</p>
-   * @public
-   */
-  FleetState?: FleetStateCode | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *             idempotency</a>.</p>
-   *          <p>Constraints: Maximum 64 ASCII characters</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Indicates whether running instances should be terminated if the target capacity of the
-   *          EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
-   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
-   * @public
-   */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | undefined;
-
-  /**
-   * <p>The number of units fulfilled by this request compared to the set target
-   *          capacity.</p>
-   * @public
-   */
-  FulfilledCapacity?: number | undefined;
-
-  /**
-   * <p>The number of units fulfilled by this request compared to the set target On-Demand
-   *          capacity.</p>
-   * @public
-   */
-  FulfilledOnDemandCapacity?: number | undefined;
-
-  /**
-   * <p>The launch template and overrides.</p>
-   * @public
-   */
-  LaunchTemplateConfigs?: FleetLaunchTemplateConfig[] | undefined;
-
-  /**
-   * <p>The number of units to request. You can choose to set the target capacity in terms of
-   *          instances or a performance characteristic that is important to your application workload,
-   *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
-   *          specify a target capacity of 0 and add capacity later.</p>
-   * @public
-   */
-  TargetCapacitySpecification?: TargetCapacitySpecification | undefined;
-
-  /**
-   * <p>Indicates whether running instances should be terminated when the EC2 Fleet expires. </p>
-   * @public
-   */
-  TerminateInstancesWithExpiration?: boolean | undefined;
-
-  /**
-   * <p>The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target
-   *          capacity, or also attempts to <code>maintain</code> it. If you request a certain target
-   *          capacity, EC2 Fleet only places the required requests; it does not attempt to replenish
-   *          instances if capacity is diminished, and it does not submit requests in alternative
-   *          capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet
-   *          places the required requests to meet this target capacity. It also automatically
-   *          replenishes any interrupted Spot Instances. Default: <code>maintain</code>.</p>
-   * @public
-   */
-  Type?: FleetType | undefined;
-
-  /**
-   * <p>The start date and time of the request, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          The default is to start fulfilling the request immediately. </p>
-   * @public
-   */
-  ValidFrom?: Date | undefined;
-
-  /**
-   * <p>The end date and time of the request, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          At this point, no new instance requests are placed or able to fulfill the request. The
-   *          default end date is 7 days from the current date. </p>
-   * @public
-   */
-  ValidUntil?: Date | undefined;
-
-  /**
-   * <p>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for
-   *          fleets of type <code>maintain</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2 Fleet
-   *             health checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ReplaceUnhealthyInstances?: boolean | undefined;
-
-  /**
-   * <p>The configuration of Spot Instances in an EC2 Fleet.</p>
-   * @public
-   */
-  SpotOptions?: SpotOptions | undefined;
-
-  /**
-   * <p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>
-   * @public
-   */
-  OnDemandOptions?: OnDemandOptions | undefined;
-
-  /**
-   * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when DefaultTargetCapacityType is set to <code>reserved-capacity</code>.</p>
-   * @public
-   */
-  ReservedCapacityOptions?: ReservedCapacityOptions | undefined;
-
-  /**
-   * <p>The tags for an EC2 Fleet resource.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Information about the instances that could not be launched by the fleet. Valid only when
-   *          <b>Type</b> is set to <code>instant</code>.</p>
-   * @public
-   */
-  Errors?: DescribeFleetError[] | undefined;
-
-  /**
-   * <p>Information about the instances that were launched by the fleet. Valid only when
-   *          <b>Type</b> is set to <code>instant</code>.</p>
-   * @public
-   */
-  Instances?: DescribeFleetsInstances[] | undefined;
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  Context?: string | undefined;
 }

@@ -113,6 +113,7 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //     CommitmentInfo: { // CapacityReservationCommitmentInfo
  * //       CommittedInstanceCount: Number("int"),
  * //       CommitmentEndDate: new Date("TIMESTAMP"),
+ * //       CommitmentDuration: Number("long"),
  * //     },
  * //     DeliveryPreference: "fixed" || "incremental",
  * //     CapacityBlockId: "STRING_VALUE",
@@ -129,6 +130,15 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //       SourceCapacityReservationId: "STRING_VALUE",
  * //       InterruptionType: "adhoc",
  * //     },
+ * //     AdjustmentStatus: "requested" || "applied" || "rejected",
+ * //     AdjustmentDetails: { // CapacityReservationAdjustmentDetails
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       EndDate: new Date("TIMESTAMP"),
+ * //       CommitmentEndDate: new Date("TIMESTAMP"),
+ * //       EndDateType: "STRING_VALUE",
+ * //       CommitmentDuration: Number("long"),
+ * //     },
+ * //     OriginalStartDate: new Date("TIMESTAMP"),
  * //     ZeroSizePreference: "retain" || "default",
  * //   },
  * //   DestinationCapacityReservation: {
@@ -176,6 +186,7 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //     CommitmentInfo: {
  * //       CommittedInstanceCount: Number("int"),
  * //       CommitmentEndDate: new Date("TIMESTAMP"),
+ * //       CommitmentDuration: Number("long"),
  * //     },
  * //     DeliveryPreference: "fixed" || "incremental",
  * //     CapacityBlockId: "STRING_VALUE",
@@ -192,6 +203,15 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //       SourceCapacityReservationId: "STRING_VALUE",
  * //       InterruptionType: "adhoc",
  * //     },
+ * //     AdjustmentStatus: "requested" || "applied" || "rejected",
+ * //     AdjustmentDetails: {
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       EndDate: new Date("TIMESTAMP"),
+ * //       CommitmentEndDate: new Date("TIMESTAMP"),
+ * //       EndDateType: "STRING_VALUE",
+ * //       CommitmentDuration: Number("long"),
+ * //     },
+ * //     OriginalStartDate: new Date("TIMESTAMP"),
  * //     ZeroSizePreference: "retain" || "default",
  * //   },
  * //   InstanceCount: Number("int"),

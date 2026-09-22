@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteLocalGatewayRouteTableRequest, DeleteLocalGatewayRouteTableResult } from "../models/models_2";
+import type { DeleteLocalGatewayRouteTableRequest, DeleteLocalGatewayRouteTableResult } from "../models/models_3";
 import { DeleteLocalGatewayRouteTable$ } from "../schemas/schemas_0";
 
 /**

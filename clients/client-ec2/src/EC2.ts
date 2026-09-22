@@ -355,6 +355,11 @@ import {
   CreateCapacityReservationCommand,
 } from "./commands/CreateCapacityReservationCommand";
 import {
+  type CreateCapacityReservationDateChangeQuoteCommandInput,
+  type CreateCapacityReservationDateChangeQuoteCommandOutput,
+  CreateCapacityReservationDateChangeQuoteCommand,
+} from "./commands/CreateCapacityReservationDateChangeQuoteCommand";
+import {
   type CreateCapacityReservationFleetCommandInput,
   type CreateCapacityReservationFleetCommandOutput,
   CreateCapacityReservationFleetCommand,
@@ -1496,6 +1501,11 @@ import {
   type DescribeCapacityReservationCancellationQuotesCommandOutput,
   DescribeCapacityReservationCancellationQuotesCommand,
 } from "./commands/DescribeCapacityReservationCancellationQuotesCommand";
+import {
+  type DescribeCapacityReservationDateChangeQuotesCommandInput,
+  type DescribeCapacityReservationDateChangeQuotesCommandOutput,
+  DescribeCapacityReservationDateChangeQuotesCommand,
+} from "./commands/DescribeCapacityReservationDateChangeQuotesCommand";
 import {
   type DescribeCapacityReservationFleetsCommandInput,
   type DescribeCapacityReservationFleetsCommandOutput,
@@ -4027,6 +4037,9 @@ import { paginateDescribeCapacityManagerDataExports } from "./pagination/Describ
 import {
   paginateDescribeCapacityReservationBillingRequests,
 } from "./pagination/DescribeCapacityReservationBillingRequestsPaginator";
+import {
+  paginateDescribeCapacityReservationDateChangeQuotes,
+} from "./pagination/DescribeCapacityReservationDateChangeQuotesPaginator";
 import { paginateDescribeCapacityReservationFleets } from "./pagination/DescribeCapacityReservationFleetsPaginator";
 import { paginateDescribeCapacityReservations } from "./pagination/DescribeCapacityReservationsPaginator";
 import { paginateDescribeCarrierGateways } from "./pagination/DescribeCarrierGatewaysPaginator";
@@ -4363,6 +4376,7 @@ const commands = {
   CreateCapacityReservationCommand,
   CreateCapacityReservationBySplittingCommand,
   CreateCapacityReservationCancellationQuoteCommand,
+  CreateCapacityReservationDateChangeQuoteCommand,
   CreateCapacityReservationFleetCommand,
   CreateCarrierGatewayCommand,
   CreateClientVpnEndpointCommand,
@@ -4593,6 +4607,7 @@ const commands = {
   DescribeCapacityManagerDataExportsCommand,
   DescribeCapacityReservationBillingRequestsCommand,
   DescribeCapacityReservationCancellationQuotesCommand,
+  DescribeCapacityReservationDateChangeQuotesCommand,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationsCommand,
   DescribeCapacityReservationTopologyCommand,
@@ -5108,6 +5123,7 @@ const paginators = {
   paginateDescribeCapacityBlockStatus,
   paginateDescribeCapacityManagerDataExports,
   paginateDescribeCapacityReservationBillingRequests,
+  paginateDescribeCapacityReservationDateChangeQuotes,
   paginateDescribeCapacityReservationFleets,
   paginateDescribeCapacityReservations,
   paginateDescribeCarrierGateways,
@@ -6516,6 +6532,23 @@ export interface EC2 {
     args: CreateCapacityReservationCancellationQuoteCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: CreateCapacityReservationCancellationQuoteCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCapacityReservationDateChangeQuoteCommand}
+   */
+  createCapacityReservationDateChangeQuote(
+    args: CreateCapacityReservationDateChangeQuoteCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<CreateCapacityReservationDateChangeQuoteCommandOutput>;
+  createCapacityReservationDateChangeQuote(
+    args: CreateCapacityReservationDateChangeQuoteCommandInput,
+    cb: (err: any, data?: CreateCapacityReservationDateChangeQuoteCommandOutput) => void
+  ): void;
+  createCapacityReservationDateChangeQuote(
+    args: CreateCapacityReservationDateChangeQuoteCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: CreateCapacityReservationDateChangeQuoteCommandOutput) => void
   ): void;
 
   /**
@@ -10465,6 +10498,24 @@ export interface EC2 {
     args: DescribeCapacityReservationCancellationQuotesCommandInput,
     options: EC2RequestOptions,
     cb: (err: any, data?: DescribeCapacityReservationCancellationQuotesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityReservationDateChangeQuotesCommand}
+   */
+  describeCapacityReservationDateChangeQuotes(): Promise<DescribeCapacityReservationDateChangeQuotesCommandOutput>;
+  describeCapacityReservationDateChangeQuotes(
+    args: DescribeCapacityReservationDateChangeQuotesCommandInput,
+    options?: EC2RequestOptions
+  ): Promise<DescribeCapacityReservationDateChangeQuotesCommandOutput>;
+  describeCapacityReservationDateChangeQuotes(
+    args: DescribeCapacityReservationDateChangeQuotesCommandInput,
+    cb: (err: any, data?: DescribeCapacityReservationDateChangeQuotesCommandOutput) => void
+  ): void;
+  describeCapacityReservationDateChangeQuotes(
+    args: DescribeCapacityReservationDateChangeQuotesCommandInput,
+    options: EC2RequestOptions,
+    cb: (err: any, data?: DescribeCapacityReservationDateChangeQuotesCommandOutput) => void
   ): void;
 
   /**
@@ -19318,6 +19369,17 @@ export interface EC2 {
     args: DescribeCapacityReservationBillingRequestsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeCapacityReservationBillingRequestsCommandOutput>;
+
+  /**
+   * @see {@link DescribeCapacityReservationDateChangeQuotesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeCapacityReservationDateChangeQuotesCommandOutput}.
+   */
+  paginateDescribeCapacityReservationDateChangeQuotes(
+    args?: DescribeCapacityReservationDateChangeQuotesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeCapacityReservationDateChangeQuotesCommandOutput>;
 
   /**
    * @see {@link DescribeCapacityReservationFleetsCommand}

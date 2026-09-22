@@ -15,6 +15,7 @@ import type {
   BootModeOverrideValues,
   BurstablePerformance,
   CapacityReservationPreference,
+  ClientVpnAuthenticationType,
   ClientVpnEndpointStatusCode,
   ClientVpnRouteStatusCode,
   ConnectivityType,
@@ -91,8 +92,6 @@ import type {
   NatGatewayState,
   NestedVirtualizationSpecification,
   NetworkInterfaceCreationType,
-  NetworkInterfaceStatus,
-  NetworkInterfaceType,
   PlatformValues,
   PrefixListState,
   Protocol,
@@ -133,13 +132,8 @@ import type {
   AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
-  ClientConnectOptions,
-  ClientLoginBannerOptions,
-  ClientRouteEnforcementOptions,
-  ClientVpnAuthenticationRequest,
   InstanceEventWindow,
   IpamRoutingPolicyRegistrationDelta,
-  Ipv4PrefixSpecification,
   NatGatewayAddress,
   OperatorResponse,
   PortRange,
@@ -150,6 +144,148 @@ import type {
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
+
+/**
+ * <p>Describes the Active Directory to be used for client authentication.</p>
+ * @public
+ */
+export interface DirectoryServiceAuthenticationRequest {
+  /**
+   * <p>The ID of the Active Directory to be used for authentication.</p>
+   * @public
+   */
+  DirectoryId?: string | undefined;
+}
+
+/**
+ * <p>The IAM SAML identity provider used for federated authentication.</p>
+ * @public
+ */
+export interface FederatedAuthenticationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
+   * @public
+   */
+  SAMLProviderArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
+   * @public
+   */
+  SelfServiceSAMLProviderArn?: string | undefined;
+}
+
+/**
+ * <p>Information about the client certificate to be used for authentication.</p>
+ * @public
+ */
+export interface CertificateAuthenticationRequest {
+  /**
+   * <p>The ARN of the client certificate. The certificate must be signed by a certificate
+   * 			authority (CA) and it must be provisioned in Certificate Manager (ACM).</p>
+   * @public
+   */
+  ClientRootCertificateChainArn?: string | undefined;
+}
+
+/**
+ * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
+ * 			in the <i>Client VPN Administrator Guide</i>.</p>
+ * @public
+ */
+export interface ClientVpnAuthenticationRequest {
+  /**
+   * <p>The type of client authentication to be used.</p>
+   * @public
+   */
+  Type?: ClientVpnAuthenticationType | undefined;
+
+  /**
+   * <p>Information about the Active Directory to be used, if applicable. You must provide this information if <b>Type</b> is <code>directory-service-authentication</code>.</p>
+   * @public
+   */
+  ActiveDirectory?: DirectoryServiceAuthenticationRequest | undefined;
+
+  /**
+   * <p>Information about the authentication certificates to be used, if applicable. You must provide this information if <b>Type</b> is <code>certificate-authentication</code>.</p>
+   * @public
+   */
+  MutualAuthentication?: CertificateAuthenticationRequest | undefined;
+
+  /**
+   * <p>Information about the IAM SAML identity provider to be used, if applicable. You must provide this information if <b>Type</b> is <code>federated-authentication</code>.</p>
+   * @public
+   */
+  FederatedAuthentication?: FederatedAuthenticationRequest | undefined;
+}
+
+/**
+ * <p>The options for managing connection authorization for new client connections.</p>
+ * @public
+ */
+export interface ClientConnectOptions {
+  /**
+   * <p>Indicates whether client connect options are enabled. The default is <code>false</code> (not enabled).</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
+   * @public
+   */
+  LambdaFunctionArn?: string | undefined;
+}
+
+/**
+ * <p>Options for enabling a customizable text banner that will be displayed on
+ * 			Amazon Web Services provided clients when a VPN session is established.</p>
+ * @public
+ */
+export interface ClientLoginBannerOptions {
+  /**
+   * <p>Enable or disable a customizable text banner that will be displayed on
+   * 			Amazon Web Services provided clients when a VPN session is established.</p>
+   *          <p>Valid values: <code>true | false</code>
+   *          </p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
+   * 			clients when a VPN session is established. UTF-8 encoded characters only. Maximum of
+   * 			1400 characters.</p>
+   * @public
+   */
+  BannerText?: string | undefined;
+}
+
+/**
+ * <p>Client Route Enforcement is a feature of Client VPN that helps enforce administrator defined
+ * 			routes on devices connected through the VPN. This feature helps improve your security
+ * 			posture by ensuring that network traffic originating from a connected client is not
+ * 			inadvertently sent outside the VPN tunnel.</p>
+ *          <p>Client Route Enforcement works by monitoring the route table of a connected device for
+ * 			routing policy changes to the VPN connection. If the feature detects any VPN routing
+ * 			policy modifications, it will automatically force an update to the route table,
+ * 			reverting it back to the expected route configurations.</p>
+ * @public
+ */
+export interface ClientRouteEnforcementOptions {
+  /**
+   * <p>Enable or disable Client Route Enforcement. The state can either be <code>true</code>
+   * 			(enabled) or <code>false</code> (disabled). The default is <code>false</code>.</p>
+   *          <p>Valid values: <code>true | false</code>
+   *          </p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
+   * @public
+   */
+  Enforced?: boolean | undefined;
+}
 
 /**
  * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
@@ -14070,347 +14206,4 @@ export interface ConnectionTrackingConfiguration {
    * @public
    */
   UdpTimeout?: number | undefined;
-}
-
-/**
- * <p>Describes a security group.</p>
- * @public
- */
-export interface GroupIdentifier {
-  /**
-   * <p>The ID of the security group.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>The name of the security group.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-}
-
-/**
- * <p>Describes an IPv6 address associated with a network interface.</p>
- * @public
- */
-export interface NetworkInterfaceIpv6Address {
-  /**
-   * <p>The IPv6 address.</p>
-   * @public
-   */
-  Ipv6Address?: string | undefined;
-
-  /**
-   * <p>An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  PublicIpv6DnsName?: string | undefined;
-
-  /**
-   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6
-   *             address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA
-   *             will be made the primary IPv6 address until the instance is terminated or the network
-   *             interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
-   * @public
-   */
-  IsPrimaryIpv6?: boolean | undefined;
-}
-
-/**
- * <p>Describes the IPv6 prefix.</p>
- * @public
- */
-export interface Ipv6PrefixSpecification {
-  /**
-   * <p>The IPv6 prefix.</p>
-   * @public
-   */
-  Ipv6Prefix?: string | undefined;
-}
-
-/**
- * <p>Describes the private IPv4 address of a network interface.</p>
- * @public
- */
-export interface NetworkInterfacePrivateIpAddress {
-  /**
-   * <p>The association information for an Elastic IP address (IPv4) associated with the
-   *             network interface.</p>
-   * @public
-   */
-  Association?: NetworkInterfaceAssociation | undefined;
-
-  /**
-   * <p>Indicates whether this IPv4 address is the primary private IPv4 address of the network
-   *             interface.</p>
-   * @public
-   */
-  Primary?: boolean | undefined;
-
-  /**
-   * <p>The private DNS name.</p>
-   * @public
-   */
-  PrivateDnsName?: string | undefined;
-
-  /**
-   * <p>The private IPv4 address.</p>
-   * @public
-   */
-  PrivateIpAddress?: string | undefined;
-}
-
-/**
- * <p>Public hostname type options. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface PublicIpDnsNameOptions {
-  /**
-   * <p>The public hostname type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  DnsHostnameType?: string | undefined;
-
-  /**
-   * <p>An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.</p>
-   * @public
-   */
-  PublicIpv4DnsName?: string | undefined;
-
-  /**
-   * <p>An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface.</p>
-   * @public
-   */
-  PublicIpv6DnsName?: string | undefined;
-
-  /**
-   * <p>A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.</p>
-   * @public
-   */
-  PublicDualStackDnsName?: string | undefined;
-}
-
-/**
- * <p>Describes a network interface.</p>
- * @public
- */
-export interface NetworkInterface {
-  /**
-   * <p>The association information for an Elastic IP address (IPv4) associated with the
-   *             network interface.</p>
-   * @public
-   */
-  Association?: NetworkInterfaceAssociation | undefined;
-
-  /**
-   * <p>The network interface attachment.</p>
-   * @public
-   */
-  Attachment?: NetworkInterfaceAttachment | undefined;
-
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>A security group connection tracking configuration that enables you to set the timeout
-   *             for connection tracking on an Elastic network interface. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ConnectionTrackingConfiguration?: ConnectionTrackingConfiguration | undefined;
-
-  /**
-   * <p>A description.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Any security groups for the network interface.</p>
-   * @public
-   */
-  Groups?: GroupIdentifier[] | undefined;
-
-  /**
-   * <p>The type of network interface.</p>
-   * @public
-   */
-  InterfaceType?: NetworkInterfaceType | undefined;
-
-  /**
-   * <p>The IPv6 addresses associated with the network interface.</p>
-   * @public
-   */
-  Ipv6Addresses?: NetworkInterfaceIpv6Address[] | undefined;
-
-  /**
-   * <p>The MAC address.</p>
-   * @public
-   */
-  MacAddress?: string | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The private hostname. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  PrivateDnsName?: string | undefined;
-
-  /**
-   * <p>A public hostname. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  PublicDnsName?: string | undefined;
-
-  /**
-   * <p>Public hostname type options. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  PublicIpDnsNameOptions?: PublicIpDnsNameOptions | undefined;
-
-  /**
-   * <p>The IPv4 address of the network interface within the subnet.</p>
-   * @public
-   */
-  PrivateIpAddress?: string | undefined;
-
-  /**
-   * <p>The private IPv4 addresses associated with the network interface.</p>
-   * @public
-   */
-  PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[] | undefined;
-
-  /**
-   * <p>The IPv4 prefixes that are assigned to the network interface.</p>
-   * @public
-   */
-  Ipv4Prefixes?: Ipv4PrefixSpecification[] | undefined;
-
-  /**
-   * <p>The IPv6 prefixes that are assigned to the network interface.</p>
-   * @public
-   */
-  Ipv6Prefixes?: Ipv6PrefixSpecification[] | undefined;
-
-  /**
-   * <p>The alias or Amazon Web Services account ID of the principal or service that created
-   *             the network interface.</p>
-   * @public
-   */
-  RequesterId?: string | undefined;
-
-  /**
-   * <p>Indicates whether the network interface is being managed by Amazon Web Services.</p>
-   * @public
-   */
-  RequesterManaged?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   * @public
-   */
-  SourceDestCheck?: boolean | undefined;
-
-  /**
-   * <p>The status of the network interface.</p>
-   * @public
-   */
-  Status?: NetworkInterfaceStatus | undefined;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the network interface.</p>
-   * @public
-   */
-  TagSet?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>Indicates whether a network interface with an IPv6 address is unreachable from the
-   *             public internet. If the value is <code>true</code>, inbound traffic from the internet is
-   *             dropped and you cannot assign an elastic IP address to the network interface. The
-   *             network interface is reachable from peered VPCs and resources connected through a
-   *             transit gateway, including on-premises networks.</p>
-   * @public
-   */
-  DenyAllIgwTraffic?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether this is an IPv6 only network interface.</p>
-   * @public
-   */
-  Ipv6Native?: boolean | undefined;
-
-  /**
-   * <p>The IPv6 globally unique address associated with the network interface.</p>
-   * @public
-   */
-  Ipv6Address?: string | undefined;
-
-  /**
-   * <p>The service provider that manages the network interface.</p>
-   * @public
-   */
-  Operator?: OperatorResponse | undefined;
-
-  /**
-   * <p>The subnets associated with this network interface.</p>
-   * @public
-   */
-  AssociatedSubnets?: string[] | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInterfaceResult {
-  /**
-   * <p>Information about the network interface.</p>
-   * @public
-   */
-  NetworkInterface?: NetworkInterface | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }

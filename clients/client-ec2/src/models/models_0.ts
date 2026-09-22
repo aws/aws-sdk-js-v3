@@ -18,15 +18,16 @@ import type {
   ByoipCidrState,
   CancelBatchErrorCode,
   CancelSpotInstanceRequestState,
+  CapacityReservationAdjustmentStatus,
   CapacityReservationCancellationQuoteState,
   CapacityReservationDeliveryPreference,
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
+  CapacityReservationModificationQuoteState,
   CapacityReservationState,
   CapacityReservationTenancy,
   CapacityReservationType,
   CarrierGatewayState,
-  ClientVpnAuthenticationType,
   ClientVpnAuthorizationRuleStatusCode,
   CurrencyCodeValues,
   DeviceTrustProviderType,
@@ -9281,6 +9282,58 @@ export interface CreateCapacityReservationRequest {
 }
 
 /**
+ * <p>Describes the configuration that a Capacity Reservation will have after a pending
+ * 			adjustment is applied.</p>
+ * @public
+ */
+export interface CapacityReservationAdjustmentDetails {
+  /**
+   * <p>The start date that the Capacity Reservation will have after the adjustment.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The end date that the Capacity Reservation will have after the adjustment.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the commitment duration will expire after the
+   * 			adjustment.</p>
+   * @public
+   */
+  CommitmentEndDate?: Date | undefined;
+
+  /**
+   * <p>Indicates the way in which the Capacity Reservation will end after the adjustment.
+   * 			Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>unlimited</code> - The Capacity Reservation remains active until you
+   * 					explicitly cancel it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>limited</code> - The Capacity Reservation expires automatically at the
+   * 					date and time given by <code>endDate</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EndDateType?: string | undefined;
+
+  /**
+   * <p>The commitment duration, in seconds, that the Capacity Reservation will have after the
+   * 			adjustment.</p>
+   * @public
+   */
+  CommitmentDuration?: number | undefined;
+}
+
+/**
  * <p>A key-value pair that provides additional metadata about a capacity allocation.</p>
  * @public
  */
@@ -9345,6 +9398,14 @@ export interface CapacityReservationCommitmentInfo {
    * @public
    */
   CommitmentEndDate?: Date | undefined;
+
+  /**
+   * <p>The commitment duration, in seconds, for the future-dated Capacity Reservation. This is
+   * 			the minimum duration for which you commit to having the Capacity Reservation in the
+   * 			<code>active</code> state in your account after it has been delivered.</p>
+   * @public
+   */
+  CommitmentDuration?: number | undefined;
 }
 
 /**
@@ -9757,6 +9818,46 @@ export interface CapacityReservation {
   InterruptionInfo?: InterruptionInfo | undefined;
 
   /**
+   * <p>The status of the most recent modification to the Capacity Reservation. A Capacity
+   * 			Reservation can have one of the following adjustment statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>requested</code> - The modification was requested and is being
+   * 					processed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>applied</code> - The modification was applied to the Capacity
+   * 					Reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>rejected</code> - The modification was not applied and the Capacity
+   * 					Reservation keeps its existing configuration.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This field is not returned if the Capacity Reservation has never been modified.</p>
+   * @public
+   */
+  AdjustmentStatus?: CapacityReservationAdjustmentStatus | undefined;
+
+  /**
+   * <p>The configuration that the Capacity Reservation will have after the requested adjustment
+   * 			is applied.</p>
+   * @public
+   */
+  AdjustmentDetails?: CapacityReservationAdjustmentDetails | undefined;
+
+  /**
+   * <p>The start date that you originally requested for the Capacity Reservation, in the ISO8601
+   * 			format in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>). This value doesn't
+   * 			change when you push out the start date.</p>
+   * @public
+   */
+  OriginalStartDate?: Date | undefined;
+
+  /**
    * <p>
    * 			The zero-size preference configured for the interruptible Capacity Reservation. A value of <code>retain</code> keeps the interruptible Capacity Reservation active at zero capacity when you reduce its allocation to zero. A value of <code>default</code> cancels the interruptible Capacity Reservation when you reduce its allocation to zero.
    * 		</p>
@@ -9988,6 +10089,197 @@ export interface CreateCapacityReservationCancellationQuoteResult {
    * @public
    */
   CapacityReservationCancellationQuote?: CapacityReservationCancellationQuote | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationDateChangeQuoteRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The requested new start date for the Capacity Reservation, in the ISO8601 format in the
+   * 			UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>). The new start date must be later
+   * 			than the current start date and within the cumulative 30-day pushout limit.</p>
+   * @public
+   */
+  NewStartDate: Date | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the date change quote.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the configuration that a Capacity Reservation has at the time a modification
+ * 			quote is generated.</p>
+ * @public
+ */
+export interface ModificationQuoteCurrentConfiguration {
+  /**
+   * <p>The number of instances in the Capacity Reservation.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The current state of the Capacity Reservation.</p>
+   * @public
+   */
+  ReservationState?: string | undefined;
+
+  /**
+   * <p>The start date that the Capacity Reservation has before the quoted modification is
+   * 			applied.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The start date that the Capacity Reservation was originally requested with. This value
+   * 			does not change when you push out the start date.</p>
+   * @public
+   */
+  OriginalStartDate?: Date | undefined;
+}
+
+/**
+ * <p>Describes the changes that a Capacity Reservation modification quote will apply to a
+ * 			Capacity Reservation.</p>
+ * @public
+ */
+export interface ModificationReservationUpdate {
+  /**
+   * <p>The date and time at which the commitment duration will expire after the modification,
+   * 			in the ISO8601 format in the UTC time zone
+   * 			(<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  NewCommitmentEndDate?: Date | undefined;
+
+  /**
+   * <p>The start date that the Capacity Reservation will have after the modification, in the
+   * 			ISO8601 format in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  NewStartDate?: Date | undefined;
+
+  /**
+   * <p>The commitment duration, in seconds, that the Capacity Reservation will have after the
+   * 			modification.</p>
+   * @public
+   */
+  NewCommitmentDuration?: number | undefined;
+}
+
+/**
+ * <p>Describes the terms of a Capacity Reservation modification quote.</p>
+ * @public
+ */
+export interface ModificationTerms {
+  /**
+   * <p>The changes that will be applied to the Capacity Reservation if you accept the
+   * 			modification terms.</p>
+   * @public
+   */
+  ReservationUpdate?: ModificationReservationUpdate | undefined;
+}
+
+/**
+ * <p>Describes a Capacity Reservation modification quote, which provides the terms for
+ * 			changing the start date or the commitment of a future-dated Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationModificationQuote {
+  /**
+   * <p>The ID of the modification quote.</p>
+   * @public
+   */
+  CapacityReservationModificationQuoteId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation associated with the modification quote.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The date and time at which the modification quote was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the modification quote expires.</p>
+   * @public
+   */
+  ExpirationTime?: Date | undefined;
+
+  /**
+   * <p>The state of the modification quote itself. Possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The quote can still be used.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The quote can no longer be used. A quote becomes
+   * 					<code>expired</code> at its <code>expirationTime</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  QuoteState?: CapacityReservationModificationQuoteState | undefined;
+
+  /**
+   * <p>The configuration that the Capacity Reservation has at the time the quote was
+   * 			generated.</p>
+   * @public
+   */
+  CurrentConfiguration?: ModificationQuoteCurrentConfiguration | undefined;
+
+  /**
+   * <p>The terms of the modification, including the configuration that the Capacity Reservation
+   * 			will have if you accept them by using <code>ModifyCapacityReservation</code>.</p>
+   * @public
+   */
+  ModificationTerms?: ModificationTerms | undefined;
+
+  /**
+   * <p>The tags assigned to the modification quote.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityReservationDateChangeQuoteResult {
+  /**
+   * <p>Information about the Capacity Reservation date change quote.</p>
+   * @public
+   */
+  CapacityReservationModificationQuote?: CapacityReservationModificationQuote | undefined;
 }
 
 /**
@@ -10385,146 +10677,4 @@ export interface CreateCarrierGatewayResult {
    * @public
    */
   CarrierGateway?: CarrierGateway | undefined;
-}
-
-/**
- * <p>Describes the Active Directory to be used for client authentication.</p>
- * @public
- */
-export interface DirectoryServiceAuthenticationRequest {
-  /**
-   * <p>The ID of the Active Directory to be used for authentication.</p>
-   * @public
-   */
-  DirectoryId?: string | undefined;
-}
-
-/**
- * <p>The IAM SAML identity provider used for federated authentication.</p>
- * @public
- */
-export interface FederatedAuthenticationRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
-   * @public
-   */
-  SAMLProviderArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
-   * @public
-   */
-  SelfServiceSAMLProviderArn?: string | undefined;
-}
-
-/**
- * <p>Information about the client certificate to be used for authentication.</p>
- * @public
- */
-export interface CertificateAuthenticationRequest {
-  /**
-   * <p>The ARN of the client certificate. The certificate must be signed by a certificate
-   * 			authority (CA) and it must be provisioned in Certificate Manager (ACM).</p>
-   * @public
-   */
-  ClientRootCertificateChainArn?: string | undefined;
-}
-
-/**
- * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
- * 			in the <i>Client VPN Administrator Guide</i>.</p>
- * @public
- */
-export interface ClientVpnAuthenticationRequest {
-  /**
-   * <p>The type of client authentication to be used.</p>
-   * @public
-   */
-  Type?: ClientVpnAuthenticationType | undefined;
-
-  /**
-   * <p>Information about the Active Directory to be used, if applicable. You must provide this information if <b>Type</b> is <code>directory-service-authentication</code>.</p>
-   * @public
-   */
-  ActiveDirectory?: DirectoryServiceAuthenticationRequest | undefined;
-
-  /**
-   * <p>Information about the authentication certificates to be used, if applicable. You must provide this information if <b>Type</b> is <code>certificate-authentication</code>.</p>
-   * @public
-   */
-  MutualAuthentication?: CertificateAuthenticationRequest | undefined;
-
-  /**
-   * <p>Information about the IAM SAML identity provider to be used, if applicable. You must provide this information if <b>Type</b> is <code>federated-authentication</code>.</p>
-   * @public
-   */
-  FederatedAuthentication?: FederatedAuthenticationRequest | undefined;
-}
-
-/**
- * <p>The options for managing connection authorization for new client connections.</p>
- * @public
- */
-export interface ClientConnectOptions {
-  /**
-   * <p>Indicates whether client connect options are enabled. The default is <code>false</code> (not enabled).</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
-   * @public
-   */
-  LambdaFunctionArn?: string | undefined;
-}
-
-/**
- * <p>Options for enabling a customizable text banner that will be displayed on
- * 			Amazon Web Services provided clients when a VPN session is established.</p>
- * @public
- */
-export interface ClientLoginBannerOptions {
-  /**
-   * <p>Enable or disable a customizable text banner that will be displayed on
-   * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   *          <p>Valid values: <code>true | false</code>
-   *          </p>
-   *          <p>Default value: <code>false</code>
-   *          </p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
-   * 			clients when a VPN session is established. UTF-8 encoded characters only. Maximum of
-   * 			1400 characters.</p>
-   * @public
-   */
-  BannerText?: string | undefined;
-}
-
-/**
- * <p>Client Route Enforcement is a feature of Client VPN that helps enforce administrator defined
- * 			routes on devices connected through the VPN. This feature helps improve your security
- * 			posture by ensuring that network traffic originating from a connected client is not
- * 			inadvertently sent outside the VPN tunnel.</p>
- *          <p>Client Route Enforcement works by monitoring the route table of a connected device for
- * 			routing policy changes to the VPN connection. If the feature detects any VPN routing
- * 			policy modifications, it will automatically force an update to the route table,
- * 			reverting it back to the expected route configurations.</p>
- * @public
- */
-export interface ClientRouteEnforcementOptions {
-  /**
-   * <p>Enable or disable Client Route Enforcement. The state can either be <code>true</code>
-   * 			(enabled) or <code>false</code> (disabled). The default is <code>false</code>.</p>
-   *          <p>Valid values: <code>true | false</code>
-   *          </p>
-   *          <p>Default value: <code>false</code>
-   *          </p>
-   * @public
-   */
-  Enforced?: boolean | undefined;
 }

@@ -30,6 +30,8 @@ import type {
   LaunchTemplateErrorCode,
   MulticastSupportValue,
   NetworkInterfacePermissionStateCode,
+  NetworkInterfaceStatus,
+  NetworkInterfaceType,
   PayerResponsibility,
   PayerResponsibilityScope,
   PayerResponsibilityType,
@@ -109,6 +111,7 @@ import type {
   ApplicationStatusCheckResponseObject,
   CarrierGateway,
   IpamRoutingPolicyRegistrationDelta,
+  Ipv4PrefixSpecification,
   OperatorResponse,
   ReservedInstancesListing,
   RouteTableAssociationState,
@@ -128,6 +131,7 @@ import type {
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
+  ConnectionTrackingConfiguration,
   Ec2InstanceConnectEndpoint,
   Ipam,
   IpamExternalResourceVerificationToken,
@@ -139,14 +143,356 @@ import type {
   IpamResourceDiscovery,
   IpamScope,
   LaunchTemplate,
-  LocalGatewayRoute,
-  LocalGatewayRouteTable,
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+  NetworkInterfaceAssociation,
+  NetworkInterfaceAttachment,
   OperatorRequest,
   Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>Describes a security group.</p>
+ * @public
+ */
+export interface GroupIdentifier {
+  /**
+   * <p>The ID of the security group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>The name of the security group.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+}
+
+/**
+ * <p>Describes an IPv6 address associated with a network interface.</p>
+ * @public
+ */
+export interface NetworkInterfaceIpv6Address {
+  /**
+   * <p>The IPv6 address.</p>
+   * @public
+   */
+  Ipv6Address?: string | undefined;
+
+  /**
+   * <p>An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PublicIpv6DnsName?: string | undefined;
+
+  /**
+   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6
+   *             address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA
+   *             will be made the primary IPv6 address until the instance is terminated or the network
+   *             interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
+   * @public
+   */
+  IsPrimaryIpv6?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the IPv6 prefix.</p>
+ * @public
+ */
+export interface Ipv6PrefixSpecification {
+  /**
+   * <p>The IPv6 prefix.</p>
+   * @public
+   */
+  Ipv6Prefix?: string | undefined;
+}
+
+/**
+ * <p>Describes the private IPv4 address of a network interface.</p>
+ * @public
+ */
+export interface NetworkInterfacePrivateIpAddress {
+  /**
+   * <p>The association information for an Elastic IP address (IPv4) associated with the
+   *             network interface.</p>
+   * @public
+   */
+  Association?: NetworkInterfaceAssociation | undefined;
+
+  /**
+   * <p>Indicates whether this IPv4 address is the primary private IPv4 address of the network
+   *             interface.</p>
+   * @public
+   */
+  Primary?: boolean | undefined;
+
+  /**
+   * <p>The private DNS name.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>The private IPv4 address.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+}
+
+/**
+ * <p>Public hostname type options. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface PublicIpDnsNameOptions {
+  /**
+   * <p>The public hostname type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  DnsHostnameType?: string | undefined;
+
+  /**
+   * <p>An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.</p>
+   * @public
+   */
+  PublicIpv4DnsName?: string | undefined;
+
+  /**
+   * <p>An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface.</p>
+   * @public
+   */
+  PublicIpv6DnsName?: string | undefined;
+
+  /**
+   * <p>A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.</p>
+   * @public
+   */
+  PublicDualStackDnsName?: string | undefined;
+}
+
+/**
+ * <p>Describes a network interface.</p>
+ * @public
+ */
+export interface NetworkInterface {
+  /**
+   * <p>The association information for an Elastic IP address (IPv4) associated with the
+   *             network interface.</p>
+   * @public
+   */
+  Association?: NetworkInterfaceAssociation | undefined;
+
+  /**
+   * <p>The network interface attachment.</p>
+   * @public
+   */
+  Attachment?: NetworkInterfaceAttachment | undefined;
+
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>A security group connection tracking configuration that enables you to set the timeout
+   *             for connection tracking on an Elastic network interface. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ConnectionTrackingConfiguration?: ConnectionTrackingConfiguration | undefined;
+
+  /**
+   * <p>A description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Any security groups for the network interface.</p>
+   * @public
+   */
+  Groups?: GroupIdentifier[] | undefined;
+
+  /**
+   * <p>The type of network interface.</p>
+   * @public
+   */
+  InterfaceType?: NetworkInterfaceType | undefined;
+
+  /**
+   * <p>The IPv6 addresses associated with the network interface.</p>
+   * @public
+   */
+  Ipv6Addresses?: NetworkInterfaceIpv6Address[] | undefined;
+
+  /**
+   * <p>The MAC address.</p>
+   * @public
+   */
+  MacAddress?: string | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The private hostname. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PrivateDnsName?: string | undefined;
+
+  /**
+   * <p>A public hostname. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PublicDnsName?: string | undefined;
+
+  /**
+   * <p>Public hostname type options. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html">EC2 instance hostnames, DNS names, and domains</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PublicIpDnsNameOptions?: PublicIpDnsNameOptions | undefined;
+
+  /**
+   * <p>The IPv4 address of the network interface within the subnet.</p>
+   * @public
+   */
+  PrivateIpAddress?: string | undefined;
+
+  /**
+   * <p>The private IPv4 addresses associated with the network interface.</p>
+   * @public
+   */
+  PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[] | undefined;
+
+  /**
+   * <p>The IPv4 prefixes that are assigned to the network interface.</p>
+   * @public
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecification[] | undefined;
+
+  /**
+   * <p>The IPv6 prefixes that are assigned to the network interface.</p>
+   * @public
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecification[] | undefined;
+
+  /**
+   * <p>The alias or Amazon Web Services account ID of the principal or service that created
+   *             the network interface.</p>
+   * @public
+   */
+  RequesterId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the network interface is being managed by Amazon Web Services.</p>
+   * @public
+   */
+  RequesterManaged?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   * @public
+   */
+  SourceDestCheck?: boolean | undefined;
+
+  /**
+   * <p>The status of the network interface.</p>
+   * @public
+   */
+  Status?: NetworkInterfaceStatus | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the network interface.</p>
+   * @public
+   */
+  TagSet?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>Indicates whether a network interface with an IPv6 address is unreachable from the
+   *             public internet. If the value is <code>true</code>, inbound traffic from the internet is
+   *             dropped and you cannot assign an elastic IP address to the network interface. The
+   *             network interface is reachable from peered VPCs and resources connected through a
+   *             transit gateway, including on-premises networks.</p>
+   * @public
+   */
+  DenyAllIgwTraffic?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this is an IPv6 only network interface.</p>
+   * @public
+   */
+  Ipv6Native?: boolean | undefined;
+
+  /**
+   * <p>The IPv6 globally unique address associated with the network interface.</p>
+   * @public
+   */
+  Ipv6Address?: string | undefined;
+
+  /**
+   * <p>The service provider that manages the network interface.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>The subnets associated with this network interface.</p>
+   * @public
+   */
+  AssociatedSubnets?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInterfaceResult {
+  /**
+   * <p>Information about the network interface.</p>
+   * @public
+   */
+  NetworkInterface?: NetworkInterface | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
 
 /**
  * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
@@ -10439,130 +10785,4 @@ export interface DeleteLaunchTemplateVersionsResponseErrorItem {
    * @public
    */
   ResponseError?: ResponseError | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLaunchTemplateVersionsResult {
-  /**
-   * <p>Information about the launch template versions that were successfully deleted.</p>
-   * @public
-   */
-  SuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseSuccessItem[] | undefined;
-
-  /**
-   * <p>Information about the launch template versions that could not be deleted.</p>
-   * @public
-   */
-  UnsuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseErrorItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteRequest {
-  /**
-   * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>
-   *          Use a prefix list in place of <code>DestinationCidrBlock</code>. You cannot use
-   *          <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code> in the same request.
-   *       </p>
-   * @public
-   */
-  DestinationPrefixListId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteResult {
-  /**
-   * <p>Information about the route.</p>
-   * @public
-   */
-  Route?: LocalGatewayRoute | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableRequest {
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   * @public
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableResult {
-  /**
-   * <p>Information about the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTable?: LocalGatewayRouteTable | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest {
-  /**
-   * <p>
-   *          The ID of the local gateway route table virtual interface group association.
-   *       </p>
-   * @public
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
-  /**
-   * <p>Information about the association.</p>
-   * @public
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation | undefined;
 }

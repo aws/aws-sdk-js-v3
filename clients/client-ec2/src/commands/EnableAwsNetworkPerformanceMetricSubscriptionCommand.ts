@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   EnableAwsNetworkPerformanceMetricSubscriptionRequest,
   EnableAwsNetworkPerformanceMetricSubscriptionResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import { EnableAwsNetworkPerformanceMetricSubscription$ } from "../schemas/schemas_0";
 
 /**

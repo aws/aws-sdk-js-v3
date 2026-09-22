@@ -1,10 +1,8 @@
 // smithy-typescript generated code
 import type {
-  _InstanceType,
+  AllowedImagesSettingsEnabledState,
   AnalysisStatus,
   ArchitectureType,
-  ArchitectureValues,
-  BootModeValues,
   CapacityManagerMonitoredTagKeyStatus,
   CapacityManagerStatus,
   CapacityReservationState,
@@ -55,13 +53,11 @@ import type {
   PartitionLoadFrequency,
   PaymentOption,
   PeriodType,
-  PlatformValues,
   ReservationEndDateType,
   ReservationState,
   ReservationType,
   RouteServerRouteInstallationStatus,
   RouteServerRouteStatus,
-  ShutdownBehavior,
   SnapshotBlockPublicAccessState,
   SSEType,
   StatisticType,
@@ -76,6 +72,7 @@ import type {
 import type {
   AccessScopeAnalysisFinding,
   ActiveVpnTunnelStatus,
+  AddressTransfer,
   InterruptibleCapacityAllocation,
   InterruptionInfo,
   IpamPoolAllocation,
@@ -92,7 +89,6 @@ import type {
   IpamInternetRegistryAssociation,
   IpamResourceTag,
   NetworkInsightsAccessScopeContent,
-  Placement,
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
 } from "./models_1";
@@ -103,15 +99,210 @@ import type {
   TransitGatewayPrefixListReference,
 } from "./models_2";
 import type {
-  ConversionTask,
   ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchSnapshotConfigurationResponse,
   Filter,
   IpamPoolCidr,
 } from "./models_3";
-import type { ImportImageLicenseConfigurationResponse, RegisteredInstance, SnapshotDetail } from "./models_4";
-import type { RouteServerPropagation, TransitGatewayPropagation } from "./models_5";
+import type { RegisteredInstance } from "./models_4";
+import type {
+  RouteServerPropagation,
+  SuccessfulSuppressionResponseObject,
+  TransitGatewayPropagation,
+  UnsuccessfulSuppressionResponseObject,
+} from "./models_5";
+
+/**
+ * @public
+ */
+export interface EnableAddressTransferResult {
+  /**
+   * <p>An Elastic IP address transfer.</p>
+   * @public
+   */
+  AddressTransfer?: AddressTransfer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableAllowedImagesSettingsRequest {
+  /**
+   * <p>Specify <code>enabled</code> to apply the image criteria specified by the Allowed AMIs
+   *       settings. Specify <code>audit-mode</code> so that you can check which AMIs will be allowed or
+   *       not allowed by the image criteria.</p>
+   * @public
+   */
+  AllowedImagesSettingsState: AllowedImagesSettingsEnabledState | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableAllowedImagesSettingsResult {
+  /**
+   * <p>Returns <code>enabled</code> or <code>audit-mode</code> if the request succeeds;
+   *       otherwise, it returns an error.</p>
+   * @public
+   */
+  AllowedImagesSettingsState?: AllowedImagesSettingsEnabledState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableApplicationStatusCheckSuppressionRequest {
+  /**
+   * <p>The IDs of the instances for which to suppress application status checks.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The duration, in seconds, for which to suppress application status checks. If omitted, the application status check is suppressed indefinitely until you call <code>DisableApplicationStatusCheckSuppression</code>.</p>
+   * @public
+   */
+  DurationSeconds?: number | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If you retry a request with the same token, the service ignores the request but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableApplicationStatusCheckSuppressionResult {
+  /**
+   * <p>The instances for which suppression was successfully enabled.</p>
+   * @public
+   */
+  SuccessfulResults?: SuccessfulSuppressionResponseObject[] | undefined;
+
+  /**
+   * <p>The instances for which suppression failed to be enabled.</p>
+   * @public
+   */
+  UnsuccessfulResults?: UnsuccessfulSuppressionResponseObject[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableAwsNetworkPerformanceMetricSubscriptionRequest {
+  /**
+   * <p>The source Region (like <code>us-east-1</code>) or Availability Zone ID (like <code>use1-az1</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The target Region (like <code>us-east-2</code>) or Availability Zone ID (like <code>use2-az2</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * <p>The metric used for the enabled subscription.</p>
+   * @public
+   */
+  Metric?: MetricType | undefined;
+
+  /**
+   * <p>The statistic used for the enabled subscription.</p>
+   * @public
+   */
+  Statistic?: StatisticType | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableAwsNetworkPerformanceMetricSubscriptionResult {
+  /**
+   * <p>Indicates whether the subscribe action was successful.</p>
+   * @public
+   */
+  Output?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableCapacityManagerRequest {
+  /**
+   * <p>
+   * Specifies whether to enable cross-account access for Amazon Web Services Organizations. When enabled, Capacity Manager can aggregate data from all accounts in your organization. Default is false.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess?: boolean | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableCapacityManagerResult {
+  /**
+   * <p>
+   * The current status of Capacity Manager after the enable operation.
+   * </p>
+   * @public
+   */
+  CapacityManagerStatus?: CapacityManagerStatus | undefined;
+
+  /**
+   * <p>
+   * Indicates whether Organizations access is enabled for cross-account data aggregation.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess?: boolean | undefined;
+}
 
 /**
  * @public
@@ -9066,452 +9257,4 @@ export interface ImportImageLicenseConfigurationRequest {
    * @public
    */
   LicenseConfigurationArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportImageRequest {
-  /**
-   * <p>The architecture of the virtual machine.</p>
-   *          <p>Valid values: <code>i386</code> | <code>x86_64</code>
-   *          </p>
-   * @public
-   */
-  Architecture?: string | undefined;
-
-  /**
-   * <p>The client-specific data.</p>
-   * @public
-   */
-  ClientData?: ClientData | undefined;
-
-  /**
-   * <p>The token to enable idempotency for VM import requests.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>A description string for the import image task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Information about the disk containers.</p>
-   * @public
-   */
-  DiskContainers?: ImageDiskContainer[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether the destination AMI of the imported image should be encrypted. The default KMS key for EBS is used
-   *    unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
-   *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>The target hypervisor platform.</p>
-   *          <p>Valid values: <code>xen</code>
-   *          </p>
-   * @public
-   */
-  Hypervisor?: string | undefined;
-
-  /**
-   * <p>An identifier for the symmetric KMS key to use when creating the
-   *    encrypted AMI. This parameter is only required if you want to use a non-default KMS key; if this
-   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
-   *    specified, the <code>Encrypted</code> flag must also be set. </p>
-   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
-   *             </li>
-   *          </ul>
-   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
-   *    though you provided an invalid identifier. This action will eventually report failure. </p>
-   *          <p>The specified KMS key must exist in the Region that the AMI is being copied to.</p>
-   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p>
-   *          <p>Specify <code>AWS</code> to replace the source-system license with an Amazon Web Services
-   *    license or <code>BYOL</code> to retain the source-system license. Leaving this parameter
-   *    undefined is the same as choosing <code>AWS</code> when importing a Windows Server operating
-   *    system, and the same as choosing <code>BYOL</code> when importing a Windows client operating
-   *    system (such as Windows 10) or a Linux operating system.</p>
-   *          <p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party
-   *    cloud, such as Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the
-   *    VM Import/Export User Guide.</p>
-   * @public
-   */
-  LicenseType?: string | undefined;
-
-  /**
-   * <p>The operating system of the virtual machine. If you import a VM that is compatible with
-   *    Unified Extensible Firmware Interface (UEFI) using an EBS snapshot, you must specify a value for
-   *    the platform.</p>
-   *          <p>Valid values: <code>Windows</code> | <code>Linux</code>
-   *          </p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
-   * @public
-   */
-  RoleName?: string | undefined;
-
-  /**
-   * <p>The ARNs of the license configurations.</p>
-   * @public
-   */
-  LicenseSpecifications?: ImportImageLicenseConfigurationRequest[] | undefined;
-
-  /**
-   * <p>The tags to apply to the import image task during creation.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#prerequisites">Licensing options</a> in the <i>VM Import/Export User Guide</i>.</p>
-   * @public
-   */
-  UsageOperation?: string | undefined;
-
-  /**
-   * <p>The boot mode of the virtual machine.</p>
-   *          <note>
-   *             <p>The <code>uefi-preferred</code> boot mode isn't supported for importing images. For more
-   *     information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/prerequisites.html#vmimport-boot-modes">Boot modes</a> in
-   *     the <i>VM Import/Export User Guide</i>.</p>
-   *          </note>
-   * @public
-   */
-  BootMode?: BootModeValues | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportImageResult {
-  /**
-   * <p>The architecture of the virtual machine.</p>
-   * @public
-   */
-  Architecture?: string | undefined;
-
-  /**
-   * <p>A description of the import task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Indicates whether the AMI is encrypted.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>The target hypervisor of the import task.</p>
-   * @public
-   */
-  Hypervisor?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI) created by the import task.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The task ID of the import image task.</p>
-   * @public
-   */
-  ImportTaskId?: string | undefined;
-
-  /**
-   * <p>The identifier for the symmetric KMS key that was used to create the encrypted AMI.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The license type of the virtual machine.</p>
-   * @public
-   */
-  LicenseType?: string | undefined;
-
-  /**
-   * <p>The operating system of the virtual machine.</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>The progress of the task.</p>
-   * @public
-   */
-  Progress?: string | undefined;
-
-  /**
-   * <p>Information about the snapshots.</p>
-   * @public
-   */
-  SnapshotDetails?: SnapshotDetail[] | undefined;
-
-  /**
-   * <p>A brief status of the task.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>A detailed status message of the import task.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>The ARNs of the license configurations.</p>
-   * @public
-   */
-  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[] | undefined;
-
-  /**
-   * <p>Any tags assigned to the import image task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The usage operation value.</p>
-   * @public
-   */
-  UsageOperation?: string | undefined;
-}
-
-/**
- * <p>Describes a disk image.</p>
- * @public
- */
-export interface DiskImageDetail {
-  /**
-   * <p>The disk image format.</p>
-   * @public
-   */
-  Format: DiskImageFormat | undefined;
-
-  /**
-   * <p>The size of the disk image, in GiB.</p>
-   * @public
-   */
-  Bytes: number | undefined;
-
-  /**
-   * <p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL.
-   *    For information about creating a presigned URL for an Amazon S3 object, read the "Query String Request Authentication
-   *    Alternative" section of the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer
-   *     Guide</i>.</p>
-   *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
-   * @public
-   */
-  ImportManifestUrl: string | undefined;
-}
-
-/**
- * <p>Describes an EBS volume.</p>
- * @public
- */
-export interface VolumeDetail {
-  /**
-   * <p>The size of the volume, in GiB.</p>
-   * @public
-   */
-  Size: number | undefined;
-}
-
-/**
- * <p>Describes a disk image.</p>
- * @public
- */
-export interface DiskImage {
-  /**
-   * <p>A description of the disk image.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Information about the disk image.</p>
-   * @public
-   */
-  Image?: DiskImageDetail | undefined;
-
-  /**
-   * <p>Information about the volume.</p>
-   * @public
-   */
-  Volume?: VolumeDetail | undefined;
-}
-
-/**
- * <p>Describes the user data for an instance.</p>
- * @public
- */
-export interface UserData {
-  /**
-   * <p>The user data. If you are using an Amazon Web Services SDK or command line tool, Base64-encoding is performed for you, and you
-   *    can load the text from a file. Otherwise, you must provide Base64-encoded text.</p>
-   * @public
-   */
-  Data?: string | undefined;
-}
-
-/**
- * <p>Describes the launch specification for VM import.</p>
- * @public
- */
-export interface ImportInstanceLaunchSpecification {
-  /**
-   * <p>The architecture of the instance.</p>
-   * @public
-   */
-  Architecture?: ArchitectureValues | undefined;
-
-  /**
-   * <p>The security group names.</p>
-   * @public
-   */
-  GroupNames?: string[] | undefined;
-
-  /**
-   * <p>The security group IDs.</p>
-   * @public
-   */
-  GroupIds?: string[] | undefined;
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  AdditionalInfo?: string | undefined;
-
-  /**
-   * <p>The Base64-encoded user data to make available to the instance.</p>
-   * @public
-   */
-  UserData?: UserData | undefined;
-
-  /**
-   * <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance Types</a> in the
-   *    VM Import/Export User Guide.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The placement information for the instance.</p>
-   * @public
-   */
-  Placement?: Placement | undefined;
-
-  /**
-   * <p>Indicates whether monitoring is enabled.</p>
-   * @public
-   */
-  Monitoring?: boolean | undefined;
-
-  /**
-   * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
-   *    operating system command for system shutdown).</p>
-   * @public
-   */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | undefined;
-
-  /**
-   * <p>[EC2-VPC] An available IP address from the IP address range of the subnet.</p>
-   * @public
-   */
-  PrivateIpAddress?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportInstanceRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A description for the instance being imported.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The launch specification.</p>
-   * @public
-   */
-  LaunchSpecification?: ImportInstanceLaunchSpecification | undefined;
-
-  /**
-   * <p>The disk image.</p>
-   * @public
-   */
-  DiskImages?: DiskImage[] | undefined;
-
-  /**
-   * <p>The instance operating system.</p>
-   * @public
-   */
-  Platform: PlatformValues | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportInstanceResult {
-  /**
-   * <p>Information about the conversion task.</p>
-   * @public
-   */
-  ConversionTask?: ConversionTask | undefined;
 }
