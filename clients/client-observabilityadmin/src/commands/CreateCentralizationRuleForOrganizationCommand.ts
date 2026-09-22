@@ -51,6 +51,7 @@ export interface CreateCentralizationRuleForOrganizationCommandOutput extends Cr
  *       SourceMetricsConfiguration: { // SourceMetricsConfiguration
  *         MetricsSelectionCriteria: "STRING_VALUE",
  *       },
+ *       SourceContextGraphConfiguration: {},
  *     },
  *     Destination: { // CentralizationRuleDestination
  *       Region: "STRING_VALUE", // required

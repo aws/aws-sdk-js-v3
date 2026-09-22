@@ -15,11 +15,16 @@ const _B = "Behavior";
 const _BC = "BackupConfiguration";
 const _Bo = "Body";
 const _C = "Condition";
+const _CA = "CreatedAt";
 const _CAI = "CreatorAccountId";
 const _CCRFO = "CreateCentralizationRuleForOrganization";
 const _CCRFOI = "CreateCentralizationRuleForOrganizationInput";
 const _CCRFOO = "CreateCentralizationRuleForOrganizationOutput";
+const _CDI = "CreateDatasetIntegration";
+const _CDII = "CreateDatasetIntegrationInput";
+const _CDIO = "CreateDatasetIntegrationOutput";
 const _CE = "ConflictException";
+const _CGS = "ContextGraphStatus";
 const _CP = "CloudtrailParameters";
 const _CR = "CentralizationRule";
 const _CRD = "CentralizationRuleDestination";
@@ -49,6 +54,10 @@ const _DB = "DefaultBehavior";
 const _DC = "DestinationConfiguration";
 const _DCRFO = "DeleteCentralizationRuleForOrganization";
 const _DCRFOI = "DeleteCentralizationRuleForOrganizationInput";
+const _DDI = "DeleteDatasetIntegration";
+const _DDII = "DeleteDatasetIntegrationInput";
+const _DIS = "DatasetIntegrationSummary";
+const _DISa = "DatasetIntegrationSummaries";
 const _DLC = "DestinationLogsConfiguration";
 const _DMC = "DestinationMetricsConfiguration";
 const _DP = "DestinationPattern";
@@ -92,6 +101,9 @@ const _Fil = "Filters";
 const _GCRFO = "GetCentralizationRuleForOrganization";
 const _GCRFOI = "GetCentralizationRuleForOrganizationInput";
 const _GCRFOO = "GetCentralizationRuleForOrganizationOutput";
+const _GDI = "GetDatasetIntegration";
+const _GDII = "GetDatasetIntegrationInput";
+const _GDIO = "GetDatasetIntegrationOutput";
 const _GSTI = "GetS3TableIntegration";
 const _GSTII = "GetS3TableIntegrationInput";
 const _GSTIO = "GetS3TableIntegrationOutput";
@@ -121,6 +133,9 @@ const _LBC = "LogsBackupConfiguration";
 const _LCRFO = "ListCentralizationRulesForOrganization";
 const _LCRFOI = "ListCentralizationRulesForOrganizationInput";
 const _LCRFOO = "ListCentralizationRulesForOrganizationOutput";
+const _LDI = "ListDatasetIntegrations";
+const _LDII = "ListDatasetIntegrationsInput";
+const _LDIO = "ListDatasetIntegrationsOutput";
 const _LDP = "LogDeliveryParameters";
 const _LEC = "LogsEncryptionConfiguration";
 const _LF = "LoggingFilter";
@@ -208,6 +223,7 @@ const _S = "Source";
 const _SA = "SseAlgorithm";
 const _SAI = "SourceAccountIds";
 const _SC = "ServiceCode";
+const _SCGC = "SourceContextGraphConfiguration";
 const _SCe = "SelectionCriteria";
 const _SH = "SingleHeader";
 const _SLC = "SourceLogsConfiguration";
@@ -260,9 +276,13 @@ const _TTPI = "TestTelemetryPipelineInput";
 const _TTPO = "TestTelemetryPipelineOutput";
 const _TTr = "TrafficType";
 const _Ty = "Type";
+const _UA = "UpdatedAt";
 const _UCRFO = "UpdateCentralizationRuleForOrganization";
 const _UCRFOI = "UpdateCentralizationRuleForOrganizationInput";
 const _UCRFOO = "UpdateCentralizationRuleForOrganizationOutput";
+const _UDI = "UpdateDatasetIntegration";
+const _UDII = "UpdateDatasetIntegrationInput";
+const _UDIO = "UpdateDatasetIntegrationOutput";
 const _UP = "UriPath";
 const _UR = "UntagResource";
 const _URI = "UntagResourceInput";
@@ -406,13 +426,13 @@ export var CentralizationRuleDestination$: StaticStructureSchema = [3, n0, _CRD,
 ];
 export var CentralizationRuleSource$: StaticStructureSchema = [3, n0, _CRS,
   0,
-  [_Re, _Sc, _SLC, _SMC],
-  [64 | 0, 0, () => SourceLogsConfiguration$, () => SourceMetricsConfiguration$], 1
+  [_Re, _Sc, _SLC, _SMC, _SCGC],
+  [64 | 0, 0, () => SourceLogsConfiguration$, () => SourceMetricsConfiguration$, () => SourceContextGraphConfiguration$], 1
 ];
 export var CentralizationRuleSummary$: StaticStructureSchema = [3, n0, _CRSe,
   0,
-  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _TPS, _TPFR, _DAI, _DR],
-  [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0]
+  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _TPS, _TPFR, _CGS, _DAI, _DR],
+  [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var CloudtrailParameters$: StaticStructureSchema = [3, n0, _CP,
   0,
@@ -438,6 +458,16 @@ export var CreateCentralizationRuleForOrganizationOutput$: StaticStructureSchema
   0,
   [_RAu],
   [0]
+];
+export var CreateDatasetIntegrationInput$: StaticStructureSchema = [3, n0, _CDII,
+  0,
+  [_RAo, _T],
+  [0, 128 | 0], 1
+];
+export var CreateDatasetIntegrationOutput$: StaticStructureSchema = [3, n0, _CDIO,
+  0,
+  [_Ar, _RAo, _CA, _UA],
+  [0, 0, 4, 4], 4
 ];
 export var CreateS3TableIntegrationInput$: StaticStructureSchema = [3, n0, _CSTII,
   0,
@@ -479,6 +509,11 @@ export var CreateTelemetryRuleOutput$: StaticStructureSchema = [3, n0, _CTRO,
   [_RAu],
   [0]
 ];
+export var DatasetIntegrationSummary$: StaticStructureSchema = [3, n0, _DIS,
+  0,
+  [_Ar, _RAo, _CA, _UA],
+  [0, 0, 4, 4], 1
+];
 export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
   0,
   [_N, _Ty],
@@ -487,6 +522,11 @@ export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
 export var DeleteCentralizationRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _DCRFOI,
   0,
   [_RIu],
+  [0], 1
+];
+export var DeleteDatasetIntegrationInput$: StaticStructureSchema = [3, n0, _DDII,
+  0,
+  [_Ar],
   [0], 1
 ];
 export var DeleteS3TableIntegrationInput$: StaticStructureSchema = [3, n0, _DSTII,
@@ -551,8 +591,18 @@ export var GetCentralizationRuleForOrganizationInput$: StaticStructureSchema = [
 ];
 export var GetCentralizationRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _GCRFOO,
   0,
-  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _TPS, _TPFR, _CR],
-  [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, () => CentralizationRule$]
+  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _TPS, _TPFR, _CGS, _CR],
+  [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, () => CentralizationRule$]
+];
+export var GetDatasetIntegrationInput$: StaticStructureSchema = [3, n0, _GDII,
+  0,
+  [_Ar],
+  [0], 1
+];
+export var GetDatasetIntegrationOutput$: StaticStructureSchema = [3, n0, _GDIO,
+  0,
+  [_Ar, _RAo, _CA, _UA],
+  [0, 0, 4, 4]
 ];
 export var GetS3TableIntegrationInput$: StaticStructureSchema = [3, n0, _GSTII,
   0,
@@ -628,6 +678,16 @@ export var ListCentralizationRulesForOrganizationOutput$: StaticStructureSchema 
   0,
   [_CRSen, _NT],
   [() => CentralizationRuleSummaries, 0]
+];
+export var ListDatasetIntegrationsInput$: StaticStructureSchema = [3, n0, _LDII,
+  0,
+  [_MR, _NT],
+  [1, 0]
+];
+export var ListDatasetIntegrationsOutput$: StaticStructureSchema = [3, n0, _LDIO,
+  0,
+  [_DISa, _NT],
+  [() => DatasetIntegrationSummaries, 0], 1
 ];
 export var ListResourceTelemetryForOrganizationInput$: StaticStructureSchema = [3, n0, _LRTFOI,
   0,
@@ -764,6 +824,11 @@ export var Source$: StaticStructureSchema = [3, n0, _S,
   [_Ty],
   [0]
 ];
+export var SourceContextGraphConfiguration$: StaticStructureSchema = [3, n0, _SCGC,
+  0,
+  [],
+  []
+];
 export var SourceLogsConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
   [_ELGS, _LGSC, _DSSC],
@@ -869,6 +934,16 @@ export var UpdateCentralizationRuleForOrganizationOutput$: StaticStructureSchema
   [_RAu],
   [0]
 ];
+export var UpdateDatasetIntegrationInput$: StaticStructureSchema = [3, n0, _UDII,
+  0,
+  [_Ar, _RAo],
+  [0, 0], 2
+];
+export var UpdateDatasetIntegrationOutput$: StaticStructureSchema = [3, n0, _UDIO,
+  0,
+  [_Ar, _RAo, _CA, _UA],
+  [0, 0, 4, 4], 4
+];
 export var UpdateTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _UTPI,
   0,
   [_PI, _Co],
@@ -935,6 +1010,9 @@ var CentralizationRuleSummaries: StaticListSchema = [1, n0, _CRSen,
 var Conditions: StaticListSchema = [1, n0, _Con,
   0, () => Condition$
 ];
+var DatasetIntegrationSummaries: StaticListSchema = [1, n0, _DISa,
+  0, () => DatasetIntegrationSummary$
+];
 var DataSources: StaticListSchema = [1, n0, _DS,
   0, () => DataSource$
 ];
@@ -990,6 +1068,9 @@ var TelemetryConfigurationState = 128 | 0;
 export var CreateCentralizationRuleForOrganization$: StaticOperationSchema = [9, n0, _CCRFO,
   { [_h]: ["POST", "/CreateCentralizationRuleForOrganization", 200] }, () => CreateCentralizationRuleForOrganizationInput$, () => CreateCentralizationRuleForOrganizationOutput$
 ];
+export var CreateDatasetIntegration$: StaticOperationSchema = [9, n0, _CDI,
+  { [_h]: ["POST", "/CreateDatasetIntegration", 201] }, () => CreateDatasetIntegrationInput$, () => CreateDatasetIntegrationOutput$
+];
 export var CreateS3TableIntegration$: StaticOperationSchema = [9, n0, _CSTI,
   { [_h]: ["POST", "/CreateS3TableIntegration", 200] }, () => CreateS3TableIntegrationInput$, () => CreateS3TableIntegrationOutput$
 ];
@@ -1005,6 +1086,9 @@ export var CreateTelemetryRuleForOrganization$: StaticOperationSchema = [9, n0, 
 export var DeleteCentralizationRuleForOrganization$: StaticOperationSchema = [9, n0, _DCRFO,
   { [_h]: ["POST", "/DeleteCentralizationRuleForOrganization", 200] }, () => DeleteCentralizationRuleForOrganizationInput$, () => __Unit
 ];
+export var DeleteDatasetIntegration$: StaticOperationSchema = [9, n0, _DDI,
+  { [_h]: ["POST", "/DeleteDatasetIntegration", 204] }, () => DeleteDatasetIntegrationInput$, () => __Unit
+];
 export var DeleteS3TableIntegration$: StaticOperationSchema = [9, n0, _DSTI,
   { [_h]: ["POST", "/DeleteS3TableIntegration", 204] }, () => DeleteS3TableIntegrationInput$, () => __Unit
 ];
@@ -1019,6 +1103,9 @@ export var DeleteTelemetryRuleForOrganization$: StaticOperationSchema = [9, n0, 
 ];
 export var GetCentralizationRuleForOrganization$: StaticOperationSchema = [9, n0, _GCRFO,
   { [_h]: ["POST", "/GetCentralizationRuleForOrganization", 200] }, () => GetCentralizationRuleForOrganizationInput$, () => GetCentralizationRuleForOrganizationOutput$
+];
+export var GetDatasetIntegration$: StaticOperationSchema = [9, n0, _GDI,
+  { [_h]: ["POST", "/GetDatasetIntegration", 200] }, () => GetDatasetIntegrationInput$, () => GetDatasetIntegrationOutput$
 ];
 export var GetS3TableIntegration$: StaticOperationSchema = [9, n0, _GSTI,
   { [_h]: ["POST", "/GetS3TableIntegration", 200] }, () => GetS3TableIntegrationInput$, () => GetS3TableIntegrationOutput$
@@ -1043,6 +1130,9 @@ export var GetTelemetryRuleForOrganization$: StaticOperationSchema = [9, n0, _GT
 ];
 export var ListCentralizationRulesForOrganization$: StaticOperationSchema = [9, n0, _LCRFO,
   { [_h]: ["POST", "/ListCentralizationRulesForOrganization", 200] }, () => ListCentralizationRulesForOrganizationInput$, () => ListCentralizationRulesForOrganizationOutput$
+];
+export var ListDatasetIntegrations$: StaticOperationSchema = [9, n0, _LDI,
+  { [_h]: ["POST", "/ListDatasetIntegrations", 200] }, () => ListDatasetIntegrationsInput$, () => ListDatasetIntegrationsOutput$
 ];
 export var ListResourceTelemetry$: StaticOperationSchema = [9, n0, _LRT,
   { [_h]: ["POST", "/ListResourceTelemetry", 200] }, () => ListResourceTelemetryInput$, () => ListResourceTelemetryOutput$
@@ -1094,6 +1184,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateCentralizationRuleForOrganization$: StaticOperationSchema = [9, n0, _UCRFO,
   { [_h]: ["POST", "/UpdateCentralizationRuleForOrganization", 200] }, () => UpdateCentralizationRuleForOrganizationInput$, () => UpdateCentralizationRuleForOrganizationOutput$
+];
+export var UpdateDatasetIntegration$: StaticOperationSchema = [9, n0, _UDI,
+  { [_h]: ["POST", "/UpdateDatasetIntegration", 200] }, () => UpdateDatasetIntegrationInput$, () => UpdateDatasetIntegrationOutput$
 ];
 export var UpdateTelemetryPipeline$: StaticOperationSchema = [9, n0, _UTP,
   { [_h]: ["POST", "/UpdateTelemetryPipeline", 200] }, () => UpdateTelemetryPipelineInput$, () => UpdateTelemetryPipelineOutput$

@@ -2,6 +2,7 @@
 import type {
   Action,
   CentralizationFailureReason,
+  ContextGraphStatus,
   DestinationType,
   EncryptedLogGroupStrategy,
   EncryptionConflictResolutionStrategy,
@@ -271,6 +272,12 @@ export interface CentralizationRuleDestination {
 }
 
 /**
+ * <p>Configuration that enables centralization of the context graph for the selected sources. Including this configuration in a rule's source opts the rule into centralizing the context graph for the selected sources.</p>
+ * @public
+ */
+export interface SourceContextGraphConfiguration {}
+
+/**
  * <p>Configuration for selecting and handling source log groups for centralization.</p>
  * @public
  */
@@ -334,6 +341,12 @@ export interface CentralizationRuleSource {
    * @public
    */
   SourceMetricsConfiguration?: SourceMetricsConfiguration | undefined;
+
+  /**
+   * <p>Configuration that enables centralization of the context graph for the selected sources. Including this configuration in a rule's source opts the rule into centralizing the context graph for the selected sources.</p>
+   * @public
+   */
+  SourceContextGraphConfiguration?: SourceContextGraphConfiguration | undefined;
 }
 
 /**
@@ -418,6 +431,12 @@ export interface CentralizationRuleSummary {
    * @public
    */
   TagPropagationFailureReason?: TagPropagationFailureReason | undefined;
+
+  /**
+   * <p>The status of context graph centralization for this rule. Returns <code>Provisioning</code> while the context graph is being set up, <code>Healthy</code> once it is active, or <code>Unhealthy</code> if provisioning failed. This status is independent of the overall <code>RuleHealth</code> for log delivery.</p>
+   * @public
+   */
+  ContextGraphStatus?: ContextGraphStatus | undefined;
 
   /**
    * <p>The primary destination account of the organization centralization rule.</p>
@@ -596,6 +615,52 @@ export interface ValidationError {
    * @public
    */
   FieldMap?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatasetIntegrationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that grants Amazon CloudWatch permission to access the resources needed for the dataset integration.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The key-value pairs to associate with the dataset integration resource for categorization and management purposes.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatasetIntegrationOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created dataset integration.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the dataset integration.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The timestamp when the dataset integration was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the dataset integration was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
 }
 
 /**
@@ -1065,6 +1130,36 @@ export interface CreateTelemetryRuleForOrganizationOutput {
 }
 
 /**
+ * <p>Contains summary information about a dataset integration, including its ARN, associated IAM role, and creation and update timestamps, as returned by <code>ListDatasetIntegrations</code>.</p>
+ * @public
+ */
+export interface DatasetIntegrationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset integration.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the dataset integration.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The timestamp when the dataset integration was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the dataset integration was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteCentralizationRuleForOrganizationInput {
@@ -1073,6 +1168,17 @@ export interface DeleteCentralizationRuleForOrganizationInput {
    * @public
    */
   RuleIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDatasetIntegrationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset integration to delete.</p>
+   * @public
+   */
+  Arn: string | undefined;
 }
 
 /**
@@ -1200,10 +1306,56 @@ export interface GetCentralizationRuleForOrganizationOutput {
   TagPropagationFailureReason?: TagPropagationFailureReason | undefined;
 
   /**
+   * <p>The status of context graph centralization for this rule. Returns <code>Provisioning</code> while the context graph is being set up, <code>Healthy</code> once it is active, or <code>Unhealthy</code> if provisioning failed. This status is independent of the overall <code>RuleHealth</code> for log delivery.</p>
+   * @public
+   */
+  ContextGraphStatus?: ContextGraphStatus | undefined;
+
+  /**
    * <p>The configuration details for the organization centralization rule.</p>
    * @public
    */
   CentralizationRule?: CentralizationRule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDatasetIntegrationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset integration to retrieve.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDatasetIntegrationOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset integration.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the dataset integration.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The timestamp when the dataset integration was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the dataset integration was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -1646,6 +1798,40 @@ export interface ListCentralizationRulesForOrganizationOutput {
 /**
  * @public
  */
+export interface ListDatasetIntegrationsInput {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. A previous call generates this token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetIntegrationsOutput {
+  /**
+   * <p>The dataset integrations in your account.</p>
+   * @public
+   */
+  DatasetIntegrationSummaries: DatasetIntegrationSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListResourceTelemetryInput {
   /**
    * <p> A string used to filter resources which have a <code>ResourceIdentifier</code> starting with the <code>ResourceIdentifierPrefix</code>. </p>
@@ -1654,7 +1840,7 @@ export interface ListResourceTelemetryInput {
   ResourceIdentifierPrefix?: string | undefined;
 
   /**
-   * <p> A list of resource types used to filter resources supported by telemetry config. If this parameter is provided, the resources will be returned in the same order used in the request. </p>
+   * <p> A list of resource types used to filter resources supported by telemetry config. If this parameter is provided, the service returns the resources in the same order as specified in the request. Currently supported resource types for discovery are:</p> <ul> <li> <p> <code>AWS::EC2::Instance</code> </p> </li> <li> <p> <code>AWS::EC2::VPC</code> </p> </li> <li> <p> <code>AWS::Lambda::Function</code> </p> </li> <li> <p> <code>AWS::EKS::Cluster</code> </p> </li> <li> <p> <code>AWS::WAFv2::WebACL</code> </p> </li> <li> <p> <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> (Network Load Balancers only)</p> </li> </ul>
    * @public
    */
   ResourceTypes?: ResourceType[] | undefined;
@@ -1766,7 +1952,7 @@ export interface ListResourceTelemetryForOrganizationInput {
   ResourceIdentifierPrefix?: string | undefined;
 
   /**
-   * <p> A list of resource types used to filter resources in the organization. If this parameter is provided, the resources will be returned in the same order used in the request. </p>
+   * <p> A list of resource types used to filter resources in the organization. If this parameter is provided, the service returns the resources in the same order as specified in the request. Currently supported resource types for discovery are:</p> <ul> <li> <p> <code>AWS::EC2::Instance</code> </p> </li> <li> <p> <code>AWS::EC2::VPC</code> </p> </li> <li> <p> <code>AWS::Lambda::Function</code> </p> </li> <li> <p> <code>AWS::EKS::Cluster</code> </p> </li> <li> <p> <code>AWS::WAFv2::WebACL</code> </p> </li> <li> <p> <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code> (Network Load Balancers only)</p> </li> </ul>
    * @public
    */
   ResourceTypes?: ResourceType[] | undefined;
@@ -2317,6 +2503,52 @@ export interface UpdateCentralizationRuleForOrganizationOutput {
    * @public
    */
   RuleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetIntegrationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset integration to update.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the dataset integration.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetIntegrationOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated dataset integration.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the updated dataset integration.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The timestamp when the dataset integration was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the dataset integration was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
 }
 
 /**

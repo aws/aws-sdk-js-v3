@@ -59,6 +59,10 @@ import type {
   CreateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/CreateCentralizationRuleForOrganizationCommand";
 import type {
+  CreateDatasetIntegrationCommandInput,
+  CreateDatasetIntegrationCommandOutput,
+} from "./commands/CreateDatasetIntegrationCommand";
+import type {
   CreateS3TableIntegrationCommandInput,
   CreateS3TableIntegrationCommandOutput,
 } from "./commands/CreateS3TableIntegrationCommand";
@@ -79,6 +83,10 @@ import type {
   DeleteCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/DeleteCentralizationRuleForOrganizationCommand";
 import type {
+  DeleteDatasetIntegrationCommandInput,
+  DeleteDatasetIntegrationCommandOutput,
+} from "./commands/DeleteDatasetIntegrationCommand";
+import type {
   DeleteS3TableIntegrationCommandInput,
   DeleteS3TableIntegrationCommandOutput,
 } from "./commands/DeleteS3TableIntegrationCommand";
@@ -98,6 +106,10 @@ import type {
   GetCentralizationRuleForOrganizationCommandInput,
   GetCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/GetCentralizationRuleForOrganizationCommand";
+import type {
+  GetDatasetIntegrationCommandInput,
+  GetDatasetIntegrationCommandOutput,
+} from "./commands/GetDatasetIntegrationCommand";
 import type {
   GetS3TableIntegrationCommandInput,
   GetS3TableIntegrationCommandOutput,
@@ -127,6 +139,10 @@ import type {
   ListCentralizationRulesForOrganizationCommandInput,
   ListCentralizationRulesForOrganizationCommandOutput,
 } from "./commands/ListCentralizationRulesForOrganizationCommand";
+import type {
+  ListDatasetIntegrationsCommandInput,
+  ListDatasetIntegrationsCommandOutput,
+} from "./commands/ListDatasetIntegrationsCommand";
 import type {
   ListResourceTelemetryCommandInput,
   ListResourceTelemetryCommandOutput,
@@ -190,6 +206,10 @@ import type {
   UpdateCentralizationRuleForOrganizationCommandOutput,
 } from "./commands/UpdateCentralizationRuleForOrganizationCommand";
 import type {
+  UpdateDatasetIntegrationCommandInput,
+  UpdateDatasetIntegrationCommandOutput,
+} from "./commands/UpdateDatasetIntegrationCommand";
+import type {
   UpdateTelemetryPipelineCommandInput,
   UpdateTelemetryPipelineCommandOutput,
 } from "./commands/UpdateTelemetryPipelineCommand";
@@ -221,16 +241,19 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateCentralizationRuleForOrganizationCommandInput
+  | CreateDatasetIntegrationCommandInput
   | CreateS3TableIntegrationCommandInput
   | CreateTelemetryPipelineCommandInput
   | CreateTelemetryRuleCommandInput
   | CreateTelemetryRuleForOrganizationCommandInput
   | DeleteCentralizationRuleForOrganizationCommandInput
+  | DeleteDatasetIntegrationCommandInput
   | DeleteS3TableIntegrationCommandInput
   | DeleteTelemetryPipelineCommandInput
   | DeleteTelemetryRuleCommandInput
   | DeleteTelemetryRuleForOrganizationCommandInput
   | GetCentralizationRuleForOrganizationCommandInput
+  | GetDatasetIntegrationCommandInput
   | GetS3TableIntegrationCommandInput
   | GetTelemetryEnrichmentStatusCommandInput
   | GetTelemetryEvaluationStatusCommandInput
@@ -239,6 +262,7 @@ export type ServiceInputTypes =
   | GetTelemetryRuleCommandInput
   | GetTelemetryRuleForOrganizationCommandInput
   | ListCentralizationRulesForOrganizationCommandInput
+  | ListDatasetIntegrationsCommandInput
   | ListResourceTelemetryCommandInput
   | ListResourceTelemetryForOrganizationCommandInput
   | ListS3TableIntegrationsCommandInput
@@ -256,6 +280,7 @@ export type ServiceInputTypes =
   | TestTelemetryPipelineCommandInput
   | UntagResourceCommandInput
   | UpdateCentralizationRuleForOrganizationCommandInput
+  | UpdateDatasetIntegrationCommandInput
   | UpdateTelemetryPipelineCommandInput
   | UpdateTelemetryRuleCommandInput
   | UpdateTelemetryRuleForOrganizationCommandInput
@@ -266,16 +291,19 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateCentralizationRuleForOrganizationCommandOutput
+  | CreateDatasetIntegrationCommandOutput
   | CreateS3TableIntegrationCommandOutput
   | CreateTelemetryPipelineCommandOutput
   | CreateTelemetryRuleCommandOutput
   | CreateTelemetryRuleForOrganizationCommandOutput
   | DeleteCentralizationRuleForOrganizationCommandOutput
+  | DeleteDatasetIntegrationCommandOutput
   | DeleteS3TableIntegrationCommandOutput
   | DeleteTelemetryPipelineCommandOutput
   | DeleteTelemetryRuleCommandOutput
   | DeleteTelemetryRuleForOrganizationCommandOutput
   | GetCentralizationRuleForOrganizationCommandOutput
+  | GetDatasetIntegrationCommandOutput
   | GetS3TableIntegrationCommandOutput
   | GetTelemetryEnrichmentStatusCommandOutput
   | GetTelemetryEvaluationStatusCommandOutput
@@ -284,6 +312,7 @@ export type ServiceOutputTypes =
   | GetTelemetryRuleCommandOutput
   | GetTelemetryRuleForOrganizationCommandOutput
   | ListCentralizationRulesForOrganizationCommandOutput
+  | ListDatasetIntegrationsCommandOutput
   | ListResourceTelemetryCommandOutput
   | ListResourceTelemetryForOrganizationCommandOutput
   | ListS3TableIntegrationsCommandOutput
@@ -301,6 +330,7 @@ export type ServiceOutputTypes =
   | TestTelemetryPipelineCommandOutput
   | UntagResourceCommandOutput
   | UpdateCentralizationRuleForOrganizationCommandOutput
+  | UpdateDatasetIntegrationCommandOutput
   | UpdateTelemetryPipelineCommandOutput
   | UpdateTelemetryRuleCommandOutput
   | UpdateTelemetryRuleForOrganizationCommandOutput

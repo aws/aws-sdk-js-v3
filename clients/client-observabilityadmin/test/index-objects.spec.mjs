@@ -16,10 +16,15 @@ import {
   ConfigurationSummary$,
   ConflictException,
   ConflictException$,
+  ContextGraphStatus,
   CreateCentralizationRuleForOrganization$,
   CreateCentralizationRuleForOrganizationCommand,
   CreateCentralizationRuleForOrganizationInput$,
   CreateCentralizationRuleForOrganizationOutput$,
+  CreateDatasetIntegration$,
+  CreateDatasetIntegrationCommand,
+  CreateDatasetIntegrationInput$,
+  CreateDatasetIntegrationOutput$,
   CreateS3TableIntegration$,
   CreateS3TableIntegrationCommand,
   CreateS3TableIntegrationInput$,
@@ -36,10 +41,14 @@ import {
   CreateTelemetryRuleForOrganizationOutput$,
   CreateTelemetryRuleInput$,
   CreateTelemetryRuleOutput$,
+  DatasetIntegrationSummary$,
   DataSource$,
   DeleteCentralizationRuleForOrganization$,
   DeleteCentralizationRuleForOrganizationCommand,
   DeleteCentralizationRuleForOrganizationInput$,
+  DeleteDatasetIntegration$,
+  DeleteDatasetIntegrationCommand,
+  DeleteDatasetIntegrationInput$,
   DeleteS3TableIntegration$,
   DeleteS3TableIntegrationCommand,
   DeleteS3TableIntegrationInput$,
@@ -70,6 +79,10 @@ import {
   GetCentralizationRuleForOrganizationCommand,
   GetCentralizationRuleForOrganizationInput$,
   GetCentralizationRuleForOrganizationOutput$,
+  GetDatasetIntegration$,
+  GetDatasetIntegrationCommand,
+  GetDatasetIntegrationInput$,
+  GetDatasetIntegrationOutput$,
   GetS3TableIntegration$,
   GetS3TableIntegrationCommand,
   GetS3TableIntegrationInput$,
@@ -106,6 +119,10 @@ import {
   ListCentralizationRulesForOrganizationCommand,
   ListCentralizationRulesForOrganizationInput$,
   ListCentralizationRulesForOrganizationOutput$,
+  ListDatasetIntegrations$,
+  ListDatasetIntegrationsCommand,
+  ListDatasetIntegrationsInput$,
+  ListDatasetIntegrationsOutput$,
   ListResourceTelemetry$,
   ListResourceTelemetryCommand,
   ListResourceTelemetryForOrganization$,
@@ -148,6 +165,7 @@ import {
   ObservabilityAdminServiceException,
   OutputFormat,
   paginateListCentralizationRulesForOrganization,
+  paginateListDatasetIntegrations,
   paginateListResourceTelemetry,
   paginateListResourceTelemetryForOrganization,
   paginateListS3TableIntegrations,
@@ -167,6 +185,7 @@ import {
   SignalType,
   SingleHeader$,
   Source$,
+  SourceContextGraphConfiguration$,
   SourceLogsConfiguration$,
   SourceMetricsConfiguration$,
   SSEAlgorithm,
@@ -220,6 +239,10 @@ import {
   UpdateCentralizationRuleForOrganizationCommand,
   UpdateCentralizationRuleForOrganizationInput$,
   UpdateCentralizationRuleForOrganizationOutput$,
+  UpdateDatasetIntegration$,
+  UpdateDatasetIntegrationCommand,
+  UpdateDatasetIntegrationInput$,
+  UpdateDatasetIntegrationOutput$,
   UpdateTelemetryPipeline$,
   UpdateTelemetryPipelineCommand,
   UpdateTelemetryPipelineInput$,
@@ -250,6 +273,8 @@ assert(typeof ObservabilityAdmin === "function");
 // commands
 assert(typeof CreateCentralizationRuleForOrganizationCommand === "function");
 assert(typeof CreateCentralizationRuleForOrganization$ === "object");
+assert(typeof CreateDatasetIntegrationCommand === "function");
+assert(typeof CreateDatasetIntegration$ === "object");
 assert(typeof CreateS3TableIntegrationCommand === "function");
 assert(typeof CreateS3TableIntegration$ === "object");
 assert(typeof CreateTelemetryPipelineCommand === "function");
@@ -260,6 +285,8 @@ assert(typeof CreateTelemetryRuleForOrganizationCommand === "function");
 assert(typeof CreateTelemetryRuleForOrganization$ === "object");
 assert(typeof DeleteCentralizationRuleForOrganizationCommand === "function");
 assert(typeof DeleteCentralizationRuleForOrganization$ === "object");
+assert(typeof DeleteDatasetIntegrationCommand === "function");
+assert(typeof DeleteDatasetIntegration$ === "object");
 assert(typeof DeleteS3TableIntegrationCommand === "function");
 assert(typeof DeleteS3TableIntegration$ === "object");
 assert(typeof DeleteTelemetryPipelineCommand === "function");
@@ -270,6 +297,8 @@ assert(typeof DeleteTelemetryRuleForOrganizationCommand === "function");
 assert(typeof DeleteTelemetryRuleForOrganization$ === "object");
 assert(typeof GetCentralizationRuleForOrganizationCommand === "function");
 assert(typeof GetCentralizationRuleForOrganization$ === "object");
+assert(typeof GetDatasetIntegrationCommand === "function");
+assert(typeof GetDatasetIntegration$ === "object");
 assert(typeof GetS3TableIntegrationCommand === "function");
 assert(typeof GetS3TableIntegration$ === "object");
 assert(typeof GetTelemetryEnrichmentStatusCommand === "function");
@@ -286,6 +315,8 @@ assert(typeof GetTelemetryRuleForOrganizationCommand === "function");
 assert(typeof GetTelemetryRuleForOrganization$ === "object");
 assert(typeof ListCentralizationRulesForOrganizationCommand === "function");
 assert(typeof ListCentralizationRulesForOrganization$ === "object");
+assert(typeof ListDatasetIntegrationsCommand === "function");
+assert(typeof ListDatasetIntegrations$ === "object");
 assert(typeof ListResourceTelemetryCommand === "function");
 assert(typeof ListResourceTelemetry$ === "object");
 assert(typeof ListResourceTelemetryForOrganizationCommand === "function");
@@ -320,6 +351,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateCentralizationRuleForOrganizationCommand === "function");
 assert(typeof UpdateCentralizationRuleForOrganization$ === "object");
+assert(typeof UpdateDatasetIntegrationCommand === "function");
+assert(typeof UpdateDatasetIntegration$ === "object");
 assert(typeof UpdateTelemetryPipelineCommand === "function");
 assert(typeof UpdateTelemetryPipeline$ === "object");
 assert(typeof UpdateTelemetryRuleCommand === "function");
@@ -341,6 +374,8 @@ assert(typeof Condition$ === "object");
 assert(typeof ConfigurationSummary$ === "object");
 assert(typeof CreateCentralizationRuleForOrganizationInput$ === "object");
 assert(typeof CreateCentralizationRuleForOrganizationOutput$ === "object");
+assert(typeof CreateDatasetIntegrationInput$ === "object");
+assert(typeof CreateDatasetIntegrationOutput$ === "object");
 assert(typeof CreateS3TableIntegrationInput$ === "object");
 assert(typeof CreateS3TableIntegrationOutput$ === "object");
 assert(typeof CreateTelemetryPipelineInput$ === "object");
@@ -349,8 +384,10 @@ assert(typeof CreateTelemetryRuleForOrganizationInput$ === "object");
 assert(typeof CreateTelemetryRuleForOrganizationOutput$ === "object");
 assert(typeof CreateTelemetryRuleInput$ === "object");
 assert(typeof CreateTelemetryRuleOutput$ === "object");
+assert(typeof DatasetIntegrationSummary$ === "object");
 assert(typeof DataSource$ === "object");
 assert(typeof DeleteCentralizationRuleForOrganizationInput$ === "object");
+assert(typeof DeleteDatasetIntegrationInput$ === "object");
 assert(typeof DeleteS3TableIntegrationInput$ === "object");
 assert(typeof DeleteTelemetryPipelineInput$ === "object");
 assert(typeof DeleteTelemetryPipelineOutput$ === "object");
@@ -364,6 +401,8 @@ assert(typeof FieldToMatch$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof GetCentralizationRuleForOrganizationInput$ === "object");
 assert(typeof GetCentralizationRuleForOrganizationOutput$ === "object");
+assert(typeof GetDatasetIntegrationInput$ === "object");
+assert(typeof GetDatasetIntegrationOutput$ === "object");
 assert(typeof GetS3TableIntegrationInput$ === "object");
 assert(typeof GetS3TableIntegrationOutput$ === "object");
 assert(typeof GetTelemetryEnrichmentStatusOutput$ === "object");
@@ -379,6 +418,8 @@ assert(typeof IntegrationSummary$ === "object");
 assert(typeof LabelNameCondition$ === "object");
 assert(typeof ListCentralizationRulesForOrganizationInput$ === "object");
 assert(typeof ListCentralizationRulesForOrganizationOutput$ === "object");
+assert(typeof ListDatasetIntegrationsInput$ === "object");
+assert(typeof ListDatasetIntegrationsOutput$ === "object");
 assert(typeof ListResourceTelemetryForOrganizationInput$ === "object");
 assert(typeof ListResourceTelemetryForOrganizationOutput$ === "object");
 assert(typeof ListResourceTelemetryInput$ === "object");
@@ -406,6 +447,7 @@ assert(typeof _Record$ === "object");
 assert(typeof RegionStatus$ === "object");
 assert(typeof SingleHeader$ === "object");
 assert(typeof Source$ === "object");
+assert(typeof SourceContextGraphConfiguration$ === "object");
 assert(typeof SourceLogsConfiguration$ === "object");
 assert(typeof SourceMetricsConfiguration$ === "object");
 assert(typeof StartTelemetryEnrichmentOutput$ === "object");
@@ -427,6 +469,8 @@ assert(typeof TestTelemetryPipelineOutput$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UpdateCentralizationRuleForOrganizationInput$ === "object");
 assert(typeof UpdateCentralizationRuleForOrganizationOutput$ === "object");
+assert(typeof UpdateDatasetIntegrationInput$ === "object");
+assert(typeof UpdateDatasetIntegrationOutput$ === "object");
 assert(typeof UpdateTelemetryPipelineInput$ === "object");
 assert(typeof UpdateTelemetryPipelineOutput$ === "object");
 assert(typeof UpdateTelemetryRuleForOrganizationInput$ === "object");
@@ -441,6 +485,7 @@ assert(typeof WAFLoggingParameters$ === "object");
 // enums
 assert(typeof Action === "object");
 assert(typeof CentralizationFailureReason === "object");
+assert(typeof ContextGraphStatus === "object");
 assert(typeof DestinationType === "object");
 assert(typeof EncryptedLogGroupStrategy === "object");
 assert(typeof EncryptionConflictResolutionStrategy === "object");
@@ -487,6 +532,7 @@ assert(typeof ValidationException$ === "object");
 assert(ObservabilityAdminServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateListCentralizationRulesForOrganization === "function");
+assert(typeof paginateListDatasetIntegrations === "function");
 assert(typeof paginateListResourceTelemetry === "function");
 assert(typeof paginateListResourceTelemetryForOrganization === "function");
 assert(typeof paginateListS3TableIntegrations === "function");

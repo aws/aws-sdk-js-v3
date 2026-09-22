@@ -51,6 +51,7 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //   FailureReason: "TRUSTED_ACCESS_NOT_ENABLED" || "DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION" || "INTERNAL_SERVER_ERROR",
  * //   TagPropagationStatus: "Healthy" || "Unhealthy",
  * //   TagPropagationFailureReason: "RoleNotAssumable" || "RoleLacksPermissions",
+ * //   ContextGraphStatus: "Healthy" || "Unhealthy" || "Provisioning",
  * //   CentralizationRule: { // CentralizationRule
  * //     Source: { // CentralizationRuleSource
  * //       Regions: [ // Regions // required
@@ -65,6 +66,7 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //       SourceMetricsConfiguration: { // SourceMetricsConfiguration
  * //         MetricsSelectionCriteria: "STRING_VALUE",
  * //       },
+ * //       SourceContextGraphConfiguration: {},
  * //     },
  * //     Destination: { // CentralizationRuleDestination
  * //       Region: "STRING_VALUE", // required

@@ -109,6 +109,20 @@ export type EncryptedLogGroupStrategy = (typeof EncryptedLogGroupStrategy)[keyof
  * @public
  * @enum
  */
+export const ContextGraphStatus = {
+  HEALTHY: "Healthy",
+  PROVISIONING: "Provisioning",
+  UNHEALTHY: "Unhealthy",
+} as const;
+/**
+ * @public
+ */
+export type ContextGraphStatus = (typeof ContextGraphStatus)[keyof typeof ContextGraphStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const RuleHealth = {
   HEALTHY: "Healthy",
   PROVISIONING: "Provisioning",

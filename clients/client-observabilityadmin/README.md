@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ObservabilityAdminClient` and
-the commands you need, for example `ListResourceTelemetryCommand`:
+the commands you need, for example `ListDatasetIntegrationsCommand`:
 
 ```js
 // ES5 example
-const { ObservabilityAdminClient, ListResourceTelemetryCommand } = require("@aws-sdk/client-observabilityadmin");
+const { ObservabilityAdminClient, ListDatasetIntegrationsCommand } = require("@aws-sdk/client-observabilityadmin");
 ```
 
 ```ts
 // ES6+ example
-import { ObservabilityAdminClient, ListResourceTelemetryCommand } from "@aws-sdk/client-observabilityadmin";
+import { ObservabilityAdminClient, ListDatasetIntegrationsCommand } from "@aws-sdk/client-observabilityadmin";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new ObservabilityAdminClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListResourceTelemetryCommand(params);
+const command = new ListDatasetIntegrationsCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new ObservabilityAdmin({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listResourceTelemetry(params);
+  const data = await client.listDatasetIntegrations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listResourceTelemetry(params)
+  .listDatasetIntegrations(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listResourceTelemetry(params, (err, data) => {
+client.listDatasetIntegrations(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -188,6 +188,13 @@ CreateCentralizationRuleForOrganization
 </details>
 <details>
 <summary>
+CreateDatasetIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/CreateDatasetIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/CreateDatasetIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/CreateDatasetIntegrationCommandOutput/)
+</details>
+<details>
+<summary>
 CreateS3TableIntegration
 </summary>
 
@@ -223,6 +230,13 @@ DeleteCentralizationRuleForOrganization
 </details>
 <details>
 <summary>
+DeleteDatasetIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/DeleteDatasetIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteDatasetIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/DeleteDatasetIntegrationCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteS3TableIntegration
 </summary>
 
@@ -255,6 +269,13 @@ GetCentralizationRuleForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetCentralizationRuleForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetCentralizationRuleForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetCentralizationRuleForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
+GetDatasetIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/GetDatasetIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetDatasetIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/GetDatasetIntegrationCommandOutput/)
 </details>
 <details>
 <summary>
@@ -311,6 +332,13 @@ ListCentralizationRulesForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ListCentralizationRulesForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListCentralizationRulesForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListCentralizationRulesForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
+ListDatasetIntegrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/ListDatasetIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListDatasetIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/ListDatasetIntegrationsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -430,6 +458,13 @@ UpdateCentralizationRuleForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/UpdateCentralizationRuleForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/UpdateCentralizationRuleForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/UpdateCentralizationRuleForOrganizationCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateDatasetIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/observabilityadmin/command/UpdateDatasetIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/UpdateDatasetIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-observabilityadmin/Interface/UpdateDatasetIntegrationCommandOutput/)
 </details>
 <details>
 <summary>

@@ -13,6 +13,11 @@ import {
   CreateCentralizationRuleForOrganizationCommand,
 } from "./commands/CreateCentralizationRuleForOrganizationCommand";
 import {
+  type CreateDatasetIntegrationCommandInput,
+  type CreateDatasetIntegrationCommandOutput,
+  CreateDatasetIntegrationCommand,
+} from "./commands/CreateDatasetIntegrationCommand";
+import {
   type CreateS3TableIntegrationCommandInput,
   type CreateS3TableIntegrationCommandOutput,
   CreateS3TableIntegrationCommand,
@@ -38,6 +43,11 @@ import {
   DeleteCentralizationRuleForOrganizationCommand,
 } from "./commands/DeleteCentralizationRuleForOrganizationCommand";
 import {
+  type DeleteDatasetIntegrationCommandInput,
+  type DeleteDatasetIntegrationCommandOutput,
+  DeleteDatasetIntegrationCommand,
+} from "./commands/DeleteDatasetIntegrationCommand";
+import {
   type DeleteS3TableIntegrationCommandInput,
   type DeleteS3TableIntegrationCommandOutput,
   DeleteS3TableIntegrationCommand,
@@ -62,6 +72,11 @@ import {
   type GetCentralizationRuleForOrganizationCommandOutput,
   GetCentralizationRuleForOrganizationCommand,
 } from "./commands/GetCentralizationRuleForOrganizationCommand";
+import {
+  type GetDatasetIntegrationCommandInput,
+  type GetDatasetIntegrationCommandOutput,
+  GetDatasetIntegrationCommand,
+} from "./commands/GetDatasetIntegrationCommand";
 import {
   type GetS3TableIntegrationCommandInput,
   type GetS3TableIntegrationCommandOutput,
@@ -102,6 +117,11 @@ import {
   type ListCentralizationRulesForOrganizationCommandOutput,
   ListCentralizationRulesForOrganizationCommand,
 } from "./commands/ListCentralizationRulesForOrganizationCommand";
+import {
+  type ListDatasetIntegrationsCommandInput,
+  type ListDatasetIntegrationsCommandOutput,
+  ListDatasetIntegrationsCommand,
+} from "./commands/ListDatasetIntegrationsCommand";
 import {
   type ListResourceTelemetryCommandInput,
   type ListResourceTelemetryCommandOutput,
@@ -188,6 +208,11 @@ import {
   UpdateCentralizationRuleForOrganizationCommand,
 } from "./commands/UpdateCentralizationRuleForOrganizationCommand";
 import {
+  type UpdateDatasetIntegrationCommandInput,
+  type UpdateDatasetIntegrationCommandOutput,
+  UpdateDatasetIntegrationCommand,
+} from "./commands/UpdateDatasetIntegrationCommand";
+import {
   type UpdateTelemetryPipelineCommandInput,
   type UpdateTelemetryPipelineCommandOutput,
   UpdateTelemetryPipelineCommand,
@@ -211,6 +236,7 @@ import { ObservabilityAdminClient } from "./ObservabilityAdminClient";
 import {
   paginateListCentralizationRulesForOrganization,
 } from "./pagination/ListCentralizationRulesForOrganizationPaginator";
+import { paginateListDatasetIntegrations } from "./pagination/ListDatasetIntegrationsPaginator";
 import {
   paginateListResourceTelemetryForOrganization,
 } from "./pagination/ListResourceTelemetryForOrganizationPaginator";
@@ -222,16 +248,19 @@ import { paginateListTelemetryRules } from "./pagination/ListTelemetryRulesPagin
 
 const commands = {
   CreateCentralizationRuleForOrganizationCommand,
+  CreateDatasetIntegrationCommand,
   CreateS3TableIntegrationCommand,
   CreateTelemetryPipelineCommand,
   CreateTelemetryRuleCommand,
   CreateTelemetryRuleForOrganizationCommand,
   DeleteCentralizationRuleForOrganizationCommand,
+  DeleteDatasetIntegrationCommand,
   DeleteS3TableIntegrationCommand,
   DeleteTelemetryPipelineCommand,
   DeleteTelemetryRuleCommand,
   DeleteTelemetryRuleForOrganizationCommand,
   GetCentralizationRuleForOrganizationCommand,
+  GetDatasetIntegrationCommand,
   GetS3TableIntegrationCommand,
   GetTelemetryEnrichmentStatusCommand,
   GetTelemetryEvaluationStatusCommand,
@@ -240,6 +269,7 @@ const commands = {
   GetTelemetryRuleCommand,
   GetTelemetryRuleForOrganizationCommand,
   ListCentralizationRulesForOrganizationCommand,
+  ListDatasetIntegrationsCommand,
   ListResourceTelemetryCommand,
   ListResourceTelemetryForOrganizationCommand,
   ListS3TableIntegrationsCommand,
@@ -257,6 +287,7 @@ const commands = {
   TestTelemetryPipelineCommand,
   UntagResourceCommand,
   UpdateCentralizationRuleForOrganizationCommand,
+  UpdateDatasetIntegrationCommand,
   UpdateTelemetryPipelineCommand,
   UpdateTelemetryRuleCommand,
   UpdateTelemetryRuleForOrganizationCommand,
@@ -264,6 +295,7 @@ const commands = {
 };
 const paginators = {
   paginateListCentralizationRulesForOrganization,
+  paginateListDatasetIntegrations,
   paginateListResourceTelemetry,
   paginateListResourceTelemetryForOrganization,
   paginateListS3TableIntegrations,
@@ -295,6 +327,23 @@ export interface ObservabilityAdmin {
     args: CreateCentralizationRuleForOrganizationCommandInput,
     options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: CreateCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDatasetIntegrationCommand}
+   */
+  createDatasetIntegration(
+    args: CreateDatasetIntegrationCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<CreateDatasetIntegrationCommandOutput>;
+  createDatasetIntegration(
+    args: CreateDatasetIntegrationCommandInput,
+    cb: (err: any, data?: CreateDatasetIntegrationCommandOutput) => void
+  ): void;
+  createDatasetIntegration(
+    args: CreateDatasetIntegrationCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: CreateDatasetIntegrationCommandOutput) => void
   ): void;
 
   /**
@@ -383,6 +432,23 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link DeleteDatasetIntegrationCommand}
+   */
+  deleteDatasetIntegration(
+    args: DeleteDatasetIntegrationCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<DeleteDatasetIntegrationCommandOutput>;
+  deleteDatasetIntegration(
+    args: DeleteDatasetIntegrationCommandInput,
+    cb: (err: any, data?: DeleteDatasetIntegrationCommandOutput) => void
+  ): void;
+  deleteDatasetIntegration(
+    args: DeleteDatasetIntegrationCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: DeleteDatasetIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteS3TableIntegrationCommand}
    */
   deleteS3TableIntegration(
@@ -465,6 +531,23 @@ export interface ObservabilityAdmin {
     args: GetCentralizationRuleForOrganizationCommandInput,
     options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetCentralizationRuleForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDatasetIntegrationCommand}
+   */
+  getDatasetIntegration(
+    args: GetDatasetIntegrationCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<GetDatasetIntegrationCommandOutput>;
+  getDatasetIntegration(
+    args: GetDatasetIntegrationCommandInput,
+    cb: (err: any, data?: GetDatasetIntegrationCommandOutput) => void
+  ): void;
+  getDatasetIntegration(
+    args: GetDatasetIntegrationCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: GetDatasetIntegrationCommandOutput) => void
   ): void;
 
   /**
@@ -605,6 +688,24 @@ export interface ObservabilityAdmin {
     args: ListCentralizationRulesForOrganizationCommandInput,
     options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListCentralizationRulesForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatasetIntegrationsCommand}
+   */
+  listDatasetIntegrations(): Promise<ListDatasetIntegrationsCommandOutput>;
+  listDatasetIntegrations(
+    args: ListDatasetIntegrationsCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<ListDatasetIntegrationsCommandOutput>;
+  listDatasetIntegrations(
+    args: ListDatasetIntegrationsCommandInput,
+    cb: (err: any, data?: ListDatasetIntegrationsCommandOutput) => void
+  ): void;
+  listDatasetIntegrations(
+    args: ListDatasetIntegrationsCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: ListDatasetIntegrationsCommandOutput) => void
   ): void;
 
   /**
@@ -909,6 +1010,23 @@ export interface ObservabilityAdmin {
   ): void;
 
   /**
+   * @see {@link UpdateDatasetIntegrationCommand}
+   */
+  updateDatasetIntegration(
+    args: UpdateDatasetIntegrationCommandInput,
+    options?: ObservabilityAdminRequestOptions
+  ): Promise<UpdateDatasetIntegrationCommandOutput>;
+  updateDatasetIntegration(
+    args: UpdateDatasetIntegrationCommandInput,
+    cb: (err: any, data?: UpdateDatasetIntegrationCommandOutput) => void
+  ): void;
+  updateDatasetIntegration(
+    args: UpdateDatasetIntegrationCommandInput,
+    options: ObservabilityAdminRequestOptions,
+    cb: (err: any, data?: UpdateDatasetIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateTelemetryPipelineCommand}
    */
   updateTelemetryPipeline(
@@ -986,6 +1104,17 @@ export interface ObservabilityAdmin {
     args?: ListCentralizationRulesForOrganizationCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListCentralizationRulesForOrganizationCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetIntegrationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetIntegrationsCommandOutput}.
+   */
+  paginateListDatasetIntegrations(
+    args?: ListDatasetIntegrationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetIntegrationsCommandOutput>;
 
   /**
    * @see {@link ListResourceTelemetryCommand}
