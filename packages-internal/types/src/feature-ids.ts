@@ -31,6 +31,7 @@ export type AwsSdkFeatures = Partial<{
   FLEXIBLE_CHECKSUMS_RES_WHEN_SUPPORTED: "b";
   FLEXIBLE_CHECKSUMS_RES_WHEN_REQUIRED: "c";
   DDB_MAPPER: "d";
+  S3_REGION_REDIRECT: "Ah";
 }> &
   AwsSdkCredentialsFeatures &
   AwsSdkTokenFeatures;

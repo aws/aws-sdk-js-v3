@@ -1,3 +1,4 @@
+import { setFeature } from "@aws-sdk/core/client";
 import type {
   HandlerExecutionContext,
   InitializeHandler,
@@ -48,6 +49,7 @@ export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): Init
                 const actualRegion = bucketRegionHeader;
                 context.logger?.debug(`Redirecting from ${await clientConfig.region()} to ${actualRegion}`);
                 context.__s3RegionRedirect = actualRegion;
+                setFeature(context, "S3_REGION_REDIRECT", "Ah");
               } catch (e) {
                 throw new Error("Region redirect failed: " + e);
               }
