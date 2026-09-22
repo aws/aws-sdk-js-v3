@@ -13,6 +13,13 @@
 
 
 
+
+# 3.0.7 (2026-09-22)
+### Chores
+* **codegen:** sync for MetricsRecorder support and core error/retry fixes ([#8312](https://github.com/aws/aws-sdk-js-v3/issues/8312)) ([9a10476](https://github.com/aws/aws-sdk-js-v3/commit/9a104768684e8f22d4373fcc5d910711e62676d6))
+
+
+
 # 3.0.6 (2026-09-18)
 ### Tests
 * **undici-http-handler:** skip invokeModelWithBidirectionalStream test ([#8309](https://github.com/aws/aws-sdk-js-v3/issues/8309)) ([82637a1](https://github.com/aws/aws-sdk-js-v3/commit/82637a1c3d40b22a439f77fff3f16d0aa128a386))

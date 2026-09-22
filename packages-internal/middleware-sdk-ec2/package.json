@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-ec2",
-  "version": "3.972.59",
+  "version": "3.972.60",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-ec2",
   "license": "Apache-2.0",
   "author": {
@@ -42,8 +42,8 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.0",
-    "@aws-sdk/types": "workspace:^3.974.5",
+    "@aws-sdk/core": "workspace:^3.978.1",
+    "@aws-sdk/types": "workspace:^3.974.6",
     "@smithy/core": "^3.35.0",
     "@smithy/signature-v4": "^5.7.3",
     "@smithy/types": "^4.19.0",

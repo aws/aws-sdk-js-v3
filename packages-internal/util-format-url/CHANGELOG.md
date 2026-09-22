@@ -50,6 +50,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.48 (2026-09-22)
+### Chores
+* **util-format-url:** update dependencies.
+
+
+
 # 3.972.47 (2026-09-09)
 ### Chores
 * **util-format-url:** update dependencies.

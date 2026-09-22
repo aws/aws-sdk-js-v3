@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1137.0...v3.1138.0) (2026-09-22)
+
+
+### Features
+
+* **client-quicksight:** Adds support for granular custom permissions on 28 action connectors, including Gmail, Google Drive, Google Sheets, Airtable, and Dropbox. Administrators can now allow or deny individual connector operations instead of all action connectors at once. ([7f02673](https://github.com/aws/aws-sdk-js-v3/commit/7f02673fcb19675307d211d51c8a3924ad0988c3))
+
+
+
+
+
 # [3.1137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1136.0...v3.1137.0) (2026-09-21)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

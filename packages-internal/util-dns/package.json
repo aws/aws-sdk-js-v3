@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-dns",
-  "version": "3.972.24",
+  "version": "3.972.25",
   "description": "Implementations of DNS host resolvers.",
   "keywords": [
     "dns"
@@ -54,7 +54,7 @@
     "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts"
   },
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.974.5",
+    "@aws-sdk/types": "workspace:^3.974.6",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

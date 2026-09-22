@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1137.0...v3.1138.0) (2026-09-22)
+
+
+### Features
+
+* **client-api-gateway:** API Gateway now supports two new security policies for REST APIs and custom domain names, SecurityPolicy-TLS13-1-2-Ext2-PQ-2025-09 (TLS 1.3 1.2 with post-quantum cryptography) and SecurityPolicy-TLS13-1-2-Ext2-FIPS-PQ-2025-09 (adds FIPS). Both retain legacy algorithms for backward compatibility. ([924dc41](https://github.com/aws/aws-sdk-js-v3/commit/924dc41354102e26fc4d3855f3359b641a93c5e8))
+* **client-cloudwatchomni:** Amazon CloudWatch Omni is now generally available, an AI-powered unified observability for AI agents, applications, and infrastructure. As part of it, organization centralization rules now support cross-account context graph centralization. ([f4c9a42](https://github.com/aws/aws-sdk-js-v3/commit/f4c9a42a3368ac26d67592131db5c24a87e44907))
+* **client-ec2:** Amazon EC2 now supports quote-based start date changes for future-dated Capacity Reservations ([f1cb11a](https://github.com/aws/aws-sdk-js-v3/commit/f1cb11a81d0d2e2f0cabfe3885db7c883e6a01aa))
+* **client-glue:** Adding two new fields for Glue Materialized Views feature - (1) SubObjectsStatistics and (2) SparkPipelineInfo. ([32b7228](https://github.com/aws/aws-sdk-js-v3/commit/32b7228c5ac0fcd80f7e0ca23a54207ff222af29))
+* **client-observabilityadmin:** Amazon CloudWatch Omni is now generally available, an AI-powered unified observability for AI agents, applications, and infrastructure. Centralization now supports context graph for multi-account resource discovery, and dataset integrations makes logs available in CloudWatch datasets. ([a24414c](https://github.com/aws/aws-sdk-js-v3/commit/a24414c0b156f27ed007fb4989dc16134b1533e0))
+* **client-quicksight:** Adds support for granular custom permissions on 28 action connectors, including Gmail, Google Drive, Google Sheets, Airtable, and Dropbox. Administrators can now allow or deny individual connector operations instead of all action connectors at once. ([7f02673](https://github.com/aws/aws-sdk-js-v3/commit/7f02673fcb19675307d211d51c8a3924ad0988c3))
+* **client-sso-admin:** AWS IAM Identity Center now returns PrimaryRegion and Regions in the DescribeInstance response, providing information about replicated instances, and returns IdentityStoreArn in both the ListInstances and DescribeInstance responses. ([83be3d8](https://github.com/aws/aws-sdk-js-v3/commit/83be3d866a3ef1d2c7cad17ad336048a41a8b505))
+* **clients:** update client endpoints as of 2026-09-22 ([e854d54](https://github.com/aws/aws-sdk-js-v3/commit/e854d54aaf33dbc6a08fa8fddb998a263545d863))
+
+
+
+
+
 # [3.1137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1136.0...v3.1137.0) (2026-09-21)
 
 

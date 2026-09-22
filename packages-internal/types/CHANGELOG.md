@@ -25,6 +25,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.6 (2026-09-22)
+### Chores
+* **codegen:** sync for MetricsRecorder support and core error/retry fixes ([#8312](https://github.com/aws/aws-sdk-js-v3/issues/8312)) ([9a10476](https://github.com/aws/aws-sdk-js-v3/commit/9a104768684e8f22d4373fcc5d910711e62676d6))
+* **middleware-sdk-s3:** add feature ID 'S3_REGION_REDIRECT' ([#8311](https://github.com/aws/aws-sdk-js-v3/issues/8311)) ([f8b0f8d](https://github.com/aws/aws-sdk-js-v3/commit/f8b0f8d39188f78bee69f004dae77bfb39dd7029))
+
+
+
 # 3.974.5 (2026-08-20)
 ### Chores
 * **codegen:** update to sync with the latest smithy-ts ([#8272](https://github.com/aws/aws-sdk-js-v3/issues/8272)) ([8369ada](https://github.com/aws/aws-sdk-js-v3/commit/8369ada75d60056e24e1ee8bca20f16ce2faea93))

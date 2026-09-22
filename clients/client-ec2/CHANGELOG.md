@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1137.0...v3.1138.0) (2026-09-22)
+
+
+### Features
+
+* **client-ec2:** Amazon EC2 now supports quote-based start date changes for future-dated Capacity Reservations ([f1cb11a](https://github.com/aws/aws-sdk-js-v3/commit/f1cb11a81d0d2e2f0cabfe3885db7c883e6a01aa))
+
+
+
+
+
 # [3.1137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1136.0...v3.1137.0) (2026-09-21)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

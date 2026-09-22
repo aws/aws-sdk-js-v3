@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-web-identity",
-  "version": "3.972.77",
+  "version": "3.972.78",
   "description": "AWS credential provider that calls STS assumeRole for temporary AWS credentials",
   "keywords": [
     "aws",
@@ -50,9 +50,9 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.0",
-    "@aws-sdk/nested-clients": "workspace:^3.997.45",
-    "@aws-sdk/types": "workspace:^3.974.5",
+    "@aws-sdk/core": "workspace:^3.978.1",
+    "@aws-sdk/nested-clients": "workspace:^3.997.46",
+    "@aws-sdk/types": "workspace:^3.974.6",
     "@smithy/core": "^3.35.0",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"

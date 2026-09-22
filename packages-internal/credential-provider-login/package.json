@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-login",
-  "version": "3.972.78",
+  "version": "3.972.79",
   "description": "AWS credential provider that sources credentials from aws login cached tokens",
   "keywords": [
     "aws",
@@ -45,9 +45,9 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.978.0",
-    "@aws-sdk/nested-clients": "workspace:^3.997.45",
-    "@aws-sdk/types": "workspace:^3.974.5",
+    "@aws-sdk/core": "workspace:^3.978.1",
+    "@aws-sdk/nested-clients": "workspace:^3.997.46",
+    "@aws-sdk/types": "workspace:^3.974.6",
     "@smithy/core": "^3.35.0",
     "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
