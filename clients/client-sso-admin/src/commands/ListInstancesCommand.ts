@@ -43,6 +43,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * //     { // InstanceMetadata
  * //       InstanceArn: "STRING_VALUE",
  * //       IdentityStoreId: "STRING_VALUE",
+ * //       IdentityStoreArn: "STRING_VALUE",
  * //       OwnerAccountId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       CreatedDate: new Date("TIMESTAMP"),

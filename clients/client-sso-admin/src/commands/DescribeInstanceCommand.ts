@@ -40,11 +40,21 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * // { // DescribeInstanceResponse
  * //   InstanceArn: "STRING_VALUE",
  * //   IdentityStoreId: "STRING_VALUE",
+ * //   IdentityStoreArn: "STRING_VALUE",
  * //   OwnerAccountId: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   CreatedDate: new Date("TIMESTAMP"),
  * //   Status: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "DELETE_IN_PROGRESS" || "ACTIVE",
  * //   StatusReason: "STRING_VALUE",
+ * //   PrimaryRegion: "STRING_VALUE",
+ * //   Regions: [ // RegionMetadataList
+ * //     { // RegionMetadata
+ * //       RegionName: "STRING_VALUE",
+ * //       Status: "ACTIVE" || "ADDING" || "REMOVING",
+ * //       AddedDate: new Date("TIMESTAMP"),
+ * //       IsPrimaryRegion: true || false,
+ * //     },
+ * //   ],
  * //   EncryptionConfigurationDetails: { // EncryptionConfigurationDetails
  * //     KeyType: "AWS_OWNED_KMS_KEY" || "CUSTOMER_MANAGED_KEY",
  * //     KmsKeyArn: "STRING_VALUE",

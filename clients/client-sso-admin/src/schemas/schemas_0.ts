@@ -833,8 +833,8 @@ export var DescribeInstanceRequest$: StaticStructureSchema = [3, n0, _DIRes,
 ];
 export var DescribeInstanceResponse$: StaticStructureSchema = [3, n0, _DIResc,
   0,
-  [_IA, _ISI, _OAI, _N, _CD, _St, _SR, _ECD, _PSE],
-  [0, 0, 0, 0, 4, 0, 0, () => EncryptionConfigurationDetails$, 2]
+  [_IA, _ISI, _ISA, _OAI, _N, _CD, _St, _SR, _PR, _Re, _ECD, _PSE],
+  [0, 0, 0, 0, 0, 4, 0, 0, 0, () => RegionMetadataList, () => EncryptionConfigurationDetails$, 2]
 ];
 export var DescribePermissionSetProvisioningStatusRequest$: StaticStructureSchema = [3, n0, _DPSPSR,
   0,
@@ -998,8 +998,8 @@ export var InstanceAccessControlAttributeConfiguration$: StaticStructureSchema =
 ];
 export var InstanceMetadata$: StaticStructureSchema = [3, n0, _IM,
   0,
-  [_IA, _ISI, _OAI, _N, _CD, _St, _SR, _PR, _Re],
-  [0, 0, 0, 0, 4, 0, 0, 0, () => RegionMetadataList]
+  [_IA, _ISI, _ISA, _OAI, _N, _CD, _St, _SR, _PR, _Re],
+  [0, 0, 0, 0, 0, 4, 0, 0, 0, () => RegionMetadataList]
 ];
 export var JwtBearerGrant$: StaticStructureSchema = [3, n0, _JBG,
   0,
