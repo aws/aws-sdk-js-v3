@@ -6,6 +6,8 @@ const _AAF = "AttributeAggregationFunction";
 const _AAI = "AwsAccountId";
 const _AANDS = "AccessAppsNativeDataStore";
 const _AAc = "ActiveAssignments";
+const _AAd = "AdobeAction";
+const _AAi = "AirtableAction";
 const _AAl = "AllowedAggregations";
 const _AAn = "AnalysisArn";
 const _AAp = "ApplicationArn";
@@ -315,6 +317,7 @@ const _B = "Body";
 const _BA = "BarsArrangement";
 const _BAA = "BoxAgentAction";
 const _BACM = "BasicAuthConnectionMetadata";
+const _BAe = "BeeAction";
 const _BAr = "BrandArn";
 const _BC = "BookmarksConfigurations";
 const _BCAFW = "BarChartAggregatedFieldWells";
@@ -459,10 +462,13 @@ const _CASRr = "CreateAccountSubscriptionResponse";
 const _CATR = "ContributionAnalysisTimeRanges";
 const _CAUA = "CreateAndUpdateApps";
 const _CAUAA = "CreateAndUpdateAsanaAction";
+const _CAUAAr = "CreateAndUpdateAirtableAction";
+const _CAUAAre = "CreateAndUpdateAdobeAction";
 const _CAUABARSA = "CreateAndUpdateAmazonBedrockARSAction";
 const _CAUABFSA = "CreateAndUpdateAmazonBedrockFSAction";
 const _CAUABKRSA = "CreateAndUpdateAmazonBedrockKRSAction";
 const _CAUASTA = "CreateAndUpdateAmazonSThreeAction";
+const _CAUBA = "CreateAndUpdateBeeAction";
 const _CAUBAA = "CreateAndUpdateBoxAgentAction";
 const _CAUBHRA = "CreateAndUpdateBambooHRAction";
 const _CAUBKB = "CreateAndUpdateBoxKnowledgeBase";
@@ -472,22 +478,37 @@ const _CAUCAA = "CreateAndUpdateCanvaAgentAction";
 const _CAUCAr = "CreateAndUpdateComprehendAction";
 const _CAUCKB = "CreateAndUpdateConfluenceKnowledgeBase";
 const _CAUCMA = "CreateAndUpdateComprehendMedicalAction";
+const _CAUCWMA = "CreateAndUpdateCiscoWebexMeetingsAction";
+const _CAUCWVA = "CreateAndUpdateCiscoWebexVidcastAction";
 const _CAUD = "CreateAndUpdateDatasets";
+const _CAUDA = "CreateAndUpdateDropboxAction";
+const _CAUDABA = "CreateAndUpdateDunAndBradstreetAction";
 const _CAUDER = "CreateAndUpdateDashboardEmailReports";
 const _CAUDS = "CreateAndUpdateDataSources";
+const _CAUFA = "CreateAndUpdateFigmaAction";
 const _CAUFSA = "CreateAndUpdateFactSetAction";
 const _CAUGA = "CreateAndUpdateGithubAction";
+const _CAUGAA = "CreateAndUpdateGoogleAnalyticsAction";
+const _CAUGAr = "CreateAndUpdateGmailAction";
 const _CAUGCA = "CreateAndUpdateGoogleCalendarAction";
+const _CAUGCAr = "CreateAndUpdateGoogleChatAction";
+const _CAUGDA = "CreateAndUpdateGoogleDocsAction";
+const _CAUGDAr = "CreateAndUpdateGoogleDriveAction";
 const _CAUGDKB = "CreateAndUpdateGoogleDriveKnowledgeBase";
 const _CAUGHTTPA = "CreateAndUpdateGenericHTTPAction";
+const _CAUGMA = "CreateAndUpdateGoogleMeetAction";
+const _CAUGSA = "CreateAndUpdateGoogleSheetsAction";
+const _CAUGSAr = "CreateAndUpdateGoogleSlidesAction";
 const _CAUHA = "CreateAndUpdateHubspotAction";
 const _CAUHFA = "CreateAndUpdateHuggingFaceAction";
+const _CAUHGIA = "CreateAndUpdateHGInsightsAction";
 const _CAUIA = "CreateAndUpdateIntercomAction";
 const _CAUIDCKB = "CreateAndUpdateIDCKnowledgeBase";
 const _CAUJA = "CreateAndUpdateJiraAction";
 const _CAUKB = "CreateAndUpdateKnowledgeBases";
 const _CAULA = "CreateAndUpdateLinearAction";
 const _CAUMA = "CreateAndUpdateMondayAction";
+const _CAUMAr = "CreateAndUpdateMoodysAction";
 const _CAUMCPA = "CreateAndUpdateMCPAction";
 const _CAUMSEA = "CreateAndUpdateMSExchangeAction";
 const _CAUMSTA = "CreateAndUpdateMSTeamsAction";
@@ -496,7 +517,10 @@ const _CAUNRA = "CreateAndUpdateNewRelicAction";
 const _CAUOAPIA = "CreateAndUpdateOpenAPIAction";
 const _CAUODA = "CreateAndUpdateOneDriveAction";
 const _CAUODKB = "CreateAndUpdateOneDriveKnowledgeBase";
+const _CAUONA = "CreateAndUpdateOneNoteAction";
 const _CAUPDA = "CreateAndUpdatePagerDutyAction";
+const _CAUPDAA = "CreateAndUpdatePagerDutyAgentAction";
+const _CAUQBA = "CreateAndUpdateQuickBooksAction";
 const _CAUQBKB = "CreateAndUpdateQBusinessKnowledgeBase";
 const _CAURLO = "CustomActionURLOperation";
 const _CAUSA = "CreateAndUpdateSlackAction";
@@ -507,6 +531,8 @@ const _CAUSAPPIA = "CreateAndUpdateSAPPhysicalInventoryAction";
 const _CAUSAPPMDA = "CreateAndUpdateSAPProductMasterDataAction";
 const _CAUSAr = "CreateAndUpdateSalesforceAction";
 const _CAUSAre = "CreateAndUpdateSmartsheetAction";
+const _CAUSArea = "CreateAndUpdateShopifyAction";
+const _CAUSFA = "CreateAndUpdateSnowFlakeAction";
 const _CAUSKB = "CreateAndUpdateS3KnowledgeBase";
 const _CAUSNA = "CreateAndUpdateServiceNowAction";
 const _CAUSPA = "CreateAndUpdateSharePointAction";
@@ -516,8 +542,13 @@ const _CAUSPKB = "CreateAndUpdateSharePointKnowledgeBase";
 const _CAUT = "CreateAndUpdateThemes";
 const _CAUTA = "CreateAndUpdateThresholdAlerts";
 const _CAUTAr = "CreateAndUpdateTextractAction";
+const _CAUVAA = "CreateAndUpdateVisierAgentAction";
+const _CAUWAA = "CreateAndUpdateWhatsAppAction";
 const _CAUWCKB = "CreateAndUpdateWebCrawlerKnowledgeBase";
 const _CAUZA = "CreateAndUpdateZendeskAction";
+const _CAUZAr = "CreateAndUpdateZoomAction";
+const _CAUZAre = "CreateAndUpdateZapierAction";
+const _CAUZIA = "CreateAndUpdateZoomInfoAction";
 const _CAa = "CategoryAxis";
 const _CAh = "ChatAgent";
 const _CAo = "ConfluenceAction";
@@ -857,6 +888,8 @@ const _CVo = "ComparisonValue";
 const _CVu = "CustomValues";
 const _CVus = "CustomValue";
 const _CW = "ColumnWidth";
+const _CWMA = "CiscoWebexMeetingsAction";
+const _CWVA = "CiscoWebexVidcastAction";
 const _Ca = "Category";
 const _Cal = "Calculation";
 const _Cap = "Capabilities";
@@ -883,7 +916,8 @@ const _Cou = "Country";
 const _Coun = "County";
 const _Cr = "Credentials";
 const _D = "Description";
-const _DA = "DatasetArn";
+const _DA = "DropboxAction";
+const _DABA = "DunAndBradstreetAction";
 const _DABEJ = "DescribeAssetBundleExportJob";
 const _DABEJR = "DescribeAssetBundleExportJobRequest";
 const _DABEJRe = "DescribeAssetBundleExportJobResponse";
@@ -956,8 +990,9 @@ const _DASRescr = "DescribeAccountSubscriptionRequest";
 const _DASRescri = "DescribeAccountSubscriptionResponse";
 const _DASe = "DescribeAccountSettings";
 const _DASes = "DescribeAccountSubscription";
-const _DAa = "DataAggregation";
+const _DAa = "DatasetArn";
 const _DAas = "DashboardArn";
+const _DAat = "DataAggregation";
 const _DAe = "DeleteAgent";
 const _DAel = "DeleteAnalysis";
 const _DAele = "DeleteApp";
@@ -1588,6 +1623,7 @@ const _F = "Folders";
 const _FA = "FailureAction";
 const _FAM = "FilterAggMetrics";
 const _FAML = "FilterAggMetricsList";
+const _FAi = "FigmaAction";
 const _FAo = "FolderArns";
 const _FBSI = "FieldBarSeriesItem";
 const _FBT = "FieldBasedTooltip";
@@ -1754,11 +1790,13 @@ const _Fr = "From";
 const _Fu = "Function";
 const _G = "Gradient";
 const _GA = "GenerativeAuthoring";
+const _GAA = "GoogleAnalyticsAction";
 const _GAC = "GenerativeAuthoringConfigurations";
 const _GAR = "GeneratedAnswerResult";
 const _GAe = "GenerateAnalyses";
 const _GAen = "GeneratedAnswer";
 const _GAi = "GithubAction";
+const _GAm = "GmailAction";
 const _GAr = "GroupArns";
 const _GB = "GroupBy";
 const _GBCN = "GroupByColumnNames";
@@ -1766,6 +1804,7 @@ const _GBL = "GroupByList";
 const _GC = "GeospatialColor";
 const _GCA = "GoogleCalendarAction";
 const _GCACF = "GaugeChartArcConditionalFormatting";
+const _GCAo = "GoogleChatAction";
 const _GCB = "GeospatialCoordinateBounds";
 const _GCC = "GaugeChartConfiguration";
 const _GCCC = "GaugeChartColorConfiguration";
@@ -1783,6 +1822,8 @@ const _GCR = "GeospatialCircleRadius";
 const _GCSS = "GeospatialCircleSymbolStyle";
 const _GCV = "GaugeChartVisual";
 const _GCr = "GradientColor";
+const _GDA = "GoogleDocsAction";
+const _GDAo = "GoogleDriveAction";
 const _GDEU = "GetDashboardEmbedUrl";
 const _GDEUR = "GetDashboardEmbedUrlRequest";
 const _GDEURe = "GetDashboardEmbedUrlResponse";
@@ -1841,6 +1882,7 @@ const _GLV = "GridLineVisibility";
 const _GLW = "GeospatialLineWidth";
 const _GLr = "GroupList";
 const _GM = "GroupMember";
+const _GMA = "GoogleMeetAction";
 const _GMAFW = "GeospatialMapAggregatedFieldWells";
 const _GMC = "GeospatialMapConfiguration";
 const _GMFW = "GeospatialMapFieldWells";
@@ -1873,6 +1915,8 @@ const _GRC = "GrowthRateComputation";
 const _GRe = "GeographicalRole";
 const _GRr = "GrowthRate";
 const _GS = "GroupingSeparator";
+const _GSA = "GoogleSheetsAction";
+const _GSAo = "GoogleSlidesAction";
 const _GSC = "GeospatialSolidColor";
 const _GSCG = "GeoSpatialColumnGroup";
 const _GSEU = "GetSessionEmbedUrl";
@@ -1907,6 +1951,7 @@ const _HFA = "HuggingFaceAction";
 const _HFSC = "HeaderFooterSectionConfiguration";
 const _HFSCL = "HeaderFooterSectionConfigurationList";
 const _HFW = "HistogramFieldWells";
+const _HGIA = "HGInsightsAction";
 const _HI = "HierarchyId";
 const _HMAFW = "HeatMapAggregatedFieldWells";
 const _HMC = "HeatMapConfiguration";
@@ -2356,6 +2401,7 @@ const _MA = "MondayAction";
 const _MAF = "MeasureAggregationFunction";
 const _MAV = "MatchAllValue";
 const _MAe = "MemberArn";
+const _MAo = "MoodysAction";
 const _MC = "MetricComparison";
 const _MCC = "MetricComparisonComputation";
 const _MCPA = "MCPAction";
@@ -2537,6 +2583,7 @@ const _OF = "OperandField";
 const _OFN = "OperandFieldName";
 const _OK = "ObjectKey";
 const _OL = "OperandList";
+const _ONA = "OneNoteAction";
 const _OP = "OverrideParameters";
 const _OPr = "OracleParameters";
 const _OPu = "OutputPayload";
@@ -2586,6 +2633,7 @@ const _PCr = "ProviderConfig";
 const _PCro = "ProjectedColumns";
 const _PD = "ParameterDeclarations";
 const _PDA = "PagerDutyAction";
+const _PDAA = "PagerDutyAgentAction";
 const _PDDC = "ParameterDropDownControl";
 const _PDFC = "PercentageDisplayFormatConfiguration";
 const _PDL = "ParameterDeclarationList";
@@ -2755,6 +2803,7 @@ const _QAAI = "QbsAwsAccountId";
 const _QAQT = "QAQueryText";
 const _QAR = "QAResult";
 const _QARe = "QAResults";
+const _QBA = "QuickBooksAction";
 const _QBIE = "QBusinessInsightsEnabled";
 const _QBIS = "QBusinessInsightsStatus";
 const _QBKB = "QBusinessKnowledgeBase";
@@ -2961,6 +3010,8 @@ const _S = "Suffix";
 const _SA = "SecretArn";
 const _SAA = "SimpleAttributeAggregation";
 const _SAAh = "ShareAsanaAction";
+const _SAAha = "ShareAirtableAction";
+const _SAAhar = "ShareAdobeAction";
 const _SABARSA = "ShareAmazonBedrockARSAction";
 const _SABEJ = "StartAssetBundleExportJob";
 const _SABEJR = "StartAssetBundleExportJobRequest";
@@ -3007,6 +3058,7 @@ const _SAea = "SearchAnalyses";
 const _SAear = "SearchApps";
 const _SAh = "ShareAnalyses";
 const _SAha = "ShareApps";
+const _SAho = "ShopifyAction";
 const _SAi = "SimpleAggregation";
 const _SAl = "SlackAction";
 const _SAm = "SmartsheetAction";
@@ -3019,6 +3071,7 @@ const _SAte = "StepAliases";
 const _SAtep = "StepAlias";
 const _SAu = "SucceededAnswers";
 const _SB = "SortBy";
+const _SBA = "ShareBeeAction";
 const _SBAA = "ShareBoxAgentAction";
 const _SBC = "S3BucketConfiguration";
 const _SBHRA = "ShareBambooHRAction";
@@ -3059,6 +3112,8 @@ const _SCSM = "SharedColumnSemanticMetadata";
 const _SCSML = "SharedColumnSemanticMetadataList";
 const _SCSO = "ScreenCanvasSizeOptions";
 const _SCT = "SheetContentType";
+const _SCWMA = "ShareCiscoWebexMeetingsAction";
+const _SCWVA = "ShareCiscoWebexVidcastAction";
 const _SCc = "ScopeConfiguration";
 const _SCch = "SchedulesConfigurations";
 const _SCe = "SeparatorConfiguration";
@@ -3075,6 +3130,8 @@ const _SCte = "StepColors";
 const _SCtr = "StrokeColor";
 const _SCty = "StyleConfiguration";
 const _SD = "SensitiveDocument";
+const _SDA = "ShareDropboxAction";
+const _SDABA = "ShareDunAndBradstreetAction";
 const _SDAFW = "SankeyDiagramAggregatedFieldWells";
 const _SDC = "SnapshotDestinationConfiguration";
 const _SDCC = "SankeyDiagramChartConfiguration";
@@ -3125,6 +3182,8 @@ const _SERR = "SheetElementRenderingRule";
 const _SERRL = "SheetElementRenderingRuleList";
 const _SET = "SemanticEntityType";
 const _SF = "StaticFiles";
+const _SFA = "SnowFlakeAction";
+const _SFAh = "ShareFigmaAction";
 const _SFC = "SelectedFieldsConfiguration";
 const _SFCt = "StringFilterCondition";
 const _SFCtr = "StringFormatConfiguration";
@@ -3162,14 +3221,23 @@ const _SFt = "StaticFile";
 const _SFu = "SuccessForeground";
 const _SG = "SearchGroups";
 const _SGA = "ShareGithubAction";
+const _SGAA = "ShareGoogleAnalyticsAction";
+const _SGAh = "ShareGmailAction";
 const _SGCA = "ShareGoogleCalendarAction";
+const _SGCAh = "ShareGoogleChatAction";
+const _SGDA = "ShareGoogleDocsAction";
+const _SGDAh = "ShareGoogleDriveAction";
 const _SGDKB = "ShareGoogleDriveKnowledgeBase";
 const _SGHTTPA = "ShareGenericHTTPAction";
 const _SGI = "SecurityGroupIds";
+const _SGMA = "ShareGoogleMeetAction";
 const _SGR = "SearchGroupsRequest";
 const _SGRe = "SearchGroupsResponse";
+const _SGSA = "ShareGoogleSheetsAction";
+const _SGSAh = "ShareGoogleSlidesAction";
 const _SHA = "ShareHubspotAction";
 const _SHFA = "ShareHuggingFaceAction";
+const _SHGIA = "ShareHGInsightsAction";
 const _SI = "ScheduleId";
 const _SIA = "ShareIntercomAction";
 const _SIDCKB = "ShareIDCKnowledgeBase";
@@ -3233,6 +3301,7 @@ const _SLt = "StandardLayout";
 const _SM = "SmallMultiples";
 const _SMA = "ShareMondayAction";
 const _SMAP = "SmallMultiplesAxisProperties";
+const _SMAh = "ShareMoodysAction";
 const _SMC = "SemanticModelConfiguration";
 const _SMCPA = "ShareMCPAction";
 const _SMDFL = "SmallMultiplesDimensionFieldList";
@@ -3256,6 +3325,7 @@ const _SO = "ScrollbarOptions";
 const _SOAPIA = "ShareOpenAPIAction";
 const _SODA = "ShareOneDriveAction";
 const _SODKB = "ShareOneDriveKnowledgeBase";
+const _SONA = "ShareOneNoteAction";
 const _SOe = "SearchOptions";
 const _SOi = "SizingOptions";
 const _SOo = "SortOrder";
@@ -3272,6 +3342,7 @@ const _SPCAFW = "ScatterPlotCategoricallyAggregatedFieldWells";
 const _SPCt = "StatePersistenceConfigurations";
 const _SPD = "StringParameterDeclaration";
 const _SPDA = "SharePagerDutyAction";
+const _SPDAA = "SharePagerDutyAgentAction";
 const _SPDh = "SharePointDomain";
 const _SPE = "StatePersistenceEnabled";
 const _SPFW = "ScatterPlotFieldWells";
@@ -3300,6 +3371,7 @@ const _SPta = "StatePersistence";
 const _SPtar = "StarburstParameters";
 const _SPtr = "StringParameter";
 const _SQ = "SqlQuery";
+const _SQBA = "ShareQuickBooksAction";
 const _SQBKB = "ShareQBusinessKnowledgeBase";
 const _SQSF = "SpaceQuicksightSearchFilter";
 const _SQSFp = "SpaceQuicksightSearchFilters";
@@ -3324,11 +3396,13 @@ const _SSAPPIA = "ShareSAPPhysicalInventoryAction";
 const _SSAPPMDA = "ShareSAPProductMasterDataAction";
 const _SSAh = "ShareSalesforceAction";
 const _SSAha = "ShareSmartsheetAction";
+const _SSAhar = "ShareShopifyAction";
 const _SSB = "SideSpecificBorder";
 const _SSCI = "SourceSheetControlId";
 const _SSDC = "SnapshotS3DestinationConfiguration";
 const _SSDCL = "SnapshotS3DestinationConfigurationList";
 const _SSF = "SpatialStaticFile";
+const _SSFA = "ShareSnowFlakeAction";
 const _SSFSC = "SelectedSheetsFilterScopeConfiguration";
 const _SSKB = "ShareS3KnowledgeBase";
 const _SSL = "SensitiveStringList";
@@ -3411,6 +3485,7 @@ const _SUS = "SelfUpgradeStatus";
 const _SUUR = "SelfUpgradeUserRole";
 const _SUi = "SizeUnit";
 const _SV = "SharedView";
+const _SVAA = "ShareVisierAgentAction";
 const _SVC = "SharedViewConfigurations";
 const _SVFC = "SecondaryValueFontConfiguration";
 const _SVO = "SecondaryValueOptions";
@@ -3427,10 +3502,14 @@ const _SVtar = "StartValue";
 const _SVtat = "StaticValues";
 const _SVu = "SupportingVisuals";
 const _SW = "StrokeWidth";
+const _SWAA = "ShareWhatsAppAction";
 const _SWCKB = "ShareWebCrawlerKnowledgeBase";
 const _SYADO = "SecondaryYAxisDisplayOptions";
 const _SYALO = "SecondaryYAxisLabelOptions";
 const _SZA = "ShareZendeskAction";
+const _SZAh = "ShareZoomAction";
+const _SZAha = "ShareZapierAction";
+const _SZIA = "ShareZoomInfoAction";
 const _Sc = "Scenario";
 const _Sca = "Scale";
 const _Scal = "Scaling";
@@ -3761,6 +3840,8 @@ const _Ty = "Typography";
 const _U = "Username";
 const _UA = "UpdatedAt";
 const _UAA = "UseAsanaAction";
+const _UAAs = "UseAirtableAction";
+const _UAAse = "UseAdobeAction";
 const _UABARSA = "UseAmazonBedrockARSAction";
 const _UABFSA = "UseAmazonBedrockFSAction";
 const _UABKRSA = "UseAmazonBedrockKRSAction";
@@ -3808,10 +3889,11 @@ const _UApd = "UpdateAnalysis";
 const _UAs = "UseAs";
 const _UAse = "UserArn";
 const _UB = "UpperBoundary";
-const _UBA = "UpdateBrandAssignment";
+const _UBA = "UseBeeAction";
 const _UBAA = "UseBoxAgentAction";
 const _UBAR = "UpdateBrandAssignmentRequest";
 const _UBARp = "UpdateBrandAssignmentResponse";
+const _UBAp = "UpdateBrandAssignment";
 const _UBCF = "UseBlankCellFormat";
 const _UBE = "UseBrowserExtension";
 const _UBHRA = "UseBambooHRAction";
@@ -3837,8 +3919,12 @@ const _UCP = "UnapplyCustomPermissions";
 const _UCPR = "UpdateCustomPermissionsRequest";
 const _UCPRp = "UpdateCustomPermissionsResponse";
 const _UCPp = "UpdateCustomPermissions";
+const _UCWMA = "UseCiscoWebexMeetingsAction";
+const _UCWVA = "UseCiscoWebexVidcastAction";
 const _UCs = "UserCount";
 const _UD = "UpdateDashboard";
+const _UDA = "UseDropboxAction";
+const _UDABA = "UseDunAndBradstreetAction";
 const _UDL = "UpdateDashboardLinks";
 const _UDLR = "UpdateDashboardLinksRequest";
 const _UDLRp = "UpdateDashboardLinksResponse";
@@ -3875,6 +3961,7 @@ const _UDSpd = "UpdateDlpSetting";
 const _UEAIE = "UseExcelAddInExtension";
 const _UEV = "UserExperienceVersion";
 const _UF = "UnaggregatedField";
+const _UFA = "UseFigmaAction";
 const _UFL = "UnaggregatedFieldList";
 const _UFP = "UpdateFlowPermissions";
 const _UFPI = "UpdateFlowPermissionsInput";
@@ -3894,14 +3981,23 @@ const _UFp = "UpdateFlow";
 const _UFpd = "UpdateFolder";
 const _UG = "UseGrouping";
 const _UGA = "UseGithubAction";
+const _UGAA = "UseGoogleAnalyticsAction";
+const _UGAs = "UseGmailAction";
 const _UGCA = "UseGoogleCalendarAction";
+const _UGCAs = "UseGoogleChatAction";
+const _UGDA = "UseGoogleDocsAction";
+const _UGDAs = "UseGoogleDriveAction";
 const _UGDKB = "UseGoogleDriveKnowledgeBase";
 const _UGHTTPA = "UseGenericHTTPAction";
+const _UGMA = "UseGoogleMeetAction";
 const _UGR = "UpdateGroupRequest";
 const _UGRp = "UpdateGroupResponse";
+const _UGSA = "UseGoogleSheetsAction";
+const _UGSAs = "UseGoogleSlidesAction";
 const _UGp = "UpdateGroup";
 const _UHA = "UseHubspotAction";
 const _UHFA = "UseHuggingFaceAction";
+const _UHGIA = "UseHGInsightsAction";
 const _UI = "UnicodeIcon";
 const _UIA = "UseIntercomAction";
 const _UIAMPA = "UpdateIAMPolicyAssignment";
@@ -3946,6 +4042,7 @@ const _ULPR = "UpdateLimitsProfileRequest";
 const _ULPRp = "UpdateLimitsProfileResponse";
 const _ULs = "UserLimits";
 const _UMA = "UseMondayAction";
+const _UMAs = "UseMoodysAction";
 const _UMCPA = "UseMCPAction";
 const _UMSEA = "UseMSExchangeAction";
 const _UMSTA = "UseMSTeamsAction";
@@ -3962,15 +4059,18 @@ const _UOAIE = "UseOutlookAddInExtension";
 const _UOAPIA = "UseOpenAPIAction";
 const _UODA = "UseOneDriveAction";
 const _UODKB = "UseOneDriveKnowledgeBase";
+const _UONA = "UseOneNoteAction";
 const _UOn = "UnpivotOperation";
 const _UOr = "UrlOptions";
 const _UPAIE = "UsePowerpointAddInExtension";
 const _UPBC = "UsePrimaryBackgroundColor";
 const _UPDA = "UsePagerDutyAction";
+const _UPDAA = "UsePagerDutyAgentAction";
 const _UPPE = "UnsupportedPricingPlanException";
 const _UPSS = "UpdatePublicSharingSettings";
 const _UPSSR = "UpdatePublicSharingSettingsRequest";
 const _UPSSRp = "UpdatePublicSharingSettingsResponse";
+const _UQBA = "UseQuickBooksAction";
 const _UQBKB = "UseQBusinessKnowledgeBase";
 const _UQPC = "UpdateQPersonalizationConfiguration";
 const _UQPCR = "UpdateQPersonalizationConfigurationRequest";
@@ -4004,6 +4104,8 @@ const _USAPPIA = "UseSAPPhysicalInventoryAction";
 const _USAPPMDA = "UseSAPProductMasterDataAction";
 const _USAs = "UseSalesforceAction";
 const _USAse = "UseSmartsheetAction";
+const _USAseh = "UseShopifyAction";
+const _USFA = "UseSnowFlakeAction";
 const _USKB = "UseS3KnowledgeBase";
 const _USN = "UseServiceName";
 const _USNA = "UseServiceNowAction";
@@ -4074,20 +4176,26 @@ const _UUEE = "UnsupportedUserEditionException";
 const _UUR = "UpdateUserRequest";
 const _UURp = "UpdateUserResponse";
 const _UV = "UniqueValues";
+const _UVAA = "UseVisierAgentAction";
 const _UVC = "UniqueValuesComputation";
 const _UVCI = "UnpivotedValueColumnId";
 const _UVCN = "UnpivotedValueColumnName";
 const _UVPCC = "UpdateVPCConnection";
 const _UVPCCR = "UpdateVPCConnectionRequest";
 const _UVPCCRp = "UpdateVPCConnectionResponse";
+const _UWAA = "UseWhatsAppAction";
 const _UWAIE = "UseWordAddInExtension";
 const _UWCKB = "UseWebCrawlerKnowledgeBase";
 const _UZA = "UseZendeskAction";
+const _UZAs = "UseZoomAction";
+const _UZAse = "UseZapierAction";
+const _UZIA = "UseZoomInfoAction";
 const _Un = "Unaggregated";
 const _Ur = "Url";
 const _Us = "User";
 const _V = "Value";
 const _VA = "ValueAxis";
+const _VAA = "VisierAgentAction";
 const _VASO = "VisualAxisSortOption";
 const _VASPICEC = "ViewAccountSPICECapacity";
 const _VAe = "VersionArn";
@@ -4161,6 +4269,7 @@ const _Vis = "Visualization";
 const _Visu = "Visuals";
 const _Visua = "Visual";
 const _W = "Width";
+const _WAA = "WhatsAppAction";
 const _WC = "WordCasing";
 const _WCAFW = "WaterfallChartAggregatedFieldWells";
 const _WCAFWo = "WordCloudAggregatedFieldWells";
@@ -4216,6 +4325,9 @@ const _YAL = "YAxisLocation";
 const _YALO = "YAxisLabelOptions";
 const _YAO = "YAxisOptions";
 const _ZA = "ZendeskAction";
+const _ZAa = "ZapierAction";
+const _ZAo = "ZoomAction";
+const _ZIA = "ZoomInfoAction";
 const _a = "arn";
 const _aAI = "awsAccountId";
 const _aEC = "audioExtractionConfiguration";
@@ -5464,8 +5576,8 @@ export var CancelIngestionResponse$: StaticStructureSchema = [3, n0, _CIRa,
 ];
 export var Capabilities$: StaticStructureSchema = [3, n0, _Cap,
   0,
-  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _Ap, _CAUA, _SAha, _IAAII, _AANDS, _PWA, _UBM, _PFUT, _AFSR, _UAWS, _KB, _CAUKB, _SKB, _SPKB, _CAUSPKB, _SSPKB, _USPKB, _GDKB, _CAUGDKB, _SGDKB, _UGDKB, _WCKB, _CAUWCKB, _SWCKB, _UWCKB, _SKBn, _CAUSKB, _SSKB, _USKB, _CKB, _CAUCKB, _SCKB, _UCKB, _ODKB, _CAUODKB, _SODKB, _UODKB, _QBKB, _CAUQBKB, _SQBKB, _UQBKB, _BMKB, _CAUBMKB, _SBMKB, _UBMKB, _BKB, _CAUBKB, _SBKB, _UBKB, _IDCKB, _CAUIDCKB, _SIDCKB, _UIDCKB, _Act, _GHTTPA, _CAUGHTTPA, _SGHTTPA, _UGHTTPA, _AAs, _CAUAA, _SAAh, _UAA, _SAl, _CAUSA, _SSA, _USA, _SNA, _CAUSNA, _SSNA, _USNA, _SAa, _CAUSAr, _SSAh, _USAs, _MSEA, _CAUMSEA, _SMSEA, _UMSEA, _PDA, _CAUPDA, _SPDA, _UPDA, _JA, _CAUJA, _SJA, _UJA, _CAo, _CAUCA, _SCA, _UCA, _ODA, _CAUODA, _SODA, _UODA, _SPA, _CAUSPA, _SSPA, _USPA, _MSTA, _CAUMSTA, _SMSTA, _UMSTA, _GCA, _CAUGCA, _SGCA, _UGCA, _ZA, _CAUZA, _SZA, _UZA, _SAm, _CAUSAre, _SSAha, _USAse, _SAPBPA, _CAUSAPBPA, _SSAPBPA, _USAPBPA, _SAPPMDA, _CAUSAPPMDA, _SSAPPMDA, _USAPPMDA, _SAPPIA, _CAUSAPPIA, _SSAPPIA, _USAPPIA, _SAPBOMA, _CAUSAPBOMA, _SSAPBOMA, _USAPBOMA, _SAPMSA, _CAUSAPMSA, _SSAPMSA, _USAPMSA, _FSA, _CAUFSA, _SFSA, _UFSA, _ASTA, _CAUASTA, _SASTA, _UASTA, _TAe, _CAUTAr, _STA, _UTA, _CAom, _CAUCAr, _SCAh, _UCAs, _CMA, _CAUCMA, _SCMA, _UCMA, _ABARSA, _CAUABARSA, _SABARSA, _UABARSA, _ABFSA, _CAUABFSA, _SABFSA, _UABFSA, _ABKRSA, _CAUABKRSA, _SABKRSA, _UABKRSA, _MCPA, _CAUMCPA, _SMCPA, _UMCPA, _OAPIA, _CAUOAPIA, _SOAPIA, _UOAPIA, _SPGMIA, _CAUSPGMIA, _SSPGMIA, _USPGMIA, _SPGEA, _CAUSPGEA, _SSPGEA, _USPGEA, _BHRA, _CAUBHRA, _SBHRA, _UBHRA, _BAA, _CAUBAA, _SBAA, _UBAA, _CAA, _CAUCAA, _SCAA, _UCAA, _GAi, _CAUGA, _SGA, _UGA, _NA, _CAUNA, _SNAh, _UNA, _LA, _CAULA, _SLA, _ULA, _HFA, _CAUHFA, _SHFA, _UHFA, _MA, _CAUMA, _SMA, _UMA, _HA, _CAUHA, _SHA, _UHA, _IAn, _CAUIA, _SIA, _UIA, _NRA, _CAUNRA, _SNRA, _UNRA, _Top, _EVWQ, _BCFWQ, _CDESWQ, _Spa, _CSr, _SSh, _CAh, _CCA, _SCAha, _Re, _SUUR, _Ext, _UBE, _UWAIE, _UOAIE, _UEAIE, _UPAIE, _MSF, _GAe, _Sto, _Sc, _Tr, _STc, _IET, _QET],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [_ETC, _ETE, _ETP, _PR, _CAUT, _AORADFA, _SAh, _CAUD, _SDh, _SDER, _CAUDER, _SDha, _CAUTA, _RSF, _CSF, _CAUDS, _SDS, _VASPICEC, _CSPICED, _ETPISR, _ETCISR, _ETEISR, _ICISRE, _Da, _An, _Au, _Fl, _Ap, _CAUA, _SAha, _IAAII, _AANDS, _PWA, _UBM, _PFUT, _AFSR, _UAWS, _KB, _CAUKB, _SKB, _SPKB, _CAUSPKB, _SSPKB, _USPKB, _GDKB, _CAUGDKB, _SGDKB, _UGDKB, _WCKB, _CAUWCKB, _SWCKB, _UWCKB, _SKBn, _CAUSKB, _SSKB, _USKB, _CKB, _CAUCKB, _SCKB, _UCKB, _ODKB, _CAUODKB, _SODKB, _UODKB, _QBKB, _CAUQBKB, _SQBKB, _UQBKB, _BMKB, _CAUBMKB, _SBMKB, _UBMKB, _BKB, _CAUBKB, _SBKB, _UBKB, _IDCKB, _CAUIDCKB, _SIDCKB, _UIDCKB, _Act, _GHTTPA, _CAUGHTTPA, _SGHTTPA, _UGHTTPA, _AAs, _CAUAA, _SAAh, _UAA, _SAl, _CAUSA, _SSA, _USA, _SNA, _CAUSNA, _SSNA, _USNA, _SAa, _CAUSAr, _SSAh, _USAs, _MSEA, _CAUMSEA, _SMSEA, _UMSEA, _PDA, _CAUPDA, _SPDA, _UPDA, _JA, _CAUJA, _SJA, _UJA, _CAo, _CAUCA, _SCA, _UCA, _ODA, _CAUODA, _SODA, _UODA, _SPA, _CAUSPA, _SSPA, _USPA, _MSTA, _CAUMSTA, _SMSTA, _UMSTA, _GCA, _CAUGCA, _SGCA, _UGCA, _ZA, _CAUZA, _SZA, _UZA, _SAm, _CAUSAre, _SSAha, _USAse, _SAPBPA, _CAUSAPBPA, _SSAPBPA, _USAPBPA, _SAPPMDA, _CAUSAPPMDA, _SSAPPMDA, _USAPPMDA, _SAPPIA, _CAUSAPPIA, _SSAPPIA, _USAPPIA, _SAPBOMA, _CAUSAPBOMA, _SSAPBOMA, _USAPBOMA, _SAPMSA, _CAUSAPMSA, _SSAPMSA, _USAPMSA, _FSA, _CAUFSA, _SFSA, _UFSA, _ASTA, _CAUASTA, _SASTA, _UASTA, _TAe, _CAUTAr, _STA, _UTA, _CAom, _CAUCAr, _SCAh, _UCAs, _CMA, _CAUCMA, _SCMA, _UCMA, _ABARSA, _CAUABARSA, _SABARSA, _UABARSA, _ABFSA, _CAUABFSA, _SABFSA, _UABFSA, _ABKRSA, _CAUABKRSA, _SABKRSA, _UABKRSA, _MCPA, _CAUMCPA, _SMCPA, _UMCPA, _OAPIA, _CAUOAPIA, _SOAPIA, _UOAPIA, _SPGMIA, _CAUSPGMIA, _SSPGMIA, _USPGMIA, _SPGEA, _CAUSPGEA, _SSPGEA, _USPGEA, _BHRA, _CAUBHRA, _SBHRA, _UBHRA, _BAA, _CAUBAA, _SBAA, _UBAA, _CAA, _CAUCAA, _SCAA, _UCAA, _GAi, _CAUGA, _SGA, _UGA, _NA, _CAUNA, _SNAh, _UNA, _LA, _CAULA, _SLA, _ULA, _HFA, _CAUHFA, _SHFA, _UHFA, _MA, _CAUMA, _SMA, _UMA, _HA, _CAUHA, _SHA, _UHA, _IAn, _CAUIA, _SIA, _UIA, _NRA, _CAUNRA, _SNRA, _UNRA, _PDAA, _CAUPDAA, _SPDAA, _UPDAA, _VAA, _CAUVAA, _SVAA, _UVAA, _ZAo, _CAUZAr, _SZAh, _UZAs, _SFA, _CAUSFA, _SSFA, _USFA, _ZAa, _CAUZAre, _SZAha, _UZAse, _AAi, _CAUAAr, _SAAha, _UAAs, _DA, _CAUDA, _SDA, _UDA, _GAm, _CAUGAr, _SGAh, _UGAs, _GAA, _CAUGAA, _SGAA, _UGAA, _GDA, _CAUGDA, _SGDA, _UGDA, _GDAo, _CAUGDAr, _SGDAh, _UGDAs, _GMA, _CAUGMA, _SGMA, _UGMA, _GSA, _CAUGSA, _SGSA, _UGSA, _GSAo, _CAUGSAr, _SGSAh, _UGSAs, _QBA, _CAUQBA, _SQBA, _UQBA, _FAi, _CAUFA, _SFAh, _UFA, _WAA, _CAUWAA, _SWAA, _UWAA, _GCAo, _CAUGCAr, _SGCAh, _UGCAs, _ONA, _CAUONA, _SONA, _UONA, _SAho, _CAUSArea, _SSAhar, _USAseh, _AAd, _CAUAAre, _SAAhar, _UAAse, _CWVA, _CAUCWVA, _SCWVA, _UCWVA, _CWMA, _CAUCWMA, _SCWMA, _UCWMA, _DABA, _CAUDABA, _SDABA, _UDABA, _HGIA, _CAUHGIA, _SHGIA, _UHGIA, _ZIA, _CAUZIA, _SZIA, _UZIA, _MAo, _CAUMAr, _SMAh, _UMAs, _BAe, _CAUBA, _SBA, _UBA, _Top, _EVWQ, _BCFWQ, _CDESWQ, _Spa, _CSr, _SSh, _CAh, _CCA, _SCAha, _Re, _SUUR, _Ext, _UBE, _UWAIE, _UOAIE, _UEAIE, _UPAIE, _MSF, _GAe, _Sto, _Sc, _Tr, _STc, _IET, _QET],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var CapacityBytesRangeFilter$: StaticStructureSchema = [3, n0, _CBRF,
   0,
@@ -6104,12 +6216,12 @@ export var CreateThemeResponse$: StaticStructureSchema = [3, n0, _CTRrea,
 ];
 export var CreateTopicRefreshScheduleRequest$: StaticStructureSchema = [3, n0, _CTRSR,
   0,
-  [_AAI, _TIo, _DA, _RSe, _DNa],
+  [_AAI, _TIo, _DAa, _RSe, _DNa],
   [[0, 1], [0, 1], 0, () => TopicRefreshSchedule$, 0], 4
 ];
 export var CreateTopicRefreshScheduleResponse$: StaticStructureSchema = [3, n0, _CTRSRr,
   0,
-  [_TIo, _TAo, _DA, _St, _RI],
+  [_TIo, _TAo, _DAa, _St, _RI],
   [0, 0, 0, [1, 32], 0]
 ];
 export var CreateTopicRequest$: StaticStructureSchema = [3, n0, _CTRreat,
@@ -6124,7 +6236,7 @@ export var CreateTopicResponse$: StaticStructureSchema = [3, n0, _CTRreate,
 ];
 export var CreateTopicReviewedAnswer$: StaticStructureSchema = [3, n0, _CTRA,
   0,
-  [_AInsw, _DA, _Q, _Mir, _PV, _Tem],
+  [_AInsw, _DAa, _Q, _Mir, _PV, _Tem],
   [0, 0, [() => LimitedSensitiveString, 0], [() => TopicIR$, 0], [() => TopicVisual$, 0], () => TopicTemplate$], 3
 ];
 export var CreateTopicV2Request$: StaticStructureSchema = [3, n0, _CTVR,
@@ -6332,7 +6444,7 @@ export var DashboardVisualResult$: StaticStructureSchema = [3, n0, _DVR,
   [_DI, _DNas, _SIh, _SN, _VI, _VT, _VSi, _DU],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var DataAggregation$: StaticStructureSchema = [3, n0, _DAa,
+export var DataAggregation$: StaticStructureSchema = [3, n0, _DAat,
   0,
   [_DRDG, _DDCN],
   [0, 0]
@@ -6494,7 +6606,7 @@ export var DataSetIdentifierDeclaration$: StaticStructureSchema = [3, n0, _DSIDa
 ];
 export var DatasetMetadata$: StaticStructureSchema = [3, n0, _DM,
   0,
-  [_DA, _DNa, _DDa, _DAa, _Fi, _Colu, _CF, _NEa],
+  [_DAa, _DNa, _DDa, _DAat, _Fi, _Colu, _CF, _NEa],
   [0, 0, 0, () => DataAggregation$, [() => TopicFilters, 0], [() => TopicColumns, 0], [() => TopicCalculatedFields, 0], [() => TopicNamedEntities, 0]], 1
 ];
 export var DataSetNumericComparisonFilterCondition$: StaticStructureSchema = [3, n0, _DSNCFC,
@@ -7174,7 +7286,7 @@ export var DeleteTopicRefreshScheduleRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var DeleteTopicRefreshScheduleResponse$: StaticStructureSchema = [3, n0, _DTRSRe,
   0,
-  [_TIo, _TAo, _DA, _St, _RI],
+  [_TIo, _TAo, _DAa, _St, _RI],
   [0, 0, 0, [1, 32], 0]
 ];
 export var DeleteTopicRequest$: StaticStructureSchema = [3, n0, _DTRelet,
@@ -7904,7 +8016,7 @@ export var DescribeTopicRefreshScheduleRequest$: StaticStructureSchema = [3, n0,
 ];
 export var DescribeTopicRefreshScheduleResponse$: StaticStructureSchema = [3, n0, _DTRSResc,
   0,
-  [_TIo, _TAo, _DA, _RSe, _St, _RI],
+  [_TIo, _TAo, _DAa, _RSe, _St, _RI],
   [0, 0, 0, () => TopicRefreshSchedule$, [1, 32], 0]
 ];
 export var DescribeTopicRequest$: StaticStructureSchema = [3, n0, _DTRescrib,
@@ -12074,7 +12186,7 @@ export var TopicRefreshSchedule$: StaticStructureSchema = [3, n0, _TRS,
 ];
 export var TopicRefreshScheduleSummary$: StaticStructureSchema = [3, n0, _TRSS,
   0,
-  [_DIat, _DA, _DNa, _RSe],
+  [_DIat, _DAa, _DNa, _RSe],
   [0, 0, 0, () => TopicRefreshSchedule$]
 ];
 export var TopicRelativeDateFilter$: StaticStructureSchema = [3, n0, _TRDF,
@@ -12084,7 +12196,7 @@ export var TopicRelativeDateFilter$: StaticStructureSchema = [3, n0, _TRDF,
 ];
 export var TopicReviewedAnswer$: StaticStructureSchema = [3, n0, _TRA,
   0,
-  [_AInsw, _DA, _Q, _A, _Mir, _PV, _Tem],
+  [_AInsw, _DAa, _Q, _A, _Mir, _PV, _Tem],
   [0, 0, [() => LimitedSensitiveString, 0], 0, [() => TopicIR$, 0], [() => TopicVisual$, 0], () => TopicTemplate$], 3
 ];
 export var TopicSearchFilter$: StaticStructureSchema = [3, n0, _TSF,
@@ -12859,7 +12971,7 @@ export var UpdateTopicRefreshScheduleRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdateTopicRefreshScheduleResponse$: StaticStructureSchema = [3, n0, _UTRSRp,
   0,
-  [_TIo, _TAo, _DA, _St, _RI],
+  [_TIo, _TAo, _DAa, _St, _RI],
   [0, 0, 0, [1, 32], 0]
 ];
 export var UpdateTopicRequest$: StaticStructureSchema = [3, n0, _UTRpdat,
@@ -15223,7 +15335,7 @@ export var UpdateApprovalPolicy$: StaticOperationSchema = [9, n0, _UAPpda,
 export var UpdateBrand$: StaticOperationSchema = [9, n0, _UBp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] }, () => UpdateBrandRequest$, () => UpdateBrandResponse$
 ];
-export var UpdateBrandAssignment$: StaticOperationSchema = [9, n0, _UBA,
+export var UpdateBrandAssignment$: StaticOperationSchema = [9, n0, _UBAp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/brandassignments", 200] }, () => UpdateBrandAssignmentRequest$, () => UpdateBrandAssignmentResponse$
 ];
 export var UpdateBrandPublishedVersion$: StaticOperationSchema = [9, n0, _UBPV,

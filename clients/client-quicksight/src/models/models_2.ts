@@ -10257,6 +10257,678 @@ export interface Capabilities {
   UseNewRelicAction?: CapabilityState | undefined;
 
   /**
+   * <p>The ability to perform actions using PagerDuty Agent connectors.</p>
+   * @public
+   */
+  PagerDutyAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update PagerDuty Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdatePagerDutyAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share PagerDuty Agent actions.</p>
+   * @public
+   */
+  SharePagerDutyAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use PagerDuty Agent actions.</p>
+   * @public
+   */
+  UsePagerDutyAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Visier Agent connectors.</p>
+   * @public
+   */
+  VisierAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Visier Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateVisierAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Visier Agent actions.</p>
+   * @public
+   */
+  ShareVisierAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Visier Agent actions.</p>
+   * @public
+   */
+  UseVisierAgentAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Zoom connectors.</p>
+   * @public
+   */
+  ZoomAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Zoom actions.</p>
+   * @public
+   */
+  CreateAndUpdateZoomAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Zoom actions.</p>
+   * @public
+   */
+  ShareZoomAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Zoom actions.</p>
+   * @public
+   */
+  UseZoomAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Snowflake Cortex Agent connectors.</p>
+   * @public
+   */
+  SnowFlakeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Snowflake Cortex Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateSnowFlakeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Snowflake Cortex Agent actions.</p>
+   * @public
+   */
+  ShareSnowFlakeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Snowflake Cortex Agent actions.</p>
+   * @public
+   */
+  UseSnowFlakeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Zapier Agent connectors.</p>
+   * @public
+   */
+  ZapierAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Zapier Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateZapierAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Zapier Agent actions.</p>
+   * @public
+   */
+  ShareZapierAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Zapier Agent actions.</p>
+   * @public
+   */
+  UseZapierAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Airtable connectors.</p>
+   * @public
+   */
+  AirtableAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Airtable actions.</p>
+   * @public
+   */
+  CreateAndUpdateAirtableAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Airtable actions.</p>
+   * @public
+   */
+  ShareAirtableAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Airtable actions.</p>
+   * @public
+   */
+  UseAirtableAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Dropbox connectors.</p>
+   * @public
+   */
+  DropboxAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Dropbox actions.</p>
+   * @public
+   */
+  CreateAndUpdateDropboxAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Dropbox actions.</p>
+   * @public
+   */
+  ShareDropboxAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Dropbox actions.</p>
+   * @public
+   */
+  UseDropboxAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Gmail connectors.</p>
+   * @public
+   */
+  GmailAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Gmail actions.</p>
+   * @public
+   */
+  CreateAndUpdateGmailAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Gmail actions.</p>
+   * @public
+   */
+  ShareGmailAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Gmail actions.</p>
+   * @public
+   */
+  UseGmailAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Google Analytics connectors.</p>
+   * @public
+   */
+  GoogleAnalyticsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Google Analytics actions.</p>
+   * @public
+   */
+  CreateAndUpdateGoogleAnalyticsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Analytics actions.</p>
+   * @public
+   */
+  ShareGoogleAnalyticsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Google Analytics actions.</p>
+   * @public
+   */
+  UseGoogleAnalyticsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Google Docs connectors.</p>
+   * @public
+   */
+  GoogleDocsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Google Docs actions.</p>
+   * @public
+   */
+  CreateAndUpdateGoogleDocsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Docs actions.</p>
+   * @public
+   */
+  ShareGoogleDocsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Google Docs actions.</p>
+   * @public
+   */
+  UseGoogleDocsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Google Drive connectors.</p>
+   * @public
+   */
+  GoogleDriveAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Google Drive actions.</p>
+   * @public
+   */
+  CreateAndUpdateGoogleDriveAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Drive actions.</p>
+   * @public
+   */
+  ShareGoogleDriveAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Google Drive actions.</p>
+   * @public
+   */
+  UseGoogleDriveAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Google Meet connectors.</p>
+   * @public
+   */
+  GoogleMeetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Google Meet actions.</p>
+   * @public
+   */
+  CreateAndUpdateGoogleMeetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Meet actions.</p>
+   * @public
+   */
+  ShareGoogleMeetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Google Meet actions.</p>
+   * @public
+   */
+  UseGoogleMeetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Google Sheets connectors.</p>
+   * @public
+   */
+  GoogleSheetsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Google Sheets actions.</p>
+   * @public
+   */
+  CreateAndUpdateGoogleSheetsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Sheets actions.</p>
+   * @public
+   */
+  ShareGoogleSheetsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Google Sheets actions.</p>
+   * @public
+   */
+  UseGoogleSheetsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Google Slides connectors.</p>
+   * @public
+   */
+  GoogleSlidesAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Google Slides actions.</p>
+   * @public
+   */
+  CreateAndUpdateGoogleSlidesAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Slides actions.</p>
+   * @public
+   */
+  ShareGoogleSlidesAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Google Slides actions.</p>
+   * @public
+   */
+  UseGoogleSlidesAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using QuickBooks connectors.</p>
+   * @public
+   */
+  QuickBooksAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update QuickBooks actions.</p>
+   * @public
+   */
+  CreateAndUpdateQuickBooksAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share QuickBooks actions.</p>
+   * @public
+   */
+  ShareQuickBooksAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use QuickBooks actions.</p>
+   * @public
+   */
+  UseQuickBooksAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Figma connectors.</p>
+   * @public
+   */
+  FigmaAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Figma actions.</p>
+   * @public
+   */
+  CreateAndUpdateFigmaAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Figma actions.</p>
+   * @public
+   */
+  ShareFigmaAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Figma actions.</p>
+   * @public
+   */
+  UseFigmaAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using WhatsApp connectors.</p>
+   * @public
+   */
+  WhatsAppAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update WhatsApp actions.</p>
+   * @public
+   */
+  CreateAndUpdateWhatsAppAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share WhatsApp actions.</p>
+   * @public
+   */
+  ShareWhatsAppAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use WhatsApp actions.</p>
+   * @public
+   */
+  UseWhatsAppAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Google Chat connectors.</p>
+   * @public
+   */
+  GoogleChatAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Google Chat actions.</p>
+   * @public
+   */
+  CreateAndUpdateGoogleChatAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Google Chat actions.</p>
+   * @public
+   */
+  ShareGoogleChatAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Google Chat actions.</p>
+   * @public
+   */
+  UseGoogleChatAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Microsoft OneNote connectors.</p>
+   * @public
+   */
+  OneNoteAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Microsoft OneNote actions.</p>
+   * @public
+   */
+  CreateAndUpdateOneNoteAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Microsoft OneNote actions.</p>
+   * @public
+   */
+  ShareOneNoteAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Microsoft OneNote actions.</p>
+   * @public
+   */
+  UseOneNoteAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Shopify connectors.</p>
+   * @public
+   */
+  ShopifyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Shopify actions.</p>
+   * @public
+   */
+  CreateAndUpdateShopifyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Shopify actions.</p>
+   * @public
+   */
+  ShareShopifyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Shopify actions.</p>
+   * @public
+   */
+  UseShopifyAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Adobe Marketing Agent connectors.</p>
+   * @public
+   */
+  AdobeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Adobe Marketing Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateAdobeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Adobe Marketing Agent actions.</p>
+   * @public
+   */
+  ShareAdobeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Adobe Marketing Agent actions.</p>
+   * @public
+   */
+  UseAdobeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Cisco Webex Video Messaging Agent connectors.</p>
+   * @public
+   */
+  CiscoWebexVidcastAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Cisco Webex Video Messaging Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateCiscoWebexVidcastAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Cisco Webex Video Messaging Agent actions.</p>
+   * @public
+   */
+  ShareCiscoWebexVidcastAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Cisco Webex Video Messaging Agent actions.</p>
+   * @public
+   */
+  UseCiscoWebexVidcastAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Cisco Webex Meetings connectors.</p>
+   * @public
+   */
+  CiscoWebexMeetingsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Cisco Webex Meetings actions.</p>
+   * @public
+   */
+  CreateAndUpdateCiscoWebexMeetingsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Cisco Webex Meetings actions.</p>
+   * @public
+   */
+  ShareCiscoWebexMeetingsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Cisco Webex Meetings actions.</p>
+   * @public
+   */
+  UseCiscoWebexMeetingsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Dun and Bradstreet connectors.</p>
+   * @public
+   */
+  DunAndBradstreetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Dun and Bradstreet actions.</p>
+   * @public
+   */
+  CreateAndUpdateDunAndBradstreetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Dun and Bradstreet actions.</p>
+   * @public
+   */
+  ShareDunAndBradstreetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Dun and Bradstreet actions.</p>
+   * @public
+   */
+  UseDunAndBradstreetAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using HG Insights Agent connectors.</p>
+   * @public
+   */
+  HGInsightsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update HG Insights Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateHGInsightsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share HG Insights Agent actions.</p>
+   * @public
+   */
+  ShareHGInsightsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use HG Insights Agent actions.</p>
+   * @public
+   */
+  UseHGInsightsAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using ZoomInfo Agent connectors.</p>
+   * @public
+   */
+  ZoomInfoAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update ZoomInfo Agent actions.</p>
+   * @public
+   */
+  CreateAndUpdateZoomInfoAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share ZoomInfo Agent actions.</p>
+   * @public
+   */
+  ShareZoomInfoAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use ZoomInfo Agent actions.</p>
+   * @public
+   */
+  UseZoomInfoAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Moody's GenAI Ready Data connectors.</p>
+   * @public
+   */
+  MoodysAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Moody's GenAI Ready Data actions.</p>
+   * @public
+   */
+  CreateAndUpdateMoodysAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Moody's GenAI Ready Data actions.</p>
+   * @public
+   */
+  ShareMoodysAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Moody's GenAI Ready Data actions.</p>
+   * @public
+   */
+  UseMoodysAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform actions using Bee connectors.</p>
+   * @public
+   */
+  BeeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update Bee actions.</p>
+   * @public
+   */
+  CreateAndUpdateBeeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share Bee actions.</p>
+   * @public
+   */
+  ShareBeeAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Bee actions.</p>
+   * @public
+   */
+  UseBeeAction?: CapabilityState | undefined;
+
+  /**
    * <p>The ability to perform Topic-related actions.</p>
    * @public
    */
