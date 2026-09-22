@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { AIOpsClient } from "./AIOpsClient";
 import {
@@ -77,13 +82,20 @@ const paginators = {
   paginateListInvestigationGroups,
 };
 
+/**
+ * @public
+ */
+export interface AIOpsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AIOps {
   /**
    * @see {@link CreateInvestigationGroupCommand}
    */
   createInvestigationGroup(
     args: CreateInvestigationGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<CreateInvestigationGroupCommandOutput>;
   createInvestigationGroup(
     args: CreateInvestigationGroupCommandInput,
@@ -91,7 +103,7 @@ export interface AIOps {
   ): void;
   createInvestigationGroup(
     args: CreateInvestigationGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: CreateInvestigationGroupCommandOutput) => void
   ): void;
 
@@ -100,7 +112,7 @@ export interface AIOps {
    */
   deleteInvestigationGroup(
     args: DeleteInvestigationGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<DeleteInvestigationGroupCommandOutput>;
   deleteInvestigationGroup(
     args: DeleteInvestigationGroupCommandInput,
@@ -108,7 +120,7 @@ export interface AIOps {
   ): void;
   deleteInvestigationGroup(
     args: DeleteInvestigationGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: DeleteInvestigationGroupCommandOutput) => void
   ): void;
 
@@ -117,7 +129,7 @@ export interface AIOps {
    */
   deleteInvestigationGroupPolicy(
     args: DeleteInvestigationGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<DeleteInvestigationGroupPolicyCommandOutput>;
   deleteInvestigationGroupPolicy(
     args: DeleteInvestigationGroupPolicyCommandInput,
@@ -125,7 +137,7 @@ export interface AIOps {
   ): void;
   deleteInvestigationGroupPolicy(
     args: DeleteInvestigationGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: DeleteInvestigationGroupPolicyCommandOutput) => void
   ): void;
 
@@ -134,7 +146,7 @@ export interface AIOps {
    */
   getInvestigationGroup(
     args: GetInvestigationGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<GetInvestigationGroupCommandOutput>;
   getInvestigationGroup(
     args: GetInvestigationGroupCommandInput,
@@ -142,7 +154,7 @@ export interface AIOps {
   ): void;
   getInvestigationGroup(
     args: GetInvestigationGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: GetInvestigationGroupCommandOutput) => void
   ): void;
 
@@ -151,7 +163,7 @@ export interface AIOps {
    */
   getInvestigationGroupPolicy(
     args: GetInvestigationGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<GetInvestigationGroupPolicyCommandOutput>;
   getInvestigationGroupPolicy(
     args: GetInvestigationGroupPolicyCommandInput,
@@ -159,7 +171,7 @@ export interface AIOps {
   ): void;
   getInvestigationGroupPolicy(
     args: GetInvestigationGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: GetInvestigationGroupPolicyCommandOutput) => void
   ): void;
 
@@ -169,7 +181,7 @@ export interface AIOps {
   listInvestigationGroups(): Promise<ListInvestigationGroupsCommandOutput>;
   listInvestigationGroups(
     args: ListInvestigationGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<ListInvestigationGroupsCommandOutput>;
   listInvestigationGroups(
     args: ListInvestigationGroupsCommandInput,
@@ -177,7 +189,7 @@ export interface AIOps {
   ): void;
   listInvestigationGroups(
     args: ListInvestigationGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: ListInvestigationGroupsCommandOutput) => void
   ): void;
 
@@ -186,7 +198,7 @@ export interface AIOps {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -194,7 +206,7 @@ export interface AIOps {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -203,7 +215,7 @@ export interface AIOps {
    */
   putInvestigationGroupPolicy(
     args: PutInvestigationGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<PutInvestigationGroupPolicyCommandOutput>;
   putInvestigationGroupPolicy(
     args: PutInvestigationGroupPolicyCommandInput,
@@ -211,7 +223,7 @@ export interface AIOps {
   ): void;
   putInvestigationGroupPolicy(
     args: PutInvestigationGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: PutInvestigationGroupPolicyCommandOutput) => void
   ): void;
 
@@ -220,7 +232,7 @@ export interface AIOps {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -228,7 +240,7 @@ export interface AIOps {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -237,7 +249,7 @@ export interface AIOps {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -245,7 +257,7 @@ export interface AIOps {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -254,7 +266,7 @@ export interface AIOps {
    */
   updateInvestigationGroup(
     args: UpdateInvestigationGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AIOpsRequestOptions
   ): Promise<UpdateInvestigationGroupCommandOutput>;
   updateInvestigationGroup(
     args: UpdateInvestigationGroupCommandInput,
@@ -262,7 +274,7 @@ export interface AIOps {
   ): void;
   updateInvestigationGroup(
     args: UpdateInvestigationGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: AIOpsRequestOptions,
     cb: (err: any, data?: UpdateInvestigationGroupCommandOutput) => void
   ): void;
 

@@ -580,10 +580,10 @@ import { InternalServerError, InvalidGatewayRequestException, ServiceUnavailable
 import { StorageGatewayServiceException } from "../models/StorageGatewayServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var StorageGatewayServiceException$: StaticErrorSchema = [-3, _s, "StorageGatewayServiceException", 0, [], []];
 _s_registry.registerError(StorageGatewayServiceException$, StorageGatewayServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _e],

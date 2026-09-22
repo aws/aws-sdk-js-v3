@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CancelSessionCommandInput,
@@ -153,13 +158,20 @@ const paginators = {
   paginateListSessions,
 };
 
+/**
+ * @public
+ */
+export interface MPARequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MPA {
   /**
    * @see {@link CancelSessionCommand}
    */
   cancelSession(
     args: CancelSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<CancelSessionCommandOutput>;
   cancelSession(
     args: CancelSessionCommandInput,
@@ -167,7 +179,7 @@ export interface MPA {
   ): void;
   cancelSession(
     args: CancelSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: CancelSessionCommandOutput) => void
   ): void;
 
@@ -176,7 +188,7 @@ export interface MPA {
    */
   createApprovalTeam(
     args: CreateApprovalTeamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<CreateApprovalTeamCommandOutput>;
   createApprovalTeam(
     args: CreateApprovalTeamCommandInput,
@@ -184,7 +196,7 @@ export interface MPA {
   ): void;
   createApprovalTeam(
     args: CreateApprovalTeamCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: CreateApprovalTeamCommandOutput) => void
   ): void;
 
@@ -193,7 +205,7 @@ export interface MPA {
    */
   createIdentitySource(
     args: CreateIdentitySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<CreateIdentitySourceCommandOutput>;
   createIdentitySource(
     args: CreateIdentitySourceCommandInput,
@@ -201,7 +213,7 @@ export interface MPA {
   ): void;
   createIdentitySource(
     args: CreateIdentitySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: CreateIdentitySourceCommandOutput) => void
   ): void;
 
@@ -210,7 +222,7 @@ export interface MPA {
    */
   deleteIdentitySource(
     args: DeleteIdentitySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<DeleteIdentitySourceCommandOutput>;
   deleteIdentitySource(
     args: DeleteIdentitySourceCommandInput,
@@ -218,7 +230,7 @@ export interface MPA {
   ): void;
   deleteIdentitySource(
     args: DeleteIdentitySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: DeleteIdentitySourceCommandOutput) => void
   ): void;
 
@@ -227,7 +239,7 @@ export interface MPA {
    */
   deleteInactiveApprovalTeamVersion(
     args: DeleteInactiveApprovalTeamVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<DeleteInactiveApprovalTeamVersionCommandOutput>;
   deleteInactiveApprovalTeamVersion(
     args: DeleteInactiveApprovalTeamVersionCommandInput,
@@ -235,7 +247,7 @@ export interface MPA {
   ): void;
   deleteInactiveApprovalTeamVersion(
     args: DeleteInactiveApprovalTeamVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: DeleteInactiveApprovalTeamVersionCommandOutput) => void
   ): void;
 
@@ -244,7 +256,7 @@ export interface MPA {
    */
   getApprovalTeam(
     args: GetApprovalTeamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<GetApprovalTeamCommandOutput>;
   getApprovalTeam(
     args: GetApprovalTeamCommandInput,
@@ -252,7 +264,7 @@ export interface MPA {
   ): void;
   getApprovalTeam(
     args: GetApprovalTeamCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: GetApprovalTeamCommandOutput) => void
   ): void;
 
@@ -261,7 +273,7 @@ export interface MPA {
    */
   getIdentitySource(
     args: GetIdentitySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<GetIdentitySourceCommandOutput>;
   getIdentitySource(
     args: GetIdentitySourceCommandInput,
@@ -269,7 +281,7 @@ export interface MPA {
   ): void;
   getIdentitySource(
     args: GetIdentitySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: GetIdentitySourceCommandOutput) => void
   ): void;
 
@@ -278,7 +290,7 @@ export interface MPA {
    */
   getPolicyVersion(
     args: GetPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<GetPolicyVersionCommandOutput>;
   getPolicyVersion(
     args: GetPolicyVersionCommandInput,
@@ -286,7 +298,7 @@ export interface MPA {
   ): void;
   getPolicyVersion(
     args: GetPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: GetPolicyVersionCommandOutput) => void
   ): void;
 
@@ -295,7 +307,7 @@ export interface MPA {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -303,7 +315,7 @@ export interface MPA {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -312,7 +324,7 @@ export interface MPA {
    */
   getSession(
     args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<GetSessionCommandOutput>;
   getSession(
     args: GetSessionCommandInput,
@@ -320,7 +332,7 @@ export interface MPA {
   ): void;
   getSession(
     args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
@@ -330,7 +342,7 @@ export interface MPA {
   listApprovalTeams(): Promise<ListApprovalTeamsCommandOutput>;
   listApprovalTeams(
     args: ListApprovalTeamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<ListApprovalTeamsCommandOutput>;
   listApprovalTeams(
     args: ListApprovalTeamsCommandInput,
@@ -338,7 +350,7 @@ export interface MPA {
   ): void;
   listApprovalTeams(
     args: ListApprovalTeamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: ListApprovalTeamsCommandOutput) => void
   ): void;
 
@@ -348,7 +360,7 @@ export interface MPA {
   listIdentitySources(): Promise<ListIdentitySourcesCommandOutput>;
   listIdentitySources(
     args: ListIdentitySourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<ListIdentitySourcesCommandOutput>;
   listIdentitySources(
     args: ListIdentitySourcesCommandInput,
@@ -356,7 +368,7 @@ export interface MPA {
   ): void;
   listIdentitySources(
     args: ListIdentitySourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: ListIdentitySourcesCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface MPA {
   listPolicies(): Promise<ListPoliciesCommandOutput>;
   listPolicies(
     args: ListPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<ListPoliciesCommandOutput>;
   listPolicies(
     args: ListPoliciesCommandInput,
@@ -374,7 +386,7 @@ export interface MPA {
   ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: ListPoliciesCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface MPA {
    */
   listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<ListPolicyVersionsCommandOutput>;
   listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
@@ -391,7 +403,7 @@ export interface MPA {
   ): void;
   listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: ListPolicyVersionsCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface MPA {
    */
   listResourcePolicies(
     args: ListResourcePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<ListResourcePoliciesCommandOutput>;
   listResourcePolicies(
     args: ListResourcePoliciesCommandInput,
@@ -408,7 +420,7 @@ export interface MPA {
   ): void;
   listResourcePolicies(
     args: ListResourcePoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: ListResourcePoliciesCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface MPA {
    */
   listSessions(
     args: ListSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<ListSessionsCommandOutput>;
   listSessions(
     args: ListSessionsCommandInput,
@@ -425,7 +437,7 @@ export interface MPA {
   ): void;
   listSessions(
     args: ListSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface MPA {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -442,7 +454,7 @@ export interface MPA {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface MPA {
    */
   startActiveApprovalTeamDeletion(
     args: StartActiveApprovalTeamDeletionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<StartActiveApprovalTeamDeletionCommandOutput>;
   startActiveApprovalTeamDeletion(
     args: StartActiveApprovalTeamDeletionCommandInput,
@@ -459,7 +471,7 @@ export interface MPA {
   ): void;
   startActiveApprovalTeamDeletion(
     args: StartActiveApprovalTeamDeletionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: StartActiveApprovalTeamDeletionCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface MPA {
    */
   startApprovalTeamBaseline(
     args: StartApprovalTeamBaselineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<StartApprovalTeamBaselineCommandOutput>;
   startApprovalTeamBaseline(
     args: StartApprovalTeamBaselineCommandInput,
@@ -476,7 +488,7 @@ export interface MPA {
   ): void;
   startApprovalTeamBaseline(
     args: StartApprovalTeamBaselineCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: StartApprovalTeamBaselineCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface MPA {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -493,7 +505,7 @@ export interface MPA {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface MPA {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -510,7 +522,7 @@ export interface MPA {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface MPA {
    */
   updateApprovalTeam(
     args: UpdateApprovalTeamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MPARequestOptions
   ): Promise<UpdateApprovalTeamCommandOutput>;
   updateApprovalTeam(
     args: UpdateApprovalTeamCommandInput,
@@ -527,7 +539,7 @@ export interface MPA {
   ): void;
   updateApprovalTeam(
     args: UpdateApprovalTeamCommandInput,
-    options: __HttpHandlerOptions,
+    options: MPARequestOptions,
     cb: (err: any, data?: UpdateApprovalTeamCommandOutput) => void
   ): void;
 

@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -266,13 +267,20 @@ const waiters = {
   waitUntilResponderGatewayDeleted,
 };
 
+/**
+ * @public
+ */
+export interface RTBFabricRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RTBFabric {
   /**
    * @see {@link AcceptLinkCommand}
    */
   acceptLink(
     args: AcceptLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<AcceptLinkCommandOutput>;
   acceptLink(
     args: AcceptLinkCommandInput,
@@ -280,7 +288,7 @@ export interface RTBFabric {
   ): void;
   acceptLink(
     args: AcceptLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: AcceptLinkCommandOutput) => void
   ): void;
 
@@ -289,7 +297,7 @@ export interface RTBFabric {
    */
   associateCertificate(
     args: AssociateCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<AssociateCertificateCommandOutput>;
   associateCertificate(
     args: AssociateCertificateCommandInput,
@@ -297,7 +305,7 @@ export interface RTBFabric {
   ): void;
   associateCertificate(
     args: AssociateCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: AssociateCertificateCommandOutput) => void
   ): void;
 
@@ -306,7 +314,7 @@ export interface RTBFabric {
    */
   createInboundExternalLink(
     args: CreateInboundExternalLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<CreateInboundExternalLinkCommandOutput>;
   createInboundExternalLink(
     args: CreateInboundExternalLinkCommandInput,
@@ -314,7 +322,7 @@ export interface RTBFabric {
   ): void;
   createInboundExternalLink(
     args: CreateInboundExternalLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: CreateInboundExternalLinkCommandOutput) => void
   ): void;
 
@@ -323,7 +331,7 @@ export interface RTBFabric {
    */
   createLink(
     args: CreateLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<CreateLinkCommandOutput>;
   createLink(
     args: CreateLinkCommandInput,
@@ -331,7 +339,7 @@ export interface RTBFabric {
   ): void;
   createLink(
     args: CreateLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: CreateLinkCommandOutput) => void
   ): void;
 
@@ -340,7 +348,7 @@ export interface RTBFabric {
    */
   createLinkRoutingRule(
     args: CreateLinkRoutingRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<CreateLinkRoutingRuleCommandOutput>;
   createLinkRoutingRule(
     args: CreateLinkRoutingRuleCommandInput,
@@ -348,7 +356,7 @@ export interface RTBFabric {
   ): void;
   createLinkRoutingRule(
     args: CreateLinkRoutingRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: CreateLinkRoutingRuleCommandOutput) => void
   ): void;
 
@@ -357,7 +365,7 @@ export interface RTBFabric {
    */
   createOutboundExternalLink(
     args: CreateOutboundExternalLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<CreateOutboundExternalLinkCommandOutput>;
   createOutboundExternalLink(
     args: CreateOutboundExternalLinkCommandInput,
@@ -365,7 +373,7 @@ export interface RTBFabric {
   ): void;
   createOutboundExternalLink(
     args: CreateOutboundExternalLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: CreateOutboundExternalLinkCommandOutput) => void
   ): void;
 
@@ -374,7 +382,7 @@ export interface RTBFabric {
    */
   createRequesterGateway(
     args: CreateRequesterGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<CreateRequesterGatewayCommandOutput>;
   createRequesterGateway(
     args: CreateRequesterGatewayCommandInput,
@@ -382,7 +390,7 @@ export interface RTBFabric {
   ): void;
   createRequesterGateway(
     args: CreateRequesterGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: CreateRequesterGatewayCommandOutput) => void
   ): void;
 
@@ -391,7 +399,7 @@ export interface RTBFabric {
    */
   createResponderGateway(
     args: CreateResponderGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<CreateResponderGatewayCommandOutput>;
   createResponderGateway(
     args: CreateResponderGatewayCommandInput,
@@ -399,7 +407,7 @@ export interface RTBFabric {
   ): void;
   createResponderGateway(
     args: CreateResponderGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: CreateResponderGatewayCommandOutput) => void
   ): void;
 
@@ -408,7 +416,7 @@ export interface RTBFabric {
    */
   deleteInboundExternalLink(
     args: DeleteInboundExternalLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<DeleteInboundExternalLinkCommandOutput>;
   deleteInboundExternalLink(
     args: DeleteInboundExternalLinkCommandInput,
@@ -416,7 +424,7 @@ export interface RTBFabric {
   ): void;
   deleteInboundExternalLink(
     args: DeleteInboundExternalLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: DeleteInboundExternalLinkCommandOutput) => void
   ): void;
 
@@ -425,7 +433,7 @@ export interface RTBFabric {
    */
   deleteLink(
     args: DeleteLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<DeleteLinkCommandOutput>;
   deleteLink(
     args: DeleteLinkCommandInput,
@@ -433,7 +441,7 @@ export interface RTBFabric {
   ): void;
   deleteLink(
     args: DeleteLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: DeleteLinkCommandOutput) => void
   ): void;
 
@@ -442,7 +450,7 @@ export interface RTBFabric {
    */
   deleteLinkRoutingRule(
     args: DeleteLinkRoutingRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<DeleteLinkRoutingRuleCommandOutput>;
   deleteLinkRoutingRule(
     args: DeleteLinkRoutingRuleCommandInput,
@@ -450,7 +458,7 @@ export interface RTBFabric {
   ): void;
   deleteLinkRoutingRule(
     args: DeleteLinkRoutingRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: DeleteLinkRoutingRuleCommandOutput) => void
   ): void;
 
@@ -459,7 +467,7 @@ export interface RTBFabric {
    */
   deleteOutboundExternalLink(
     args: DeleteOutboundExternalLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<DeleteOutboundExternalLinkCommandOutput>;
   deleteOutboundExternalLink(
     args: DeleteOutboundExternalLinkCommandInput,
@@ -467,7 +475,7 @@ export interface RTBFabric {
   ): void;
   deleteOutboundExternalLink(
     args: DeleteOutboundExternalLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: DeleteOutboundExternalLinkCommandOutput) => void
   ): void;
 
@@ -476,7 +484,7 @@ export interface RTBFabric {
    */
   deleteRequesterGateway(
     args: DeleteRequesterGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<DeleteRequesterGatewayCommandOutput>;
   deleteRequesterGateway(
     args: DeleteRequesterGatewayCommandInput,
@@ -484,7 +492,7 @@ export interface RTBFabric {
   ): void;
   deleteRequesterGateway(
     args: DeleteRequesterGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: DeleteRequesterGatewayCommandOutput) => void
   ): void;
 
@@ -493,7 +501,7 @@ export interface RTBFabric {
    */
   deleteResponderGateway(
     args: DeleteResponderGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<DeleteResponderGatewayCommandOutput>;
   deleteResponderGateway(
     args: DeleteResponderGatewayCommandInput,
@@ -501,7 +509,7 @@ export interface RTBFabric {
   ): void;
   deleteResponderGateway(
     args: DeleteResponderGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: DeleteResponderGatewayCommandOutput) => void
   ): void;
 
@@ -510,7 +518,7 @@ export interface RTBFabric {
    */
   disassociateCertificate(
     args: DisassociateCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<DisassociateCertificateCommandOutput>;
   disassociateCertificate(
     args: DisassociateCertificateCommandInput,
@@ -518,7 +526,7 @@ export interface RTBFabric {
   ): void;
   disassociateCertificate(
     args: DisassociateCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: DisassociateCertificateCommandOutput) => void
   ): void;
 
@@ -527,7 +535,7 @@ export interface RTBFabric {
    */
   getCertificateAssociation(
     args: GetCertificateAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<GetCertificateAssociationCommandOutput>;
   getCertificateAssociation(
     args: GetCertificateAssociationCommandInput,
@@ -535,7 +543,7 @@ export interface RTBFabric {
   ): void;
   getCertificateAssociation(
     args: GetCertificateAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: GetCertificateAssociationCommandOutput) => void
   ): void;
 
@@ -544,7 +552,7 @@ export interface RTBFabric {
    */
   getInboundExternalLink(
     args: GetInboundExternalLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<GetInboundExternalLinkCommandOutput>;
   getInboundExternalLink(
     args: GetInboundExternalLinkCommandInput,
@@ -552,7 +560,7 @@ export interface RTBFabric {
   ): void;
   getInboundExternalLink(
     args: GetInboundExternalLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: GetInboundExternalLinkCommandOutput) => void
   ): void;
 
@@ -561,7 +569,7 @@ export interface RTBFabric {
    */
   getLink(
     args: GetLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<GetLinkCommandOutput>;
   getLink(
     args: GetLinkCommandInput,
@@ -569,7 +577,7 @@ export interface RTBFabric {
   ): void;
   getLink(
     args: GetLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: GetLinkCommandOutput) => void
   ): void;
 
@@ -578,7 +586,7 @@ export interface RTBFabric {
    */
   getLinkRoutingRule(
     args: GetLinkRoutingRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<GetLinkRoutingRuleCommandOutput>;
   getLinkRoutingRule(
     args: GetLinkRoutingRuleCommandInput,
@@ -586,7 +594,7 @@ export interface RTBFabric {
   ): void;
   getLinkRoutingRule(
     args: GetLinkRoutingRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: GetLinkRoutingRuleCommandOutput) => void
   ): void;
 
@@ -595,7 +603,7 @@ export interface RTBFabric {
    */
   getOutboundExternalLink(
     args: GetOutboundExternalLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<GetOutboundExternalLinkCommandOutput>;
   getOutboundExternalLink(
     args: GetOutboundExternalLinkCommandInput,
@@ -603,7 +611,7 @@ export interface RTBFabric {
   ): void;
   getOutboundExternalLink(
     args: GetOutboundExternalLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: GetOutboundExternalLinkCommandOutput) => void
   ): void;
 
@@ -612,7 +620,7 @@ export interface RTBFabric {
    */
   getRequesterGateway(
     args: GetRequesterGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<GetRequesterGatewayCommandOutput>;
   getRequesterGateway(
     args: GetRequesterGatewayCommandInput,
@@ -620,7 +628,7 @@ export interface RTBFabric {
   ): void;
   getRequesterGateway(
     args: GetRequesterGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: GetRequesterGatewayCommandOutput) => void
   ): void;
 
@@ -629,7 +637,7 @@ export interface RTBFabric {
    */
   getResponderGateway(
     args: GetResponderGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<GetResponderGatewayCommandOutput>;
   getResponderGateway(
     args: GetResponderGatewayCommandInput,
@@ -637,7 +645,7 @@ export interface RTBFabric {
   ): void;
   getResponderGateway(
     args: GetResponderGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: GetResponderGatewayCommandOutput) => void
   ): void;
 
@@ -646,7 +654,7 @@ export interface RTBFabric {
    */
   listCertificateAssociations(
     args: ListCertificateAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<ListCertificateAssociationsCommandOutput>;
   listCertificateAssociations(
     args: ListCertificateAssociationsCommandInput,
@@ -654,7 +662,7 @@ export interface RTBFabric {
   ): void;
   listCertificateAssociations(
     args: ListCertificateAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: ListCertificateAssociationsCommandOutput) => void
   ): void;
 
@@ -663,7 +671,7 @@ export interface RTBFabric {
    */
   listLinkRoutingRules(
     args: ListLinkRoutingRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<ListLinkRoutingRulesCommandOutput>;
   listLinkRoutingRules(
     args: ListLinkRoutingRulesCommandInput,
@@ -671,7 +679,7 @@ export interface RTBFabric {
   ): void;
   listLinkRoutingRules(
     args: ListLinkRoutingRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: ListLinkRoutingRulesCommandOutput) => void
   ): void;
 
@@ -680,7 +688,7 @@ export interface RTBFabric {
    */
   listLinks(
     args: ListLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<ListLinksCommandOutput>;
   listLinks(
     args: ListLinksCommandInput,
@@ -688,7 +696,7 @@ export interface RTBFabric {
   ): void;
   listLinks(
     args: ListLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: ListLinksCommandOutput) => void
   ): void;
 
@@ -698,7 +706,7 @@ export interface RTBFabric {
   listRequesterGateways(): Promise<ListRequesterGatewaysCommandOutput>;
   listRequesterGateways(
     args: ListRequesterGatewaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<ListRequesterGatewaysCommandOutput>;
   listRequesterGateways(
     args: ListRequesterGatewaysCommandInput,
@@ -706,7 +714,7 @@ export interface RTBFabric {
   ): void;
   listRequesterGateways(
     args: ListRequesterGatewaysCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: ListRequesterGatewaysCommandOutput) => void
   ): void;
 
@@ -716,7 +724,7 @@ export interface RTBFabric {
   listResponderGateways(): Promise<ListResponderGatewaysCommandOutput>;
   listResponderGateways(
     args: ListResponderGatewaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<ListResponderGatewaysCommandOutput>;
   listResponderGateways(
     args: ListResponderGatewaysCommandInput,
@@ -724,7 +732,7 @@ export interface RTBFabric {
   ): void;
   listResponderGateways(
     args: ListResponderGatewaysCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: ListResponderGatewaysCommandOutput) => void
   ): void;
 
@@ -733,7 +741,7 @@ export interface RTBFabric {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -741,7 +749,7 @@ export interface RTBFabric {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -750,7 +758,7 @@ export interface RTBFabric {
    */
   rejectLink(
     args: RejectLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<RejectLinkCommandOutput>;
   rejectLink(
     args: RejectLinkCommandInput,
@@ -758,7 +766,7 @@ export interface RTBFabric {
   ): void;
   rejectLink(
     args: RejectLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: RejectLinkCommandOutput) => void
   ): void;
 
@@ -767,7 +775,7 @@ export interface RTBFabric {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -775,7 +783,7 @@ export interface RTBFabric {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -784,7 +792,7 @@ export interface RTBFabric {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -792,7 +800,7 @@ export interface RTBFabric {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -801,7 +809,7 @@ export interface RTBFabric {
    */
   updateLink(
     args: UpdateLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<UpdateLinkCommandOutput>;
   updateLink(
     args: UpdateLinkCommandInput,
@@ -809,7 +817,7 @@ export interface RTBFabric {
   ): void;
   updateLink(
     args: UpdateLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: UpdateLinkCommandOutput) => void
   ): void;
 
@@ -818,7 +826,7 @@ export interface RTBFabric {
    */
   updateLinkModuleFlow(
     args: UpdateLinkModuleFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<UpdateLinkModuleFlowCommandOutput>;
   updateLinkModuleFlow(
     args: UpdateLinkModuleFlowCommandInput,
@@ -826,7 +834,7 @@ export interface RTBFabric {
   ): void;
   updateLinkModuleFlow(
     args: UpdateLinkModuleFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: UpdateLinkModuleFlowCommandOutput) => void
   ): void;
 
@@ -835,7 +843,7 @@ export interface RTBFabric {
    */
   updateLinkRoutingRule(
     args: UpdateLinkRoutingRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<UpdateLinkRoutingRuleCommandOutput>;
   updateLinkRoutingRule(
     args: UpdateLinkRoutingRuleCommandInput,
@@ -843,7 +851,7 @@ export interface RTBFabric {
   ): void;
   updateLinkRoutingRule(
     args: UpdateLinkRoutingRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: UpdateLinkRoutingRuleCommandOutput) => void
   ): void;
 
@@ -852,7 +860,7 @@ export interface RTBFabric {
    */
   updateRequesterGateway(
     args: UpdateRequesterGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<UpdateRequesterGatewayCommandOutput>;
   updateRequesterGateway(
     args: UpdateRequesterGatewayCommandInput,
@@ -860,7 +868,7 @@ export interface RTBFabric {
   ): void;
   updateRequesterGateway(
     args: UpdateRequesterGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: UpdateRequesterGatewayCommandOutput) => void
   ): void;
 
@@ -869,7 +877,7 @@ export interface RTBFabric {
    */
   updateResponderGateway(
     args: UpdateResponderGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RTBFabricRequestOptions
   ): Promise<UpdateResponderGatewayCommandOutput>;
   updateResponderGateway(
     args: UpdateResponderGatewayCommandInput,
@@ -877,7 +885,7 @@ export interface RTBFabric {
   ): void;
   updateResponderGateway(
     args: UpdateResponderGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: RTBFabricRequestOptions,
     cb: (err: any, data?: UpdateResponderGatewayCommandOutput) => void
   ): void;
 

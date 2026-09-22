@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateDeploymentCommandInput,
@@ -109,13 +114,20 @@ const paginators = {
   paginateListWorkloads,
 };
 
+/**
+ * @public
+ */
+export interface LaunchWizardRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface LaunchWizard {
   /**
    * @see {@link CreateDeploymentCommand}
    */
   createDeployment(
     args: CreateDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<CreateDeploymentCommandOutput>;
   createDeployment(
     args: CreateDeploymentCommandInput,
@@ -123,7 +135,7 @@ export interface LaunchWizard {
   ): void;
   createDeployment(
     args: CreateDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): void;
 
@@ -132,7 +144,7 @@ export interface LaunchWizard {
    */
   deleteDeployment(
     args: DeleteDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<DeleteDeploymentCommandOutput>;
   deleteDeployment(
     args: DeleteDeploymentCommandInput,
@@ -140,7 +152,7 @@ export interface LaunchWizard {
   ): void;
   deleteDeployment(
     args: DeleteDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
   ): void;
 
@@ -149,7 +161,7 @@ export interface LaunchWizard {
    */
   getDeployment(
     args: GetDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<GetDeploymentCommandOutput>;
   getDeployment(
     args: GetDeploymentCommandInput,
@@ -157,7 +169,7 @@ export interface LaunchWizard {
   ): void;
   getDeployment(
     args: GetDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: GetDeploymentCommandOutput) => void
   ): void;
 
@@ -166,7 +178,7 @@ export interface LaunchWizard {
    */
   getDeploymentPatternVersion(
     args: GetDeploymentPatternVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<GetDeploymentPatternVersionCommandOutput>;
   getDeploymentPatternVersion(
     args: GetDeploymentPatternVersionCommandInput,
@@ -174,7 +186,7 @@ export interface LaunchWizard {
   ): void;
   getDeploymentPatternVersion(
     args: GetDeploymentPatternVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: GetDeploymentPatternVersionCommandOutput) => void
   ): void;
 
@@ -183,7 +195,7 @@ export interface LaunchWizard {
    */
   getWorkload(
     args: GetWorkloadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<GetWorkloadCommandOutput>;
   getWorkload(
     args: GetWorkloadCommandInput,
@@ -191,7 +203,7 @@ export interface LaunchWizard {
   ): void;
   getWorkload(
     args: GetWorkloadCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: GetWorkloadCommandOutput) => void
   ): void;
 
@@ -200,7 +212,7 @@ export interface LaunchWizard {
    */
   getWorkloadDeploymentPattern(
     args: GetWorkloadDeploymentPatternCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<GetWorkloadDeploymentPatternCommandOutput>;
   getWorkloadDeploymentPattern(
     args: GetWorkloadDeploymentPatternCommandInput,
@@ -208,7 +220,7 @@ export interface LaunchWizard {
   ): void;
   getWorkloadDeploymentPattern(
     args: GetWorkloadDeploymentPatternCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: GetWorkloadDeploymentPatternCommandOutput) => void
   ): void;
 
@@ -217,7 +229,7 @@ export interface LaunchWizard {
    */
   listDeploymentEvents(
     args: ListDeploymentEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<ListDeploymentEventsCommandOutput>;
   listDeploymentEvents(
     args: ListDeploymentEventsCommandInput,
@@ -225,7 +237,7 @@ export interface LaunchWizard {
   ): void;
   listDeploymentEvents(
     args: ListDeploymentEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: ListDeploymentEventsCommandOutput) => void
   ): void;
 
@@ -234,7 +246,7 @@ export interface LaunchWizard {
    */
   listDeploymentPatternVersions(
     args: ListDeploymentPatternVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<ListDeploymentPatternVersionsCommandOutput>;
   listDeploymentPatternVersions(
     args: ListDeploymentPatternVersionsCommandInput,
@@ -242,7 +254,7 @@ export interface LaunchWizard {
   ): void;
   listDeploymentPatternVersions(
     args: ListDeploymentPatternVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: ListDeploymentPatternVersionsCommandOutput) => void
   ): void;
 
@@ -252,7 +264,7 @@ export interface LaunchWizard {
   listDeployments(): Promise<ListDeploymentsCommandOutput>;
   listDeployments(
     args: ListDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<ListDeploymentsCommandOutput>;
   listDeployments(
     args: ListDeploymentsCommandInput,
@@ -260,7 +272,7 @@ export interface LaunchWizard {
   ): void;
   listDeployments(
     args: ListDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): void;
 
@@ -269,7 +281,7 @@ export interface LaunchWizard {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -277,7 +289,7 @@ export interface LaunchWizard {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -286,7 +298,7 @@ export interface LaunchWizard {
    */
   listWorkloadDeploymentPatterns(
     args: ListWorkloadDeploymentPatternsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<ListWorkloadDeploymentPatternsCommandOutput>;
   listWorkloadDeploymentPatterns(
     args: ListWorkloadDeploymentPatternsCommandInput,
@@ -294,7 +306,7 @@ export interface LaunchWizard {
   ): void;
   listWorkloadDeploymentPatterns(
     args: ListWorkloadDeploymentPatternsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: ListWorkloadDeploymentPatternsCommandOutput) => void
   ): void;
 
@@ -304,7 +316,7 @@ export interface LaunchWizard {
   listWorkloads(): Promise<ListWorkloadsCommandOutput>;
   listWorkloads(
     args: ListWorkloadsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<ListWorkloadsCommandOutput>;
   listWorkloads(
     args: ListWorkloadsCommandInput,
@@ -312,7 +324,7 @@ export interface LaunchWizard {
   ): void;
   listWorkloads(
     args: ListWorkloadsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: ListWorkloadsCommandOutput) => void
   ): void;
 
@@ -321,7 +333,7 @@ export interface LaunchWizard {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -329,7 +341,7 @@ export interface LaunchWizard {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -338,7 +350,7 @@ export interface LaunchWizard {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -346,7 +358,7 @@ export interface LaunchWizard {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -355,7 +367,7 @@ export interface LaunchWizard {
    */
   updateDeployment(
     args: UpdateDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LaunchWizardRequestOptions
   ): Promise<UpdateDeploymentCommandOutput>;
   updateDeployment(
     args: UpdateDeploymentCommandInput,
@@ -363,7 +375,7 @@ export interface LaunchWizard {
   ): void;
   updateDeployment(
     args: UpdateDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: LaunchWizardRequestOptions,
     cb: (err: any, data?: UpdateDeploymentCommandOutput) => void
   ): void;
 

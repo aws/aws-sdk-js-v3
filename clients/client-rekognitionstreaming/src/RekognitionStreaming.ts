@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type StartFaceLivenessSessionCommandInput,
@@ -13,13 +13,20 @@ const commands = {
   StartFaceLivenessSessionCommand,
 };
 
+/**
+ * @public
+ */
+export interface RekognitionStreamingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RekognitionStreaming {
   /**
    * @see {@link StartFaceLivenessSessionCommand}
    */
   startFaceLivenessSession(
     args: StartFaceLivenessSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionStreamingRequestOptions
   ): Promise<StartFaceLivenessSessionCommandOutput>;
   startFaceLivenessSession(
     args: StartFaceLivenessSessionCommandInput,
@@ -27,7 +34,7 @@ export interface RekognitionStreaming {
   ): void;
   startFaceLivenessSession(
     args: StartFaceLivenessSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionStreamingRequestOptions,
     cb: (err: any, data?: StartFaceLivenessSessionCommandOutput) => void
   ): void;
 }

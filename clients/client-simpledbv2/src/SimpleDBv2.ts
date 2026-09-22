@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -35,13 +36,20 @@ const waiters = {
   waitUntilExportSucceeded,
 };
 
+/**
+ * @public
+ */
+export interface SimpleDBv2RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SimpleDBv2 {
   /**
    * @see {@link GetExportCommand}
    */
   getExport(
     args: GetExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SimpleDBv2RequestOptions
   ): Promise<GetExportCommandOutput>;
   getExport(
     args: GetExportCommandInput,
@@ -49,7 +57,7 @@ export interface SimpleDBv2 {
   ): void;
   getExport(
     args: GetExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: SimpleDBv2RequestOptions,
     cb: (err: any, data?: GetExportCommandOutput) => void
   ): void;
 
@@ -59,7 +67,7 @@ export interface SimpleDBv2 {
   listExports(): Promise<ListExportsCommandOutput>;
   listExports(
     args: ListExportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SimpleDBv2RequestOptions
   ): Promise<ListExportsCommandOutput>;
   listExports(
     args: ListExportsCommandInput,
@@ -67,7 +75,7 @@ export interface SimpleDBv2 {
   ): void;
   listExports(
     args: ListExportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SimpleDBv2RequestOptions,
     cb: (err: any, data?: ListExportsCommandOutput) => void
   ): void;
 
@@ -76,7 +84,7 @@ export interface SimpleDBv2 {
    */
   startDomainExport(
     args: StartDomainExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SimpleDBv2RequestOptions
   ): Promise<StartDomainExportCommandOutput>;
   startDomainExport(
     args: StartDomainExportCommandInput,
@@ -84,7 +92,7 @@ export interface SimpleDBv2 {
   ): void;
   startDomainExport(
     args: StartDomainExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: SimpleDBv2RequestOptions,
     cb: (err: any, data?: StartDomainExportCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateExperimentTemplateCommandInput,
@@ -173,13 +178,20 @@ const paginators = {
   paginateListTargetResourceTypes,
 };
 
+/**
+ * @public
+ */
+export interface FisRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Fis {
   /**
    * @see {@link CreateExperimentTemplateCommand}
    */
   createExperimentTemplate(
     args: CreateExperimentTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<CreateExperimentTemplateCommandOutput>;
   createExperimentTemplate(
     args: CreateExperimentTemplateCommandInput,
@@ -187,7 +199,7 @@ export interface Fis {
   ): void;
   createExperimentTemplate(
     args: CreateExperimentTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: CreateExperimentTemplateCommandOutput) => void
   ): void;
 
@@ -196,7 +208,7 @@ export interface Fis {
    */
   createTargetAccountConfiguration(
     args: CreateTargetAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<CreateTargetAccountConfigurationCommandOutput>;
   createTargetAccountConfiguration(
     args: CreateTargetAccountConfigurationCommandInput,
@@ -204,7 +216,7 @@ export interface Fis {
   ): void;
   createTargetAccountConfiguration(
     args: CreateTargetAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: CreateTargetAccountConfigurationCommandOutput) => void
   ): void;
 
@@ -213,7 +225,7 @@ export interface Fis {
    */
   deleteExperimentTemplate(
     args: DeleteExperimentTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<DeleteExperimentTemplateCommandOutput>;
   deleteExperimentTemplate(
     args: DeleteExperimentTemplateCommandInput,
@@ -221,7 +233,7 @@ export interface Fis {
   ): void;
   deleteExperimentTemplate(
     args: DeleteExperimentTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: DeleteExperimentTemplateCommandOutput) => void
   ): void;
 
@@ -230,7 +242,7 @@ export interface Fis {
    */
   deleteTargetAccountConfiguration(
     args: DeleteTargetAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<DeleteTargetAccountConfigurationCommandOutput>;
   deleteTargetAccountConfiguration(
     args: DeleteTargetAccountConfigurationCommandInput,
@@ -238,7 +250,7 @@ export interface Fis {
   ): void;
   deleteTargetAccountConfiguration(
     args: DeleteTargetAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: DeleteTargetAccountConfigurationCommandOutput) => void
   ): void;
 
@@ -247,7 +259,7 @@ export interface Fis {
    */
   getAction(
     args: GetActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<GetActionCommandOutput>;
   getAction(
     args: GetActionCommandInput,
@@ -255,7 +267,7 @@ export interface Fis {
   ): void;
   getAction(
     args: GetActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: GetActionCommandOutput) => void
   ): void;
 
@@ -264,7 +276,7 @@ export interface Fis {
    */
   getExperiment(
     args: GetExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<GetExperimentCommandOutput>;
   getExperiment(
     args: GetExperimentCommandInput,
@@ -272,7 +284,7 @@ export interface Fis {
   ): void;
   getExperiment(
     args: GetExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: GetExperimentCommandOutput) => void
   ): void;
 
@@ -281,7 +293,7 @@ export interface Fis {
    */
   getExperimentTargetAccountConfiguration(
     args: GetExperimentTargetAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<GetExperimentTargetAccountConfigurationCommandOutput>;
   getExperimentTargetAccountConfiguration(
     args: GetExperimentTargetAccountConfigurationCommandInput,
@@ -289,7 +301,7 @@ export interface Fis {
   ): void;
   getExperimentTargetAccountConfiguration(
     args: GetExperimentTargetAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: GetExperimentTargetAccountConfigurationCommandOutput) => void
   ): void;
 
@@ -298,7 +310,7 @@ export interface Fis {
    */
   getExperimentTemplate(
     args: GetExperimentTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<GetExperimentTemplateCommandOutput>;
   getExperimentTemplate(
     args: GetExperimentTemplateCommandInput,
@@ -306,7 +318,7 @@ export interface Fis {
   ): void;
   getExperimentTemplate(
     args: GetExperimentTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: GetExperimentTemplateCommandOutput) => void
   ): void;
 
@@ -315,7 +327,7 @@ export interface Fis {
    */
   getSafetyLever(
     args: GetSafetyLeverCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<GetSafetyLeverCommandOutput>;
   getSafetyLever(
     args: GetSafetyLeverCommandInput,
@@ -323,7 +335,7 @@ export interface Fis {
   ): void;
   getSafetyLever(
     args: GetSafetyLeverCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: GetSafetyLeverCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface Fis {
    */
   getTargetAccountConfiguration(
     args: GetTargetAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<GetTargetAccountConfigurationCommandOutput>;
   getTargetAccountConfiguration(
     args: GetTargetAccountConfigurationCommandInput,
@@ -340,7 +352,7 @@ export interface Fis {
   ): void;
   getTargetAccountConfiguration(
     args: GetTargetAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: GetTargetAccountConfigurationCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface Fis {
    */
   getTargetResourceType(
     args: GetTargetResourceTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<GetTargetResourceTypeCommandOutput>;
   getTargetResourceType(
     args: GetTargetResourceTypeCommandInput,
@@ -357,7 +369,7 @@ export interface Fis {
   ): void;
   getTargetResourceType(
     args: GetTargetResourceTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: GetTargetResourceTypeCommandOutput) => void
   ): void;
 
@@ -367,7 +379,7 @@ export interface Fis {
   listActions(): Promise<ListActionsCommandOutput>;
   listActions(
     args: ListActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<ListActionsCommandOutput>;
   listActions(
     args: ListActionsCommandInput,
@@ -375,7 +387,7 @@ export interface Fis {
   ): void;
   listActions(
     args: ListActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: ListActionsCommandOutput) => void
   ): void;
 
@@ -384,7 +396,7 @@ export interface Fis {
    */
   listExperimentResolvedTargets(
     args: ListExperimentResolvedTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<ListExperimentResolvedTargetsCommandOutput>;
   listExperimentResolvedTargets(
     args: ListExperimentResolvedTargetsCommandInput,
@@ -392,7 +404,7 @@ export interface Fis {
   ): void;
   listExperimentResolvedTargets(
     args: ListExperimentResolvedTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: ListExperimentResolvedTargetsCommandOutput) => void
   ): void;
 
@@ -402,7 +414,7 @@ export interface Fis {
   listExperiments(): Promise<ListExperimentsCommandOutput>;
   listExperiments(
     args: ListExperimentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<ListExperimentsCommandOutput>;
   listExperiments(
     args: ListExperimentsCommandInput,
@@ -410,7 +422,7 @@ export interface Fis {
   ): void;
   listExperiments(
     args: ListExperimentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: ListExperimentsCommandOutput) => void
   ): void;
 
@@ -419,7 +431,7 @@ export interface Fis {
    */
   listExperimentTargetAccountConfigurations(
     args: ListExperimentTargetAccountConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<ListExperimentTargetAccountConfigurationsCommandOutput>;
   listExperimentTargetAccountConfigurations(
     args: ListExperimentTargetAccountConfigurationsCommandInput,
@@ -427,7 +439,7 @@ export interface Fis {
   ): void;
   listExperimentTargetAccountConfigurations(
     args: ListExperimentTargetAccountConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: ListExperimentTargetAccountConfigurationsCommandOutput) => void
   ): void;
 
@@ -437,7 +449,7 @@ export interface Fis {
   listExperimentTemplates(): Promise<ListExperimentTemplatesCommandOutput>;
   listExperimentTemplates(
     args: ListExperimentTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<ListExperimentTemplatesCommandOutput>;
   listExperimentTemplates(
     args: ListExperimentTemplatesCommandInput,
@@ -445,7 +457,7 @@ export interface Fis {
   ): void;
   listExperimentTemplates(
     args: ListExperimentTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: ListExperimentTemplatesCommandOutput) => void
   ): void;
 
@@ -454,7 +466,7 @@ export interface Fis {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -462,7 +474,7 @@ export interface Fis {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -471,7 +483,7 @@ export interface Fis {
    */
   listTargetAccountConfigurations(
     args: ListTargetAccountConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<ListTargetAccountConfigurationsCommandOutput>;
   listTargetAccountConfigurations(
     args: ListTargetAccountConfigurationsCommandInput,
@@ -479,7 +491,7 @@ export interface Fis {
   ): void;
   listTargetAccountConfigurations(
     args: ListTargetAccountConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: ListTargetAccountConfigurationsCommandOutput) => void
   ): void;
 
@@ -489,7 +501,7 @@ export interface Fis {
   listTargetResourceTypes(): Promise<ListTargetResourceTypesCommandOutput>;
   listTargetResourceTypes(
     args: ListTargetResourceTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<ListTargetResourceTypesCommandOutput>;
   listTargetResourceTypes(
     args: ListTargetResourceTypesCommandInput,
@@ -497,7 +509,7 @@ export interface Fis {
   ): void;
   listTargetResourceTypes(
     args: ListTargetResourceTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: ListTargetResourceTypesCommandOutput) => void
   ): void;
 
@@ -506,7 +518,7 @@ export interface Fis {
    */
   startExperiment(
     args: StartExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<StartExperimentCommandOutput>;
   startExperiment(
     args: StartExperimentCommandInput,
@@ -514,7 +526,7 @@ export interface Fis {
   ): void;
   startExperiment(
     args: StartExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: StartExperimentCommandOutput) => void
   ): void;
 
@@ -523,7 +535,7 @@ export interface Fis {
    */
   stopExperiment(
     args: StopExperimentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<StopExperimentCommandOutput>;
   stopExperiment(
     args: StopExperimentCommandInput,
@@ -531,7 +543,7 @@ export interface Fis {
   ): void;
   stopExperiment(
     args: StopExperimentCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: StopExperimentCommandOutput) => void
   ): void;
 
@@ -540,7 +552,7 @@ export interface Fis {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -548,7 +560,7 @@ export interface Fis {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -557,7 +569,7 @@ export interface Fis {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -565,7 +577,7 @@ export interface Fis {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -574,7 +586,7 @@ export interface Fis {
    */
   updateExperimentTemplate(
     args: UpdateExperimentTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<UpdateExperimentTemplateCommandOutput>;
   updateExperimentTemplate(
     args: UpdateExperimentTemplateCommandInput,
@@ -582,7 +594,7 @@ export interface Fis {
   ): void;
   updateExperimentTemplate(
     args: UpdateExperimentTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: UpdateExperimentTemplateCommandOutput) => void
   ): void;
 
@@ -591,7 +603,7 @@ export interface Fis {
    */
   updateSafetyLeverState(
     args: UpdateSafetyLeverStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<UpdateSafetyLeverStateCommandOutput>;
   updateSafetyLeverState(
     args: UpdateSafetyLeverStateCommandInput,
@@ -599,7 +611,7 @@ export interface Fis {
   ): void;
   updateSafetyLeverState(
     args: UpdateSafetyLeverStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: UpdateSafetyLeverStateCommandOutput) => void
   ): void;
 
@@ -608,7 +620,7 @@ export interface Fis {
    */
   updateTargetAccountConfiguration(
     args: UpdateTargetAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: FisRequestOptions
   ): Promise<UpdateTargetAccountConfigurationCommandOutput>;
   updateTargetAccountConfiguration(
     args: UpdateTargetAccountConfigurationCommandInput,
@@ -616,7 +628,7 @@ export interface Fis {
   ): void;
   updateTargetAccountConfiguration(
     args: UpdateTargetAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: FisRequestOptions,
     cb: (err: any, data?: UpdateTargetAccountConfigurationCommandOutput) => void
   ): void;
 

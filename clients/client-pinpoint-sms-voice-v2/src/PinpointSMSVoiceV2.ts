@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateOriginationIdentityCommandInput,
@@ -731,13 +736,20 @@ const paginators = {
   paginateListRegistrationAssociations,
 };
 
+/**
+ * @public
+ */
+export interface PinpointSMSVoiceV2RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link AssociateOriginationIdentityCommand}
    */
   associateOriginationIdentity(
     args: AssociateOriginationIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<AssociateOriginationIdentityCommandOutput>;
   associateOriginationIdentity(
     args: AssociateOriginationIdentityCommandInput,
@@ -745,7 +757,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   associateOriginationIdentity(
     args: AssociateOriginationIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: AssociateOriginationIdentityCommandOutput) => void
   ): void;
 
@@ -754,7 +766,7 @@ export interface PinpointSMSVoiceV2 {
    */
   associateProtectConfiguration(
     args: AssociateProtectConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<AssociateProtectConfigurationCommandOutput>;
   associateProtectConfiguration(
     args: AssociateProtectConfigurationCommandInput,
@@ -762,7 +774,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   associateProtectConfiguration(
     args: AssociateProtectConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: AssociateProtectConfigurationCommandOutput) => void
   ): void;
 
@@ -771,7 +783,7 @@ export interface PinpointSMSVoiceV2 {
    */
   carrierLookup(
     args: CarrierLookupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CarrierLookupCommandOutput>;
   carrierLookup(
     args: CarrierLookupCommandInput,
@@ -779,7 +791,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   carrierLookup(
     args: CarrierLookupCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CarrierLookupCommandOutput) => void
   ): void;
 
@@ -788,7 +800,7 @@ export interface PinpointSMSVoiceV2 {
    */
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateConfigurationSetCommandOutput>;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
@@ -796,7 +808,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateConfigurationSetCommandOutput) => void
   ): void;
 
@@ -805,7 +817,7 @@ export interface PinpointSMSVoiceV2 {
    */
   createEventDestination(
     args: CreateEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateEventDestinationCommandOutput>;
   createEventDestination(
     args: CreateEventDestinationCommandInput,
@@ -813,7 +825,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createEventDestination(
     args: CreateEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateEventDestinationCommandOutput) => void
   ): void;
 
@@ -822,7 +834,7 @@ export interface PinpointSMSVoiceV2 {
    */
   createNotifyConfiguration(
     args: CreateNotifyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateNotifyConfigurationCommandOutput>;
   createNotifyConfiguration(
     args: CreateNotifyConfigurationCommandInput,
@@ -830,7 +842,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createNotifyConfiguration(
     args: CreateNotifyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateNotifyConfigurationCommandOutput) => void
   ): void;
 
@@ -839,7 +851,7 @@ export interface PinpointSMSVoiceV2 {
    */
   createOptOutList(
     args: CreateOptOutListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateOptOutListCommandOutput>;
   createOptOutList(
     args: CreateOptOutListCommandInput,
@@ -847,7 +859,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createOptOutList(
     args: CreateOptOutListCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateOptOutListCommandOutput) => void
   ): void;
 
@@ -856,7 +868,7 @@ export interface PinpointSMSVoiceV2 {
    */
   createPool(
     args: CreatePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreatePoolCommandOutput>;
   createPool(
     args: CreatePoolCommandInput,
@@ -864,7 +876,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createPool(
     args: CreatePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreatePoolCommandOutput) => void
   ): void;
 
@@ -874,7 +886,7 @@ export interface PinpointSMSVoiceV2 {
   createProtectConfiguration(): Promise<CreateProtectConfigurationCommandOutput>;
   createProtectConfiguration(
     args: CreateProtectConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateProtectConfigurationCommandOutput>;
   createProtectConfiguration(
     args: CreateProtectConfigurationCommandInput,
@@ -882,7 +894,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createProtectConfiguration(
     args: CreateProtectConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateProtectConfigurationCommandOutput) => void
   ): void;
 
@@ -892,7 +904,7 @@ export interface PinpointSMSVoiceV2 {
   createRcsAgent(): Promise<CreateRcsAgentCommandOutput>;
   createRcsAgent(
     args: CreateRcsAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateRcsAgentCommandOutput>;
   createRcsAgent(
     args: CreateRcsAgentCommandInput,
@@ -900,7 +912,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createRcsAgent(
     args: CreateRcsAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateRcsAgentCommandOutput) => void
   ): void;
 
@@ -909,7 +921,7 @@ export interface PinpointSMSVoiceV2 {
    */
   createRegistration(
     args: CreateRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateRegistrationCommandOutput>;
   createRegistration(
     args: CreateRegistrationCommandInput,
@@ -917,7 +929,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createRegistration(
     args: CreateRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateRegistrationCommandOutput) => void
   ): void;
 
@@ -926,7 +938,7 @@ export interface PinpointSMSVoiceV2 {
    */
   createRegistrationAssociation(
     args: CreateRegistrationAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateRegistrationAssociationCommandOutput>;
   createRegistrationAssociation(
     args: CreateRegistrationAssociationCommandInput,
@@ -934,7 +946,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createRegistrationAssociation(
     args: CreateRegistrationAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateRegistrationAssociationCommandOutput) => void
   ): void;
 
@@ -944,7 +956,7 @@ export interface PinpointSMSVoiceV2 {
   createRegistrationAttachment(): Promise<CreateRegistrationAttachmentCommandOutput>;
   createRegistrationAttachment(
     args: CreateRegistrationAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateRegistrationAttachmentCommandOutput>;
   createRegistrationAttachment(
     args: CreateRegistrationAttachmentCommandInput,
@@ -952,7 +964,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createRegistrationAttachment(
     args: CreateRegistrationAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateRegistrationAttachmentCommandOutput) => void
   ): void;
 
@@ -961,7 +973,7 @@ export interface PinpointSMSVoiceV2 {
    */
   createRegistrationVersion(
     args: CreateRegistrationVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateRegistrationVersionCommandOutput>;
   createRegistrationVersion(
     args: CreateRegistrationVersionCommandInput,
@@ -969,7 +981,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createRegistrationVersion(
     args: CreateRegistrationVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateRegistrationVersionCommandOutput) => void
   ): void;
 
@@ -978,7 +990,7 @@ export interface PinpointSMSVoiceV2 {
    */
   createVerifiedDestinationNumber(
     args: CreateVerifiedDestinationNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<CreateVerifiedDestinationNumberCommandOutput>;
   createVerifiedDestinationNumber(
     args: CreateVerifiedDestinationNumberCommandInput,
@@ -986,7 +998,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   createVerifiedDestinationNumber(
     args: CreateVerifiedDestinationNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: CreateVerifiedDestinationNumberCommandOutput) => void
   ): void;
 
@@ -996,7 +1008,7 @@ export interface PinpointSMSVoiceV2 {
   deleteAccountDefaultProtectConfiguration(): Promise<DeleteAccountDefaultProtectConfigurationCommandOutput>;
   deleteAccountDefaultProtectConfiguration(
     args: DeleteAccountDefaultProtectConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteAccountDefaultProtectConfigurationCommandOutput>;
   deleteAccountDefaultProtectConfiguration(
     args: DeleteAccountDefaultProtectConfigurationCommandInput,
@@ -1004,7 +1016,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteAccountDefaultProtectConfiguration(
     args: DeleteAccountDefaultProtectConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteAccountDefaultProtectConfigurationCommandOutput) => void
   ): void;
 
@@ -1013,7 +1025,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteConfigurationSetCommandOutput>;
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
@@ -1021,7 +1033,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteConfigurationSetCommandOutput) => void
   ): void;
 
@@ -1030,7 +1042,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteDefaultMessageType(
     args: DeleteDefaultMessageTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteDefaultMessageTypeCommandOutput>;
   deleteDefaultMessageType(
     args: DeleteDefaultMessageTypeCommandInput,
@@ -1038,7 +1050,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteDefaultMessageType(
     args: DeleteDefaultMessageTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteDefaultMessageTypeCommandOutput) => void
   ): void;
 
@@ -1047,7 +1059,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteDefaultSenderId(
     args: DeleteDefaultSenderIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteDefaultSenderIdCommandOutput>;
   deleteDefaultSenderId(
     args: DeleteDefaultSenderIdCommandInput,
@@ -1055,7 +1067,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteDefaultSenderId(
     args: DeleteDefaultSenderIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteDefaultSenderIdCommandOutput) => void
   ): void;
 
@@ -1064,7 +1076,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteEventDestination(
     args: DeleteEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteEventDestinationCommandOutput>;
   deleteEventDestination(
     args: DeleteEventDestinationCommandInput,
@@ -1072,7 +1084,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteEventDestination(
     args: DeleteEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteEventDestinationCommandOutput) => void
   ): void;
 
@@ -1081,7 +1093,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteKeyword(
     args: DeleteKeywordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteKeywordCommandOutput>;
   deleteKeyword(
     args: DeleteKeywordCommandInput,
@@ -1089,7 +1101,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteKeyword(
     args: DeleteKeywordCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteKeywordCommandOutput) => void
   ): void;
 
@@ -1099,7 +1111,7 @@ export interface PinpointSMSVoiceV2 {
   deleteMediaMessageSpendLimitOverride(): Promise<DeleteMediaMessageSpendLimitOverrideCommandOutput>;
   deleteMediaMessageSpendLimitOverride(
     args: DeleteMediaMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteMediaMessageSpendLimitOverrideCommandOutput>;
   deleteMediaMessageSpendLimitOverride(
     args: DeleteMediaMessageSpendLimitOverrideCommandInput,
@@ -1107,7 +1119,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteMediaMessageSpendLimitOverride(
     args: DeleteMediaMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteMediaMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -1116,7 +1128,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteNotifyConfiguration(
     args: DeleteNotifyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteNotifyConfigurationCommandOutput>;
   deleteNotifyConfiguration(
     args: DeleteNotifyConfigurationCommandInput,
@@ -1124,7 +1136,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteNotifyConfiguration(
     args: DeleteNotifyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteNotifyConfigurationCommandOutput) => void
   ): void;
 
@@ -1134,7 +1146,7 @@ export interface PinpointSMSVoiceV2 {
   deleteNotifyMessageSpendLimitOverride(): Promise<DeleteNotifyMessageSpendLimitOverrideCommandOutput>;
   deleteNotifyMessageSpendLimitOverride(
     args: DeleteNotifyMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteNotifyMessageSpendLimitOverrideCommandOutput>;
   deleteNotifyMessageSpendLimitOverride(
     args: DeleteNotifyMessageSpendLimitOverrideCommandInput,
@@ -1142,7 +1154,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteNotifyMessageSpendLimitOverride(
     args: DeleteNotifyMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteNotifyMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -1151,7 +1163,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteOptedOutNumber(
     args: DeleteOptedOutNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteOptedOutNumberCommandOutput>;
   deleteOptedOutNumber(
     args: DeleteOptedOutNumberCommandInput,
@@ -1159,7 +1171,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteOptedOutNumber(
     args: DeleteOptedOutNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteOptedOutNumberCommandOutput) => void
   ): void;
 
@@ -1168,7 +1180,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteOptOutList(
     args: DeleteOptOutListCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteOptOutListCommandOutput>;
   deleteOptOutList(
     args: DeleteOptOutListCommandInput,
@@ -1176,7 +1188,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteOptOutList(
     args: DeleteOptOutListCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteOptOutListCommandOutput) => void
   ): void;
 
@@ -1185,7 +1197,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deletePool(
     args: DeletePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeletePoolCommandOutput>;
   deletePool(
     args: DeletePoolCommandInput,
@@ -1193,7 +1205,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deletePool(
     args: DeletePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeletePoolCommandOutput) => void
   ): void;
 
@@ -1202,7 +1214,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteProtectConfiguration(
     args: DeleteProtectConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteProtectConfigurationCommandOutput>;
   deleteProtectConfiguration(
     args: DeleteProtectConfigurationCommandInput,
@@ -1210,7 +1222,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteProtectConfiguration(
     args: DeleteProtectConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteProtectConfigurationCommandOutput) => void
   ): void;
 
@@ -1219,7 +1231,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteProtectConfigurationRuleSetNumberOverride(
     args: DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput>;
   deleteProtectConfigurationRuleSetNumberOverride(
     args: DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
@@ -1227,7 +1239,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteProtectConfigurationRuleSetNumberOverride(
     args: DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput) => void
   ): void;
 
@@ -1236,7 +1248,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteRcsAgent(
     args: DeleteRcsAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteRcsAgentCommandOutput>;
   deleteRcsAgent(
     args: DeleteRcsAgentCommandInput,
@@ -1244,7 +1256,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteRcsAgent(
     args: DeleteRcsAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteRcsAgentCommandOutput) => void
   ): void;
 
@@ -1254,7 +1266,7 @@ export interface PinpointSMSVoiceV2 {
   deleteRcsMessageSpendLimitOverride(): Promise<DeleteRcsMessageSpendLimitOverrideCommandOutput>;
   deleteRcsMessageSpendLimitOverride(
     args: DeleteRcsMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteRcsMessageSpendLimitOverrideCommandOutput>;
   deleteRcsMessageSpendLimitOverride(
     args: DeleteRcsMessageSpendLimitOverrideCommandInput,
@@ -1262,7 +1274,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteRcsMessageSpendLimitOverride(
     args: DeleteRcsMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteRcsMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -1271,7 +1283,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteRegistration(
     args: DeleteRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteRegistrationCommandOutput>;
   deleteRegistration(
     args: DeleteRegistrationCommandInput,
@@ -1279,7 +1291,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteRegistration(
     args: DeleteRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteRegistrationCommandOutput) => void
   ): void;
 
@@ -1288,7 +1300,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteRegistrationAttachment(
     args: DeleteRegistrationAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteRegistrationAttachmentCommandOutput>;
   deleteRegistrationAttachment(
     args: DeleteRegistrationAttachmentCommandInput,
@@ -1296,7 +1308,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteRegistrationAttachment(
     args: DeleteRegistrationAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteRegistrationAttachmentCommandOutput) => void
   ): void;
 
@@ -1305,7 +1317,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteRegistrationFieldValue(
     args: DeleteRegistrationFieldValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteRegistrationFieldValueCommandOutput>;
   deleteRegistrationFieldValue(
     args: DeleteRegistrationFieldValueCommandInput,
@@ -1313,7 +1325,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteRegistrationFieldValue(
     args: DeleteRegistrationFieldValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteRegistrationFieldValueCommandOutput) => void
   ): void;
 
@@ -1322,7 +1334,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -1330,7 +1342,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1340,7 +1352,7 @@ export interface PinpointSMSVoiceV2 {
   deleteTextMessageSpendLimitOverride(): Promise<DeleteTextMessageSpendLimitOverrideCommandOutput>;
   deleteTextMessageSpendLimitOverride(
     args: DeleteTextMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteTextMessageSpendLimitOverrideCommandOutput>;
   deleteTextMessageSpendLimitOverride(
     args: DeleteTextMessageSpendLimitOverrideCommandInput,
@@ -1348,7 +1360,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteTextMessageSpendLimitOverride(
     args: DeleteTextMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteTextMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -1357,7 +1369,7 @@ export interface PinpointSMSVoiceV2 {
    */
   deleteVerifiedDestinationNumber(
     args: DeleteVerifiedDestinationNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteVerifiedDestinationNumberCommandOutput>;
   deleteVerifiedDestinationNumber(
     args: DeleteVerifiedDestinationNumberCommandInput,
@@ -1365,7 +1377,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteVerifiedDestinationNumber(
     args: DeleteVerifiedDestinationNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteVerifiedDestinationNumberCommandOutput) => void
   ): void;
 
@@ -1375,7 +1387,7 @@ export interface PinpointSMSVoiceV2 {
   deleteVoiceMessageSpendLimitOverride(): Promise<DeleteVoiceMessageSpendLimitOverrideCommandOutput>;
   deleteVoiceMessageSpendLimitOverride(
     args: DeleteVoiceMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DeleteVoiceMessageSpendLimitOverrideCommandOutput>;
   deleteVoiceMessageSpendLimitOverride(
     args: DeleteVoiceMessageSpendLimitOverrideCommandInput,
@@ -1383,7 +1395,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   deleteVoiceMessageSpendLimitOverride(
     args: DeleteVoiceMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DeleteVoiceMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -1393,7 +1405,7 @@ export interface PinpointSMSVoiceV2 {
   describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
@@ -1401,7 +1413,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): void;
 
@@ -1411,7 +1423,7 @@ export interface PinpointSMSVoiceV2 {
   describeAccountLimits(): Promise<DescribeAccountLimitsCommandOutput>;
   describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeAccountLimitsCommandOutput>;
   describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
@@ -1419,7 +1431,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeAccountLimitsCommandOutput) => void
   ): void;
 
@@ -1429,7 +1441,7 @@ export interface PinpointSMSVoiceV2 {
   describeConfigurationSets(): Promise<DescribeConfigurationSetsCommandOutput>;
   describeConfigurationSets(
     args: DescribeConfigurationSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeConfigurationSetsCommandOutput>;
   describeConfigurationSets(
     args: DescribeConfigurationSetsCommandInput,
@@ -1437,7 +1449,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeConfigurationSets(
     args: DescribeConfigurationSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeConfigurationSetsCommandOutput) => void
   ): void;
 
@@ -1446,7 +1458,7 @@ export interface PinpointSMSVoiceV2 {
    */
   describeKeywords(
     args: DescribeKeywordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeKeywordsCommandOutput>;
   describeKeywords(
     args: DescribeKeywordsCommandInput,
@@ -1454,7 +1466,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeKeywords(
     args: DescribeKeywordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeKeywordsCommandOutput) => void
   ): void;
 
@@ -1464,7 +1476,7 @@ export interface PinpointSMSVoiceV2 {
   describeNotifyConfigurations(): Promise<DescribeNotifyConfigurationsCommandOutput>;
   describeNotifyConfigurations(
     args: DescribeNotifyConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeNotifyConfigurationsCommandOutput>;
   describeNotifyConfigurations(
     args: DescribeNotifyConfigurationsCommandInput,
@@ -1472,7 +1484,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeNotifyConfigurations(
     args: DescribeNotifyConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeNotifyConfigurationsCommandOutput) => void
   ): void;
 
@@ -1482,7 +1494,7 @@ export interface PinpointSMSVoiceV2 {
   describeNotifyTemplates(): Promise<DescribeNotifyTemplatesCommandOutput>;
   describeNotifyTemplates(
     args: DescribeNotifyTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeNotifyTemplatesCommandOutput>;
   describeNotifyTemplates(
     args: DescribeNotifyTemplatesCommandInput,
@@ -1490,7 +1502,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeNotifyTemplates(
     args: DescribeNotifyTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeNotifyTemplatesCommandOutput) => void
   ): void;
 
@@ -1499,7 +1511,7 @@ export interface PinpointSMSVoiceV2 {
    */
   describeOptedOutNumbers(
     args: DescribeOptedOutNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeOptedOutNumbersCommandOutput>;
   describeOptedOutNumbers(
     args: DescribeOptedOutNumbersCommandInput,
@@ -1507,7 +1519,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeOptedOutNumbers(
     args: DescribeOptedOutNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeOptedOutNumbersCommandOutput) => void
   ): void;
 
@@ -1517,7 +1529,7 @@ export interface PinpointSMSVoiceV2 {
   describeOptOutLists(): Promise<DescribeOptOutListsCommandOutput>;
   describeOptOutLists(
     args: DescribeOptOutListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeOptOutListsCommandOutput>;
   describeOptOutLists(
     args: DescribeOptOutListsCommandInput,
@@ -1525,7 +1537,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeOptOutLists(
     args: DescribeOptOutListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeOptOutListsCommandOutput) => void
   ): void;
 
@@ -1535,7 +1547,7 @@ export interface PinpointSMSVoiceV2 {
   describePhoneNumbers(): Promise<DescribePhoneNumbersCommandOutput>;
   describePhoneNumbers(
     args: DescribePhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribePhoneNumbersCommandOutput>;
   describePhoneNumbers(
     args: DescribePhoneNumbersCommandInput,
@@ -1543,7 +1555,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describePhoneNumbers(
     args: DescribePhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribePhoneNumbersCommandOutput) => void
   ): void;
 
@@ -1553,7 +1565,7 @@ export interface PinpointSMSVoiceV2 {
   describePools(): Promise<DescribePoolsCommandOutput>;
   describePools(
     args: DescribePoolsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribePoolsCommandOutput>;
   describePools(
     args: DescribePoolsCommandInput,
@@ -1561,7 +1573,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describePools(
     args: DescribePoolsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribePoolsCommandOutput) => void
   ): void;
 
@@ -1571,7 +1583,7 @@ export interface PinpointSMSVoiceV2 {
   describeProtectConfigurations(): Promise<DescribeProtectConfigurationsCommandOutput>;
   describeProtectConfigurations(
     args: DescribeProtectConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeProtectConfigurationsCommandOutput>;
   describeProtectConfigurations(
     args: DescribeProtectConfigurationsCommandInput,
@@ -1579,7 +1591,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeProtectConfigurations(
     args: DescribeProtectConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeProtectConfigurationsCommandOutput) => void
   ): void;
 
@@ -1588,7 +1600,7 @@ export interface PinpointSMSVoiceV2 {
    */
   describeRcsAgentCountryLaunchStatus(
     args: DescribeRcsAgentCountryLaunchStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeRcsAgentCountryLaunchStatusCommandOutput>;
   describeRcsAgentCountryLaunchStatus(
     args: DescribeRcsAgentCountryLaunchStatusCommandInput,
@@ -1596,7 +1608,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeRcsAgentCountryLaunchStatus(
     args: DescribeRcsAgentCountryLaunchStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeRcsAgentCountryLaunchStatusCommandOutput) => void
   ): void;
 
@@ -1606,7 +1618,7 @@ export interface PinpointSMSVoiceV2 {
   describeRcsAgents(): Promise<DescribeRcsAgentsCommandOutput>;
   describeRcsAgents(
     args: DescribeRcsAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeRcsAgentsCommandOutput>;
   describeRcsAgents(
     args: DescribeRcsAgentsCommandInput,
@@ -1614,7 +1626,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeRcsAgents(
     args: DescribeRcsAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeRcsAgentsCommandOutput) => void
   ): void;
 
@@ -1624,7 +1636,7 @@ export interface PinpointSMSVoiceV2 {
   describeRegistrationAttachments(): Promise<DescribeRegistrationAttachmentsCommandOutput>;
   describeRegistrationAttachments(
     args: DescribeRegistrationAttachmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeRegistrationAttachmentsCommandOutput>;
   describeRegistrationAttachments(
     args: DescribeRegistrationAttachmentsCommandInput,
@@ -1632,7 +1644,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeRegistrationAttachments(
     args: DescribeRegistrationAttachmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeRegistrationAttachmentsCommandOutput) => void
   ): void;
 
@@ -1641,7 +1653,7 @@ export interface PinpointSMSVoiceV2 {
    */
   describeRegistrationFieldDefinitions(
     args: DescribeRegistrationFieldDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeRegistrationFieldDefinitionsCommandOutput>;
   describeRegistrationFieldDefinitions(
     args: DescribeRegistrationFieldDefinitionsCommandInput,
@@ -1649,7 +1661,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeRegistrationFieldDefinitions(
     args: DescribeRegistrationFieldDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeRegistrationFieldDefinitionsCommandOutput) => void
   ): void;
 
@@ -1658,7 +1670,7 @@ export interface PinpointSMSVoiceV2 {
    */
   describeRegistrationFieldValues(
     args: DescribeRegistrationFieldValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeRegistrationFieldValuesCommandOutput>;
   describeRegistrationFieldValues(
     args: DescribeRegistrationFieldValuesCommandInput,
@@ -1666,7 +1678,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeRegistrationFieldValues(
     args: DescribeRegistrationFieldValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeRegistrationFieldValuesCommandOutput) => void
   ): void;
 
@@ -1676,7 +1688,7 @@ export interface PinpointSMSVoiceV2 {
   describeRegistrations(): Promise<DescribeRegistrationsCommandOutput>;
   describeRegistrations(
     args: DescribeRegistrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeRegistrationsCommandOutput>;
   describeRegistrations(
     args: DescribeRegistrationsCommandInput,
@@ -1684,7 +1696,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeRegistrations(
     args: DescribeRegistrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeRegistrationsCommandOutput) => void
   ): void;
 
@@ -1693,7 +1705,7 @@ export interface PinpointSMSVoiceV2 {
    */
   describeRegistrationSectionDefinitions(
     args: DescribeRegistrationSectionDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeRegistrationSectionDefinitionsCommandOutput>;
   describeRegistrationSectionDefinitions(
     args: DescribeRegistrationSectionDefinitionsCommandInput,
@@ -1701,7 +1713,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeRegistrationSectionDefinitions(
     args: DescribeRegistrationSectionDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeRegistrationSectionDefinitionsCommandOutput) => void
   ): void;
 
@@ -1711,7 +1723,7 @@ export interface PinpointSMSVoiceV2 {
   describeRegistrationTypeDefinitions(): Promise<DescribeRegistrationTypeDefinitionsCommandOutput>;
   describeRegistrationTypeDefinitions(
     args: DescribeRegistrationTypeDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeRegistrationTypeDefinitionsCommandOutput>;
   describeRegistrationTypeDefinitions(
     args: DescribeRegistrationTypeDefinitionsCommandInput,
@@ -1719,7 +1731,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeRegistrationTypeDefinitions(
     args: DescribeRegistrationTypeDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeRegistrationTypeDefinitionsCommandOutput) => void
   ): void;
 
@@ -1728,7 +1740,7 @@ export interface PinpointSMSVoiceV2 {
    */
   describeRegistrationVersions(
     args: DescribeRegistrationVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeRegistrationVersionsCommandOutput>;
   describeRegistrationVersions(
     args: DescribeRegistrationVersionsCommandInput,
@@ -1736,7 +1748,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeRegistrationVersions(
     args: DescribeRegistrationVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeRegistrationVersionsCommandOutput) => void
   ): void;
 
@@ -1746,7 +1758,7 @@ export interface PinpointSMSVoiceV2 {
   describeSenderIds(): Promise<DescribeSenderIdsCommandOutput>;
   describeSenderIds(
     args: DescribeSenderIdsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeSenderIdsCommandOutput>;
   describeSenderIds(
     args: DescribeSenderIdsCommandInput,
@@ -1754,7 +1766,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeSenderIds(
     args: DescribeSenderIdsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeSenderIdsCommandOutput) => void
   ): void;
 
@@ -1764,7 +1776,7 @@ export interface PinpointSMSVoiceV2 {
   describeSpendLimits(): Promise<DescribeSpendLimitsCommandOutput>;
   describeSpendLimits(
     args: DescribeSpendLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeSpendLimitsCommandOutput>;
   describeSpendLimits(
     args: DescribeSpendLimitsCommandInput,
@@ -1772,7 +1784,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeSpendLimits(
     args: DescribeSpendLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeSpendLimitsCommandOutput) => void
   ): void;
 
@@ -1782,7 +1794,7 @@ export interface PinpointSMSVoiceV2 {
   describeVerifiedDestinationNumbers(): Promise<DescribeVerifiedDestinationNumbersCommandOutput>;
   describeVerifiedDestinationNumbers(
     args: DescribeVerifiedDestinationNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DescribeVerifiedDestinationNumbersCommandOutput>;
   describeVerifiedDestinationNumbers(
     args: DescribeVerifiedDestinationNumbersCommandInput,
@@ -1790,7 +1802,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   describeVerifiedDestinationNumbers(
     args: DescribeVerifiedDestinationNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DescribeVerifiedDestinationNumbersCommandOutput) => void
   ): void;
 
@@ -1799,7 +1811,7 @@ export interface PinpointSMSVoiceV2 {
    */
   disassociateOriginationIdentity(
     args: DisassociateOriginationIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DisassociateOriginationIdentityCommandOutput>;
   disassociateOriginationIdentity(
     args: DisassociateOriginationIdentityCommandInput,
@@ -1807,7 +1819,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   disassociateOriginationIdentity(
     args: DisassociateOriginationIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DisassociateOriginationIdentityCommandOutput) => void
   ): void;
 
@@ -1816,7 +1828,7 @@ export interface PinpointSMSVoiceV2 {
    */
   disassociateProtectConfiguration(
     args: DisassociateProtectConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DisassociateProtectConfigurationCommandOutput>;
   disassociateProtectConfiguration(
     args: DisassociateProtectConfigurationCommandInput,
@@ -1824,7 +1836,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   disassociateProtectConfiguration(
     args: DisassociateProtectConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DisassociateProtectConfigurationCommandOutput) => void
   ): void;
 
@@ -1833,7 +1845,7 @@ export interface PinpointSMSVoiceV2 {
    */
   discardRegistrationVersion(
     args: DiscardRegistrationVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<DiscardRegistrationVersionCommandOutput>;
   discardRegistrationVersion(
     args: DiscardRegistrationVersionCommandInput,
@@ -1841,7 +1853,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   discardRegistrationVersion(
     args: DiscardRegistrationVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: DiscardRegistrationVersionCommandOutput) => void
   ): void;
 
@@ -1850,7 +1862,7 @@ export interface PinpointSMSVoiceV2 {
    */
   getProtectConfigurationCountryRuleSet(
     args: GetProtectConfigurationCountryRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<GetProtectConfigurationCountryRuleSetCommandOutput>;
   getProtectConfigurationCountryRuleSet(
     args: GetProtectConfigurationCountryRuleSetCommandInput,
@@ -1858,7 +1870,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   getProtectConfigurationCountryRuleSet(
     args: GetProtectConfigurationCountryRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: GetProtectConfigurationCountryRuleSetCommandOutput) => void
   ): void;
 
@@ -1867,7 +1879,7 @@ export interface PinpointSMSVoiceV2 {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -1875,7 +1887,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1884,7 +1896,7 @@ export interface PinpointSMSVoiceV2 {
    */
   listAvailablePhoneNumbers(
     args: ListAvailablePhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<ListAvailablePhoneNumbersCommandOutput>;
   listAvailablePhoneNumbers(
     args: ListAvailablePhoneNumbersCommandInput,
@@ -1892,7 +1904,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   listAvailablePhoneNumbers(
     args: ListAvailablePhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: ListAvailablePhoneNumbersCommandOutput) => void
   ): void;
 
@@ -1902,7 +1914,7 @@ export interface PinpointSMSVoiceV2 {
   listNotifyCountries(): Promise<ListNotifyCountriesCommandOutput>;
   listNotifyCountries(
     args: ListNotifyCountriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<ListNotifyCountriesCommandOutput>;
   listNotifyCountries(
     args: ListNotifyCountriesCommandInput,
@@ -1910,7 +1922,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   listNotifyCountries(
     args: ListNotifyCountriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: ListNotifyCountriesCommandOutput) => void
   ): void;
 
@@ -1919,7 +1931,7 @@ export interface PinpointSMSVoiceV2 {
    */
   listPoolOriginationIdentities(
     args: ListPoolOriginationIdentitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<ListPoolOriginationIdentitiesCommandOutput>;
   listPoolOriginationIdentities(
     args: ListPoolOriginationIdentitiesCommandInput,
@@ -1927,7 +1939,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   listPoolOriginationIdentities(
     args: ListPoolOriginationIdentitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: ListPoolOriginationIdentitiesCommandOutput) => void
   ): void;
 
@@ -1936,7 +1948,7 @@ export interface PinpointSMSVoiceV2 {
    */
   listProtectConfigurationRuleSetNumberOverrides(
     args: ListProtectConfigurationRuleSetNumberOverridesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<ListProtectConfigurationRuleSetNumberOverridesCommandOutput>;
   listProtectConfigurationRuleSetNumberOverrides(
     args: ListProtectConfigurationRuleSetNumberOverridesCommandInput,
@@ -1944,7 +1956,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   listProtectConfigurationRuleSetNumberOverrides(
     args: ListProtectConfigurationRuleSetNumberOverridesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: ListProtectConfigurationRuleSetNumberOverridesCommandOutput) => void
   ): void;
 
@@ -1953,7 +1965,7 @@ export interface PinpointSMSVoiceV2 {
    */
   listRegistrationAssociations(
     args: ListRegistrationAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<ListRegistrationAssociationsCommandOutput>;
   listRegistrationAssociations(
     args: ListRegistrationAssociationsCommandInput,
@@ -1961,7 +1973,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   listRegistrationAssociations(
     args: ListRegistrationAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: ListRegistrationAssociationsCommandOutput) => void
   ): void;
 
@@ -1970,7 +1982,7 @@ export interface PinpointSMSVoiceV2 {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1978,7 +1990,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1987,7 +1999,7 @@ export interface PinpointSMSVoiceV2 {
    */
   putKeyword(
     args: PutKeywordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<PutKeywordCommandOutput>;
   putKeyword(
     args: PutKeywordCommandInput,
@@ -1995,7 +2007,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   putKeyword(
     args: PutKeywordCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: PutKeywordCommandOutput) => void
   ): void;
 
@@ -2004,7 +2016,7 @@ export interface PinpointSMSVoiceV2 {
    */
   putMessageFeedback(
     args: PutMessageFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<PutMessageFeedbackCommandOutput>;
   putMessageFeedback(
     args: PutMessageFeedbackCommandInput,
@@ -2012,7 +2024,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   putMessageFeedback(
     args: PutMessageFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: PutMessageFeedbackCommandOutput) => void
   ): void;
 
@@ -2021,7 +2033,7 @@ export interface PinpointSMSVoiceV2 {
    */
   putOptedOutNumber(
     args: PutOptedOutNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<PutOptedOutNumberCommandOutput>;
   putOptedOutNumber(
     args: PutOptedOutNumberCommandInput,
@@ -2029,7 +2041,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   putOptedOutNumber(
     args: PutOptedOutNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: PutOptedOutNumberCommandOutput) => void
   ): void;
 
@@ -2038,7 +2050,7 @@ export interface PinpointSMSVoiceV2 {
    */
   putProtectConfigurationRuleSetNumberOverride(
     args: PutProtectConfigurationRuleSetNumberOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<PutProtectConfigurationRuleSetNumberOverrideCommandOutput>;
   putProtectConfigurationRuleSetNumberOverride(
     args: PutProtectConfigurationRuleSetNumberOverrideCommandInput,
@@ -2046,7 +2058,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   putProtectConfigurationRuleSetNumberOverride(
     args: PutProtectConfigurationRuleSetNumberOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: PutProtectConfigurationRuleSetNumberOverrideCommandOutput) => void
   ): void;
 
@@ -2055,7 +2067,7 @@ export interface PinpointSMSVoiceV2 {
    */
   putRegistrationFieldValue(
     args: PutRegistrationFieldValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<PutRegistrationFieldValueCommandOutput>;
   putRegistrationFieldValue(
     args: PutRegistrationFieldValueCommandInput,
@@ -2063,7 +2075,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   putRegistrationFieldValue(
     args: PutRegistrationFieldValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: PutRegistrationFieldValueCommandOutput) => void
   ): void;
 
@@ -2072,7 +2084,7 @@ export interface PinpointSMSVoiceV2 {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -2080,7 +2092,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -2089,7 +2101,7 @@ export interface PinpointSMSVoiceV2 {
    */
   releasePhoneNumber(
     args: ReleasePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<ReleasePhoneNumberCommandOutput>;
   releasePhoneNumber(
     args: ReleasePhoneNumberCommandInput,
@@ -2097,7 +2109,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   releasePhoneNumber(
     args: ReleasePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: ReleasePhoneNumberCommandOutput) => void
   ): void;
 
@@ -2106,7 +2118,7 @@ export interface PinpointSMSVoiceV2 {
    */
   releaseSenderId(
     args: ReleaseSenderIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<ReleaseSenderIdCommandOutput>;
   releaseSenderId(
     args: ReleaseSenderIdCommandInput,
@@ -2114,7 +2126,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   releaseSenderId(
     args: ReleaseSenderIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: ReleaseSenderIdCommandOutput) => void
   ): void;
 
@@ -2123,7 +2135,7 @@ export interface PinpointSMSVoiceV2 {
    */
   requestPhoneNumber(
     args: RequestPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<RequestPhoneNumberCommandOutput>;
   requestPhoneNumber(
     args: RequestPhoneNumberCommandInput,
@@ -2131,7 +2143,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   requestPhoneNumber(
     args: RequestPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: RequestPhoneNumberCommandOutput) => void
   ): void;
 
@@ -2140,7 +2152,7 @@ export interface PinpointSMSVoiceV2 {
    */
   requestSenderId(
     args: RequestSenderIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<RequestSenderIdCommandOutput>;
   requestSenderId(
     args: RequestSenderIdCommandInput,
@@ -2148,7 +2160,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   requestSenderId(
     args: RequestSenderIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: RequestSenderIdCommandOutput) => void
   ): void;
 
@@ -2157,7 +2169,7 @@ export interface PinpointSMSVoiceV2 {
    */
   sendDestinationNumberVerificationCode(
     args: SendDestinationNumberVerificationCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SendDestinationNumberVerificationCodeCommandOutput>;
   sendDestinationNumberVerificationCode(
     args: SendDestinationNumberVerificationCodeCommandInput,
@@ -2165,7 +2177,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   sendDestinationNumberVerificationCode(
     args: SendDestinationNumberVerificationCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SendDestinationNumberVerificationCodeCommandOutput) => void
   ): void;
 
@@ -2174,7 +2186,7 @@ export interface PinpointSMSVoiceV2 {
    */
   sendMediaMessage(
     args: SendMediaMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SendMediaMessageCommandOutput>;
   sendMediaMessage(
     args: SendMediaMessageCommandInput,
@@ -2182,7 +2194,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   sendMediaMessage(
     args: SendMediaMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SendMediaMessageCommandOutput) => void
   ): void;
 
@@ -2191,7 +2203,7 @@ export interface PinpointSMSVoiceV2 {
    */
   sendNotifyTextMessage(
     args: SendNotifyTextMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SendNotifyTextMessageCommandOutput>;
   sendNotifyTextMessage(
     args: SendNotifyTextMessageCommandInput,
@@ -2199,7 +2211,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   sendNotifyTextMessage(
     args: SendNotifyTextMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SendNotifyTextMessageCommandOutput) => void
   ): void;
 
@@ -2208,7 +2220,7 @@ export interface PinpointSMSVoiceV2 {
    */
   sendNotifyVoiceMessage(
     args: SendNotifyVoiceMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SendNotifyVoiceMessageCommandOutput>;
   sendNotifyVoiceMessage(
     args: SendNotifyVoiceMessageCommandInput,
@@ -2216,7 +2228,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   sendNotifyVoiceMessage(
     args: SendNotifyVoiceMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SendNotifyVoiceMessageCommandOutput) => void
   ): void;
 
@@ -2225,7 +2237,7 @@ export interface PinpointSMSVoiceV2 {
    */
   sendRcsMessage(
     args: SendRcsMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SendRcsMessageCommandOutput>;
   sendRcsMessage(
     args: SendRcsMessageCommandInput,
@@ -2233,7 +2245,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   sendRcsMessage(
     args: SendRcsMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SendRcsMessageCommandOutput) => void
   ): void;
 
@@ -2242,7 +2254,7 @@ export interface PinpointSMSVoiceV2 {
    */
   sendTextMessage(
     args: SendTextMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SendTextMessageCommandOutput>;
   sendTextMessage(
     args: SendTextMessageCommandInput,
@@ -2250,7 +2262,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   sendTextMessage(
     args: SendTextMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SendTextMessageCommandOutput) => void
   ): void;
 
@@ -2259,7 +2271,7 @@ export interface PinpointSMSVoiceV2 {
    */
   sendVoiceMessage(
     args: SendVoiceMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SendVoiceMessageCommandOutput>;
   sendVoiceMessage(
     args: SendVoiceMessageCommandInput,
@@ -2267,7 +2279,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   sendVoiceMessage(
     args: SendVoiceMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SendVoiceMessageCommandOutput) => void
   ): void;
 
@@ -2276,7 +2288,7 @@ export interface PinpointSMSVoiceV2 {
    */
   setAccountDefaultProtectConfiguration(
     args: SetAccountDefaultProtectConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SetAccountDefaultProtectConfigurationCommandOutput>;
   setAccountDefaultProtectConfiguration(
     args: SetAccountDefaultProtectConfigurationCommandInput,
@@ -2284,7 +2296,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   setAccountDefaultProtectConfiguration(
     args: SetAccountDefaultProtectConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SetAccountDefaultProtectConfigurationCommandOutput) => void
   ): void;
 
@@ -2293,7 +2305,7 @@ export interface PinpointSMSVoiceV2 {
    */
   setDefaultMessageFeedbackEnabled(
     args: SetDefaultMessageFeedbackEnabledCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SetDefaultMessageFeedbackEnabledCommandOutput>;
   setDefaultMessageFeedbackEnabled(
     args: SetDefaultMessageFeedbackEnabledCommandInput,
@@ -2301,7 +2313,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   setDefaultMessageFeedbackEnabled(
     args: SetDefaultMessageFeedbackEnabledCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SetDefaultMessageFeedbackEnabledCommandOutput) => void
   ): void;
 
@@ -2310,7 +2322,7 @@ export interface PinpointSMSVoiceV2 {
    */
   setDefaultMessageType(
     args: SetDefaultMessageTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SetDefaultMessageTypeCommandOutput>;
   setDefaultMessageType(
     args: SetDefaultMessageTypeCommandInput,
@@ -2318,7 +2330,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   setDefaultMessageType(
     args: SetDefaultMessageTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SetDefaultMessageTypeCommandOutput) => void
   ): void;
 
@@ -2327,7 +2339,7 @@ export interface PinpointSMSVoiceV2 {
    */
   setDefaultSenderId(
     args: SetDefaultSenderIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SetDefaultSenderIdCommandOutput>;
   setDefaultSenderId(
     args: SetDefaultSenderIdCommandInput,
@@ -2335,7 +2347,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   setDefaultSenderId(
     args: SetDefaultSenderIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SetDefaultSenderIdCommandOutput) => void
   ): void;
 
@@ -2344,7 +2356,7 @@ export interface PinpointSMSVoiceV2 {
    */
   setMediaMessageSpendLimitOverride(
     args: SetMediaMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SetMediaMessageSpendLimitOverrideCommandOutput>;
   setMediaMessageSpendLimitOverride(
     args: SetMediaMessageSpendLimitOverrideCommandInput,
@@ -2352,7 +2364,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   setMediaMessageSpendLimitOverride(
     args: SetMediaMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SetMediaMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -2361,7 +2373,7 @@ export interface PinpointSMSVoiceV2 {
    */
   setNotifyMessageSpendLimitOverride(
     args: SetNotifyMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SetNotifyMessageSpendLimitOverrideCommandOutput>;
   setNotifyMessageSpendLimitOverride(
     args: SetNotifyMessageSpendLimitOverrideCommandInput,
@@ -2369,7 +2381,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   setNotifyMessageSpendLimitOverride(
     args: SetNotifyMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SetNotifyMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -2378,7 +2390,7 @@ export interface PinpointSMSVoiceV2 {
    */
   setRcsMessageSpendLimitOverride(
     args: SetRcsMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SetRcsMessageSpendLimitOverrideCommandOutput>;
   setRcsMessageSpendLimitOverride(
     args: SetRcsMessageSpendLimitOverrideCommandInput,
@@ -2386,7 +2398,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   setRcsMessageSpendLimitOverride(
     args: SetRcsMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SetRcsMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -2395,7 +2407,7 @@ export interface PinpointSMSVoiceV2 {
    */
   setTextMessageSpendLimitOverride(
     args: SetTextMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SetTextMessageSpendLimitOverrideCommandOutput>;
   setTextMessageSpendLimitOverride(
     args: SetTextMessageSpendLimitOverrideCommandInput,
@@ -2403,7 +2415,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   setTextMessageSpendLimitOverride(
     args: SetTextMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SetTextMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -2412,7 +2424,7 @@ export interface PinpointSMSVoiceV2 {
    */
   setVoiceMessageSpendLimitOverride(
     args: SetVoiceMessageSpendLimitOverrideCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SetVoiceMessageSpendLimitOverrideCommandOutput>;
   setVoiceMessageSpendLimitOverride(
     args: SetVoiceMessageSpendLimitOverrideCommandInput,
@@ -2420,7 +2432,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   setVoiceMessageSpendLimitOverride(
     args: SetVoiceMessageSpendLimitOverrideCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SetVoiceMessageSpendLimitOverrideCommandOutput) => void
   ): void;
 
@@ -2429,7 +2441,7 @@ export interface PinpointSMSVoiceV2 {
    */
   submitRegistrationVersion(
     args: SubmitRegistrationVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<SubmitRegistrationVersionCommandOutput>;
   submitRegistrationVersion(
     args: SubmitRegistrationVersionCommandInput,
@@ -2437,7 +2449,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   submitRegistrationVersion(
     args: SubmitRegistrationVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: SubmitRegistrationVersionCommandOutput) => void
   ): void;
 
@@ -2446,7 +2458,7 @@ export interface PinpointSMSVoiceV2 {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2454,7 +2466,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2463,7 +2475,7 @@ export interface PinpointSMSVoiceV2 {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2471,7 +2483,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2480,7 +2492,7 @@ export interface PinpointSMSVoiceV2 {
    */
   updateEventDestination(
     args: UpdateEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<UpdateEventDestinationCommandOutput>;
   updateEventDestination(
     args: UpdateEventDestinationCommandInput,
@@ -2488,7 +2500,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   updateEventDestination(
     args: UpdateEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: UpdateEventDestinationCommandOutput) => void
   ): void;
 
@@ -2497,7 +2509,7 @@ export interface PinpointSMSVoiceV2 {
    */
   updateNotifyConfiguration(
     args: UpdateNotifyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<UpdateNotifyConfigurationCommandOutput>;
   updateNotifyConfiguration(
     args: UpdateNotifyConfigurationCommandInput,
@@ -2505,7 +2517,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   updateNotifyConfiguration(
     args: UpdateNotifyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: UpdateNotifyConfigurationCommandOutput) => void
   ): void;
 
@@ -2514,7 +2526,7 @@ export interface PinpointSMSVoiceV2 {
    */
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<UpdatePhoneNumberCommandOutput>;
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
@@ -2522,7 +2534,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
   ): void;
 
@@ -2531,7 +2543,7 @@ export interface PinpointSMSVoiceV2 {
    */
   updatePool(
     args: UpdatePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<UpdatePoolCommandOutput>;
   updatePool(
     args: UpdatePoolCommandInput,
@@ -2539,7 +2551,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   updatePool(
     args: UpdatePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: UpdatePoolCommandOutput) => void
   ): void;
 
@@ -2548,7 +2560,7 @@ export interface PinpointSMSVoiceV2 {
    */
   updateProtectConfiguration(
     args: UpdateProtectConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<UpdateProtectConfigurationCommandOutput>;
   updateProtectConfiguration(
     args: UpdateProtectConfigurationCommandInput,
@@ -2556,7 +2568,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   updateProtectConfiguration(
     args: UpdateProtectConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: UpdateProtectConfigurationCommandOutput) => void
   ): void;
 
@@ -2565,7 +2577,7 @@ export interface PinpointSMSVoiceV2 {
    */
   updateProtectConfigurationCountryRuleSet(
     args: UpdateProtectConfigurationCountryRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<UpdateProtectConfigurationCountryRuleSetCommandOutput>;
   updateProtectConfigurationCountryRuleSet(
     args: UpdateProtectConfigurationCountryRuleSetCommandInput,
@@ -2573,7 +2585,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   updateProtectConfigurationCountryRuleSet(
     args: UpdateProtectConfigurationCountryRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: UpdateProtectConfigurationCountryRuleSetCommandOutput) => void
   ): void;
 
@@ -2582,7 +2594,7 @@ export interface PinpointSMSVoiceV2 {
    */
   updateRcsAgent(
     args: UpdateRcsAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<UpdateRcsAgentCommandOutput>;
   updateRcsAgent(
     args: UpdateRcsAgentCommandInput,
@@ -2590,7 +2602,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   updateRcsAgent(
     args: UpdateRcsAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: UpdateRcsAgentCommandOutput) => void
   ): void;
 
@@ -2599,7 +2611,7 @@ export interface PinpointSMSVoiceV2 {
    */
   updateSenderId(
     args: UpdateSenderIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<UpdateSenderIdCommandOutput>;
   updateSenderId(
     args: UpdateSenderIdCommandInput,
@@ -2607,7 +2619,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   updateSenderId(
     args: UpdateSenderIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: UpdateSenderIdCommandOutput) => void
   ): void;
 
@@ -2616,7 +2628,7 @@ export interface PinpointSMSVoiceV2 {
    */
   verifyDestinationNumber(
     args: VerifyDestinationNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PinpointSMSVoiceV2RequestOptions
   ): Promise<VerifyDestinationNumberCommandOutput>;
   verifyDestinationNumber(
     args: VerifyDestinationNumberCommandInput,
@@ -2624,7 +2636,7 @@ export interface PinpointSMSVoiceV2 {
   ): void;
   verifyDestinationNumber(
     args: VerifyDestinationNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: PinpointSMSVoiceV2RequestOptions,
     cb: (err: any, data?: VerifyDestinationNumberCommandOutput) => void
   ): void;
 

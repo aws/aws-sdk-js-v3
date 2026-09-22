@@ -214,10 +214,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var CloudSearchServiceException$: StaticErrorSchema = [-3, _s, "CloudSearchServiceException", 0, [], []];
 _s_registry.registerError(CloudSearchServiceException$, CloudSearchServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var BaseException$: StaticErrorSchema = [-3, n0, _BE,
   { [_e]: _c },
   [_C, _M],

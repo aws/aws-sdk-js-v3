@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DeleteResourcePermissionCommandInput,
@@ -189,13 +194,20 @@ const paginators = {
   paginateListSubCheckRuleResults,
 };
 
+/**
+ * @public
+ */
+export interface SsmSapRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SsmSap {
   /**
    * @see {@link DeleteResourcePermissionCommand}
    */
   deleteResourcePermission(
     args: DeleteResourcePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<DeleteResourcePermissionCommandOutput>;
   deleteResourcePermission(
     args: DeleteResourcePermissionCommandInput,
@@ -203,7 +215,7 @@ export interface SsmSap {
   ): void;
   deleteResourcePermission(
     args: DeleteResourcePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: DeleteResourcePermissionCommandOutput) => void
   ): void;
 
@@ -212,7 +224,7 @@ export interface SsmSap {
    */
   deregisterApplication(
     args: DeregisterApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<DeregisterApplicationCommandOutput>;
   deregisterApplication(
     args: DeregisterApplicationCommandInput,
@@ -220,7 +232,7 @@ export interface SsmSap {
   ): void;
   deregisterApplication(
     args: DeregisterApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: DeregisterApplicationCommandOutput) => void
   ): void;
 
@@ -230,7 +242,7 @@ export interface SsmSap {
   getApplication(): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
@@ -238,7 +250,7 @@ export interface SsmSap {
   ): void;
   getApplication(
     args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
   ): void;
 
@@ -247,7 +259,7 @@ export interface SsmSap {
    */
   getComponent(
     args: GetComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<GetComponentCommandOutput>;
   getComponent(
     args: GetComponentCommandInput,
@@ -255,7 +267,7 @@ export interface SsmSap {
   ): void;
   getComponent(
     args: GetComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: GetComponentCommandOutput) => void
   ): void;
 
@@ -264,7 +276,7 @@ export interface SsmSap {
    */
   getConfigurationCheckOperation(
     args: GetConfigurationCheckOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<GetConfigurationCheckOperationCommandOutput>;
   getConfigurationCheckOperation(
     args: GetConfigurationCheckOperationCommandInput,
@@ -272,7 +284,7 @@ export interface SsmSap {
   ): void;
   getConfigurationCheckOperation(
     args: GetConfigurationCheckOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: GetConfigurationCheckOperationCommandOutput) => void
   ): void;
 
@@ -282,7 +294,7 @@ export interface SsmSap {
   getDatabase(): Promise<GetDatabaseCommandOutput>;
   getDatabase(
     args: GetDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<GetDatabaseCommandOutput>;
   getDatabase(
     args: GetDatabaseCommandInput,
@@ -290,7 +302,7 @@ export interface SsmSap {
   ): void;
   getDatabase(
     args: GetDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: GetDatabaseCommandOutput) => void
   ): void;
 
@@ -299,7 +311,7 @@ export interface SsmSap {
    */
   getOperation(
     args: GetOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<GetOperationCommandOutput>;
   getOperation(
     args: GetOperationCommandInput,
@@ -307,7 +319,7 @@ export interface SsmSap {
   ): void;
   getOperation(
     args: GetOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: GetOperationCommandOutput) => void
   ): void;
 
@@ -316,7 +328,7 @@ export interface SsmSap {
    */
   getResourcePermission(
     args: GetResourcePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<GetResourcePermissionCommandOutput>;
   getResourcePermission(
     args: GetResourcePermissionCommandInput,
@@ -324,7 +336,7 @@ export interface SsmSap {
   ): void;
   getResourcePermission(
     args: GetResourcePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: GetResourcePermissionCommandOutput) => void
   ): void;
 
@@ -334,7 +346,7 @@ export interface SsmSap {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -342,7 +354,7 @@ export interface SsmSap {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -352,7 +364,7 @@ export interface SsmSap {
   listComponents(): Promise<ListComponentsCommandOutput>;
   listComponents(
     args: ListComponentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListComponentsCommandOutput>;
   listComponents(
     args: ListComponentsCommandInput,
@@ -360,7 +372,7 @@ export interface SsmSap {
   ): void;
   listComponents(
     args: ListComponentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListComponentsCommandOutput) => void
   ): void;
 
@@ -370,7 +382,7 @@ export interface SsmSap {
   listConfigurationCheckDefinitions(): Promise<ListConfigurationCheckDefinitionsCommandOutput>;
   listConfigurationCheckDefinitions(
     args: ListConfigurationCheckDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListConfigurationCheckDefinitionsCommandOutput>;
   listConfigurationCheckDefinitions(
     args: ListConfigurationCheckDefinitionsCommandInput,
@@ -378,7 +390,7 @@ export interface SsmSap {
   ): void;
   listConfigurationCheckDefinitions(
     args: ListConfigurationCheckDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListConfigurationCheckDefinitionsCommandOutput) => void
   ): void;
 
@@ -387,7 +399,7 @@ export interface SsmSap {
    */
   listConfigurationCheckOperations(
     args: ListConfigurationCheckOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListConfigurationCheckOperationsCommandOutput>;
   listConfigurationCheckOperations(
     args: ListConfigurationCheckOperationsCommandInput,
@@ -395,7 +407,7 @@ export interface SsmSap {
   ): void;
   listConfigurationCheckOperations(
     args: ListConfigurationCheckOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListConfigurationCheckOperationsCommandOutput) => void
   ): void;
 
@@ -405,7 +417,7 @@ export interface SsmSap {
   listDatabases(): Promise<ListDatabasesCommandOutput>;
   listDatabases(
     args: ListDatabasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListDatabasesCommandOutput>;
   listDatabases(
     args: ListDatabasesCommandInput,
@@ -413,7 +425,7 @@ export interface SsmSap {
   ): void;
   listDatabases(
     args: ListDatabasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListDatabasesCommandOutput) => void
   ): void;
 
@@ -422,7 +434,7 @@ export interface SsmSap {
    */
   listOperationEvents(
     args: ListOperationEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListOperationEventsCommandOutput>;
   listOperationEvents(
     args: ListOperationEventsCommandInput,
@@ -430,7 +442,7 @@ export interface SsmSap {
   ): void;
   listOperationEvents(
     args: ListOperationEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListOperationEventsCommandOutput) => void
   ): void;
 
@@ -439,7 +451,7 @@ export interface SsmSap {
    */
   listOperations(
     args: ListOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListOperationsCommandOutput>;
   listOperations(
     args: ListOperationsCommandInput,
@@ -447,7 +459,7 @@ export interface SsmSap {
   ): void;
   listOperations(
     args: ListOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListOperationsCommandOutput) => void
   ): void;
 
@@ -456,7 +468,7 @@ export interface SsmSap {
    */
   listSubCheckResults(
     args: ListSubCheckResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListSubCheckResultsCommandOutput>;
   listSubCheckResults(
     args: ListSubCheckResultsCommandInput,
@@ -464,7 +476,7 @@ export interface SsmSap {
   ): void;
   listSubCheckResults(
     args: ListSubCheckResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListSubCheckResultsCommandOutput) => void
   ): void;
 
@@ -473,7 +485,7 @@ export interface SsmSap {
    */
   listSubCheckRuleResults(
     args: ListSubCheckRuleResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListSubCheckRuleResultsCommandOutput>;
   listSubCheckRuleResults(
     args: ListSubCheckRuleResultsCommandInput,
@@ -481,7 +493,7 @@ export interface SsmSap {
   ): void;
   listSubCheckRuleResults(
     args: ListSubCheckRuleResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListSubCheckRuleResultsCommandOutput) => void
   ): void;
 
@@ -490,7 +502,7 @@ export interface SsmSap {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -498,7 +510,7 @@ export interface SsmSap {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -507,7 +519,7 @@ export interface SsmSap {
    */
   putResourcePermission(
     args: PutResourcePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<PutResourcePermissionCommandOutput>;
   putResourcePermission(
     args: PutResourcePermissionCommandInput,
@@ -515,7 +527,7 @@ export interface SsmSap {
   ): void;
   putResourcePermission(
     args: PutResourcePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: PutResourcePermissionCommandOutput) => void
   ): void;
 
@@ -524,7 +536,7 @@ export interface SsmSap {
    */
   registerApplication(
     args: RegisterApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<RegisterApplicationCommandOutput>;
   registerApplication(
     args: RegisterApplicationCommandInput,
@@ -532,7 +544,7 @@ export interface SsmSap {
   ): void;
   registerApplication(
     args: RegisterApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: RegisterApplicationCommandOutput) => void
   ): void;
 
@@ -541,7 +553,7 @@ export interface SsmSap {
    */
   startApplication(
     args: StartApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<StartApplicationCommandOutput>;
   startApplication(
     args: StartApplicationCommandInput,
@@ -549,7 +561,7 @@ export interface SsmSap {
   ): void;
   startApplication(
     args: StartApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: StartApplicationCommandOutput) => void
   ): void;
 
@@ -558,7 +570,7 @@ export interface SsmSap {
    */
   startApplicationRefresh(
     args: StartApplicationRefreshCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<StartApplicationRefreshCommandOutput>;
   startApplicationRefresh(
     args: StartApplicationRefreshCommandInput,
@@ -566,7 +578,7 @@ export interface SsmSap {
   ): void;
   startApplicationRefresh(
     args: StartApplicationRefreshCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: StartApplicationRefreshCommandOutput) => void
   ): void;
 
@@ -575,7 +587,7 @@ export interface SsmSap {
    */
   startConfigurationChecks(
     args: StartConfigurationChecksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<StartConfigurationChecksCommandOutput>;
   startConfigurationChecks(
     args: StartConfigurationChecksCommandInput,
@@ -583,7 +595,7 @@ export interface SsmSap {
   ): void;
   startConfigurationChecks(
     args: StartConfigurationChecksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: StartConfigurationChecksCommandOutput) => void
   ): void;
 
@@ -592,7 +604,7 @@ export interface SsmSap {
    */
   stopApplication(
     args: StopApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<StopApplicationCommandOutput>;
   stopApplication(
     args: StopApplicationCommandInput,
@@ -600,7 +612,7 @@ export interface SsmSap {
   ): void;
   stopApplication(
     args: StopApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: StopApplicationCommandOutput) => void
   ): void;
 
@@ -609,7 +621,7 @@ export interface SsmSap {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -617,7 +629,7 @@ export interface SsmSap {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -626,7 +638,7 @@ export interface SsmSap {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -634,7 +646,7 @@ export interface SsmSap {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -643,7 +655,7 @@ export interface SsmSap {
    */
   updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SsmSapRequestOptions
   ): Promise<UpdateApplicationSettingsCommandOutput>;
   updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,
@@ -651,7 +663,7 @@ export interface SsmSap {
   ): void;
   updateApplicationSettings(
     args: UpdateApplicationSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SsmSapRequestOptions,
     cb: (err: any, data?: UpdateApplicationSettingsCommandOutput) => void
   ): void;
 

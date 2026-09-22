@@ -639,10 +639,10 @@ import {
 import { Route53ServiceException } from "../models/Route53ServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var Route53ServiceException$: StaticErrorSchema = [-3, _s, "Route53ServiceException", 0, [], []];
 _s_registry.registerError(Route53ServiceException$, Route53ServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var CidrBlockInUseException$: StaticErrorSchema = [-3, n0, _CBIUE,
   { [_e]: _c, [_hE]: 400 },
   [_M],

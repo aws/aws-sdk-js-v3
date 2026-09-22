@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -313,13 +314,20 @@ const waiters = {
   waitUntilVocabularyReady,
 };
 
+/**
+ * @public
+ */
+export interface TranscribeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Transcribe {
   /**
    * @see {@link CreateCallAnalyticsCategoryCommand}
    */
   createCallAnalyticsCategory(
     args: CreateCallAnalyticsCategoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<CreateCallAnalyticsCategoryCommandOutput>;
   createCallAnalyticsCategory(
     args: CreateCallAnalyticsCategoryCommandInput,
@@ -327,7 +335,7 @@ export interface Transcribe {
   ): void;
   createCallAnalyticsCategory(
     args: CreateCallAnalyticsCategoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: CreateCallAnalyticsCategoryCommandOutput) => void
   ): void;
 
@@ -336,7 +344,7 @@ export interface Transcribe {
    */
   createLanguageModel(
     args: CreateLanguageModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<CreateLanguageModelCommandOutput>;
   createLanguageModel(
     args: CreateLanguageModelCommandInput,
@@ -344,7 +352,7 @@ export interface Transcribe {
   ): void;
   createLanguageModel(
     args: CreateLanguageModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: CreateLanguageModelCommandOutput) => void
   ): void;
 
@@ -353,7 +361,7 @@ export interface Transcribe {
    */
   createMedicalVocabulary(
     args: CreateMedicalVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<CreateMedicalVocabularyCommandOutput>;
   createMedicalVocabulary(
     args: CreateMedicalVocabularyCommandInput,
@@ -361,7 +369,7 @@ export interface Transcribe {
   ): void;
   createMedicalVocabulary(
     args: CreateMedicalVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: CreateMedicalVocabularyCommandOutput) => void
   ): void;
 
@@ -370,7 +378,7 @@ export interface Transcribe {
    */
   createVocabulary(
     args: CreateVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<CreateVocabularyCommandOutput>;
   createVocabulary(
     args: CreateVocabularyCommandInput,
@@ -378,7 +386,7 @@ export interface Transcribe {
   ): void;
   createVocabulary(
     args: CreateVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: CreateVocabularyCommandOutput) => void
   ): void;
 
@@ -387,7 +395,7 @@ export interface Transcribe {
    */
   createVocabularyFilter(
     args: CreateVocabularyFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<CreateVocabularyFilterCommandOutput>;
   createVocabularyFilter(
     args: CreateVocabularyFilterCommandInput,
@@ -395,7 +403,7 @@ export interface Transcribe {
   ): void;
   createVocabularyFilter(
     args: CreateVocabularyFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: CreateVocabularyFilterCommandOutput) => void
   ): void;
 
@@ -404,7 +412,7 @@ export interface Transcribe {
    */
   deleteCallAnalyticsCategory(
     args: DeleteCallAnalyticsCategoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DeleteCallAnalyticsCategoryCommandOutput>;
   deleteCallAnalyticsCategory(
     args: DeleteCallAnalyticsCategoryCommandInput,
@@ -412,7 +420,7 @@ export interface Transcribe {
   ): void;
   deleteCallAnalyticsCategory(
     args: DeleteCallAnalyticsCategoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DeleteCallAnalyticsCategoryCommandOutput) => void
   ): void;
 
@@ -421,7 +429,7 @@ export interface Transcribe {
    */
   deleteCallAnalyticsJob(
     args: DeleteCallAnalyticsJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DeleteCallAnalyticsJobCommandOutput>;
   deleteCallAnalyticsJob(
     args: DeleteCallAnalyticsJobCommandInput,
@@ -429,7 +437,7 @@ export interface Transcribe {
   ): void;
   deleteCallAnalyticsJob(
     args: DeleteCallAnalyticsJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DeleteCallAnalyticsJobCommandOutput) => void
   ): void;
 
@@ -438,7 +446,7 @@ export interface Transcribe {
    */
   deleteLanguageModel(
     args: DeleteLanguageModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DeleteLanguageModelCommandOutput>;
   deleteLanguageModel(
     args: DeleteLanguageModelCommandInput,
@@ -446,7 +454,7 @@ export interface Transcribe {
   ): void;
   deleteLanguageModel(
     args: DeleteLanguageModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DeleteLanguageModelCommandOutput) => void
   ): void;
 
@@ -455,7 +463,7 @@ export interface Transcribe {
    */
   deleteMedicalScribeJob(
     args: DeleteMedicalScribeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DeleteMedicalScribeJobCommandOutput>;
   deleteMedicalScribeJob(
     args: DeleteMedicalScribeJobCommandInput,
@@ -463,7 +471,7 @@ export interface Transcribe {
   ): void;
   deleteMedicalScribeJob(
     args: DeleteMedicalScribeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DeleteMedicalScribeJobCommandOutput) => void
   ): void;
 
@@ -472,7 +480,7 @@ export interface Transcribe {
    */
   deleteMedicalTranscriptionJob(
     args: DeleteMedicalTranscriptionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DeleteMedicalTranscriptionJobCommandOutput>;
   deleteMedicalTranscriptionJob(
     args: DeleteMedicalTranscriptionJobCommandInput,
@@ -480,7 +488,7 @@ export interface Transcribe {
   ): void;
   deleteMedicalTranscriptionJob(
     args: DeleteMedicalTranscriptionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DeleteMedicalTranscriptionJobCommandOutput) => void
   ): void;
 
@@ -489,7 +497,7 @@ export interface Transcribe {
    */
   deleteMedicalVocabulary(
     args: DeleteMedicalVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DeleteMedicalVocabularyCommandOutput>;
   deleteMedicalVocabulary(
     args: DeleteMedicalVocabularyCommandInput,
@@ -497,7 +505,7 @@ export interface Transcribe {
   ): void;
   deleteMedicalVocabulary(
     args: DeleteMedicalVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DeleteMedicalVocabularyCommandOutput) => void
   ): void;
 
@@ -506,7 +514,7 @@ export interface Transcribe {
    */
   deleteTranscriptionJob(
     args: DeleteTranscriptionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DeleteTranscriptionJobCommandOutput>;
   deleteTranscriptionJob(
     args: DeleteTranscriptionJobCommandInput,
@@ -514,7 +522,7 @@ export interface Transcribe {
   ): void;
   deleteTranscriptionJob(
     args: DeleteTranscriptionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DeleteTranscriptionJobCommandOutput) => void
   ): void;
 
@@ -523,7 +531,7 @@ export interface Transcribe {
    */
   deleteVocabulary(
     args: DeleteVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DeleteVocabularyCommandOutput>;
   deleteVocabulary(
     args: DeleteVocabularyCommandInput,
@@ -531,7 +539,7 @@ export interface Transcribe {
   ): void;
   deleteVocabulary(
     args: DeleteVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DeleteVocabularyCommandOutput) => void
   ): void;
 
@@ -540,7 +548,7 @@ export interface Transcribe {
    */
   deleteVocabularyFilter(
     args: DeleteVocabularyFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DeleteVocabularyFilterCommandOutput>;
   deleteVocabularyFilter(
     args: DeleteVocabularyFilterCommandInput,
@@ -548,7 +556,7 @@ export interface Transcribe {
   ): void;
   deleteVocabularyFilter(
     args: DeleteVocabularyFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DeleteVocabularyFilterCommandOutput) => void
   ): void;
 
@@ -557,7 +565,7 @@ export interface Transcribe {
    */
   describeLanguageModel(
     args: DescribeLanguageModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<DescribeLanguageModelCommandOutput>;
   describeLanguageModel(
     args: DescribeLanguageModelCommandInput,
@@ -565,7 +573,7 @@ export interface Transcribe {
   ): void;
   describeLanguageModel(
     args: DescribeLanguageModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: DescribeLanguageModelCommandOutput) => void
   ): void;
 
@@ -574,7 +582,7 @@ export interface Transcribe {
    */
   getCallAnalyticsCategory(
     args: GetCallAnalyticsCategoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<GetCallAnalyticsCategoryCommandOutput>;
   getCallAnalyticsCategory(
     args: GetCallAnalyticsCategoryCommandInput,
@@ -582,7 +590,7 @@ export interface Transcribe {
   ): void;
   getCallAnalyticsCategory(
     args: GetCallAnalyticsCategoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: GetCallAnalyticsCategoryCommandOutput) => void
   ): void;
 
@@ -591,7 +599,7 @@ export interface Transcribe {
    */
   getCallAnalyticsJob(
     args: GetCallAnalyticsJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<GetCallAnalyticsJobCommandOutput>;
   getCallAnalyticsJob(
     args: GetCallAnalyticsJobCommandInput,
@@ -599,7 +607,7 @@ export interface Transcribe {
   ): void;
   getCallAnalyticsJob(
     args: GetCallAnalyticsJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: GetCallAnalyticsJobCommandOutput) => void
   ): void;
 
@@ -608,7 +616,7 @@ export interface Transcribe {
    */
   getMedicalScribeJob(
     args: GetMedicalScribeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<GetMedicalScribeJobCommandOutput>;
   getMedicalScribeJob(
     args: GetMedicalScribeJobCommandInput,
@@ -616,7 +624,7 @@ export interface Transcribe {
   ): void;
   getMedicalScribeJob(
     args: GetMedicalScribeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: GetMedicalScribeJobCommandOutput) => void
   ): void;
 
@@ -625,7 +633,7 @@ export interface Transcribe {
    */
   getMedicalTranscriptionJob(
     args: GetMedicalTranscriptionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<GetMedicalTranscriptionJobCommandOutput>;
   getMedicalTranscriptionJob(
     args: GetMedicalTranscriptionJobCommandInput,
@@ -633,7 +641,7 @@ export interface Transcribe {
   ): void;
   getMedicalTranscriptionJob(
     args: GetMedicalTranscriptionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: GetMedicalTranscriptionJobCommandOutput) => void
   ): void;
 
@@ -642,7 +650,7 @@ export interface Transcribe {
    */
   getMedicalVocabulary(
     args: GetMedicalVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<GetMedicalVocabularyCommandOutput>;
   getMedicalVocabulary(
     args: GetMedicalVocabularyCommandInput,
@@ -650,7 +658,7 @@ export interface Transcribe {
   ): void;
   getMedicalVocabulary(
     args: GetMedicalVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: GetMedicalVocabularyCommandOutput) => void
   ): void;
 
@@ -659,7 +667,7 @@ export interface Transcribe {
    */
   getTranscriptionJob(
     args: GetTranscriptionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<GetTranscriptionJobCommandOutput>;
   getTranscriptionJob(
     args: GetTranscriptionJobCommandInput,
@@ -667,7 +675,7 @@ export interface Transcribe {
   ): void;
   getTranscriptionJob(
     args: GetTranscriptionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: GetTranscriptionJobCommandOutput) => void
   ): void;
 
@@ -676,7 +684,7 @@ export interface Transcribe {
    */
   getVocabulary(
     args: GetVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<GetVocabularyCommandOutput>;
   getVocabulary(
     args: GetVocabularyCommandInput,
@@ -684,7 +692,7 @@ export interface Transcribe {
   ): void;
   getVocabulary(
     args: GetVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: GetVocabularyCommandOutput) => void
   ): void;
 
@@ -693,7 +701,7 @@ export interface Transcribe {
    */
   getVocabularyFilter(
     args: GetVocabularyFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<GetVocabularyFilterCommandOutput>;
   getVocabularyFilter(
     args: GetVocabularyFilterCommandInput,
@@ -701,7 +709,7 @@ export interface Transcribe {
   ): void;
   getVocabularyFilter(
     args: GetVocabularyFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: GetVocabularyFilterCommandOutput) => void
   ): void;
 
@@ -711,7 +719,7 @@ export interface Transcribe {
   listCallAnalyticsCategories(): Promise<ListCallAnalyticsCategoriesCommandOutput>;
   listCallAnalyticsCategories(
     args: ListCallAnalyticsCategoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListCallAnalyticsCategoriesCommandOutput>;
   listCallAnalyticsCategories(
     args: ListCallAnalyticsCategoriesCommandInput,
@@ -719,7 +727,7 @@ export interface Transcribe {
   ): void;
   listCallAnalyticsCategories(
     args: ListCallAnalyticsCategoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListCallAnalyticsCategoriesCommandOutput) => void
   ): void;
 
@@ -729,7 +737,7 @@ export interface Transcribe {
   listCallAnalyticsJobs(): Promise<ListCallAnalyticsJobsCommandOutput>;
   listCallAnalyticsJobs(
     args: ListCallAnalyticsJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListCallAnalyticsJobsCommandOutput>;
   listCallAnalyticsJobs(
     args: ListCallAnalyticsJobsCommandInput,
@@ -737,7 +745,7 @@ export interface Transcribe {
   ): void;
   listCallAnalyticsJobs(
     args: ListCallAnalyticsJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListCallAnalyticsJobsCommandOutput) => void
   ): void;
 
@@ -747,7 +755,7 @@ export interface Transcribe {
   listLanguageModels(): Promise<ListLanguageModelsCommandOutput>;
   listLanguageModels(
     args: ListLanguageModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListLanguageModelsCommandOutput>;
   listLanguageModels(
     args: ListLanguageModelsCommandInput,
@@ -755,7 +763,7 @@ export interface Transcribe {
   ): void;
   listLanguageModels(
     args: ListLanguageModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListLanguageModelsCommandOutput) => void
   ): void;
 
@@ -765,7 +773,7 @@ export interface Transcribe {
   listMedicalScribeJobs(): Promise<ListMedicalScribeJobsCommandOutput>;
   listMedicalScribeJobs(
     args: ListMedicalScribeJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListMedicalScribeJobsCommandOutput>;
   listMedicalScribeJobs(
     args: ListMedicalScribeJobsCommandInput,
@@ -773,7 +781,7 @@ export interface Transcribe {
   ): void;
   listMedicalScribeJobs(
     args: ListMedicalScribeJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListMedicalScribeJobsCommandOutput) => void
   ): void;
 
@@ -783,7 +791,7 @@ export interface Transcribe {
   listMedicalTranscriptionJobs(): Promise<ListMedicalTranscriptionJobsCommandOutput>;
   listMedicalTranscriptionJobs(
     args: ListMedicalTranscriptionJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListMedicalTranscriptionJobsCommandOutput>;
   listMedicalTranscriptionJobs(
     args: ListMedicalTranscriptionJobsCommandInput,
@@ -791,7 +799,7 @@ export interface Transcribe {
   ): void;
   listMedicalTranscriptionJobs(
     args: ListMedicalTranscriptionJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListMedicalTranscriptionJobsCommandOutput) => void
   ): void;
 
@@ -801,7 +809,7 @@ export interface Transcribe {
   listMedicalVocabularies(): Promise<ListMedicalVocabulariesCommandOutput>;
   listMedicalVocabularies(
     args: ListMedicalVocabulariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListMedicalVocabulariesCommandOutput>;
   listMedicalVocabularies(
     args: ListMedicalVocabulariesCommandInput,
@@ -809,7 +817,7 @@ export interface Transcribe {
   ): void;
   listMedicalVocabularies(
     args: ListMedicalVocabulariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListMedicalVocabulariesCommandOutput) => void
   ): void;
 
@@ -818,7 +826,7 @@ export interface Transcribe {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -826,7 +834,7 @@ export interface Transcribe {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -836,7 +844,7 @@ export interface Transcribe {
   listTranscriptionJobs(): Promise<ListTranscriptionJobsCommandOutput>;
   listTranscriptionJobs(
     args: ListTranscriptionJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListTranscriptionJobsCommandOutput>;
   listTranscriptionJobs(
     args: ListTranscriptionJobsCommandInput,
@@ -844,7 +852,7 @@ export interface Transcribe {
   ): void;
   listTranscriptionJobs(
     args: ListTranscriptionJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListTranscriptionJobsCommandOutput) => void
   ): void;
 
@@ -854,7 +862,7 @@ export interface Transcribe {
   listVocabularies(): Promise<ListVocabulariesCommandOutput>;
   listVocabularies(
     args: ListVocabulariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListVocabulariesCommandOutput>;
   listVocabularies(
     args: ListVocabulariesCommandInput,
@@ -862,7 +870,7 @@ export interface Transcribe {
   ): void;
   listVocabularies(
     args: ListVocabulariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListVocabulariesCommandOutput) => void
   ): void;
 
@@ -872,7 +880,7 @@ export interface Transcribe {
   listVocabularyFilters(): Promise<ListVocabularyFiltersCommandOutput>;
   listVocabularyFilters(
     args: ListVocabularyFiltersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<ListVocabularyFiltersCommandOutput>;
   listVocabularyFilters(
     args: ListVocabularyFiltersCommandInput,
@@ -880,7 +888,7 @@ export interface Transcribe {
   ): void;
   listVocabularyFilters(
     args: ListVocabularyFiltersCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: ListVocabularyFiltersCommandOutput) => void
   ): void;
 
@@ -889,7 +897,7 @@ export interface Transcribe {
    */
   startCallAnalyticsJob(
     args: StartCallAnalyticsJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<StartCallAnalyticsJobCommandOutput>;
   startCallAnalyticsJob(
     args: StartCallAnalyticsJobCommandInput,
@@ -897,7 +905,7 @@ export interface Transcribe {
   ): void;
   startCallAnalyticsJob(
     args: StartCallAnalyticsJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: StartCallAnalyticsJobCommandOutput) => void
   ): void;
 
@@ -906,7 +914,7 @@ export interface Transcribe {
    */
   startMedicalScribeJob(
     args: StartMedicalScribeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<StartMedicalScribeJobCommandOutput>;
   startMedicalScribeJob(
     args: StartMedicalScribeJobCommandInput,
@@ -914,7 +922,7 @@ export interface Transcribe {
   ): void;
   startMedicalScribeJob(
     args: StartMedicalScribeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: StartMedicalScribeJobCommandOutput) => void
   ): void;
 
@@ -923,7 +931,7 @@ export interface Transcribe {
    */
   startMedicalTranscriptionJob(
     args: StartMedicalTranscriptionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<StartMedicalTranscriptionJobCommandOutput>;
   startMedicalTranscriptionJob(
     args: StartMedicalTranscriptionJobCommandInput,
@@ -931,7 +939,7 @@ export interface Transcribe {
   ): void;
   startMedicalTranscriptionJob(
     args: StartMedicalTranscriptionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: StartMedicalTranscriptionJobCommandOutput) => void
   ): void;
 
@@ -940,7 +948,7 @@ export interface Transcribe {
    */
   startTranscriptionJob(
     args: StartTranscriptionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<StartTranscriptionJobCommandOutput>;
   startTranscriptionJob(
     args: StartTranscriptionJobCommandInput,
@@ -948,7 +956,7 @@ export interface Transcribe {
   ): void;
   startTranscriptionJob(
     args: StartTranscriptionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: StartTranscriptionJobCommandOutput) => void
   ): void;
 
@@ -957,7 +965,7 @@ export interface Transcribe {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -965,7 +973,7 @@ export interface Transcribe {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -974,7 +982,7 @@ export interface Transcribe {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -982,7 +990,7 @@ export interface Transcribe {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -991,7 +999,7 @@ export interface Transcribe {
    */
   updateCallAnalyticsCategory(
     args: UpdateCallAnalyticsCategoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<UpdateCallAnalyticsCategoryCommandOutput>;
   updateCallAnalyticsCategory(
     args: UpdateCallAnalyticsCategoryCommandInput,
@@ -999,7 +1007,7 @@ export interface Transcribe {
   ): void;
   updateCallAnalyticsCategory(
     args: UpdateCallAnalyticsCategoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: UpdateCallAnalyticsCategoryCommandOutput) => void
   ): void;
 
@@ -1008,7 +1016,7 @@ export interface Transcribe {
    */
   updateLanguageModel(
     args: UpdateLanguageModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<UpdateLanguageModelCommandOutput>;
   updateLanguageModel(
     args: UpdateLanguageModelCommandInput,
@@ -1016,7 +1024,7 @@ export interface Transcribe {
   ): void;
   updateLanguageModel(
     args: UpdateLanguageModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: UpdateLanguageModelCommandOutput) => void
   ): void;
 
@@ -1025,7 +1033,7 @@ export interface Transcribe {
    */
   updateMedicalVocabulary(
     args: UpdateMedicalVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<UpdateMedicalVocabularyCommandOutput>;
   updateMedicalVocabulary(
     args: UpdateMedicalVocabularyCommandInput,
@@ -1033,7 +1041,7 @@ export interface Transcribe {
   ): void;
   updateMedicalVocabulary(
     args: UpdateMedicalVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: UpdateMedicalVocabularyCommandOutput) => void
   ): void;
 
@@ -1042,7 +1050,7 @@ export interface Transcribe {
    */
   updateVocabulary(
     args: UpdateVocabularyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<UpdateVocabularyCommandOutput>;
   updateVocabulary(
     args: UpdateVocabularyCommandInput,
@@ -1050,7 +1058,7 @@ export interface Transcribe {
   ): void;
   updateVocabulary(
     args: UpdateVocabularyCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: UpdateVocabularyCommandOutput) => void
   ): void;
 
@@ -1059,7 +1067,7 @@ export interface Transcribe {
    */
   updateVocabularyFilter(
     args: UpdateVocabularyFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TranscribeRequestOptions
   ): Promise<UpdateVocabularyFilterCommandOutput>;
   updateVocabularyFilter(
     args: UpdateVocabularyFilterCommandInput,
@@ -1067,7 +1075,7 @@ export interface Transcribe {
   ): void;
   updateVocabularyFilter(
     args: UpdateVocabularyFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: TranscribeRequestOptions,
     cb: (err: any, data?: UpdateVocabularyFilterCommandOutput) => void
   ): void;
 

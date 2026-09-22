@@ -225,10 +225,10 @@ import {
 import { MediaPackageVodServiceException } from "../models/MediaPackageVodServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var MediaPackageVodServiceException$: StaticErrorSchema = [-3, _s, "MediaPackageVodServiceException", 0, [], []];
 _s_registry.registerError(MediaPackageVodServiceException$, MediaPackageVodServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
   [_M],

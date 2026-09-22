@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateEipToVlanCommandInput,
@@ -163,13 +168,20 @@ const paginators = {
   paginateListVmEntitlements,
 };
 
+/**
+ * @public
+ */
+export interface EvsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Evs {
   /**
    * @see {@link AssociateEipToVlanCommand}
    */
   associateEipToVlan(
     args: AssociateEipToVlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<AssociateEipToVlanCommandOutput>;
   associateEipToVlan(
     args: AssociateEipToVlanCommandInput,
@@ -177,7 +189,7 @@ export interface Evs {
   ): void;
   associateEipToVlan(
     args: AssociateEipToVlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: AssociateEipToVlanCommandOutput) => void
   ): void;
 
@@ -186,7 +198,7 @@ export interface Evs {
    */
   createEntitlement(
     args: CreateEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<CreateEntitlementCommandOutput>;
   createEntitlement(
     args: CreateEntitlementCommandInput,
@@ -194,7 +206,7 @@ export interface Evs {
   ): void;
   createEntitlement(
     args: CreateEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: CreateEntitlementCommandOutput) => void
   ): void;
 
@@ -203,7 +215,7 @@ export interface Evs {
    */
   createEnvironment(
     args: CreateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<CreateEnvironmentCommandOutput>;
   createEnvironment(
     args: CreateEnvironmentCommandInput,
@@ -211,7 +223,7 @@ export interface Evs {
   ): void;
   createEnvironment(
     args: CreateEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
   ): void;
 
@@ -220,7 +232,7 @@ export interface Evs {
    */
   createEnvironmentConnector(
     args: CreateEnvironmentConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<CreateEnvironmentConnectorCommandOutput>;
   createEnvironmentConnector(
     args: CreateEnvironmentConnectorCommandInput,
@@ -228,7 +240,7 @@ export interface Evs {
   ): void;
   createEnvironmentConnector(
     args: CreateEnvironmentConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: CreateEnvironmentConnectorCommandOutput) => void
   ): void;
 
@@ -237,7 +249,7 @@ export interface Evs {
    */
   createEnvironmentHost(
     args: CreateEnvironmentHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<CreateEnvironmentHostCommandOutput>;
   createEnvironmentHost(
     args: CreateEnvironmentHostCommandInput,
@@ -245,7 +257,7 @@ export interface Evs {
   ): void;
   createEnvironmentHost(
     args: CreateEnvironmentHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: CreateEnvironmentHostCommandOutput) => void
   ): void;
 
@@ -254,7 +266,7 @@ export interface Evs {
    */
   deleteEntitlement(
     args: DeleteEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<DeleteEntitlementCommandOutput>;
   deleteEntitlement(
     args: DeleteEntitlementCommandInput,
@@ -262,7 +274,7 @@ export interface Evs {
   ): void;
   deleteEntitlement(
     args: DeleteEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: DeleteEntitlementCommandOutput) => void
   ): void;
 
@@ -271,7 +283,7 @@ export interface Evs {
    */
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<DeleteEnvironmentCommandOutput>;
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
@@ -279,7 +291,7 @@ export interface Evs {
   ): void;
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
   ): void;
 
@@ -288,7 +300,7 @@ export interface Evs {
    */
   deleteEnvironmentConnector(
     args: DeleteEnvironmentConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<DeleteEnvironmentConnectorCommandOutput>;
   deleteEnvironmentConnector(
     args: DeleteEnvironmentConnectorCommandInput,
@@ -296,7 +308,7 @@ export interface Evs {
   ): void;
   deleteEnvironmentConnector(
     args: DeleteEnvironmentConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: DeleteEnvironmentConnectorCommandOutput) => void
   ): void;
 
@@ -305,7 +317,7 @@ export interface Evs {
    */
   deleteEnvironmentHost(
     args: DeleteEnvironmentHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<DeleteEnvironmentHostCommandOutput>;
   deleteEnvironmentHost(
     args: DeleteEnvironmentHostCommandInput,
@@ -313,7 +325,7 @@ export interface Evs {
   ): void;
   deleteEnvironmentHost(
     args: DeleteEnvironmentHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: DeleteEnvironmentHostCommandOutput) => void
   ): void;
 
@@ -322,7 +334,7 @@ export interface Evs {
    */
   disassociateEipFromVlan(
     args: DisassociateEipFromVlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<DisassociateEipFromVlanCommandOutput>;
   disassociateEipFromVlan(
     args: DisassociateEipFromVlanCommandInput,
@@ -330,7 +342,7 @@ export interface Evs {
   ): void;
   disassociateEipFromVlan(
     args: DisassociateEipFromVlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: DisassociateEipFromVlanCommandOutput) => void
   ): void;
 
@@ -340,7 +352,7 @@ export interface Evs {
   getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -348,7 +360,7 @@ export interface Evs {
   ): void;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): void;
 
@@ -357,7 +369,7 @@ export interface Evs {
    */
   getDepotUrl(
     args: GetDepotUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<GetDepotUrlCommandOutput>;
   getDepotUrl(
     args: GetDepotUrlCommandInput,
@@ -365,7 +377,7 @@ export interface Evs {
   ): void;
   getDepotUrl(
     args: GetDepotUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: GetDepotUrlCommandOutput) => void
   ): void;
 
@@ -374,7 +386,7 @@ export interface Evs {
    */
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<GetEnvironmentCommandOutput>;
   getEnvironment(
     args: GetEnvironmentCommandInput,
@@ -382,7 +394,7 @@ export interface Evs {
   ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
   ): void;
 
@@ -392,7 +404,7 @@ export interface Evs {
   getVersions(): Promise<GetVersionsCommandOutput>;
   getVersions(
     args: GetVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<GetVersionsCommandOutput>;
   getVersions(
     args: GetVersionsCommandInput,
@@ -400,7 +412,7 @@ export interface Evs {
   ): void;
   getVersions(
     args: GetVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: GetVersionsCommandOutput) => void
   ): void;
 
@@ -409,7 +421,7 @@ export interface Evs {
    */
   listEnvironmentConnectors(
     args: ListEnvironmentConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<ListEnvironmentConnectorsCommandOutput>;
   listEnvironmentConnectors(
     args: ListEnvironmentConnectorsCommandInput,
@@ -417,7 +429,7 @@ export interface Evs {
   ): void;
   listEnvironmentConnectors(
     args: ListEnvironmentConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: ListEnvironmentConnectorsCommandOutput) => void
   ): void;
 
@@ -426,7 +438,7 @@ export interface Evs {
    */
   listEnvironmentHosts(
     args: ListEnvironmentHostsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<ListEnvironmentHostsCommandOutput>;
   listEnvironmentHosts(
     args: ListEnvironmentHostsCommandInput,
@@ -434,7 +446,7 @@ export interface Evs {
   ): void;
   listEnvironmentHosts(
     args: ListEnvironmentHostsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: ListEnvironmentHostsCommandOutput) => void
   ): void;
 
@@ -444,7 +456,7 @@ export interface Evs {
   listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
@@ -452,7 +464,7 @@ export interface Evs {
   ): void;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): void;
 
@@ -461,7 +473,7 @@ export interface Evs {
    */
   listEnvironmentVlans(
     args: ListEnvironmentVlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<ListEnvironmentVlansCommandOutput>;
   listEnvironmentVlans(
     args: ListEnvironmentVlansCommandInput,
@@ -469,7 +481,7 @@ export interface Evs {
   ): void;
   listEnvironmentVlans(
     args: ListEnvironmentVlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: ListEnvironmentVlansCommandOutput) => void
   ): void;
 
@@ -478,7 +490,7 @@ export interface Evs {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -486,7 +498,7 @@ export interface Evs {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -495,7 +507,7 @@ export interface Evs {
    */
   listVmEntitlements(
     args: ListVmEntitlementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<ListVmEntitlementsCommandOutput>;
   listVmEntitlements(
     args: ListVmEntitlementsCommandInput,
@@ -503,7 +515,7 @@ export interface Evs {
   ): void;
   listVmEntitlements(
     args: ListVmEntitlementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: ListVmEntitlementsCommandOutput) => void
   ): void;
 
@@ -512,7 +524,7 @@ export interface Evs {
    */
   putAccountSettings(
     args: PutAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<PutAccountSettingsCommandOutput>;
   putAccountSettings(
     args: PutAccountSettingsCommandInput,
@@ -520,7 +532,7 @@ export interface Evs {
   ): void;
   putAccountSettings(
     args: PutAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: PutAccountSettingsCommandOutput) => void
   ): void;
 
@@ -529,7 +541,7 @@ export interface Evs {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -537,7 +549,7 @@ export interface Evs {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -546,7 +558,7 @@ export interface Evs {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -554,7 +566,7 @@ export interface Evs {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -563,7 +575,7 @@ export interface Evs {
    */
   updateEnvironmentConnector(
     args: UpdateEnvironmentConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EvsRequestOptions
   ): Promise<UpdateEnvironmentConnectorCommandOutput>;
   updateEnvironmentConnector(
     args: UpdateEnvironmentConnectorCommandInput,
@@ -571,7 +583,7 @@ export interface Evs {
   ): void;
   updateEnvironmentConnector(
     args: UpdateEnvironmentConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: EvsRequestOptions,
     cb: (err: any, data?: UpdateEnvironmentConnectorCommandOutput) => void
   ): void;
 

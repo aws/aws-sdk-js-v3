@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { AthenaClient } from "./AthenaClient";
 import {
@@ -459,13 +464,20 @@ const paginators = {
   paginateListWorkGroups,
 };
 
+/**
+ * @public
+ */
+export interface AthenaRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Athena {
   /**
    * @see {@link BatchGetNamedQueryCommand}
    */
   batchGetNamedQuery(
     args: BatchGetNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<BatchGetNamedQueryCommandOutput>;
   batchGetNamedQuery(
     args: BatchGetNamedQueryCommandInput,
@@ -473,7 +485,7 @@ export interface Athena {
   ): void;
   batchGetNamedQuery(
     args: BatchGetNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: BatchGetNamedQueryCommandOutput) => void
   ): void;
 
@@ -482,7 +494,7 @@ export interface Athena {
    */
   batchGetPreparedStatement(
     args: BatchGetPreparedStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<BatchGetPreparedStatementCommandOutput>;
   batchGetPreparedStatement(
     args: BatchGetPreparedStatementCommandInput,
@@ -490,7 +502,7 @@ export interface Athena {
   ): void;
   batchGetPreparedStatement(
     args: BatchGetPreparedStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: BatchGetPreparedStatementCommandOutput) => void
   ): void;
 
@@ -499,7 +511,7 @@ export interface Athena {
    */
   batchGetQueryExecution(
     args: BatchGetQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<BatchGetQueryExecutionCommandOutput>;
   batchGetQueryExecution(
     args: BatchGetQueryExecutionCommandInput,
@@ -507,7 +519,7 @@ export interface Athena {
   ): void;
   batchGetQueryExecution(
     args: BatchGetQueryExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: BatchGetQueryExecutionCommandOutput) => void
   ): void;
 
@@ -516,7 +528,7 @@ export interface Athena {
    */
   cancelCapacityReservation(
     args: CancelCapacityReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<CancelCapacityReservationCommandOutput>;
   cancelCapacityReservation(
     args: CancelCapacityReservationCommandInput,
@@ -524,7 +536,7 @@ export interface Athena {
   ): void;
   cancelCapacityReservation(
     args: CancelCapacityReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: CancelCapacityReservationCommandOutput) => void
   ): void;
 
@@ -533,7 +545,7 @@ export interface Athena {
    */
   createCapacityReservation(
     args: CreateCapacityReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<CreateCapacityReservationCommandOutput>;
   createCapacityReservation(
     args: CreateCapacityReservationCommandInput,
@@ -541,7 +553,7 @@ export interface Athena {
   ): void;
   createCapacityReservation(
     args: CreateCapacityReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: CreateCapacityReservationCommandOutput) => void
   ): void;
 
@@ -550,7 +562,7 @@ export interface Athena {
    */
   createDataCatalog(
     args: CreateDataCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<CreateDataCatalogCommandOutput>;
   createDataCatalog(
     args: CreateDataCatalogCommandInput,
@@ -558,7 +570,7 @@ export interface Athena {
   ): void;
   createDataCatalog(
     args: CreateDataCatalogCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: CreateDataCatalogCommandOutput) => void
   ): void;
 
@@ -567,7 +579,7 @@ export interface Athena {
    */
   createNamedQuery(
     args: CreateNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<CreateNamedQueryCommandOutput>;
   createNamedQuery(
     args: CreateNamedQueryCommandInput,
@@ -575,7 +587,7 @@ export interface Athena {
   ): void;
   createNamedQuery(
     args: CreateNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: CreateNamedQueryCommandOutput) => void
   ): void;
 
@@ -584,7 +596,7 @@ export interface Athena {
    */
   createNotebook(
     args: CreateNotebookCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<CreateNotebookCommandOutput>;
   createNotebook(
     args: CreateNotebookCommandInput,
@@ -592,7 +604,7 @@ export interface Athena {
   ): void;
   createNotebook(
     args: CreateNotebookCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: CreateNotebookCommandOutput) => void
   ): void;
 
@@ -601,7 +613,7 @@ export interface Athena {
    */
   createPreparedStatement(
     args: CreatePreparedStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<CreatePreparedStatementCommandOutput>;
   createPreparedStatement(
     args: CreatePreparedStatementCommandInput,
@@ -609,7 +621,7 @@ export interface Athena {
   ): void;
   createPreparedStatement(
     args: CreatePreparedStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: CreatePreparedStatementCommandOutput) => void
   ): void;
 
@@ -618,7 +630,7 @@ export interface Athena {
    */
   createPresignedNotebookUrl(
     args: CreatePresignedNotebookUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<CreatePresignedNotebookUrlCommandOutput>;
   createPresignedNotebookUrl(
     args: CreatePresignedNotebookUrlCommandInput,
@@ -626,7 +638,7 @@ export interface Athena {
   ): void;
   createPresignedNotebookUrl(
     args: CreatePresignedNotebookUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: CreatePresignedNotebookUrlCommandOutput) => void
   ): void;
 
@@ -635,7 +647,7 @@ export interface Athena {
    */
   createWorkGroup(
     args: CreateWorkGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<CreateWorkGroupCommandOutput>;
   createWorkGroup(
     args: CreateWorkGroupCommandInput,
@@ -643,7 +655,7 @@ export interface Athena {
   ): void;
   createWorkGroup(
     args: CreateWorkGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: CreateWorkGroupCommandOutput) => void
   ): void;
 
@@ -652,7 +664,7 @@ export interface Athena {
    */
   deleteCapacityReservation(
     args: DeleteCapacityReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<DeleteCapacityReservationCommandOutput>;
   deleteCapacityReservation(
     args: DeleteCapacityReservationCommandInput,
@@ -660,7 +672,7 @@ export interface Athena {
   ): void;
   deleteCapacityReservation(
     args: DeleteCapacityReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: DeleteCapacityReservationCommandOutput) => void
   ): void;
 
@@ -669,7 +681,7 @@ export interface Athena {
    */
   deleteDataCatalog(
     args: DeleteDataCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<DeleteDataCatalogCommandOutput>;
   deleteDataCatalog(
     args: DeleteDataCatalogCommandInput,
@@ -677,7 +689,7 @@ export interface Athena {
   ): void;
   deleteDataCatalog(
     args: DeleteDataCatalogCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: DeleteDataCatalogCommandOutput) => void
   ): void;
 
@@ -686,7 +698,7 @@ export interface Athena {
    */
   deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<DeleteNamedQueryCommandOutput>;
   deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
@@ -694,7 +706,7 @@ export interface Athena {
   ): void;
   deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: DeleteNamedQueryCommandOutput) => void
   ): void;
 
@@ -703,7 +715,7 @@ export interface Athena {
    */
   deleteNotebook(
     args: DeleteNotebookCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<DeleteNotebookCommandOutput>;
   deleteNotebook(
     args: DeleteNotebookCommandInput,
@@ -711,7 +723,7 @@ export interface Athena {
   ): void;
   deleteNotebook(
     args: DeleteNotebookCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: DeleteNotebookCommandOutput) => void
   ): void;
 
@@ -720,7 +732,7 @@ export interface Athena {
    */
   deletePreparedStatement(
     args: DeletePreparedStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<DeletePreparedStatementCommandOutput>;
   deletePreparedStatement(
     args: DeletePreparedStatementCommandInput,
@@ -728,7 +740,7 @@ export interface Athena {
   ): void;
   deletePreparedStatement(
     args: DeletePreparedStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: DeletePreparedStatementCommandOutput) => void
   ): void;
 
@@ -737,7 +749,7 @@ export interface Athena {
    */
   deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<DeleteWorkGroupCommandOutput>;
   deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
@@ -745,7 +757,7 @@ export interface Athena {
   ): void;
   deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: DeleteWorkGroupCommandOutput) => void
   ): void;
 
@@ -754,7 +766,7 @@ export interface Athena {
    */
   exportNotebook(
     args: ExportNotebookCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ExportNotebookCommandOutput>;
   exportNotebook(
     args: ExportNotebookCommandInput,
@@ -762,7 +774,7 @@ export interface Athena {
   ): void;
   exportNotebook(
     args: ExportNotebookCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ExportNotebookCommandOutput) => void
   ): void;
 
@@ -771,7 +783,7 @@ export interface Athena {
    */
   getCalculationExecution(
     args: GetCalculationExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetCalculationExecutionCommandOutput>;
   getCalculationExecution(
     args: GetCalculationExecutionCommandInput,
@@ -779,7 +791,7 @@ export interface Athena {
   ): void;
   getCalculationExecution(
     args: GetCalculationExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetCalculationExecutionCommandOutput) => void
   ): void;
 
@@ -788,7 +800,7 @@ export interface Athena {
    */
   getCalculationExecutionCode(
     args: GetCalculationExecutionCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetCalculationExecutionCodeCommandOutput>;
   getCalculationExecutionCode(
     args: GetCalculationExecutionCodeCommandInput,
@@ -796,7 +808,7 @@ export interface Athena {
   ): void;
   getCalculationExecutionCode(
     args: GetCalculationExecutionCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetCalculationExecutionCodeCommandOutput) => void
   ): void;
 
@@ -805,7 +817,7 @@ export interface Athena {
    */
   getCalculationExecutionStatus(
     args: GetCalculationExecutionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetCalculationExecutionStatusCommandOutput>;
   getCalculationExecutionStatus(
     args: GetCalculationExecutionStatusCommandInput,
@@ -813,7 +825,7 @@ export interface Athena {
   ): void;
   getCalculationExecutionStatus(
     args: GetCalculationExecutionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetCalculationExecutionStatusCommandOutput) => void
   ): void;
 
@@ -822,7 +834,7 @@ export interface Athena {
    */
   getCapacityAssignmentConfiguration(
     args: GetCapacityAssignmentConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetCapacityAssignmentConfigurationCommandOutput>;
   getCapacityAssignmentConfiguration(
     args: GetCapacityAssignmentConfigurationCommandInput,
@@ -830,7 +842,7 @@ export interface Athena {
   ): void;
   getCapacityAssignmentConfiguration(
     args: GetCapacityAssignmentConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetCapacityAssignmentConfigurationCommandOutput) => void
   ): void;
 
@@ -839,7 +851,7 @@ export interface Athena {
    */
   getCapacityReservation(
     args: GetCapacityReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetCapacityReservationCommandOutput>;
   getCapacityReservation(
     args: GetCapacityReservationCommandInput,
@@ -847,7 +859,7 @@ export interface Athena {
   ): void;
   getCapacityReservation(
     args: GetCapacityReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetCapacityReservationCommandOutput) => void
   ): void;
 
@@ -856,7 +868,7 @@ export interface Athena {
    */
   getDatabase(
     args: GetDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetDatabaseCommandOutput>;
   getDatabase(
     args: GetDatabaseCommandInput,
@@ -864,7 +876,7 @@ export interface Athena {
   ): void;
   getDatabase(
     args: GetDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetDatabaseCommandOutput) => void
   ): void;
 
@@ -873,7 +885,7 @@ export interface Athena {
    */
   getDataCatalog(
     args: GetDataCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetDataCatalogCommandOutput>;
   getDataCatalog(
     args: GetDataCatalogCommandInput,
@@ -881,7 +893,7 @@ export interface Athena {
   ): void;
   getDataCatalog(
     args: GetDataCatalogCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetDataCatalogCommandOutput) => void
   ): void;
 
@@ -890,7 +902,7 @@ export interface Athena {
    */
   getNamedQuery(
     args: GetNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetNamedQueryCommandOutput>;
   getNamedQuery(
     args: GetNamedQueryCommandInput,
@@ -898,7 +910,7 @@ export interface Athena {
   ): void;
   getNamedQuery(
     args: GetNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetNamedQueryCommandOutput) => void
   ): void;
 
@@ -907,7 +919,7 @@ export interface Athena {
    */
   getNotebookMetadata(
     args: GetNotebookMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetNotebookMetadataCommandOutput>;
   getNotebookMetadata(
     args: GetNotebookMetadataCommandInput,
@@ -915,7 +927,7 @@ export interface Athena {
   ): void;
   getNotebookMetadata(
     args: GetNotebookMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetNotebookMetadataCommandOutput) => void
   ): void;
 
@@ -924,7 +936,7 @@ export interface Athena {
    */
   getPreparedStatement(
     args: GetPreparedStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetPreparedStatementCommandOutput>;
   getPreparedStatement(
     args: GetPreparedStatementCommandInput,
@@ -932,7 +944,7 @@ export interface Athena {
   ): void;
   getPreparedStatement(
     args: GetPreparedStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetPreparedStatementCommandOutput) => void
   ): void;
 
@@ -941,7 +953,7 @@ export interface Athena {
    */
   getQueryExecution(
     args: GetQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetQueryExecutionCommandOutput>;
   getQueryExecution(
     args: GetQueryExecutionCommandInput,
@@ -949,7 +961,7 @@ export interface Athena {
   ): void;
   getQueryExecution(
     args: GetQueryExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetQueryExecutionCommandOutput) => void
   ): void;
 
@@ -958,7 +970,7 @@ export interface Athena {
    */
   getQueryResults(
     args: GetQueryResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetQueryResultsCommandOutput>;
   getQueryResults(
     args: GetQueryResultsCommandInput,
@@ -966,7 +978,7 @@ export interface Athena {
   ): void;
   getQueryResults(
     args: GetQueryResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): void;
 
@@ -975,7 +987,7 @@ export interface Athena {
    */
   getQueryRuntimeStatistics(
     args: GetQueryRuntimeStatisticsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetQueryRuntimeStatisticsCommandOutput>;
   getQueryRuntimeStatistics(
     args: GetQueryRuntimeStatisticsCommandInput,
@@ -983,7 +995,7 @@ export interface Athena {
   ): void;
   getQueryRuntimeStatistics(
     args: GetQueryRuntimeStatisticsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetQueryRuntimeStatisticsCommandOutput) => void
   ): void;
 
@@ -992,7 +1004,7 @@ export interface Athena {
    */
   getResourceDashboard(
     args: GetResourceDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetResourceDashboardCommandOutput>;
   getResourceDashboard(
     args: GetResourceDashboardCommandInput,
@@ -1000,7 +1012,7 @@ export interface Athena {
   ): void;
   getResourceDashboard(
     args: GetResourceDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetResourceDashboardCommandOutput) => void
   ): void;
 
@@ -1009,7 +1021,7 @@ export interface Athena {
    */
   getSession(
     args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetSessionCommandOutput>;
   getSession(
     args: GetSessionCommandInput,
@@ -1017,7 +1029,7 @@ export interface Athena {
   ): void;
   getSession(
     args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
@@ -1026,7 +1038,7 @@ export interface Athena {
    */
   getSessionEndpoint(
     args: GetSessionEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetSessionEndpointCommandOutput>;
   getSessionEndpoint(
     args: GetSessionEndpointCommandInput,
@@ -1034,7 +1046,7 @@ export interface Athena {
   ): void;
   getSessionEndpoint(
     args: GetSessionEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetSessionEndpointCommandOutput) => void
   ): void;
 
@@ -1043,7 +1055,7 @@ export interface Athena {
    */
   getSessionStatus(
     args: GetSessionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetSessionStatusCommandOutput>;
   getSessionStatus(
     args: GetSessionStatusCommandInput,
@@ -1051,7 +1063,7 @@ export interface Athena {
   ): void;
   getSessionStatus(
     args: GetSessionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetSessionStatusCommandOutput) => void
   ): void;
 
@@ -1060,7 +1072,7 @@ export interface Athena {
    */
   getTableMetadata(
     args: GetTableMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetTableMetadataCommandOutput>;
   getTableMetadata(
     args: GetTableMetadataCommandInput,
@@ -1068,7 +1080,7 @@ export interface Athena {
   ): void;
   getTableMetadata(
     args: GetTableMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetTableMetadataCommandOutput) => void
   ): void;
 
@@ -1077,7 +1089,7 @@ export interface Athena {
    */
   getWorkGroup(
     args: GetWorkGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<GetWorkGroupCommandOutput>;
   getWorkGroup(
     args: GetWorkGroupCommandInput,
@@ -1085,7 +1097,7 @@ export interface Athena {
   ): void;
   getWorkGroup(
     args: GetWorkGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: GetWorkGroupCommandOutput) => void
   ): void;
 
@@ -1094,7 +1106,7 @@ export interface Athena {
    */
   importNotebook(
     args: ImportNotebookCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ImportNotebookCommandOutput>;
   importNotebook(
     args: ImportNotebookCommandInput,
@@ -1102,7 +1114,7 @@ export interface Athena {
   ): void;
   importNotebook(
     args: ImportNotebookCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ImportNotebookCommandOutput) => void
   ): void;
 
@@ -1112,7 +1124,7 @@ export interface Athena {
   listApplicationDPUSizes(): Promise<ListApplicationDPUSizesCommandOutput>;
   listApplicationDPUSizes(
     args: ListApplicationDPUSizesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListApplicationDPUSizesCommandOutput>;
   listApplicationDPUSizes(
     args: ListApplicationDPUSizesCommandInput,
@@ -1120,7 +1132,7 @@ export interface Athena {
   ): void;
   listApplicationDPUSizes(
     args: ListApplicationDPUSizesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListApplicationDPUSizesCommandOutput) => void
   ): void;
 
@@ -1129,7 +1141,7 @@ export interface Athena {
    */
   listCalculationExecutions(
     args: ListCalculationExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListCalculationExecutionsCommandOutput>;
   listCalculationExecutions(
     args: ListCalculationExecutionsCommandInput,
@@ -1137,7 +1149,7 @@ export interface Athena {
   ): void;
   listCalculationExecutions(
     args: ListCalculationExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListCalculationExecutionsCommandOutput) => void
   ): void;
 
@@ -1147,7 +1159,7 @@ export interface Athena {
   listCapacityReservations(): Promise<ListCapacityReservationsCommandOutput>;
   listCapacityReservations(
     args: ListCapacityReservationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListCapacityReservationsCommandOutput>;
   listCapacityReservations(
     args: ListCapacityReservationsCommandInput,
@@ -1155,7 +1167,7 @@ export interface Athena {
   ): void;
   listCapacityReservations(
     args: ListCapacityReservationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListCapacityReservationsCommandOutput) => void
   ): void;
 
@@ -1164,7 +1176,7 @@ export interface Athena {
    */
   listDatabases(
     args: ListDatabasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListDatabasesCommandOutput>;
   listDatabases(
     args: ListDatabasesCommandInput,
@@ -1172,7 +1184,7 @@ export interface Athena {
   ): void;
   listDatabases(
     args: ListDatabasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListDatabasesCommandOutput) => void
   ): void;
 
@@ -1182,7 +1194,7 @@ export interface Athena {
   listDataCatalogs(): Promise<ListDataCatalogsCommandOutput>;
   listDataCatalogs(
     args: ListDataCatalogsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListDataCatalogsCommandOutput>;
   listDataCatalogs(
     args: ListDataCatalogsCommandInput,
@@ -1190,7 +1202,7 @@ export interface Athena {
   ): void;
   listDataCatalogs(
     args: ListDataCatalogsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListDataCatalogsCommandOutput) => void
   ): void;
 
@@ -1200,7 +1212,7 @@ export interface Athena {
   listEngineVersions(): Promise<ListEngineVersionsCommandOutput>;
   listEngineVersions(
     args: ListEngineVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListEngineVersionsCommandOutput>;
   listEngineVersions(
     args: ListEngineVersionsCommandInput,
@@ -1208,7 +1220,7 @@ export interface Athena {
   ): void;
   listEngineVersions(
     args: ListEngineVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListEngineVersionsCommandOutput) => void
   ): void;
 
@@ -1217,7 +1229,7 @@ export interface Athena {
    */
   listExecutors(
     args: ListExecutorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListExecutorsCommandOutput>;
   listExecutors(
     args: ListExecutorsCommandInput,
@@ -1225,7 +1237,7 @@ export interface Athena {
   ): void;
   listExecutors(
     args: ListExecutorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListExecutorsCommandOutput) => void
   ): void;
 
@@ -1235,7 +1247,7 @@ export interface Athena {
   listNamedQueries(): Promise<ListNamedQueriesCommandOutput>;
   listNamedQueries(
     args: ListNamedQueriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListNamedQueriesCommandOutput>;
   listNamedQueries(
     args: ListNamedQueriesCommandInput,
@@ -1243,7 +1255,7 @@ export interface Athena {
   ): void;
   listNamedQueries(
     args: ListNamedQueriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListNamedQueriesCommandOutput) => void
   ): void;
 
@@ -1252,7 +1264,7 @@ export interface Athena {
    */
   listNotebookMetadata(
     args: ListNotebookMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListNotebookMetadataCommandOutput>;
   listNotebookMetadata(
     args: ListNotebookMetadataCommandInput,
@@ -1260,7 +1272,7 @@ export interface Athena {
   ): void;
   listNotebookMetadata(
     args: ListNotebookMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListNotebookMetadataCommandOutput) => void
   ): void;
 
@@ -1269,7 +1281,7 @@ export interface Athena {
    */
   listNotebookSessions(
     args: ListNotebookSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListNotebookSessionsCommandOutput>;
   listNotebookSessions(
     args: ListNotebookSessionsCommandInput,
@@ -1277,7 +1289,7 @@ export interface Athena {
   ): void;
   listNotebookSessions(
     args: ListNotebookSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListNotebookSessionsCommandOutput) => void
   ): void;
 
@@ -1286,7 +1298,7 @@ export interface Athena {
    */
   listPreparedStatements(
     args: ListPreparedStatementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListPreparedStatementsCommandOutput>;
   listPreparedStatements(
     args: ListPreparedStatementsCommandInput,
@@ -1294,7 +1306,7 @@ export interface Athena {
   ): void;
   listPreparedStatements(
     args: ListPreparedStatementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListPreparedStatementsCommandOutput) => void
   ): void;
 
@@ -1304,7 +1316,7 @@ export interface Athena {
   listQueryExecutions(): Promise<ListQueryExecutionsCommandOutput>;
   listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListQueryExecutionsCommandOutput>;
   listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
@@ -1312,7 +1324,7 @@ export interface Athena {
   ): void;
   listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListQueryExecutionsCommandOutput) => void
   ): void;
 
@@ -1321,7 +1333,7 @@ export interface Athena {
    */
   listSessions(
     args: ListSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListSessionsCommandOutput>;
   listSessions(
     args: ListSessionsCommandInput,
@@ -1329,7 +1341,7 @@ export interface Athena {
   ): void;
   listSessions(
     args: ListSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
@@ -1338,7 +1350,7 @@ export interface Athena {
    */
   listTableMetadata(
     args: ListTableMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListTableMetadataCommandOutput>;
   listTableMetadata(
     args: ListTableMetadataCommandInput,
@@ -1346,7 +1358,7 @@ export interface Athena {
   ): void;
   listTableMetadata(
     args: ListTableMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListTableMetadataCommandOutput) => void
   ): void;
 
@@ -1355,7 +1367,7 @@ export interface Athena {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1363,7 +1375,7 @@ export interface Athena {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1373,7 +1385,7 @@ export interface Athena {
   listWorkGroups(): Promise<ListWorkGroupsCommandOutput>;
   listWorkGroups(
     args: ListWorkGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<ListWorkGroupsCommandOutput>;
   listWorkGroups(
     args: ListWorkGroupsCommandInput,
@@ -1381,7 +1393,7 @@ export interface Athena {
   ): void;
   listWorkGroups(
     args: ListWorkGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: ListWorkGroupsCommandOutput) => void
   ): void;
 
@@ -1390,7 +1402,7 @@ export interface Athena {
    */
   putCapacityAssignmentConfiguration(
     args: PutCapacityAssignmentConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<PutCapacityAssignmentConfigurationCommandOutput>;
   putCapacityAssignmentConfiguration(
     args: PutCapacityAssignmentConfigurationCommandInput,
@@ -1398,7 +1410,7 @@ export interface Athena {
   ): void;
   putCapacityAssignmentConfiguration(
     args: PutCapacityAssignmentConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: PutCapacityAssignmentConfigurationCommandOutput) => void
   ): void;
 
@@ -1407,7 +1419,7 @@ export interface Athena {
    */
   startCalculationExecution(
     args: StartCalculationExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<StartCalculationExecutionCommandOutput>;
   startCalculationExecution(
     args: StartCalculationExecutionCommandInput,
@@ -1415,7 +1427,7 @@ export interface Athena {
   ): void;
   startCalculationExecution(
     args: StartCalculationExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: StartCalculationExecutionCommandOutput) => void
   ): void;
 
@@ -1424,7 +1436,7 @@ export interface Athena {
    */
   startQueryExecution(
     args: StartQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<StartQueryExecutionCommandOutput>;
   startQueryExecution(
     args: StartQueryExecutionCommandInput,
@@ -1432,7 +1444,7 @@ export interface Athena {
   ): void;
   startQueryExecution(
     args: StartQueryExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: StartQueryExecutionCommandOutput) => void
   ): void;
 
@@ -1441,7 +1453,7 @@ export interface Athena {
    */
   startSession(
     args: StartSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<StartSessionCommandOutput>;
   startSession(
     args: StartSessionCommandInput,
@@ -1449,7 +1461,7 @@ export interface Athena {
   ): void;
   startSession(
     args: StartSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: StartSessionCommandOutput) => void
   ): void;
 
@@ -1458,7 +1470,7 @@ export interface Athena {
    */
   stopCalculationExecution(
     args: StopCalculationExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<StopCalculationExecutionCommandOutput>;
   stopCalculationExecution(
     args: StopCalculationExecutionCommandInput,
@@ -1466,7 +1478,7 @@ export interface Athena {
   ): void;
   stopCalculationExecution(
     args: StopCalculationExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: StopCalculationExecutionCommandOutput) => void
   ): void;
 
@@ -1475,7 +1487,7 @@ export interface Athena {
    */
   stopQueryExecution(
     args: StopQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<StopQueryExecutionCommandOutput>;
   stopQueryExecution(
     args: StopQueryExecutionCommandInput,
@@ -1483,7 +1495,7 @@ export interface Athena {
   ): void;
   stopQueryExecution(
     args: StopQueryExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: StopQueryExecutionCommandOutput) => void
   ): void;
 
@@ -1492,7 +1504,7 @@ export interface Athena {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1500,7 +1512,7 @@ export interface Athena {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1509,7 +1521,7 @@ export interface Athena {
    */
   terminateSession(
     args: TerminateSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<TerminateSessionCommandOutput>;
   terminateSession(
     args: TerminateSessionCommandInput,
@@ -1517,7 +1529,7 @@ export interface Athena {
   ): void;
   terminateSession(
     args: TerminateSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: TerminateSessionCommandOutput) => void
   ): void;
 
@@ -1526,7 +1538,7 @@ export interface Athena {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1534,7 +1546,7 @@ export interface Athena {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1543,7 +1555,7 @@ export interface Athena {
    */
   updateCapacityReservation(
     args: UpdateCapacityReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<UpdateCapacityReservationCommandOutput>;
   updateCapacityReservation(
     args: UpdateCapacityReservationCommandInput,
@@ -1551,7 +1563,7 @@ export interface Athena {
   ): void;
   updateCapacityReservation(
     args: UpdateCapacityReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: UpdateCapacityReservationCommandOutput) => void
   ): void;
 
@@ -1560,7 +1572,7 @@ export interface Athena {
    */
   updateDataCatalog(
     args: UpdateDataCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<UpdateDataCatalogCommandOutput>;
   updateDataCatalog(
     args: UpdateDataCatalogCommandInput,
@@ -1568,7 +1580,7 @@ export interface Athena {
   ): void;
   updateDataCatalog(
     args: UpdateDataCatalogCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: UpdateDataCatalogCommandOutput) => void
   ): void;
 
@@ -1577,7 +1589,7 @@ export interface Athena {
    */
   updateNamedQuery(
     args: UpdateNamedQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<UpdateNamedQueryCommandOutput>;
   updateNamedQuery(
     args: UpdateNamedQueryCommandInput,
@@ -1585,7 +1597,7 @@ export interface Athena {
   ): void;
   updateNamedQuery(
     args: UpdateNamedQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: UpdateNamedQueryCommandOutput) => void
   ): void;
 
@@ -1594,7 +1606,7 @@ export interface Athena {
    */
   updateNotebook(
     args: UpdateNotebookCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<UpdateNotebookCommandOutput>;
   updateNotebook(
     args: UpdateNotebookCommandInput,
@@ -1602,7 +1614,7 @@ export interface Athena {
   ): void;
   updateNotebook(
     args: UpdateNotebookCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: UpdateNotebookCommandOutput) => void
   ): void;
 
@@ -1611,7 +1623,7 @@ export interface Athena {
    */
   updateNotebookMetadata(
     args: UpdateNotebookMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<UpdateNotebookMetadataCommandOutput>;
   updateNotebookMetadata(
     args: UpdateNotebookMetadataCommandInput,
@@ -1619,7 +1631,7 @@ export interface Athena {
   ): void;
   updateNotebookMetadata(
     args: UpdateNotebookMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: UpdateNotebookMetadataCommandOutput) => void
   ): void;
 
@@ -1628,7 +1640,7 @@ export interface Athena {
    */
   updatePreparedStatement(
     args: UpdatePreparedStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<UpdatePreparedStatementCommandOutput>;
   updatePreparedStatement(
     args: UpdatePreparedStatementCommandInput,
@@ -1636,7 +1648,7 @@ export interface Athena {
   ): void;
   updatePreparedStatement(
     args: UpdatePreparedStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: UpdatePreparedStatementCommandOutput) => void
   ): void;
 
@@ -1645,7 +1657,7 @@ export interface Athena {
    */
   updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AthenaRequestOptions
   ): Promise<UpdateWorkGroupCommandOutput>;
   updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
@@ -1653,7 +1665,7 @@ export interface Athena {
   ): void;
   updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: AthenaRequestOptions,
     cb: (err: any, data?: UpdateWorkGroupCommandOutput) => void
   ): void;
 

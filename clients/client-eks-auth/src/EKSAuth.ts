@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type AssumeRoleForPodIdentityCommandInput,
@@ -13,13 +13,20 @@ const commands = {
   AssumeRoleForPodIdentityCommand,
 };
 
+/**
+ * @public
+ */
+export interface EKSAuthRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface EKSAuth {
   /**
    * @see {@link AssumeRoleForPodIdentityCommand}
    */
   assumeRoleForPodIdentity(
     args: AssumeRoleForPodIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EKSAuthRequestOptions
   ): Promise<AssumeRoleForPodIdentityCommandOutput>;
   assumeRoleForPodIdentity(
     args: AssumeRoleForPodIdentityCommandInput,
@@ -27,7 +34,7 @@ export interface EKSAuth {
   ): void;
   assumeRoleForPodIdentity(
     args: AssumeRoleForPodIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: EKSAuthRequestOptions,
     cb: (err: any, data?: AssumeRoleForPodIdentityCommandOutput) => void
   ): void;
 }

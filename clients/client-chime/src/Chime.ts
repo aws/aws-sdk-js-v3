@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ChimeClient } from "./ChimeClient";
 import {
@@ -365,13 +370,20 @@ const paginators = {
   paginateSearchAvailablePhoneNumbers,
 };
 
+/**
+ * @public
+ */
+export interface ChimeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Chime {
   /**
    * @see {@link AssociatePhoneNumberWithUserCommand}
    */
   associatePhoneNumberWithUser(
     args: AssociatePhoneNumberWithUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<AssociatePhoneNumberWithUserCommandOutput>;
   associatePhoneNumberWithUser(
     args: AssociatePhoneNumberWithUserCommandInput,
@@ -379,7 +391,7 @@ export interface Chime {
   ): void;
   associatePhoneNumberWithUser(
     args: AssociatePhoneNumberWithUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: AssociatePhoneNumberWithUserCommandOutput) => void
   ): void;
 
@@ -388,7 +400,7 @@ export interface Chime {
    */
   associateSigninDelegateGroupsWithAccount(
     args: AssociateSigninDelegateGroupsWithAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<AssociateSigninDelegateGroupsWithAccountCommandOutput>;
   associateSigninDelegateGroupsWithAccount(
     args: AssociateSigninDelegateGroupsWithAccountCommandInput,
@@ -396,7 +408,7 @@ export interface Chime {
   ): void;
   associateSigninDelegateGroupsWithAccount(
     args: AssociateSigninDelegateGroupsWithAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: AssociateSigninDelegateGroupsWithAccountCommandOutput) => void
   ): void;
 
@@ -405,7 +417,7 @@ export interface Chime {
    */
   batchCreateRoomMembership(
     args: BatchCreateRoomMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<BatchCreateRoomMembershipCommandOutput>;
   batchCreateRoomMembership(
     args: BatchCreateRoomMembershipCommandInput,
@@ -413,7 +425,7 @@ export interface Chime {
   ): void;
   batchCreateRoomMembership(
     args: BatchCreateRoomMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: BatchCreateRoomMembershipCommandOutput) => void
   ): void;
 
@@ -422,7 +434,7 @@ export interface Chime {
    */
   batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<BatchDeletePhoneNumberCommandOutput>;
   batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
@@ -430,7 +442,7 @@ export interface Chime {
   ): void;
   batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
   ): void;
 
@@ -439,7 +451,7 @@ export interface Chime {
    */
   batchSuspendUser(
     args: BatchSuspendUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<BatchSuspendUserCommandOutput>;
   batchSuspendUser(
     args: BatchSuspendUserCommandInput,
@@ -447,7 +459,7 @@ export interface Chime {
   ): void;
   batchSuspendUser(
     args: BatchSuspendUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: BatchSuspendUserCommandOutput) => void
   ): void;
 
@@ -456,7 +468,7 @@ export interface Chime {
    */
   batchUnsuspendUser(
     args: BatchUnsuspendUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<BatchUnsuspendUserCommandOutput>;
   batchUnsuspendUser(
     args: BatchUnsuspendUserCommandInput,
@@ -464,7 +476,7 @@ export interface Chime {
   ): void;
   batchUnsuspendUser(
     args: BatchUnsuspendUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: BatchUnsuspendUserCommandOutput) => void
   ): void;
 
@@ -473,7 +485,7 @@ export interface Chime {
    */
   batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<BatchUpdatePhoneNumberCommandOutput>;
   batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
@@ -481,7 +493,7 @@ export interface Chime {
   ): void;
   batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
   ): void;
 
@@ -490,7 +502,7 @@ export interface Chime {
    */
   batchUpdateUser(
     args: BatchUpdateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<BatchUpdateUserCommandOutput>;
   batchUpdateUser(
     args: BatchUpdateUserCommandInput,
@@ -498,7 +510,7 @@ export interface Chime {
   ): void;
   batchUpdateUser(
     args: BatchUpdateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: BatchUpdateUserCommandOutput) => void
   ): void;
 
@@ -507,7 +519,7 @@ export interface Chime {
    */
   createAccount(
     args: CreateAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<CreateAccountCommandOutput>;
   createAccount(
     args: CreateAccountCommandInput,
@@ -515,7 +527,7 @@ export interface Chime {
   ): void;
   createAccount(
     args: CreateAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: CreateAccountCommandOutput) => void
   ): void;
 
@@ -524,7 +536,7 @@ export interface Chime {
    */
   createBot(
     args: CreateBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<CreateBotCommandOutput>;
   createBot(
     args: CreateBotCommandInput,
@@ -532,7 +544,7 @@ export interface Chime {
   ): void;
   createBot(
     args: CreateBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: CreateBotCommandOutput) => void
   ): void;
 
@@ -541,7 +553,7 @@ export interface Chime {
    */
   createMeetingDialOut(
     args: CreateMeetingDialOutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<CreateMeetingDialOutCommandOutput>;
   createMeetingDialOut(
     args: CreateMeetingDialOutCommandInput,
@@ -549,7 +561,7 @@ export interface Chime {
   ): void;
   createMeetingDialOut(
     args: CreateMeetingDialOutCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: CreateMeetingDialOutCommandOutput) => void
   ): void;
 
@@ -558,7 +570,7 @@ export interface Chime {
    */
   createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<CreatePhoneNumberOrderCommandOutput>;
   createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
@@ -566,7 +578,7 @@ export interface Chime {
   ): void;
   createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
   ): void;
 
@@ -575,7 +587,7 @@ export interface Chime {
    */
   createRoom(
     args: CreateRoomCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<CreateRoomCommandOutput>;
   createRoom(
     args: CreateRoomCommandInput,
@@ -583,7 +595,7 @@ export interface Chime {
   ): void;
   createRoom(
     args: CreateRoomCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: CreateRoomCommandOutput) => void
   ): void;
 
@@ -592,7 +604,7 @@ export interface Chime {
    */
   createRoomMembership(
     args: CreateRoomMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<CreateRoomMembershipCommandOutput>;
   createRoomMembership(
     args: CreateRoomMembershipCommandInput,
@@ -600,7 +612,7 @@ export interface Chime {
   ): void;
   createRoomMembership(
     args: CreateRoomMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: CreateRoomMembershipCommandOutput) => void
   ): void;
 
@@ -609,7 +621,7 @@ export interface Chime {
    */
   createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<CreateUserCommandOutput>;
   createUser(
     args: CreateUserCommandInput,
@@ -617,7 +629,7 @@ export interface Chime {
   ): void;
   createUser(
     args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
 
@@ -626,7 +638,7 @@ export interface Chime {
    */
   deleteAccount(
     args: DeleteAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<DeleteAccountCommandOutput>;
   deleteAccount(
     args: DeleteAccountCommandInput,
@@ -634,7 +646,7 @@ export interface Chime {
   ): void;
   deleteAccount(
     args: DeleteAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: DeleteAccountCommandOutput) => void
   ): void;
 
@@ -643,7 +655,7 @@ export interface Chime {
    */
   deleteEventsConfiguration(
     args: DeleteEventsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<DeleteEventsConfigurationCommandOutput>;
   deleteEventsConfiguration(
     args: DeleteEventsConfigurationCommandInput,
@@ -651,7 +663,7 @@ export interface Chime {
   ): void;
   deleteEventsConfiguration(
     args: DeleteEventsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: DeleteEventsConfigurationCommandOutput) => void
   ): void;
 
@@ -660,7 +672,7 @@ export interface Chime {
    */
   deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<DeletePhoneNumberCommandOutput>;
   deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
@@ -668,7 +680,7 @@ export interface Chime {
   ): void;
   deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: DeletePhoneNumberCommandOutput) => void
   ): void;
 
@@ -677,7 +689,7 @@ export interface Chime {
    */
   deleteRoom(
     args: DeleteRoomCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<DeleteRoomCommandOutput>;
   deleteRoom(
     args: DeleteRoomCommandInput,
@@ -685,7 +697,7 @@ export interface Chime {
   ): void;
   deleteRoom(
     args: DeleteRoomCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: DeleteRoomCommandOutput) => void
   ): void;
 
@@ -694,7 +706,7 @@ export interface Chime {
    */
   deleteRoomMembership(
     args: DeleteRoomMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<DeleteRoomMembershipCommandOutput>;
   deleteRoomMembership(
     args: DeleteRoomMembershipCommandInput,
@@ -702,7 +714,7 @@ export interface Chime {
   ): void;
   deleteRoomMembership(
     args: DeleteRoomMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: DeleteRoomMembershipCommandOutput) => void
   ): void;
 
@@ -711,7 +723,7 @@ export interface Chime {
    */
   disassociatePhoneNumberFromUser(
     args: DisassociatePhoneNumberFromUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<DisassociatePhoneNumberFromUserCommandOutput>;
   disassociatePhoneNumberFromUser(
     args: DisassociatePhoneNumberFromUserCommandInput,
@@ -719,7 +731,7 @@ export interface Chime {
   ): void;
   disassociatePhoneNumberFromUser(
     args: DisassociatePhoneNumberFromUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: DisassociatePhoneNumberFromUserCommandOutput) => void
   ): void;
 
@@ -728,7 +740,7 @@ export interface Chime {
    */
   disassociateSigninDelegateGroupsFromAccount(
     args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput>;
   disassociateSigninDelegateGroupsFromAccount(
     args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
@@ -736,7 +748,7 @@ export interface Chime {
   ): void;
   disassociateSigninDelegateGroupsFromAccount(
     args: DisassociateSigninDelegateGroupsFromAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: DisassociateSigninDelegateGroupsFromAccountCommandOutput) => void
   ): void;
 
@@ -745,7 +757,7 @@ export interface Chime {
    */
   getAccount(
     args: GetAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetAccountCommandOutput>;
   getAccount(
     args: GetAccountCommandInput,
@@ -753,7 +765,7 @@ export interface Chime {
   ): void;
   getAccount(
     args: GetAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetAccountCommandOutput) => void
   ): void;
 
@@ -762,7 +774,7 @@ export interface Chime {
    */
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -770,7 +782,7 @@ export interface Chime {
   ): void;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): void;
 
@@ -779,7 +791,7 @@ export interface Chime {
    */
   getBot(
     args: GetBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetBotCommandOutput>;
   getBot(
     args: GetBotCommandInput,
@@ -787,7 +799,7 @@ export interface Chime {
   ): void;
   getBot(
     args: GetBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetBotCommandOutput) => void
   ): void;
 
@@ -796,7 +808,7 @@ export interface Chime {
    */
   getEventsConfiguration(
     args: GetEventsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetEventsConfigurationCommandOutput>;
   getEventsConfiguration(
     args: GetEventsConfigurationCommandInput,
@@ -804,7 +816,7 @@ export interface Chime {
   ): void;
   getEventsConfiguration(
     args: GetEventsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetEventsConfigurationCommandOutput) => void
   ): void;
 
@@ -814,7 +826,7 @@ export interface Chime {
   getGlobalSettings(): Promise<GetGlobalSettingsCommandOutput>;
   getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetGlobalSettingsCommandOutput>;
   getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
@@ -822,7 +834,7 @@ export interface Chime {
   ): void;
   getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
   ): void;
 
@@ -831,7 +843,7 @@ export interface Chime {
    */
   getPhoneNumber(
     args: GetPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetPhoneNumberCommandOutput>;
   getPhoneNumber(
     args: GetPhoneNumberCommandInput,
@@ -839,7 +851,7 @@ export interface Chime {
   ): void;
   getPhoneNumber(
     args: GetPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetPhoneNumberCommandOutput) => void
   ): void;
 
@@ -848,7 +860,7 @@ export interface Chime {
    */
   getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetPhoneNumberOrderCommandOutput>;
   getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
@@ -856,7 +868,7 @@ export interface Chime {
   ): void;
   getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
   ): void;
 
@@ -866,7 +878,7 @@ export interface Chime {
   getPhoneNumberSettings(): Promise<GetPhoneNumberSettingsCommandOutput>;
   getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetPhoneNumberSettingsCommandOutput>;
   getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
@@ -874,7 +886,7 @@ export interface Chime {
   ): void;
   getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
   ): void;
 
@@ -883,7 +895,7 @@ export interface Chime {
    */
   getRetentionSettings(
     args: GetRetentionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetRetentionSettingsCommandOutput>;
   getRetentionSettings(
     args: GetRetentionSettingsCommandInput,
@@ -891,7 +903,7 @@ export interface Chime {
   ): void;
   getRetentionSettings(
     args: GetRetentionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetRetentionSettingsCommandOutput) => void
   ): void;
 
@@ -900,7 +912,7 @@ export interface Chime {
    */
   getRoom(
     args: GetRoomCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetRoomCommandOutput>;
   getRoom(
     args: GetRoomCommandInput,
@@ -908,7 +920,7 @@ export interface Chime {
   ): void;
   getRoom(
     args: GetRoomCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetRoomCommandOutput) => void
   ): void;
 
@@ -917,7 +929,7 @@ export interface Chime {
    */
   getUser(
     args: GetUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetUserCommandOutput>;
   getUser(
     args: GetUserCommandInput,
@@ -925,7 +937,7 @@ export interface Chime {
   ): void;
   getUser(
     args: GetUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetUserCommandOutput) => void
   ): void;
 
@@ -934,7 +946,7 @@ export interface Chime {
    */
   getUserSettings(
     args: GetUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<GetUserSettingsCommandOutput>;
   getUserSettings(
     args: GetUserSettingsCommandInput,
@@ -942,7 +954,7 @@ export interface Chime {
   ): void;
   getUserSettings(
     args: GetUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: GetUserSettingsCommandOutput) => void
   ): void;
 
@@ -951,7 +963,7 @@ export interface Chime {
    */
   inviteUsers(
     args: InviteUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<InviteUsersCommandOutput>;
   inviteUsers(
     args: InviteUsersCommandInput,
@@ -959,7 +971,7 @@ export interface Chime {
   ): void;
   inviteUsers(
     args: InviteUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: InviteUsersCommandOutput) => void
   ): void;
 
@@ -969,7 +981,7 @@ export interface Chime {
   listAccounts(): Promise<ListAccountsCommandOutput>;
   listAccounts(
     args: ListAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<ListAccountsCommandOutput>;
   listAccounts(
     args: ListAccountsCommandInput,
@@ -977,7 +989,7 @@ export interface Chime {
   ): void;
   listAccounts(
     args: ListAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: ListAccountsCommandOutput) => void
   ): void;
 
@@ -986,7 +998,7 @@ export interface Chime {
    */
   listBots(
     args: ListBotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<ListBotsCommandOutput>;
   listBots(
     args: ListBotsCommandInput,
@@ -994,7 +1006,7 @@ export interface Chime {
   ): void;
   listBots(
     args: ListBotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: ListBotsCommandOutput) => void
   ): void;
 
@@ -1004,7 +1016,7 @@ export interface Chime {
   listPhoneNumberOrders(): Promise<ListPhoneNumberOrdersCommandOutput>;
   listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<ListPhoneNumberOrdersCommandOutput>;
   listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
@@ -1012,7 +1024,7 @@ export interface Chime {
   ): void;
   listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
   ): void;
 
@@ -1022,7 +1034,7 @@ export interface Chime {
   listPhoneNumbers(): Promise<ListPhoneNumbersCommandOutput>;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<ListPhoneNumbersCommandOutput>;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
@@ -1030,7 +1042,7 @@ export interface Chime {
   ): void;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
   ): void;
 
@@ -1039,7 +1051,7 @@ export interface Chime {
    */
   listRoomMemberships(
     args: ListRoomMembershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<ListRoomMembershipsCommandOutput>;
   listRoomMemberships(
     args: ListRoomMembershipsCommandInput,
@@ -1047,7 +1059,7 @@ export interface Chime {
   ): void;
   listRoomMemberships(
     args: ListRoomMembershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: ListRoomMembershipsCommandOutput) => void
   ): void;
 
@@ -1056,7 +1068,7 @@ export interface Chime {
    */
   listRooms(
     args: ListRoomsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<ListRoomsCommandOutput>;
   listRooms(
     args: ListRoomsCommandInput,
@@ -1064,7 +1076,7 @@ export interface Chime {
   ): void;
   listRooms(
     args: ListRoomsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: ListRoomsCommandOutput) => void
   ): void;
 
@@ -1073,7 +1085,7 @@ export interface Chime {
    */
   listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<ListSupportedPhoneNumberCountriesCommandOutput>;
   listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
@@ -1081,7 +1093,7 @@ export interface Chime {
   ): void;
   listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
   ): void;
 
@@ -1090,7 +1102,7 @@ export interface Chime {
    */
   listUsers(
     args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<ListUsersCommandOutput>;
   listUsers(
     args: ListUsersCommandInput,
@@ -1098,7 +1110,7 @@ export interface Chime {
   ): void;
   listUsers(
     args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
   ): void;
 
@@ -1107,7 +1119,7 @@ export interface Chime {
    */
   logoutUser(
     args: LogoutUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<LogoutUserCommandOutput>;
   logoutUser(
     args: LogoutUserCommandInput,
@@ -1115,7 +1127,7 @@ export interface Chime {
   ): void;
   logoutUser(
     args: LogoutUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: LogoutUserCommandOutput) => void
   ): void;
 
@@ -1124,7 +1136,7 @@ export interface Chime {
    */
   putEventsConfiguration(
     args: PutEventsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<PutEventsConfigurationCommandOutput>;
   putEventsConfiguration(
     args: PutEventsConfigurationCommandInput,
@@ -1132,7 +1144,7 @@ export interface Chime {
   ): void;
   putEventsConfiguration(
     args: PutEventsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: PutEventsConfigurationCommandOutput) => void
   ): void;
 
@@ -1141,7 +1153,7 @@ export interface Chime {
    */
   putRetentionSettings(
     args: PutRetentionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<PutRetentionSettingsCommandOutput>;
   putRetentionSettings(
     args: PutRetentionSettingsCommandInput,
@@ -1149,7 +1161,7 @@ export interface Chime {
   ): void;
   putRetentionSettings(
     args: PutRetentionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: PutRetentionSettingsCommandOutput) => void
   ): void;
 
@@ -1158,7 +1170,7 @@ export interface Chime {
    */
   redactConversationMessage(
     args: RedactConversationMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<RedactConversationMessageCommandOutput>;
   redactConversationMessage(
     args: RedactConversationMessageCommandInput,
@@ -1166,7 +1178,7 @@ export interface Chime {
   ): void;
   redactConversationMessage(
     args: RedactConversationMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: RedactConversationMessageCommandOutput) => void
   ): void;
 
@@ -1175,7 +1187,7 @@ export interface Chime {
    */
   redactRoomMessage(
     args: RedactRoomMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<RedactRoomMessageCommandOutput>;
   redactRoomMessage(
     args: RedactRoomMessageCommandInput,
@@ -1183,7 +1195,7 @@ export interface Chime {
   ): void;
   redactRoomMessage(
     args: RedactRoomMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: RedactRoomMessageCommandOutput) => void
   ): void;
 
@@ -1192,7 +1204,7 @@ export interface Chime {
    */
   regenerateSecurityToken(
     args: RegenerateSecurityTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<RegenerateSecurityTokenCommandOutput>;
   regenerateSecurityToken(
     args: RegenerateSecurityTokenCommandInput,
@@ -1200,7 +1212,7 @@ export interface Chime {
   ): void;
   regenerateSecurityToken(
     args: RegenerateSecurityTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: RegenerateSecurityTokenCommandOutput) => void
   ): void;
 
@@ -1209,7 +1221,7 @@ export interface Chime {
    */
   resetPersonalPIN(
     args: ResetPersonalPINCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<ResetPersonalPINCommandOutput>;
   resetPersonalPIN(
     args: ResetPersonalPINCommandInput,
@@ -1217,7 +1229,7 @@ export interface Chime {
   ): void;
   resetPersonalPIN(
     args: ResetPersonalPINCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: ResetPersonalPINCommandOutput) => void
   ): void;
 
@@ -1226,7 +1238,7 @@ export interface Chime {
    */
   restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<RestorePhoneNumberCommandOutput>;
   restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
@@ -1234,7 +1246,7 @@ export interface Chime {
   ): void;
   restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: RestorePhoneNumberCommandOutput) => void
   ): void;
 
@@ -1244,7 +1256,7 @@ export interface Chime {
   searchAvailablePhoneNumbers(): Promise<SearchAvailablePhoneNumbersCommandOutput>;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<SearchAvailablePhoneNumbersCommandOutput>;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
@@ -1252,7 +1264,7 @@ export interface Chime {
   ): void;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
   ): void;
 
@@ -1261,7 +1273,7 @@ export interface Chime {
    */
   updateAccount(
     args: UpdateAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdateAccountCommandOutput>;
   updateAccount(
     args: UpdateAccountCommandInput,
@@ -1269,7 +1281,7 @@ export interface Chime {
   ): void;
   updateAccount(
     args: UpdateAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdateAccountCommandOutput) => void
   ): void;
 
@@ -1278,7 +1290,7 @@ export interface Chime {
    */
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdateAccountSettingsCommandOutput>;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
@@ -1286,7 +1298,7 @@ export interface Chime {
   ): void;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
   ): void;
 
@@ -1295,7 +1307,7 @@ export interface Chime {
    */
   updateBot(
     args: UpdateBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdateBotCommandOutput>;
   updateBot(
     args: UpdateBotCommandInput,
@@ -1303,7 +1315,7 @@ export interface Chime {
   ): void;
   updateBot(
     args: UpdateBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdateBotCommandOutput) => void
   ): void;
 
@@ -1313,7 +1325,7 @@ export interface Chime {
   updateGlobalSettings(): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
@@ -1321,7 +1333,7 @@ export interface Chime {
   ): void;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
   ): void;
 
@@ -1330,7 +1342,7 @@ export interface Chime {
    */
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdatePhoneNumberCommandOutput>;
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
@@ -1338,7 +1350,7 @@ export interface Chime {
   ): void;
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
   ): void;
 
@@ -1347,7 +1359,7 @@ export interface Chime {
    */
   updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdatePhoneNumberSettingsCommandOutput>;
   updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
@@ -1355,7 +1367,7 @@ export interface Chime {
   ): void;
   updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
   ): void;
 
@@ -1364,7 +1376,7 @@ export interface Chime {
    */
   updateRoom(
     args: UpdateRoomCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdateRoomCommandOutput>;
   updateRoom(
     args: UpdateRoomCommandInput,
@@ -1372,7 +1384,7 @@ export interface Chime {
   ): void;
   updateRoom(
     args: UpdateRoomCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdateRoomCommandOutput) => void
   ): void;
 
@@ -1381,7 +1393,7 @@ export interface Chime {
    */
   updateRoomMembership(
     args: UpdateRoomMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdateRoomMembershipCommandOutput>;
   updateRoomMembership(
     args: UpdateRoomMembershipCommandInput,
@@ -1389,7 +1401,7 @@ export interface Chime {
   ): void;
   updateRoomMembership(
     args: UpdateRoomMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdateRoomMembershipCommandOutput) => void
   ): void;
 
@@ -1398,7 +1410,7 @@ export interface Chime {
    */
   updateUser(
     args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdateUserCommandOutput>;
   updateUser(
     args: UpdateUserCommandInput,
@@ -1406,7 +1418,7 @@ export interface Chime {
   ): void;
   updateUser(
     args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
 
@@ -1415,7 +1427,7 @@ export interface Chime {
    */
   updateUserSettings(
     args: UpdateUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeRequestOptions
   ): Promise<UpdateUserSettingsCommandOutput>;
   updateUserSettings(
     args: UpdateUserSettingsCommandInput,
@@ -1423,7 +1435,7 @@ export interface Chime {
   ): void;
   updateUserSettings(
     args: UpdateUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeRequestOptions,
     cb: (err: any, data?: UpdateUserSettingsCommandOutput) => void
   ): void;
 

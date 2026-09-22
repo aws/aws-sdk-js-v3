@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchCreateTopicReviewedAnswerCommandInput,
@@ -1889,13 +1894,20 @@ const paginators = {
   paginateSearchTopicsV2,
 };
 
+/**
+ * @public
+ */
+export interface QuickSightRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface QuickSight {
   /**
    * @see {@link BatchCreateTopicReviewedAnswerCommand}
    */
   batchCreateTopicReviewedAnswer(
     args: BatchCreateTopicReviewedAnswerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<BatchCreateTopicReviewedAnswerCommandOutput>;
   batchCreateTopicReviewedAnswer(
     args: BatchCreateTopicReviewedAnswerCommandInput,
@@ -1903,7 +1915,7 @@ export interface QuickSight {
   ): void;
   batchCreateTopicReviewedAnswer(
     args: BatchCreateTopicReviewedAnswerCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: BatchCreateTopicReviewedAnswerCommandOutput) => void
   ): void;
 
@@ -1912,7 +1924,7 @@ export interface QuickSight {
    */
   batchDeleteKnowledgeBase(
     args: BatchDeleteKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<BatchDeleteKnowledgeBaseCommandOutput>;
   batchDeleteKnowledgeBase(
     args: BatchDeleteKnowledgeBaseCommandInput,
@@ -1920,7 +1932,7 @@ export interface QuickSight {
   ): void;
   batchDeleteKnowledgeBase(
     args: BatchDeleteKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: BatchDeleteKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -1929,7 +1941,7 @@ export interface QuickSight {
    */
   batchDeleteTopicReviewedAnswer(
     args: BatchDeleteTopicReviewedAnswerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<BatchDeleteTopicReviewedAnswerCommandOutput>;
   batchDeleteTopicReviewedAnswer(
     args: BatchDeleteTopicReviewedAnswerCommandInput,
@@ -1937,7 +1949,7 @@ export interface QuickSight {
   ): void;
   batchDeleteTopicReviewedAnswer(
     args: BatchDeleteTopicReviewedAnswerCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: BatchDeleteTopicReviewedAnswerCommandOutput) => void
   ): void;
 
@@ -1946,7 +1958,7 @@ export interface QuickSight {
    */
   batchDescribeUserLimits(
     args: BatchDescribeUserLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<BatchDescribeUserLimitsCommandOutput>;
   batchDescribeUserLimits(
     args: BatchDescribeUserLimitsCommandInput,
@@ -1954,7 +1966,7 @@ export interface QuickSight {
   ): void;
   batchDescribeUserLimits(
     args: BatchDescribeUserLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: BatchDescribeUserLimitsCommandOutput) => void
   ): void;
 
@@ -1963,7 +1975,7 @@ export interface QuickSight {
    */
   cancelIngestion(
     args: CancelIngestionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CancelIngestionCommandOutput>;
   cancelIngestion(
     args: CancelIngestionCommandInput,
@@ -1971,7 +1983,7 @@ export interface QuickSight {
   ): void;
   cancelIngestion(
     args: CancelIngestionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CancelIngestionCommandOutput) => void
   ): void;
 
@@ -1980,7 +1992,7 @@ export interface QuickSight {
    */
   createAccountCustomization(
     args: CreateAccountCustomizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateAccountCustomizationCommandOutput>;
   createAccountCustomization(
     args: CreateAccountCustomizationCommandInput,
@@ -1988,7 +2000,7 @@ export interface QuickSight {
   ): void;
   createAccountCustomization(
     args: CreateAccountCustomizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateAccountCustomizationCommandOutput) => void
   ): void;
 
@@ -1997,7 +2009,7 @@ export interface QuickSight {
    */
   createAccountSubscription(
     args: CreateAccountSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateAccountSubscriptionCommandOutput>;
   createAccountSubscription(
     args: CreateAccountSubscriptionCommandInput,
@@ -2005,7 +2017,7 @@ export interface QuickSight {
   ): void;
   createAccountSubscription(
     args: CreateAccountSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateAccountSubscriptionCommandOutput) => void
   ): void;
 
@@ -2014,7 +2026,7 @@ export interface QuickSight {
    */
   createActionConnector(
     args: CreateActionConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateActionConnectorCommandOutput>;
   createActionConnector(
     args: CreateActionConnectorCommandInput,
@@ -2022,7 +2034,7 @@ export interface QuickSight {
   ): void;
   createActionConnector(
     args: CreateActionConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateActionConnectorCommandOutput) => void
   ): void;
 
@@ -2031,7 +2043,7 @@ export interface QuickSight {
    */
   createAgent(
     args: CreateAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateAgentCommandOutput>;
   createAgent(
     args: CreateAgentCommandInput,
@@ -2039,7 +2051,7 @@ export interface QuickSight {
   ): void;
   createAgent(
     args: CreateAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateAgentCommandOutput) => void
   ): void;
 
@@ -2048,7 +2060,7 @@ export interface QuickSight {
    */
   createAnalysis(
     args: CreateAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateAnalysisCommandOutput>;
   createAnalysis(
     args: CreateAnalysisCommandInput,
@@ -2056,7 +2068,7 @@ export interface QuickSight {
   ): void;
   createAnalysis(
     args: CreateAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateAnalysisCommandOutput) => void
   ): void;
 
@@ -2065,7 +2077,7 @@ export interface QuickSight {
    */
   createApprovalPolicy(
     args: CreateApprovalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateApprovalPolicyCommandOutput>;
   createApprovalPolicy(
     args: CreateApprovalPolicyCommandInput,
@@ -2073,7 +2085,7 @@ export interface QuickSight {
   ): void;
   createApprovalPolicy(
     args: CreateApprovalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateApprovalPolicyCommandOutput) => void
   ): void;
 
@@ -2082,7 +2094,7 @@ export interface QuickSight {
    */
   createBrand(
     args: CreateBrandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateBrandCommandOutput>;
   createBrand(
     args: CreateBrandCommandInput,
@@ -2090,7 +2102,7 @@ export interface QuickSight {
   ): void;
   createBrand(
     args: CreateBrandCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateBrandCommandOutput) => void
   ): void;
 
@@ -2099,7 +2111,7 @@ export interface QuickSight {
    */
   createCustomPermissions(
     args: CreateCustomPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateCustomPermissionsCommandOutput>;
   createCustomPermissions(
     args: CreateCustomPermissionsCommandInput,
@@ -2107,7 +2119,7 @@ export interface QuickSight {
   ): void;
   createCustomPermissions(
     args: CreateCustomPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateCustomPermissionsCommandOutput) => void
   ): void;
 
@@ -2116,7 +2128,7 @@ export interface QuickSight {
    */
   createDashboard(
     args: CreateDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateDashboardCommandOutput>;
   createDashboard(
     args: CreateDashboardCommandInput,
@@ -2124,7 +2136,7 @@ export interface QuickSight {
   ): void;
   createDashboard(
     args: CreateDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateDashboardCommandOutput) => void
   ): void;
 
@@ -2133,7 +2145,7 @@ export interface QuickSight {
    */
   createDataSet(
     args: CreateDataSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateDataSetCommandOutput>;
   createDataSet(
     args: CreateDataSetCommandInput,
@@ -2141,7 +2153,7 @@ export interface QuickSight {
   ): void;
   createDataSet(
     args: CreateDataSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateDataSetCommandOutput) => void
   ): void;
 
@@ -2150,7 +2162,7 @@ export interface QuickSight {
    */
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateDataSourceCommandOutput>;
   createDataSource(
     args: CreateDataSourceCommandInput,
@@ -2158,7 +2170,7 @@ export interface QuickSight {
   ): void;
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): void;
 
@@ -2167,7 +2179,7 @@ export interface QuickSight {
    */
   createDlpSetting(
     args: CreateDlpSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateDlpSettingCommandOutput>;
   createDlpSetting(
     args: CreateDlpSettingCommandInput,
@@ -2175,7 +2187,7 @@ export interface QuickSight {
   ): void;
   createDlpSetting(
     args: CreateDlpSettingCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateDlpSettingCommandOutput) => void
   ): void;
 
@@ -2184,7 +2196,7 @@ export interface QuickSight {
    */
   createFlow(
     args: CreateFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateFlowCommandOutput>;
   createFlow(
     args: CreateFlowCommandInput,
@@ -2192,7 +2204,7 @@ export interface QuickSight {
   ): void;
   createFlow(
     args: CreateFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateFlowCommandOutput) => void
   ): void;
 
@@ -2201,7 +2213,7 @@ export interface QuickSight {
    */
   createFolder(
     args: CreateFolderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateFolderCommandOutput>;
   createFolder(
     args: CreateFolderCommandInput,
@@ -2209,7 +2221,7 @@ export interface QuickSight {
   ): void;
   createFolder(
     args: CreateFolderCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateFolderCommandOutput) => void
   ): void;
 
@@ -2218,7 +2230,7 @@ export interface QuickSight {
    */
   createFolderMembership(
     args: CreateFolderMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateFolderMembershipCommandOutput>;
   createFolderMembership(
     args: CreateFolderMembershipCommandInput,
@@ -2226,7 +2238,7 @@ export interface QuickSight {
   ): void;
   createFolderMembership(
     args: CreateFolderMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateFolderMembershipCommandOutput) => void
   ): void;
 
@@ -2235,7 +2247,7 @@ export interface QuickSight {
    */
   createGroup(
     args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateGroupCommandOutput>;
   createGroup(
     args: CreateGroupCommandInput,
@@ -2243,7 +2255,7 @@ export interface QuickSight {
   ): void;
   createGroup(
     args: CreateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateGroupCommandOutput) => void
   ): void;
 
@@ -2252,7 +2264,7 @@ export interface QuickSight {
    */
   createGroupMembership(
     args: CreateGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateGroupMembershipCommandOutput>;
   createGroupMembership(
     args: CreateGroupMembershipCommandInput,
@@ -2260,7 +2272,7 @@ export interface QuickSight {
   ): void;
   createGroupMembership(
     args: CreateGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateGroupMembershipCommandOutput) => void
   ): void;
 
@@ -2269,7 +2281,7 @@ export interface QuickSight {
    */
   createIAMPolicyAssignment(
     args: CreateIAMPolicyAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateIAMPolicyAssignmentCommandOutput>;
   createIAMPolicyAssignment(
     args: CreateIAMPolicyAssignmentCommandInput,
@@ -2277,7 +2289,7 @@ export interface QuickSight {
   ): void;
   createIAMPolicyAssignment(
     args: CreateIAMPolicyAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateIAMPolicyAssignmentCommandOutput) => void
   ): void;
 
@@ -2286,7 +2298,7 @@ export interface QuickSight {
    */
   createIngestion(
     args: CreateIngestionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateIngestionCommandOutput>;
   createIngestion(
     args: CreateIngestionCommandInput,
@@ -2294,7 +2306,7 @@ export interface QuickSight {
   ): void;
   createIngestion(
     args: CreateIngestionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateIngestionCommandOutput) => void
   ): void;
 
@@ -2303,7 +2315,7 @@ export interface QuickSight {
    */
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateKnowledgeBaseCommandOutput>;
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
@@ -2311,7 +2323,7 @@ export interface QuickSight {
   ): void;
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -2320,7 +2332,7 @@ export interface QuickSight {
    */
   createLimitsProfile(
     args: CreateLimitsProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateLimitsProfileCommandOutput>;
   createLimitsProfile(
     args: CreateLimitsProfileCommandInput,
@@ -2328,7 +2340,7 @@ export interface QuickSight {
   ): void;
   createLimitsProfile(
     args: CreateLimitsProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateLimitsProfileCommandOutput) => void
   ): void;
 
@@ -2337,7 +2349,7 @@ export interface QuickSight {
    */
   createNamespace(
     args: CreateNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateNamespaceCommandOutput>;
   createNamespace(
     args: CreateNamespaceCommandInput,
@@ -2345,7 +2357,7 @@ export interface QuickSight {
   ): void;
   createNamespace(
     args: CreateNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateNamespaceCommandOutput) => void
   ): void;
 
@@ -2354,7 +2366,7 @@ export interface QuickSight {
    */
   createOAuthClientApplication(
     args: CreateOAuthClientApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateOAuthClientApplicationCommandOutput>;
   createOAuthClientApplication(
     args: CreateOAuthClientApplicationCommandInput,
@@ -2362,7 +2374,7 @@ export interface QuickSight {
   ): void;
   createOAuthClientApplication(
     args: CreateOAuthClientApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateOAuthClientApplicationCommandOutput) => void
   ): void;
 
@@ -2371,7 +2383,7 @@ export interface QuickSight {
    */
   createRefreshSchedule(
     args: CreateRefreshScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateRefreshScheduleCommandOutput>;
   createRefreshSchedule(
     args: CreateRefreshScheduleCommandInput,
@@ -2379,7 +2391,7 @@ export interface QuickSight {
   ): void;
   createRefreshSchedule(
     args: CreateRefreshScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateRefreshScheduleCommandOutput) => void
   ): void;
 
@@ -2388,7 +2400,7 @@ export interface QuickSight {
    */
   createRoleMembership(
     args: CreateRoleMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateRoleMembershipCommandOutput>;
   createRoleMembership(
     args: CreateRoleMembershipCommandInput,
@@ -2396,7 +2408,7 @@ export interface QuickSight {
   ): void;
   createRoleMembership(
     args: CreateRoleMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateRoleMembershipCommandOutput) => void
   ): void;
 
@@ -2405,7 +2417,7 @@ export interface QuickSight {
    */
   createSpace(
     args: CreateSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateSpaceCommandOutput>;
   createSpace(
     args: CreateSpaceCommandInput,
@@ -2413,7 +2425,7 @@ export interface QuickSight {
   ): void;
   createSpace(
     args: CreateSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateSpaceCommandOutput) => void
   ): void;
 
@@ -2422,7 +2434,7 @@ export interface QuickSight {
    */
   createTemplate(
     args: CreateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateTemplateCommandOutput>;
   createTemplate(
     args: CreateTemplateCommandInput,
@@ -2430,7 +2442,7 @@ export interface QuickSight {
   ): void;
   createTemplate(
     args: CreateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateTemplateCommandOutput) => void
   ): void;
 
@@ -2439,7 +2451,7 @@ export interface QuickSight {
    */
   createTemplateAlias(
     args: CreateTemplateAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateTemplateAliasCommandOutput>;
   createTemplateAlias(
     args: CreateTemplateAliasCommandInput,
@@ -2447,7 +2459,7 @@ export interface QuickSight {
   ): void;
   createTemplateAlias(
     args: CreateTemplateAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateTemplateAliasCommandOutput) => void
   ): void;
 
@@ -2456,7 +2468,7 @@ export interface QuickSight {
    */
   createTheme(
     args: CreateThemeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateThemeCommandOutput>;
   createTheme(
     args: CreateThemeCommandInput,
@@ -2464,7 +2476,7 @@ export interface QuickSight {
   ): void;
   createTheme(
     args: CreateThemeCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateThemeCommandOutput) => void
   ): void;
 
@@ -2473,7 +2485,7 @@ export interface QuickSight {
    */
   createThemeAlias(
     args: CreateThemeAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateThemeAliasCommandOutput>;
   createThemeAlias(
     args: CreateThemeAliasCommandInput,
@@ -2481,7 +2493,7 @@ export interface QuickSight {
   ): void;
   createThemeAlias(
     args: CreateThemeAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateThemeAliasCommandOutput) => void
   ): void;
 
@@ -2490,7 +2502,7 @@ export interface QuickSight {
    */
   createTopic(
     args: CreateTopicCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateTopicCommandOutput>;
   createTopic(
     args: CreateTopicCommandInput,
@@ -2498,7 +2510,7 @@ export interface QuickSight {
   ): void;
   createTopic(
     args: CreateTopicCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateTopicCommandOutput) => void
   ): void;
 
@@ -2507,7 +2519,7 @@ export interface QuickSight {
    */
   createTopicRefreshSchedule(
     args: CreateTopicRefreshScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateTopicRefreshScheduleCommandOutput>;
   createTopicRefreshSchedule(
     args: CreateTopicRefreshScheduleCommandInput,
@@ -2515,7 +2527,7 @@ export interface QuickSight {
   ): void;
   createTopicRefreshSchedule(
     args: CreateTopicRefreshScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateTopicRefreshScheduleCommandOutput) => void
   ): void;
 
@@ -2524,7 +2536,7 @@ export interface QuickSight {
    */
   createTopicV2(
     args: CreateTopicV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateTopicV2CommandOutput>;
   createTopicV2(
     args: CreateTopicV2CommandInput,
@@ -2532,7 +2544,7 @@ export interface QuickSight {
   ): void;
   createTopicV2(
     args: CreateTopicV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateTopicV2CommandOutput) => void
   ): void;
 
@@ -2541,7 +2553,7 @@ export interface QuickSight {
    */
   createVPCConnection(
     args: CreateVPCConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<CreateVPCConnectionCommandOutput>;
   createVPCConnection(
     args: CreateVPCConnectionCommandInput,
@@ -2549,7 +2561,7 @@ export interface QuickSight {
   ): void;
   createVPCConnection(
     args: CreateVPCConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateVPCConnectionCommandOutput) => void
   ): void;
 
@@ -2558,7 +2570,7 @@ export interface QuickSight {
    */
   deleteAccountCustomization(
     args: DeleteAccountCustomizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteAccountCustomizationCommandOutput>;
   deleteAccountCustomization(
     args: DeleteAccountCustomizationCommandInput,
@@ -2566,7 +2578,7 @@ export interface QuickSight {
   ): void;
   deleteAccountCustomization(
     args: DeleteAccountCustomizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteAccountCustomizationCommandOutput) => void
   ): void;
 
@@ -2575,7 +2587,7 @@ export interface QuickSight {
    */
   deleteAccountCustomPermission(
     args: DeleteAccountCustomPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteAccountCustomPermissionCommandOutput>;
   deleteAccountCustomPermission(
     args: DeleteAccountCustomPermissionCommandInput,
@@ -2583,7 +2595,7 @@ export interface QuickSight {
   ): void;
   deleteAccountCustomPermission(
     args: DeleteAccountCustomPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteAccountCustomPermissionCommandOutput) => void
   ): void;
 
@@ -2592,7 +2604,7 @@ export interface QuickSight {
    */
   deleteAccountSubscription(
     args: DeleteAccountSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteAccountSubscriptionCommandOutput>;
   deleteAccountSubscription(
     args: DeleteAccountSubscriptionCommandInput,
@@ -2600,7 +2612,7 @@ export interface QuickSight {
   ): void;
   deleteAccountSubscription(
     args: DeleteAccountSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteAccountSubscriptionCommandOutput) => void
   ): void;
 
@@ -2609,7 +2621,7 @@ export interface QuickSight {
    */
   deleteActionConnector(
     args: DeleteActionConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteActionConnectorCommandOutput>;
   deleteActionConnector(
     args: DeleteActionConnectorCommandInput,
@@ -2617,7 +2629,7 @@ export interface QuickSight {
   ): void;
   deleteActionConnector(
     args: DeleteActionConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteActionConnectorCommandOutput) => void
   ): void;
 
@@ -2626,7 +2638,7 @@ export interface QuickSight {
    */
   deleteAgent(
     args: DeleteAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteAgentCommandOutput>;
   deleteAgent(
     args: DeleteAgentCommandInput,
@@ -2634,7 +2646,7 @@ export interface QuickSight {
   ): void;
   deleteAgent(
     args: DeleteAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteAgentCommandOutput) => void
   ): void;
 
@@ -2643,7 +2655,7 @@ export interface QuickSight {
    */
   deleteAnalysis(
     args: DeleteAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteAnalysisCommandOutput>;
   deleteAnalysis(
     args: DeleteAnalysisCommandInput,
@@ -2651,7 +2663,7 @@ export interface QuickSight {
   ): void;
   deleteAnalysis(
     args: DeleteAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteAnalysisCommandOutput) => void
   ): void;
 
@@ -2660,7 +2672,7 @@ export interface QuickSight {
    */
   deleteApp(
     args: DeleteAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteAppCommandOutput>;
   deleteApp(
     args: DeleteAppCommandInput,
@@ -2668,7 +2680,7 @@ export interface QuickSight {
   ): void;
   deleteApp(
     args: DeleteAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteAppCommandOutput) => void
   ): void;
 
@@ -2677,7 +2689,7 @@ export interface QuickSight {
    */
   deleteApprovalPolicy(
     args: DeleteApprovalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteApprovalPolicyCommandOutput>;
   deleteApprovalPolicy(
     args: DeleteApprovalPolicyCommandInput,
@@ -2685,7 +2697,7 @@ export interface QuickSight {
   ): void;
   deleteApprovalPolicy(
     args: DeleteApprovalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteApprovalPolicyCommandOutput) => void
   ): void;
 
@@ -2694,7 +2706,7 @@ export interface QuickSight {
    */
   deleteBrand(
     args: DeleteBrandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteBrandCommandOutput>;
   deleteBrand(
     args: DeleteBrandCommandInput,
@@ -2702,7 +2714,7 @@ export interface QuickSight {
   ): void;
   deleteBrand(
     args: DeleteBrandCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteBrandCommandOutput) => void
   ): void;
 
@@ -2711,7 +2723,7 @@ export interface QuickSight {
    */
   deleteBrandAssignment(
     args: DeleteBrandAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteBrandAssignmentCommandOutput>;
   deleteBrandAssignment(
     args: DeleteBrandAssignmentCommandInput,
@@ -2719,7 +2731,7 @@ export interface QuickSight {
   ): void;
   deleteBrandAssignment(
     args: DeleteBrandAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteBrandAssignmentCommandOutput) => void
   ): void;
 
@@ -2728,7 +2740,7 @@ export interface QuickSight {
    */
   deleteCustomPermissions(
     args: DeleteCustomPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteCustomPermissionsCommandOutput>;
   deleteCustomPermissions(
     args: DeleteCustomPermissionsCommandInput,
@@ -2736,7 +2748,7 @@ export interface QuickSight {
   ): void;
   deleteCustomPermissions(
     args: DeleteCustomPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteCustomPermissionsCommandOutput) => void
   ): void;
 
@@ -2745,7 +2757,7 @@ export interface QuickSight {
    */
   deleteDashboard(
     args: DeleteDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteDashboardCommandOutput>;
   deleteDashboard(
     args: DeleteDashboardCommandInput,
@@ -2753,7 +2765,7 @@ export interface QuickSight {
   ): void;
   deleteDashboard(
     args: DeleteDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteDashboardCommandOutput) => void
   ): void;
 
@@ -2762,7 +2774,7 @@ export interface QuickSight {
    */
   deleteDataSet(
     args: DeleteDataSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteDataSetCommandOutput>;
   deleteDataSet(
     args: DeleteDataSetCommandInput,
@@ -2770,7 +2782,7 @@ export interface QuickSight {
   ): void;
   deleteDataSet(
     args: DeleteDataSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteDataSetCommandOutput) => void
   ): void;
 
@@ -2779,7 +2791,7 @@ export interface QuickSight {
    */
   deleteDataSetRefreshProperties(
     args: DeleteDataSetRefreshPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteDataSetRefreshPropertiesCommandOutput>;
   deleteDataSetRefreshProperties(
     args: DeleteDataSetRefreshPropertiesCommandInput,
@@ -2787,7 +2799,7 @@ export interface QuickSight {
   ): void;
   deleteDataSetRefreshProperties(
     args: DeleteDataSetRefreshPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteDataSetRefreshPropertiesCommandOutput) => void
   ): void;
 
@@ -2796,7 +2808,7 @@ export interface QuickSight {
    */
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteDataSourceCommandOutput>;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -2804,7 +2816,7 @@ export interface QuickSight {
   ): void;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): void;
 
@@ -2813,7 +2825,7 @@ export interface QuickSight {
    */
   deleteDefaultQBusinessApplication(
     args: DeleteDefaultQBusinessApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteDefaultQBusinessApplicationCommandOutput>;
   deleteDefaultQBusinessApplication(
     args: DeleteDefaultQBusinessApplicationCommandInput,
@@ -2821,7 +2833,7 @@ export interface QuickSight {
   ): void;
   deleteDefaultQBusinessApplication(
     args: DeleteDefaultQBusinessApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteDefaultQBusinessApplicationCommandOutput) => void
   ): void;
 
@@ -2830,7 +2842,7 @@ export interface QuickSight {
    */
   deleteDlpSetting(
     args: DeleteDlpSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteDlpSettingCommandOutput>;
   deleteDlpSetting(
     args: DeleteDlpSettingCommandInput,
@@ -2838,7 +2850,7 @@ export interface QuickSight {
   ): void;
   deleteDlpSetting(
     args: DeleteDlpSettingCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteDlpSettingCommandOutput) => void
   ): void;
 
@@ -2847,7 +2859,7 @@ export interface QuickSight {
    */
   deleteFlow(
     args: DeleteFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteFlowCommandOutput>;
   deleteFlow(
     args: DeleteFlowCommandInput,
@@ -2855,7 +2867,7 @@ export interface QuickSight {
   ): void;
   deleteFlow(
     args: DeleteFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteFlowCommandOutput) => void
   ): void;
 
@@ -2864,7 +2876,7 @@ export interface QuickSight {
    */
   deleteFolder(
     args: DeleteFolderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteFolderCommandOutput>;
   deleteFolder(
     args: DeleteFolderCommandInput,
@@ -2872,7 +2884,7 @@ export interface QuickSight {
   ): void;
   deleteFolder(
     args: DeleteFolderCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteFolderCommandOutput) => void
   ): void;
 
@@ -2881,7 +2893,7 @@ export interface QuickSight {
    */
   deleteFolderMembership(
     args: DeleteFolderMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteFolderMembershipCommandOutput>;
   deleteFolderMembership(
     args: DeleteFolderMembershipCommandInput,
@@ -2889,7 +2901,7 @@ export interface QuickSight {
   ): void;
   deleteFolderMembership(
     args: DeleteFolderMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteFolderMembershipCommandOutput) => void
   ): void;
 
@@ -2898,7 +2910,7 @@ export interface QuickSight {
    */
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteGroupCommandOutput>;
   deleteGroup(
     args: DeleteGroupCommandInput,
@@ -2906,7 +2918,7 @@ export interface QuickSight {
   ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteGroupCommandOutput) => void
   ): void;
 
@@ -2915,7 +2927,7 @@ export interface QuickSight {
    */
   deleteGroupMembership(
     args: DeleteGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteGroupMembershipCommandOutput>;
   deleteGroupMembership(
     args: DeleteGroupMembershipCommandInput,
@@ -2923,7 +2935,7 @@ export interface QuickSight {
   ): void;
   deleteGroupMembership(
     args: DeleteGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteGroupMembershipCommandOutput) => void
   ): void;
 
@@ -2932,7 +2944,7 @@ export interface QuickSight {
    */
   deleteIAMPolicyAssignment(
     args: DeleteIAMPolicyAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteIAMPolicyAssignmentCommandOutput>;
   deleteIAMPolicyAssignment(
     args: DeleteIAMPolicyAssignmentCommandInput,
@@ -2940,7 +2952,7 @@ export interface QuickSight {
   ): void;
   deleteIAMPolicyAssignment(
     args: DeleteIAMPolicyAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteIAMPolicyAssignmentCommandOutput) => void
   ): void;
 
@@ -2949,7 +2961,7 @@ export interface QuickSight {
    */
   deleteIdentityPropagationConfig(
     args: DeleteIdentityPropagationConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteIdentityPropagationConfigCommandOutput>;
   deleteIdentityPropagationConfig(
     args: DeleteIdentityPropagationConfigCommandInput,
@@ -2957,7 +2969,7 @@ export interface QuickSight {
   ): void;
   deleteIdentityPropagationConfig(
     args: DeleteIdentityPropagationConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteIdentityPropagationConfigCommandOutput) => void
   ): void;
 
@@ -2966,7 +2978,7 @@ export interface QuickSight {
    */
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteKnowledgeBaseCommandOutput>;
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
@@ -2974,7 +2986,7 @@ export interface QuickSight {
   ): void;
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -2983,7 +2995,7 @@ export interface QuickSight {
    */
   deleteLimitsProfile(
     args: DeleteLimitsProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteLimitsProfileCommandOutput>;
   deleteLimitsProfile(
     args: DeleteLimitsProfileCommandInput,
@@ -2991,7 +3003,7 @@ export interface QuickSight {
   ): void;
   deleteLimitsProfile(
     args: DeleteLimitsProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteLimitsProfileCommandOutput) => void
   ): void;
 
@@ -3000,7 +3012,7 @@ export interface QuickSight {
    */
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteNamespaceCommandOutput>;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
@@ -3008,7 +3020,7 @@ export interface QuickSight {
   ): void;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): void;
 
@@ -3017,7 +3029,7 @@ export interface QuickSight {
    */
   deleteOAuthClientApplication(
     args: DeleteOAuthClientApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteOAuthClientApplicationCommandOutput>;
   deleteOAuthClientApplication(
     args: DeleteOAuthClientApplicationCommandInput,
@@ -3025,7 +3037,7 @@ export interface QuickSight {
   ): void;
   deleteOAuthClientApplication(
     args: DeleteOAuthClientApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteOAuthClientApplicationCommandOutput) => void
   ): void;
 
@@ -3034,7 +3046,7 @@ export interface QuickSight {
    */
   deleteRefreshSchedule(
     args: DeleteRefreshScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteRefreshScheduleCommandOutput>;
   deleteRefreshSchedule(
     args: DeleteRefreshScheduleCommandInput,
@@ -3042,7 +3054,7 @@ export interface QuickSight {
   ): void;
   deleteRefreshSchedule(
     args: DeleteRefreshScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteRefreshScheduleCommandOutput) => void
   ): void;
 
@@ -3051,7 +3063,7 @@ export interface QuickSight {
    */
   deleteRoleCustomPermission(
     args: DeleteRoleCustomPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteRoleCustomPermissionCommandOutput>;
   deleteRoleCustomPermission(
     args: DeleteRoleCustomPermissionCommandInput,
@@ -3059,7 +3071,7 @@ export interface QuickSight {
   ): void;
   deleteRoleCustomPermission(
     args: DeleteRoleCustomPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteRoleCustomPermissionCommandOutput) => void
   ): void;
 
@@ -3068,7 +3080,7 @@ export interface QuickSight {
    */
   deleteRoleMembership(
     args: DeleteRoleMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteRoleMembershipCommandOutput>;
   deleteRoleMembership(
     args: DeleteRoleMembershipCommandInput,
@@ -3076,7 +3088,7 @@ export interface QuickSight {
   ): void;
   deleteRoleMembership(
     args: DeleteRoleMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteRoleMembershipCommandOutput) => void
   ): void;
 
@@ -3085,7 +3097,7 @@ export interface QuickSight {
    */
   deleteSpace(
     args: DeleteSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteSpaceCommandOutput>;
   deleteSpace(
     args: DeleteSpaceCommandInput,
@@ -3093,7 +3105,7 @@ export interface QuickSight {
   ): void;
   deleteSpace(
     args: DeleteSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteSpaceCommandOutput) => void
   ): void;
 
@@ -3102,7 +3114,7 @@ export interface QuickSight {
    */
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteTemplateCommandOutput>;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
@@ -3110,7 +3122,7 @@ export interface QuickSight {
   ): void;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): void;
 
@@ -3119,7 +3131,7 @@ export interface QuickSight {
    */
   deleteTemplateAlias(
     args: DeleteTemplateAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteTemplateAliasCommandOutput>;
   deleteTemplateAlias(
     args: DeleteTemplateAliasCommandInput,
@@ -3127,7 +3139,7 @@ export interface QuickSight {
   ): void;
   deleteTemplateAlias(
     args: DeleteTemplateAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteTemplateAliasCommandOutput) => void
   ): void;
 
@@ -3136,7 +3148,7 @@ export interface QuickSight {
    */
   deleteTheme(
     args: DeleteThemeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteThemeCommandOutput>;
   deleteTheme(
     args: DeleteThemeCommandInput,
@@ -3144,7 +3156,7 @@ export interface QuickSight {
   ): void;
   deleteTheme(
     args: DeleteThemeCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteThemeCommandOutput) => void
   ): void;
 
@@ -3153,7 +3165,7 @@ export interface QuickSight {
    */
   deleteThemeAlias(
     args: DeleteThemeAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteThemeAliasCommandOutput>;
   deleteThemeAlias(
     args: DeleteThemeAliasCommandInput,
@@ -3161,7 +3173,7 @@ export interface QuickSight {
   ): void;
   deleteThemeAlias(
     args: DeleteThemeAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteThemeAliasCommandOutput) => void
   ): void;
 
@@ -3170,7 +3182,7 @@ export interface QuickSight {
    */
   deleteTopic(
     args: DeleteTopicCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteTopicCommandOutput>;
   deleteTopic(
     args: DeleteTopicCommandInput,
@@ -3178,7 +3190,7 @@ export interface QuickSight {
   ): void;
   deleteTopic(
     args: DeleteTopicCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteTopicCommandOutput) => void
   ): void;
 
@@ -3187,7 +3199,7 @@ export interface QuickSight {
    */
   deleteTopicRefreshSchedule(
     args: DeleteTopicRefreshScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteTopicRefreshScheduleCommandOutput>;
   deleteTopicRefreshSchedule(
     args: DeleteTopicRefreshScheduleCommandInput,
@@ -3195,7 +3207,7 @@ export interface QuickSight {
   ): void;
   deleteTopicRefreshSchedule(
     args: DeleteTopicRefreshScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteTopicRefreshScheduleCommandOutput) => void
   ): void;
 
@@ -3204,7 +3216,7 @@ export interface QuickSight {
    */
   deleteTopicV2(
     args: DeleteTopicV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteTopicV2CommandOutput>;
   deleteTopicV2(
     args: DeleteTopicV2CommandInput,
@@ -3212,7 +3224,7 @@ export interface QuickSight {
   ): void;
   deleteTopicV2(
     args: DeleteTopicV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteTopicV2CommandOutput) => void
   ): void;
 
@@ -3221,7 +3233,7 @@ export interface QuickSight {
    */
   deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteUserCommandOutput>;
   deleteUser(
     args: DeleteUserCommandInput,
@@ -3229,7 +3241,7 @@ export interface QuickSight {
   ): void;
   deleteUser(
     args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
@@ -3238,7 +3250,7 @@ export interface QuickSight {
    */
   deleteUserByPrincipalId(
     args: DeleteUserByPrincipalIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteUserByPrincipalIdCommandOutput>;
   deleteUserByPrincipalId(
     args: DeleteUserByPrincipalIdCommandInput,
@@ -3246,7 +3258,7 @@ export interface QuickSight {
   ): void;
   deleteUserByPrincipalId(
     args: DeleteUserByPrincipalIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteUserByPrincipalIdCommandOutput) => void
   ): void;
 
@@ -3255,7 +3267,7 @@ export interface QuickSight {
    */
   deleteUserCustomPermission(
     args: DeleteUserCustomPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteUserCustomPermissionCommandOutput>;
   deleteUserCustomPermission(
     args: DeleteUserCustomPermissionCommandInput,
@@ -3263,7 +3275,7 @@ export interface QuickSight {
   ): void;
   deleteUserCustomPermission(
     args: DeleteUserCustomPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteUserCustomPermissionCommandOutput) => void
   ): void;
 
@@ -3272,7 +3284,7 @@ export interface QuickSight {
    */
   deleteVPCConnection(
     args: DeleteVPCConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DeleteVPCConnectionCommandOutput>;
   deleteVPCConnection(
     args: DeleteVPCConnectionCommandInput,
@@ -3280,7 +3292,7 @@ export interface QuickSight {
   ): void;
   deleteVPCConnection(
     args: DeleteVPCConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteVPCConnectionCommandOutput) => void
   ): void;
 
@@ -3289,7 +3301,7 @@ export interface QuickSight {
    */
   describeAccountCustomization(
     args: DescribeAccountCustomizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAccountCustomizationCommandOutput>;
   describeAccountCustomization(
     args: DescribeAccountCustomizationCommandInput,
@@ -3297,7 +3309,7 @@ export interface QuickSight {
   ): void;
   describeAccountCustomization(
     args: DescribeAccountCustomizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAccountCustomizationCommandOutput) => void
   ): void;
 
@@ -3306,7 +3318,7 @@ export interface QuickSight {
    */
   describeAccountCustomPermission(
     args: DescribeAccountCustomPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAccountCustomPermissionCommandOutput>;
   describeAccountCustomPermission(
     args: DescribeAccountCustomPermissionCommandInput,
@@ -3314,7 +3326,7 @@ export interface QuickSight {
   ): void;
   describeAccountCustomPermission(
     args: DescribeAccountCustomPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAccountCustomPermissionCommandOutput) => void
   ): void;
 
@@ -3323,7 +3335,7 @@ export interface QuickSight {
    */
   describeAccountSettings(
     args: DescribeAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAccountSettingsCommandOutput>;
   describeAccountSettings(
     args: DescribeAccountSettingsCommandInput,
@@ -3331,7 +3343,7 @@ export interface QuickSight {
   ): void;
   describeAccountSettings(
     args: DescribeAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
   ): void;
 
@@ -3340,7 +3352,7 @@ export interface QuickSight {
    */
   describeAccountSubscription(
     args: DescribeAccountSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAccountSubscriptionCommandOutput>;
   describeAccountSubscription(
     args: DescribeAccountSubscriptionCommandInput,
@@ -3348,7 +3360,7 @@ export interface QuickSight {
   ): void;
   describeAccountSubscription(
     args: DescribeAccountSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAccountSubscriptionCommandOutput) => void
   ): void;
 
@@ -3357,7 +3369,7 @@ export interface QuickSight {
    */
   describeActionConnector(
     args: DescribeActionConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeActionConnectorCommandOutput>;
   describeActionConnector(
     args: DescribeActionConnectorCommandInput,
@@ -3365,7 +3377,7 @@ export interface QuickSight {
   ): void;
   describeActionConnector(
     args: DescribeActionConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeActionConnectorCommandOutput) => void
   ): void;
 
@@ -3374,7 +3386,7 @@ export interface QuickSight {
    */
   describeActionConnectorPermissions(
     args: DescribeActionConnectorPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeActionConnectorPermissionsCommandOutput>;
   describeActionConnectorPermissions(
     args: DescribeActionConnectorPermissionsCommandInput,
@@ -3382,7 +3394,7 @@ export interface QuickSight {
   ): void;
   describeActionConnectorPermissions(
     args: DescribeActionConnectorPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeActionConnectorPermissionsCommandOutput) => void
   ): void;
 
@@ -3391,7 +3403,7 @@ export interface QuickSight {
    */
   describeAgent(
     args: DescribeAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAgentCommandOutput>;
   describeAgent(
     args: DescribeAgentCommandInput,
@@ -3399,7 +3411,7 @@ export interface QuickSight {
   ): void;
   describeAgent(
     args: DescribeAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAgentCommandOutput) => void
   ): void;
 
@@ -3408,7 +3420,7 @@ export interface QuickSight {
    */
   describeAgentPermissions(
     args: DescribeAgentPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAgentPermissionsCommandOutput>;
   describeAgentPermissions(
     args: DescribeAgentPermissionsCommandInput,
@@ -3416,7 +3428,7 @@ export interface QuickSight {
   ): void;
   describeAgentPermissions(
     args: DescribeAgentPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAgentPermissionsCommandOutput) => void
   ): void;
 
@@ -3425,7 +3437,7 @@ export interface QuickSight {
    */
   describeAnalysis(
     args: DescribeAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAnalysisCommandOutput>;
   describeAnalysis(
     args: DescribeAnalysisCommandInput,
@@ -3433,7 +3445,7 @@ export interface QuickSight {
   ): void;
   describeAnalysis(
     args: DescribeAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAnalysisCommandOutput) => void
   ): void;
 
@@ -3442,7 +3454,7 @@ export interface QuickSight {
    */
   describeAnalysisDefinition(
     args: DescribeAnalysisDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAnalysisDefinitionCommandOutput>;
   describeAnalysisDefinition(
     args: DescribeAnalysisDefinitionCommandInput,
@@ -3450,7 +3462,7 @@ export interface QuickSight {
   ): void;
   describeAnalysisDefinition(
     args: DescribeAnalysisDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAnalysisDefinitionCommandOutput) => void
   ): void;
 
@@ -3459,7 +3471,7 @@ export interface QuickSight {
    */
   describeAnalysisPermissions(
     args: DescribeAnalysisPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAnalysisPermissionsCommandOutput>;
   describeAnalysisPermissions(
     args: DescribeAnalysisPermissionsCommandInput,
@@ -3467,7 +3479,7 @@ export interface QuickSight {
   ): void;
   describeAnalysisPermissions(
     args: DescribeAnalysisPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAnalysisPermissionsCommandOutput) => void
   ): void;
 
@@ -3476,7 +3488,7 @@ export interface QuickSight {
    */
   describeApp(
     args: DescribeAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAppCommandOutput>;
   describeApp(
     args: DescribeAppCommandInput,
@@ -3484,7 +3496,7 @@ export interface QuickSight {
   ): void;
   describeApp(
     args: DescribeAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAppCommandOutput) => void
   ): void;
 
@@ -3493,7 +3505,7 @@ export interface QuickSight {
    */
   describeAppPermissions(
     args: DescribeAppPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAppPermissionsCommandOutput>;
   describeAppPermissions(
     args: DescribeAppPermissionsCommandInput,
@@ -3501,7 +3513,7 @@ export interface QuickSight {
   ): void;
   describeAppPermissions(
     args: DescribeAppPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAppPermissionsCommandOutput) => void
   ): void;
 
@@ -3510,7 +3522,7 @@ export interface QuickSight {
    */
   describeApprovalPolicy(
     args: DescribeApprovalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeApprovalPolicyCommandOutput>;
   describeApprovalPolicy(
     args: DescribeApprovalPolicyCommandInput,
@@ -3518,7 +3530,7 @@ export interface QuickSight {
   ): void;
   describeApprovalPolicy(
     args: DescribeApprovalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeApprovalPolicyCommandOutput) => void
   ): void;
 
@@ -3527,7 +3539,7 @@ export interface QuickSight {
    */
   describeAssetBundleExportJob(
     args: DescribeAssetBundleExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAssetBundleExportJobCommandOutput>;
   describeAssetBundleExportJob(
     args: DescribeAssetBundleExportJobCommandInput,
@@ -3535,7 +3547,7 @@ export interface QuickSight {
   ): void;
   describeAssetBundleExportJob(
     args: DescribeAssetBundleExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAssetBundleExportJobCommandOutput) => void
   ): void;
 
@@ -3544,7 +3556,7 @@ export interface QuickSight {
    */
   describeAssetBundleImportJob(
     args: DescribeAssetBundleImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAssetBundleImportJobCommandOutput>;
   describeAssetBundleImportJob(
     args: DescribeAssetBundleImportJobCommandInput,
@@ -3552,7 +3564,7 @@ export interface QuickSight {
   ): void;
   describeAssetBundleImportJob(
     args: DescribeAssetBundleImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAssetBundleImportJobCommandOutput) => void
   ): void;
 
@@ -3561,7 +3573,7 @@ export interface QuickSight {
    */
   describeAutomationJob(
     args: DescribeAutomationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeAutomationJobCommandOutput>;
   describeAutomationJob(
     args: DescribeAutomationJobCommandInput,
@@ -3569,7 +3581,7 @@ export interface QuickSight {
   ): void;
   describeAutomationJob(
     args: DescribeAutomationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeAutomationJobCommandOutput) => void
   ): void;
 
@@ -3578,7 +3590,7 @@ export interface QuickSight {
    */
   describeBrand(
     args: DescribeBrandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeBrandCommandOutput>;
   describeBrand(
     args: DescribeBrandCommandInput,
@@ -3586,7 +3598,7 @@ export interface QuickSight {
   ): void;
   describeBrand(
     args: DescribeBrandCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeBrandCommandOutput) => void
   ): void;
 
@@ -3595,7 +3607,7 @@ export interface QuickSight {
    */
   describeBrandAssignment(
     args: DescribeBrandAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeBrandAssignmentCommandOutput>;
   describeBrandAssignment(
     args: DescribeBrandAssignmentCommandInput,
@@ -3603,7 +3615,7 @@ export interface QuickSight {
   ): void;
   describeBrandAssignment(
     args: DescribeBrandAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeBrandAssignmentCommandOutput) => void
   ): void;
 
@@ -3612,7 +3624,7 @@ export interface QuickSight {
    */
   describeBrandPublishedVersion(
     args: DescribeBrandPublishedVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeBrandPublishedVersionCommandOutput>;
   describeBrandPublishedVersion(
     args: DescribeBrandPublishedVersionCommandInput,
@@ -3620,7 +3632,7 @@ export interface QuickSight {
   ): void;
   describeBrandPublishedVersion(
     args: DescribeBrandPublishedVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeBrandPublishedVersionCommandOutput) => void
   ): void;
 
@@ -3629,7 +3641,7 @@ export interface QuickSight {
    */
   describeCustomPermissions(
     args: DescribeCustomPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeCustomPermissionsCommandOutput>;
   describeCustomPermissions(
     args: DescribeCustomPermissionsCommandInput,
@@ -3637,7 +3649,7 @@ export interface QuickSight {
   ): void;
   describeCustomPermissions(
     args: DescribeCustomPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeCustomPermissionsCommandOutput) => void
   ): void;
 
@@ -3646,7 +3658,7 @@ export interface QuickSight {
    */
   describeDashboard(
     args: DescribeDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDashboardCommandOutput>;
   describeDashboard(
     args: DescribeDashboardCommandInput,
@@ -3654,7 +3666,7 @@ export interface QuickSight {
   ): void;
   describeDashboard(
     args: DescribeDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDashboardCommandOutput) => void
   ): void;
 
@@ -3663,7 +3675,7 @@ export interface QuickSight {
    */
   describeDashboardDefinition(
     args: DescribeDashboardDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDashboardDefinitionCommandOutput>;
   describeDashboardDefinition(
     args: DescribeDashboardDefinitionCommandInput,
@@ -3671,7 +3683,7 @@ export interface QuickSight {
   ): void;
   describeDashboardDefinition(
     args: DescribeDashboardDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDashboardDefinitionCommandOutput) => void
   ): void;
 
@@ -3680,7 +3692,7 @@ export interface QuickSight {
    */
   describeDashboardPermissions(
     args: DescribeDashboardPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDashboardPermissionsCommandOutput>;
   describeDashboardPermissions(
     args: DescribeDashboardPermissionsCommandInput,
@@ -3688,7 +3700,7 @@ export interface QuickSight {
   ): void;
   describeDashboardPermissions(
     args: DescribeDashboardPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDashboardPermissionsCommandOutput) => void
   ): void;
 
@@ -3697,7 +3709,7 @@ export interface QuickSight {
    */
   describeDashboardSnapshotJob(
     args: DescribeDashboardSnapshotJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDashboardSnapshotJobCommandOutput>;
   describeDashboardSnapshotJob(
     args: DescribeDashboardSnapshotJobCommandInput,
@@ -3705,7 +3717,7 @@ export interface QuickSight {
   ): void;
   describeDashboardSnapshotJob(
     args: DescribeDashboardSnapshotJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDashboardSnapshotJobCommandOutput) => void
   ): void;
 
@@ -3714,7 +3726,7 @@ export interface QuickSight {
    */
   describeDashboardSnapshotJobResult(
     args: DescribeDashboardSnapshotJobResultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDashboardSnapshotJobResultCommandOutput>;
   describeDashboardSnapshotJobResult(
     args: DescribeDashboardSnapshotJobResultCommandInput,
@@ -3722,7 +3734,7 @@ export interface QuickSight {
   ): void;
   describeDashboardSnapshotJobResult(
     args: DescribeDashboardSnapshotJobResultCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDashboardSnapshotJobResultCommandOutput) => void
   ): void;
 
@@ -3731,7 +3743,7 @@ export interface QuickSight {
    */
   describeDashboardsQAConfiguration(
     args: DescribeDashboardsQAConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDashboardsQAConfigurationCommandOutput>;
   describeDashboardsQAConfiguration(
     args: DescribeDashboardsQAConfigurationCommandInput,
@@ -3739,7 +3751,7 @@ export interface QuickSight {
   ): void;
   describeDashboardsQAConfiguration(
     args: DescribeDashboardsQAConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDashboardsQAConfigurationCommandOutput) => void
   ): void;
 
@@ -3748,7 +3760,7 @@ export interface QuickSight {
    */
   describeDataSet(
     args: DescribeDataSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDataSetCommandOutput>;
   describeDataSet(
     args: DescribeDataSetCommandInput,
@@ -3756,7 +3768,7 @@ export interface QuickSight {
   ): void;
   describeDataSet(
     args: DescribeDataSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDataSetCommandOutput) => void
   ): void;
 
@@ -3765,7 +3777,7 @@ export interface QuickSight {
    */
   describeDataSetPermissions(
     args: DescribeDataSetPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDataSetPermissionsCommandOutput>;
   describeDataSetPermissions(
     args: DescribeDataSetPermissionsCommandInput,
@@ -3773,7 +3785,7 @@ export interface QuickSight {
   ): void;
   describeDataSetPermissions(
     args: DescribeDataSetPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDataSetPermissionsCommandOutput) => void
   ): void;
 
@@ -3782,7 +3794,7 @@ export interface QuickSight {
    */
   describeDataSetRefreshProperties(
     args: DescribeDataSetRefreshPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDataSetRefreshPropertiesCommandOutput>;
   describeDataSetRefreshProperties(
     args: DescribeDataSetRefreshPropertiesCommandInput,
@@ -3790,7 +3802,7 @@ export interface QuickSight {
   ): void;
   describeDataSetRefreshProperties(
     args: DescribeDataSetRefreshPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDataSetRefreshPropertiesCommandOutput) => void
   ): void;
 
@@ -3799,7 +3811,7 @@ export interface QuickSight {
    */
   describeDataSource(
     args: DescribeDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDataSourceCommandOutput>;
   describeDataSource(
     args: DescribeDataSourceCommandInput,
@@ -3807,7 +3819,7 @@ export interface QuickSight {
   ): void;
   describeDataSource(
     args: DescribeDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDataSourceCommandOutput) => void
   ): void;
 
@@ -3816,7 +3828,7 @@ export interface QuickSight {
    */
   describeDataSourcePermissions(
     args: DescribeDataSourcePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDataSourcePermissionsCommandOutput>;
   describeDataSourcePermissions(
     args: DescribeDataSourcePermissionsCommandInput,
@@ -3824,7 +3836,7 @@ export interface QuickSight {
   ): void;
   describeDataSourcePermissions(
     args: DescribeDataSourcePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDataSourcePermissionsCommandOutput) => void
   ): void;
 
@@ -3833,7 +3845,7 @@ export interface QuickSight {
    */
   describeDefaultQBusinessApplication(
     args: DescribeDefaultQBusinessApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDefaultQBusinessApplicationCommandOutput>;
   describeDefaultQBusinessApplication(
     args: DescribeDefaultQBusinessApplicationCommandInput,
@@ -3841,7 +3853,7 @@ export interface QuickSight {
   ): void;
   describeDefaultQBusinessApplication(
     args: DescribeDefaultQBusinessApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDefaultQBusinessApplicationCommandOutput) => void
   ): void;
 
@@ -3850,7 +3862,7 @@ export interface QuickSight {
    */
   describeDlpSetting(
     args: DescribeDlpSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeDlpSettingCommandOutput>;
   describeDlpSetting(
     args: DescribeDlpSettingCommandInput,
@@ -3858,7 +3870,7 @@ export interface QuickSight {
   ): void;
   describeDlpSetting(
     args: DescribeDlpSettingCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeDlpSettingCommandOutput) => void
   ): void;
 
@@ -3867,7 +3879,7 @@ export interface QuickSight {
    */
   describeFlow(
     args: DescribeFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeFlowCommandOutput>;
   describeFlow(
     args: DescribeFlowCommandInput,
@@ -3875,7 +3887,7 @@ export interface QuickSight {
   ): void;
   describeFlow(
     args: DescribeFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeFlowCommandOutput) => void
   ): void;
 
@@ -3884,7 +3896,7 @@ export interface QuickSight {
    */
   describeFolder(
     args: DescribeFolderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeFolderCommandOutput>;
   describeFolder(
     args: DescribeFolderCommandInput,
@@ -3892,7 +3904,7 @@ export interface QuickSight {
   ): void;
   describeFolder(
     args: DescribeFolderCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeFolderCommandOutput) => void
   ): void;
 
@@ -3901,7 +3913,7 @@ export interface QuickSight {
    */
   describeFolderPermissions(
     args: DescribeFolderPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeFolderPermissionsCommandOutput>;
   describeFolderPermissions(
     args: DescribeFolderPermissionsCommandInput,
@@ -3909,7 +3921,7 @@ export interface QuickSight {
   ): void;
   describeFolderPermissions(
     args: DescribeFolderPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeFolderPermissionsCommandOutput) => void
   ): void;
 
@@ -3918,7 +3930,7 @@ export interface QuickSight {
    */
   describeFolderResolvedPermissions(
     args: DescribeFolderResolvedPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeFolderResolvedPermissionsCommandOutput>;
   describeFolderResolvedPermissions(
     args: DescribeFolderResolvedPermissionsCommandInput,
@@ -3926,7 +3938,7 @@ export interface QuickSight {
   ): void;
   describeFolderResolvedPermissions(
     args: DescribeFolderResolvedPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeFolderResolvedPermissionsCommandOutput) => void
   ): void;
 
@@ -3935,7 +3947,7 @@ export interface QuickSight {
    */
   describeGroup(
     args: DescribeGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeGroupCommandOutput>;
   describeGroup(
     args: DescribeGroupCommandInput,
@@ -3943,7 +3955,7 @@ export interface QuickSight {
   ): void;
   describeGroup(
     args: DescribeGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeGroupCommandOutput) => void
   ): void;
 
@@ -3952,7 +3964,7 @@ export interface QuickSight {
    */
   describeGroupMembership(
     args: DescribeGroupMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeGroupMembershipCommandOutput>;
   describeGroupMembership(
     args: DescribeGroupMembershipCommandInput,
@@ -3960,7 +3972,7 @@ export interface QuickSight {
   ): void;
   describeGroupMembership(
     args: DescribeGroupMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeGroupMembershipCommandOutput) => void
   ): void;
 
@@ -3969,7 +3981,7 @@ export interface QuickSight {
    */
   describeIAMPolicyAssignment(
     args: DescribeIAMPolicyAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeIAMPolicyAssignmentCommandOutput>;
   describeIAMPolicyAssignment(
     args: DescribeIAMPolicyAssignmentCommandInput,
@@ -3977,7 +3989,7 @@ export interface QuickSight {
   ): void;
   describeIAMPolicyAssignment(
     args: DescribeIAMPolicyAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeIAMPolicyAssignmentCommandOutput) => void
   ): void;
 
@@ -3986,7 +3998,7 @@ export interface QuickSight {
    */
   describeIngestion(
     args: DescribeIngestionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeIngestionCommandOutput>;
   describeIngestion(
     args: DescribeIngestionCommandInput,
@@ -3994,7 +4006,7 @@ export interface QuickSight {
   ): void;
   describeIngestion(
     args: DescribeIngestionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeIngestionCommandOutput) => void
   ): void;
 
@@ -4003,7 +4015,7 @@ export interface QuickSight {
    */
   describeIpRestriction(
     args: DescribeIpRestrictionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeIpRestrictionCommandOutput>;
   describeIpRestriction(
     args: DescribeIpRestrictionCommandInput,
@@ -4011,7 +4023,7 @@ export interface QuickSight {
   ): void;
   describeIpRestriction(
     args: DescribeIpRestrictionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeIpRestrictionCommandOutput) => void
   ): void;
 
@@ -4020,7 +4032,7 @@ export interface QuickSight {
    */
   describeKeyRegistration(
     args: DescribeKeyRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeKeyRegistrationCommandOutput>;
   describeKeyRegistration(
     args: DescribeKeyRegistrationCommandInput,
@@ -4028,7 +4040,7 @@ export interface QuickSight {
   ): void;
   describeKeyRegistration(
     args: DescribeKeyRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeKeyRegistrationCommandOutput) => void
   ): void;
 
@@ -4037,7 +4049,7 @@ export interface QuickSight {
    */
   describeKnowledgeBase(
     args: DescribeKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeKnowledgeBaseCommandOutput>;
   describeKnowledgeBase(
     args: DescribeKnowledgeBaseCommandInput,
@@ -4045,7 +4057,7 @@ export interface QuickSight {
   ): void;
   describeKnowledgeBase(
     args: DescribeKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -4054,7 +4066,7 @@ export interface QuickSight {
    */
   describeKnowledgeBasePermissions(
     args: DescribeKnowledgeBasePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeKnowledgeBasePermissionsCommandOutput>;
   describeKnowledgeBasePermissions(
     args: DescribeKnowledgeBasePermissionsCommandInput,
@@ -4062,7 +4074,7 @@ export interface QuickSight {
   ): void;
   describeKnowledgeBasePermissions(
     args: DescribeKnowledgeBasePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeKnowledgeBasePermissionsCommandOutput) => void
   ): void;
 
@@ -4071,7 +4083,7 @@ export interface QuickSight {
    */
   describeLimitsProfile(
     args: DescribeLimitsProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeLimitsProfileCommandOutput>;
   describeLimitsProfile(
     args: DescribeLimitsProfileCommandInput,
@@ -4079,7 +4091,7 @@ export interface QuickSight {
   ): void;
   describeLimitsProfile(
     args: DescribeLimitsProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeLimitsProfileCommandOutput) => void
   ): void;
 
@@ -4088,7 +4100,7 @@ export interface QuickSight {
    */
   describeNamespace(
     args: DescribeNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeNamespaceCommandOutput>;
   describeNamespace(
     args: DescribeNamespaceCommandInput,
@@ -4096,7 +4108,7 @@ export interface QuickSight {
   ): void;
   describeNamespace(
     args: DescribeNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeNamespaceCommandOutput) => void
   ): void;
 
@@ -4105,7 +4117,7 @@ export interface QuickSight {
    */
   describeOAuthClientApplication(
     args: DescribeOAuthClientApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeOAuthClientApplicationCommandOutput>;
   describeOAuthClientApplication(
     args: DescribeOAuthClientApplicationCommandInput,
@@ -4113,7 +4125,7 @@ export interface QuickSight {
   ): void;
   describeOAuthClientApplication(
     args: DescribeOAuthClientApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeOAuthClientApplicationCommandOutput) => void
   ): void;
 
@@ -4122,7 +4134,7 @@ export interface QuickSight {
    */
   describeQPersonalizationConfiguration(
     args: DescribeQPersonalizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeQPersonalizationConfigurationCommandOutput>;
   describeQPersonalizationConfiguration(
     args: DescribeQPersonalizationConfigurationCommandInput,
@@ -4130,7 +4142,7 @@ export interface QuickSight {
   ): void;
   describeQPersonalizationConfiguration(
     args: DescribeQPersonalizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeQPersonalizationConfigurationCommandOutput) => void
   ): void;
 
@@ -4139,7 +4151,7 @@ export interface QuickSight {
    */
   describeQuickSightQSearchConfiguration(
     args: DescribeQuickSightQSearchConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeQuickSightQSearchConfigurationCommandOutput>;
   describeQuickSightQSearchConfiguration(
     args: DescribeQuickSightQSearchConfigurationCommandInput,
@@ -4147,7 +4159,7 @@ export interface QuickSight {
   ): void;
   describeQuickSightQSearchConfiguration(
     args: DescribeQuickSightQSearchConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeQuickSightQSearchConfigurationCommandOutput) => void
   ): void;
 
@@ -4156,7 +4168,7 @@ export interface QuickSight {
    */
   describeRefreshSchedule(
     args: DescribeRefreshScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeRefreshScheduleCommandOutput>;
   describeRefreshSchedule(
     args: DescribeRefreshScheduleCommandInput,
@@ -4164,7 +4176,7 @@ export interface QuickSight {
   ): void;
   describeRefreshSchedule(
     args: DescribeRefreshScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeRefreshScheduleCommandOutput) => void
   ): void;
 
@@ -4173,7 +4185,7 @@ export interface QuickSight {
    */
   describeRoleCustomPermission(
     args: DescribeRoleCustomPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeRoleCustomPermissionCommandOutput>;
   describeRoleCustomPermission(
     args: DescribeRoleCustomPermissionCommandInput,
@@ -4181,7 +4193,7 @@ export interface QuickSight {
   ): void;
   describeRoleCustomPermission(
     args: DescribeRoleCustomPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeRoleCustomPermissionCommandOutput) => void
   ): void;
 
@@ -4190,7 +4202,7 @@ export interface QuickSight {
    */
   describeSelfUpgradeConfiguration(
     args: DescribeSelfUpgradeConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeSelfUpgradeConfigurationCommandOutput>;
   describeSelfUpgradeConfiguration(
     args: DescribeSelfUpgradeConfigurationCommandInput,
@@ -4198,7 +4210,7 @@ export interface QuickSight {
   ): void;
   describeSelfUpgradeConfiguration(
     args: DescribeSelfUpgradeConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeSelfUpgradeConfigurationCommandOutput) => void
   ): void;
 
@@ -4207,7 +4219,7 @@ export interface QuickSight {
    */
   describeSpace(
     args: DescribeSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeSpaceCommandOutput>;
   describeSpace(
     args: DescribeSpaceCommandInput,
@@ -4215,7 +4227,7 @@ export interface QuickSight {
   ): void;
   describeSpace(
     args: DescribeSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeSpaceCommandOutput) => void
   ): void;
 
@@ -4224,7 +4236,7 @@ export interface QuickSight {
    */
   describeSpacePermissions(
     args: DescribeSpacePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeSpacePermissionsCommandOutput>;
   describeSpacePermissions(
     args: DescribeSpacePermissionsCommandInput,
@@ -4232,7 +4244,7 @@ export interface QuickSight {
   ): void;
   describeSpacePermissions(
     args: DescribeSpacePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeSpacePermissionsCommandOutput) => void
   ): void;
 
@@ -4241,7 +4253,7 @@ export interface QuickSight {
    */
   describeTemplate(
     args: DescribeTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTemplateCommandOutput>;
   describeTemplate(
     args: DescribeTemplateCommandInput,
@@ -4249,7 +4261,7 @@ export interface QuickSight {
   ): void;
   describeTemplate(
     args: DescribeTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTemplateCommandOutput) => void
   ): void;
 
@@ -4258,7 +4270,7 @@ export interface QuickSight {
    */
   describeTemplateAlias(
     args: DescribeTemplateAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTemplateAliasCommandOutput>;
   describeTemplateAlias(
     args: DescribeTemplateAliasCommandInput,
@@ -4266,7 +4278,7 @@ export interface QuickSight {
   ): void;
   describeTemplateAlias(
     args: DescribeTemplateAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTemplateAliasCommandOutput) => void
   ): void;
 
@@ -4275,7 +4287,7 @@ export interface QuickSight {
    */
   describeTemplateDefinition(
     args: DescribeTemplateDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTemplateDefinitionCommandOutput>;
   describeTemplateDefinition(
     args: DescribeTemplateDefinitionCommandInput,
@@ -4283,7 +4295,7 @@ export interface QuickSight {
   ): void;
   describeTemplateDefinition(
     args: DescribeTemplateDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTemplateDefinitionCommandOutput) => void
   ): void;
 
@@ -4292,7 +4304,7 @@ export interface QuickSight {
    */
   describeTemplatePermissions(
     args: DescribeTemplatePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTemplatePermissionsCommandOutput>;
   describeTemplatePermissions(
     args: DescribeTemplatePermissionsCommandInput,
@@ -4300,7 +4312,7 @@ export interface QuickSight {
   ): void;
   describeTemplatePermissions(
     args: DescribeTemplatePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTemplatePermissionsCommandOutput) => void
   ): void;
 
@@ -4309,7 +4321,7 @@ export interface QuickSight {
    */
   describeTheme(
     args: DescribeThemeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeThemeCommandOutput>;
   describeTheme(
     args: DescribeThemeCommandInput,
@@ -4317,7 +4329,7 @@ export interface QuickSight {
   ): void;
   describeTheme(
     args: DescribeThemeCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeThemeCommandOutput) => void
   ): void;
 
@@ -4326,7 +4338,7 @@ export interface QuickSight {
    */
   describeThemeAlias(
     args: DescribeThemeAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeThemeAliasCommandOutput>;
   describeThemeAlias(
     args: DescribeThemeAliasCommandInput,
@@ -4334,7 +4346,7 @@ export interface QuickSight {
   ): void;
   describeThemeAlias(
     args: DescribeThemeAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeThemeAliasCommandOutput) => void
   ): void;
 
@@ -4343,7 +4355,7 @@ export interface QuickSight {
    */
   describeThemePermissions(
     args: DescribeThemePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeThemePermissionsCommandOutput>;
   describeThemePermissions(
     args: DescribeThemePermissionsCommandInput,
@@ -4351,7 +4363,7 @@ export interface QuickSight {
   ): void;
   describeThemePermissions(
     args: DescribeThemePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeThemePermissionsCommandOutput) => void
   ): void;
 
@@ -4360,7 +4372,7 @@ export interface QuickSight {
    */
   describeTopic(
     args: DescribeTopicCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTopicCommandOutput>;
   describeTopic(
     args: DescribeTopicCommandInput,
@@ -4368,7 +4380,7 @@ export interface QuickSight {
   ): void;
   describeTopic(
     args: DescribeTopicCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTopicCommandOutput) => void
   ): void;
 
@@ -4377,7 +4389,7 @@ export interface QuickSight {
    */
   describeTopicPermissions(
     args: DescribeTopicPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTopicPermissionsCommandOutput>;
   describeTopicPermissions(
     args: DescribeTopicPermissionsCommandInput,
@@ -4385,7 +4397,7 @@ export interface QuickSight {
   ): void;
   describeTopicPermissions(
     args: DescribeTopicPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTopicPermissionsCommandOutput) => void
   ): void;
 
@@ -4394,7 +4406,7 @@ export interface QuickSight {
    */
   describeTopicPermissionsV2(
     args: DescribeTopicPermissionsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTopicPermissionsV2CommandOutput>;
   describeTopicPermissionsV2(
     args: DescribeTopicPermissionsV2CommandInput,
@@ -4402,7 +4414,7 @@ export interface QuickSight {
   ): void;
   describeTopicPermissionsV2(
     args: DescribeTopicPermissionsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTopicPermissionsV2CommandOutput) => void
   ): void;
 
@@ -4411,7 +4423,7 @@ export interface QuickSight {
    */
   describeTopicRefresh(
     args: DescribeTopicRefreshCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTopicRefreshCommandOutput>;
   describeTopicRefresh(
     args: DescribeTopicRefreshCommandInput,
@@ -4419,7 +4431,7 @@ export interface QuickSight {
   ): void;
   describeTopicRefresh(
     args: DescribeTopicRefreshCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTopicRefreshCommandOutput) => void
   ): void;
 
@@ -4428,7 +4440,7 @@ export interface QuickSight {
    */
   describeTopicRefreshSchedule(
     args: DescribeTopicRefreshScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTopicRefreshScheduleCommandOutput>;
   describeTopicRefreshSchedule(
     args: DescribeTopicRefreshScheduleCommandInput,
@@ -4436,7 +4448,7 @@ export interface QuickSight {
   ): void;
   describeTopicRefreshSchedule(
     args: DescribeTopicRefreshScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTopicRefreshScheduleCommandOutput) => void
   ): void;
 
@@ -4445,7 +4457,7 @@ export interface QuickSight {
    */
   describeTopicV2(
     args: DescribeTopicV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeTopicV2CommandOutput>;
   describeTopicV2(
     args: DescribeTopicV2CommandInput,
@@ -4453,7 +4465,7 @@ export interface QuickSight {
   ): void;
   describeTopicV2(
     args: DescribeTopicV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeTopicV2CommandOutput) => void
   ): void;
 
@@ -4462,7 +4474,7 @@ export interface QuickSight {
    */
   describeUser(
     args: DescribeUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeUserCommandOutput>;
   describeUser(
     args: DescribeUserCommandInput,
@@ -4470,7 +4482,7 @@ export interface QuickSight {
   ): void;
   describeUser(
     args: DescribeUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeUserCommandOutput) => void
   ): void;
 
@@ -4479,7 +4491,7 @@ export interface QuickSight {
    */
   describeVPCConnection(
     args: DescribeVPCConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<DescribeVPCConnectionCommandOutput>;
   describeVPCConnection(
     args: DescribeVPCConnectionCommandInput,
@@ -4487,7 +4499,7 @@ export interface QuickSight {
   ): void;
   describeVPCConnection(
     args: DescribeVPCConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeVPCConnectionCommandOutput) => void
   ): void;
 
@@ -4496,7 +4508,7 @@ export interface QuickSight {
    */
   generateEmbedUrlForAnonymousUser(
     args: GenerateEmbedUrlForAnonymousUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<GenerateEmbedUrlForAnonymousUserCommandOutput>;
   generateEmbedUrlForAnonymousUser(
     args: GenerateEmbedUrlForAnonymousUserCommandInput,
@@ -4504,7 +4516,7 @@ export interface QuickSight {
   ): void;
   generateEmbedUrlForAnonymousUser(
     args: GenerateEmbedUrlForAnonymousUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: GenerateEmbedUrlForAnonymousUserCommandOutput) => void
   ): void;
 
@@ -4513,7 +4525,7 @@ export interface QuickSight {
    */
   generateEmbedUrlForRegisteredUser(
     args: GenerateEmbedUrlForRegisteredUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput>;
   generateEmbedUrlForRegisteredUser(
     args: GenerateEmbedUrlForRegisteredUserCommandInput,
@@ -4521,7 +4533,7 @@ export interface QuickSight {
   ): void;
   generateEmbedUrlForRegisteredUser(
     args: GenerateEmbedUrlForRegisteredUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: GenerateEmbedUrlForRegisteredUserCommandOutput) => void
   ): void;
 
@@ -4530,7 +4542,7 @@ export interface QuickSight {
    */
   generateEmbedUrlForRegisteredUserWithIdentity(
     args: GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput>;
   generateEmbedUrlForRegisteredUserWithIdentity(
     args: GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
@@ -4538,7 +4550,7 @@ export interface QuickSight {
   ): void;
   generateEmbedUrlForRegisteredUserWithIdentity(
     args: GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput) => void
   ): void;
 
@@ -4547,7 +4559,7 @@ export interface QuickSight {
    */
   getDashboardEmbedUrl(
     args: GetDashboardEmbedUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<GetDashboardEmbedUrlCommandOutput>;
   getDashboardEmbedUrl(
     args: GetDashboardEmbedUrlCommandInput,
@@ -4555,7 +4567,7 @@ export interface QuickSight {
   ): void;
   getDashboardEmbedUrl(
     args: GetDashboardEmbedUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: GetDashboardEmbedUrlCommandOutput) => void
   ): void;
 
@@ -4564,7 +4576,7 @@ export interface QuickSight {
    */
   getFlowMetadata(
     args: GetFlowMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<GetFlowMetadataCommandOutput>;
   getFlowMetadata(
     args: GetFlowMetadataCommandInput,
@@ -4572,7 +4584,7 @@ export interface QuickSight {
   ): void;
   getFlowMetadata(
     args: GetFlowMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: GetFlowMetadataCommandOutput) => void
   ): void;
 
@@ -4581,7 +4593,7 @@ export interface QuickSight {
    */
   getFlowPermissions(
     args: GetFlowPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<GetFlowPermissionsCommandOutput>;
   getFlowPermissions(
     args: GetFlowPermissionsCommandInput,
@@ -4589,7 +4601,7 @@ export interface QuickSight {
   ): void;
   getFlowPermissions(
     args: GetFlowPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: GetFlowPermissionsCommandOutput) => void
   ): void;
 
@@ -4598,7 +4610,7 @@ export interface QuickSight {
    */
   getIdentityContext(
     args: GetIdentityContextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<GetIdentityContextCommandOutput>;
   getIdentityContext(
     args: GetIdentityContextCommandInput,
@@ -4606,7 +4618,7 @@ export interface QuickSight {
   ): void;
   getIdentityContext(
     args: GetIdentityContextCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: GetIdentityContextCommandOutput) => void
   ): void;
 
@@ -4615,7 +4627,7 @@ export interface QuickSight {
    */
   getSessionEmbedUrl(
     args: GetSessionEmbedUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<GetSessionEmbedUrlCommandOutput>;
   getSessionEmbedUrl(
     args: GetSessionEmbedUrlCommandInput,
@@ -4623,7 +4635,7 @@ export interface QuickSight {
   ): void;
   getSessionEmbedUrl(
     args: GetSessionEmbedUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: GetSessionEmbedUrlCommandOutput) => void
   ): void;
 
@@ -4632,7 +4644,7 @@ export interface QuickSight {
    */
   listActionConnectors(
     args: ListActionConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListActionConnectorsCommandOutput>;
   listActionConnectors(
     args: ListActionConnectorsCommandInput,
@@ -4640,7 +4652,7 @@ export interface QuickSight {
   ): void;
   listActionConnectors(
     args: ListActionConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListActionConnectorsCommandOutput) => void
   ): void;
 
@@ -4649,7 +4661,7 @@ export interface QuickSight {
    */
   listAgents(
     args: ListAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListAgentsCommandOutput>;
   listAgents(
     args: ListAgentsCommandInput,
@@ -4657,7 +4669,7 @@ export interface QuickSight {
   ): void;
   listAgents(
     args: ListAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListAgentsCommandOutput) => void
   ): void;
 
@@ -4666,7 +4678,7 @@ export interface QuickSight {
    */
   listAnalyses(
     args: ListAnalysesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListAnalysesCommandOutput>;
   listAnalyses(
     args: ListAnalysesCommandInput,
@@ -4674,7 +4686,7 @@ export interface QuickSight {
   ): void;
   listAnalyses(
     args: ListAnalysesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListAnalysesCommandOutput) => void
   ): void;
 
@@ -4684,7 +4696,7 @@ export interface QuickSight {
   listApprovalPolicies(): Promise<ListApprovalPoliciesCommandOutput>;
   listApprovalPolicies(
     args: ListApprovalPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListApprovalPoliciesCommandOutput>;
   listApprovalPolicies(
     args: ListApprovalPoliciesCommandInput,
@@ -4692,7 +4704,7 @@ export interface QuickSight {
   ): void;
   listApprovalPolicies(
     args: ListApprovalPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListApprovalPoliciesCommandOutput) => void
   ): void;
 
@@ -4701,7 +4713,7 @@ export interface QuickSight {
    */
   listApps(
     args: ListAppsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListAppsCommandOutput>;
   listApps(
     args: ListAppsCommandInput,
@@ -4709,7 +4721,7 @@ export interface QuickSight {
   ): void;
   listApps(
     args: ListAppsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListAppsCommandOutput) => void
   ): void;
 
@@ -4718,7 +4730,7 @@ export interface QuickSight {
    */
   listAssetBundleExportJobs(
     args: ListAssetBundleExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListAssetBundleExportJobsCommandOutput>;
   listAssetBundleExportJobs(
     args: ListAssetBundleExportJobsCommandInput,
@@ -4726,7 +4738,7 @@ export interface QuickSight {
   ): void;
   listAssetBundleExportJobs(
     args: ListAssetBundleExportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListAssetBundleExportJobsCommandOutput) => void
   ): void;
 
@@ -4735,7 +4747,7 @@ export interface QuickSight {
    */
   listAssetBundleImportJobs(
     args: ListAssetBundleImportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListAssetBundleImportJobsCommandOutput>;
   listAssetBundleImportJobs(
     args: ListAssetBundleImportJobsCommandInput,
@@ -4743,7 +4755,7 @@ export interface QuickSight {
   ): void;
   listAssetBundleImportJobs(
     args: ListAssetBundleImportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListAssetBundleImportJobsCommandOutput) => void
   ): void;
 
@@ -4752,7 +4764,7 @@ export interface QuickSight {
    */
   listBrands(
     args: ListBrandsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListBrandsCommandOutput>;
   listBrands(
     args: ListBrandsCommandInput,
@@ -4760,7 +4772,7 @@ export interface QuickSight {
   ): void;
   listBrands(
     args: ListBrandsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListBrandsCommandOutput) => void
   ): void;
 
@@ -4769,7 +4781,7 @@ export interface QuickSight {
    */
   listCustomPermissions(
     args: ListCustomPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListCustomPermissionsCommandOutput>;
   listCustomPermissions(
     args: ListCustomPermissionsCommandInput,
@@ -4777,7 +4789,7 @@ export interface QuickSight {
   ): void;
   listCustomPermissions(
     args: ListCustomPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListCustomPermissionsCommandOutput) => void
   ): void;
 
@@ -4786,7 +4798,7 @@ export interface QuickSight {
    */
   listDashboards(
     args: ListDashboardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListDashboardsCommandOutput>;
   listDashboards(
     args: ListDashboardsCommandInput,
@@ -4794,7 +4806,7 @@ export interface QuickSight {
   ): void;
   listDashboards(
     args: ListDashboardsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListDashboardsCommandOutput) => void
   ): void;
 
@@ -4803,7 +4815,7 @@ export interface QuickSight {
    */
   listDashboardVersions(
     args: ListDashboardVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListDashboardVersionsCommandOutput>;
   listDashboardVersions(
     args: ListDashboardVersionsCommandInput,
@@ -4811,7 +4823,7 @@ export interface QuickSight {
   ): void;
   listDashboardVersions(
     args: ListDashboardVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListDashboardVersionsCommandOutput) => void
   ): void;
 
@@ -4820,7 +4832,7 @@ export interface QuickSight {
    */
   listDataSets(
     args: ListDataSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListDataSetsCommandOutput>;
   listDataSets(
     args: ListDataSetsCommandInput,
@@ -4828,7 +4840,7 @@ export interface QuickSight {
   ): void;
   listDataSets(
     args: ListDataSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListDataSetsCommandOutput) => void
   ): void;
 
@@ -4837,7 +4849,7 @@ export interface QuickSight {
    */
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListDataSourcesCommandOutput>;
   listDataSources(
     args: ListDataSourcesCommandInput,
@@ -4845,7 +4857,7 @@ export interface QuickSight {
   ): void;
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): void;
 
@@ -4854,7 +4866,7 @@ export interface QuickSight {
    */
   listDlpSettings(
     args: ListDlpSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListDlpSettingsCommandOutput>;
   listDlpSettings(
     args: ListDlpSettingsCommandInput,
@@ -4862,7 +4874,7 @@ export interface QuickSight {
   ): void;
   listDlpSettings(
     args: ListDlpSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListDlpSettingsCommandOutput) => void
   ): void;
 
@@ -4871,7 +4883,7 @@ export interface QuickSight {
    */
   listFlows(
     args: ListFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListFlowsCommandOutput>;
   listFlows(
     args: ListFlowsCommandInput,
@@ -4879,7 +4891,7 @@ export interface QuickSight {
   ): void;
   listFlows(
     args: ListFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListFlowsCommandOutput) => void
   ): void;
 
@@ -4888,7 +4900,7 @@ export interface QuickSight {
    */
   listFolderMembers(
     args: ListFolderMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListFolderMembersCommandOutput>;
   listFolderMembers(
     args: ListFolderMembersCommandInput,
@@ -4896,7 +4908,7 @@ export interface QuickSight {
   ): void;
   listFolderMembers(
     args: ListFolderMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListFolderMembersCommandOutput) => void
   ): void;
 
@@ -4905,7 +4917,7 @@ export interface QuickSight {
    */
   listFolders(
     args: ListFoldersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListFoldersCommandOutput>;
   listFolders(
     args: ListFoldersCommandInput,
@@ -4913,7 +4925,7 @@ export interface QuickSight {
   ): void;
   listFolders(
     args: ListFoldersCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListFoldersCommandOutput) => void
   ): void;
 
@@ -4922,7 +4934,7 @@ export interface QuickSight {
    */
   listFoldersForResource(
     args: ListFoldersForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListFoldersForResourceCommandOutput>;
   listFoldersForResource(
     args: ListFoldersForResourceCommandInput,
@@ -4930,7 +4942,7 @@ export interface QuickSight {
   ): void;
   listFoldersForResource(
     args: ListFoldersForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListFoldersForResourceCommandOutput) => void
   ): void;
 
@@ -4939,7 +4951,7 @@ export interface QuickSight {
    */
   listGroupMemberships(
     args: ListGroupMembershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListGroupMembershipsCommandOutput>;
   listGroupMemberships(
     args: ListGroupMembershipsCommandInput,
@@ -4947,7 +4959,7 @@ export interface QuickSight {
   ): void;
   listGroupMemberships(
     args: ListGroupMembershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListGroupMembershipsCommandOutput) => void
   ): void;
 
@@ -4956,7 +4968,7 @@ export interface QuickSight {
    */
   listGroups(
     args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
@@ -4964,7 +4976,7 @@ export interface QuickSight {
   ): void;
   listGroups(
     args: ListGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListGroupsCommandOutput) => void
   ): void;
 
@@ -4973,7 +4985,7 @@ export interface QuickSight {
    */
   listIAMPolicyAssignments(
     args: ListIAMPolicyAssignmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListIAMPolicyAssignmentsCommandOutput>;
   listIAMPolicyAssignments(
     args: ListIAMPolicyAssignmentsCommandInput,
@@ -4981,7 +4993,7 @@ export interface QuickSight {
   ): void;
   listIAMPolicyAssignments(
     args: ListIAMPolicyAssignmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListIAMPolicyAssignmentsCommandOutput) => void
   ): void;
 
@@ -4990,7 +5002,7 @@ export interface QuickSight {
    */
   listIAMPolicyAssignmentsForUser(
     args: ListIAMPolicyAssignmentsForUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput>;
   listIAMPolicyAssignmentsForUser(
     args: ListIAMPolicyAssignmentsForUserCommandInput,
@@ -4998,7 +5010,7 @@ export interface QuickSight {
   ): void;
   listIAMPolicyAssignmentsForUser(
     args: ListIAMPolicyAssignmentsForUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListIAMPolicyAssignmentsForUserCommandOutput) => void
   ): void;
 
@@ -5007,7 +5019,7 @@ export interface QuickSight {
    */
   listIdentityPropagationConfigs(
     args: ListIdentityPropagationConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListIdentityPropagationConfigsCommandOutput>;
   listIdentityPropagationConfigs(
     args: ListIdentityPropagationConfigsCommandInput,
@@ -5015,7 +5027,7 @@ export interface QuickSight {
   ): void;
   listIdentityPropagationConfigs(
     args: ListIdentityPropagationConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListIdentityPropagationConfigsCommandOutput) => void
   ): void;
 
@@ -5024,7 +5036,7 @@ export interface QuickSight {
    */
   listIngestions(
     args: ListIngestionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListIngestionsCommandOutput>;
   listIngestions(
     args: ListIngestionsCommandInput,
@@ -5032,7 +5044,7 @@ export interface QuickSight {
   ): void;
   listIngestions(
     args: ListIngestionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListIngestionsCommandOutput) => void
   ): void;
 
@@ -5041,7 +5053,7 @@ export interface QuickSight {
    */
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListKnowledgeBasesCommandOutput>;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
@@ -5049,7 +5061,7 @@ export interface QuickSight {
   ): void;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListKnowledgeBasesCommandOutput) => void
   ): void;
 
@@ -5058,7 +5070,7 @@ export interface QuickSight {
    */
   listLimitsProfiles(
     args: ListLimitsProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListLimitsProfilesCommandOutput>;
   listLimitsProfiles(
     args: ListLimitsProfilesCommandInput,
@@ -5066,7 +5078,7 @@ export interface QuickSight {
   ): void;
   listLimitsProfiles(
     args: ListLimitsProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListLimitsProfilesCommandOutput) => void
   ): void;
 
@@ -5075,7 +5087,7 @@ export interface QuickSight {
    */
   listNamespaces(
     args: ListNamespacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListNamespacesCommandOutput>;
   listNamespaces(
     args: ListNamespacesCommandInput,
@@ -5083,7 +5095,7 @@ export interface QuickSight {
   ): void;
   listNamespaces(
     args: ListNamespacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListNamespacesCommandOutput) => void
   ): void;
 
@@ -5092,7 +5104,7 @@ export interface QuickSight {
    */
   listOAuthClientApplications(
     args: ListOAuthClientApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListOAuthClientApplicationsCommandOutput>;
   listOAuthClientApplications(
     args: ListOAuthClientApplicationsCommandInput,
@@ -5100,7 +5112,7 @@ export interface QuickSight {
   ): void;
   listOAuthClientApplications(
     args: ListOAuthClientApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListOAuthClientApplicationsCommandOutput) => void
   ): void;
 
@@ -5109,7 +5121,7 @@ export interface QuickSight {
    */
   listRefreshSchedules(
     args: ListRefreshSchedulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListRefreshSchedulesCommandOutput>;
   listRefreshSchedules(
     args: ListRefreshSchedulesCommandInput,
@@ -5117,7 +5129,7 @@ export interface QuickSight {
   ): void;
   listRefreshSchedules(
     args: ListRefreshSchedulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListRefreshSchedulesCommandOutput) => void
   ): void;
 
@@ -5126,7 +5138,7 @@ export interface QuickSight {
    */
   listRoleMemberships(
     args: ListRoleMembershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListRoleMembershipsCommandOutput>;
   listRoleMemberships(
     args: ListRoleMembershipsCommandInput,
@@ -5134,7 +5146,7 @@ export interface QuickSight {
   ): void;
   listRoleMemberships(
     args: ListRoleMembershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListRoleMembershipsCommandOutput) => void
   ): void;
 
@@ -5143,7 +5155,7 @@ export interface QuickSight {
    */
   listSelfUpgrades(
     args: ListSelfUpgradesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListSelfUpgradesCommandOutput>;
   listSelfUpgrades(
     args: ListSelfUpgradesCommandInput,
@@ -5151,7 +5163,7 @@ export interface QuickSight {
   ): void;
   listSelfUpgrades(
     args: ListSelfUpgradesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListSelfUpgradesCommandOutput) => void
   ): void;
 
@@ -5160,7 +5172,7 @@ export interface QuickSight {
    */
   listSpaceResources(
     args: ListSpaceResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListSpaceResourcesCommandOutput>;
   listSpaceResources(
     args: ListSpaceResourcesCommandInput,
@@ -5168,7 +5180,7 @@ export interface QuickSight {
   ): void;
   listSpaceResources(
     args: ListSpaceResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListSpaceResourcesCommandOutput) => void
   ): void;
 
@@ -5177,7 +5189,7 @@ export interface QuickSight {
    */
   listSpaces(
     args: ListSpacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListSpacesCommandOutput>;
   listSpaces(
     args: ListSpacesCommandInput,
@@ -5185,7 +5197,7 @@ export interface QuickSight {
   ): void;
   listSpaces(
     args: ListSpacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListSpacesCommandOutput) => void
   ): void;
 
@@ -5194,7 +5206,7 @@ export interface QuickSight {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -5202,7 +5214,7 @@ export interface QuickSight {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -5211,7 +5223,7 @@ export interface QuickSight {
    */
   listTemplateAliases(
     args: ListTemplateAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListTemplateAliasesCommandOutput>;
   listTemplateAliases(
     args: ListTemplateAliasesCommandInput,
@@ -5219,7 +5231,7 @@ export interface QuickSight {
   ): void;
   listTemplateAliases(
     args: ListTemplateAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListTemplateAliasesCommandOutput) => void
   ): void;
 
@@ -5228,7 +5240,7 @@ export interface QuickSight {
    */
   listTemplates(
     args: ListTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListTemplatesCommandOutput>;
   listTemplates(
     args: ListTemplatesCommandInput,
@@ -5236,7 +5248,7 @@ export interface QuickSight {
   ): void;
   listTemplates(
     args: ListTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListTemplatesCommandOutput) => void
   ): void;
 
@@ -5245,7 +5257,7 @@ export interface QuickSight {
    */
   listTemplateVersions(
     args: ListTemplateVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListTemplateVersionsCommandOutput>;
   listTemplateVersions(
     args: ListTemplateVersionsCommandInput,
@@ -5253,7 +5265,7 @@ export interface QuickSight {
   ): void;
   listTemplateVersions(
     args: ListTemplateVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListTemplateVersionsCommandOutput) => void
   ): void;
 
@@ -5262,7 +5274,7 @@ export interface QuickSight {
    */
   listThemeAliases(
     args: ListThemeAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListThemeAliasesCommandOutput>;
   listThemeAliases(
     args: ListThemeAliasesCommandInput,
@@ -5270,7 +5282,7 @@ export interface QuickSight {
   ): void;
   listThemeAliases(
     args: ListThemeAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListThemeAliasesCommandOutput) => void
   ): void;
 
@@ -5279,7 +5291,7 @@ export interface QuickSight {
    */
   listThemes(
     args: ListThemesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListThemesCommandOutput>;
   listThemes(
     args: ListThemesCommandInput,
@@ -5287,7 +5299,7 @@ export interface QuickSight {
   ): void;
   listThemes(
     args: ListThemesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListThemesCommandOutput) => void
   ): void;
 
@@ -5296,7 +5308,7 @@ export interface QuickSight {
    */
   listThemeVersions(
     args: ListThemeVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListThemeVersionsCommandOutput>;
   listThemeVersions(
     args: ListThemeVersionsCommandInput,
@@ -5304,7 +5316,7 @@ export interface QuickSight {
   ): void;
   listThemeVersions(
     args: ListThemeVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListThemeVersionsCommandOutput) => void
   ): void;
 
@@ -5313,7 +5325,7 @@ export interface QuickSight {
    */
   listTopicRefreshSchedules(
     args: ListTopicRefreshSchedulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListTopicRefreshSchedulesCommandOutput>;
   listTopicRefreshSchedules(
     args: ListTopicRefreshSchedulesCommandInput,
@@ -5321,7 +5333,7 @@ export interface QuickSight {
   ): void;
   listTopicRefreshSchedules(
     args: ListTopicRefreshSchedulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListTopicRefreshSchedulesCommandOutput) => void
   ): void;
 
@@ -5330,7 +5342,7 @@ export interface QuickSight {
    */
   listTopicReviewedAnswers(
     args: ListTopicReviewedAnswersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListTopicReviewedAnswersCommandOutput>;
   listTopicReviewedAnswers(
     args: ListTopicReviewedAnswersCommandInput,
@@ -5338,7 +5350,7 @@ export interface QuickSight {
   ): void;
   listTopicReviewedAnswers(
     args: ListTopicReviewedAnswersCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListTopicReviewedAnswersCommandOutput) => void
   ): void;
 
@@ -5347,7 +5359,7 @@ export interface QuickSight {
    */
   listTopics(
     args: ListTopicsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListTopicsCommandOutput>;
   listTopics(
     args: ListTopicsCommandInput,
@@ -5355,7 +5367,7 @@ export interface QuickSight {
   ): void;
   listTopics(
     args: ListTopicsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListTopicsCommandOutput) => void
   ): void;
 
@@ -5364,7 +5376,7 @@ export interface QuickSight {
    */
   listTopicsV2(
     args: ListTopicsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListTopicsV2CommandOutput>;
   listTopicsV2(
     args: ListTopicsV2CommandInput,
@@ -5372,7 +5384,7 @@ export interface QuickSight {
   ): void;
   listTopicsV2(
     args: ListTopicsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListTopicsV2CommandOutput) => void
   ): void;
 
@@ -5381,7 +5393,7 @@ export interface QuickSight {
    */
   listUserGroups(
     args: ListUserGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListUserGroupsCommandOutput>;
   listUserGroups(
     args: ListUserGroupsCommandInput,
@@ -5389,7 +5401,7 @@ export interface QuickSight {
   ): void;
   listUserGroups(
     args: ListUserGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListUserGroupsCommandOutput) => void
   ): void;
 
@@ -5398,7 +5410,7 @@ export interface QuickSight {
    */
   listUsers(
     args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListUsersCommandOutput>;
   listUsers(
     args: ListUsersCommandInput,
@@ -5406,7 +5418,7 @@ export interface QuickSight {
   ): void;
   listUsers(
     args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
   ): void;
 
@@ -5415,7 +5427,7 @@ export interface QuickSight {
    */
   listUsersIndexCapacity(
     args: ListUsersIndexCapacityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListUsersIndexCapacityCommandOutput>;
   listUsersIndexCapacity(
     args: ListUsersIndexCapacityCommandInput,
@@ -5423,7 +5435,7 @@ export interface QuickSight {
   ): void;
   listUsersIndexCapacity(
     args: ListUsersIndexCapacityCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListUsersIndexCapacityCommandOutput) => void
   ): void;
 
@@ -5432,7 +5444,7 @@ export interface QuickSight {
    */
   listVPCConnections(
     args: ListVPCConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<ListVPCConnectionsCommandOutput>;
   listVPCConnections(
     args: ListVPCConnectionsCommandInput,
@@ -5440,7 +5452,7 @@ export interface QuickSight {
   ): void;
   listVPCConnections(
     args: ListVPCConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: ListVPCConnectionsCommandOutput) => void
   ): void;
 
@@ -5449,7 +5461,7 @@ export interface QuickSight {
    */
   predictQAResults(
     args: PredictQAResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<PredictQAResultsCommandOutput>;
   predictQAResults(
     args: PredictQAResultsCommandInput,
@@ -5457,7 +5469,7 @@ export interface QuickSight {
   ): void;
   predictQAResults(
     args: PredictQAResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: PredictQAResultsCommandOutput) => void
   ): void;
 
@@ -5466,7 +5478,7 @@ export interface QuickSight {
    */
   putDataSetRefreshProperties(
     args: PutDataSetRefreshPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<PutDataSetRefreshPropertiesCommandOutput>;
   putDataSetRefreshProperties(
     args: PutDataSetRefreshPropertiesCommandInput,
@@ -5474,7 +5486,7 @@ export interface QuickSight {
   ): void;
   putDataSetRefreshProperties(
     args: PutDataSetRefreshPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: PutDataSetRefreshPropertiesCommandOutput) => void
   ): void;
 
@@ -5483,7 +5495,7 @@ export interface QuickSight {
    */
   registerUser(
     args: RegisterUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<RegisterUserCommandOutput>;
   registerUser(
     args: RegisterUserCommandInput,
@@ -5491,7 +5503,7 @@ export interface QuickSight {
   ): void;
   registerUser(
     args: RegisterUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: RegisterUserCommandOutput) => void
   ): void;
 
@@ -5500,7 +5512,7 @@ export interface QuickSight {
    */
   restoreAnalysis(
     args: RestoreAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<RestoreAnalysisCommandOutput>;
   restoreAnalysis(
     args: RestoreAnalysisCommandInput,
@@ -5508,7 +5520,7 @@ export interface QuickSight {
   ): void;
   restoreAnalysis(
     args: RestoreAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: RestoreAnalysisCommandOutput) => void
   ): void;
 
@@ -5517,7 +5529,7 @@ export interface QuickSight {
    */
   searchActionConnectors(
     args: SearchActionConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchActionConnectorsCommandOutput>;
   searchActionConnectors(
     args: SearchActionConnectorsCommandInput,
@@ -5525,7 +5537,7 @@ export interface QuickSight {
   ): void;
   searchActionConnectors(
     args: SearchActionConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchActionConnectorsCommandOutput) => void
   ): void;
 
@@ -5534,7 +5546,7 @@ export interface QuickSight {
    */
   searchAgents(
     args: SearchAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchAgentsCommandOutput>;
   searchAgents(
     args: SearchAgentsCommandInput,
@@ -5542,7 +5554,7 @@ export interface QuickSight {
   ): void;
   searchAgents(
     args: SearchAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchAgentsCommandOutput) => void
   ): void;
 
@@ -5551,7 +5563,7 @@ export interface QuickSight {
    */
   searchAnalyses(
     args: SearchAnalysesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchAnalysesCommandOutput>;
   searchAnalyses(
     args: SearchAnalysesCommandInput,
@@ -5559,7 +5571,7 @@ export interface QuickSight {
   ): void;
   searchAnalyses(
     args: SearchAnalysesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchAnalysesCommandOutput) => void
   ): void;
 
@@ -5568,7 +5580,7 @@ export interface QuickSight {
    */
   searchApps(
     args: SearchAppsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchAppsCommandOutput>;
   searchApps(
     args: SearchAppsCommandInput,
@@ -5576,7 +5588,7 @@ export interface QuickSight {
   ): void;
   searchApps(
     args: SearchAppsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchAppsCommandOutput) => void
   ): void;
 
@@ -5585,7 +5597,7 @@ export interface QuickSight {
    */
   searchDashboards(
     args: SearchDashboardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchDashboardsCommandOutput>;
   searchDashboards(
     args: SearchDashboardsCommandInput,
@@ -5593,7 +5605,7 @@ export interface QuickSight {
   ): void;
   searchDashboards(
     args: SearchDashboardsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchDashboardsCommandOutput) => void
   ): void;
 
@@ -5602,7 +5614,7 @@ export interface QuickSight {
    */
   searchDataSets(
     args: SearchDataSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchDataSetsCommandOutput>;
   searchDataSets(
     args: SearchDataSetsCommandInput,
@@ -5610,7 +5622,7 @@ export interface QuickSight {
   ): void;
   searchDataSets(
     args: SearchDataSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchDataSetsCommandOutput) => void
   ): void;
 
@@ -5619,7 +5631,7 @@ export interface QuickSight {
    */
   searchDataSources(
     args: SearchDataSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchDataSourcesCommandOutput>;
   searchDataSources(
     args: SearchDataSourcesCommandInput,
@@ -5627,7 +5639,7 @@ export interface QuickSight {
   ): void;
   searchDataSources(
     args: SearchDataSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchDataSourcesCommandOutput) => void
   ): void;
 
@@ -5636,7 +5648,7 @@ export interface QuickSight {
    */
   searchFlows(
     args: SearchFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchFlowsCommandOutput>;
   searchFlows(
     args: SearchFlowsCommandInput,
@@ -5644,7 +5656,7 @@ export interface QuickSight {
   ): void;
   searchFlows(
     args: SearchFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchFlowsCommandOutput) => void
   ): void;
 
@@ -5653,7 +5665,7 @@ export interface QuickSight {
    */
   searchFolders(
     args: SearchFoldersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchFoldersCommandOutput>;
   searchFolders(
     args: SearchFoldersCommandInput,
@@ -5661,7 +5673,7 @@ export interface QuickSight {
   ): void;
   searchFolders(
     args: SearchFoldersCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchFoldersCommandOutput) => void
   ): void;
 
@@ -5670,7 +5682,7 @@ export interface QuickSight {
    */
   searchGroups(
     args: SearchGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchGroupsCommandOutput>;
   searchGroups(
     args: SearchGroupsCommandInput,
@@ -5678,7 +5690,7 @@ export interface QuickSight {
   ): void;
   searchGroups(
     args: SearchGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchGroupsCommandOutput) => void
   ): void;
 
@@ -5687,7 +5699,7 @@ export interface QuickSight {
    */
   searchKnowledgeBases(
     args: SearchKnowledgeBasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchKnowledgeBasesCommandOutput>;
   searchKnowledgeBases(
     args: SearchKnowledgeBasesCommandInput,
@@ -5695,7 +5707,7 @@ export interface QuickSight {
   ): void;
   searchKnowledgeBases(
     args: SearchKnowledgeBasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchKnowledgeBasesCommandOutput) => void
   ): void;
 
@@ -5704,7 +5716,7 @@ export interface QuickSight {
    */
   searchSpaces(
     args: SearchSpacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchSpacesCommandOutput>;
   searchSpaces(
     args: SearchSpacesCommandInput,
@@ -5712,7 +5724,7 @@ export interface QuickSight {
   ): void;
   searchSpaces(
     args: SearchSpacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchSpacesCommandOutput) => void
   ): void;
 
@@ -5721,7 +5733,7 @@ export interface QuickSight {
    */
   searchTopics(
     args: SearchTopicsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchTopicsCommandOutput>;
   searchTopics(
     args: SearchTopicsCommandInput,
@@ -5729,7 +5741,7 @@ export interface QuickSight {
   ): void;
   searchTopics(
     args: SearchTopicsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchTopicsCommandOutput) => void
   ): void;
 
@@ -5738,7 +5750,7 @@ export interface QuickSight {
    */
   searchTopicsV2(
     args: SearchTopicsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<SearchTopicsV2CommandOutput>;
   searchTopicsV2(
     args: SearchTopicsV2CommandInput,
@@ -5746,7 +5758,7 @@ export interface QuickSight {
   ): void;
   searchTopicsV2(
     args: SearchTopicsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: SearchTopicsV2CommandOutput) => void
   ): void;
 
@@ -5755,7 +5767,7 @@ export interface QuickSight {
    */
   startAssetBundleExportJob(
     args: StartAssetBundleExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<StartAssetBundleExportJobCommandOutput>;
   startAssetBundleExportJob(
     args: StartAssetBundleExportJobCommandInput,
@@ -5763,7 +5775,7 @@ export interface QuickSight {
   ): void;
   startAssetBundleExportJob(
     args: StartAssetBundleExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: StartAssetBundleExportJobCommandOutput) => void
   ): void;
 
@@ -5772,7 +5784,7 @@ export interface QuickSight {
    */
   startAssetBundleImportJob(
     args: StartAssetBundleImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<StartAssetBundleImportJobCommandOutput>;
   startAssetBundleImportJob(
     args: StartAssetBundleImportJobCommandInput,
@@ -5780,7 +5792,7 @@ export interface QuickSight {
   ): void;
   startAssetBundleImportJob(
     args: StartAssetBundleImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: StartAssetBundleImportJobCommandOutput) => void
   ): void;
 
@@ -5789,7 +5801,7 @@ export interface QuickSight {
    */
   startAutomationJob(
     args: StartAutomationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<StartAutomationJobCommandOutput>;
   startAutomationJob(
     args: StartAutomationJobCommandInput,
@@ -5797,7 +5809,7 @@ export interface QuickSight {
   ): void;
   startAutomationJob(
     args: StartAutomationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: StartAutomationJobCommandOutput) => void
   ): void;
 
@@ -5806,7 +5818,7 @@ export interface QuickSight {
    */
   startDashboardSnapshotJob(
     args: StartDashboardSnapshotJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<StartDashboardSnapshotJobCommandOutput>;
   startDashboardSnapshotJob(
     args: StartDashboardSnapshotJobCommandInput,
@@ -5814,7 +5826,7 @@ export interface QuickSight {
   ): void;
   startDashboardSnapshotJob(
     args: StartDashboardSnapshotJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: StartDashboardSnapshotJobCommandOutput) => void
   ): void;
 
@@ -5823,7 +5835,7 @@ export interface QuickSight {
    */
   startDashboardSnapshotJobSchedule(
     args: StartDashboardSnapshotJobScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<StartDashboardSnapshotJobScheduleCommandOutput>;
   startDashboardSnapshotJobSchedule(
     args: StartDashboardSnapshotJobScheduleCommandInput,
@@ -5831,7 +5843,7 @@ export interface QuickSight {
   ): void;
   startDashboardSnapshotJobSchedule(
     args: StartDashboardSnapshotJobScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: StartDashboardSnapshotJobScheduleCommandOutput) => void
   ): void;
 
@@ -5840,7 +5852,7 @@ export interface QuickSight {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -5848,7 +5860,7 @@ export interface QuickSight {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -5857,7 +5869,7 @@ export interface QuickSight {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -5865,7 +5877,7 @@ export interface QuickSight {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -5874,7 +5886,7 @@ export interface QuickSight {
    */
   updateAccountCustomization(
     args: UpdateAccountCustomizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateAccountCustomizationCommandOutput>;
   updateAccountCustomization(
     args: UpdateAccountCustomizationCommandInput,
@@ -5882,7 +5894,7 @@ export interface QuickSight {
   ): void;
   updateAccountCustomization(
     args: UpdateAccountCustomizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateAccountCustomizationCommandOutput) => void
   ): void;
 
@@ -5891,7 +5903,7 @@ export interface QuickSight {
    */
   updateAccountCustomPermission(
     args: UpdateAccountCustomPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateAccountCustomPermissionCommandOutput>;
   updateAccountCustomPermission(
     args: UpdateAccountCustomPermissionCommandInput,
@@ -5899,7 +5911,7 @@ export interface QuickSight {
   ): void;
   updateAccountCustomPermission(
     args: UpdateAccountCustomPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateAccountCustomPermissionCommandOutput) => void
   ): void;
 
@@ -5908,7 +5920,7 @@ export interface QuickSight {
    */
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateAccountSettingsCommandOutput>;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
@@ -5916,7 +5928,7 @@ export interface QuickSight {
   ): void;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
   ): void;
 
@@ -5925,7 +5937,7 @@ export interface QuickSight {
    */
   updateActionConnector(
     args: UpdateActionConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateActionConnectorCommandOutput>;
   updateActionConnector(
     args: UpdateActionConnectorCommandInput,
@@ -5933,7 +5945,7 @@ export interface QuickSight {
   ): void;
   updateActionConnector(
     args: UpdateActionConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateActionConnectorCommandOutput) => void
   ): void;
 
@@ -5942,7 +5954,7 @@ export interface QuickSight {
    */
   updateActionConnectorPermissions(
     args: UpdateActionConnectorPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateActionConnectorPermissionsCommandOutput>;
   updateActionConnectorPermissions(
     args: UpdateActionConnectorPermissionsCommandInput,
@@ -5950,7 +5962,7 @@ export interface QuickSight {
   ): void;
   updateActionConnectorPermissions(
     args: UpdateActionConnectorPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateActionConnectorPermissionsCommandOutput) => void
   ): void;
 
@@ -5959,7 +5971,7 @@ export interface QuickSight {
    */
   updateAgent(
     args: UpdateAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateAgentCommandOutput>;
   updateAgent(
     args: UpdateAgentCommandInput,
@@ -5967,7 +5979,7 @@ export interface QuickSight {
   ): void;
   updateAgent(
     args: UpdateAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateAgentCommandOutput) => void
   ): void;
 
@@ -5976,7 +5988,7 @@ export interface QuickSight {
    */
   updateAgentPermissions(
     args: UpdateAgentPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateAgentPermissionsCommandOutput>;
   updateAgentPermissions(
     args: UpdateAgentPermissionsCommandInput,
@@ -5984,7 +5996,7 @@ export interface QuickSight {
   ): void;
   updateAgentPermissions(
     args: UpdateAgentPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateAgentPermissionsCommandOutput) => void
   ): void;
 
@@ -5993,7 +6005,7 @@ export interface QuickSight {
    */
   updateAnalysis(
     args: UpdateAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateAnalysisCommandOutput>;
   updateAnalysis(
     args: UpdateAnalysisCommandInput,
@@ -6001,7 +6013,7 @@ export interface QuickSight {
   ): void;
   updateAnalysis(
     args: UpdateAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateAnalysisCommandOutput) => void
   ): void;
 
@@ -6010,7 +6022,7 @@ export interface QuickSight {
    */
   updateAnalysisPermissions(
     args: UpdateAnalysisPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateAnalysisPermissionsCommandOutput>;
   updateAnalysisPermissions(
     args: UpdateAnalysisPermissionsCommandInput,
@@ -6018,7 +6030,7 @@ export interface QuickSight {
   ): void;
   updateAnalysisPermissions(
     args: UpdateAnalysisPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateAnalysisPermissionsCommandOutput) => void
   ): void;
 
@@ -6027,7 +6039,7 @@ export interface QuickSight {
    */
   updateApplicationWithTokenExchangeGrant(
     args: UpdateApplicationWithTokenExchangeGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateApplicationWithTokenExchangeGrantCommandOutput>;
   updateApplicationWithTokenExchangeGrant(
     args: UpdateApplicationWithTokenExchangeGrantCommandInput,
@@ -6035,7 +6047,7 @@ export interface QuickSight {
   ): void;
   updateApplicationWithTokenExchangeGrant(
     args: UpdateApplicationWithTokenExchangeGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateApplicationWithTokenExchangeGrantCommandOutput) => void
   ): void;
 
@@ -6044,7 +6056,7 @@ export interface QuickSight {
    */
   updateAppPermissions(
     args: UpdateAppPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateAppPermissionsCommandOutput>;
   updateAppPermissions(
     args: UpdateAppPermissionsCommandInput,
@@ -6052,7 +6064,7 @@ export interface QuickSight {
   ): void;
   updateAppPermissions(
     args: UpdateAppPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateAppPermissionsCommandOutput) => void
   ): void;
 
@@ -6061,7 +6073,7 @@ export interface QuickSight {
    */
   updateApprovalPolicy(
     args: UpdateApprovalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateApprovalPolicyCommandOutput>;
   updateApprovalPolicy(
     args: UpdateApprovalPolicyCommandInput,
@@ -6069,7 +6081,7 @@ export interface QuickSight {
   ): void;
   updateApprovalPolicy(
     args: UpdateApprovalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateApprovalPolicyCommandOutput) => void
   ): void;
 
@@ -6078,7 +6090,7 @@ export interface QuickSight {
    */
   updateBrand(
     args: UpdateBrandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateBrandCommandOutput>;
   updateBrand(
     args: UpdateBrandCommandInput,
@@ -6086,7 +6098,7 @@ export interface QuickSight {
   ): void;
   updateBrand(
     args: UpdateBrandCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateBrandCommandOutput) => void
   ): void;
 
@@ -6095,7 +6107,7 @@ export interface QuickSight {
    */
   updateBrandAssignment(
     args: UpdateBrandAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateBrandAssignmentCommandOutput>;
   updateBrandAssignment(
     args: UpdateBrandAssignmentCommandInput,
@@ -6103,7 +6115,7 @@ export interface QuickSight {
   ): void;
   updateBrandAssignment(
     args: UpdateBrandAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateBrandAssignmentCommandOutput) => void
   ): void;
 
@@ -6112,7 +6124,7 @@ export interface QuickSight {
    */
   updateBrandPublishedVersion(
     args: UpdateBrandPublishedVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateBrandPublishedVersionCommandOutput>;
   updateBrandPublishedVersion(
     args: UpdateBrandPublishedVersionCommandInput,
@@ -6120,7 +6132,7 @@ export interface QuickSight {
   ): void;
   updateBrandPublishedVersion(
     args: UpdateBrandPublishedVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateBrandPublishedVersionCommandOutput) => void
   ): void;
 
@@ -6129,7 +6141,7 @@ export interface QuickSight {
    */
   updateCustomPermissions(
     args: UpdateCustomPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateCustomPermissionsCommandOutput>;
   updateCustomPermissions(
     args: UpdateCustomPermissionsCommandInput,
@@ -6137,7 +6149,7 @@ export interface QuickSight {
   ): void;
   updateCustomPermissions(
     args: UpdateCustomPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateCustomPermissionsCommandOutput) => void
   ): void;
 
@@ -6146,7 +6158,7 @@ export interface QuickSight {
    */
   updateDashboard(
     args: UpdateDashboardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDashboardCommandOutput>;
   updateDashboard(
     args: UpdateDashboardCommandInput,
@@ -6154,7 +6166,7 @@ export interface QuickSight {
   ): void;
   updateDashboard(
     args: UpdateDashboardCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDashboardCommandOutput) => void
   ): void;
 
@@ -6163,7 +6175,7 @@ export interface QuickSight {
    */
   updateDashboardLinks(
     args: UpdateDashboardLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDashboardLinksCommandOutput>;
   updateDashboardLinks(
     args: UpdateDashboardLinksCommandInput,
@@ -6171,7 +6183,7 @@ export interface QuickSight {
   ): void;
   updateDashboardLinks(
     args: UpdateDashboardLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDashboardLinksCommandOutput) => void
   ): void;
 
@@ -6180,7 +6192,7 @@ export interface QuickSight {
    */
   updateDashboardPermissions(
     args: UpdateDashboardPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDashboardPermissionsCommandOutput>;
   updateDashboardPermissions(
     args: UpdateDashboardPermissionsCommandInput,
@@ -6188,7 +6200,7 @@ export interface QuickSight {
   ): void;
   updateDashboardPermissions(
     args: UpdateDashboardPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDashboardPermissionsCommandOutput) => void
   ): void;
 
@@ -6197,7 +6209,7 @@ export interface QuickSight {
    */
   updateDashboardPublishedVersion(
     args: UpdateDashboardPublishedVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDashboardPublishedVersionCommandOutput>;
   updateDashboardPublishedVersion(
     args: UpdateDashboardPublishedVersionCommandInput,
@@ -6205,7 +6217,7 @@ export interface QuickSight {
   ): void;
   updateDashboardPublishedVersion(
     args: UpdateDashboardPublishedVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDashboardPublishedVersionCommandOutput) => void
   ): void;
 
@@ -6214,7 +6226,7 @@ export interface QuickSight {
    */
   updateDashboardsQAConfiguration(
     args: UpdateDashboardsQAConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDashboardsQAConfigurationCommandOutput>;
   updateDashboardsQAConfiguration(
     args: UpdateDashboardsQAConfigurationCommandInput,
@@ -6222,7 +6234,7 @@ export interface QuickSight {
   ): void;
   updateDashboardsQAConfiguration(
     args: UpdateDashboardsQAConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDashboardsQAConfigurationCommandOutput) => void
   ): void;
 
@@ -6231,7 +6243,7 @@ export interface QuickSight {
    */
   updateDataSet(
     args: UpdateDataSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDataSetCommandOutput>;
   updateDataSet(
     args: UpdateDataSetCommandInput,
@@ -6239,7 +6251,7 @@ export interface QuickSight {
   ): void;
   updateDataSet(
     args: UpdateDataSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDataSetCommandOutput) => void
   ): void;
 
@@ -6248,7 +6260,7 @@ export interface QuickSight {
    */
   updateDataSetPermissions(
     args: UpdateDataSetPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDataSetPermissionsCommandOutput>;
   updateDataSetPermissions(
     args: UpdateDataSetPermissionsCommandInput,
@@ -6256,7 +6268,7 @@ export interface QuickSight {
   ): void;
   updateDataSetPermissions(
     args: UpdateDataSetPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDataSetPermissionsCommandOutput) => void
   ): void;
 
@@ -6265,7 +6277,7 @@ export interface QuickSight {
    */
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDataSourceCommandOutput>;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -6273,7 +6285,7 @@ export interface QuickSight {
   ): void;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): void;
 
@@ -6282,7 +6294,7 @@ export interface QuickSight {
    */
   updateDataSourcePermissions(
     args: UpdateDataSourcePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDataSourcePermissionsCommandOutput>;
   updateDataSourcePermissions(
     args: UpdateDataSourcePermissionsCommandInput,
@@ -6290,7 +6302,7 @@ export interface QuickSight {
   ): void;
   updateDataSourcePermissions(
     args: UpdateDataSourcePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDataSourcePermissionsCommandOutput) => void
   ): void;
 
@@ -6299,7 +6311,7 @@ export interface QuickSight {
    */
   updateDefaultQBusinessApplication(
     args: UpdateDefaultQBusinessApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDefaultQBusinessApplicationCommandOutput>;
   updateDefaultQBusinessApplication(
     args: UpdateDefaultQBusinessApplicationCommandInput,
@@ -6307,7 +6319,7 @@ export interface QuickSight {
   ): void;
   updateDefaultQBusinessApplication(
     args: UpdateDefaultQBusinessApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDefaultQBusinessApplicationCommandOutput) => void
   ): void;
 
@@ -6316,7 +6328,7 @@ export interface QuickSight {
    */
   updateDlpSetting(
     args: UpdateDlpSettingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateDlpSettingCommandOutput>;
   updateDlpSetting(
     args: UpdateDlpSettingCommandInput,
@@ -6324,7 +6336,7 @@ export interface QuickSight {
   ): void;
   updateDlpSetting(
     args: UpdateDlpSettingCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateDlpSettingCommandOutput) => void
   ): void;
 
@@ -6333,7 +6345,7 @@ export interface QuickSight {
    */
   updateFlow(
     args: UpdateFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateFlowCommandOutput>;
   updateFlow(
     args: UpdateFlowCommandInput,
@@ -6341,7 +6353,7 @@ export interface QuickSight {
   ): void;
   updateFlow(
     args: UpdateFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateFlowCommandOutput) => void
   ): void;
 
@@ -6350,7 +6362,7 @@ export interface QuickSight {
    */
   updateFlowPermissions(
     args: UpdateFlowPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateFlowPermissionsCommandOutput>;
   updateFlowPermissions(
     args: UpdateFlowPermissionsCommandInput,
@@ -6358,7 +6370,7 @@ export interface QuickSight {
   ): void;
   updateFlowPermissions(
     args: UpdateFlowPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateFlowPermissionsCommandOutput) => void
   ): void;
 
@@ -6367,7 +6379,7 @@ export interface QuickSight {
    */
   updateFolder(
     args: UpdateFolderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateFolderCommandOutput>;
   updateFolder(
     args: UpdateFolderCommandInput,
@@ -6375,7 +6387,7 @@ export interface QuickSight {
   ): void;
   updateFolder(
     args: UpdateFolderCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateFolderCommandOutput) => void
   ): void;
 
@@ -6384,7 +6396,7 @@ export interface QuickSight {
    */
   updateFolderPermissions(
     args: UpdateFolderPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateFolderPermissionsCommandOutput>;
   updateFolderPermissions(
     args: UpdateFolderPermissionsCommandInput,
@@ -6392,7 +6404,7 @@ export interface QuickSight {
   ): void;
   updateFolderPermissions(
     args: UpdateFolderPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateFolderPermissionsCommandOutput) => void
   ): void;
 
@@ -6401,7 +6413,7 @@ export interface QuickSight {
    */
   updateGroup(
     args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateGroupCommandOutput>;
   updateGroup(
     args: UpdateGroupCommandInput,
@@ -6409,7 +6421,7 @@ export interface QuickSight {
   ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateGroupCommandOutput) => void
   ): void;
 
@@ -6418,7 +6430,7 @@ export interface QuickSight {
    */
   updateIAMPolicyAssignment(
     args: UpdateIAMPolicyAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateIAMPolicyAssignmentCommandOutput>;
   updateIAMPolicyAssignment(
     args: UpdateIAMPolicyAssignmentCommandInput,
@@ -6426,7 +6438,7 @@ export interface QuickSight {
   ): void;
   updateIAMPolicyAssignment(
     args: UpdateIAMPolicyAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
   ): void;
 
@@ -6435,7 +6447,7 @@ export interface QuickSight {
    */
   updateIdentityPropagationConfig(
     args: UpdateIdentityPropagationConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateIdentityPropagationConfigCommandOutput>;
   updateIdentityPropagationConfig(
     args: UpdateIdentityPropagationConfigCommandInput,
@@ -6443,7 +6455,7 @@ export interface QuickSight {
   ): void;
   updateIdentityPropagationConfig(
     args: UpdateIdentityPropagationConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateIdentityPropagationConfigCommandOutput) => void
   ): void;
 
@@ -6452,7 +6464,7 @@ export interface QuickSight {
    */
   updateIpRestriction(
     args: UpdateIpRestrictionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateIpRestrictionCommandOutput>;
   updateIpRestriction(
     args: UpdateIpRestrictionCommandInput,
@@ -6460,7 +6472,7 @@ export interface QuickSight {
   ): void;
   updateIpRestriction(
     args: UpdateIpRestrictionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateIpRestrictionCommandOutput) => void
   ): void;
 
@@ -6469,7 +6481,7 @@ export interface QuickSight {
    */
   updateKeyRegistration(
     args: UpdateKeyRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateKeyRegistrationCommandOutput>;
   updateKeyRegistration(
     args: UpdateKeyRegistrationCommandInput,
@@ -6477,7 +6489,7 @@ export interface QuickSight {
   ): void;
   updateKeyRegistration(
     args: UpdateKeyRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateKeyRegistrationCommandOutput) => void
   ): void;
 
@@ -6486,7 +6498,7 @@ export interface QuickSight {
    */
   updateKnowledgeBase(
     args: UpdateKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateKnowledgeBaseCommandOutput>;
   updateKnowledgeBase(
     args: UpdateKnowledgeBaseCommandInput,
@@ -6494,7 +6506,7 @@ export interface QuickSight {
   ): void;
   updateKnowledgeBase(
     args: UpdateKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -6503,7 +6515,7 @@ export interface QuickSight {
    */
   updateKnowledgeBasePermissions(
     args: UpdateKnowledgeBasePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateKnowledgeBasePermissionsCommandOutput>;
   updateKnowledgeBasePermissions(
     args: UpdateKnowledgeBasePermissionsCommandInput,
@@ -6511,7 +6523,7 @@ export interface QuickSight {
   ): void;
   updateKnowledgeBasePermissions(
     args: UpdateKnowledgeBasePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateKnowledgeBasePermissionsCommandOutput) => void
   ): void;
 
@@ -6520,7 +6532,7 @@ export interface QuickSight {
    */
   updateLimitsProfile(
     args: UpdateLimitsProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateLimitsProfileCommandOutput>;
   updateLimitsProfile(
     args: UpdateLimitsProfileCommandInput,
@@ -6528,7 +6540,7 @@ export interface QuickSight {
   ): void;
   updateLimitsProfile(
     args: UpdateLimitsProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateLimitsProfileCommandOutput) => void
   ): void;
 
@@ -6537,7 +6549,7 @@ export interface QuickSight {
    */
   updateOAuthClientApplication(
     args: UpdateOAuthClientApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateOAuthClientApplicationCommandOutput>;
   updateOAuthClientApplication(
     args: UpdateOAuthClientApplicationCommandInput,
@@ -6545,7 +6557,7 @@ export interface QuickSight {
   ): void;
   updateOAuthClientApplication(
     args: UpdateOAuthClientApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateOAuthClientApplicationCommandOutput) => void
   ): void;
 
@@ -6554,7 +6566,7 @@ export interface QuickSight {
    */
   updatePublicSharingSettings(
     args: UpdatePublicSharingSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdatePublicSharingSettingsCommandOutput>;
   updatePublicSharingSettings(
     args: UpdatePublicSharingSettingsCommandInput,
@@ -6562,7 +6574,7 @@ export interface QuickSight {
   ): void;
   updatePublicSharingSettings(
     args: UpdatePublicSharingSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdatePublicSharingSettingsCommandOutput) => void
   ): void;
 
@@ -6571,7 +6583,7 @@ export interface QuickSight {
    */
   updateQPersonalizationConfiguration(
     args: UpdateQPersonalizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateQPersonalizationConfigurationCommandOutput>;
   updateQPersonalizationConfiguration(
     args: UpdateQPersonalizationConfigurationCommandInput,
@@ -6579,7 +6591,7 @@ export interface QuickSight {
   ): void;
   updateQPersonalizationConfiguration(
     args: UpdateQPersonalizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateQPersonalizationConfigurationCommandOutput) => void
   ): void;
 
@@ -6588,7 +6600,7 @@ export interface QuickSight {
    */
   updateQuickSightQSearchConfiguration(
     args: UpdateQuickSightQSearchConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateQuickSightQSearchConfigurationCommandOutput>;
   updateQuickSightQSearchConfiguration(
     args: UpdateQuickSightQSearchConfigurationCommandInput,
@@ -6596,7 +6608,7 @@ export interface QuickSight {
   ): void;
   updateQuickSightQSearchConfiguration(
     args: UpdateQuickSightQSearchConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateQuickSightQSearchConfigurationCommandOutput) => void
   ): void;
 
@@ -6605,7 +6617,7 @@ export interface QuickSight {
    */
   updateRefreshSchedule(
     args: UpdateRefreshScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateRefreshScheduleCommandOutput>;
   updateRefreshSchedule(
     args: UpdateRefreshScheduleCommandInput,
@@ -6613,7 +6625,7 @@ export interface QuickSight {
   ): void;
   updateRefreshSchedule(
     args: UpdateRefreshScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateRefreshScheduleCommandOutput) => void
   ): void;
 
@@ -6622,7 +6634,7 @@ export interface QuickSight {
    */
   updateRoleCustomPermission(
     args: UpdateRoleCustomPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateRoleCustomPermissionCommandOutput>;
   updateRoleCustomPermission(
     args: UpdateRoleCustomPermissionCommandInput,
@@ -6630,7 +6642,7 @@ export interface QuickSight {
   ): void;
   updateRoleCustomPermission(
     args: UpdateRoleCustomPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateRoleCustomPermissionCommandOutput) => void
   ): void;
 
@@ -6639,7 +6651,7 @@ export interface QuickSight {
    */
   updateSelfUpgrade(
     args: UpdateSelfUpgradeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateSelfUpgradeCommandOutput>;
   updateSelfUpgrade(
     args: UpdateSelfUpgradeCommandInput,
@@ -6647,7 +6659,7 @@ export interface QuickSight {
   ): void;
   updateSelfUpgrade(
     args: UpdateSelfUpgradeCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateSelfUpgradeCommandOutput) => void
   ): void;
 
@@ -6656,7 +6668,7 @@ export interface QuickSight {
    */
   updateSelfUpgradeConfiguration(
     args: UpdateSelfUpgradeConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateSelfUpgradeConfigurationCommandOutput>;
   updateSelfUpgradeConfiguration(
     args: UpdateSelfUpgradeConfigurationCommandInput,
@@ -6664,7 +6676,7 @@ export interface QuickSight {
   ): void;
   updateSelfUpgradeConfiguration(
     args: UpdateSelfUpgradeConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateSelfUpgradeConfigurationCommandOutput) => void
   ): void;
 
@@ -6673,7 +6685,7 @@ export interface QuickSight {
    */
   updateSpace(
     args: UpdateSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateSpaceCommandOutput>;
   updateSpace(
     args: UpdateSpaceCommandInput,
@@ -6681,7 +6693,7 @@ export interface QuickSight {
   ): void;
   updateSpace(
     args: UpdateSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateSpaceCommandOutput) => void
   ): void;
 
@@ -6690,7 +6702,7 @@ export interface QuickSight {
    */
   updateSpacePermissions(
     args: UpdateSpacePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateSpacePermissionsCommandOutput>;
   updateSpacePermissions(
     args: UpdateSpacePermissionsCommandInput,
@@ -6698,7 +6710,7 @@ export interface QuickSight {
   ): void;
   updateSpacePermissions(
     args: UpdateSpacePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateSpacePermissionsCommandOutput) => void
   ): void;
 
@@ -6707,7 +6719,7 @@ export interface QuickSight {
    */
   updateSpaceResources(
     args: UpdateSpaceResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateSpaceResourcesCommandOutput>;
   updateSpaceResources(
     args: UpdateSpaceResourcesCommandInput,
@@ -6715,7 +6727,7 @@ export interface QuickSight {
   ): void;
   updateSpaceResources(
     args: UpdateSpaceResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateSpaceResourcesCommandOutput) => void
   ): void;
 
@@ -6724,7 +6736,7 @@ export interface QuickSight {
    */
   updateSPICECapacityConfiguration(
     args: UpdateSPICECapacityConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateSPICECapacityConfigurationCommandOutput>;
   updateSPICECapacityConfiguration(
     args: UpdateSPICECapacityConfigurationCommandInput,
@@ -6732,7 +6744,7 @@ export interface QuickSight {
   ): void;
   updateSPICECapacityConfiguration(
     args: UpdateSPICECapacityConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateSPICECapacityConfigurationCommandOutput) => void
   ): void;
 
@@ -6741,7 +6753,7 @@ export interface QuickSight {
    */
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateTemplateCommandOutput>;
   updateTemplate(
     args: UpdateTemplateCommandInput,
@@ -6749,7 +6761,7 @@ export interface QuickSight {
   ): void;
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): void;
 
@@ -6758,7 +6770,7 @@ export interface QuickSight {
    */
   updateTemplateAlias(
     args: UpdateTemplateAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateTemplateAliasCommandOutput>;
   updateTemplateAlias(
     args: UpdateTemplateAliasCommandInput,
@@ -6766,7 +6778,7 @@ export interface QuickSight {
   ): void;
   updateTemplateAlias(
     args: UpdateTemplateAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateTemplateAliasCommandOutput) => void
   ): void;
 
@@ -6775,7 +6787,7 @@ export interface QuickSight {
    */
   updateTemplatePermissions(
     args: UpdateTemplatePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateTemplatePermissionsCommandOutput>;
   updateTemplatePermissions(
     args: UpdateTemplatePermissionsCommandInput,
@@ -6783,7 +6795,7 @@ export interface QuickSight {
   ): void;
   updateTemplatePermissions(
     args: UpdateTemplatePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateTemplatePermissionsCommandOutput) => void
   ): void;
 
@@ -6792,7 +6804,7 @@ export interface QuickSight {
    */
   updateTheme(
     args: UpdateThemeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateThemeCommandOutput>;
   updateTheme(
     args: UpdateThemeCommandInput,
@@ -6800,7 +6812,7 @@ export interface QuickSight {
   ): void;
   updateTheme(
     args: UpdateThemeCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateThemeCommandOutput) => void
   ): void;
 
@@ -6809,7 +6821,7 @@ export interface QuickSight {
    */
   updateThemeAlias(
     args: UpdateThemeAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateThemeAliasCommandOutput>;
   updateThemeAlias(
     args: UpdateThemeAliasCommandInput,
@@ -6817,7 +6829,7 @@ export interface QuickSight {
   ): void;
   updateThemeAlias(
     args: UpdateThemeAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateThemeAliasCommandOutput) => void
   ): void;
 
@@ -6826,7 +6838,7 @@ export interface QuickSight {
    */
   updateThemePermissions(
     args: UpdateThemePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateThemePermissionsCommandOutput>;
   updateThemePermissions(
     args: UpdateThemePermissionsCommandInput,
@@ -6834,7 +6846,7 @@ export interface QuickSight {
   ): void;
   updateThemePermissions(
     args: UpdateThemePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateThemePermissionsCommandOutput) => void
   ): void;
 
@@ -6843,7 +6855,7 @@ export interface QuickSight {
    */
   updateTopic(
     args: UpdateTopicCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateTopicCommandOutput>;
   updateTopic(
     args: UpdateTopicCommandInput,
@@ -6851,7 +6863,7 @@ export interface QuickSight {
   ): void;
   updateTopic(
     args: UpdateTopicCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateTopicCommandOutput) => void
   ): void;
 
@@ -6860,7 +6872,7 @@ export interface QuickSight {
    */
   updateTopicPermissions(
     args: UpdateTopicPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateTopicPermissionsCommandOutput>;
   updateTopicPermissions(
     args: UpdateTopicPermissionsCommandInput,
@@ -6868,7 +6880,7 @@ export interface QuickSight {
   ): void;
   updateTopicPermissions(
     args: UpdateTopicPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateTopicPermissionsCommandOutput) => void
   ): void;
 
@@ -6877,7 +6889,7 @@ export interface QuickSight {
    */
   updateTopicPermissionsV2(
     args: UpdateTopicPermissionsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateTopicPermissionsV2CommandOutput>;
   updateTopicPermissionsV2(
     args: UpdateTopicPermissionsV2CommandInput,
@@ -6885,7 +6897,7 @@ export interface QuickSight {
   ): void;
   updateTopicPermissionsV2(
     args: UpdateTopicPermissionsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateTopicPermissionsV2CommandOutput) => void
   ): void;
 
@@ -6894,7 +6906,7 @@ export interface QuickSight {
    */
   updateTopicRefreshSchedule(
     args: UpdateTopicRefreshScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateTopicRefreshScheduleCommandOutput>;
   updateTopicRefreshSchedule(
     args: UpdateTopicRefreshScheduleCommandInput,
@@ -6902,7 +6914,7 @@ export interface QuickSight {
   ): void;
   updateTopicRefreshSchedule(
     args: UpdateTopicRefreshScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateTopicRefreshScheduleCommandOutput) => void
   ): void;
 
@@ -6911,7 +6923,7 @@ export interface QuickSight {
    */
   updateTopicV2(
     args: UpdateTopicV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateTopicV2CommandOutput>;
   updateTopicV2(
     args: UpdateTopicV2CommandInput,
@@ -6919,7 +6931,7 @@ export interface QuickSight {
   ): void;
   updateTopicV2(
     args: UpdateTopicV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateTopicV2CommandOutput) => void
   ): void;
 
@@ -6928,7 +6940,7 @@ export interface QuickSight {
    */
   updateUser(
     args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateUserCommandOutput>;
   updateUser(
     args: UpdateUserCommandInput,
@@ -6936,7 +6948,7 @@ export interface QuickSight {
   ): void;
   updateUser(
     args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
 
@@ -6945,7 +6957,7 @@ export interface QuickSight {
    */
   updateUserCustomPermission(
     args: UpdateUserCustomPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateUserCustomPermissionCommandOutput>;
   updateUserCustomPermission(
     args: UpdateUserCustomPermissionCommandInput,
@@ -6953,7 +6965,7 @@ export interface QuickSight {
   ): void;
   updateUserCustomPermission(
     args: UpdateUserCustomPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateUserCustomPermissionCommandOutput) => void
   ): void;
 
@@ -6962,7 +6974,7 @@ export interface QuickSight {
    */
   updateVPCConnection(
     args: UpdateVPCConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QuickSightRequestOptions
   ): Promise<UpdateVPCConnectionCommandOutput>;
   updateVPCConnection(
     args: UpdateVPCConnectionCommandInput,
@@ -6970,7 +6982,7 @@ export interface QuickSight {
   ): void;
   updateVPCConnection(
     args: UpdateVPCConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateVPCConnectionCommandOutput) => void
   ): void;
 

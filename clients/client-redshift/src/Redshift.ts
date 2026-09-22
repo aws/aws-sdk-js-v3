@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -974,13 +975,20 @@ const waiters = {
   waitUntilSnapshotAvailable,
 };
 
+/**
+ * @public
+ */
+export interface RedshiftRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Redshift {
   /**
    * @see {@link AcceptReservedNodeExchangeCommand}
    */
   acceptReservedNodeExchange(
     args: AcceptReservedNodeExchangeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<AcceptReservedNodeExchangeCommandOutput>;
   acceptReservedNodeExchange(
     args: AcceptReservedNodeExchangeCommandInput,
@@ -988,7 +996,7 @@ export interface Redshift {
   ): void;
   acceptReservedNodeExchange(
     args: AcceptReservedNodeExchangeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: AcceptReservedNodeExchangeCommandOutput) => void
   ): void;
 
@@ -997,7 +1005,7 @@ export interface Redshift {
    */
   addPartner(
     args: AddPartnerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<AddPartnerCommandOutput>;
   addPartner(
     args: AddPartnerCommandInput,
@@ -1005,7 +1013,7 @@ export interface Redshift {
   ): void;
   addPartner(
     args: AddPartnerCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: AddPartnerCommandOutput) => void
   ): void;
 
@@ -1014,7 +1022,7 @@ export interface Redshift {
    */
   associateDataShareConsumer(
     args: AssociateDataShareConsumerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<AssociateDataShareConsumerCommandOutput>;
   associateDataShareConsumer(
     args: AssociateDataShareConsumerCommandInput,
@@ -1022,7 +1030,7 @@ export interface Redshift {
   ): void;
   associateDataShareConsumer(
     args: AssociateDataShareConsumerCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: AssociateDataShareConsumerCommandOutput) => void
   ): void;
 
@@ -1031,7 +1039,7 @@ export interface Redshift {
    */
   authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput>;
   authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
@@ -1039,7 +1047,7 @@ export interface Redshift {
   ): void;
   authorizeClusterSecurityGroupIngress(
     args: AuthorizeClusterSecurityGroupIngressCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: AuthorizeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
 
@@ -1048,7 +1056,7 @@ export interface Redshift {
    */
   authorizeDataShare(
     args: AuthorizeDataShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<AuthorizeDataShareCommandOutput>;
   authorizeDataShare(
     args: AuthorizeDataShareCommandInput,
@@ -1056,7 +1064,7 @@ export interface Redshift {
   ): void;
   authorizeDataShare(
     args: AuthorizeDataShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: AuthorizeDataShareCommandOutput) => void
   ): void;
 
@@ -1065,7 +1073,7 @@ export interface Redshift {
    */
   authorizeEndpointAccess(
     args: AuthorizeEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<AuthorizeEndpointAccessCommandOutput>;
   authorizeEndpointAccess(
     args: AuthorizeEndpointAccessCommandInput,
@@ -1073,7 +1081,7 @@ export interface Redshift {
   ): void;
   authorizeEndpointAccess(
     args: AuthorizeEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: AuthorizeEndpointAccessCommandOutput) => void
   ): void;
 
@@ -1082,7 +1090,7 @@ export interface Redshift {
    */
   authorizeSnapshotAccess(
     args: AuthorizeSnapshotAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<AuthorizeSnapshotAccessCommandOutput>;
   authorizeSnapshotAccess(
     args: AuthorizeSnapshotAccessCommandInput,
@@ -1090,7 +1098,7 @@ export interface Redshift {
   ): void;
   authorizeSnapshotAccess(
     args: AuthorizeSnapshotAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: AuthorizeSnapshotAccessCommandOutput) => void
   ): void;
 
@@ -1099,7 +1107,7 @@ export interface Redshift {
    */
   batchDeleteClusterSnapshots(
     args: BatchDeleteClusterSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<BatchDeleteClusterSnapshotsCommandOutput>;
   batchDeleteClusterSnapshots(
     args: BatchDeleteClusterSnapshotsCommandInput,
@@ -1107,7 +1115,7 @@ export interface Redshift {
   ): void;
   batchDeleteClusterSnapshots(
     args: BatchDeleteClusterSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: BatchDeleteClusterSnapshotsCommandOutput) => void
   ): void;
 
@@ -1116,7 +1124,7 @@ export interface Redshift {
    */
   batchModifyClusterSnapshots(
     args: BatchModifyClusterSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<BatchModifyClusterSnapshotsCommandOutput>;
   batchModifyClusterSnapshots(
     args: BatchModifyClusterSnapshotsCommandInput,
@@ -1124,7 +1132,7 @@ export interface Redshift {
   ): void;
   batchModifyClusterSnapshots(
     args: BatchModifyClusterSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: BatchModifyClusterSnapshotsCommandOutput) => void
   ): void;
 
@@ -1133,7 +1141,7 @@ export interface Redshift {
    */
   cancelResize(
     args: CancelResizeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CancelResizeCommandOutput>;
   cancelResize(
     args: CancelResizeCommandInput,
@@ -1141,7 +1149,7 @@ export interface Redshift {
   ): void;
   cancelResize(
     args: CancelResizeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CancelResizeCommandOutput) => void
   ): void;
 
@@ -1150,7 +1158,7 @@ export interface Redshift {
    */
   copyClusterSnapshot(
     args: CopyClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CopyClusterSnapshotCommandOutput>;
   copyClusterSnapshot(
     args: CopyClusterSnapshotCommandInput,
@@ -1158,7 +1166,7 @@ export interface Redshift {
   ): void;
   copyClusterSnapshot(
     args: CopyClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CopyClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -1167,7 +1175,7 @@ export interface Redshift {
    */
   createAuthenticationProfile(
     args: CreateAuthenticationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateAuthenticationProfileCommandOutput>;
   createAuthenticationProfile(
     args: CreateAuthenticationProfileCommandInput,
@@ -1175,7 +1183,7 @@ export interface Redshift {
   ): void;
   createAuthenticationProfile(
     args: CreateAuthenticationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateAuthenticationProfileCommandOutput) => void
   ): void;
 
@@ -1184,7 +1192,7 @@ export interface Redshift {
    */
   createCluster(
     args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
@@ -1192,7 +1200,7 @@ export interface Redshift {
   ): void;
   createCluster(
     args: CreateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
@@ -1201,7 +1209,7 @@ export interface Redshift {
    */
   createClusterParameterGroup(
     args: CreateClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateClusterParameterGroupCommandOutput>;
   createClusterParameterGroup(
     args: CreateClusterParameterGroupCommandInput,
@@ -1209,7 +1217,7 @@ export interface Redshift {
   ): void;
   createClusterParameterGroup(
     args: CreateClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -1218,7 +1226,7 @@ export interface Redshift {
    */
   createClusterSecurityGroup(
     args: CreateClusterSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateClusterSecurityGroupCommandOutput>;
   createClusterSecurityGroup(
     args: CreateClusterSecurityGroupCommandInput,
@@ -1226,7 +1234,7 @@ export interface Redshift {
   ): void;
   createClusterSecurityGroup(
     args: CreateClusterSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateClusterSecurityGroupCommandOutput) => void
   ): void;
 
@@ -1235,7 +1243,7 @@ export interface Redshift {
    */
   createClusterSnapshot(
     args: CreateClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateClusterSnapshotCommandOutput>;
   createClusterSnapshot(
     args: CreateClusterSnapshotCommandInput,
@@ -1243,7 +1251,7 @@ export interface Redshift {
   ): void;
   createClusterSnapshot(
     args: CreateClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -1252,7 +1260,7 @@ export interface Redshift {
    */
   createClusterSubnetGroup(
     args: CreateClusterSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateClusterSubnetGroupCommandOutput>;
   createClusterSubnetGroup(
     args: CreateClusterSubnetGroupCommandInput,
@@ -1260,7 +1268,7 @@ export interface Redshift {
   ): void;
   createClusterSubnetGroup(
     args: CreateClusterSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateClusterSubnetGroupCommandOutput) => void
   ): void;
 
@@ -1269,7 +1277,7 @@ export interface Redshift {
    */
   createCustomDomainAssociation(
     args: CreateCustomDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateCustomDomainAssociationCommandOutput>;
   createCustomDomainAssociation(
     args: CreateCustomDomainAssociationCommandInput,
@@ -1277,7 +1285,7 @@ export interface Redshift {
   ): void;
   createCustomDomainAssociation(
     args: CreateCustomDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateCustomDomainAssociationCommandOutput) => void
   ): void;
 
@@ -1286,7 +1294,7 @@ export interface Redshift {
    */
   createEndpointAccess(
     args: CreateEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateEndpointAccessCommandOutput>;
   createEndpointAccess(
     args: CreateEndpointAccessCommandInput,
@@ -1294,7 +1302,7 @@ export interface Redshift {
   ): void;
   createEndpointAccess(
     args: CreateEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateEndpointAccessCommandOutput) => void
   ): void;
 
@@ -1303,7 +1311,7 @@ export interface Redshift {
    */
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateEventSubscriptionCommandOutput>;
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -1311,7 +1319,7 @@ export interface Redshift {
   ): void;
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -1320,7 +1328,7 @@ export interface Redshift {
    */
   createHsmClientCertificate(
     args: CreateHsmClientCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateHsmClientCertificateCommandOutput>;
   createHsmClientCertificate(
     args: CreateHsmClientCertificateCommandInput,
@@ -1328,7 +1336,7 @@ export interface Redshift {
   ): void;
   createHsmClientCertificate(
     args: CreateHsmClientCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateHsmClientCertificateCommandOutput) => void
   ): void;
 
@@ -1337,7 +1345,7 @@ export interface Redshift {
    */
   createHsmConfiguration(
     args: CreateHsmConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateHsmConfigurationCommandOutput>;
   createHsmConfiguration(
     args: CreateHsmConfigurationCommandInput,
@@ -1345,7 +1353,7 @@ export interface Redshift {
   ): void;
   createHsmConfiguration(
     args: CreateHsmConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateHsmConfigurationCommandOutput) => void
   ): void;
 
@@ -1354,7 +1362,7 @@ export interface Redshift {
    */
   createIntegration(
     args: CreateIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateIntegrationCommandOutput>;
   createIntegration(
     args: CreateIntegrationCommandInput,
@@ -1362,7 +1370,7 @@ export interface Redshift {
   ): void;
   createIntegration(
     args: CreateIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateIntegrationCommandOutput) => void
   ): void;
 
@@ -1371,7 +1379,7 @@ export interface Redshift {
    */
   createQev2IdcApplication(
     args: CreateQev2IdcApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateQev2IdcApplicationCommandOutput>;
   createQev2IdcApplication(
     args: CreateQev2IdcApplicationCommandInput,
@@ -1379,7 +1387,7 @@ export interface Redshift {
   ): void;
   createQev2IdcApplication(
     args: CreateQev2IdcApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateQev2IdcApplicationCommandOutput) => void
   ): void;
 
@@ -1388,7 +1396,7 @@ export interface Redshift {
    */
   createRedshiftIdcApplication(
     args: CreateRedshiftIdcApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateRedshiftIdcApplicationCommandOutput>;
   createRedshiftIdcApplication(
     args: CreateRedshiftIdcApplicationCommandInput,
@@ -1396,7 +1404,7 @@ export interface Redshift {
   ): void;
   createRedshiftIdcApplication(
     args: CreateRedshiftIdcApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateRedshiftIdcApplicationCommandOutput) => void
   ): void;
 
@@ -1405,7 +1413,7 @@ export interface Redshift {
    */
   createScheduledAction(
     args: CreateScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateScheduledActionCommandOutput>;
   createScheduledAction(
     args: CreateScheduledActionCommandInput,
@@ -1413,7 +1421,7 @@ export interface Redshift {
   ): void;
   createScheduledAction(
     args: CreateScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateScheduledActionCommandOutput) => void
   ): void;
 
@@ -1422,7 +1430,7 @@ export interface Redshift {
    */
   createSnapshotCopyGrant(
     args: CreateSnapshotCopyGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateSnapshotCopyGrantCommandOutput>;
   createSnapshotCopyGrant(
     args: CreateSnapshotCopyGrantCommandInput,
@@ -1430,7 +1438,7 @@ export interface Redshift {
   ): void;
   createSnapshotCopyGrant(
     args: CreateSnapshotCopyGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateSnapshotCopyGrantCommandOutput) => void
   ): void;
 
@@ -1440,7 +1448,7 @@ export interface Redshift {
   createSnapshotSchedule(): Promise<CreateSnapshotScheduleCommandOutput>;
   createSnapshotSchedule(
     args: CreateSnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateSnapshotScheduleCommandOutput>;
   createSnapshotSchedule(
     args: CreateSnapshotScheduleCommandInput,
@@ -1448,7 +1456,7 @@ export interface Redshift {
   ): void;
   createSnapshotSchedule(
     args: CreateSnapshotScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateSnapshotScheduleCommandOutput) => void
   ): void;
 
@@ -1457,7 +1465,7 @@ export interface Redshift {
    */
   createTags(
     args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateTagsCommandOutput>;
   createTags(
     args: CreateTagsCommandInput,
@@ -1465,7 +1473,7 @@ export interface Redshift {
   ): void;
   createTags(
     args: CreateTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateTagsCommandOutput) => void
   ): void;
 
@@ -1474,7 +1482,7 @@ export interface Redshift {
    */
   createUsageLimit(
     args: CreateUsageLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<CreateUsageLimitCommandOutput>;
   createUsageLimit(
     args: CreateUsageLimitCommandInput,
@@ -1482,7 +1490,7 @@ export interface Redshift {
   ): void;
   createUsageLimit(
     args: CreateUsageLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: CreateUsageLimitCommandOutput) => void
   ): void;
 
@@ -1491,7 +1499,7 @@ export interface Redshift {
    */
   deauthorizeDataShare(
     args: DeauthorizeDataShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeauthorizeDataShareCommandOutput>;
   deauthorizeDataShare(
     args: DeauthorizeDataShareCommandInput,
@@ -1499,7 +1507,7 @@ export interface Redshift {
   ): void;
   deauthorizeDataShare(
     args: DeauthorizeDataShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeauthorizeDataShareCommandOutput) => void
   ): void;
 
@@ -1508,7 +1516,7 @@ export interface Redshift {
    */
   deleteAuthenticationProfile(
     args: DeleteAuthenticationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteAuthenticationProfileCommandOutput>;
   deleteAuthenticationProfile(
     args: DeleteAuthenticationProfileCommandInput,
@@ -1516,7 +1524,7 @@ export interface Redshift {
   ): void;
   deleteAuthenticationProfile(
     args: DeleteAuthenticationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteAuthenticationProfileCommandOutput) => void
   ): void;
 
@@ -1525,7 +1533,7 @@ export interface Redshift {
    */
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteClusterCommandOutput>;
   deleteCluster(
     args: DeleteClusterCommandInput,
@@ -1533,7 +1541,7 @@ export interface Redshift {
   ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
 
@@ -1542,7 +1550,7 @@ export interface Redshift {
    */
   deleteClusterParameterGroup(
     args: DeleteClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteClusterParameterGroupCommandOutput>;
   deleteClusterParameterGroup(
     args: DeleteClusterParameterGroupCommandInput,
@@ -1550,7 +1558,7 @@ export interface Redshift {
   ): void;
   deleteClusterParameterGroup(
     args: DeleteClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -1559,7 +1567,7 @@ export interface Redshift {
    */
   deleteClusterSecurityGroup(
     args: DeleteClusterSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteClusterSecurityGroupCommandOutput>;
   deleteClusterSecurityGroup(
     args: DeleteClusterSecurityGroupCommandInput,
@@ -1567,7 +1575,7 @@ export interface Redshift {
   ): void;
   deleteClusterSecurityGroup(
     args: DeleteClusterSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteClusterSecurityGroupCommandOutput) => void
   ): void;
 
@@ -1576,7 +1584,7 @@ export interface Redshift {
    */
   deleteClusterSnapshot(
     args: DeleteClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteClusterSnapshotCommandOutput>;
   deleteClusterSnapshot(
     args: DeleteClusterSnapshotCommandInput,
@@ -1584,7 +1592,7 @@ export interface Redshift {
   ): void;
   deleteClusterSnapshot(
     args: DeleteClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -1593,7 +1601,7 @@ export interface Redshift {
    */
   deleteClusterSubnetGroup(
     args: DeleteClusterSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteClusterSubnetGroupCommandOutput>;
   deleteClusterSubnetGroup(
     args: DeleteClusterSubnetGroupCommandInput,
@@ -1601,7 +1609,7 @@ export interface Redshift {
   ): void;
   deleteClusterSubnetGroup(
     args: DeleteClusterSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteClusterSubnetGroupCommandOutput) => void
   ): void;
 
@@ -1610,7 +1618,7 @@ export interface Redshift {
    */
   deleteCustomDomainAssociation(
     args: DeleteCustomDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteCustomDomainAssociationCommandOutput>;
   deleteCustomDomainAssociation(
     args: DeleteCustomDomainAssociationCommandInput,
@@ -1618,7 +1626,7 @@ export interface Redshift {
   ): void;
   deleteCustomDomainAssociation(
     args: DeleteCustomDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteCustomDomainAssociationCommandOutput) => void
   ): void;
 
@@ -1627,7 +1635,7 @@ export interface Redshift {
    */
   deleteEndpointAccess(
     args: DeleteEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteEndpointAccessCommandOutput>;
   deleteEndpointAccess(
     args: DeleteEndpointAccessCommandInput,
@@ -1635,7 +1643,7 @@ export interface Redshift {
   ): void;
   deleteEndpointAccess(
     args: DeleteEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteEndpointAccessCommandOutput) => void
   ): void;
 
@@ -1644,7 +1652,7 @@ export interface Redshift {
    */
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteEventSubscriptionCommandOutput>;
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
@@ -1652,7 +1660,7 @@ export interface Redshift {
   ): void;
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -1661,7 +1669,7 @@ export interface Redshift {
    */
   deleteHsmClientCertificate(
     args: DeleteHsmClientCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteHsmClientCertificateCommandOutput>;
   deleteHsmClientCertificate(
     args: DeleteHsmClientCertificateCommandInput,
@@ -1669,7 +1677,7 @@ export interface Redshift {
   ): void;
   deleteHsmClientCertificate(
     args: DeleteHsmClientCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteHsmClientCertificateCommandOutput) => void
   ): void;
 
@@ -1678,7 +1686,7 @@ export interface Redshift {
    */
   deleteHsmConfiguration(
     args: DeleteHsmConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteHsmConfigurationCommandOutput>;
   deleteHsmConfiguration(
     args: DeleteHsmConfigurationCommandInput,
@@ -1686,7 +1694,7 @@ export interface Redshift {
   ): void;
   deleteHsmConfiguration(
     args: DeleteHsmConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteHsmConfigurationCommandOutput) => void
   ): void;
 
@@ -1695,7 +1703,7 @@ export interface Redshift {
    */
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteIntegrationCommandOutput>;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
@@ -1703,7 +1711,7 @@ export interface Redshift {
   ): void;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
 
@@ -1712,7 +1720,7 @@ export interface Redshift {
    */
   deletePartner(
     args: DeletePartnerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeletePartnerCommandOutput>;
   deletePartner(
     args: DeletePartnerCommandInput,
@@ -1720,7 +1728,7 @@ export interface Redshift {
   ): void;
   deletePartner(
     args: DeletePartnerCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeletePartnerCommandOutput) => void
   ): void;
 
@@ -1729,7 +1737,7 @@ export interface Redshift {
    */
   deleteQev2IdcApplication(
     args: DeleteQev2IdcApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteQev2IdcApplicationCommandOutput>;
   deleteQev2IdcApplication(
     args: DeleteQev2IdcApplicationCommandInput,
@@ -1737,7 +1745,7 @@ export interface Redshift {
   ): void;
   deleteQev2IdcApplication(
     args: DeleteQev2IdcApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteQev2IdcApplicationCommandOutput) => void
   ): void;
 
@@ -1746,7 +1754,7 @@ export interface Redshift {
    */
   deleteRedshiftIdcApplication(
     args: DeleteRedshiftIdcApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteRedshiftIdcApplicationCommandOutput>;
   deleteRedshiftIdcApplication(
     args: DeleteRedshiftIdcApplicationCommandInput,
@@ -1754,7 +1762,7 @@ export interface Redshift {
   ): void;
   deleteRedshiftIdcApplication(
     args: DeleteRedshiftIdcApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteRedshiftIdcApplicationCommandOutput) => void
   ): void;
 
@@ -1763,7 +1771,7 @@ export interface Redshift {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -1771,7 +1779,7 @@ export interface Redshift {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1780,7 +1788,7 @@ export interface Redshift {
    */
   deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteScheduledActionCommandOutput>;
   deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
@@ -1788,7 +1796,7 @@ export interface Redshift {
   ): void;
   deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteScheduledActionCommandOutput) => void
   ): void;
 
@@ -1797,7 +1805,7 @@ export interface Redshift {
    */
   deleteSnapshotCopyGrant(
     args: DeleteSnapshotCopyGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteSnapshotCopyGrantCommandOutput>;
   deleteSnapshotCopyGrant(
     args: DeleteSnapshotCopyGrantCommandInput,
@@ -1805,7 +1813,7 @@ export interface Redshift {
   ): void;
   deleteSnapshotCopyGrant(
     args: DeleteSnapshotCopyGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteSnapshotCopyGrantCommandOutput) => void
   ): void;
 
@@ -1814,7 +1822,7 @@ export interface Redshift {
    */
   deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteSnapshotScheduleCommandOutput>;
   deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
@@ -1822,7 +1830,7 @@ export interface Redshift {
   ): void;
   deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteSnapshotScheduleCommandOutput) => void
   ): void;
 
@@ -1831,7 +1839,7 @@ export interface Redshift {
    */
   deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteTagsCommandOutput>;
   deleteTags(
     args: DeleteTagsCommandInput,
@@ -1839,7 +1847,7 @@ export interface Redshift {
   ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteTagsCommandOutput) => void
   ): void;
 
@@ -1848,7 +1856,7 @@ export interface Redshift {
    */
   deleteUsageLimit(
     args: DeleteUsageLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeleteUsageLimitCommandOutput>;
   deleteUsageLimit(
     args: DeleteUsageLimitCommandInput,
@@ -1856,7 +1864,7 @@ export interface Redshift {
   ): void;
   deleteUsageLimit(
     args: DeleteUsageLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeleteUsageLimitCommandOutput) => void
   ): void;
 
@@ -1865,7 +1873,7 @@ export interface Redshift {
    */
   deregisterNamespace(
     args: DeregisterNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DeregisterNamespaceCommandOutput>;
   deregisterNamespace(
     args: DeregisterNamespaceCommandInput,
@@ -1873,7 +1881,7 @@ export interface Redshift {
   ): void;
   deregisterNamespace(
     args: DeregisterNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DeregisterNamespaceCommandOutput) => void
   ): void;
 
@@ -1883,7 +1891,7 @@ export interface Redshift {
   describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
@@ -1891,7 +1899,7 @@ export interface Redshift {
   ): void;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): void;
 
@@ -1901,7 +1909,7 @@ export interface Redshift {
   describeAuthenticationProfiles(): Promise<DescribeAuthenticationProfilesCommandOutput>;
   describeAuthenticationProfiles(
     args: DescribeAuthenticationProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeAuthenticationProfilesCommandOutput>;
   describeAuthenticationProfiles(
     args: DescribeAuthenticationProfilesCommandInput,
@@ -1909,7 +1917,7 @@ export interface Redshift {
   ): void;
   describeAuthenticationProfiles(
     args: DescribeAuthenticationProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeAuthenticationProfilesCommandOutput) => void
   ): void;
 
@@ -1919,7 +1927,7 @@ export interface Redshift {
   describeClusterDbRevisions(): Promise<DescribeClusterDbRevisionsCommandOutput>;
   describeClusterDbRevisions(
     args: DescribeClusterDbRevisionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeClusterDbRevisionsCommandOutput>;
   describeClusterDbRevisions(
     args: DescribeClusterDbRevisionsCommandInput,
@@ -1927,7 +1935,7 @@ export interface Redshift {
   ): void;
   describeClusterDbRevisions(
     args: DescribeClusterDbRevisionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeClusterDbRevisionsCommandOutput) => void
   ): void;
 
@@ -1937,7 +1945,7 @@ export interface Redshift {
   describeClusterParameterGroups(): Promise<DescribeClusterParameterGroupsCommandOutput>;
   describeClusterParameterGroups(
     args: DescribeClusterParameterGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeClusterParameterGroupsCommandOutput>;
   describeClusterParameterGroups(
     args: DescribeClusterParameterGroupsCommandInput,
@@ -1945,7 +1953,7 @@ export interface Redshift {
   ): void;
   describeClusterParameterGroups(
     args: DescribeClusterParameterGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeClusterParameterGroupsCommandOutput) => void
   ): void;
 
@@ -1954,7 +1962,7 @@ export interface Redshift {
    */
   describeClusterParameters(
     args: DescribeClusterParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeClusterParametersCommandOutput>;
   describeClusterParameters(
     args: DescribeClusterParametersCommandInput,
@@ -1962,7 +1970,7 @@ export interface Redshift {
   ): void;
   describeClusterParameters(
     args: DescribeClusterParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeClusterParametersCommandOutput) => void
   ): void;
 
@@ -1972,7 +1980,7 @@ export interface Redshift {
   describeClusters(): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
@@ -1980,7 +1988,7 @@ export interface Redshift {
   ): void;
   describeClusters(
     args: DescribeClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeClustersCommandOutput) => void
   ): void;
 
@@ -1990,7 +1998,7 @@ export interface Redshift {
   describeClusterSecurityGroups(): Promise<DescribeClusterSecurityGroupsCommandOutput>;
   describeClusterSecurityGroups(
     args: DescribeClusterSecurityGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeClusterSecurityGroupsCommandOutput>;
   describeClusterSecurityGroups(
     args: DescribeClusterSecurityGroupsCommandInput,
@@ -1998,7 +2006,7 @@ export interface Redshift {
   ): void;
   describeClusterSecurityGroups(
     args: DescribeClusterSecurityGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeClusterSecurityGroupsCommandOutput) => void
   ): void;
 
@@ -2008,7 +2016,7 @@ export interface Redshift {
   describeClusterSnapshots(): Promise<DescribeClusterSnapshotsCommandOutput>;
   describeClusterSnapshots(
     args: DescribeClusterSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeClusterSnapshotsCommandOutput>;
   describeClusterSnapshots(
     args: DescribeClusterSnapshotsCommandInput,
@@ -2016,7 +2024,7 @@ export interface Redshift {
   ): void;
   describeClusterSnapshots(
     args: DescribeClusterSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeClusterSnapshotsCommandOutput) => void
   ): void;
 
@@ -2026,7 +2034,7 @@ export interface Redshift {
   describeClusterSubnetGroups(): Promise<DescribeClusterSubnetGroupsCommandOutput>;
   describeClusterSubnetGroups(
     args: DescribeClusterSubnetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeClusterSubnetGroupsCommandOutput>;
   describeClusterSubnetGroups(
     args: DescribeClusterSubnetGroupsCommandInput,
@@ -2034,7 +2042,7 @@ export interface Redshift {
   ): void;
   describeClusterSubnetGroups(
     args: DescribeClusterSubnetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeClusterSubnetGroupsCommandOutput) => void
   ): void;
 
@@ -2044,7 +2052,7 @@ export interface Redshift {
   describeClusterTracks(): Promise<DescribeClusterTracksCommandOutput>;
   describeClusterTracks(
     args: DescribeClusterTracksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeClusterTracksCommandOutput>;
   describeClusterTracks(
     args: DescribeClusterTracksCommandInput,
@@ -2052,7 +2060,7 @@ export interface Redshift {
   ): void;
   describeClusterTracks(
     args: DescribeClusterTracksCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeClusterTracksCommandOutput) => void
   ): void;
 
@@ -2062,7 +2070,7 @@ export interface Redshift {
   describeClusterVersions(): Promise<DescribeClusterVersionsCommandOutput>;
   describeClusterVersions(
     args: DescribeClusterVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeClusterVersionsCommandOutput>;
   describeClusterVersions(
     args: DescribeClusterVersionsCommandInput,
@@ -2070,7 +2078,7 @@ export interface Redshift {
   ): void;
   describeClusterVersions(
     args: DescribeClusterVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeClusterVersionsCommandOutput) => void
   ): void;
 
@@ -2080,7 +2088,7 @@ export interface Redshift {
   describeCustomDomainAssociations(): Promise<DescribeCustomDomainAssociationsCommandOutput>;
   describeCustomDomainAssociations(
     args: DescribeCustomDomainAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeCustomDomainAssociationsCommandOutput>;
   describeCustomDomainAssociations(
     args: DescribeCustomDomainAssociationsCommandInput,
@@ -2088,7 +2096,7 @@ export interface Redshift {
   ): void;
   describeCustomDomainAssociations(
     args: DescribeCustomDomainAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeCustomDomainAssociationsCommandOutput) => void
   ): void;
 
@@ -2098,7 +2106,7 @@ export interface Redshift {
   describeDataShares(): Promise<DescribeDataSharesCommandOutput>;
   describeDataShares(
     args: DescribeDataSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeDataSharesCommandOutput>;
   describeDataShares(
     args: DescribeDataSharesCommandInput,
@@ -2106,7 +2114,7 @@ export interface Redshift {
   ): void;
   describeDataShares(
     args: DescribeDataSharesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeDataSharesCommandOutput) => void
   ): void;
 
@@ -2116,7 +2124,7 @@ export interface Redshift {
   describeDataSharesForConsumer(): Promise<DescribeDataSharesForConsumerCommandOutput>;
   describeDataSharesForConsumer(
     args: DescribeDataSharesForConsumerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeDataSharesForConsumerCommandOutput>;
   describeDataSharesForConsumer(
     args: DescribeDataSharesForConsumerCommandInput,
@@ -2124,7 +2132,7 @@ export interface Redshift {
   ): void;
   describeDataSharesForConsumer(
     args: DescribeDataSharesForConsumerCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeDataSharesForConsumerCommandOutput) => void
   ): void;
 
@@ -2134,7 +2142,7 @@ export interface Redshift {
   describeDataSharesForProducer(): Promise<DescribeDataSharesForProducerCommandOutput>;
   describeDataSharesForProducer(
     args: DescribeDataSharesForProducerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeDataSharesForProducerCommandOutput>;
   describeDataSharesForProducer(
     args: DescribeDataSharesForProducerCommandInput,
@@ -2142,7 +2150,7 @@ export interface Redshift {
   ): void;
   describeDataSharesForProducer(
     args: DescribeDataSharesForProducerCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeDataSharesForProducerCommandOutput) => void
   ): void;
 
@@ -2151,7 +2159,7 @@ export interface Redshift {
    */
   describeDefaultClusterParameters(
     args: DescribeDefaultClusterParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeDefaultClusterParametersCommandOutput>;
   describeDefaultClusterParameters(
     args: DescribeDefaultClusterParametersCommandInput,
@@ -2159,7 +2167,7 @@ export interface Redshift {
   ): void;
   describeDefaultClusterParameters(
     args: DescribeDefaultClusterParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeDefaultClusterParametersCommandOutput) => void
   ): void;
 
@@ -2169,7 +2177,7 @@ export interface Redshift {
   describeEndpointAccess(): Promise<DescribeEndpointAccessCommandOutput>;
   describeEndpointAccess(
     args: DescribeEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeEndpointAccessCommandOutput>;
   describeEndpointAccess(
     args: DescribeEndpointAccessCommandInput,
@@ -2177,7 +2185,7 @@ export interface Redshift {
   ): void;
   describeEndpointAccess(
     args: DescribeEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeEndpointAccessCommandOutput) => void
   ): void;
 
@@ -2187,7 +2195,7 @@ export interface Redshift {
   describeEndpointAuthorization(): Promise<DescribeEndpointAuthorizationCommandOutput>;
   describeEndpointAuthorization(
     args: DescribeEndpointAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeEndpointAuthorizationCommandOutput>;
   describeEndpointAuthorization(
     args: DescribeEndpointAuthorizationCommandInput,
@@ -2195,7 +2203,7 @@ export interface Redshift {
   ): void;
   describeEndpointAuthorization(
     args: DescribeEndpointAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeEndpointAuthorizationCommandOutput) => void
   ): void;
 
@@ -2205,7 +2213,7 @@ export interface Redshift {
   describeEventCategories(): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
@@ -2213,7 +2221,7 @@ export interface Redshift {
   ): void;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeEventCategoriesCommandOutput) => void
   ): void;
 
@@ -2223,7 +2231,7 @@ export interface Redshift {
   describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
@@ -2231,7 +2239,7 @@ export interface Redshift {
   ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeEventsCommandOutput) => void
   ): void;
 
@@ -2241,7 +2249,7 @@ export interface Redshift {
   describeEventSubscriptions(): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
@@ -2249,7 +2257,7 @@ export interface Redshift {
   ): void;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): void;
 
@@ -2259,7 +2267,7 @@ export interface Redshift {
   describeHsmClientCertificates(): Promise<DescribeHsmClientCertificatesCommandOutput>;
   describeHsmClientCertificates(
     args: DescribeHsmClientCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeHsmClientCertificatesCommandOutput>;
   describeHsmClientCertificates(
     args: DescribeHsmClientCertificatesCommandInput,
@@ -2267,7 +2275,7 @@ export interface Redshift {
   ): void;
   describeHsmClientCertificates(
     args: DescribeHsmClientCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeHsmClientCertificatesCommandOutput) => void
   ): void;
 
@@ -2277,7 +2285,7 @@ export interface Redshift {
   describeHsmConfigurations(): Promise<DescribeHsmConfigurationsCommandOutput>;
   describeHsmConfigurations(
     args: DescribeHsmConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeHsmConfigurationsCommandOutput>;
   describeHsmConfigurations(
     args: DescribeHsmConfigurationsCommandInput,
@@ -2285,7 +2293,7 @@ export interface Redshift {
   ): void;
   describeHsmConfigurations(
     args: DescribeHsmConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeHsmConfigurationsCommandOutput) => void
   ): void;
 
@@ -2295,7 +2303,7 @@ export interface Redshift {
   describeInboundIntegrations(): Promise<DescribeInboundIntegrationsCommandOutput>;
   describeInboundIntegrations(
     args: DescribeInboundIntegrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeInboundIntegrationsCommandOutput>;
   describeInboundIntegrations(
     args: DescribeInboundIntegrationsCommandInput,
@@ -2303,7 +2311,7 @@ export interface Redshift {
   ): void;
   describeInboundIntegrations(
     args: DescribeInboundIntegrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeInboundIntegrationsCommandOutput) => void
   ): void;
 
@@ -2313,7 +2321,7 @@ export interface Redshift {
   describeIntegrations(): Promise<DescribeIntegrationsCommandOutput>;
   describeIntegrations(
     args: DescribeIntegrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeIntegrationsCommandOutput>;
   describeIntegrations(
     args: DescribeIntegrationsCommandInput,
@@ -2321,7 +2329,7 @@ export interface Redshift {
   ): void;
   describeIntegrations(
     args: DescribeIntegrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
   ): void;
 
@@ -2330,7 +2338,7 @@ export interface Redshift {
    */
   describeLoggingStatus(
     args: DescribeLoggingStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeLoggingStatusCommandOutput>;
   describeLoggingStatus(
     args: DescribeLoggingStatusCommandInput,
@@ -2338,7 +2346,7 @@ export interface Redshift {
   ): void;
   describeLoggingStatus(
     args: DescribeLoggingStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeLoggingStatusCommandOutput) => void
   ): void;
 
@@ -2347,7 +2355,7 @@ export interface Redshift {
    */
   describeNodeConfigurationOptions(
     args: DescribeNodeConfigurationOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeNodeConfigurationOptionsCommandOutput>;
   describeNodeConfigurationOptions(
     args: DescribeNodeConfigurationOptionsCommandInput,
@@ -2355,7 +2363,7 @@ export interface Redshift {
   ): void;
   describeNodeConfigurationOptions(
     args: DescribeNodeConfigurationOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeNodeConfigurationOptionsCommandOutput) => void
   ): void;
 
@@ -2365,7 +2373,7 @@ export interface Redshift {
   describeOrderableClusterOptions(): Promise<DescribeOrderableClusterOptionsCommandOutput>;
   describeOrderableClusterOptions(
     args: DescribeOrderableClusterOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeOrderableClusterOptionsCommandOutput>;
   describeOrderableClusterOptions(
     args: DescribeOrderableClusterOptionsCommandInput,
@@ -2373,7 +2381,7 @@ export interface Redshift {
   ): void;
   describeOrderableClusterOptions(
     args: DescribeOrderableClusterOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeOrderableClusterOptionsCommandOutput) => void
   ): void;
 
@@ -2382,7 +2390,7 @@ export interface Redshift {
    */
   describePartners(
     args: DescribePartnersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribePartnersCommandOutput>;
   describePartners(
     args: DescribePartnersCommandInput,
@@ -2390,7 +2398,7 @@ export interface Redshift {
   ): void;
   describePartners(
     args: DescribePartnersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribePartnersCommandOutput) => void
   ): void;
 
@@ -2400,7 +2408,7 @@ export interface Redshift {
   describeQev2IdcApplications(): Promise<DescribeQev2IdcApplicationsCommandOutput>;
   describeQev2IdcApplications(
     args: DescribeQev2IdcApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeQev2IdcApplicationsCommandOutput>;
   describeQev2IdcApplications(
     args: DescribeQev2IdcApplicationsCommandInput,
@@ -2408,7 +2416,7 @@ export interface Redshift {
   ): void;
   describeQev2IdcApplications(
     args: DescribeQev2IdcApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeQev2IdcApplicationsCommandOutput) => void
   ): void;
 
@@ -2418,7 +2426,7 @@ export interface Redshift {
   describeRedshiftIdcApplications(): Promise<DescribeRedshiftIdcApplicationsCommandOutput>;
   describeRedshiftIdcApplications(
     args: DescribeRedshiftIdcApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeRedshiftIdcApplicationsCommandOutput>;
   describeRedshiftIdcApplications(
     args: DescribeRedshiftIdcApplicationsCommandInput,
@@ -2426,7 +2434,7 @@ export interface Redshift {
   ): void;
   describeRedshiftIdcApplications(
     args: DescribeRedshiftIdcApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeRedshiftIdcApplicationsCommandOutput) => void
   ): void;
 
@@ -2436,7 +2444,7 @@ export interface Redshift {
   describeReservedNodeExchangeStatus(): Promise<DescribeReservedNodeExchangeStatusCommandOutput>;
   describeReservedNodeExchangeStatus(
     args: DescribeReservedNodeExchangeStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeReservedNodeExchangeStatusCommandOutput>;
   describeReservedNodeExchangeStatus(
     args: DescribeReservedNodeExchangeStatusCommandInput,
@@ -2444,7 +2452,7 @@ export interface Redshift {
   ): void;
   describeReservedNodeExchangeStatus(
     args: DescribeReservedNodeExchangeStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeReservedNodeExchangeStatusCommandOutput) => void
   ): void;
 
@@ -2454,7 +2462,7 @@ export interface Redshift {
   describeReservedNodeOfferings(): Promise<DescribeReservedNodeOfferingsCommandOutput>;
   describeReservedNodeOfferings(
     args: DescribeReservedNodeOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeReservedNodeOfferingsCommandOutput>;
   describeReservedNodeOfferings(
     args: DescribeReservedNodeOfferingsCommandInput,
@@ -2462,7 +2470,7 @@ export interface Redshift {
   ): void;
   describeReservedNodeOfferings(
     args: DescribeReservedNodeOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeReservedNodeOfferingsCommandOutput) => void
   ): void;
 
@@ -2472,7 +2480,7 @@ export interface Redshift {
   describeReservedNodes(): Promise<DescribeReservedNodesCommandOutput>;
   describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeReservedNodesCommandOutput>;
   describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
@@ -2480,7 +2488,7 @@ export interface Redshift {
   ): void;
   describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeReservedNodesCommandOutput) => void
   ): void;
 
@@ -2489,7 +2497,7 @@ export interface Redshift {
    */
   describeResize(
     args: DescribeResizeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeResizeCommandOutput>;
   describeResize(
     args: DescribeResizeCommandInput,
@@ -2497,7 +2505,7 @@ export interface Redshift {
   ): void;
   describeResize(
     args: DescribeResizeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeResizeCommandOutput) => void
   ): void;
 
@@ -2507,7 +2515,7 @@ export interface Redshift {
   describeScheduledActions(): Promise<DescribeScheduledActionsCommandOutput>;
   describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeScheduledActionsCommandOutput>;
   describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
@@ -2515,7 +2523,7 @@ export interface Redshift {
   ): void;
   describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeScheduledActionsCommandOutput) => void
   ): void;
 
@@ -2525,7 +2533,7 @@ export interface Redshift {
   describeSnapshotCopyGrants(): Promise<DescribeSnapshotCopyGrantsCommandOutput>;
   describeSnapshotCopyGrants(
     args: DescribeSnapshotCopyGrantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeSnapshotCopyGrantsCommandOutput>;
   describeSnapshotCopyGrants(
     args: DescribeSnapshotCopyGrantsCommandInput,
@@ -2533,7 +2541,7 @@ export interface Redshift {
   ): void;
   describeSnapshotCopyGrants(
     args: DescribeSnapshotCopyGrantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeSnapshotCopyGrantsCommandOutput) => void
   ): void;
 
@@ -2543,7 +2551,7 @@ export interface Redshift {
   describeSnapshotSchedules(): Promise<DescribeSnapshotSchedulesCommandOutput>;
   describeSnapshotSchedules(
     args: DescribeSnapshotSchedulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeSnapshotSchedulesCommandOutput>;
   describeSnapshotSchedules(
     args: DescribeSnapshotSchedulesCommandInput,
@@ -2551,7 +2559,7 @@ export interface Redshift {
   ): void;
   describeSnapshotSchedules(
     args: DescribeSnapshotSchedulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeSnapshotSchedulesCommandOutput) => void
   ): void;
 
@@ -2561,7 +2569,7 @@ export interface Redshift {
   describeStorage(): Promise<DescribeStorageCommandOutput>;
   describeStorage(
     args: DescribeStorageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeStorageCommandOutput>;
   describeStorage(
     args: DescribeStorageCommandInput,
@@ -2569,7 +2577,7 @@ export interface Redshift {
   ): void;
   describeStorage(
     args: DescribeStorageCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeStorageCommandOutput) => void
   ): void;
 
@@ -2579,7 +2587,7 @@ export interface Redshift {
   describeTableRestoreStatus(): Promise<DescribeTableRestoreStatusCommandOutput>;
   describeTableRestoreStatus(
     args: DescribeTableRestoreStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeTableRestoreStatusCommandOutput>;
   describeTableRestoreStatus(
     args: DescribeTableRestoreStatusCommandInput,
@@ -2587,7 +2595,7 @@ export interface Redshift {
   ): void;
   describeTableRestoreStatus(
     args: DescribeTableRestoreStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeTableRestoreStatusCommandOutput) => void
   ): void;
 
@@ -2597,7 +2605,7 @@ export interface Redshift {
   describeTags(): Promise<DescribeTagsCommandOutput>;
   describeTags(
     args: DescribeTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeTagsCommandOutput>;
   describeTags(
     args: DescribeTagsCommandInput,
@@ -2605,7 +2613,7 @@ export interface Redshift {
   ): void;
   describeTags(
     args: DescribeTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeTagsCommandOutput) => void
   ): void;
 
@@ -2615,7 +2623,7 @@ export interface Redshift {
   describeUsageLimits(): Promise<DescribeUsageLimitsCommandOutput>;
   describeUsageLimits(
     args: DescribeUsageLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DescribeUsageLimitsCommandOutput>;
   describeUsageLimits(
     args: DescribeUsageLimitsCommandInput,
@@ -2623,7 +2631,7 @@ export interface Redshift {
   ): void;
   describeUsageLimits(
     args: DescribeUsageLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DescribeUsageLimitsCommandOutput) => void
   ): void;
 
@@ -2632,7 +2640,7 @@ export interface Redshift {
    */
   disableLogging(
     args: DisableLoggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DisableLoggingCommandOutput>;
   disableLogging(
     args: DisableLoggingCommandInput,
@@ -2640,7 +2648,7 @@ export interface Redshift {
   ): void;
   disableLogging(
     args: DisableLoggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DisableLoggingCommandOutput) => void
   ): void;
 
@@ -2649,7 +2657,7 @@ export interface Redshift {
    */
   disableSnapshotCopy(
     args: DisableSnapshotCopyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DisableSnapshotCopyCommandOutput>;
   disableSnapshotCopy(
     args: DisableSnapshotCopyCommandInput,
@@ -2657,7 +2665,7 @@ export interface Redshift {
   ): void;
   disableSnapshotCopy(
     args: DisableSnapshotCopyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DisableSnapshotCopyCommandOutput) => void
   ): void;
 
@@ -2666,7 +2674,7 @@ export interface Redshift {
    */
   disassociateDataShareConsumer(
     args: DisassociateDataShareConsumerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<DisassociateDataShareConsumerCommandOutput>;
   disassociateDataShareConsumer(
     args: DisassociateDataShareConsumerCommandInput,
@@ -2674,7 +2682,7 @@ export interface Redshift {
   ): void;
   disassociateDataShareConsumer(
     args: DisassociateDataShareConsumerCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: DisassociateDataShareConsumerCommandOutput) => void
   ): void;
 
@@ -2683,7 +2691,7 @@ export interface Redshift {
    */
   enableLogging(
     args: EnableLoggingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<EnableLoggingCommandOutput>;
   enableLogging(
     args: EnableLoggingCommandInput,
@@ -2691,7 +2699,7 @@ export interface Redshift {
   ): void;
   enableLogging(
     args: EnableLoggingCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: EnableLoggingCommandOutput) => void
   ): void;
 
@@ -2700,7 +2708,7 @@ export interface Redshift {
    */
   enableSnapshotCopy(
     args: EnableSnapshotCopyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<EnableSnapshotCopyCommandOutput>;
   enableSnapshotCopy(
     args: EnableSnapshotCopyCommandInput,
@@ -2708,7 +2716,7 @@ export interface Redshift {
   ): void;
   enableSnapshotCopy(
     args: EnableSnapshotCopyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: EnableSnapshotCopyCommandOutput) => void
   ): void;
 
@@ -2717,7 +2725,7 @@ export interface Redshift {
    */
   failoverPrimaryCompute(
     args: FailoverPrimaryComputeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<FailoverPrimaryComputeCommandOutput>;
   failoverPrimaryCompute(
     args: FailoverPrimaryComputeCommandInput,
@@ -2725,7 +2733,7 @@ export interface Redshift {
   ): void;
   failoverPrimaryCompute(
     args: FailoverPrimaryComputeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: FailoverPrimaryComputeCommandOutput) => void
   ): void;
 
@@ -2734,7 +2742,7 @@ export interface Redshift {
    */
   getClusterCredentials(
     args: GetClusterCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<GetClusterCredentialsCommandOutput>;
   getClusterCredentials(
     args: GetClusterCredentialsCommandInput,
@@ -2742,7 +2750,7 @@ export interface Redshift {
   ): void;
   getClusterCredentials(
     args: GetClusterCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: GetClusterCredentialsCommandOutput) => void
   ): void;
 
@@ -2752,7 +2760,7 @@ export interface Redshift {
   getClusterCredentialsWithIAM(): Promise<GetClusterCredentialsWithIAMCommandOutput>;
   getClusterCredentialsWithIAM(
     args: GetClusterCredentialsWithIAMCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<GetClusterCredentialsWithIAMCommandOutput>;
   getClusterCredentialsWithIAM(
     args: GetClusterCredentialsWithIAMCommandInput,
@@ -2760,7 +2768,7 @@ export interface Redshift {
   ): void;
   getClusterCredentialsWithIAM(
     args: GetClusterCredentialsWithIAMCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: GetClusterCredentialsWithIAMCommandOutput) => void
   ): void;
 
@@ -2769,7 +2777,7 @@ export interface Redshift {
    */
   getIdentityCenterAuthToken(
     args: GetIdentityCenterAuthTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<GetIdentityCenterAuthTokenCommandOutput>;
   getIdentityCenterAuthToken(
     args: GetIdentityCenterAuthTokenCommandInput,
@@ -2777,7 +2785,7 @@ export interface Redshift {
   ): void;
   getIdentityCenterAuthToken(
     args: GetIdentityCenterAuthTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: GetIdentityCenterAuthTokenCommandOutput) => void
   ): void;
 
@@ -2786,7 +2794,7 @@ export interface Redshift {
    */
   getReservedNodeExchangeConfigurationOptions(
     args: GetReservedNodeExchangeConfigurationOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput>;
   getReservedNodeExchangeConfigurationOptions(
     args: GetReservedNodeExchangeConfigurationOptionsCommandInput,
@@ -2794,7 +2802,7 @@ export interface Redshift {
   ): void;
   getReservedNodeExchangeConfigurationOptions(
     args: GetReservedNodeExchangeConfigurationOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: GetReservedNodeExchangeConfigurationOptionsCommandOutput) => void
   ): void;
 
@@ -2803,7 +2811,7 @@ export interface Redshift {
    */
   getReservedNodeExchangeOfferings(
     args: GetReservedNodeExchangeOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<GetReservedNodeExchangeOfferingsCommandOutput>;
   getReservedNodeExchangeOfferings(
     args: GetReservedNodeExchangeOfferingsCommandInput,
@@ -2811,7 +2819,7 @@ export interface Redshift {
   ): void;
   getReservedNodeExchangeOfferings(
     args: GetReservedNodeExchangeOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: GetReservedNodeExchangeOfferingsCommandOutput) => void
   ): void;
 
@@ -2820,7 +2828,7 @@ export interface Redshift {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -2828,7 +2836,7 @@ export interface Redshift {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -2838,7 +2846,7 @@ export interface Redshift {
   listRecommendations(): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
@@ -2846,7 +2854,7 @@ export interface Redshift {
   ): void;
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ListRecommendationsCommandOutput) => void
   ): void;
 
@@ -2855,7 +2863,7 @@ export interface Redshift {
    */
   modifyAquaConfiguration(
     args: ModifyAquaConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyAquaConfigurationCommandOutput>;
   modifyAquaConfiguration(
     args: ModifyAquaConfigurationCommandInput,
@@ -2863,7 +2871,7 @@ export interface Redshift {
   ): void;
   modifyAquaConfiguration(
     args: ModifyAquaConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyAquaConfigurationCommandOutput) => void
   ): void;
 
@@ -2872,7 +2880,7 @@ export interface Redshift {
    */
   modifyAuthenticationProfile(
     args: ModifyAuthenticationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyAuthenticationProfileCommandOutput>;
   modifyAuthenticationProfile(
     args: ModifyAuthenticationProfileCommandInput,
@@ -2880,7 +2888,7 @@ export interface Redshift {
   ): void;
   modifyAuthenticationProfile(
     args: ModifyAuthenticationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyAuthenticationProfileCommandOutput) => void
   ): void;
 
@@ -2889,7 +2897,7 @@ export interface Redshift {
    */
   modifyCluster(
     args: ModifyClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyClusterCommandOutput>;
   modifyCluster(
     args: ModifyClusterCommandInput,
@@ -2897,7 +2905,7 @@ export interface Redshift {
   ): void;
   modifyCluster(
     args: ModifyClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyClusterCommandOutput) => void
   ): void;
 
@@ -2906,7 +2914,7 @@ export interface Redshift {
    */
   modifyClusterDbRevision(
     args: ModifyClusterDbRevisionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyClusterDbRevisionCommandOutput>;
   modifyClusterDbRevision(
     args: ModifyClusterDbRevisionCommandInput,
@@ -2914,7 +2922,7 @@ export interface Redshift {
   ): void;
   modifyClusterDbRevision(
     args: ModifyClusterDbRevisionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyClusterDbRevisionCommandOutput) => void
   ): void;
 
@@ -2923,7 +2931,7 @@ export interface Redshift {
    */
   modifyClusterIamRoles(
     args: ModifyClusterIamRolesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyClusterIamRolesCommandOutput>;
   modifyClusterIamRoles(
     args: ModifyClusterIamRolesCommandInput,
@@ -2931,7 +2939,7 @@ export interface Redshift {
   ): void;
   modifyClusterIamRoles(
     args: ModifyClusterIamRolesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyClusterIamRolesCommandOutput) => void
   ): void;
 
@@ -2940,7 +2948,7 @@ export interface Redshift {
    */
   modifyClusterMaintenance(
     args: ModifyClusterMaintenanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyClusterMaintenanceCommandOutput>;
   modifyClusterMaintenance(
     args: ModifyClusterMaintenanceCommandInput,
@@ -2948,7 +2956,7 @@ export interface Redshift {
   ): void;
   modifyClusterMaintenance(
     args: ModifyClusterMaintenanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyClusterMaintenanceCommandOutput) => void
   ): void;
 
@@ -2957,7 +2965,7 @@ export interface Redshift {
    */
   modifyClusterParameterGroup(
     args: ModifyClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyClusterParameterGroupCommandOutput>;
   modifyClusterParameterGroup(
     args: ModifyClusterParameterGroupCommandInput,
@@ -2965,7 +2973,7 @@ export interface Redshift {
   ): void;
   modifyClusterParameterGroup(
     args: ModifyClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -2974,7 +2982,7 @@ export interface Redshift {
    */
   modifyClusterSnapshot(
     args: ModifyClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyClusterSnapshotCommandOutput>;
   modifyClusterSnapshot(
     args: ModifyClusterSnapshotCommandInput,
@@ -2982,7 +2990,7 @@ export interface Redshift {
   ): void;
   modifyClusterSnapshot(
     args: ModifyClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -2991,7 +2999,7 @@ export interface Redshift {
    */
   modifyClusterSnapshotSchedule(
     args: ModifyClusterSnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyClusterSnapshotScheduleCommandOutput>;
   modifyClusterSnapshotSchedule(
     args: ModifyClusterSnapshotScheduleCommandInput,
@@ -2999,7 +3007,7 @@ export interface Redshift {
   ): void;
   modifyClusterSnapshotSchedule(
     args: ModifyClusterSnapshotScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyClusterSnapshotScheduleCommandOutput) => void
   ): void;
 
@@ -3008,7 +3016,7 @@ export interface Redshift {
    */
   modifyClusterSubnetGroup(
     args: ModifyClusterSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyClusterSubnetGroupCommandOutput>;
   modifyClusterSubnetGroup(
     args: ModifyClusterSubnetGroupCommandInput,
@@ -3016,7 +3024,7 @@ export interface Redshift {
   ): void;
   modifyClusterSubnetGroup(
     args: ModifyClusterSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyClusterSubnetGroupCommandOutput) => void
   ): void;
 
@@ -3025,7 +3033,7 @@ export interface Redshift {
    */
   modifyCustomDomainAssociation(
     args: ModifyCustomDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyCustomDomainAssociationCommandOutput>;
   modifyCustomDomainAssociation(
     args: ModifyCustomDomainAssociationCommandInput,
@@ -3033,7 +3041,7 @@ export interface Redshift {
   ): void;
   modifyCustomDomainAssociation(
     args: ModifyCustomDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyCustomDomainAssociationCommandOutput) => void
   ): void;
 
@@ -3042,7 +3050,7 @@ export interface Redshift {
    */
   modifyEndpointAccess(
     args: ModifyEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyEndpointAccessCommandOutput>;
   modifyEndpointAccess(
     args: ModifyEndpointAccessCommandInput,
@@ -3050,7 +3058,7 @@ export interface Redshift {
   ): void;
   modifyEndpointAccess(
     args: ModifyEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyEndpointAccessCommandOutput) => void
   ): void;
 
@@ -3059,7 +3067,7 @@ export interface Redshift {
    */
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyEventSubscriptionCommandOutput>;
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
@@ -3067,7 +3075,7 @@ export interface Redshift {
   ): void;
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -3076,7 +3084,7 @@ export interface Redshift {
    */
   modifyIntegration(
     args: ModifyIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyIntegrationCommandOutput>;
   modifyIntegration(
     args: ModifyIntegrationCommandInput,
@@ -3084,7 +3092,7 @@ export interface Redshift {
   ): void;
   modifyIntegration(
     args: ModifyIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
   ): void;
 
@@ -3093,7 +3101,7 @@ export interface Redshift {
    */
   modifyLakehouseConfiguration(
     args: ModifyLakehouseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyLakehouseConfigurationCommandOutput>;
   modifyLakehouseConfiguration(
     args: ModifyLakehouseConfigurationCommandInput,
@@ -3101,7 +3109,7 @@ export interface Redshift {
   ): void;
   modifyLakehouseConfiguration(
     args: ModifyLakehouseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyLakehouseConfigurationCommandOutput) => void
   ): void;
 
@@ -3110,7 +3118,7 @@ export interface Redshift {
    */
   modifyQev2IdcApplication(
     args: ModifyQev2IdcApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyQev2IdcApplicationCommandOutput>;
   modifyQev2IdcApplication(
     args: ModifyQev2IdcApplicationCommandInput,
@@ -3118,7 +3126,7 @@ export interface Redshift {
   ): void;
   modifyQev2IdcApplication(
     args: ModifyQev2IdcApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyQev2IdcApplicationCommandOutput) => void
   ): void;
 
@@ -3127,7 +3135,7 @@ export interface Redshift {
    */
   modifyRedshiftIdcApplication(
     args: ModifyRedshiftIdcApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyRedshiftIdcApplicationCommandOutput>;
   modifyRedshiftIdcApplication(
     args: ModifyRedshiftIdcApplicationCommandInput,
@@ -3135,7 +3143,7 @@ export interface Redshift {
   ): void;
   modifyRedshiftIdcApplication(
     args: ModifyRedshiftIdcApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyRedshiftIdcApplicationCommandOutput) => void
   ): void;
 
@@ -3144,7 +3152,7 @@ export interface Redshift {
    */
   modifyScheduledAction(
     args: ModifyScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyScheduledActionCommandOutput>;
   modifyScheduledAction(
     args: ModifyScheduledActionCommandInput,
@@ -3152,7 +3160,7 @@ export interface Redshift {
   ): void;
   modifyScheduledAction(
     args: ModifyScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyScheduledActionCommandOutput) => void
   ): void;
 
@@ -3161,7 +3169,7 @@ export interface Redshift {
    */
   modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput>;
   modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
@@ -3169,7 +3177,7 @@ export interface Redshift {
   ): void;
   modifySnapshotCopyRetentionPeriod(
     args: ModifySnapshotCopyRetentionPeriodCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifySnapshotCopyRetentionPeriodCommandOutput) => void
   ): void;
 
@@ -3178,7 +3186,7 @@ export interface Redshift {
    */
   modifySnapshotSchedule(
     args: ModifySnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifySnapshotScheduleCommandOutput>;
   modifySnapshotSchedule(
     args: ModifySnapshotScheduleCommandInput,
@@ -3186,7 +3194,7 @@ export interface Redshift {
   ): void;
   modifySnapshotSchedule(
     args: ModifySnapshotScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifySnapshotScheduleCommandOutput) => void
   ): void;
 
@@ -3195,7 +3203,7 @@ export interface Redshift {
    */
   modifyUsageLimit(
     args: ModifyUsageLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ModifyUsageLimitCommandOutput>;
   modifyUsageLimit(
     args: ModifyUsageLimitCommandInput,
@@ -3203,7 +3211,7 @@ export interface Redshift {
   ): void;
   modifyUsageLimit(
     args: ModifyUsageLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ModifyUsageLimitCommandOutput) => void
   ): void;
 
@@ -3212,7 +3220,7 @@ export interface Redshift {
    */
   pauseCluster(
     args: PauseClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<PauseClusterCommandOutput>;
   pauseCluster(
     args: PauseClusterCommandInput,
@@ -3220,7 +3228,7 @@ export interface Redshift {
   ): void;
   pauseCluster(
     args: PauseClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: PauseClusterCommandOutput) => void
   ): void;
 
@@ -3229,7 +3237,7 @@ export interface Redshift {
    */
   purchaseReservedNodeOffering(
     args: PurchaseReservedNodeOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<PurchaseReservedNodeOfferingCommandOutput>;
   purchaseReservedNodeOffering(
     args: PurchaseReservedNodeOfferingCommandInput,
@@ -3237,7 +3245,7 @@ export interface Redshift {
   ): void;
   purchaseReservedNodeOffering(
     args: PurchaseReservedNodeOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: PurchaseReservedNodeOfferingCommandOutput) => void
   ): void;
 
@@ -3246,7 +3254,7 @@ export interface Redshift {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -3254,7 +3262,7 @@ export interface Redshift {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -3263,7 +3271,7 @@ export interface Redshift {
    */
   rebootCluster(
     args: RebootClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<RebootClusterCommandOutput>;
   rebootCluster(
     args: RebootClusterCommandInput,
@@ -3271,7 +3279,7 @@ export interface Redshift {
   ): void;
   rebootCluster(
     args: RebootClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: RebootClusterCommandOutput) => void
   ): void;
 
@@ -3280,7 +3288,7 @@ export interface Redshift {
    */
   registerNamespace(
     args: RegisterNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<RegisterNamespaceCommandOutput>;
   registerNamespace(
     args: RegisterNamespaceCommandInput,
@@ -3288,7 +3296,7 @@ export interface Redshift {
   ): void;
   registerNamespace(
     args: RegisterNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: RegisterNamespaceCommandOutput) => void
   ): void;
 
@@ -3297,7 +3305,7 @@ export interface Redshift {
    */
   rejectDataShare(
     args: RejectDataShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<RejectDataShareCommandOutput>;
   rejectDataShare(
     args: RejectDataShareCommandInput,
@@ -3305,7 +3313,7 @@ export interface Redshift {
   ): void;
   rejectDataShare(
     args: RejectDataShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: RejectDataShareCommandOutput) => void
   ): void;
 
@@ -3314,7 +3322,7 @@ export interface Redshift {
    */
   resetClusterParameterGroup(
     args: ResetClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ResetClusterParameterGroupCommandOutput>;
   resetClusterParameterGroup(
     args: ResetClusterParameterGroupCommandInput,
@@ -3322,7 +3330,7 @@ export interface Redshift {
   ): void;
   resetClusterParameterGroup(
     args: ResetClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ResetClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -3331,7 +3339,7 @@ export interface Redshift {
    */
   resizeCluster(
     args: ResizeClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ResizeClusterCommandOutput>;
   resizeCluster(
     args: ResizeClusterCommandInput,
@@ -3339,7 +3347,7 @@ export interface Redshift {
   ): void;
   resizeCluster(
     args: ResizeClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ResizeClusterCommandOutput) => void
   ): void;
 
@@ -3348,7 +3356,7 @@ export interface Redshift {
    */
   restoreFromClusterSnapshot(
     args: RestoreFromClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<RestoreFromClusterSnapshotCommandOutput>;
   restoreFromClusterSnapshot(
     args: RestoreFromClusterSnapshotCommandInput,
@@ -3356,7 +3364,7 @@ export interface Redshift {
   ): void;
   restoreFromClusterSnapshot(
     args: RestoreFromClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: RestoreFromClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -3365,7 +3373,7 @@ export interface Redshift {
    */
   restoreTableFromClusterSnapshot(
     args: RestoreTableFromClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<RestoreTableFromClusterSnapshotCommandOutput>;
   restoreTableFromClusterSnapshot(
     args: RestoreTableFromClusterSnapshotCommandInput,
@@ -3373,7 +3381,7 @@ export interface Redshift {
   ): void;
   restoreTableFromClusterSnapshot(
     args: RestoreTableFromClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: RestoreTableFromClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -3382,7 +3390,7 @@ export interface Redshift {
    */
   resumeCluster(
     args: ResumeClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<ResumeClusterCommandOutput>;
   resumeCluster(
     args: ResumeClusterCommandInput,
@@ -3390,7 +3398,7 @@ export interface Redshift {
   ): void;
   resumeCluster(
     args: ResumeClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: ResumeClusterCommandOutput) => void
   ): void;
 
@@ -3399,7 +3407,7 @@ export interface Redshift {
    */
   revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<RevokeClusterSecurityGroupIngressCommandOutput>;
   revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
@@ -3407,7 +3415,7 @@ export interface Redshift {
   ): void;
   revokeClusterSecurityGroupIngress(
     args: RevokeClusterSecurityGroupIngressCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: RevokeClusterSecurityGroupIngressCommandOutput) => void
   ): void;
 
@@ -3417,7 +3425,7 @@ export interface Redshift {
   revokeEndpointAccess(): Promise<RevokeEndpointAccessCommandOutput>;
   revokeEndpointAccess(
     args: RevokeEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<RevokeEndpointAccessCommandOutput>;
   revokeEndpointAccess(
     args: RevokeEndpointAccessCommandInput,
@@ -3425,7 +3433,7 @@ export interface Redshift {
   ): void;
   revokeEndpointAccess(
     args: RevokeEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: RevokeEndpointAccessCommandOutput) => void
   ): void;
 
@@ -3434,7 +3442,7 @@ export interface Redshift {
    */
   revokeSnapshotAccess(
     args: RevokeSnapshotAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<RevokeSnapshotAccessCommandOutput>;
   revokeSnapshotAccess(
     args: RevokeSnapshotAccessCommandInput,
@@ -3442,7 +3450,7 @@ export interface Redshift {
   ): void;
   revokeSnapshotAccess(
     args: RevokeSnapshotAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: RevokeSnapshotAccessCommandOutput) => void
   ): void;
 
@@ -3451,7 +3459,7 @@ export interface Redshift {
    */
   rotateEncryptionKey(
     args: RotateEncryptionKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<RotateEncryptionKeyCommandOutput>;
   rotateEncryptionKey(
     args: RotateEncryptionKeyCommandInput,
@@ -3459,7 +3467,7 @@ export interface Redshift {
   ): void;
   rotateEncryptionKey(
     args: RotateEncryptionKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: RotateEncryptionKeyCommandOutput) => void
   ): void;
 
@@ -3468,7 +3476,7 @@ export interface Redshift {
    */
   updatePartnerStatus(
     args: UpdatePartnerStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftRequestOptions
   ): Promise<UpdatePartnerStatusCommandOutput>;
   updatePartnerStatus(
     args: UpdatePartnerStatusCommandInput,
@@ -3476,7 +3484,7 @@ export interface Redshift {
   ): void;
   updatePartnerStatus(
     args: UpdatePartnerStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftRequestOptions,
     cb: (err: any, data?: UpdatePartnerStatusCommandOutput) => void
   ): void;
 

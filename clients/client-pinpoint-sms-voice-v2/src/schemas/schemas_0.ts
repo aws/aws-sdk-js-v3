@@ -817,10 +817,10 @@ import {
 import { PinpointSMSVoiceV2ServiceException } from "../models/PinpointSMSVoiceV2ServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var PinpointSMSVoiceV2ServiceException$: StaticErrorSchema = [-3, _s, "PinpointSMSVoiceV2ServiceException", 0, [], []];
 _s_registry.registerError(PinpointSMSVoiceV2ServiceException$, PinpointSMSVoiceV2ServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_M, _R],

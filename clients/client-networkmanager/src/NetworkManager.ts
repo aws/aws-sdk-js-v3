@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptAttachmentCommandInput,
@@ -625,13 +630,20 @@ const paginators = {
   paginateListPeerings,
 };
 
+/**
+ * @public
+ */
+export interface NetworkManagerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface NetworkManager {
   /**
    * @see {@link AcceptAttachmentCommand}
    */
   acceptAttachment(
     args: AcceptAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<AcceptAttachmentCommandOutput>;
   acceptAttachment(
     args: AcceptAttachmentCommandInput,
@@ -639,7 +651,7 @@ export interface NetworkManager {
   ): void;
   acceptAttachment(
     args: AcceptAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: AcceptAttachmentCommandOutput) => void
   ): void;
 
@@ -648,7 +660,7 @@ export interface NetworkManager {
    */
   associateConnectPeer(
     args: AssociateConnectPeerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<AssociateConnectPeerCommandOutput>;
   associateConnectPeer(
     args: AssociateConnectPeerCommandInput,
@@ -656,7 +668,7 @@ export interface NetworkManager {
   ): void;
   associateConnectPeer(
     args: AssociateConnectPeerCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: AssociateConnectPeerCommandOutput) => void
   ): void;
 
@@ -665,7 +677,7 @@ export interface NetworkManager {
    */
   associateCustomerGateway(
     args: AssociateCustomerGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<AssociateCustomerGatewayCommandOutput>;
   associateCustomerGateway(
     args: AssociateCustomerGatewayCommandInput,
@@ -673,7 +685,7 @@ export interface NetworkManager {
   ): void;
   associateCustomerGateway(
     args: AssociateCustomerGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: AssociateCustomerGatewayCommandOutput) => void
   ): void;
 
@@ -682,7 +694,7 @@ export interface NetworkManager {
    */
   associateLink(
     args: AssociateLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<AssociateLinkCommandOutput>;
   associateLink(
     args: AssociateLinkCommandInput,
@@ -690,7 +702,7 @@ export interface NetworkManager {
   ): void;
   associateLink(
     args: AssociateLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: AssociateLinkCommandOutput) => void
   ): void;
 
@@ -699,7 +711,7 @@ export interface NetworkManager {
    */
   associateTransitGatewayConnectPeer(
     args: AssociateTransitGatewayConnectPeerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<AssociateTransitGatewayConnectPeerCommandOutput>;
   associateTransitGatewayConnectPeer(
     args: AssociateTransitGatewayConnectPeerCommandInput,
@@ -707,7 +719,7 @@ export interface NetworkManager {
   ): void;
   associateTransitGatewayConnectPeer(
     args: AssociateTransitGatewayConnectPeerCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: AssociateTransitGatewayConnectPeerCommandOutput) => void
   ): void;
 
@@ -716,7 +728,7 @@ export interface NetworkManager {
    */
   createConnectAttachment(
     args: CreateConnectAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateConnectAttachmentCommandOutput>;
   createConnectAttachment(
     args: CreateConnectAttachmentCommandInput,
@@ -724,7 +736,7 @@ export interface NetworkManager {
   ): void;
   createConnectAttachment(
     args: CreateConnectAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateConnectAttachmentCommandOutput) => void
   ): void;
 
@@ -733,7 +745,7 @@ export interface NetworkManager {
    */
   createConnection(
     args: CreateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateConnectionCommandOutput>;
   createConnection(
     args: CreateConnectionCommandInput,
@@ -741,7 +753,7 @@ export interface NetworkManager {
   ): void;
   createConnection(
     args: CreateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateConnectionCommandOutput) => void
   ): void;
 
@@ -750,7 +762,7 @@ export interface NetworkManager {
    */
   createConnectPeer(
     args: CreateConnectPeerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateConnectPeerCommandOutput>;
   createConnectPeer(
     args: CreateConnectPeerCommandInput,
@@ -758,7 +770,7 @@ export interface NetworkManager {
   ): void;
   createConnectPeer(
     args: CreateConnectPeerCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateConnectPeerCommandOutput) => void
   ): void;
 
@@ -767,7 +779,7 @@ export interface NetworkManager {
    */
   createCoreNetwork(
     args: CreateCoreNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateCoreNetworkCommandOutput>;
   createCoreNetwork(
     args: CreateCoreNetworkCommandInput,
@@ -775,7 +787,7 @@ export interface NetworkManager {
   ): void;
   createCoreNetwork(
     args: CreateCoreNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateCoreNetworkCommandOutput) => void
   ): void;
 
@@ -784,7 +796,7 @@ export interface NetworkManager {
    */
   createCoreNetworkPrefixListAssociation(
     args: CreateCoreNetworkPrefixListAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateCoreNetworkPrefixListAssociationCommandOutput>;
   createCoreNetworkPrefixListAssociation(
     args: CreateCoreNetworkPrefixListAssociationCommandInput,
@@ -792,7 +804,7 @@ export interface NetworkManager {
   ): void;
   createCoreNetworkPrefixListAssociation(
     args: CreateCoreNetworkPrefixListAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateCoreNetworkPrefixListAssociationCommandOutput) => void
   ): void;
 
@@ -801,7 +813,7 @@ export interface NetworkManager {
    */
   createDevice(
     args: CreateDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateDeviceCommandOutput>;
   createDevice(
     args: CreateDeviceCommandInput,
@@ -809,7 +821,7 @@ export interface NetworkManager {
   ): void;
   createDevice(
     args: CreateDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateDeviceCommandOutput) => void
   ): void;
 
@@ -818,7 +830,7 @@ export interface NetworkManager {
    */
   createDirectConnectGatewayAttachment(
     args: CreateDirectConnectGatewayAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateDirectConnectGatewayAttachmentCommandOutput>;
   createDirectConnectGatewayAttachment(
     args: CreateDirectConnectGatewayAttachmentCommandInput,
@@ -826,7 +838,7 @@ export interface NetworkManager {
   ): void;
   createDirectConnectGatewayAttachment(
     args: CreateDirectConnectGatewayAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateDirectConnectGatewayAttachmentCommandOutput) => void
   ): void;
 
@@ -836,7 +848,7 @@ export interface NetworkManager {
   createGlobalNetwork(): Promise<CreateGlobalNetworkCommandOutput>;
   createGlobalNetwork(
     args: CreateGlobalNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateGlobalNetworkCommandOutput>;
   createGlobalNetwork(
     args: CreateGlobalNetworkCommandInput,
@@ -844,7 +856,7 @@ export interface NetworkManager {
   ): void;
   createGlobalNetwork(
     args: CreateGlobalNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateGlobalNetworkCommandOutput) => void
   ): void;
 
@@ -853,7 +865,7 @@ export interface NetworkManager {
    */
   createLink(
     args: CreateLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateLinkCommandOutput>;
   createLink(
     args: CreateLinkCommandInput,
@@ -861,7 +873,7 @@ export interface NetworkManager {
   ): void;
   createLink(
     args: CreateLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateLinkCommandOutput) => void
   ): void;
 
@@ -870,7 +882,7 @@ export interface NetworkManager {
    */
   createSite(
     args: CreateSiteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateSiteCommandOutput>;
   createSite(
     args: CreateSiteCommandInput,
@@ -878,7 +890,7 @@ export interface NetworkManager {
   ): void;
   createSite(
     args: CreateSiteCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateSiteCommandOutput) => void
   ): void;
 
@@ -887,7 +899,7 @@ export interface NetworkManager {
    */
   createSiteToSiteVpnAttachment(
     args: CreateSiteToSiteVpnAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateSiteToSiteVpnAttachmentCommandOutput>;
   createSiteToSiteVpnAttachment(
     args: CreateSiteToSiteVpnAttachmentCommandInput,
@@ -895,7 +907,7 @@ export interface NetworkManager {
   ): void;
   createSiteToSiteVpnAttachment(
     args: CreateSiteToSiteVpnAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateSiteToSiteVpnAttachmentCommandOutput) => void
   ): void;
 
@@ -904,7 +916,7 @@ export interface NetworkManager {
    */
   createTransitGatewayPeering(
     args: CreateTransitGatewayPeeringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateTransitGatewayPeeringCommandOutput>;
   createTransitGatewayPeering(
     args: CreateTransitGatewayPeeringCommandInput,
@@ -912,7 +924,7 @@ export interface NetworkManager {
   ): void;
   createTransitGatewayPeering(
     args: CreateTransitGatewayPeeringCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateTransitGatewayPeeringCommandOutput) => void
   ): void;
 
@@ -921,7 +933,7 @@ export interface NetworkManager {
    */
   createTransitGatewayRouteTableAttachment(
     args: CreateTransitGatewayRouteTableAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateTransitGatewayRouteTableAttachmentCommandOutput>;
   createTransitGatewayRouteTableAttachment(
     args: CreateTransitGatewayRouteTableAttachmentCommandInput,
@@ -929,7 +941,7 @@ export interface NetworkManager {
   ): void;
   createTransitGatewayRouteTableAttachment(
     args: CreateTransitGatewayRouteTableAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateTransitGatewayRouteTableAttachmentCommandOutput) => void
   ): void;
 
@@ -938,7 +950,7 @@ export interface NetworkManager {
    */
   createVpcAttachment(
     args: CreateVpcAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<CreateVpcAttachmentCommandOutput>;
   createVpcAttachment(
     args: CreateVpcAttachmentCommandInput,
@@ -946,7 +958,7 @@ export interface NetworkManager {
   ): void;
   createVpcAttachment(
     args: CreateVpcAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: CreateVpcAttachmentCommandOutput) => void
   ): void;
 
@@ -955,7 +967,7 @@ export interface NetworkManager {
    */
   deleteAttachment(
     args: DeleteAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteAttachmentCommandOutput>;
   deleteAttachment(
     args: DeleteAttachmentCommandInput,
@@ -963,7 +975,7 @@ export interface NetworkManager {
   ): void;
   deleteAttachment(
     args: DeleteAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
   ): void;
 
@@ -972,7 +984,7 @@ export interface NetworkManager {
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -980,7 +992,7 @@ export interface NetworkManager {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -989,7 +1001,7 @@ export interface NetworkManager {
    */
   deleteConnectPeer(
     args: DeleteConnectPeerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteConnectPeerCommandOutput>;
   deleteConnectPeer(
     args: DeleteConnectPeerCommandInput,
@@ -997,7 +1009,7 @@ export interface NetworkManager {
   ): void;
   deleteConnectPeer(
     args: DeleteConnectPeerCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteConnectPeerCommandOutput) => void
   ): void;
 
@@ -1006,7 +1018,7 @@ export interface NetworkManager {
    */
   deleteCoreNetwork(
     args: DeleteCoreNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteCoreNetworkCommandOutput>;
   deleteCoreNetwork(
     args: DeleteCoreNetworkCommandInput,
@@ -1014,7 +1026,7 @@ export interface NetworkManager {
   ): void;
   deleteCoreNetwork(
     args: DeleteCoreNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteCoreNetworkCommandOutput) => void
   ): void;
 
@@ -1023,7 +1035,7 @@ export interface NetworkManager {
    */
   deleteCoreNetworkPolicyVersion(
     args: DeleteCoreNetworkPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteCoreNetworkPolicyVersionCommandOutput>;
   deleteCoreNetworkPolicyVersion(
     args: DeleteCoreNetworkPolicyVersionCommandInput,
@@ -1031,7 +1043,7 @@ export interface NetworkManager {
   ): void;
   deleteCoreNetworkPolicyVersion(
     args: DeleteCoreNetworkPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteCoreNetworkPolicyVersionCommandOutput) => void
   ): void;
 
@@ -1040,7 +1052,7 @@ export interface NetworkManager {
    */
   deleteCoreNetworkPrefixListAssociation(
     args: DeleteCoreNetworkPrefixListAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteCoreNetworkPrefixListAssociationCommandOutput>;
   deleteCoreNetworkPrefixListAssociation(
     args: DeleteCoreNetworkPrefixListAssociationCommandInput,
@@ -1048,7 +1060,7 @@ export interface NetworkManager {
   ): void;
   deleteCoreNetworkPrefixListAssociation(
     args: DeleteCoreNetworkPrefixListAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteCoreNetworkPrefixListAssociationCommandOutput) => void
   ): void;
 
@@ -1057,7 +1069,7 @@ export interface NetworkManager {
    */
   deleteDevice(
     args: DeleteDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteDeviceCommandOutput>;
   deleteDevice(
     args: DeleteDeviceCommandInput,
@@ -1065,7 +1077,7 @@ export interface NetworkManager {
   ): void;
   deleteDevice(
     args: DeleteDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteDeviceCommandOutput) => void
   ): void;
 
@@ -1074,7 +1086,7 @@ export interface NetworkManager {
    */
   deleteGlobalNetwork(
     args: DeleteGlobalNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteGlobalNetworkCommandOutput>;
   deleteGlobalNetwork(
     args: DeleteGlobalNetworkCommandInput,
@@ -1082,7 +1094,7 @@ export interface NetworkManager {
   ): void;
   deleteGlobalNetwork(
     args: DeleteGlobalNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteGlobalNetworkCommandOutput) => void
   ): void;
 
@@ -1091,7 +1103,7 @@ export interface NetworkManager {
    */
   deleteLink(
     args: DeleteLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteLinkCommandOutput>;
   deleteLink(
     args: DeleteLinkCommandInput,
@@ -1099,7 +1111,7 @@ export interface NetworkManager {
   ): void;
   deleteLink(
     args: DeleteLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteLinkCommandOutput) => void
   ): void;
 
@@ -1108,7 +1120,7 @@ export interface NetworkManager {
    */
   deletePeering(
     args: DeletePeeringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeletePeeringCommandOutput>;
   deletePeering(
     args: DeletePeeringCommandInput,
@@ -1116,7 +1128,7 @@ export interface NetworkManager {
   ): void;
   deletePeering(
     args: DeletePeeringCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeletePeeringCommandOutput) => void
   ): void;
 
@@ -1125,7 +1137,7 @@ export interface NetworkManager {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -1133,7 +1145,7 @@ export interface NetworkManager {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1142,7 +1154,7 @@ export interface NetworkManager {
    */
   deleteSite(
     args: DeleteSiteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeleteSiteCommandOutput>;
   deleteSite(
     args: DeleteSiteCommandInput,
@@ -1150,7 +1162,7 @@ export interface NetworkManager {
   ): void;
   deleteSite(
     args: DeleteSiteCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeleteSiteCommandOutput) => void
   ): void;
 
@@ -1159,7 +1171,7 @@ export interface NetworkManager {
    */
   deregisterTransitGateway(
     args: DeregisterTransitGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DeregisterTransitGatewayCommandOutput>;
   deregisterTransitGateway(
     args: DeregisterTransitGatewayCommandInput,
@@ -1167,7 +1179,7 @@ export interface NetworkManager {
   ): void;
   deregisterTransitGateway(
     args: DeregisterTransitGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DeregisterTransitGatewayCommandOutput) => void
   ): void;
 
@@ -1177,7 +1189,7 @@ export interface NetworkManager {
   describeGlobalNetworks(): Promise<DescribeGlobalNetworksCommandOutput>;
   describeGlobalNetworks(
     args: DescribeGlobalNetworksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DescribeGlobalNetworksCommandOutput>;
   describeGlobalNetworks(
     args: DescribeGlobalNetworksCommandInput,
@@ -1185,7 +1197,7 @@ export interface NetworkManager {
   ): void;
   describeGlobalNetworks(
     args: DescribeGlobalNetworksCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DescribeGlobalNetworksCommandOutput) => void
   ): void;
 
@@ -1194,7 +1206,7 @@ export interface NetworkManager {
    */
   disassociateConnectPeer(
     args: DisassociateConnectPeerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DisassociateConnectPeerCommandOutput>;
   disassociateConnectPeer(
     args: DisassociateConnectPeerCommandInput,
@@ -1202,7 +1214,7 @@ export interface NetworkManager {
   ): void;
   disassociateConnectPeer(
     args: DisassociateConnectPeerCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DisassociateConnectPeerCommandOutput) => void
   ): void;
 
@@ -1211,7 +1223,7 @@ export interface NetworkManager {
    */
   disassociateCustomerGateway(
     args: DisassociateCustomerGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DisassociateCustomerGatewayCommandOutput>;
   disassociateCustomerGateway(
     args: DisassociateCustomerGatewayCommandInput,
@@ -1219,7 +1231,7 @@ export interface NetworkManager {
   ): void;
   disassociateCustomerGateway(
     args: DisassociateCustomerGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DisassociateCustomerGatewayCommandOutput) => void
   ): void;
 
@@ -1228,7 +1240,7 @@ export interface NetworkManager {
    */
   disassociateLink(
     args: DisassociateLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DisassociateLinkCommandOutput>;
   disassociateLink(
     args: DisassociateLinkCommandInput,
@@ -1236,7 +1248,7 @@ export interface NetworkManager {
   ): void;
   disassociateLink(
     args: DisassociateLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DisassociateLinkCommandOutput) => void
   ): void;
 
@@ -1245,7 +1257,7 @@ export interface NetworkManager {
    */
   disassociateTransitGatewayConnectPeer(
     args: DisassociateTransitGatewayConnectPeerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<DisassociateTransitGatewayConnectPeerCommandOutput>;
   disassociateTransitGatewayConnectPeer(
     args: DisassociateTransitGatewayConnectPeerCommandInput,
@@ -1253,7 +1265,7 @@ export interface NetworkManager {
   ): void;
   disassociateTransitGatewayConnectPeer(
     args: DisassociateTransitGatewayConnectPeerCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: DisassociateTransitGatewayConnectPeerCommandOutput) => void
   ): void;
 
@@ -1262,7 +1274,7 @@ export interface NetworkManager {
    */
   executeCoreNetworkChangeSet(
     args: ExecuteCoreNetworkChangeSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ExecuteCoreNetworkChangeSetCommandOutput>;
   executeCoreNetworkChangeSet(
     args: ExecuteCoreNetworkChangeSetCommandInput,
@@ -1270,7 +1282,7 @@ export interface NetworkManager {
   ): void;
   executeCoreNetworkChangeSet(
     args: ExecuteCoreNetworkChangeSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ExecuteCoreNetworkChangeSetCommandOutput) => void
   ): void;
 
@@ -1279,7 +1291,7 @@ export interface NetworkManager {
    */
   getConnectAttachment(
     args: GetConnectAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetConnectAttachmentCommandOutput>;
   getConnectAttachment(
     args: GetConnectAttachmentCommandInput,
@@ -1287,7 +1299,7 @@ export interface NetworkManager {
   ): void;
   getConnectAttachment(
     args: GetConnectAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetConnectAttachmentCommandOutput) => void
   ): void;
 
@@ -1296,7 +1308,7 @@ export interface NetworkManager {
    */
   getConnections(
     args: GetConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetConnectionsCommandOutput>;
   getConnections(
     args: GetConnectionsCommandInput,
@@ -1304,7 +1316,7 @@ export interface NetworkManager {
   ): void;
   getConnections(
     args: GetConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetConnectionsCommandOutput) => void
   ): void;
 
@@ -1313,7 +1325,7 @@ export interface NetworkManager {
    */
   getConnectPeer(
     args: GetConnectPeerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetConnectPeerCommandOutput>;
   getConnectPeer(
     args: GetConnectPeerCommandInput,
@@ -1321,7 +1333,7 @@ export interface NetworkManager {
   ): void;
   getConnectPeer(
     args: GetConnectPeerCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetConnectPeerCommandOutput) => void
   ): void;
 
@@ -1330,7 +1342,7 @@ export interface NetworkManager {
    */
   getConnectPeerAssociations(
     args: GetConnectPeerAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetConnectPeerAssociationsCommandOutput>;
   getConnectPeerAssociations(
     args: GetConnectPeerAssociationsCommandInput,
@@ -1338,7 +1350,7 @@ export interface NetworkManager {
   ): void;
   getConnectPeerAssociations(
     args: GetConnectPeerAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetConnectPeerAssociationsCommandOutput) => void
   ): void;
 
@@ -1347,7 +1359,7 @@ export interface NetworkManager {
    */
   getCoreNetwork(
     args: GetCoreNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetCoreNetworkCommandOutput>;
   getCoreNetwork(
     args: GetCoreNetworkCommandInput,
@@ -1355,7 +1367,7 @@ export interface NetworkManager {
   ): void;
   getCoreNetwork(
     args: GetCoreNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetCoreNetworkCommandOutput) => void
   ): void;
 
@@ -1364,7 +1376,7 @@ export interface NetworkManager {
    */
   getCoreNetworkChangeEvents(
     args: GetCoreNetworkChangeEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetCoreNetworkChangeEventsCommandOutput>;
   getCoreNetworkChangeEvents(
     args: GetCoreNetworkChangeEventsCommandInput,
@@ -1372,7 +1384,7 @@ export interface NetworkManager {
   ): void;
   getCoreNetworkChangeEvents(
     args: GetCoreNetworkChangeEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetCoreNetworkChangeEventsCommandOutput) => void
   ): void;
 
@@ -1381,7 +1393,7 @@ export interface NetworkManager {
    */
   getCoreNetworkChangeSet(
     args: GetCoreNetworkChangeSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetCoreNetworkChangeSetCommandOutput>;
   getCoreNetworkChangeSet(
     args: GetCoreNetworkChangeSetCommandInput,
@@ -1389,7 +1401,7 @@ export interface NetworkManager {
   ): void;
   getCoreNetworkChangeSet(
     args: GetCoreNetworkChangeSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetCoreNetworkChangeSetCommandOutput) => void
   ): void;
 
@@ -1398,7 +1410,7 @@ export interface NetworkManager {
    */
   getCoreNetworkPolicy(
     args: GetCoreNetworkPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetCoreNetworkPolicyCommandOutput>;
   getCoreNetworkPolicy(
     args: GetCoreNetworkPolicyCommandInput,
@@ -1406,7 +1418,7 @@ export interface NetworkManager {
   ): void;
   getCoreNetworkPolicy(
     args: GetCoreNetworkPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetCoreNetworkPolicyCommandOutput) => void
   ): void;
 
@@ -1415,7 +1427,7 @@ export interface NetworkManager {
    */
   getCustomerGatewayAssociations(
     args: GetCustomerGatewayAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetCustomerGatewayAssociationsCommandOutput>;
   getCustomerGatewayAssociations(
     args: GetCustomerGatewayAssociationsCommandInput,
@@ -1423,7 +1435,7 @@ export interface NetworkManager {
   ): void;
   getCustomerGatewayAssociations(
     args: GetCustomerGatewayAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetCustomerGatewayAssociationsCommandOutput) => void
   ): void;
 
@@ -1432,7 +1444,7 @@ export interface NetworkManager {
    */
   getDevices(
     args: GetDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetDevicesCommandOutput>;
   getDevices(
     args: GetDevicesCommandInput,
@@ -1440,7 +1452,7 @@ export interface NetworkManager {
   ): void;
   getDevices(
     args: GetDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetDevicesCommandOutput) => void
   ): void;
 
@@ -1449,7 +1461,7 @@ export interface NetworkManager {
    */
   getDirectConnectGatewayAttachment(
     args: GetDirectConnectGatewayAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetDirectConnectGatewayAttachmentCommandOutput>;
   getDirectConnectGatewayAttachment(
     args: GetDirectConnectGatewayAttachmentCommandInput,
@@ -1457,7 +1469,7 @@ export interface NetworkManager {
   ): void;
   getDirectConnectGatewayAttachment(
     args: GetDirectConnectGatewayAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetDirectConnectGatewayAttachmentCommandOutput) => void
   ): void;
 
@@ -1466,7 +1478,7 @@ export interface NetworkManager {
    */
   getLinkAssociations(
     args: GetLinkAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetLinkAssociationsCommandOutput>;
   getLinkAssociations(
     args: GetLinkAssociationsCommandInput,
@@ -1474,7 +1486,7 @@ export interface NetworkManager {
   ): void;
   getLinkAssociations(
     args: GetLinkAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetLinkAssociationsCommandOutput) => void
   ): void;
 
@@ -1483,7 +1495,7 @@ export interface NetworkManager {
    */
   getLinks(
     args: GetLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetLinksCommandOutput>;
   getLinks(
     args: GetLinksCommandInput,
@@ -1491,7 +1503,7 @@ export interface NetworkManager {
   ): void;
   getLinks(
     args: GetLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetLinksCommandOutput) => void
   ): void;
 
@@ -1500,7 +1512,7 @@ export interface NetworkManager {
    */
   getNetworkResourceCounts(
     args: GetNetworkResourceCountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetNetworkResourceCountsCommandOutput>;
   getNetworkResourceCounts(
     args: GetNetworkResourceCountsCommandInput,
@@ -1508,7 +1520,7 @@ export interface NetworkManager {
   ): void;
   getNetworkResourceCounts(
     args: GetNetworkResourceCountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetNetworkResourceCountsCommandOutput) => void
   ): void;
 
@@ -1517,7 +1529,7 @@ export interface NetworkManager {
    */
   getNetworkResourceRelationships(
     args: GetNetworkResourceRelationshipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetNetworkResourceRelationshipsCommandOutput>;
   getNetworkResourceRelationships(
     args: GetNetworkResourceRelationshipsCommandInput,
@@ -1525,7 +1537,7 @@ export interface NetworkManager {
   ): void;
   getNetworkResourceRelationships(
     args: GetNetworkResourceRelationshipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetNetworkResourceRelationshipsCommandOutput) => void
   ): void;
 
@@ -1534,7 +1546,7 @@ export interface NetworkManager {
    */
   getNetworkResources(
     args: GetNetworkResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetNetworkResourcesCommandOutput>;
   getNetworkResources(
     args: GetNetworkResourcesCommandInput,
@@ -1542,7 +1554,7 @@ export interface NetworkManager {
   ): void;
   getNetworkResources(
     args: GetNetworkResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetNetworkResourcesCommandOutput) => void
   ): void;
 
@@ -1551,7 +1563,7 @@ export interface NetworkManager {
    */
   getNetworkRoutes(
     args: GetNetworkRoutesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetNetworkRoutesCommandOutput>;
   getNetworkRoutes(
     args: GetNetworkRoutesCommandInput,
@@ -1559,7 +1571,7 @@ export interface NetworkManager {
   ): void;
   getNetworkRoutes(
     args: GetNetworkRoutesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetNetworkRoutesCommandOutput) => void
   ): void;
 
@@ -1568,7 +1580,7 @@ export interface NetworkManager {
    */
   getNetworkTelemetry(
     args: GetNetworkTelemetryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetNetworkTelemetryCommandOutput>;
   getNetworkTelemetry(
     args: GetNetworkTelemetryCommandInput,
@@ -1576,7 +1588,7 @@ export interface NetworkManager {
   ): void;
   getNetworkTelemetry(
     args: GetNetworkTelemetryCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetNetworkTelemetryCommandOutput) => void
   ): void;
 
@@ -1585,7 +1597,7 @@ export interface NetworkManager {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -1593,7 +1605,7 @@ export interface NetworkManager {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1602,7 +1614,7 @@ export interface NetworkManager {
    */
   getRouteAnalysis(
     args: GetRouteAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetRouteAnalysisCommandOutput>;
   getRouteAnalysis(
     args: GetRouteAnalysisCommandInput,
@@ -1610,7 +1622,7 @@ export interface NetworkManager {
   ): void;
   getRouteAnalysis(
     args: GetRouteAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetRouteAnalysisCommandOutput) => void
   ): void;
 
@@ -1619,7 +1631,7 @@ export interface NetworkManager {
    */
   getSites(
     args: GetSitesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetSitesCommandOutput>;
   getSites(
     args: GetSitesCommandInput,
@@ -1627,7 +1639,7 @@ export interface NetworkManager {
   ): void;
   getSites(
     args: GetSitesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetSitesCommandOutput) => void
   ): void;
 
@@ -1636,7 +1648,7 @@ export interface NetworkManager {
    */
   getSiteToSiteVpnAttachment(
     args: GetSiteToSiteVpnAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetSiteToSiteVpnAttachmentCommandOutput>;
   getSiteToSiteVpnAttachment(
     args: GetSiteToSiteVpnAttachmentCommandInput,
@@ -1644,7 +1656,7 @@ export interface NetworkManager {
   ): void;
   getSiteToSiteVpnAttachment(
     args: GetSiteToSiteVpnAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetSiteToSiteVpnAttachmentCommandOutput) => void
   ): void;
 
@@ -1653,7 +1665,7 @@ export interface NetworkManager {
    */
   getTransitGatewayConnectPeerAssociations(
     args: GetTransitGatewayConnectPeerAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetTransitGatewayConnectPeerAssociationsCommandOutput>;
   getTransitGatewayConnectPeerAssociations(
     args: GetTransitGatewayConnectPeerAssociationsCommandInput,
@@ -1661,7 +1673,7 @@ export interface NetworkManager {
   ): void;
   getTransitGatewayConnectPeerAssociations(
     args: GetTransitGatewayConnectPeerAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetTransitGatewayConnectPeerAssociationsCommandOutput) => void
   ): void;
 
@@ -1670,7 +1682,7 @@ export interface NetworkManager {
    */
   getTransitGatewayPeering(
     args: GetTransitGatewayPeeringCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetTransitGatewayPeeringCommandOutput>;
   getTransitGatewayPeering(
     args: GetTransitGatewayPeeringCommandInput,
@@ -1678,7 +1690,7 @@ export interface NetworkManager {
   ): void;
   getTransitGatewayPeering(
     args: GetTransitGatewayPeeringCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetTransitGatewayPeeringCommandOutput) => void
   ): void;
 
@@ -1687,7 +1699,7 @@ export interface NetworkManager {
    */
   getTransitGatewayRegistrations(
     args: GetTransitGatewayRegistrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetTransitGatewayRegistrationsCommandOutput>;
   getTransitGatewayRegistrations(
     args: GetTransitGatewayRegistrationsCommandInput,
@@ -1695,7 +1707,7 @@ export interface NetworkManager {
   ): void;
   getTransitGatewayRegistrations(
     args: GetTransitGatewayRegistrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetTransitGatewayRegistrationsCommandOutput) => void
   ): void;
 
@@ -1704,7 +1716,7 @@ export interface NetworkManager {
    */
   getTransitGatewayRouteTableAttachment(
     args: GetTransitGatewayRouteTableAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetTransitGatewayRouteTableAttachmentCommandOutput>;
   getTransitGatewayRouteTableAttachment(
     args: GetTransitGatewayRouteTableAttachmentCommandInput,
@@ -1712,7 +1724,7 @@ export interface NetworkManager {
   ): void;
   getTransitGatewayRouteTableAttachment(
     args: GetTransitGatewayRouteTableAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetTransitGatewayRouteTableAttachmentCommandOutput) => void
   ): void;
 
@@ -1721,7 +1733,7 @@ export interface NetworkManager {
    */
   getVpcAttachment(
     args: GetVpcAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<GetVpcAttachmentCommandOutput>;
   getVpcAttachment(
     args: GetVpcAttachmentCommandInput,
@@ -1729,7 +1741,7 @@ export interface NetworkManager {
   ): void;
   getVpcAttachment(
     args: GetVpcAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: GetVpcAttachmentCommandOutput) => void
   ): void;
 
@@ -1738,7 +1750,7 @@ export interface NetworkManager {
    */
   listAttachmentRoutingPolicyAssociations(
     args: ListAttachmentRoutingPolicyAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListAttachmentRoutingPolicyAssociationsCommandOutput>;
   listAttachmentRoutingPolicyAssociations(
     args: ListAttachmentRoutingPolicyAssociationsCommandInput,
@@ -1746,7 +1758,7 @@ export interface NetworkManager {
   ): void;
   listAttachmentRoutingPolicyAssociations(
     args: ListAttachmentRoutingPolicyAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListAttachmentRoutingPolicyAssociationsCommandOutput) => void
   ): void;
 
@@ -1756,7 +1768,7 @@ export interface NetworkManager {
   listAttachments(): Promise<ListAttachmentsCommandOutput>;
   listAttachments(
     args: ListAttachmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListAttachmentsCommandOutput>;
   listAttachments(
     args: ListAttachmentsCommandInput,
@@ -1764,7 +1776,7 @@ export interface NetworkManager {
   ): void;
   listAttachments(
     args: ListAttachmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListAttachmentsCommandOutput) => void
   ): void;
 
@@ -1774,7 +1786,7 @@ export interface NetworkManager {
   listConnectPeers(): Promise<ListConnectPeersCommandOutput>;
   listConnectPeers(
     args: ListConnectPeersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListConnectPeersCommandOutput>;
   listConnectPeers(
     args: ListConnectPeersCommandInput,
@@ -1782,7 +1794,7 @@ export interface NetworkManager {
   ): void;
   listConnectPeers(
     args: ListConnectPeersCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListConnectPeersCommandOutput) => void
   ): void;
 
@@ -1791,7 +1803,7 @@ export interface NetworkManager {
    */
   listCoreNetworkPolicyVersions(
     args: ListCoreNetworkPolicyVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListCoreNetworkPolicyVersionsCommandOutput>;
   listCoreNetworkPolicyVersions(
     args: ListCoreNetworkPolicyVersionsCommandInput,
@@ -1799,7 +1811,7 @@ export interface NetworkManager {
   ): void;
   listCoreNetworkPolicyVersions(
     args: ListCoreNetworkPolicyVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListCoreNetworkPolicyVersionsCommandOutput) => void
   ): void;
 
@@ -1808,7 +1820,7 @@ export interface NetworkManager {
    */
   listCoreNetworkPrefixListAssociations(
     args: ListCoreNetworkPrefixListAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListCoreNetworkPrefixListAssociationsCommandOutput>;
   listCoreNetworkPrefixListAssociations(
     args: ListCoreNetworkPrefixListAssociationsCommandInput,
@@ -1816,7 +1828,7 @@ export interface NetworkManager {
   ): void;
   listCoreNetworkPrefixListAssociations(
     args: ListCoreNetworkPrefixListAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListCoreNetworkPrefixListAssociationsCommandOutput) => void
   ): void;
 
@@ -1825,7 +1837,7 @@ export interface NetworkManager {
    */
   listCoreNetworkRoutingInformation(
     args: ListCoreNetworkRoutingInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListCoreNetworkRoutingInformationCommandOutput>;
   listCoreNetworkRoutingInformation(
     args: ListCoreNetworkRoutingInformationCommandInput,
@@ -1833,7 +1845,7 @@ export interface NetworkManager {
   ): void;
   listCoreNetworkRoutingInformation(
     args: ListCoreNetworkRoutingInformationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListCoreNetworkRoutingInformationCommandOutput) => void
   ): void;
 
@@ -1843,7 +1855,7 @@ export interface NetworkManager {
   listCoreNetworks(): Promise<ListCoreNetworksCommandOutput>;
   listCoreNetworks(
     args: ListCoreNetworksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListCoreNetworksCommandOutput>;
   listCoreNetworks(
     args: ListCoreNetworksCommandInput,
@@ -1851,7 +1863,7 @@ export interface NetworkManager {
   ): void;
   listCoreNetworks(
     args: ListCoreNetworksCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListCoreNetworksCommandOutput) => void
   ): void;
 
@@ -1861,7 +1873,7 @@ export interface NetworkManager {
   listOrganizationServiceAccessStatus(): Promise<ListOrganizationServiceAccessStatusCommandOutput>;
   listOrganizationServiceAccessStatus(
     args: ListOrganizationServiceAccessStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListOrganizationServiceAccessStatusCommandOutput>;
   listOrganizationServiceAccessStatus(
     args: ListOrganizationServiceAccessStatusCommandInput,
@@ -1869,7 +1881,7 @@ export interface NetworkManager {
   ): void;
   listOrganizationServiceAccessStatus(
     args: ListOrganizationServiceAccessStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListOrganizationServiceAccessStatusCommandOutput) => void
   ): void;
 
@@ -1879,7 +1891,7 @@ export interface NetworkManager {
   listPeerings(): Promise<ListPeeringsCommandOutput>;
   listPeerings(
     args: ListPeeringsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListPeeringsCommandOutput>;
   listPeerings(
     args: ListPeeringsCommandInput,
@@ -1887,7 +1899,7 @@ export interface NetworkManager {
   ): void;
   listPeerings(
     args: ListPeeringsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListPeeringsCommandOutput) => void
   ): void;
 
@@ -1896,7 +1908,7 @@ export interface NetworkManager {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1904,7 +1916,7 @@ export interface NetworkManager {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1913,7 +1925,7 @@ export interface NetworkManager {
    */
   putAttachmentRoutingPolicyLabel(
     args: PutAttachmentRoutingPolicyLabelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<PutAttachmentRoutingPolicyLabelCommandOutput>;
   putAttachmentRoutingPolicyLabel(
     args: PutAttachmentRoutingPolicyLabelCommandInput,
@@ -1921,7 +1933,7 @@ export interface NetworkManager {
   ): void;
   putAttachmentRoutingPolicyLabel(
     args: PutAttachmentRoutingPolicyLabelCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: PutAttachmentRoutingPolicyLabelCommandOutput) => void
   ): void;
 
@@ -1930,7 +1942,7 @@ export interface NetworkManager {
    */
   putCoreNetworkPolicy(
     args: PutCoreNetworkPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<PutCoreNetworkPolicyCommandOutput>;
   putCoreNetworkPolicy(
     args: PutCoreNetworkPolicyCommandInput,
@@ -1938,7 +1950,7 @@ export interface NetworkManager {
   ): void;
   putCoreNetworkPolicy(
     args: PutCoreNetworkPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: PutCoreNetworkPolicyCommandOutput) => void
   ): void;
 
@@ -1947,7 +1959,7 @@ export interface NetworkManager {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -1955,7 +1967,7 @@ export interface NetworkManager {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1964,7 +1976,7 @@ export interface NetworkManager {
    */
   registerTransitGateway(
     args: RegisterTransitGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<RegisterTransitGatewayCommandOutput>;
   registerTransitGateway(
     args: RegisterTransitGatewayCommandInput,
@@ -1972,7 +1984,7 @@ export interface NetworkManager {
   ): void;
   registerTransitGateway(
     args: RegisterTransitGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
   ): void;
 
@@ -1981,7 +1993,7 @@ export interface NetworkManager {
    */
   rejectAttachment(
     args: RejectAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<RejectAttachmentCommandOutput>;
   rejectAttachment(
     args: RejectAttachmentCommandInput,
@@ -1989,7 +2001,7 @@ export interface NetworkManager {
   ): void;
   rejectAttachment(
     args: RejectAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: RejectAttachmentCommandOutput) => void
   ): void;
 
@@ -1998,7 +2010,7 @@ export interface NetworkManager {
    */
   removeAttachmentRoutingPolicyLabel(
     args: RemoveAttachmentRoutingPolicyLabelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<RemoveAttachmentRoutingPolicyLabelCommandOutput>;
   removeAttachmentRoutingPolicyLabel(
     args: RemoveAttachmentRoutingPolicyLabelCommandInput,
@@ -2006,7 +2018,7 @@ export interface NetworkManager {
   ): void;
   removeAttachmentRoutingPolicyLabel(
     args: RemoveAttachmentRoutingPolicyLabelCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: RemoveAttachmentRoutingPolicyLabelCommandOutput) => void
   ): void;
 
@@ -2015,7 +2027,7 @@ export interface NetworkManager {
    */
   restoreCoreNetworkPolicyVersion(
     args: RestoreCoreNetworkPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<RestoreCoreNetworkPolicyVersionCommandOutput>;
   restoreCoreNetworkPolicyVersion(
     args: RestoreCoreNetworkPolicyVersionCommandInput,
@@ -2023,7 +2035,7 @@ export interface NetworkManager {
   ): void;
   restoreCoreNetworkPolicyVersion(
     args: RestoreCoreNetworkPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: RestoreCoreNetworkPolicyVersionCommandOutput) => void
   ): void;
 
@@ -2032,7 +2044,7 @@ export interface NetworkManager {
    */
   startOrganizationServiceAccessUpdate(
     args: StartOrganizationServiceAccessUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<StartOrganizationServiceAccessUpdateCommandOutput>;
   startOrganizationServiceAccessUpdate(
     args: StartOrganizationServiceAccessUpdateCommandInput,
@@ -2040,7 +2052,7 @@ export interface NetworkManager {
   ): void;
   startOrganizationServiceAccessUpdate(
     args: StartOrganizationServiceAccessUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: StartOrganizationServiceAccessUpdateCommandOutput) => void
   ): void;
 
@@ -2049,7 +2061,7 @@ export interface NetworkManager {
    */
   startRouteAnalysis(
     args: StartRouteAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<StartRouteAnalysisCommandOutput>;
   startRouteAnalysis(
     args: StartRouteAnalysisCommandInput,
@@ -2057,7 +2069,7 @@ export interface NetworkManager {
   ): void;
   startRouteAnalysis(
     args: StartRouteAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: StartRouteAnalysisCommandOutput) => void
   ): void;
 
@@ -2066,7 +2078,7 @@ export interface NetworkManager {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2074,7 +2086,7 @@ export interface NetworkManager {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2083,7 +2095,7 @@ export interface NetworkManager {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2091,7 +2103,7 @@ export interface NetworkManager {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2100,7 +2112,7 @@ export interface NetworkManager {
    */
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UpdateConnectionCommandOutput>;
   updateConnection(
     args: UpdateConnectionCommandInput,
@@ -2108,7 +2120,7 @@ export interface NetworkManager {
   ): void;
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateConnectionCommandOutput) => void
   ): void;
 
@@ -2117,7 +2129,7 @@ export interface NetworkManager {
    */
   updateCoreNetwork(
     args: UpdateCoreNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UpdateCoreNetworkCommandOutput>;
   updateCoreNetwork(
     args: UpdateCoreNetworkCommandInput,
@@ -2125,7 +2137,7 @@ export interface NetworkManager {
   ): void;
   updateCoreNetwork(
     args: UpdateCoreNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateCoreNetworkCommandOutput) => void
   ): void;
 
@@ -2134,7 +2146,7 @@ export interface NetworkManager {
    */
   updateDevice(
     args: UpdateDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UpdateDeviceCommandOutput>;
   updateDevice(
     args: UpdateDeviceCommandInput,
@@ -2142,7 +2154,7 @@ export interface NetworkManager {
   ): void;
   updateDevice(
     args: UpdateDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateDeviceCommandOutput) => void
   ): void;
 
@@ -2151,7 +2163,7 @@ export interface NetworkManager {
    */
   updateDirectConnectGatewayAttachment(
     args: UpdateDirectConnectGatewayAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UpdateDirectConnectGatewayAttachmentCommandOutput>;
   updateDirectConnectGatewayAttachment(
     args: UpdateDirectConnectGatewayAttachmentCommandInput,
@@ -2159,7 +2171,7 @@ export interface NetworkManager {
   ): void;
   updateDirectConnectGatewayAttachment(
     args: UpdateDirectConnectGatewayAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateDirectConnectGatewayAttachmentCommandOutput) => void
   ): void;
 
@@ -2168,7 +2180,7 @@ export interface NetworkManager {
    */
   updateGlobalNetwork(
     args: UpdateGlobalNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UpdateGlobalNetworkCommandOutput>;
   updateGlobalNetwork(
     args: UpdateGlobalNetworkCommandInput,
@@ -2176,7 +2188,7 @@ export interface NetworkManager {
   ): void;
   updateGlobalNetwork(
     args: UpdateGlobalNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateGlobalNetworkCommandOutput) => void
   ): void;
 
@@ -2185,7 +2197,7 @@ export interface NetworkManager {
    */
   updateLink(
     args: UpdateLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UpdateLinkCommandOutput>;
   updateLink(
     args: UpdateLinkCommandInput,
@@ -2193,7 +2205,7 @@ export interface NetworkManager {
   ): void;
   updateLink(
     args: UpdateLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateLinkCommandOutput) => void
   ): void;
 
@@ -2202,7 +2214,7 @@ export interface NetworkManager {
    */
   updateNetworkResourceMetadata(
     args: UpdateNetworkResourceMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UpdateNetworkResourceMetadataCommandOutput>;
   updateNetworkResourceMetadata(
     args: UpdateNetworkResourceMetadataCommandInput,
@@ -2210,7 +2222,7 @@ export interface NetworkManager {
   ): void;
   updateNetworkResourceMetadata(
     args: UpdateNetworkResourceMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateNetworkResourceMetadataCommandOutput) => void
   ): void;
 
@@ -2219,7 +2231,7 @@ export interface NetworkManager {
    */
   updateSite(
     args: UpdateSiteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UpdateSiteCommandOutput>;
   updateSite(
     args: UpdateSiteCommandInput,
@@ -2227,7 +2239,7 @@ export interface NetworkManager {
   ): void;
   updateSite(
     args: UpdateSiteCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateSiteCommandOutput) => void
   ): void;
 
@@ -2236,7 +2248,7 @@ export interface NetworkManager {
    */
   updateVpcAttachment(
     args: UpdateVpcAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkManagerRequestOptions
   ): Promise<UpdateVpcAttachmentCommandOutput>;
   updateVpcAttachment(
     args: UpdateVpcAttachmentCommandInput,
@@ -2244,7 +2256,7 @@ export interface NetworkManager {
   ): void;
   updateVpcAttachment(
     args: UpdateVpcAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkManagerRequestOptions,
     cb: (err: any, data?: UpdateVpcAttachmentCommandOutput) => void
   ): void;
 

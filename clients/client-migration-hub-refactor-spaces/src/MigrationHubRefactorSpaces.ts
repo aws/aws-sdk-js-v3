@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateApplicationCommandInput,
@@ -159,13 +164,20 @@ const paginators = {
   paginateListServices,
 };
 
+/**
+ * @public
+ */
+export interface MigrationHubRefactorSpacesRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link CreateApplicationCommand}
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -173,7 +185,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -182,7 +194,7 @@ export interface MigrationHubRefactorSpaces {
    */
   createEnvironment(
     args: CreateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<CreateEnvironmentCommandOutput>;
   createEnvironment(
     args: CreateEnvironmentCommandInput,
@@ -190,7 +202,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   createEnvironment(
     args: CreateEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
   ): void;
 
@@ -199,7 +211,7 @@ export interface MigrationHubRefactorSpaces {
    */
   createRoute(
     args: CreateRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<CreateRouteCommandOutput>;
   createRoute(
     args: CreateRouteCommandInput,
@@ -207,7 +219,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   createRoute(
     args: CreateRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: CreateRouteCommandOutput) => void
   ): void;
 
@@ -216,7 +228,7 @@ export interface MigrationHubRefactorSpaces {
    */
   createService(
     args: CreateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<CreateServiceCommandOutput>;
   createService(
     args: CreateServiceCommandInput,
@@ -224,7 +236,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   createService(
     args: CreateServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: CreateServiceCommandOutput) => void
   ): void;
 
@@ -233,7 +245,7 @@ export interface MigrationHubRefactorSpaces {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -241,7 +253,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -250,7 +262,7 @@ export interface MigrationHubRefactorSpaces {
    */
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<DeleteEnvironmentCommandOutput>;
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
@@ -258,7 +270,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
   ): void;
 
@@ -267,7 +279,7 @@ export interface MigrationHubRefactorSpaces {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -275,7 +287,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -284,7 +296,7 @@ export interface MigrationHubRefactorSpaces {
    */
   deleteRoute(
     args: DeleteRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<DeleteRouteCommandOutput>;
   deleteRoute(
     args: DeleteRouteCommandInput,
@@ -292,7 +304,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   deleteRoute(
     args: DeleteRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: DeleteRouteCommandOutput) => void
   ): void;
 
@@ -301,7 +313,7 @@ export interface MigrationHubRefactorSpaces {
    */
   deleteService(
     args: DeleteServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<DeleteServiceCommandOutput>;
   deleteService(
     args: DeleteServiceCommandInput,
@@ -309,7 +321,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   deleteService(
     args: DeleteServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: DeleteServiceCommandOutput) => void
   ): void;
 
@@ -318,7 +330,7 @@ export interface MigrationHubRefactorSpaces {
    */
   getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
@@ -326,7 +338,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   getApplication(
     args: GetApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: GetApplicationCommandOutput) => void
   ): void;
 
@@ -335,7 +347,7 @@ export interface MigrationHubRefactorSpaces {
    */
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<GetEnvironmentCommandOutput>;
   getEnvironment(
     args: GetEnvironmentCommandInput,
@@ -343,7 +355,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
   ): void;
 
@@ -352,7 +364,7 @@ export interface MigrationHubRefactorSpaces {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -360,7 +372,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -369,7 +381,7 @@ export interface MigrationHubRefactorSpaces {
    */
   getRoute(
     args: GetRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<GetRouteCommandOutput>;
   getRoute(
     args: GetRouteCommandInput,
@@ -377,7 +389,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   getRoute(
     args: GetRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: GetRouteCommandOutput) => void
   ): void;
 
@@ -386,7 +398,7 @@ export interface MigrationHubRefactorSpaces {
    */
   getService(
     args: GetServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<GetServiceCommandOutput>;
   getService(
     args: GetServiceCommandInput,
@@ -394,7 +406,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   getService(
     args: GetServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
   ): void;
 
@@ -403,7 +415,7 @@ export interface MigrationHubRefactorSpaces {
    */
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -411,7 +423,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -421,7 +433,7 @@ export interface MigrationHubRefactorSpaces {
   listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
@@ -429,7 +441,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): void;
 
@@ -438,7 +450,7 @@ export interface MigrationHubRefactorSpaces {
    */
   listEnvironmentVpcs(
     args: ListEnvironmentVpcsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<ListEnvironmentVpcsCommandOutput>;
   listEnvironmentVpcs(
     args: ListEnvironmentVpcsCommandInput,
@@ -446,7 +458,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   listEnvironmentVpcs(
     args: ListEnvironmentVpcsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: ListEnvironmentVpcsCommandOutput) => void
   ): void;
 
@@ -455,7 +467,7 @@ export interface MigrationHubRefactorSpaces {
    */
   listRoutes(
     args: ListRoutesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<ListRoutesCommandOutput>;
   listRoutes(
     args: ListRoutesCommandInput,
@@ -463,7 +475,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   listRoutes(
     args: ListRoutesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: ListRoutesCommandOutput) => void
   ): void;
 
@@ -472,7 +484,7 @@ export interface MigrationHubRefactorSpaces {
    */
   listServices(
     args: ListServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
@@ -480,7 +492,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   listServices(
     args: ListServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: ListServicesCommandOutput) => void
   ): void;
 
@@ -489,7 +501,7 @@ export interface MigrationHubRefactorSpaces {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -497,7 +509,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -506,7 +518,7 @@ export interface MigrationHubRefactorSpaces {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -514,7 +526,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -523,7 +535,7 @@ export interface MigrationHubRefactorSpaces {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -531,7 +543,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -540,7 +552,7 @@ export interface MigrationHubRefactorSpaces {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -548,7 +560,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -557,7 +569,7 @@ export interface MigrationHubRefactorSpaces {
    */
   updateRoute(
     args: UpdateRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubRefactorSpacesRequestOptions
   ): Promise<UpdateRouteCommandOutput>;
   updateRoute(
     args: UpdateRouteCommandInput,
@@ -565,7 +577,7 @@ export interface MigrationHubRefactorSpaces {
   ): void;
   updateRoute(
     args: UpdateRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubRefactorSpacesRequestOptions,
     cb: (err: any, data?: UpdateRouteCommandOutput) => void
   ): void;
 

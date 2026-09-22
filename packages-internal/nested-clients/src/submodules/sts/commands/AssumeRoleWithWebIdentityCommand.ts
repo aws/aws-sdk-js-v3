@@ -161,6 +161,7 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *   ],
  *   Policy: "STRING_VALUE",
  *   DurationSeconds: Number("int"),
+ *   MinimumSessionTokenSize: Number("int"),
  * };
  * const command = new AssumeRoleWithWebIdentityCommand(input);
  * const response = await client.send(command);
@@ -180,6 +181,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * //   Provider: "STRING_VALUE",
  * //   Audience: "STRING_VALUE",
  * //   SourceIdentity: "STRING_VALUE",
+ * //   SessionTokenUtilization: Number("int"),
+ * //   SessionTokenSize: Number("int"),
  * // };
  *
  * ```

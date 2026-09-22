@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { type GetGlyphsCommandInput, type GetGlyphsCommandOutput, GetGlyphsCommand } from "./commands/GetGlyphsCommand";
 import {
@@ -29,13 +29,20 @@ const commands = {
   GetTileCommand,
 };
 
+/**
+ * @public
+ */
+export interface GeoMapsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface GeoMaps {
   /**
    * @see {@link GetGlyphsCommand}
    */
   getGlyphs(
     args: GetGlyphsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoMapsRequestOptions
   ): Promise<GetGlyphsCommandOutput>;
   getGlyphs(
     args: GetGlyphsCommandInput,
@@ -43,7 +50,7 @@ export interface GeoMaps {
   ): void;
   getGlyphs(
     args: GetGlyphsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoMapsRequestOptions,
     cb: (err: any, data?: GetGlyphsCommandOutput) => void
   ): void;
 
@@ -52,7 +59,7 @@ export interface GeoMaps {
    */
   getSprites(
     args: GetSpritesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoMapsRequestOptions
   ): Promise<GetSpritesCommandOutput>;
   getSprites(
     args: GetSpritesCommandInput,
@@ -60,7 +67,7 @@ export interface GeoMaps {
   ): void;
   getSprites(
     args: GetSpritesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoMapsRequestOptions,
     cb: (err: any, data?: GetSpritesCommandOutput) => void
   ): void;
 
@@ -69,7 +76,7 @@ export interface GeoMaps {
    */
   getStaticMap(
     args: GetStaticMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoMapsRequestOptions
   ): Promise<GetStaticMapCommandOutput>;
   getStaticMap(
     args: GetStaticMapCommandInput,
@@ -77,7 +84,7 @@ export interface GeoMaps {
   ): void;
   getStaticMap(
     args: GetStaticMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoMapsRequestOptions,
     cb: (err: any, data?: GetStaticMapCommandOutput) => void
   ): void;
 
@@ -86,7 +93,7 @@ export interface GeoMaps {
    */
   getStyleDescriptor(
     args: GetStyleDescriptorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoMapsRequestOptions
   ): Promise<GetStyleDescriptorCommandOutput>;
   getStyleDescriptor(
     args: GetStyleDescriptorCommandInput,
@@ -94,7 +101,7 @@ export interface GeoMaps {
   ): void;
   getStyleDescriptor(
     args: GetStyleDescriptorCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoMapsRequestOptions,
     cb: (err: any, data?: GetStyleDescriptorCommandOutput) => void
   ): void;
 
@@ -103,7 +110,7 @@ export interface GeoMaps {
    */
   getTile(
     args: GetTileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoMapsRequestOptions
   ): Promise<GetTileCommandOutput>;
   getTile(
     args: GetTileCommandInput,
@@ -111,7 +118,7 @@ export interface GeoMaps {
   ): void;
   getTile(
     args: GetTileCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoMapsRequestOptions,
     cb: (err: any, data?: GetTileCommandOutput) => void
   ): void;
 }

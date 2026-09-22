@@ -44,13 +44,13 @@
   },
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.974.5",
-    "@smithy/core": "^3.33.3",
-    "@smithy/types": "^4.17.2",
+    "@smithy/core": "^3.35.0",
+    "@smithy/types": "^4.19.0",
     "events": "3.3.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/abort-controller": "^4.3.3",
+    "@smithy/abort-controller": "^4.4.2",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

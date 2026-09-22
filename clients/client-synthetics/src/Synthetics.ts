@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateResourceCommandInput,
@@ -147,13 +152,20 @@ const paginators = {
   paginateListGroups,
 };
 
+/**
+ * @public
+ */
+export interface SyntheticsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Synthetics {
   /**
    * @see {@link AssociateResourceCommand}
    */
   associateResource(
     args: AssociateResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<AssociateResourceCommandOutput>;
   associateResource(
     args: AssociateResourceCommandInput,
@@ -161,7 +173,7 @@ export interface Synthetics {
   ): void;
   associateResource(
     args: AssociateResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: AssociateResourceCommandOutput) => void
   ): void;
 
@@ -170,7 +182,7 @@ export interface Synthetics {
    */
   createCanary(
     args: CreateCanaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<CreateCanaryCommandOutput>;
   createCanary(
     args: CreateCanaryCommandInput,
@@ -178,7 +190,7 @@ export interface Synthetics {
   ): void;
   createCanary(
     args: CreateCanaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: CreateCanaryCommandOutput) => void
   ): void;
 
@@ -187,7 +199,7 @@ export interface Synthetics {
    */
   createGroup(
     args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<CreateGroupCommandOutput>;
   createGroup(
     args: CreateGroupCommandInput,
@@ -195,7 +207,7 @@ export interface Synthetics {
   ): void;
   createGroup(
     args: CreateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: CreateGroupCommandOutput) => void
   ): void;
 
@@ -204,7 +216,7 @@ export interface Synthetics {
    */
   deleteCanary(
     args: DeleteCanaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<DeleteCanaryCommandOutput>;
   deleteCanary(
     args: DeleteCanaryCommandInput,
@@ -212,7 +224,7 @@ export interface Synthetics {
   ): void;
   deleteCanary(
     args: DeleteCanaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: DeleteCanaryCommandOutput) => void
   ): void;
 
@@ -221,7 +233,7 @@ export interface Synthetics {
    */
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<DeleteGroupCommandOutput>;
   deleteGroup(
     args: DeleteGroupCommandInput,
@@ -229,7 +241,7 @@ export interface Synthetics {
   ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: DeleteGroupCommandOutput) => void
   ): void;
 
@@ -239,7 +251,7 @@ export interface Synthetics {
   describeCanaries(): Promise<DescribeCanariesCommandOutput>;
   describeCanaries(
     args: DescribeCanariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<DescribeCanariesCommandOutput>;
   describeCanaries(
     args: DescribeCanariesCommandInput,
@@ -247,7 +259,7 @@ export interface Synthetics {
   ): void;
   describeCanaries(
     args: DescribeCanariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: DescribeCanariesCommandOutput) => void
   ): void;
 
@@ -257,7 +269,7 @@ export interface Synthetics {
   describeCanariesLastRun(): Promise<DescribeCanariesLastRunCommandOutput>;
   describeCanariesLastRun(
     args: DescribeCanariesLastRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<DescribeCanariesLastRunCommandOutput>;
   describeCanariesLastRun(
     args: DescribeCanariesLastRunCommandInput,
@@ -265,7 +277,7 @@ export interface Synthetics {
   ): void;
   describeCanariesLastRun(
     args: DescribeCanariesLastRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: DescribeCanariesLastRunCommandOutput) => void
   ): void;
 
@@ -275,7 +287,7 @@ export interface Synthetics {
   describeRuntimeVersions(): Promise<DescribeRuntimeVersionsCommandOutput>;
   describeRuntimeVersions(
     args: DescribeRuntimeVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<DescribeRuntimeVersionsCommandOutput>;
   describeRuntimeVersions(
     args: DescribeRuntimeVersionsCommandInput,
@@ -283,7 +295,7 @@ export interface Synthetics {
   ): void;
   describeRuntimeVersions(
     args: DescribeRuntimeVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: DescribeRuntimeVersionsCommandOutput) => void
   ): void;
 
@@ -292,7 +304,7 @@ export interface Synthetics {
    */
   disassociateResource(
     args: DisassociateResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<DisassociateResourceCommandOutput>;
   disassociateResource(
     args: DisassociateResourceCommandInput,
@@ -300,7 +312,7 @@ export interface Synthetics {
   ): void;
   disassociateResource(
     args: DisassociateResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: DisassociateResourceCommandOutput) => void
   ): void;
 
@@ -309,7 +321,7 @@ export interface Synthetics {
    */
   getCanary(
     args: GetCanaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<GetCanaryCommandOutput>;
   getCanary(
     args: GetCanaryCommandInput,
@@ -317,7 +329,7 @@ export interface Synthetics {
   ): void;
   getCanary(
     args: GetCanaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: GetCanaryCommandOutput) => void
   ): void;
 
@@ -326,7 +338,7 @@ export interface Synthetics {
    */
   getCanaryRuns(
     args: GetCanaryRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<GetCanaryRunsCommandOutput>;
   getCanaryRuns(
     args: GetCanaryRunsCommandInput,
@@ -334,7 +346,7 @@ export interface Synthetics {
   ): void;
   getCanaryRuns(
     args: GetCanaryRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: GetCanaryRunsCommandOutput) => void
   ): void;
 
@@ -343,7 +355,7 @@ export interface Synthetics {
    */
   getGroup(
     args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<GetGroupCommandOutput>;
   getGroup(
     args: GetGroupCommandInput,
@@ -351,7 +363,7 @@ export interface Synthetics {
   ): void;
   getGroup(
     args: GetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: GetGroupCommandOutput) => void
   ): void;
 
@@ -360,7 +372,7 @@ export interface Synthetics {
    */
   listAssociatedGroups(
     args: ListAssociatedGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<ListAssociatedGroupsCommandOutput>;
   listAssociatedGroups(
     args: ListAssociatedGroupsCommandInput,
@@ -368,7 +380,7 @@ export interface Synthetics {
   ): void;
   listAssociatedGroups(
     args: ListAssociatedGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: ListAssociatedGroupsCommandOutput) => void
   ): void;
 
@@ -377,7 +389,7 @@ export interface Synthetics {
    */
   listGroupResources(
     args: ListGroupResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<ListGroupResourcesCommandOutput>;
   listGroupResources(
     args: ListGroupResourcesCommandInput,
@@ -385,7 +397,7 @@ export interface Synthetics {
   ): void;
   listGroupResources(
     args: ListGroupResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: ListGroupResourcesCommandOutput) => void
   ): void;
 
@@ -395,7 +407,7 @@ export interface Synthetics {
   listGroups(): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
@@ -403,7 +415,7 @@ export interface Synthetics {
   ): void;
   listGroups(
     args: ListGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: ListGroupsCommandOutput) => void
   ): void;
 
@@ -412,7 +424,7 @@ export interface Synthetics {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -420,7 +432,7 @@ export interface Synthetics {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -429,7 +441,7 @@ export interface Synthetics {
    */
   startCanary(
     args: StartCanaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<StartCanaryCommandOutput>;
   startCanary(
     args: StartCanaryCommandInput,
@@ -437,7 +449,7 @@ export interface Synthetics {
   ): void;
   startCanary(
     args: StartCanaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: StartCanaryCommandOutput) => void
   ): void;
 
@@ -446,7 +458,7 @@ export interface Synthetics {
    */
   startCanaryDryRun(
     args: StartCanaryDryRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<StartCanaryDryRunCommandOutput>;
   startCanaryDryRun(
     args: StartCanaryDryRunCommandInput,
@@ -454,7 +466,7 @@ export interface Synthetics {
   ): void;
   startCanaryDryRun(
     args: StartCanaryDryRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: StartCanaryDryRunCommandOutput) => void
   ): void;
 
@@ -463,7 +475,7 @@ export interface Synthetics {
    */
   stopCanary(
     args: StopCanaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<StopCanaryCommandOutput>;
   stopCanary(
     args: StopCanaryCommandInput,
@@ -471,7 +483,7 @@ export interface Synthetics {
   ): void;
   stopCanary(
     args: StopCanaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: StopCanaryCommandOutput) => void
   ): void;
 
@@ -480,7 +492,7 @@ export interface Synthetics {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -488,7 +500,7 @@ export interface Synthetics {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface Synthetics {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -505,7 +517,7 @@ export interface Synthetics {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -514,7 +526,7 @@ export interface Synthetics {
    */
   updateCanary(
     args: UpdateCanaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SyntheticsRequestOptions
   ): Promise<UpdateCanaryCommandOutput>;
   updateCanary(
     args: UpdateCanaryCommandInput,
@@ -522,7 +534,7 @@ export interface Synthetics {
   ): void;
   updateCanary(
     args: UpdateCanaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SyntheticsRequestOptions,
     cb: (err: any, data?: UpdateCanaryCommandOutput) => void
   ): void;
 

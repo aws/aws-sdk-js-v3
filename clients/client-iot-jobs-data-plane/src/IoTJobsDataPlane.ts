@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type DescribeJobExecutionCommandInput,
@@ -37,13 +37,20 @@ const commands = {
   UpdateJobExecutionCommand,
 };
 
+/**
+ * @public
+ */
+export interface IoTJobsDataPlaneRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IoTJobsDataPlane {
   /**
    * @see {@link DescribeJobExecutionCommand}
    */
   describeJobExecution(
     args: DescribeJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTJobsDataPlaneRequestOptions
   ): Promise<DescribeJobExecutionCommandOutput>;
   describeJobExecution(
     args: DescribeJobExecutionCommandInput,
@@ -51,7 +58,7 @@ export interface IoTJobsDataPlane {
   ): void;
   describeJobExecution(
     args: DescribeJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTJobsDataPlaneRequestOptions,
     cb: (err: any, data?: DescribeJobExecutionCommandOutput) => void
   ): void;
 
@@ -60,7 +67,7 @@ export interface IoTJobsDataPlane {
    */
   getPendingJobExecutions(
     args: GetPendingJobExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTJobsDataPlaneRequestOptions
   ): Promise<GetPendingJobExecutionsCommandOutput>;
   getPendingJobExecutions(
     args: GetPendingJobExecutionsCommandInput,
@@ -68,7 +75,7 @@ export interface IoTJobsDataPlane {
   ): void;
   getPendingJobExecutions(
     args: GetPendingJobExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTJobsDataPlaneRequestOptions,
     cb: (err: any, data?: GetPendingJobExecutionsCommandOutput) => void
   ): void;
 
@@ -77,7 +84,7 @@ export interface IoTJobsDataPlane {
    */
   startCommandExecution(
     args: StartCommandExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTJobsDataPlaneRequestOptions
   ): Promise<StartCommandExecutionCommandOutput>;
   startCommandExecution(
     args: StartCommandExecutionCommandInput,
@@ -85,7 +92,7 @@ export interface IoTJobsDataPlane {
   ): void;
   startCommandExecution(
     args: StartCommandExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTJobsDataPlaneRequestOptions,
     cb: (err: any, data?: StartCommandExecutionCommandOutput) => void
   ): void;
 
@@ -94,7 +101,7 @@ export interface IoTJobsDataPlane {
    */
   startNextPendingJobExecution(
     args: StartNextPendingJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTJobsDataPlaneRequestOptions
   ): Promise<StartNextPendingJobExecutionCommandOutput>;
   startNextPendingJobExecution(
     args: StartNextPendingJobExecutionCommandInput,
@@ -102,7 +109,7 @@ export interface IoTJobsDataPlane {
   ): void;
   startNextPendingJobExecution(
     args: StartNextPendingJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTJobsDataPlaneRequestOptions,
     cb: (err: any, data?: StartNextPendingJobExecutionCommandOutput) => void
   ): void;
 
@@ -111,7 +118,7 @@ export interface IoTJobsDataPlane {
    */
   updateJobExecution(
     args: UpdateJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTJobsDataPlaneRequestOptions
   ): Promise<UpdateJobExecutionCommandOutput>;
   updateJobExecution(
     args: UpdateJobExecutionCommandInput,
@@ -119,7 +126,7 @@ export interface IoTJobsDataPlane {
   ): void;
   updateJobExecution(
     args: UpdateJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTJobsDataPlaneRequestOptions,
     cb: (err: any, data?: UpdateJobExecutionCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { type AddRegionCommandInput, type AddRegionCommandOutput, AddRegionCommand } from "./commands/AddRegionCommand";
 import {
@@ -531,13 +536,20 @@ const paginators = {
   paginateListTrustedTokenIssuers,
 };
 
+/**
+ * @public
+ */
+export interface SSOAdminRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SSOAdmin {
   /**
    * @see {@link AddRegionCommand}
    */
   addRegion(
     args: AddRegionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<AddRegionCommandOutput>;
   addRegion(
     args: AddRegionCommandInput,
@@ -545,7 +557,7 @@ export interface SSOAdmin {
   ): void;
   addRegion(
     args: AddRegionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: AddRegionCommandOutput) => void
   ): void;
 
@@ -554,7 +566,7 @@ export interface SSOAdmin {
    */
   attachCustomerManagedPolicyReferenceToPermissionSet(
     args: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput>;
   attachCustomerManagedPolicyReferenceToPermissionSet(
     args: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
@@ -562,7 +574,7 @@ export interface SSOAdmin {
   ): void;
   attachCustomerManagedPolicyReferenceToPermissionSet(
     args: AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput) => void
   ): void;
 
@@ -571,7 +583,7 @@ export interface SSOAdmin {
    */
   attachManagedPolicyToPermissionSet(
     args: AttachManagedPolicyToPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<AttachManagedPolicyToPermissionSetCommandOutput>;
   attachManagedPolicyToPermissionSet(
     args: AttachManagedPolicyToPermissionSetCommandInput,
@@ -579,7 +591,7 @@ export interface SSOAdmin {
   ): void;
   attachManagedPolicyToPermissionSet(
     args: AttachManagedPolicyToPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: AttachManagedPolicyToPermissionSetCommandOutput) => void
   ): void;
 
@@ -588,7 +600,7 @@ export interface SSOAdmin {
    */
   createAccountAssignment(
     args: CreateAccountAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<CreateAccountAssignmentCommandOutput>;
   createAccountAssignment(
     args: CreateAccountAssignmentCommandInput,
@@ -596,7 +608,7 @@ export interface SSOAdmin {
   ): void;
   createAccountAssignment(
     args: CreateAccountAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: CreateAccountAssignmentCommandOutput) => void
   ): void;
 
@@ -605,7 +617,7 @@ export interface SSOAdmin {
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -613,7 +625,7 @@ export interface SSOAdmin {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -622,7 +634,7 @@ export interface SSOAdmin {
    */
   createApplicationAssignment(
     args: CreateApplicationAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<CreateApplicationAssignmentCommandOutput>;
   createApplicationAssignment(
     args: CreateApplicationAssignmentCommandInput,
@@ -630,7 +642,7 @@ export interface SSOAdmin {
   ): void;
   createApplicationAssignment(
     args: CreateApplicationAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: CreateApplicationAssignmentCommandOutput) => void
   ): void;
 
@@ -640,7 +652,7 @@ export interface SSOAdmin {
   createInstance(): Promise<CreateInstanceCommandOutput>;
   createInstance(
     args: CreateInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<CreateInstanceCommandOutput>;
   createInstance(
     args: CreateInstanceCommandInput,
@@ -648,7 +660,7 @@ export interface SSOAdmin {
   ): void;
   createInstance(
     args: CreateInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: CreateInstanceCommandOutput) => void
   ): void;
 
@@ -657,7 +669,7 @@ export interface SSOAdmin {
    */
   createInstanceAccessControlAttributeConfiguration(
     args: CreateInstanceAccessControlAttributeConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<CreateInstanceAccessControlAttributeConfigurationCommandOutput>;
   createInstanceAccessControlAttributeConfiguration(
     args: CreateInstanceAccessControlAttributeConfigurationCommandInput,
@@ -665,7 +677,7 @@ export interface SSOAdmin {
   ): void;
   createInstanceAccessControlAttributeConfiguration(
     args: CreateInstanceAccessControlAttributeConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: CreateInstanceAccessControlAttributeConfigurationCommandOutput) => void
   ): void;
 
@@ -674,7 +686,7 @@ export interface SSOAdmin {
    */
   createPermissionSet(
     args: CreatePermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<CreatePermissionSetCommandOutput>;
   createPermissionSet(
     args: CreatePermissionSetCommandInput,
@@ -682,7 +694,7 @@ export interface SSOAdmin {
   ): void;
   createPermissionSet(
     args: CreatePermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: CreatePermissionSetCommandOutput) => void
   ): void;
 
@@ -691,7 +703,7 @@ export interface SSOAdmin {
    */
   createTrustedTokenIssuer(
     args: CreateTrustedTokenIssuerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<CreateTrustedTokenIssuerCommandOutput>;
   createTrustedTokenIssuer(
     args: CreateTrustedTokenIssuerCommandInput,
@@ -699,7 +711,7 @@ export interface SSOAdmin {
   ): void;
   createTrustedTokenIssuer(
     args: CreateTrustedTokenIssuerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: CreateTrustedTokenIssuerCommandOutput) => void
   ): void;
 
@@ -708,7 +720,7 @@ export interface SSOAdmin {
    */
   deleteAccountAssignment(
     args: DeleteAccountAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteAccountAssignmentCommandOutput>;
   deleteAccountAssignment(
     args: DeleteAccountAssignmentCommandInput,
@@ -716,7 +728,7 @@ export interface SSOAdmin {
   ): void;
   deleteAccountAssignment(
     args: DeleteAccountAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteAccountAssignmentCommandOutput) => void
   ): void;
 
@@ -725,7 +737,7 @@ export interface SSOAdmin {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -733,7 +745,7 @@ export interface SSOAdmin {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -742,7 +754,7 @@ export interface SSOAdmin {
    */
   deleteApplicationAccessScope(
     args: DeleteApplicationAccessScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteApplicationAccessScopeCommandOutput>;
   deleteApplicationAccessScope(
     args: DeleteApplicationAccessScopeCommandInput,
@@ -750,7 +762,7 @@ export interface SSOAdmin {
   ): void;
   deleteApplicationAccessScope(
     args: DeleteApplicationAccessScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteApplicationAccessScopeCommandOutput) => void
   ): void;
 
@@ -759,7 +771,7 @@ export interface SSOAdmin {
    */
   deleteApplicationAssignment(
     args: DeleteApplicationAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteApplicationAssignmentCommandOutput>;
   deleteApplicationAssignment(
     args: DeleteApplicationAssignmentCommandInput,
@@ -767,7 +779,7 @@ export interface SSOAdmin {
   ): void;
   deleteApplicationAssignment(
     args: DeleteApplicationAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteApplicationAssignmentCommandOutput) => void
   ): void;
 
@@ -776,7 +788,7 @@ export interface SSOAdmin {
    */
   deleteApplicationAuthenticationMethod(
     args: DeleteApplicationAuthenticationMethodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteApplicationAuthenticationMethodCommandOutput>;
   deleteApplicationAuthenticationMethod(
     args: DeleteApplicationAuthenticationMethodCommandInput,
@@ -784,7 +796,7 @@ export interface SSOAdmin {
   ): void;
   deleteApplicationAuthenticationMethod(
     args: DeleteApplicationAuthenticationMethodCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteApplicationAuthenticationMethodCommandOutput) => void
   ): void;
 
@@ -793,7 +805,7 @@ export interface SSOAdmin {
    */
   deleteApplicationGrant(
     args: DeleteApplicationGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteApplicationGrantCommandOutput>;
   deleteApplicationGrant(
     args: DeleteApplicationGrantCommandInput,
@@ -801,7 +813,7 @@ export interface SSOAdmin {
   ): void;
   deleteApplicationGrant(
     args: DeleteApplicationGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteApplicationGrantCommandOutput) => void
   ): void;
 
@@ -810,7 +822,7 @@ export interface SSOAdmin {
    */
   deleteInlinePolicyFromPermissionSet(
     args: DeleteInlinePolicyFromPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteInlinePolicyFromPermissionSetCommandOutput>;
   deleteInlinePolicyFromPermissionSet(
     args: DeleteInlinePolicyFromPermissionSetCommandInput,
@@ -818,7 +830,7 @@ export interface SSOAdmin {
   ): void;
   deleteInlinePolicyFromPermissionSet(
     args: DeleteInlinePolicyFromPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteInlinePolicyFromPermissionSetCommandOutput) => void
   ): void;
 
@@ -827,7 +839,7 @@ export interface SSOAdmin {
    */
   deleteInstance(
     args: DeleteInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteInstanceCommandOutput>;
   deleteInstance(
     args: DeleteInstanceCommandInput,
@@ -835,7 +847,7 @@ export interface SSOAdmin {
   ): void;
   deleteInstance(
     args: DeleteInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteInstanceCommandOutput) => void
   ): void;
 
@@ -844,7 +856,7 @@ export interface SSOAdmin {
    */
   deleteInstanceAccessControlAttributeConfiguration(
     args: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteInstanceAccessControlAttributeConfigurationCommandOutput>;
   deleteInstanceAccessControlAttributeConfiguration(
     args: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
@@ -852,7 +864,7 @@ export interface SSOAdmin {
   ): void;
   deleteInstanceAccessControlAttributeConfiguration(
     args: DeleteInstanceAccessControlAttributeConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteInstanceAccessControlAttributeConfigurationCommandOutput) => void
   ): void;
 
@@ -861,7 +873,7 @@ export interface SSOAdmin {
    */
   deletePermissionsBoundaryFromPermissionSet(
     args: DeletePermissionsBoundaryFromPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeletePermissionsBoundaryFromPermissionSetCommandOutput>;
   deletePermissionsBoundaryFromPermissionSet(
     args: DeletePermissionsBoundaryFromPermissionSetCommandInput,
@@ -869,7 +881,7 @@ export interface SSOAdmin {
   ): void;
   deletePermissionsBoundaryFromPermissionSet(
     args: DeletePermissionsBoundaryFromPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeletePermissionsBoundaryFromPermissionSetCommandOutput) => void
   ): void;
 
@@ -878,7 +890,7 @@ export interface SSOAdmin {
    */
   deletePermissionSet(
     args: DeletePermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeletePermissionSetCommandOutput>;
   deletePermissionSet(
     args: DeletePermissionSetCommandInput,
@@ -886,7 +898,7 @@ export interface SSOAdmin {
   ): void;
   deletePermissionSet(
     args: DeletePermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeletePermissionSetCommandOutput) => void
   ): void;
 
@@ -895,7 +907,7 @@ export interface SSOAdmin {
    */
   deleteTrustedTokenIssuer(
     args: DeleteTrustedTokenIssuerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DeleteTrustedTokenIssuerCommandOutput>;
   deleteTrustedTokenIssuer(
     args: DeleteTrustedTokenIssuerCommandInput,
@@ -903,7 +915,7 @@ export interface SSOAdmin {
   ): void;
   deleteTrustedTokenIssuer(
     args: DeleteTrustedTokenIssuerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DeleteTrustedTokenIssuerCommandOutput) => void
   ): void;
 
@@ -912,7 +924,7 @@ export interface SSOAdmin {
    */
   describeAccountAssignmentCreationStatus(
     args: DescribeAccountAssignmentCreationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribeAccountAssignmentCreationStatusCommandOutput>;
   describeAccountAssignmentCreationStatus(
     args: DescribeAccountAssignmentCreationStatusCommandInput,
@@ -920,7 +932,7 @@ export interface SSOAdmin {
   ): void;
   describeAccountAssignmentCreationStatus(
     args: DescribeAccountAssignmentCreationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribeAccountAssignmentCreationStatusCommandOutput) => void
   ): void;
 
@@ -929,7 +941,7 @@ export interface SSOAdmin {
    */
   describeAccountAssignmentDeletionStatus(
     args: DescribeAccountAssignmentDeletionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribeAccountAssignmentDeletionStatusCommandOutput>;
   describeAccountAssignmentDeletionStatus(
     args: DescribeAccountAssignmentDeletionStatusCommandInput,
@@ -937,7 +949,7 @@ export interface SSOAdmin {
   ): void;
   describeAccountAssignmentDeletionStatus(
     args: DescribeAccountAssignmentDeletionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribeAccountAssignmentDeletionStatusCommandOutput) => void
   ): void;
 
@@ -946,7 +958,7 @@ export interface SSOAdmin {
    */
   describeApplication(
     args: DescribeApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribeApplicationCommandOutput>;
   describeApplication(
     args: DescribeApplicationCommandInput,
@@ -954,7 +966,7 @@ export interface SSOAdmin {
   ): void;
   describeApplication(
     args: DescribeApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribeApplicationCommandOutput) => void
   ): void;
 
@@ -963,7 +975,7 @@ export interface SSOAdmin {
    */
   describeApplicationAssignment(
     args: DescribeApplicationAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribeApplicationAssignmentCommandOutput>;
   describeApplicationAssignment(
     args: DescribeApplicationAssignmentCommandInput,
@@ -971,7 +983,7 @@ export interface SSOAdmin {
   ): void;
   describeApplicationAssignment(
     args: DescribeApplicationAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribeApplicationAssignmentCommandOutput) => void
   ): void;
 
@@ -980,7 +992,7 @@ export interface SSOAdmin {
    */
   describeApplicationProvider(
     args: DescribeApplicationProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribeApplicationProviderCommandOutput>;
   describeApplicationProvider(
     args: DescribeApplicationProviderCommandInput,
@@ -988,7 +1000,7 @@ export interface SSOAdmin {
   ): void;
   describeApplicationProvider(
     args: DescribeApplicationProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribeApplicationProviderCommandOutput) => void
   ): void;
 
@@ -997,7 +1009,7 @@ export interface SSOAdmin {
    */
   describeInstance(
     args: DescribeInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribeInstanceCommandOutput>;
   describeInstance(
     args: DescribeInstanceCommandInput,
@@ -1005,7 +1017,7 @@ export interface SSOAdmin {
   ): void;
   describeInstance(
     args: DescribeInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribeInstanceCommandOutput) => void
   ): void;
 
@@ -1014,7 +1026,7 @@ export interface SSOAdmin {
    */
   describeInstanceAccessControlAttributeConfiguration(
     args: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribeInstanceAccessControlAttributeConfigurationCommandOutput>;
   describeInstanceAccessControlAttributeConfiguration(
     args: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
@@ -1022,7 +1034,7 @@ export interface SSOAdmin {
   ): void;
   describeInstanceAccessControlAttributeConfiguration(
     args: DescribeInstanceAccessControlAttributeConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribeInstanceAccessControlAttributeConfigurationCommandOutput) => void
   ): void;
 
@@ -1031,7 +1043,7 @@ export interface SSOAdmin {
    */
   describePermissionSet(
     args: DescribePermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribePermissionSetCommandOutput>;
   describePermissionSet(
     args: DescribePermissionSetCommandInput,
@@ -1039,7 +1051,7 @@ export interface SSOAdmin {
   ): void;
   describePermissionSet(
     args: DescribePermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribePermissionSetCommandOutput) => void
   ): void;
 
@@ -1048,7 +1060,7 @@ export interface SSOAdmin {
    */
   describePermissionSetProvisioningStatus(
     args: DescribePermissionSetProvisioningStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribePermissionSetProvisioningStatusCommandOutput>;
   describePermissionSetProvisioningStatus(
     args: DescribePermissionSetProvisioningStatusCommandInput,
@@ -1056,7 +1068,7 @@ export interface SSOAdmin {
   ): void;
   describePermissionSetProvisioningStatus(
     args: DescribePermissionSetProvisioningStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribePermissionSetProvisioningStatusCommandOutput) => void
   ): void;
 
@@ -1065,7 +1077,7 @@ export interface SSOAdmin {
    */
   describeRegion(
     args: DescribeRegionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribeRegionCommandOutput>;
   describeRegion(
     args: DescribeRegionCommandInput,
@@ -1073,7 +1085,7 @@ export interface SSOAdmin {
   ): void;
   describeRegion(
     args: DescribeRegionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribeRegionCommandOutput) => void
   ): void;
 
@@ -1082,7 +1094,7 @@ export interface SSOAdmin {
    */
   describeTrustedTokenIssuer(
     args: DescribeTrustedTokenIssuerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DescribeTrustedTokenIssuerCommandOutput>;
   describeTrustedTokenIssuer(
     args: DescribeTrustedTokenIssuerCommandInput,
@@ -1090,7 +1102,7 @@ export interface SSOAdmin {
   ): void;
   describeTrustedTokenIssuer(
     args: DescribeTrustedTokenIssuerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DescribeTrustedTokenIssuerCommandOutput) => void
   ): void;
 
@@ -1099,7 +1111,7 @@ export interface SSOAdmin {
    */
   detachCustomerManagedPolicyReferenceFromPermissionSet(
     args: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput>;
   detachCustomerManagedPolicyReferenceFromPermissionSet(
     args: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
@@ -1107,7 +1119,7 @@ export interface SSOAdmin {
   ): void;
   detachCustomerManagedPolicyReferenceFromPermissionSet(
     args: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput) => void
   ): void;
 
@@ -1116,7 +1128,7 @@ export interface SSOAdmin {
    */
   detachManagedPolicyFromPermissionSet(
     args: DetachManagedPolicyFromPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<DetachManagedPolicyFromPermissionSetCommandOutput>;
   detachManagedPolicyFromPermissionSet(
     args: DetachManagedPolicyFromPermissionSetCommandInput,
@@ -1124,7 +1136,7 @@ export interface SSOAdmin {
   ): void;
   detachManagedPolicyFromPermissionSet(
     args: DetachManagedPolicyFromPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: DetachManagedPolicyFromPermissionSetCommandOutput) => void
   ): void;
 
@@ -1133,7 +1145,7 @@ export interface SSOAdmin {
    */
   getApplicationAccessScope(
     args: GetApplicationAccessScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<GetApplicationAccessScopeCommandOutput>;
   getApplicationAccessScope(
     args: GetApplicationAccessScopeCommandInput,
@@ -1141,7 +1153,7 @@ export interface SSOAdmin {
   ): void;
   getApplicationAccessScope(
     args: GetApplicationAccessScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: GetApplicationAccessScopeCommandOutput) => void
   ): void;
 
@@ -1150,7 +1162,7 @@ export interface SSOAdmin {
    */
   getApplicationAssignmentConfiguration(
     args: GetApplicationAssignmentConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<GetApplicationAssignmentConfigurationCommandOutput>;
   getApplicationAssignmentConfiguration(
     args: GetApplicationAssignmentConfigurationCommandInput,
@@ -1158,7 +1170,7 @@ export interface SSOAdmin {
   ): void;
   getApplicationAssignmentConfiguration(
     args: GetApplicationAssignmentConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: GetApplicationAssignmentConfigurationCommandOutput) => void
   ): void;
 
@@ -1167,7 +1179,7 @@ export interface SSOAdmin {
    */
   getApplicationAuthenticationMethod(
     args: GetApplicationAuthenticationMethodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<GetApplicationAuthenticationMethodCommandOutput>;
   getApplicationAuthenticationMethod(
     args: GetApplicationAuthenticationMethodCommandInput,
@@ -1175,7 +1187,7 @@ export interface SSOAdmin {
   ): void;
   getApplicationAuthenticationMethod(
     args: GetApplicationAuthenticationMethodCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: GetApplicationAuthenticationMethodCommandOutput) => void
   ): void;
 
@@ -1184,7 +1196,7 @@ export interface SSOAdmin {
    */
   getApplicationGrant(
     args: GetApplicationGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<GetApplicationGrantCommandOutput>;
   getApplicationGrant(
     args: GetApplicationGrantCommandInput,
@@ -1192,7 +1204,7 @@ export interface SSOAdmin {
   ): void;
   getApplicationGrant(
     args: GetApplicationGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: GetApplicationGrantCommandOutput) => void
   ): void;
 
@@ -1201,7 +1213,7 @@ export interface SSOAdmin {
    */
   getApplicationSessionConfiguration(
     args: GetApplicationSessionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<GetApplicationSessionConfigurationCommandOutput>;
   getApplicationSessionConfiguration(
     args: GetApplicationSessionConfigurationCommandInput,
@@ -1209,7 +1221,7 @@ export interface SSOAdmin {
   ): void;
   getApplicationSessionConfiguration(
     args: GetApplicationSessionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: GetApplicationSessionConfigurationCommandOutput) => void
   ): void;
 
@@ -1218,7 +1230,7 @@ export interface SSOAdmin {
    */
   getInlinePolicyForPermissionSet(
     args: GetInlinePolicyForPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<GetInlinePolicyForPermissionSetCommandOutput>;
   getInlinePolicyForPermissionSet(
     args: GetInlinePolicyForPermissionSetCommandInput,
@@ -1226,7 +1238,7 @@ export interface SSOAdmin {
   ): void;
   getInlinePolicyForPermissionSet(
     args: GetInlinePolicyForPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: GetInlinePolicyForPermissionSetCommandOutput) => void
   ): void;
 
@@ -1235,7 +1247,7 @@ export interface SSOAdmin {
    */
   getPermissionsBoundaryForPermissionSet(
     args: GetPermissionsBoundaryForPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<GetPermissionsBoundaryForPermissionSetCommandOutput>;
   getPermissionsBoundaryForPermissionSet(
     args: GetPermissionsBoundaryForPermissionSetCommandInput,
@@ -1243,7 +1255,7 @@ export interface SSOAdmin {
   ): void;
   getPermissionsBoundaryForPermissionSet(
     args: GetPermissionsBoundaryForPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: GetPermissionsBoundaryForPermissionSetCommandOutput) => void
   ): void;
 
@@ -1252,7 +1264,7 @@ export interface SSOAdmin {
    */
   listAccountAssignmentCreationStatus(
     args: ListAccountAssignmentCreationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListAccountAssignmentCreationStatusCommandOutput>;
   listAccountAssignmentCreationStatus(
     args: ListAccountAssignmentCreationStatusCommandInput,
@@ -1260,7 +1272,7 @@ export interface SSOAdmin {
   ): void;
   listAccountAssignmentCreationStatus(
     args: ListAccountAssignmentCreationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListAccountAssignmentCreationStatusCommandOutput) => void
   ): void;
 
@@ -1269,7 +1281,7 @@ export interface SSOAdmin {
    */
   listAccountAssignmentDeletionStatus(
     args: ListAccountAssignmentDeletionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListAccountAssignmentDeletionStatusCommandOutput>;
   listAccountAssignmentDeletionStatus(
     args: ListAccountAssignmentDeletionStatusCommandInput,
@@ -1277,7 +1289,7 @@ export interface SSOAdmin {
   ): void;
   listAccountAssignmentDeletionStatus(
     args: ListAccountAssignmentDeletionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListAccountAssignmentDeletionStatusCommandOutput) => void
   ): void;
 
@@ -1286,7 +1298,7 @@ export interface SSOAdmin {
    */
   listAccountAssignments(
     args: ListAccountAssignmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListAccountAssignmentsCommandOutput>;
   listAccountAssignments(
     args: ListAccountAssignmentsCommandInput,
@@ -1294,7 +1306,7 @@ export interface SSOAdmin {
   ): void;
   listAccountAssignments(
     args: ListAccountAssignmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListAccountAssignmentsCommandOutput) => void
   ): void;
 
@@ -1303,7 +1315,7 @@ export interface SSOAdmin {
    */
   listAccountAssignmentsForPrincipal(
     args: ListAccountAssignmentsForPrincipalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListAccountAssignmentsForPrincipalCommandOutput>;
   listAccountAssignmentsForPrincipal(
     args: ListAccountAssignmentsForPrincipalCommandInput,
@@ -1311,7 +1323,7 @@ export interface SSOAdmin {
   ): void;
   listAccountAssignmentsForPrincipal(
     args: ListAccountAssignmentsForPrincipalCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListAccountAssignmentsForPrincipalCommandOutput) => void
   ): void;
 
@@ -1320,7 +1332,7 @@ export interface SSOAdmin {
    */
   listAccountsForProvisionedPermissionSet(
     args: ListAccountsForProvisionedPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListAccountsForProvisionedPermissionSetCommandOutput>;
   listAccountsForProvisionedPermissionSet(
     args: ListAccountsForProvisionedPermissionSetCommandInput,
@@ -1328,7 +1340,7 @@ export interface SSOAdmin {
   ): void;
   listAccountsForProvisionedPermissionSet(
     args: ListAccountsForProvisionedPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListAccountsForProvisionedPermissionSetCommandOutput) => void
   ): void;
 
@@ -1337,7 +1349,7 @@ export interface SSOAdmin {
    */
   listApplicationAccessScopes(
     args: ListApplicationAccessScopesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListApplicationAccessScopesCommandOutput>;
   listApplicationAccessScopes(
     args: ListApplicationAccessScopesCommandInput,
@@ -1345,7 +1357,7 @@ export interface SSOAdmin {
   ): void;
   listApplicationAccessScopes(
     args: ListApplicationAccessScopesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListApplicationAccessScopesCommandOutput) => void
   ): void;
 
@@ -1354,7 +1366,7 @@ export interface SSOAdmin {
    */
   listApplicationAssignments(
     args: ListApplicationAssignmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListApplicationAssignmentsCommandOutput>;
   listApplicationAssignments(
     args: ListApplicationAssignmentsCommandInput,
@@ -1362,7 +1374,7 @@ export interface SSOAdmin {
   ): void;
   listApplicationAssignments(
     args: ListApplicationAssignmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListApplicationAssignmentsCommandOutput) => void
   ): void;
 
@@ -1371,7 +1383,7 @@ export interface SSOAdmin {
    */
   listApplicationAssignmentsForPrincipal(
     args: ListApplicationAssignmentsForPrincipalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListApplicationAssignmentsForPrincipalCommandOutput>;
   listApplicationAssignmentsForPrincipal(
     args: ListApplicationAssignmentsForPrincipalCommandInput,
@@ -1379,7 +1391,7 @@ export interface SSOAdmin {
   ): void;
   listApplicationAssignmentsForPrincipal(
     args: ListApplicationAssignmentsForPrincipalCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListApplicationAssignmentsForPrincipalCommandOutput) => void
   ): void;
 
@@ -1388,7 +1400,7 @@ export interface SSOAdmin {
    */
   listApplicationAuthenticationMethods(
     args: ListApplicationAuthenticationMethodsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListApplicationAuthenticationMethodsCommandOutput>;
   listApplicationAuthenticationMethods(
     args: ListApplicationAuthenticationMethodsCommandInput,
@@ -1396,7 +1408,7 @@ export interface SSOAdmin {
   ): void;
   listApplicationAuthenticationMethods(
     args: ListApplicationAuthenticationMethodsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListApplicationAuthenticationMethodsCommandOutput) => void
   ): void;
 
@@ -1405,7 +1417,7 @@ export interface SSOAdmin {
    */
   listApplicationGrants(
     args: ListApplicationGrantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListApplicationGrantsCommandOutput>;
   listApplicationGrants(
     args: ListApplicationGrantsCommandInput,
@@ -1413,7 +1425,7 @@ export interface SSOAdmin {
   ): void;
   listApplicationGrants(
     args: ListApplicationGrantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListApplicationGrantsCommandOutput) => void
   ): void;
 
@@ -1423,7 +1435,7 @@ export interface SSOAdmin {
   listApplicationProviders(): Promise<ListApplicationProvidersCommandOutput>;
   listApplicationProviders(
     args: ListApplicationProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListApplicationProvidersCommandOutput>;
   listApplicationProviders(
     args: ListApplicationProvidersCommandInput,
@@ -1431,7 +1443,7 @@ export interface SSOAdmin {
   ): void;
   listApplicationProviders(
     args: ListApplicationProvidersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListApplicationProvidersCommandOutput) => void
   ): void;
 
@@ -1440,7 +1452,7 @@ export interface SSOAdmin {
    */
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -1448,7 +1460,7 @@ export interface SSOAdmin {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -1457,7 +1469,7 @@ export interface SSOAdmin {
    */
   listCustomerManagedPolicyReferencesInPermissionSet(
     args: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput>;
   listCustomerManagedPolicyReferencesInPermissionSet(
     args: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
@@ -1465,7 +1477,7 @@ export interface SSOAdmin {
   ): void;
   listCustomerManagedPolicyReferencesInPermissionSet(
     args: ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput) => void
   ): void;
 
@@ -1475,7 +1487,7 @@ export interface SSOAdmin {
   listInstances(): Promise<ListInstancesCommandOutput>;
   listInstances(
     args: ListInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListInstancesCommandOutput>;
   listInstances(
     args: ListInstancesCommandInput,
@@ -1483,7 +1495,7 @@ export interface SSOAdmin {
   ): void;
   listInstances(
     args: ListInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListInstancesCommandOutput) => void
   ): void;
 
@@ -1492,7 +1504,7 @@ export interface SSOAdmin {
    */
   listManagedPoliciesInPermissionSet(
     args: ListManagedPoliciesInPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListManagedPoliciesInPermissionSetCommandOutput>;
   listManagedPoliciesInPermissionSet(
     args: ListManagedPoliciesInPermissionSetCommandInput,
@@ -1500,7 +1512,7 @@ export interface SSOAdmin {
   ): void;
   listManagedPoliciesInPermissionSet(
     args: ListManagedPoliciesInPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListManagedPoliciesInPermissionSetCommandOutput) => void
   ): void;
 
@@ -1509,7 +1521,7 @@ export interface SSOAdmin {
    */
   listPermissionSetProvisioningStatus(
     args: ListPermissionSetProvisioningStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListPermissionSetProvisioningStatusCommandOutput>;
   listPermissionSetProvisioningStatus(
     args: ListPermissionSetProvisioningStatusCommandInput,
@@ -1517,7 +1529,7 @@ export interface SSOAdmin {
   ): void;
   listPermissionSetProvisioningStatus(
     args: ListPermissionSetProvisioningStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListPermissionSetProvisioningStatusCommandOutput) => void
   ): void;
 
@@ -1526,7 +1538,7 @@ export interface SSOAdmin {
    */
   listPermissionSets(
     args: ListPermissionSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListPermissionSetsCommandOutput>;
   listPermissionSets(
     args: ListPermissionSetsCommandInput,
@@ -1534,7 +1546,7 @@ export interface SSOAdmin {
   ): void;
   listPermissionSets(
     args: ListPermissionSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListPermissionSetsCommandOutput) => void
   ): void;
 
@@ -1543,7 +1555,7 @@ export interface SSOAdmin {
    */
   listPermissionSetsProvisionedToAccount(
     args: ListPermissionSetsProvisionedToAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListPermissionSetsProvisionedToAccountCommandOutput>;
   listPermissionSetsProvisionedToAccount(
     args: ListPermissionSetsProvisionedToAccountCommandInput,
@@ -1551,7 +1563,7 @@ export interface SSOAdmin {
   ): void;
   listPermissionSetsProvisionedToAccount(
     args: ListPermissionSetsProvisionedToAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListPermissionSetsProvisionedToAccountCommandOutput) => void
   ): void;
 
@@ -1560,7 +1572,7 @@ export interface SSOAdmin {
    */
   listRegions(
     args: ListRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListRegionsCommandOutput>;
   listRegions(
     args: ListRegionsCommandInput,
@@ -1568,7 +1580,7 @@ export interface SSOAdmin {
   ): void;
   listRegions(
     args: ListRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListRegionsCommandOutput) => void
   ): void;
 
@@ -1577,7 +1589,7 @@ export interface SSOAdmin {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1585,7 +1597,7 @@ export interface SSOAdmin {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1594,7 +1606,7 @@ export interface SSOAdmin {
    */
   listTrustedTokenIssuers(
     args: ListTrustedTokenIssuersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ListTrustedTokenIssuersCommandOutput>;
   listTrustedTokenIssuers(
     args: ListTrustedTokenIssuersCommandInput,
@@ -1602,7 +1614,7 @@ export interface SSOAdmin {
   ): void;
   listTrustedTokenIssuers(
     args: ListTrustedTokenIssuersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ListTrustedTokenIssuersCommandOutput) => void
   ): void;
 
@@ -1611,7 +1623,7 @@ export interface SSOAdmin {
    */
   provisionPermissionSet(
     args: ProvisionPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<ProvisionPermissionSetCommandOutput>;
   provisionPermissionSet(
     args: ProvisionPermissionSetCommandInput,
@@ -1619,7 +1631,7 @@ export interface SSOAdmin {
   ): void;
   provisionPermissionSet(
     args: ProvisionPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: ProvisionPermissionSetCommandOutput) => void
   ): void;
 
@@ -1628,7 +1640,7 @@ export interface SSOAdmin {
    */
   putApplicationAccessScope(
     args: PutApplicationAccessScopeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<PutApplicationAccessScopeCommandOutput>;
   putApplicationAccessScope(
     args: PutApplicationAccessScopeCommandInput,
@@ -1636,7 +1648,7 @@ export interface SSOAdmin {
   ): void;
   putApplicationAccessScope(
     args: PutApplicationAccessScopeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: PutApplicationAccessScopeCommandOutput) => void
   ): void;
 
@@ -1645,7 +1657,7 @@ export interface SSOAdmin {
    */
   putApplicationAssignmentConfiguration(
     args: PutApplicationAssignmentConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<PutApplicationAssignmentConfigurationCommandOutput>;
   putApplicationAssignmentConfiguration(
     args: PutApplicationAssignmentConfigurationCommandInput,
@@ -1653,7 +1665,7 @@ export interface SSOAdmin {
   ): void;
   putApplicationAssignmentConfiguration(
     args: PutApplicationAssignmentConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: PutApplicationAssignmentConfigurationCommandOutput) => void
   ): void;
 
@@ -1662,7 +1674,7 @@ export interface SSOAdmin {
    */
   putApplicationAuthenticationMethod(
     args: PutApplicationAuthenticationMethodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<PutApplicationAuthenticationMethodCommandOutput>;
   putApplicationAuthenticationMethod(
     args: PutApplicationAuthenticationMethodCommandInput,
@@ -1670,7 +1682,7 @@ export interface SSOAdmin {
   ): void;
   putApplicationAuthenticationMethod(
     args: PutApplicationAuthenticationMethodCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: PutApplicationAuthenticationMethodCommandOutput) => void
   ): void;
 
@@ -1679,7 +1691,7 @@ export interface SSOAdmin {
    */
   putApplicationGrant(
     args: PutApplicationGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<PutApplicationGrantCommandOutput>;
   putApplicationGrant(
     args: PutApplicationGrantCommandInput,
@@ -1687,7 +1699,7 @@ export interface SSOAdmin {
   ): void;
   putApplicationGrant(
     args: PutApplicationGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: PutApplicationGrantCommandOutput) => void
   ): void;
 
@@ -1696,7 +1708,7 @@ export interface SSOAdmin {
    */
   putApplicationSessionConfiguration(
     args: PutApplicationSessionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<PutApplicationSessionConfigurationCommandOutput>;
   putApplicationSessionConfiguration(
     args: PutApplicationSessionConfigurationCommandInput,
@@ -1704,7 +1716,7 @@ export interface SSOAdmin {
   ): void;
   putApplicationSessionConfiguration(
     args: PutApplicationSessionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: PutApplicationSessionConfigurationCommandOutput) => void
   ): void;
 
@@ -1713,7 +1725,7 @@ export interface SSOAdmin {
    */
   putInlinePolicyToPermissionSet(
     args: PutInlinePolicyToPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<PutInlinePolicyToPermissionSetCommandOutput>;
   putInlinePolicyToPermissionSet(
     args: PutInlinePolicyToPermissionSetCommandInput,
@@ -1721,7 +1733,7 @@ export interface SSOAdmin {
   ): void;
   putInlinePolicyToPermissionSet(
     args: PutInlinePolicyToPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: PutInlinePolicyToPermissionSetCommandOutput) => void
   ): void;
 
@@ -1730,7 +1742,7 @@ export interface SSOAdmin {
    */
   putPermissionsBoundaryToPermissionSet(
     args: PutPermissionsBoundaryToPermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<PutPermissionsBoundaryToPermissionSetCommandOutput>;
   putPermissionsBoundaryToPermissionSet(
     args: PutPermissionsBoundaryToPermissionSetCommandInput,
@@ -1738,7 +1750,7 @@ export interface SSOAdmin {
   ): void;
   putPermissionsBoundaryToPermissionSet(
     args: PutPermissionsBoundaryToPermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: PutPermissionsBoundaryToPermissionSetCommandOutput) => void
   ): void;
 
@@ -1747,7 +1759,7 @@ export interface SSOAdmin {
    */
   removeRegion(
     args: RemoveRegionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<RemoveRegionCommandOutput>;
   removeRegion(
     args: RemoveRegionCommandInput,
@@ -1755,7 +1767,7 @@ export interface SSOAdmin {
   ): void;
   removeRegion(
     args: RemoveRegionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: RemoveRegionCommandOutput) => void
   ): void;
 
@@ -1764,7 +1776,7 @@ export interface SSOAdmin {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1772,7 +1784,7 @@ export interface SSOAdmin {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1781,7 +1793,7 @@ export interface SSOAdmin {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1789,7 +1801,7 @@ export interface SSOAdmin {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1798,7 +1810,7 @@ export interface SSOAdmin {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -1806,7 +1818,7 @@ export interface SSOAdmin {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
@@ -1815,7 +1827,7 @@ export interface SSOAdmin {
    */
   updateInstance(
     args: UpdateInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<UpdateInstanceCommandOutput>;
   updateInstance(
     args: UpdateInstanceCommandInput,
@@ -1823,7 +1835,7 @@ export interface SSOAdmin {
   ): void;
   updateInstance(
     args: UpdateInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: UpdateInstanceCommandOutput) => void
   ): void;
 
@@ -1832,7 +1844,7 @@ export interface SSOAdmin {
    */
   updateInstanceAccessControlAttributeConfiguration(
     args: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<UpdateInstanceAccessControlAttributeConfigurationCommandOutput>;
   updateInstanceAccessControlAttributeConfiguration(
     args: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
@@ -1840,7 +1852,7 @@ export interface SSOAdmin {
   ): void;
   updateInstanceAccessControlAttributeConfiguration(
     args: UpdateInstanceAccessControlAttributeConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: UpdateInstanceAccessControlAttributeConfigurationCommandOutput) => void
   ): void;
 
@@ -1849,7 +1861,7 @@ export interface SSOAdmin {
    */
   updatePermissionSet(
     args: UpdatePermissionSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<UpdatePermissionSetCommandOutput>;
   updatePermissionSet(
     args: UpdatePermissionSetCommandInput,
@@ -1857,7 +1869,7 @@ export interface SSOAdmin {
   ): void;
   updatePermissionSet(
     args: UpdatePermissionSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: UpdatePermissionSetCommandOutput) => void
   ): void;
 
@@ -1866,7 +1878,7 @@ export interface SSOAdmin {
    */
   updateTrustedTokenIssuer(
     args: UpdateTrustedTokenIssuerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSOAdminRequestOptions
   ): Promise<UpdateTrustedTokenIssuerCommandOutput>;
   updateTrustedTokenIssuer(
     args: UpdateTrustedTokenIssuerCommandInput,
@@ -1874,7 +1886,7 @@ export interface SSOAdmin {
   ): void;
   updateTrustedTokenIssuer(
     args: UpdateTrustedTokenIssuerCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSOAdminRequestOptions,
     cb: (err: any, data?: UpdateTrustedTokenIssuerCommandOutput) => void
   ): void;
 

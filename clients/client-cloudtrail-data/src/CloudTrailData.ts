@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { CloudTrailDataClient } from "./CloudTrailDataClient";
 import {
@@ -13,13 +13,20 @@ const commands = {
   PutAuditEventsCommand,
 };
 
+/**
+ * @public
+ */
+export interface CloudTrailDataRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CloudTrailData {
   /**
    * @see {@link PutAuditEventsCommand}
    */
   putAuditEvents(
     args: PutAuditEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudTrailDataRequestOptions
   ): Promise<PutAuditEventsCommandOutput>;
   putAuditEvents(
     args: PutAuditEventsCommandInput,
@@ -27,7 +34,7 @@ export interface CloudTrailData {
   ): void;
   putAuditEvents(
     args: PutAuditEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudTrailDataRequestOptions,
     cb: (err: any, data?: PutAuditEventsCommandOutput) => void
   ): void;
 }

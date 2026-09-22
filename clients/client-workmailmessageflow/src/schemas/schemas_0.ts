@@ -40,10 +40,10 @@ import { InvalidContentLocation, MessageFrozen, MessageRejected, ResourceNotFoun
 import { WorkMailMessageFlowServiceException } from "../models/WorkMailMessageFlowServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var WorkMailMessageFlowServiceException$: StaticErrorSchema = [-3, _s, "WorkMailMessageFlowServiceException", 0, [], []];
 _s_registry.registerError(WorkMailMessageFlowServiceException$, WorkMailMessageFlowServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var InvalidContentLocation$: StaticErrorSchema = [-3, n0, _ICL,
   { [_e]: _c },
   [_m],

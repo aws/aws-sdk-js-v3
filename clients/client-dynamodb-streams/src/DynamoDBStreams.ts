@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type DescribeStreamCommandInput,
@@ -31,13 +31,20 @@ const commands = {
   ListStreamsCommand,
 };
 
+/**
+ * @public
+ */
+export interface DynamoDBStreamsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DynamoDBStreams {
   /**
    * @see {@link DescribeStreamCommand}
    */
   describeStream(
     args: DescribeStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBStreamsRequestOptions
   ): Promise<DescribeStreamCommandOutput>;
   describeStream(
     args: DescribeStreamCommandInput,
@@ -45,7 +52,7 @@ export interface DynamoDBStreams {
   ): void;
   describeStream(
     args: DescribeStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBStreamsRequestOptions,
     cb: (err: any, data?: DescribeStreamCommandOutput) => void
   ): void;
 
@@ -54,7 +61,7 @@ export interface DynamoDBStreams {
    */
   getRecords(
     args: GetRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBStreamsRequestOptions
   ): Promise<GetRecordsCommandOutput>;
   getRecords(
     args: GetRecordsCommandInput,
@@ -62,7 +69,7 @@ export interface DynamoDBStreams {
   ): void;
   getRecords(
     args: GetRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBStreamsRequestOptions,
     cb: (err: any, data?: GetRecordsCommandOutput) => void
   ): void;
 
@@ -71,7 +78,7 @@ export interface DynamoDBStreams {
    */
   getShardIterator(
     args: GetShardIteratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBStreamsRequestOptions
   ): Promise<GetShardIteratorCommandOutput>;
   getShardIterator(
     args: GetShardIteratorCommandInput,
@@ -79,7 +86,7 @@ export interface DynamoDBStreams {
   ): void;
   getShardIterator(
     args: GetShardIteratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBStreamsRequestOptions,
     cb: (err: any, data?: GetShardIteratorCommandOutput) => void
   ): void;
 
@@ -89,7 +96,7 @@ export interface DynamoDBStreams {
   listStreams(): Promise<ListStreamsCommandOutput>;
   listStreams(
     args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBStreamsRequestOptions
   ): Promise<ListStreamsCommandOutput>;
   listStreams(
     args: ListStreamsCommandInput,
@@ -97,7 +104,7 @@ export interface DynamoDBStreams {
   ): void;
   listStreams(
     args: ListStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBStreamsRequestOptions,
     cb: (err: any, data?: ListStreamsCommandOutput) => void
   ): void;
 }

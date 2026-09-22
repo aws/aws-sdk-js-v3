@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CreateLifecyclePolicyCommandInput,
@@ -55,13 +55,20 @@ const commands = {
   UpdateLifecyclePolicyCommand,
 };
 
+/**
+ * @public
+ */
+export interface DLMRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DLM {
   /**
    * @see {@link CreateLifecyclePolicyCommand}
    */
   createLifecyclePolicy(
     args: CreateLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DLMRequestOptions
   ): Promise<CreateLifecyclePolicyCommandOutput>;
   createLifecyclePolicy(
     args: CreateLifecyclePolicyCommandInput,
@@ -69,7 +76,7 @@ export interface DLM {
   ): void;
   createLifecyclePolicy(
     args: CreateLifecyclePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DLMRequestOptions,
     cb: (err: any, data?: CreateLifecyclePolicyCommandOutput) => void
   ): void;
 
@@ -78,7 +85,7 @@ export interface DLM {
    */
   deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DLMRequestOptions
   ): Promise<DeleteLifecyclePolicyCommandOutput>;
   deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
@@ -86,7 +93,7 @@ export interface DLM {
   ): void;
   deleteLifecyclePolicy(
     args: DeleteLifecyclePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DLMRequestOptions,
     cb: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
   ): void;
 
@@ -96,7 +103,7 @@ export interface DLM {
   getLifecyclePolicies(): Promise<GetLifecyclePoliciesCommandOutput>;
   getLifecyclePolicies(
     args: GetLifecyclePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DLMRequestOptions
   ): Promise<GetLifecyclePoliciesCommandOutput>;
   getLifecyclePolicies(
     args: GetLifecyclePoliciesCommandInput,
@@ -104,7 +111,7 @@ export interface DLM {
   ): void;
   getLifecyclePolicies(
     args: GetLifecyclePoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DLMRequestOptions,
     cb: (err: any, data?: GetLifecyclePoliciesCommandOutput) => void
   ): void;
 
@@ -113,7 +120,7 @@ export interface DLM {
    */
   getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DLMRequestOptions
   ): Promise<GetLifecyclePolicyCommandOutput>;
   getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
@@ -121,7 +128,7 @@ export interface DLM {
   ): void;
   getLifecyclePolicy(
     args: GetLifecyclePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DLMRequestOptions,
     cb: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
   ): void;
 
@@ -130,7 +137,7 @@ export interface DLM {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DLMRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -138,7 +145,7 @@ export interface DLM {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DLMRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -147,7 +154,7 @@ export interface DLM {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DLMRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -155,7 +162,7 @@ export interface DLM {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DLMRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -164,7 +171,7 @@ export interface DLM {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DLMRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -172,7 +179,7 @@ export interface DLM {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DLMRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -181,7 +188,7 @@ export interface DLM {
    */
   updateLifecyclePolicy(
     args: UpdateLifecyclePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DLMRequestOptions
   ): Promise<UpdateLifecyclePolicyCommandOutput>;
   updateLifecyclePolicy(
     args: UpdateLifecyclePolicyCommandInput,
@@ -189,7 +196,7 @@ export interface DLM {
   ): void;
   updateLifecyclePolicy(
     args: UpdateLifecyclePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DLMRequestOptions,
     cb: (err: any, data?: UpdateLifecyclePolicyCommandOutput) => void
   ): void;
 }

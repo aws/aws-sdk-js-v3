@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BudgetsClient } from "./BudgetsClient";
 import {
@@ -183,13 +188,20 @@ const paginators = {
   paginateDescribeSubscribersForNotification,
 };
 
+/**
+ * @public
+ */
+export interface BudgetsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Budgets {
   /**
    * @see {@link CreateBudgetCommand}
    */
   createBudget(
     args: CreateBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<CreateBudgetCommandOutput>;
   createBudget(
     args: CreateBudgetCommandInput,
@@ -197,7 +209,7 @@ export interface Budgets {
   ): void;
   createBudget(
     args: CreateBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: CreateBudgetCommandOutput) => void
   ): void;
 
@@ -206,7 +218,7 @@ export interface Budgets {
    */
   createBudgetAction(
     args: CreateBudgetActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<CreateBudgetActionCommandOutput>;
   createBudgetAction(
     args: CreateBudgetActionCommandInput,
@@ -214,7 +226,7 @@ export interface Budgets {
   ): void;
   createBudgetAction(
     args: CreateBudgetActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: CreateBudgetActionCommandOutput) => void
   ): void;
 
@@ -223,7 +235,7 @@ export interface Budgets {
    */
   createNotification(
     args: CreateNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<CreateNotificationCommandOutput>;
   createNotification(
     args: CreateNotificationCommandInput,
@@ -231,7 +243,7 @@ export interface Budgets {
   ): void;
   createNotification(
     args: CreateNotificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: CreateNotificationCommandOutput) => void
   ): void;
 
@@ -240,7 +252,7 @@ export interface Budgets {
    */
   createSubscriber(
     args: CreateSubscriberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<CreateSubscriberCommandOutput>;
   createSubscriber(
     args: CreateSubscriberCommandInput,
@@ -248,7 +260,7 @@ export interface Budgets {
   ): void;
   createSubscriber(
     args: CreateSubscriberCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: CreateSubscriberCommandOutput) => void
   ): void;
 
@@ -257,7 +269,7 @@ export interface Budgets {
    */
   deleteBudget(
     args: DeleteBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DeleteBudgetCommandOutput>;
   deleteBudget(
     args: DeleteBudgetCommandInput,
@@ -265,7 +277,7 @@ export interface Budgets {
   ): void;
   deleteBudget(
     args: DeleteBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DeleteBudgetCommandOutput) => void
   ): void;
 
@@ -274,7 +286,7 @@ export interface Budgets {
    */
   deleteBudgetAction(
     args: DeleteBudgetActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DeleteBudgetActionCommandOutput>;
   deleteBudgetAction(
     args: DeleteBudgetActionCommandInput,
@@ -282,7 +294,7 @@ export interface Budgets {
   ): void;
   deleteBudgetAction(
     args: DeleteBudgetActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DeleteBudgetActionCommandOutput) => void
   ): void;
 
@@ -291,7 +303,7 @@ export interface Budgets {
    */
   deleteNotification(
     args: DeleteNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DeleteNotificationCommandOutput>;
   deleteNotification(
     args: DeleteNotificationCommandInput,
@@ -299,7 +311,7 @@ export interface Budgets {
   ): void;
   deleteNotification(
     args: DeleteNotificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DeleteNotificationCommandOutput) => void
   ): void;
 
@@ -308,7 +320,7 @@ export interface Budgets {
    */
   deleteSubscriber(
     args: DeleteSubscriberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DeleteSubscriberCommandOutput>;
   deleteSubscriber(
     args: DeleteSubscriberCommandInput,
@@ -316,7 +328,7 @@ export interface Budgets {
   ): void;
   deleteSubscriber(
     args: DeleteSubscriberCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DeleteSubscriberCommandOutput) => void
   ): void;
 
@@ -325,7 +337,7 @@ export interface Budgets {
    */
   describeBudget(
     args: DescribeBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeBudgetCommandOutput>;
   describeBudget(
     args: DescribeBudgetCommandInput,
@@ -333,7 +345,7 @@ export interface Budgets {
   ): void;
   describeBudget(
     args: DescribeBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeBudgetCommandOutput) => void
   ): void;
 
@@ -342,7 +354,7 @@ export interface Budgets {
    */
   describeBudgetAction(
     args: DescribeBudgetActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeBudgetActionCommandOutput>;
   describeBudgetAction(
     args: DescribeBudgetActionCommandInput,
@@ -350,7 +362,7 @@ export interface Budgets {
   ): void;
   describeBudgetAction(
     args: DescribeBudgetActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeBudgetActionCommandOutput) => void
   ): void;
 
@@ -359,7 +371,7 @@ export interface Budgets {
    */
   describeBudgetActionHistories(
     args: DescribeBudgetActionHistoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeBudgetActionHistoriesCommandOutput>;
   describeBudgetActionHistories(
     args: DescribeBudgetActionHistoriesCommandInput,
@@ -367,7 +379,7 @@ export interface Budgets {
   ): void;
   describeBudgetActionHistories(
     args: DescribeBudgetActionHistoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeBudgetActionHistoriesCommandOutput) => void
   ): void;
 
@@ -376,7 +388,7 @@ export interface Budgets {
    */
   describeBudgetActionsForAccount(
     args: DescribeBudgetActionsForAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeBudgetActionsForAccountCommandOutput>;
   describeBudgetActionsForAccount(
     args: DescribeBudgetActionsForAccountCommandInput,
@@ -384,7 +396,7 @@ export interface Budgets {
   ): void;
   describeBudgetActionsForAccount(
     args: DescribeBudgetActionsForAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeBudgetActionsForAccountCommandOutput) => void
   ): void;
 
@@ -393,7 +405,7 @@ export interface Budgets {
    */
   describeBudgetActionsForBudget(
     args: DescribeBudgetActionsForBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeBudgetActionsForBudgetCommandOutput>;
   describeBudgetActionsForBudget(
     args: DescribeBudgetActionsForBudgetCommandInput,
@@ -401,7 +413,7 @@ export interface Budgets {
   ): void;
   describeBudgetActionsForBudget(
     args: DescribeBudgetActionsForBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeBudgetActionsForBudgetCommandOutput) => void
   ): void;
 
@@ -410,7 +422,7 @@ export interface Budgets {
    */
   describeBudgetNotificationsForAccount(
     args: DescribeBudgetNotificationsForAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeBudgetNotificationsForAccountCommandOutput>;
   describeBudgetNotificationsForAccount(
     args: DescribeBudgetNotificationsForAccountCommandInput,
@@ -418,7 +430,7 @@ export interface Budgets {
   ): void;
   describeBudgetNotificationsForAccount(
     args: DescribeBudgetNotificationsForAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeBudgetNotificationsForAccountCommandOutput) => void
   ): void;
 
@@ -427,7 +439,7 @@ export interface Budgets {
    */
   describeBudgetPerformanceHistory(
     args: DescribeBudgetPerformanceHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeBudgetPerformanceHistoryCommandOutput>;
   describeBudgetPerformanceHistory(
     args: DescribeBudgetPerformanceHistoryCommandInput,
@@ -435,7 +447,7 @@ export interface Budgets {
   ): void;
   describeBudgetPerformanceHistory(
     args: DescribeBudgetPerformanceHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeBudgetPerformanceHistoryCommandOutput) => void
   ): void;
 
@@ -444,7 +456,7 @@ export interface Budgets {
    */
   describeBudgets(
     args: DescribeBudgetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeBudgetsCommandOutput>;
   describeBudgets(
     args: DescribeBudgetsCommandInput,
@@ -452,7 +464,7 @@ export interface Budgets {
   ): void;
   describeBudgets(
     args: DescribeBudgetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeBudgetsCommandOutput) => void
   ): void;
 
@@ -461,7 +473,7 @@ export interface Budgets {
    */
   describeNotificationsForBudget(
     args: DescribeNotificationsForBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeNotificationsForBudgetCommandOutput>;
   describeNotificationsForBudget(
     args: DescribeNotificationsForBudgetCommandInput,
@@ -469,7 +481,7 @@ export interface Budgets {
   ): void;
   describeNotificationsForBudget(
     args: DescribeNotificationsForBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeNotificationsForBudgetCommandOutput) => void
   ): void;
 
@@ -478,7 +490,7 @@ export interface Budgets {
    */
   describeSubscribersForNotification(
     args: DescribeSubscribersForNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<DescribeSubscribersForNotificationCommandOutput>;
   describeSubscribersForNotification(
     args: DescribeSubscribersForNotificationCommandInput,
@@ -486,7 +498,7 @@ export interface Budgets {
   ): void;
   describeSubscribersForNotification(
     args: DescribeSubscribersForNotificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: DescribeSubscribersForNotificationCommandOutput) => void
   ): void;
 
@@ -495,7 +507,7 @@ export interface Budgets {
    */
   executeBudgetAction(
     args: ExecuteBudgetActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<ExecuteBudgetActionCommandOutput>;
   executeBudgetAction(
     args: ExecuteBudgetActionCommandInput,
@@ -503,7 +515,7 @@ export interface Budgets {
   ): void;
   executeBudgetAction(
     args: ExecuteBudgetActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: ExecuteBudgetActionCommandOutput) => void
   ): void;
 
@@ -512,7 +524,7 @@ export interface Budgets {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -520,7 +532,7 @@ export interface Budgets {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -529,7 +541,7 @@ export interface Budgets {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -537,7 +549,7 @@ export interface Budgets {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -546,7 +558,7 @@ export interface Budgets {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -554,7 +566,7 @@ export interface Budgets {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -563,7 +575,7 @@ export interface Budgets {
    */
   updateBudget(
     args: UpdateBudgetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<UpdateBudgetCommandOutput>;
   updateBudget(
     args: UpdateBudgetCommandInput,
@@ -571,7 +583,7 @@ export interface Budgets {
   ): void;
   updateBudget(
     args: UpdateBudgetCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: UpdateBudgetCommandOutput) => void
   ): void;
 
@@ -580,7 +592,7 @@ export interface Budgets {
    */
   updateBudgetAction(
     args: UpdateBudgetActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<UpdateBudgetActionCommandOutput>;
   updateBudgetAction(
     args: UpdateBudgetActionCommandInput,
@@ -588,7 +600,7 @@ export interface Budgets {
   ): void;
   updateBudgetAction(
     args: UpdateBudgetActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: UpdateBudgetActionCommandOutput) => void
   ): void;
 
@@ -597,7 +609,7 @@ export interface Budgets {
    */
   updateNotification(
     args: UpdateNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<UpdateNotificationCommandOutput>;
   updateNotification(
     args: UpdateNotificationCommandInput,
@@ -605,7 +617,7 @@ export interface Budgets {
   ): void;
   updateNotification(
     args: UpdateNotificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: UpdateNotificationCommandOutput) => void
   ): void;
 
@@ -614,7 +626,7 @@ export interface Budgets {
    */
   updateSubscriber(
     args: UpdateSubscriberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BudgetsRequestOptions
   ): Promise<UpdateSubscriberCommandOutput>;
   updateSubscriber(
     args: UpdateSubscriberCommandInput,
@@ -622,7 +634,7 @@ export interface Budgets {
   ): void;
   updateSubscriber(
     args: UpdateSubscriberCommandInput,
-    options: __HttpHandlerOptions,
+    options: BudgetsRequestOptions,
     cb: (err: any, data?: UpdateSubscriberCommandOutput) => void
   ): void;
 

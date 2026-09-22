@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type AcceptGrantCommandInput,
@@ -375,13 +375,20 @@ const commands = {
   UpdateServiceSettingsCommand,
 };
 
+/**
+ * @public
+ */
+export interface LicenseManagerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface LicenseManager {
   /**
    * @see {@link AcceptGrantCommand}
    */
   acceptGrant(
     args: AcceptGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<AcceptGrantCommandOutput>;
   acceptGrant(
     args: AcceptGrantCommandInput,
@@ -389,7 +396,7 @@ export interface LicenseManager {
   ): void;
   acceptGrant(
     args: AcceptGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: AcceptGrantCommandOutput) => void
   ): void;
 
@@ -398,7 +405,7 @@ export interface LicenseManager {
    */
   checkInLicense(
     args: CheckInLicenseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CheckInLicenseCommandOutput>;
   checkInLicense(
     args: CheckInLicenseCommandInput,
@@ -406,7 +413,7 @@ export interface LicenseManager {
   ): void;
   checkInLicense(
     args: CheckInLicenseCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CheckInLicenseCommandOutput) => void
   ): void;
 
@@ -415,7 +422,7 @@ export interface LicenseManager {
    */
   checkoutBorrowLicense(
     args: CheckoutBorrowLicenseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CheckoutBorrowLicenseCommandOutput>;
   checkoutBorrowLicense(
     args: CheckoutBorrowLicenseCommandInput,
@@ -423,7 +430,7 @@ export interface LicenseManager {
   ): void;
   checkoutBorrowLicense(
     args: CheckoutBorrowLicenseCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CheckoutBorrowLicenseCommandOutput) => void
   ): void;
 
@@ -432,7 +439,7 @@ export interface LicenseManager {
    */
   checkoutLicense(
     args: CheckoutLicenseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CheckoutLicenseCommandOutput>;
   checkoutLicense(
     args: CheckoutLicenseCommandInput,
@@ -440,7 +447,7 @@ export interface LicenseManager {
   ): void;
   checkoutLicense(
     args: CheckoutLicenseCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CheckoutLicenseCommandOutput) => void
   ): void;
 
@@ -449,7 +456,7 @@ export interface LicenseManager {
    */
   createGrant(
     args: CreateGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateGrantCommandOutput>;
   createGrant(
     args: CreateGrantCommandInput,
@@ -457,7 +464,7 @@ export interface LicenseManager {
   ): void;
   createGrant(
     args: CreateGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateGrantCommandOutput) => void
   ): void;
 
@@ -466,7 +473,7 @@ export interface LicenseManager {
    */
   createGrantVersion(
     args: CreateGrantVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateGrantVersionCommandOutput>;
   createGrantVersion(
     args: CreateGrantVersionCommandInput,
@@ -474,7 +481,7 @@ export interface LicenseManager {
   ): void;
   createGrantVersion(
     args: CreateGrantVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateGrantVersionCommandOutput) => void
   ): void;
 
@@ -483,7 +490,7 @@ export interface LicenseManager {
    */
   createLicense(
     args: CreateLicenseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateLicenseCommandOutput>;
   createLicense(
     args: CreateLicenseCommandInput,
@@ -491,7 +498,7 @@ export interface LicenseManager {
   ): void;
   createLicense(
     args: CreateLicenseCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateLicenseCommandOutput) => void
   ): void;
 
@@ -500,7 +507,7 @@ export interface LicenseManager {
    */
   createLicenseAssetGroup(
     args: CreateLicenseAssetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateLicenseAssetGroupCommandOutput>;
   createLicenseAssetGroup(
     args: CreateLicenseAssetGroupCommandInput,
@@ -508,7 +515,7 @@ export interface LicenseManager {
   ): void;
   createLicenseAssetGroup(
     args: CreateLicenseAssetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateLicenseAssetGroupCommandOutput) => void
   ): void;
 
@@ -517,7 +524,7 @@ export interface LicenseManager {
    */
   createLicenseAssetRuleset(
     args: CreateLicenseAssetRulesetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateLicenseAssetRulesetCommandOutput>;
   createLicenseAssetRuleset(
     args: CreateLicenseAssetRulesetCommandInput,
@@ -525,7 +532,7 @@ export interface LicenseManager {
   ): void;
   createLicenseAssetRuleset(
     args: CreateLicenseAssetRulesetCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateLicenseAssetRulesetCommandOutput) => void
   ): void;
 
@@ -534,7 +541,7 @@ export interface LicenseManager {
    */
   createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateLicenseConfigurationCommandOutput>;
   createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
@@ -542,7 +549,7 @@ export interface LicenseManager {
   ): void;
   createLicenseConfiguration(
     args: CreateLicenseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateLicenseConfigurationCommandOutput) => void
   ): void;
 
@@ -551,7 +558,7 @@ export interface LicenseManager {
    */
   createLicenseConversionTaskForResource(
     args: CreateLicenseConversionTaskForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateLicenseConversionTaskForResourceCommandOutput>;
   createLicenseConversionTaskForResource(
     args: CreateLicenseConversionTaskForResourceCommandInput,
@@ -559,7 +566,7 @@ export interface LicenseManager {
   ): void;
   createLicenseConversionTaskForResource(
     args: CreateLicenseConversionTaskForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateLicenseConversionTaskForResourceCommandOutput) => void
   ): void;
 
@@ -568,7 +575,7 @@ export interface LicenseManager {
    */
   createLicenseManagerReportGenerator(
     args: CreateLicenseManagerReportGeneratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateLicenseManagerReportGeneratorCommandOutput>;
   createLicenseManagerReportGenerator(
     args: CreateLicenseManagerReportGeneratorCommandInput,
@@ -576,7 +583,7 @@ export interface LicenseManager {
   ): void;
   createLicenseManagerReportGenerator(
     args: CreateLicenseManagerReportGeneratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
 
@@ -585,7 +592,7 @@ export interface LicenseManager {
    */
   createLicenseVersion(
     args: CreateLicenseVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateLicenseVersionCommandOutput>;
   createLicenseVersion(
     args: CreateLicenseVersionCommandInput,
@@ -593,7 +600,7 @@ export interface LicenseManager {
   ): void;
   createLicenseVersion(
     args: CreateLicenseVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateLicenseVersionCommandOutput) => void
   ): void;
 
@@ -602,7 +609,7 @@ export interface LicenseManager {
    */
   createToken(
     args: CreateTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<CreateTokenCommandOutput>;
   createToken(
     args: CreateTokenCommandInput,
@@ -610,7 +617,7 @@ export interface LicenseManager {
   ): void;
   createToken(
     args: CreateTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: CreateTokenCommandOutput) => void
   ): void;
 
@@ -619,7 +626,7 @@ export interface LicenseManager {
    */
   deleteGrant(
     args: DeleteGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<DeleteGrantCommandOutput>;
   deleteGrant(
     args: DeleteGrantCommandInput,
@@ -627,7 +634,7 @@ export interface LicenseManager {
   ): void;
   deleteGrant(
     args: DeleteGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: DeleteGrantCommandOutput) => void
   ): void;
 
@@ -636,7 +643,7 @@ export interface LicenseManager {
    */
   deleteLicense(
     args: DeleteLicenseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<DeleteLicenseCommandOutput>;
   deleteLicense(
     args: DeleteLicenseCommandInput,
@@ -644,7 +651,7 @@ export interface LicenseManager {
   ): void;
   deleteLicense(
     args: DeleteLicenseCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: DeleteLicenseCommandOutput) => void
   ): void;
 
@@ -653,7 +660,7 @@ export interface LicenseManager {
    */
   deleteLicenseAssetGroup(
     args: DeleteLicenseAssetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<DeleteLicenseAssetGroupCommandOutput>;
   deleteLicenseAssetGroup(
     args: DeleteLicenseAssetGroupCommandInput,
@@ -661,7 +668,7 @@ export interface LicenseManager {
   ): void;
   deleteLicenseAssetGroup(
     args: DeleteLicenseAssetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: DeleteLicenseAssetGroupCommandOutput) => void
   ): void;
 
@@ -670,7 +677,7 @@ export interface LicenseManager {
    */
   deleteLicenseAssetRuleset(
     args: DeleteLicenseAssetRulesetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<DeleteLicenseAssetRulesetCommandOutput>;
   deleteLicenseAssetRuleset(
     args: DeleteLicenseAssetRulesetCommandInput,
@@ -678,7 +685,7 @@ export interface LicenseManager {
   ): void;
   deleteLicenseAssetRuleset(
     args: DeleteLicenseAssetRulesetCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: DeleteLicenseAssetRulesetCommandOutput) => void
   ): void;
 
@@ -687,7 +694,7 @@ export interface LicenseManager {
    */
   deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<DeleteLicenseConfigurationCommandOutput>;
   deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
@@ -695,7 +702,7 @@ export interface LicenseManager {
   ): void;
   deleteLicenseConfiguration(
     args: DeleteLicenseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: DeleteLicenseConfigurationCommandOutput) => void
   ): void;
 
@@ -704,7 +711,7 @@ export interface LicenseManager {
    */
   deleteLicenseManagerReportGenerator(
     args: DeleteLicenseManagerReportGeneratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput>;
   deleteLicenseManagerReportGenerator(
     args: DeleteLicenseManagerReportGeneratorCommandInput,
@@ -712,7 +719,7 @@ export interface LicenseManager {
   ): void;
   deleteLicenseManagerReportGenerator(
     args: DeleteLicenseManagerReportGeneratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: DeleteLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
 
@@ -721,7 +728,7 @@ export interface LicenseManager {
    */
   deleteToken(
     args: DeleteTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<DeleteTokenCommandOutput>;
   deleteToken(
     args: DeleteTokenCommandInput,
@@ -729,7 +736,7 @@ export interface LicenseManager {
   ): void;
   deleteToken(
     args: DeleteTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: DeleteTokenCommandOutput) => void
   ): void;
 
@@ -738,7 +745,7 @@ export interface LicenseManager {
    */
   extendLicenseConsumption(
     args: ExtendLicenseConsumptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ExtendLicenseConsumptionCommandOutput>;
   extendLicenseConsumption(
     args: ExtendLicenseConsumptionCommandInput,
@@ -746,7 +753,7 @@ export interface LicenseManager {
   ): void;
   extendLicenseConsumption(
     args: ExtendLicenseConsumptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ExtendLicenseConsumptionCommandOutput) => void
   ): void;
 
@@ -755,7 +762,7 @@ export interface LicenseManager {
    */
   getAccessToken(
     args: GetAccessTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetAccessTokenCommandOutput>;
   getAccessToken(
     args: GetAccessTokenCommandInput,
@@ -763,7 +770,7 @@ export interface LicenseManager {
   ): void;
   getAccessToken(
     args: GetAccessTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetAccessTokenCommandOutput) => void
   ): void;
 
@@ -772,7 +779,7 @@ export interface LicenseManager {
    */
   getGrant(
     args: GetGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetGrantCommandOutput>;
   getGrant(
     args: GetGrantCommandInput,
@@ -780,7 +787,7 @@ export interface LicenseManager {
   ): void;
   getGrant(
     args: GetGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetGrantCommandOutput) => void
   ): void;
 
@@ -789,7 +796,7 @@ export interface LicenseManager {
    */
   getLicense(
     args: GetLicenseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetLicenseCommandOutput>;
   getLicense(
     args: GetLicenseCommandInput,
@@ -797,7 +804,7 @@ export interface LicenseManager {
   ): void;
   getLicense(
     args: GetLicenseCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetLicenseCommandOutput) => void
   ): void;
 
@@ -806,7 +813,7 @@ export interface LicenseManager {
    */
   getLicenseAssetGroup(
     args: GetLicenseAssetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetLicenseAssetGroupCommandOutput>;
   getLicenseAssetGroup(
     args: GetLicenseAssetGroupCommandInput,
@@ -814,7 +821,7 @@ export interface LicenseManager {
   ): void;
   getLicenseAssetGroup(
     args: GetLicenseAssetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetLicenseAssetGroupCommandOutput) => void
   ): void;
 
@@ -823,7 +830,7 @@ export interface LicenseManager {
    */
   getLicenseAssetRuleset(
     args: GetLicenseAssetRulesetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetLicenseAssetRulesetCommandOutput>;
   getLicenseAssetRuleset(
     args: GetLicenseAssetRulesetCommandInput,
@@ -831,7 +838,7 @@ export interface LicenseManager {
   ): void;
   getLicenseAssetRuleset(
     args: GetLicenseAssetRulesetCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetLicenseAssetRulesetCommandOutput) => void
   ): void;
 
@@ -840,7 +847,7 @@ export interface LicenseManager {
    */
   getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetLicenseConfigurationCommandOutput>;
   getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
@@ -848,7 +855,7 @@ export interface LicenseManager {
   ): void;
   getLicenseConfiguration(
     args: GetLicenseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetLicenseConfigurationCommandOutput) => void
   ): void;
 
@@ -857,7 +864,7 @@ export interface LicenseManager {
    */
   getLicenseConversionTask(
     args: GetLicenseConversionTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetLicenseConversionTaskCommandOutput>;
   getLicenseConversionTask(
     args: GetLicenseConversionTaskCommandInput,
@@ -865,7 +872,7 @@ export interface LicenseManager {
   ): void;
   getLicenseConversionTask(
     args: GetLicenseConversionTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetLicenseConversionTaskCommandOutput) => void
   ): void;
 
@@ -874,7 +881,7 @@ export interface LicenseManager {
    */
   getLicenseManagerReportGenerator(
     args: GetLicenseManagerReportGeneratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetLicenseManagerReportGeneratorCommandOutput>;
   getLicenseManagerReportGenerator(
     args: GetLicenseManagerReportGeneratorCommandInput,
@@ -882,7 +889,7 @@ export interface LicenseManager {
   ): void;
   getLicenseManagerReportGenerator(
     args: GetLicenseManagerReportGeneratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
 
@@ -891,7 +898,7 @@ export interface LicenseManager {
    */
   getLicenseUsage(
     args: GetLicenseUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetLicenseUsageCommandOutput>;
   getLicenseUsage(
     args: GetLicenseUsageCommandInput,
@@ -899,7 +906,7 @@ export interface LicenseManager {
   ): void;
   getLicenseUsage(
     args: GetLicenseUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetLicenseUsageCommandOutput) => void
   ): void;
 
@@ -909,7 +916,7 @@ export interface LicenseManager {
   getServiceSettings(): Promise<GetServiceSettingsCommandOutput>;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<GetServiceSettingsCommandOutput>;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
@@ -917,7 +924,7 @@ export interface LicenseManager {
   ): void;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: GetServiceSettingsCommandOutput) => void
   ): void;
 
@@ -926,7 +933,7 @@ export interface LicenseManager {
    */
   listAssetsForLicenseAssetGroup(
     args: ListAssetsForLicenseAssetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListAssetsForLicenseAssetGroupCommandOutput>;
   listAssetsForLicenseAssetGroup(
     args: ListAssetsForLicenseAssetGroupCommandInput,
@@ -934,7 +941,7 @@ export interface LicenseManager {
   ): void;
   listAssetsForLicenseAssetGroup(
     args: ListAssetsForLicenseAssetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListAssetsForLicenseAssetGroupCommandOutput) => void
   ): void;
 
@@ -943,7 +950,7 @@ export interface LicenseManager {
    */
   listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListAssociationsForLicenseConfigurationCommandOutput>;
   listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
@@ -951,7 +958,7 @@ export interface LicenseManager {
   ): void;
   listAssociationsForLicenseConfiguration(
     args: ListAssociationsForLicenseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListAssociationsForLicenseConfigurationCommandOutput) => void
   ): void;
 
@@ -961,7 +968,7 @@ export interface LicenseManager {
   listDistributedGrants(): Promise<ListDistributedGrantsCommandOutput>;
   listDistributedGrants(
     args: ListDistributedGrantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListDistributedGrantsCommandOutput>;
   listDistributedGrants(
     args: ListDistributedGrantsCommandInput,
@@ -969,7 +976,7 @@ export interface LicenseManager {
   ): void;
   listDistributedGrants(
     args: ListDistributedGrantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListDistributedGrantsCommandOutput) => void
   ): void;
 
@@ -978,7 +985,7 @@ export interface LicenseManager {
    */
   listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput>;
   listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
@@ -986,7 +993,7 @@ export interface LicenseManager {
   ): void;
   listFailuresForLicenseConfigurationOperations(
     args: ListFailuresForLicenseConfigurationOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListFailuresForLicenseConfigurationOperationsCommandOutput) => void
   ): void;
 
@@ -996,7 +1003,7 @@ export interface LicenseManager {
   listLicenseAssetGroups(): Promise<ListLicenseAssetGroupsCommandOutput>;
   listLicenseAssetGroups(
     args: ListLicenseAssetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListLicenseAssetGroupsCommandOutput>;
   listLicenseAssetGroups(
     args: ListLicenseAssetGroupsCommandInput,
@@ -1004,7 +1011,7 @@ export interface LicenseManager {
   ): void;
   listLicenseAssetGroups(
     args: ListLicenseAssetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListLicenseAssetGroupsCommandOutput) => void
   ): void;
 
@@ -1014,7 +1021,7 @@ export interface LicenseManager {
   listLicenseAssetRulesets(): Promise<ListLicenseAssetRulesetsCommandOutput>;
   listLicenseAssetRulesets(
     args: ListLicenseAssetRulesetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListLicenseAssetRulesetsCommandOutput>;
   listLicenseAssetRulesets(
     args: ListLicenseAssetRulesetsCommandInput,
@@ -1022,7 +1029,7 @@ export interface LicenseManager {
   ): void;
   listLicenseAssetRulesets(
     args: ListLicenseAssetRulesetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListLicenseAssetRulesetsCommandOutput) => void
   ): void;
 
@@ -1032,7 +1039,7 @@ export interface LicenseManager {
   listLicenseConfigurations(): Promise<ListLicenseConfigurationsCommandOutput>;
   listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListLicenseConfigurationsCommandOutput>;
   listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
@@ -1040,7 +1047,7 @@ export interface LicenseManager {
   ): void;
   listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListLicenseConfigurationsCommandOutput) => void
   ): void;
 
@@ -1050,7 +1057,7 @@ export interface LicenseManager {
   listLicenseConfigurationsForOrganization(): Promise<ListLicenseConfigurationsForOrganizationCommandOutput>;
   listLicenseConfigurationsForOrganization(
     args: ListLicenseConfigurationsForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListLicenseConfigurationsForOrganizationCommandOutput>;
   listLicenseConfigurationsForOrganization(
     args: ListLicenseConfigurationsForOrganizationCommandInput,
@@ -1058,7 +1065,7 @@ export interface LicenseManager {
   ): void;
   listLicenseConfigurationsForOrganization(
     args: ListLicenseConfigurationsForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListLicenseConfigurationsForOrganizationCommandOutput) => void
   ): void;
 
@@ -1068,7 +1075,7 @@ export interface LicenseManager {
   listLicenseConversionTasks(): Promise<ListLicenseConversionTasksCommandOutput>;
   listLicenseConversionTasks(
     args: ListLicenseConversionTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListLicenseConversionTasksCommandOutput>;
   listLicenseConversionTasks(
     args: ListLicenseConversionTasksCommandInput,
@@ -1076,7 +1083,7 @@ export interface LicenseManager {
   ): void;
   listLicenseConversionTasks(
     args: ListLicenseConversionTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListLicenseConversionTasksCommandOutput) => void
   ): void;
 
@@ -1086,7 +1093,7 @@ export interface LicenseManager {
   listLicenseManagerReportGenerators(): Promise<ListLicenseManagerReportGeneratorsCommandOutput>;
   listLicenseManagerReportGenerators(
     args: ListLicenseManagerReportGeneratorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListLicenseManagerReportGeneratorsCommandOutput>;
   listLicenseManagerReportGenerators(
     args: ListLicenseManagerReportGeneratorsCommandInput,
@@ -1094,7 +1101,7 @@ export interface LicenseManager {
   ): void;
   listLicenseManagerReportGenerators(
     args: ListLicenseManagerReportGeneratorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListLicenseManagerReportGeneratorsCommandOutput) => void
   ): void;
 
@@ -1104,7 +1111,7 @@ export interface LicenseManager {
   listLicenses(): Promise<ListLicensesCommandOutput>;
   listLicenses(
     args: ListLicensesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListLicensesCommandOutput>;
   listLicenses(
     args: ListLicensesCommandInput,
@@ -1112,7 +1119,7 @@ export interface LicenseManager {
   ): void;
   listLicenses(
     args: ListLicensesCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListLicensesCommandOutput) => void
   ): void;
 
@@ -1121,7 +1128,7 @@ export interface LicenseManager {
    */
   listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListLicenseSpecificationsForResourceCommandOutput>;
   listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
@@ -1129,7 +1136,7 @@ export interface LicenseManager {
   ): void;
   listLicenseSpecificationsForResource(
     args: ListLicenseSpecificationsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
 
@@ -1138,7 +1145,7 @@ export interface LicenseManager {
    */
   listLicenseVersions(
     args: ListLicenseVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListLicenseVersionsCommandOutput>;
   listLicenseVersions(
     args: ListLicenseVersionsCommandInput,
@@ -1146,7 +1153,7 @@ export interface LicenseManager {
   ): void;
   listLicenseVersions(
     args: ListLicenseVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListLicenseVersionsCommandOutput) => void
   ): void;
 
@@ -1156,7 +1163,7 @@ export interface LicenseManager {
   listReceivedGrants(): Promise<ListReceivedGrantsCommandOutput>;
   listReceivedGrants(
     args: ListReceivedGrantsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListReceivedGrantsCommandOutput>;
   listReceivedGrants(
     args: ListReceivedGrantsCommandInput,
@@ -1164,7 +1171,7 @@ export interface LicenseManager {
   ): void;
   listReceivedGrants(
     args: ListReceivedGrantsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListReceivedGrantsCommandOutput) => void
   ): void;
 
@@ -1173,7 +1180,7 @@ export interface LicenseManager {
    */
   listReceivedGrantsForOrganization(
     args: ListReceivedGrantsForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListReceivedGrantsForOrganizationCommandOutput>;
   listReceivedGrantsForOrganization(
     args: ListReceivedGrantsForOrganizationCommandInput,
@@ -1181,7 +1188,7 @@ export interface LicenseManager {
   ): void;
   listReceivedGrantsForOrganization(
     args: ListReceivedGrantsForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListReceivedGrantsForOrganizationCommandOutput) => void
   ): void;
 
@@ -1191,7 +1198,7 @@ export interface LicenseManager {
   listReceivedLicenses(): Promise<ListReceivedLicensesCommandOutput>;
   listReceivedLicenses(
     args: ListReceivedLicensesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListReceivedLicensesCommandOutput>;
   listReceivedLicenses(
     args: ListReceivedLicensesCommandInput,
@@ -1199,7 +1206,7 @@ export interface LicenseManager {
   ): void;
   listReceivedLicenses(
     args: ListReceivedLicensesCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListReceivedLicensesCommandOutput) => void
   ): void;
 
@@ -1209,7 +1216,7 @@ export interface LicenseManager {
   listReceivedLicensesForOrganization(): Promise<ListReceivedLicensesForOrganizationCommandOutput>;
   listReceivedLicensesForOrganization(
     args: ListReceivedLicensesForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListReceivedLicensesForOrganizationCommandOutput>;
   listReceivedLicensesForOrganization(
     args: ListReceivedLicensesForOrganizationCommandInput,
@@ -1217,7 +1224,7 @@ export interface LicenseManager {
   ): void;
   listReceivedLicensesForOrganization(
     args: ListReceivedLicensesForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListReceivedLicensesForOrganizationCommandOutput) => void
   ): void;
 
@@ -1227,7 +1234,7 @@ export interface LicenseManager {
   listResourceInventory(): Promise<ListResourceInventoryCommandOutput>;
   listResourceInventory(
     args: ListResourceInventoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListResourceInventoryCommandOutput>;
   listResourceInventory(
     args: ListResourceInventoryCommandInput,
@@ -1235,7 +1242,7 @@ export interface LicenseManager {
   ): void;
   listResourceInventory(
     args: ListResourceInventoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListResourceInventoryCommandOutput) => void
   ): void;
 
@@ -1244,7 +1251,7 @@ export interface LicenseManager {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1252,7 +1259,7 @@ export interface LicenseManager {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1262,7 +1269,7 @@ export interface LicenseManager {
   listTokens(): Promise<ListTokensCommandOutput>;
   listTokens(
     args: ListTokensCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListTokensCommandOutput>;
   listTokens(
     args: ListTokensCommandInput,
@@ -1270,7 +1277,7 @@ export interface LicenseManager {
   ): void;
   listTokens(
     args: ListTokensCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListTokensCommandOutput) => void
   ): void;
 
@@ -1279,7 +1286,7 @@ export interface LicenseManager {
    */
   listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<ListUsageForLicenseConfigurationCommandOutput>;
   listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
@@ -1287,7 +1294,7 @@ export interface LicenseManager {
   ): void;
   listUsageForLicenseConfiguration(
     args: ListUsageForLicenseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: ListUsageForLicenseConfigurationCommandOutput) => void
   ): void;
 
@@ -1296,7 +1303,7 @@ export interface LicenseManager {
    */
   rejectGrant(
     args: RejectGrantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<RejectGrantCommandOutput>;
   rejectGrant(
     args: RejectGrantCommandInput,
@@ -1304,7 +1311,7 @@ export interface LicenseManager {
   ): void;
   rejectGrant(
     args: RejectGrantCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: RejectGrantCommandOutput) => void
   ): void;
 
@@ -1313,7 +1320,7 @@ export interface LicenseManager {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1321,7 +1328,7 @@ export interface LicenseManager {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1330,7 +1337,7 @@ export interface LicenseManager {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1338,7 +1345,7 @@ export interface LicenseManager {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1347,7 +1354,7 @@ export interface LicenseManager {
    */
   updateLicenseAssetGroup(
     args: UpdateLicenseAssetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<UpdateLicenseAssetGroupCommandOutput>;
   updateLicenseAssetGroup(
     args: UpdateLicenseAssetGroupCommandInput,
@@ -1355,7 +1362,7 @@ export interface LicenseManager {
   ): void;
   updateLicenseAssetGroup(
     args: UpdateLicenseAssetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: UpdateLicenseAssetGroupCommandOutput) => void
   ): void;
 
@@ -1364,7 +1371,7 @@ export interface LicenseManager {
    */
   updateLicenseAssetRuleset(
     args: UpdateLicenseAssetRulesetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<UpdateLicenseAssetRulesetCommandOutput>;
   updateLicenseAssetRuleset(
     args: UpdateLicenseAssetRulesetCommandInput,
@@ -1372,7 +1379,7 @@ export interface LicenseManager {
   ): void;
   updateLicenseAssetRuleset(
     args: UpdateLicenseAssetRulesetCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: UpdateLicenseAssetRulesetCommandOutput) => void
   ): void;
 
@@ -1381,7 +1388,7 @@ export interface LicenseManager {
    */
   updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<UpdateLicenseConfigurationCommandOutput>;
   updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
@@ -1389,7 +1396,7 @@ export interface LicenseManager {
   ): void;
   updateLicenseConfiguration(
     args: UpdateLicenseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: UpdateLicenseConfigurationCommandOutput) => void
   ): void;
 
@@ -1398,7 +1405,7 @@ export interface LicenseManager {
    */
   updateLicenseManagerReportGenerator(
     args: UpdateLicenseManagerReportGeneratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<UpdateLicenseManagerReportGeneratorCommandOutput>;
   updateLicenseManagerReportGenerator(
     args: UpdateLicenseManagerReportGeneratorCommandInput,
@@ -1406,7 +1413,7 @@ export interface LicenseManager {
   ): void;
   updateLicenseManagerReportGenerator(
     args: UpdateLicenseManagerReportGeneratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: UpdateLicenseManagerReportGeneratorCommandOutput) => void
   ): void;
 
@@ -1415,7 +1422,7 @@ export interface LicenseManager {
    */
   updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<UpdateLicenseSpecificationsForResourceCommandOutput>;
   updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
@@ -1423,7 +1430,7 @@ export interface LicenseManager {
   ): void;
   updateLicenseSpecificationsForResource(
     args: UpdateLicenseSpecificationsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: UpdateLicenseSpecificationsForResourceCommandOutput) => void
   ): void;
 
@@ -1433,7 +1440,7 @@ export interface LicenseManager {
   updateServiceSettings(): Promise<UpdateServiceSettingsCommandOutput>;
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LicenseManagerRequestOptions
   ): Promise<UpdateServiceSettingsCommandOutput>;
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
@@ -1441,7 +1448,7 @@ export interface LicenseManager {
   ): void;
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LicenseManagerRequestOptions,
     cb: (err: any, data?: UpdateServiceSettingsCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateAccessPointCommandInput,
@@ -207,13 +212,20 @@ const paginators = {
   paginateListTagsForResource,
 };
 
+/**
+ * @public
+ */
+export interface EFSRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface EFS {
   /**
    * @see {@link CreateAccessPointCommand}
    */
   createAccessPoint(
     args: CreateAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<CreateAccessPointCommandOutput>;
   createAccessPoint(
     args: CreateAccessPointCommandInput,
@@ -221,7 +233,7 @@ export interface EFS {
   ): void;
   createAccessPoint(
     args: CreateAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: CreateAccessPointCommandOutput) => void
   ): void;
 
@@ -230,7 +242,7 @@ export interface EFS {
    */
   createFileSystem(
     args: CreateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<CreateFileSystemCommandOutput>;
   createFileSystem(
     args: CreateFileSystemCommandInput,
@@ -238,7 +250,7 @@ export interface EFS {
   ): void;
   createFileSystem(
     args: CreateFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: CreateFileSystemCommandOutput) => void
   ): void;
 
@@ -247,7 +259,7 @@ export interface EFS {
    */
   createMountTarget(
     args: CreateMountTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<CreateMountTargetCommandOutput>;
   createMountTarget(
     args: CreateMountTargetCommandInput,
@@ -255,7 +267,7 @@ export interface EFS {
   ): void;
   createMountTarget(
     args: CreateMountTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: CreateMountTargetCommandOutput) => void
   ): void;
 
@@ -264,7 +276,7 @@ export interface EFS {
    */
   createReplicationConfiguration(
     args: CreateReplicationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<CreateReplicationConfigurationCommandOutput>;
   createReplicationConfiguration(
     args: CreateReplicationConfigurationCommandInput,
@@ -272,7 +284,7 @@ export interface EFS {
   ): void;
   createReplicationConfiguration(
     args: CreateReplicationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: CreateReplicationConfigurationCommandOutput) => void
   ): void;
 
@@ -281,7 +293,7 @@ export interface EFS {
    */
   createTags(
     args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<CreateTagsCommandOutput>;
   createTags(
     args: CreateTagsCommandInput,
@@ -289,7 +301,7 @@ export interface EFS {
   ): void;
   createTags(
     args: CreateTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: CreateTagsCommandOutput) => void
   ): void;
 
@@ -298,7 +310,7 @@ export interface EFS {
    */
   deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DeleteAccessPointCommandOutput>;
   deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
@@ -306,7 +318,7 @@ export interface EFS {
   ): void;
   deleteAccessPoint(
     args: DeleteAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DeleteAccessPointCommandOutput) => void
   ): void;
 
@@ -315,7 +327,7 @@ export interface EFS {
    */
   deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DeleteFileSystemCommandOutput>;
   deleteFileSystem(
     args: DeleteFileSystemCommandInput,
@@ -323,7 +335,7 @@ export interface EFS {
   ): void;
   deleteFileSystem(
     args: DeleteFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DeleteFileSystemCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface EFS {
    */
   deleteFileSystemPolicy(
     args: DeleteFileSystemPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DeleteFileSystemPolicyCommandOutput>;
   deleteFileSystemPolicy(
     args: DeleteFileSystemPolicyCommandInput,
@@ -340,7 +352,7 @@ export interface EFS {
   ): void;
   deleteFileSystemPolicy(
     args: DeleteFileSystemPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DeleteFileSystemPolicyCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface EFS {
    */
   deleteMountTarget(
     args: DeleteMountTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DeleteMountTargetCommandOutput>;
   deleteMountTarget(
     args: DeleteMountTargetCommandInput,
@@ -357,7 +369,7 @@ export interface EFS {
   ): void;
   deleteMountTarget(
     args: DeleteMountTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DeleteMountTargetCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface EFS {
    */
   deleteReplicationConfiguration(
     args: DeleteReplicationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DeleteReplicationConfigurationCommandOutput>;
   deleteReplicationConfiguration(
     args: DeleteReplicationConfigurationCommandInput,
@@ -374,7 +386,7 @@ export interface EFS {
   ): void;
   deleteReplicationConfiguration(
     args: DeleteReplicationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DeleteReplicationConfigurationCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface EFS {
    */
   deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DeleteTagsCommandOutput>;
   deleteTags(
     args: DeleteTagsCommandInput,
@@ -391,7 +403,7 @@ export interface EFS {
   ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DeleteTagsCommandOutput) => void
   ): void;
 
@@ -401,7 +413,7 @@ export interface EFS {
   describeAccessPoints(): Promise<DescribeAccessPointsCommandOutput>;
   describeAccessPoints(
     args: DescribeAccessPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeAccessPointsCommandOutput>;
   describeAccessPoints(
     args: DescribeAccessPointsCommandInput,
@@ -409,7 +421,7 @@ export interface EFS {
   ): void;
   describeAccessPoints(
     args: DescribeAccessPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeAccessPointsCommandOutput) => void
   ): void;
 
@@ -419,7 +431,7 @@ export interface EFS {
   describeAccountPreferences(): Promise<DescribeAccountPreferencesCommandOutput>;
   describeAccountPreferences(
     args: DescribeAccountPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeAccountPreferencesCommandOutput>;
   describeAccountPreferences(
     args: DescribeAccountPreferencesCommandInput,
@@ -427,7 +439,7 @@ export interface EFS {
   ): void;
   describeAccountPreferences(
     args: DescribeAccountPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeAccountPreferencesCommandOutput) => void
   ): void;
 
@@ -436,7 +448,7 @@ export interface EFS {
    */
   describeBackupPolicy(
     args: DescribeBackupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeBackupPolicyCommandOutput>;
   describeBackupPolicy(
     args: DescribeBackupPolicyCommandInput,
@@ -444,7 +456,7 @@ export interface EFS {
   ): void;
   describeBackupPolicy(
     args: DescribeBackupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeBackupPolicyCommandOutput) => void
   ): void;
 
@@ -453,7 +465,7 @@ export interface EFS {
    */
   describeFileSystemPolicy(
     args: DescribeFileSystemPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeFileSystemPolicyCommandOutput>;
   describeFileSystemPolicy(
     args: DescribeFileSystemPolicyCommandInput,
@@ -461,7 +473,7 @@ export interface EFS {
   ): void;
   describeFileSystemPolicy(
     args: DescribeFileSystemPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeFileSystemPolicyCommandOutput) => void
   ): void;
 
@@ -471,7 +483,7 @@ export interface EFS {
   describeFileSystems(): Promise<DescribeFileSystemsCommandOutput>;
   describeFileSystems(
     args: DescribeFileSystemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeFileSystemsCommandOutput>;
   describeFileSystems(
     args: DescribeFileSystemsCommandInput,
@@ -479,7 +491,7 @@ export interface EFS {
   ): void;
   describeFileSystems(
     args: DescribeFileSystemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeFileSystemsCommandOutput) => void
   ): void;
 
@@ -488,7 +500,7 @@ export interface EFS {
    */
   describeLifecycleConfiguration(
     args: DescribeLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeLifecycleConfigurationCommandOutput>;
   describeLifecycleConfiguration(
     args: DescribeLifecycleConfigurationCommandInput,
@@ -496,7 +508,7 @@ export interface EFS {
   ): void;
   describeLifecycleConfiguration(
     args: DescribeLifecycleConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeLifecycleConfigurationCommandOutput) => void
   ): void;
 
@@ -506,7 +518,7 @@ export interface EFS {
   describeMountTargets(): Promise<DescribeMountTargetsCommandOutput>;
   describeMountTargets(
     args: DescribeMountTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeMountTargetsCommandOutput>;
   describeMountTargets(
     args: DescribeMountTargetsCommandInput,
@@ -514,7 +526,7 @@ export interface EFS {
   ): void;
   describeMountTargets(
     args: DescribeMountTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeMountTargetsCommandOutput) => void
   ): void;
 
@@ -523,7 +535,7 @@ export interface EFS {
    */
   describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeMountTargetSecurityGroupsCommandOutput>;
   describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
@@ -531,7 +543,7 @@ export interface EFS {
   ): void;
   describeMountTargetSecurityGroups(
     args: DescribeMountTargetSecurityGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeMountTargetSecurityGroupsCommandOutput) => void
   ): void;
 
@@ -541,7 +553,7 @@ export interface EFS {
   describeReplicationConfigurations(): Promise<DescribeReplicationConfigurationsCommandOutput>;
   describeReplicationConfigurations(
     args: DescribeReplicationConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeReplicationConfigurationsCommandOutput>;
   describeReplicationConfigurations(
     args: DescribeReplicationConfigurationsCommandInput,
@@ -549,7 +561,7 @@ export interface EFS {
   ): void;
   describeReplicationConfigurations(
     args: DescribeReplicationConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeReplicationConfigurationsCommandOutput) => void
   ): void;
 
@@ -558,7 +570,7 @@ export interface EFS {
    */
   describeTags(
     args: DescribeTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<DescribeTagsCommandOutput>;
   describeTags(
     args: DescribeTagsCommandInput,
@@ -566,7 +578,7 @@ export interface EFS {
   ): void;
   describeTags(
     args: DescribeTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: DescribeTagsCommandOutput) => void
   ): void;
 
@@ -575,7 +587,7 @@ export interface EFS {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -583,7 +595,7 @@ export interface EFS {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -592,7 +604,7 @@ export interface EFS {
    */
   modifyMountTargetSecurityGroups(
     args: ModifyMountTargetSecurityGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<ModifyMountTargetSecurityGroupsCommandOutput>;
   modifyMountTargetSecurityGroups(
     args: ModifyMountTargetSecurityGroupsCommandInput,
@@ -600,7 +612,7 @@ export interface EFS {
   ): void;
   modifyMountTargetSecurityGroups(
     args: ModifyMountTargetSecurityGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
   ): void;
 
@@ -609,7 +621,7 @@ export interface EFS {
    */
   putAccountPreferences(
     args: PutAccountPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<PutAccountPreferencesCommandOutput>;
   putAccountPreferences(
     args: PutAccountPreferencesCommandInput,
@@ -617,7 +629,7 @@ export interface EFS {
   ): void;
   putAccountPreferences(
     args: PutAccountPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: PutAccountPreferencesCommandOutput) => void
   ): void;
 
@@ -626,7 +638,7 @@ export interface EFS {
    */
   putBackupPolicy(
     args: PutBackupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<PutBackupPolicyCommandOutput>;
   putBackupPolicy(
     args: PutBackupPolicyCommandInput,
@@ -634,7 +646,7 @@ export interface EFS {
   ): void;
   putBackupPolicy(
     args: PutBackupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: PutBackupPolicyCommandOutput) => void
   ): void;
 
@@ -643,7 +655,7 @@ export interface EFS {
    */
   putFileSystemPolicy(
     args: PutFileSystemPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<PutFileSystemPolicyCommandOutput>;
   putFileSystemPolicy(
     args: PutFileSystemPolicyCommandInput,
@@ -651,7 +663,7 @@ export interface EFS {
   ): void;
   putFileSystemPolicy(
     args: PutFileSystemPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: PutFileSystemPolicyCommandOutput) => void
   ): void;
 
@@ -660,7 +672,7 @@ export interface EFS {
    */
   putLifecycleConfiguration(
     args: PutLifecycleConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<PutLifecycleConfigurationCommandOutput>;
   putLifecycleConfiguration(
     args: PutLifecycleConfigurationCommandInput,
@@ -668,7 +680,7 @@ export interface EFS {
   ): void;
   putLifecycleConfiguration(
     args: PutLifecycleConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: PutLifecycleConfigurationCommandOutput) => void
   ): void;
 
@@ -677,7 +689,7 @@ export interface EFS {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -685,7 +697,7 @@ export interface EFS {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -694,7 +706,7 @@ export interface EFS {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -702,7 +714,7 @@ export interface EFS {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -711,7 +723,7 @@ export interface EFS {
    */
   updateFileSystem(
     args: UpdateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<UpdateFileSystemCommandOutput>;
   updateFileSystem(
     args: UpdateFileSystemCommandInput,
@@ -719,7 +731,7 @@ export interface EFS {
   ): void;
   updateFileSystem(
     args: UpdateFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: UpdateFileSystemCommandOutput) => void
   ): void;
 
@@ -728,7 +740,7 @@ export interface EFS {
    */
   updateFileSystemProtection(
     args: UpdateFileSystemProtectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EFSRequestOptions
   ): Promise<UpdateFileSystemProtectionCommandOutput>;
   updateFileSystemProtection(
     args: UpdateFileSystemProtectionCommandInput,
@@ -736,7 +748,7 @@ export interface EFS {
   ): void;
   updateFileSystemProtection(
     args: UpdateFileSystemProtectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EFSRequestOptions,
     cb: (err: any, data?: UpdateFileSystemProtectionCommandOutput) => void
   ): void;
 

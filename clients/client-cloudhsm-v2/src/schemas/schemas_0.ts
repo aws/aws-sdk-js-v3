@@ -150,10 +150,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var CloudHSMV2ServiceException$: StaticErrorSchema = [-3, _s, "CloudHSMV2ServiceException", 0, [], []];
 _s_registry.registerError(CloudHSMV2ServiceException$, CloudHSMV2ServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var CloudHsmAccessDeniedException$: StaticErrorSchema = [-3, n0, _CHADE,
   { [_e]: _c },
   [_M],

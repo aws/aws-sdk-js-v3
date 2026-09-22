@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddKeyReplicationRegionsCommandInput,
@@ -179,13 +184,20 @@ const paginators = {
   paginateListTagsForResource,
 };
 
+/**
+ * @public
+ */
+export interface PaymentCryptographyRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PaymentCryptography {
   /**
    * @see {@link AddKeyReplicationRegionsCommand}
    */
   addKeyReplicationRegions(
     args: AddKeyReplicationRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<AddKeyReplicationRegionsCommandOutput>;
   addKeyReplicationRegions(
     args: AddKeyReplicationRegionsCommandInput,
@@ -193,7 +205,7 @@ export interface PaymentCryptography {
   ): void;
   addKeyReplicationRegions(
     args: AddKeyReplicationRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: AddKeyReplicationRegionsCommandOutput) => void
   ): void;
 
@@ -202,7 +214,7 @@ export interface PaymentCryptography {
    */
   associateMpaTeam(
     args: AssociateMpaTeamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<AssociateMpaTeamCommandOutput>;
   associateMpaTeam(
     args: AssociateMpaTeamCommandInput,
@@ -210,7 +222,7 @@ export interface PaymentCryptography {
   ): void;
   associateMpaTeam(
     args: AssociateMpaTeamCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: AssociateMpaTeamCommandOutput) => void
   ): void;
 
@@ -219,7 +231,7 @@ export interface PaymentCryptography {
    */
   createAlias(
     args: CreateAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<CreateAliasCommandOutput>;
   createAlias(
     args: CreateAliasCommandInput,
@@ -227,7 +239,7 @@ export interface PaymentCryptography {
   ): void;
   createAlias(
     args: CreateAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: CreateAliasCommandOutput) => void
   ): void;
 
@@ -236,7 +248,7 @@ export interface PaymentCryptography {
    */
   createKey(
     args: CreateKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<CreateKeyCommandOutput>;
   createKey(
     args: CreateKeyCommandInput,
@@ -244,7 +256,7 @@ export interface PaymentCryptography {
   ): void;
   createKey(
     args: CreateKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: CreateKeyCommandOutput) => void
   ): void;
 
@@ -253,7 +265,7 @@ export interface PaymentCryptography {
    */
   deleteAlias(
     args: DeleteAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<DeleteAliasCommandOutput>;
   deleteAlias(
     args: DeleteAliasCommandInput,
@@ -261,7 +273,7 @@ export interface PaymentCryptography {
   ): void;
   deleteAlias(
     args: DeleteAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: DeleteAliasCommandOutput) => void
   ): void;
 
@@ -270,7 +282,7 @@ export interface PaymentCryptography {
    */
   deleteKey(
     args: DeleteKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<DeleteKeyCommandOutput>;
   deleteKey(
     args: DeleteKeyCommandInput,
@@ -278,7 +290,7 @@ export interface PaymentCryptography {
   ): void;
   deleteKey(
     args: DeleteKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: DeleteKeyCommandOutput) => void
   ): void;
 
@@ -287,7 +299,7 @@ export interface PaymentCryptography {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -295,7 +307,7 @@ export interface PaymentCryptography {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -304,7 +316,7 @@ export interface PaymentCryptography {
    */
   disableDefaultKeyReplicationRegions(
     args: DisableDefaultKeyReplicationRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<DisableDefaultKeyReplicationRegionsCommandOutput>;
   disableDefaultKeyReplicationRegions(
     args: DisableDefaultKeyReplicationRegionsCommandInput,
@@ -312,7 +324,7 @@ export interface PaymentCryptography {
   ): void;
   disableDefaultKeyReplicationRegions(
     args: DisableDefaultKeyReplicationRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: DisableDefaultKeyReplicationRegionsCommandOutput) => void
   ): void;
 
@@ -321,7 +333,7 @@ export interface PaymentCryptography {
    */
   disassociateMpaTeam(
     args: DisassociateMpaTeamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<DisassociateMpaTeamCommandOutput>;
   disassociateMpaTeam(
     args: DisassociateMpaTeamCommandInput,
@@ -329,7 +341,7 @@ export interface PaymentCryptography {
   ): void;
   disassociateMpaTeam(
     args: DisassociateMpaTeamCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: DisassociateMpaTeamCommandOutput) => void
   ): void;
 
@@ -338,7 +350,7 @@ export interface PaymentCryptography {
    */
   enableDefaultKeyReplicationRegions(
     args: EnableDefaultKeyReplicationRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<EnableDefaultKeyReplicationRegionsCommandOutput>;
   enableDefaultKeyReplicationRegions(
     args: EnableDefaultKeyReplicationRegionsCommandInput,
@@ -346,7 +358,7 @@ export interface PaymentCryptography {
   ): void;
   enableDefaultKeyReplicationRegions(
     args: EnableDefaultKeyReplicationRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: EnableDefaultKeyReplicationRegionsCommandOutput) => void
   ): void;
 
@@ -355,7 +367,7 @@ export interface PaymentCryptography {
    */
   exportKey(
     args: ExportKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<ExportKeyCommandOutput>;
   exportKey(
     args: ExportKeyCommandInput,
@@ -363,7 +375,7 @@ export interface PaymentCryptography {
   ): void;
   exportKey(
     args: ExportKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: ExportKeyCommandOutput) => void
   ): void;
 
@@ -372,7 +384,7 @@ export interface PaymentCryptography {
    */
   getAlias(
     args: GetAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<GetAliasCommandOutput>;
   getAlias(
     args: GetAliasCommandInput,
@@ -380,7 +392,7 @@ export interface PaymentCryptography {
   ): void;
   getAlias(
     args: GetAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: GetAliasCommandOutput) => void
   ): void;
 
@@ -389,7 +401,7 @@ export interface PaymentCryptography {
    */
   getCertificateSigningRequest(
     args: GetCertificateSigningRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<GetCertificateSigningRequestCommandOutput>;
   getCertificateSigningRequest(
     args: GetCertificateSigningRequestCommandInput,
@@ -397,7 +409,7 @@ export interface PaymentCryptography {
   ): void;
   getCertificateSigningRequest(
     args: GetCertificateSigningRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: GetCertificateSigningRequestCommandOutput) => void
   ): void;
 
@@ -407,7 +419,7 @@ export interface PaymentCryptography {
   getDefaultKeyReplicationRegions(): Promise<GetDefaultKeyReplicationRegionsCommandOutput>;
   getDefaultKeyReplicationRegions(
     args: GetDefaultKeyReplicationRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<GetDefaultKeyReplicationRegionsCommandOutput>;
   getDefaultKeyReplicationRegions(
     args: GetDefaultKeyReplicationRegionsCommandInput,
@@ -415,7 +427,7 @@ export interface PaymentCryptography {
   ): void;
   getDefaultKeyReplicationRegions(
     args: GetDefaultKeyReplicationRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: GetDefaultKeyReplicationRegionsCommandOutput) => void
   ): void;
 
@@ -424,7 +436,7 @@ export interface PaymentCryptography {
    */
   getKey(
     args: GetKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<GetKeyCommandOutput>;
   getKey(
     args: GetKeyCommandInput,
@@ -432,7 +444,7 @@ export interface PaymentCryptography {
   ): void;
   getKey(
     args: GetKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: GetKeyCommandOutput) => void
   ): void;
 
@@ -441,7 +453,7 @@ export interface PaymentCryptography {
    */
   getMpaTeamAssociation(
     args: GetMpaTeamAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<GetMpaTeamAssociationCommandOutput>;
   getMpaTeamAssociation(
     args: GetMpaTeamAssociationCommandInput,
@@ -449,7 +461,7 @@ export interface PaymentCryptography {
   ): void;
   getMpaTeamAssociation(
     args: GetMpaTeamAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: GetMpaTeamAssociationCommandOutput) => void
   ): void;
 
@@ -458,7 +470,7 @@ export interface PaymentCryptography {
    */
   getParametersForExport(
     args: GetParametersForExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<GetParametersForExportCommandOutput>;
   getParametersForExport(
     args: GetParametersForExportCommandInput,
@@ -466,7 +478,7 @@ export interface PaymentCryptography {
   ): void;
   getParametersForExport(
     args: GetParametersForExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: GetParametersForExportCommandOutput) => void
   ): void;
 
@@ -475,7 +487,7 @@ export interface PaymentCryptography {
    */
   getParametersForImport(
     args: GetParametersForImportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<GetParametersForImportCommandOutput>;
   getParametersForImport(
     args: GetParametersForImportCommandInput,
@@ -483,7 +495,7 @@ export interface PaymentCryptography {
   ): void;
   getParametersForImport(
     args: GetParametersForImportCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: GetParametersForImportCommandOutput) => void
   ): void;
 
@@ -492,7 +504,7 @@ export interface PaymentCryptography {
    */
   getPublicKeyCertificate(
     args: GetPublicKeyCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<GetPublicKeyCertificateCommandOutput>;
   getPublicKeyCertificate(
     args: GetPublicKeyCertificateCommandInput,
@@ -500,7 +512,7 @@ export interface PaymentCryptography {
   ): void;
   getPublicKeyCertificate(
     args: GetPublicKeyCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: GetPublicKeyCertificateCommandOutput) => void
   ): void;
 
@@ -509,7 +521,7 @@ export interface PaymentCryptography {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -517,7 +529,7 @@ export interface PaymentCryptography {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -526,7 +538,7 @@ export interface PaymentCryptography {
    */
   importKey(
     args: ImportKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<ImportKeyCommandOutput>;
   importKey(
     args: ImportKeyCommandInput,
@@ -534,7 +546,7 @@ export interface PaymentCryptography {
   ): void;
   importKey(
     args: ImportKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: ImportKeyCommandOutput) => void
   ): void;
 
@@ -544,7 +556,7 @@ export interface PaymentCryptography {
   listAliases(): Promise<ListAliasesCommandOutput>;
   listAliases(
     args: ListAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<ListAliasesCommandOutput>;
   listAliases(
     args: ListAliasesCommandInput,
@@ -552,7 +564,7 @@ export interface PaymentCryptography {
   ): void;
   listAliases(
     args: ListAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: ListAliasesCommandOutput) => void
   ): void;
 
@@ -562,7 +574,7 @@ export interface PaymentCryptography {
   listKeys(): Promise<ListKeysCommandOutput>;
   listKeys(
     args: ListKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<ListKeysCommandOutput>;
   listKeys(
     args: ListKeysCommandInput,
@@ -570,7 +582,7 @@ export interface PaymentCryptography {
   ): void;
   listKeys(
     args: ListKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: ListKeysCommandOutput) => void
   ): void;
 
@@ -579,7 +591,7 @@ export interface PaymentCryptography {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -587,7 +599,7 @@ export interface PaymentCryptography {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -596,7 +608,7 @@ export interface PaymentCryptography {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -604,7 +616,7 @@ export interface PaymentCryptography {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -613,7 +625,7 @@ export interface PaymentCryptography {
    */
   removeKeyReplicationRegions(
     args: RemoveKeyReplicationRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<RemoveKeyReplicationRegionsCommandOutput>;
   removeKeyReplicationRegions(
     args: RemoveKeyReplicationRegionsCommandInput,
@@ -621,7 +633,7 @@ export interface PaymentCryptography {
   ): void;
   removeKeyReplicationRegions(
     args: RemoveKeyReplicationRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: RemoveKeyReplicationRegionsCommandOutput) => void
   ): void;
 
@@ -630,7 +642,7 @@ export interface PaymentCryptography {
    */
   restoreKey(
     args: RestoreKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<RestoreKeyCommandOutput>;
   restoreKey(
     args: RestoreKeyCommandInput,
@@ -638,7 +650,7 @@ export interface PaymentCryptography {
   ): void;
   restoreKey(
     args: RestoreKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: RestoreKeyCommandOutput) => void
   ): void;
 
@@ -647,7 +659,7 @@ export interface PaymentCryptography {
    */
   startKeyUsage(
     args: StartKeyUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<StartKeyUsageCommandOutput>;
   startKeyUsage(
     args: StartKeyUsageCommandInput,
@@ -655,7 +667,7 @@ export interface PaymentCryptography {
   ): void;
   startKeyUsage(
     args: StartKeyUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: StartKeyUsageCommandOutput) => void
   ): void;
 
@@ -664,7 +676,7 @@ export interface PaymentCryptography {
    */
   stopKeyUsage(
     args: StopKeyUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<StopKeyUsageCommandOutput>;
   stopKeyUsage(
     args: StopKeyUsageCommandInput,
@@ -672,7 +684,7 @@ export interface PaymentCryptography {
   ): void;
   stopKeyUsage(
     args: StopKeyUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: StopKeyUsageCommandOutput) => void
   ): void;
 
@@ -681,7 +693,7 @@ export interface PaymentCryptography {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -689,7 +701,7 @@ export interface PaymentCryptography {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -698,7 +710,7 @@ export interface PaymentCryptography {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -706,7 +718,7 @@ export interface PaymentCryptography {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -715,7 +727,7 @@ export interface PaymentCryptography {
    */
   updateAlias(
     args: UpdateAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PaymentCryptographyRequestOptions
   ): Promise<UpdateAliasCommandOutput>;
   updateAlias(
     args: UpdateAliasCommandInput,
@@ -723,7 +735,7 @@ export interface PaymentCryptography {
   ): void;
   updateAlias(
     args: UpdateAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: PaymentCryptographyRequestOptions,
     cb: (err: any, data?: UpdateAliasCommandOutput) => void
   ): void;
 

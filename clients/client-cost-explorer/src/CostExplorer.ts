@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateAnomalyMonitorCommandInput,
@@ -325,13 +330,20 @@ const paginators = {
   paginateListSavingsPlansPurchaseRecommendationGeneration,
 };
 
+/**
+ * @public
+ */
+export interface CostExplorerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CostExplorer {
   /**
    * @see {@link CreateAnomalyMonitorCommand}
    */
   createAnomalyMonitor(
     args: CreateAnomalyMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<CreateAnomalyMonitorCommandOutput>;
   createAnomalyMonitor(
     args: CreateAnomalyMonitorCommandInput,
@@ -339,7 +351,7 @@ export interface CostExplorer {
   ): void;
   createAnomalyMonitor(
     args: CreateAnomalyMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: CreateAnomalyMonitorCommandOutput) => void
   ): void;
 
@@ -348,7 +360,7 @@ export interface CostExplorer {
    */
   createAnomalySubscription(
     args: CreateAnomalySubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<CreateAnomalySubscriptionCommandOutput>;
   createAnomalySubscription(
     args: CreateAnomalySubscriptionCommandInput,
@@ -356,7 +368,7 @@ export interface CostExplorer {
   ): void;
   createAnomalySubscription(
     args: CreateAnomalySubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: CreateAnomalySubscriptionCommandOutput) => void
   ): void;
 
@@ -365,7 +377,7 @@ export interface CostExplorer {
    */
   createCostCategoryDefinition(
     args: CreateCostCategoryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<CreateCostCategoryDefinitionCommandOutput>;
   createCostCategoryDefinition(
     args: CreateCostCategoryDefinitionCommandInput,
@@ -373,7 +385,7 @@ export interface CostExplorer {
   ): void;
   createCostCategoryDefinition(
     args: CreateCostCategoryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void
   ): void;
 
@@ -382,7 +394,7 @@ export interface CostExplorer {
    */
   deleteAnomalyMonitor(
     args: DeleteAnomalyMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<DeleteAnomalyMonitorCommandOutput>;
   deleteAnomalyMonitor(
     args: DeleteAnomalyMonitorCommandInput,
@@ -390,7 +402,7 @@ export interface CostExplorer {
   ): void;
   deleteAnomalyMonitor(
     args: DeleteAnomalyMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: DeleteAnomalyMonitorCommandOutput) => void
   ): void;
 
@@ -399,7 +411,7 @@ export interface CostExplorer {
    */
   deleteAnomalySubscription(
     args: DeleteAnomalySubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<DeleteAnomalySubscriptionCommandOutput>;
   deleteAnomalySubscription(
     args: DeleteAnomalySubscriptionCommandInput,
@@ -407,7 +419,7 @@ export interface CostExplorer {
   ): void;
   deleteAnomalySubscription(
     args: DeleteAnomalySubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void
   ): void;
 
@@ -416,7 +428,7 @@ export interface CostExplorer {
    */
   deleteCostCategoryDefinition(
     args: DeleteCostCategoryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<DeleteCostCategoryDefinitionCommandOutput>;
   deleteCostCategoryDefinition(
     args: DeleteCostCategoryDefinitionCommandInput,
@@ -424,7 +436,7 @@ export interface CostExplorer {
   ): void;
   deleteCostCategoryDefinition(
     args: DeleteCostCategoryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: DeleteCostCategoryDefinitionCommandOutput) => void
   ): void;
 
@@ -433,7 +445,7 @@ export interface CostExplorer {
    */
   describeCostCategoryDefinition(
     args: DescribeCostCategoryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<DescribeCostCategoryDefinitionCommandOutput>;
   describeCostCategoryDefinition(
     args: DescribeCostCategoryDefinitionCommandInput,
@@ -441,7 +453,7 @@ export interface CostExplorer {
   ): void;
   describeCostCategoryDefinition(
     args: DescribeCostCategoryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: DescribeCostCategoryDefinitionCommandOutput) => void
   ): void;
 
@@ -450,7 +462,7 @@ export interface CostExplorer {
    */
   getAnomalies(
     args: GetAnomaliesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetAnomaliesCommandOutput>;
   getAnomalies(
     args: GetAnomaliesCommandInput,
@@ -458,7 +470,7 @@ export interface CostExplorer {
   ): void;
   getAnomalies(
     args: GetAnomaliesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetAnomaliesCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface CostExplorer {
   getAnomalyMonitors(): Promise<GetAnomalyMonitorsCommandOutput>;
   getAnomalyMonitors(
     args: GetAnomalyMonitorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetAnomalyMonitorsCommandOutput>;
   getAnomalyMonitors(
     args: GetAnomalyMonitorsCommandInput,
@@ -476,7 +488,7 @@ export interface CostExplorer {
   ): void;
   getAnomalyMonitors(
     args: GetAnomalyMonitorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetAnomalyMonitorsCommandOutput) => void
   ): void;
 
@@ -486,7 +498,7 @@ export interface CostExplorer {
   getAnomalySubscriptions(): Promise<GetAnomalySubscriptionsCommandOutput>;
   getAnomalySubscriptions(
     args: GetAnomalySubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetAnomalySubscriptionsCommandOutput>;
   getAnomalySubscriptions(
     args: GetAnomalySubscriptionsCommandInput,
@@ -494,7 +506,7 @@ export interface CostExplorer {
   ): void;
   getAnomalySubscriptions(
     args: GetAnomalySubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
   ): void;
 
@@ -503,7 +515,7 @@ export interface CostExplorer {
    */
   getApproximateUsageRecords(
     args: GetApproximateUsageRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetApproximateUsageRecordsCommandOutput>;
   getApproximateUsageRecords(
     args: GetApproximateUsageRecordsCommandInput,
@@ -511,7 +523,7 @@ export interface CostExplorer {
   ): void;
   getApproximateUsageRecords(
     args: GetApproximateUsageRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetApproximateUsageRecordsCommandOutput) => void
   ): void;
 
@@ -520,7 +532,7 @@ export interface CostExplorer {
    */
   getCommitmentPurchaseAnalysis(
     args: GetCommitmentPurchaseAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetCommitmentPurchaseAnalysisCommandOutput>;
   getCommitmentPurchaseAnalysis(
     args: GetCommitmentPurchaseAnalysisCommandInput,
@@ -528,7 +540,7 @@ export interface CostExplorer {
   ): void;
   getCommitmentPurchaseAnalysis(
     args: GetCommitmentPurchaseAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetCommitmentPurchaseAnalysisCommandOutput) => void
   ): void;
 
@@ -537,7 +549,7 @@ export interface CostExplorer {
    */
   getCostAndUsage(
     args: GetCostAndUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetCostAndUsageCommandOutput>;
   getCostAndUsage(
     args: GetCostAndUsageCommandInput,
@@ -545,7 +557,7 @@ export interface CostExplorer {
   ): void;
   getCostAndUsage(
     args: GetCostAndUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetCostAndUsageCommandOutput) => void
   ): void;
 
@@ -554,7 +566,7 @@ export interface CostExplorer {
    */
   getCostAndUsageComparisons(
     args: GetCostAndUsageComparisonsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetCostAndUsageComparisonsCommandOutput>;
   getCostAndUsageComparisons(
     args: GetCostAndUsageComparisonsCommandInput,
@@ -562,7 +574,7 @@ export interface CostExplorer {
   ): void;
   getCostAndUsageComparisons(
     args: GetCostAndUsageComparisonsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetCostAndUsageComparisonsCommandOutput) => void
   ): void;
 
@@ -571,7 +583,7 @@ export interface CostExplorer {
    */
   getCostAndUsageWithResources(
     args: GetCostAndUsageWithResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetCostAndUsageWithResourcesCommandOutput>;
   getCostAndUsageWithResources(
     args: GetCostAndUsageWithResourcesCommandInput,
@@ -579,7 +591,7 @@ export interface CostExplorer {
   ): void;
   getCostAndUsageWithResources(
     args: GetCostAndUsageWithResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetCostAndUsageWithResourcesCommandOutput) => void
   ): void;
 
@@ -588,7 +600,7 @@ export interface CostExplorer {
    */
   getCostCategories(
     args: GetCostCategoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetCostCategoriesCommandOutput>;
   getCostCategories(
     args: GetCostCategoriesCommandInput,
@@ -596,7 +608,7 @@ export interface CostExplorer {
   ): void;
   getCostCategories(
     args: GetCostCategoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetCostCategoriesCommandOutput) => void
   ): void;
 
@@ -605,7 +617,7 @@ export interface CostExplorer {
    */
   getCostComparisonDrivers(
     args: GetCostComparisonDriversCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetCostComparisonDriversCommandOutput>;
   getCostComparisonDrivers(
     args: GetCostComparisonDriversCommandInput,
@@ -613,7 +625,7 @@ export interface CostExplorer {
   ): void;
   getCostComparisonDrivers(
     args: GetCostComparisonDriversCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetCostComparisonDriversCommandOutput) => void
   ): void;
 
@@ -622,7 +634,7 @@ export interface CostExplorer {
    */
   getCostForecast(
     args: GetCostForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetCostForecastCommandOutput>;
   getCostForecast(
     args: GetCostForecastCommandInput,
@@ -630,7 +642,7 @@ export interface CostExplorer {
   ): void;
   getCostForecast(
     args: GetCostForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetCostForecastCommandOutput) => void
   ): void;
 
@@ -639,7 +651,7 @@ export interface CostExplorer {
    */
   getDimensionValues(
     args: GetDimensionValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetDimensionValuesCommandOutput>;
   getDimensionValues(
     args: GetDimensionValuesCommandInput,
@@ -647,7 +659,7 @@ export interface CostExplorer {
   ): void;
   getDimensionValues(
     args: GetDimensionValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetDimensionValuesCommandOutput) => void
   ): void;
 
@@ -656,7 +668,7 @@ export interface CostExplorer {
    */
   getReservationCoverage(
     args: GetReservationCoverageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetReservationCoverageCommandOutput>;
   getReservationCoverage(
     args: GetReservationCoverageCommandInput,
@@ -664,7 +676,7 @@ export interface CostExplorer {
   ): void;
   getReservationCoverage(
     args: GetReservationCoverageCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetReservationCoverageCommandOutput) => void
   ): void;
 
@@ -673,7 +685,7 @@ export interface CostExplorer {
    */
   getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetReservationPurchaseRecommendationCommandOutput>;
   getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
@@ -681,7 +693,7 @@ export interface CostExplorer {
   ): void;
   getReservationPurchaseRecommendation(
     args: GetReservationPurchaseRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetReservationPurchaseRecommendationCommandOutput) => void
   ): void;
 
@@ -690,7 +702,7 @@ export interface CostExplorer {
    */
   getReservationUtilization(
     args: GetReservationUtilizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetReservationUtilizationCommandOutput>;
   getReservationUtilization(
     args: GetReservationUtilizationCommandInput,
@@ -698,7 +710,7 @@ export interface CostExplorer {
   ): void;
   getReservationUtilization(
     args: GetReservationUtilizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetReservationUtilizationCommandOutput) => void
   ): void;
 
@@ -707,7 +719,7 @@ export interface CostExplorer {
    */
   getRightsizingRecommendation(
     args: GetRightsizingRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetRightsizingRecommendationCommandOutput>;
   getRightsizingRecommendation(
     args: GetRightsizingRecommendationCommandInput,
@@ -715,7 +727,7 @@ export interface CostExplorer {
   ): void;
   getRightsizingRecommendation(
     args: GetRightsizingRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetRightsizingRecommendationCommandOutput) => void
   ): void;
 
@@ -724,7 +736,7 @@ export interface CostExplorer {
    */
   getSavingsPlanPurchaseRecommendationDetails(
     args: GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetSavingsPlanPurchaseRecommendationDetailsCommandOutput>;
   getSavingsPlanPurchaseRecommendationDetails(
     args: GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
@@ -732,7 +744,7 @@ export interface CostExplorer {
   ): void;
   getSavingsPlanPurchaseRecommendationDetails(
     args: GetSavingsPlanPurchaseRecommendationDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetSavingsPlanPurchaseRecommendationDetailsCommandOutput) => void
   ): void;
 
@@ -741,7 +753,7 @@ export interface CostExplorer {
    */
   getSavingsPlansCoverage(
     args: GetSavingsPlansCoverageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetSavingsPlansCoverageCommandOutput>;
   getSavingsPlansCoverage(
     args: GetSavingsPlansCoverageCommandInput,
@@ -749,7 +761,7 @@ export interface CostExplorer {
   ): void;
   getSavingsPlansCoverage(
     args: GetSavingsPlansCoverageCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetSavingsPlansCoverageCommandOutput) => void
   ): void;
 
@@ -758,7 +770,7 @@ export interface CostExplorer {
    */
   getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput>;
   getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
@@ -766,7 +778,7 @@ export interface CostExplorer {
   ): void;
   getSavingsPlansPurchaseRecommendation(
     args: GetSavingsPlansPurchaseRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetSavingsPlansPurchaseRecommendationCommandOutput) => void
   ): void;
 
@@ -775,7 +787,7 @@ export interface CostExplorer {
    */
   getSavingsPlansUtilization(
     args: GetSavingsPlansUtilizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetSavingsPlansUtilizationCommandOutput>;
   getSavingsPlansUtilization(
     args: GetSavingsPlansUtilizationCommandInput,
@@ -783,7 +795,7 @@ export interface CostExplorer {
   ): void;
   getSavingsPlansUtilization(
     args: GetSavingsPlansUtilizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetSavingsPlansUtilizationCommandOutput) => void
   ): void;
 
@@ -792,7 +804,7 @@ export interface CostExplorer {
    */
   getSavingsPlansUtilizationDetails(
     args: GetSavingsPlansUtilizationDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput>;
   getSavingsPlansUtilizationDetails(
     args: GetSavingsPlansUtilizationDetailsCommandInput,
@@ -800,7 +812,7 @@ export interface CostExplorer {
   ): void;
   getSavingsPlansUtilizationDetails(
     args: GetSavingsPlansUtilizationDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetSavingsPlansUtilizationDetailsCommandOutput) => void
   ): void;
 
@@ -809,7 +821,7 @@ export interface CostExplorer {
    */
   getTags(
     args: GetTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetTagsCommandOutput>;
   getTags(
     args: GetTagsCommandInput,
@@ -817,7 +829,7 @@ export interface CostExplorer {
   ): void;
   getTags(
     args: GetTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetTagsCommandOutput) => void
   ): void;
 
@@ -826,7 +838,7 @@ export interface CostExplorer {
    */
   getUsageForecast(
     args: GetUsageForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<GetUsageForecastCommandOutput>;
   getUsageForecast(
     args: GetUsageForecastCommandInput,
@@ -834,7 +846,7 @@ export interface CostExplorer {
   ): void;
   getUsageForecast(
     args: GetUsageForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: GetUsageForecastCommandOutput) => void
   ): void;
 
@@ -844,7 +856,7 @@ export interface CostExplorer {
   listCommitmentPurchaseAnalyses(): Promise<ListCommitmentPurchaseAnalysesCommandOutput>;
   listCommitmentPurchaseAnalyses(
     args: ListCommitmentPurchaseAnalysesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<ListCommitmentPurchaseAnalysesCommandOutput>;
   listCommitmentPurchaseAnalyses(
     args: ListCommitmentPurchaseAnalysesCommandInput,
@@ -852,7 +864,7 @@ export interface CostExplorer {
   ): void;
   listCommitmentPurchaseAnalyses(
     args: ListCommitmentPurchaseAnalysesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: ListCommitmentPurchaseAnalysesCommandOutput) => void
   ): void;
 
@@ -862,7 +874,7 @@ export interface CostExplorer {
   listCostAllocationTagBackfillHistory(): Promise<ListCostAllocationTagBackfillHistoryCommandOutput>;
   listCostAllocationTagBackfillHistory(
     args: ListCostAllocationTagBackfillHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<ListCostAllocationTagBackfillHistoryCommandOutput>;
   listCostAllocationTagBackfillHistory(
     args: ListCostAllocationTagBackfillHistoryCommandInput,
@@ -870,7 +882,7 @@ export interface CostExplorer {
   ): void;
   listCostAllocationTagBackfillHistory(
     args: ListCostAllocationTagBackfillHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: ListCostAllocationTagBackfillHistoryCommandOutput) => void
   ): void;
 
@@ -880,7 +892,7 @@ export interface CostExplorer {
   listCostAllocationTags(): Promise<ListCostAllocationTagsCommandOutput>;
   listCostAllocationTags(
     args: ListCostAllocationTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<ListCostAllocationTagsCommandOutput>;
   listCostAllocationTags(
     args: ListCostAllocationTagsCommandInput,
@@ -888,7 +900,7 @@ export interface CostExplorer {
   ): void;
   listCostAllocationTags(
     args: ListCostAllocationTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: ListCostAllocationTagsCommandOutput) => void
   ): void;
 
@@ -898,7 +910,7 @@ export interface CostExplorer {
   listCostCategoryDefinitions(): Promise<ListCostCategoryDefinitionsCommandOutput>;
   listCostCategoryDefinitions(
     args: ListCostCategoryDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<ListCostCategoryDefinitionsCommandOutput>;
   listCostCategoryDefinitions(
     args: ListCostCategoryDefinitionsCommandInput,
@@ -906,7 +918,7 @@ export interface CostExplorer {
   ): void;
   listCostCategoryDefinitions(
     args: ListCostCategoryDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void
   ): void;
 
@@ -916,7 +928,7 @@ export interface CostExplorer {
   listCostCategoryResourceAssociations(): Promise<ListCostCategoryResourceAssociationsCommandOutput>;
   listCostCategoryResourceAssociations(
     args: ListCostCategoryResourceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<ListCostCategoryResourceAssociationsCommandOutput>;
   listCostCategoryResourceAssociations(
     args: ListCostCategoryResourceAssociationsCommandInput,
@@ -924,7 +936,7 @@ export interface CostExplorer {
   ): void;
   listCostCategoryResourceAssociations(
     args: ListCostCategoryResourceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: ListCostCategoryResourceAssociationsCommandOutput) => void
   ): void;
 
@@ -934,7 +946,7 @@ export interface CostExplorer {
   listSavingsPlansPurchaseRecommendationGeneration(): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
   listSavingsPlansPurchaseRecommendationGeneration(
     args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
   listSavingsPlansPurchaseRecommendationGeneration(
     args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
@@ -942,7 +954,7 @@ export interface CostExplorer {
   ): void;
   listSavingsPlansPurchaseRecommendationGeneration(
     args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: ListSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
   ): void;
 
@@ -951,7 +963,7 @@ export interface CostExplorer {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -959,7 +971,7 @@ export interface CostExplorer {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -968,7 +980,7 @@ export interface CostExplorer {
    */
   provideAnomalyFeedback(
     args: ProvideAnomalyFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<ProvideAnomalyFeedbackCommandOutput>;
   provideAnomalyFeedback(
     args: ProvideAnomalyFeedbackCommandInput,
@@ -976,7 +988,7 @@ export interface CostExplorer {
   ): void;
   provideAnomalyFeedback(
     args: ProvideAnomalyFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
   ): void;
 
@@ -985,7 +997,7 @@ export interface CostExplorer {
    */
   startCommitmentPurchaseAnalysis(
     args: StartCommitmentPurchaseAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<StartCommitmentPurchaseAnalysisCommandOutput>;
   startCommitmentPurchaseAnalysis(
     args: StartCommitmentPurchaseAnalysisCommandInput,
@@ -993,7 +1005,7 @@ export interface CostExplorer {
   ): void;
   startCommitmentPurchaseAnalysis(
     args: StartCommitmentPurchaseAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: StartCommitmentPurchaseAnalysisCommandOutput) => void
   ): void;
 
@@ -1002,7 +1014,7 @@ export interface CostExplorer {
    */
   startCostAllocationTagBackfill(
     args: StartCostAllocationTagBackfillCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<StartCostAllocationTagBackfillCommandOutput>;
   startCostAllocationTagBackfill(
     args: StartCostAllocationTagBackfillCommandInput,
@@ -1010,7 +1022,7 @@ export interface CostExplorer {
   ): void;
   startCostAllocationTagBackfill(
     args: StartCostAllocationTagBackfillCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: StartCostAllocationTagBackfillCommandOutput) => void
   ): void;
 
@@ -1020,7 +1032,7 @@ export interface CostExplorer {
   startSavingsPlansPurchaseRecommendationGeneration(): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
   startSavingsPlansPurchaseRecommendationGeneration(
     args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
   startSavingsPlansPurchaseRecommendationGeneration(
     args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
@@ -1028,7 +1040,7 @@ export interface CostExplorer {
   ): void;
   startSavingsPlansPurchaseRecommendationGeneration(
     args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput) => void
   ): void;
 
@@ -1037,7 +1049,7 @@ export interface CostExplorer {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1045,7 +1057,7 @@ export interface CostExplorer {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1054,7 +1066,7 @@ export interface CostExplorer {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1062,7 +1074,7 @@ export interface CostExplorer {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1071,7 +1083,7 @@ export interface CostExplorer {
    */
   updateAnomalyMonitor(
     args: UpdateAnomalyMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<UpdateAnomalyMonitorCommandOutput>;
   updateAnomalyMonitor(
     args: UpdateAnomalyMonitorCommandInput,
@@ -1079,7 +1091,7 @@ export interface CostExplorer {
   ): void;
   updateAnomalyMonitor(
     args: UpdateAnomalyMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: UpdateAnomalyMonitorCommandOutput) => void
   ): void;
 
@@ -1088,7 +1100,7 @@ export interface CostExplorer {
    */
   updateAnomalySubscription(
     args: UpdateAnomalySubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<UpdateAnomalySubscriptionCommandOutput>;
   updateAnomalySubscription(
     args: UpdateAnomalySubscriptionCommandInput,
@@ -1096,7 +1108,7 @@ export interface CostExplorer {
   ): void;
   updateAnomalySubscription(
     args: UpdateAnomalySubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
   ): void;
 
@@ -1105,7 +1117,7 @@ export interface CostExplorer {
    */
   updateCostAllocationTagsStatus(
     args: UpdateCostAllocationTagsStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<UpdateCostAllocationTagsStatusCommandOutput>;
   updateCostAllocationTagsStatus(
     args: UpdateCostAllocationTagsStatusCommandInput,
@@ -1113,7 +1125,7 @@ export interface CostExplorer {
   ): void;
   updateCostAllocationTagsStatus(
     args: UpdateCostAllocationTagsStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: UpdateCostAllocationTagsStatusCommandOutput) => void
   ): void;
 
@@ -1122,7 +1134,7 @@ export interface CostExplorer {
    */
   updateCostCategoryDefinition(
     args: UpdateCostCategoryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostExplorerRequestOptions
   ): Promise<UpdateCostCategoryDefinitionCommandOutput>;
   updateCostCategoryDefinition(
     args: UpdateCostCategoryDefinitionCommandInput,
@@ -1130,7 +1142,7 @@ export interface CostExplorer {
   ): void;
   updateCostCategoryDefinition(
     args: UpdateCostCategoryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostExplorerRequestOptions,
     cb: (err: any, data?: UpdateCostCategoryDefinitionCommandOutput) => void
   ): void;
 

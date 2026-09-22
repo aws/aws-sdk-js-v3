@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type AutocompleteCommandInput,
@@ -37,13 +37,20 @@ const commands = {
   SuggestCommand,
 };
 
+/**
+ * @public
+ */
+export interface GeoPlacesRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface GeoPlaces {
   /**
    * @see {@link AutocompleteCommand}
    */
   autocomplete(
     args: AutocompleteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoPlacesRequestOptions
   ): Promise<AutocompleteCommandOutput>;
   autocomplete(
     args: AutocompleteCommandInput,
@@ -51,7 +58,7 @@ export interface GeoPlaces {
   ): void;
   autocomplete(
     args: AutocompleteCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoPlacesRequestOptions,
     cb: (err: any, data?: AutocompleteCommandOutput) => void
   ): void;
 
@@ -61,7 +68,7 @@ export interface GeoPlaces {
   geocode(): Promise<GeocodeCommandOutput>;
   geocode(
     args: GeocodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoPlacesRequestOptions
   ): Promise<GeocodeCommandOutput>;
   geocode(
     args: GeocodeCommandInput,
@@ -69,7 +76,7 @@ export interface GeoPlaces {
   ): void;
   geocode(
     args: GeocodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoPlacesRequestOptions,
     cb: (err: any, data?: GeocodeCommandOutput) => void
   ): void;
 
@@ -78,7 +85,7 @@ export interface GeoPlaces {
    */
   getPlace(
     args: GetPlaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoPlacesRequestOptions
   ): Promise<GetPlaceCommandOutput>;
   getPlace(
     args: GetPlaceCommandInput,
@@ -86,7 +93,7 @@ export interface GeoPlaces {
   ): void;
   getPlace(
     args: GetPlaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoPlacesRequestOptions,
     cb: (err: any, data?: GetPlaceCommandOutput) => void
   ): void;
 
@@ -95,7 +102,7 @@ export interface GeoPlaces {
    */
   reverseGeocode(
     args: ReverseGeocodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoPlacesRequestOptions
   ): Promise<ReverseGeocodeCommandOutput>;
   reverseGeocode(
     args: ReverseGeocodeCommandInput,
@@ -103,7 +110,7 @@ export interface GeoPlaces {
   ): void;
   reverseGeocode(
     args: ReverseGeocodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoPlacesRequestOptions,
     cb: (err: any, data?: ReverseGeocodeCommandOutput) => void
   ): void;
 
@@ -112,7 +119,7 @@ export interface GeoPlaces {
    */
   searchNearby(
     args: SearchNearbyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoPlacesRequestOptions
   ): Promise<SearchNearbyCommandOutput>;
   searchNearby(
     args: SearchNearbyCommandInput,
@@ -120,7 +127,7 @@ export interface GeoPlaces {
   ): void;
   searchNearby(
     args: SearchNearbyCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoPlacesRequestOptions,
     cb: (err: any, data?: SearchNearbyCommandOutput) => void
   ): void;
 
@@ -130,7 +137,7 @@ export interface GeoPlaces {
   searchText(): Promise<SearchTextCommandOutput>;
   searchText(
     args: SearchTextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoPlacesRequestOptions
   ): Promise<SearchTextCommandOutput>;
   searchText(
     args: SearchTextCommandInput,
@@ -138,7 +145,7 @@ export interface GeoPlaces {
   ): void;
   searchText(
     args: SearchTextCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoPlacesRequestOptions,
     cb: (err: any, data?: SearchTextCommandOutput) => void
   ): void;
 
@@ -147,7 +154,7 @@ export interface GeoPlaces {
    */
   suggest(
     args: SuggestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoPlacesRequestOptions
   ): Promise<SuggestCommandOutput>;
   suggest(
     args: SuggestCommandInput,
@@ -155,7 +162,7 @@ export interface GeoPlaces {
   ): void;
   suggest(
     args: SuggestCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoPlacesRequestOptions,
     cb: (err: any, data?: SuggestCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { APIGatewayClient } from "./APIGatewayClient";
 import {
@@ -733,6 +738,13 @@ const paginators = {
   paginateGetVpcLinks,
 };
 
+/**
+ * @public
+ */
+export interface APIGatewayRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface APIGateway {
   /**
    * @see {@link CreateApiKeyCommand}
@@ -740,7 +752,7 @@ export interface APIGateway {
   createApiKey(): Promise<CreateApiKeyCommandOutput>;
   createApiKey(
     args: CreateApiKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateApiKeyCommandOutput>;
   createApiKey(
     args: CreateApiKeyCommandInput,
@@ -748,7 +760,7 @@ export interface APIGateway {
   ): void;
   createApiKey(
     args: CreateApiKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateApiKeyCommandOutput) => void
   ): void;
 
@@ -757,7 +769,7 @@ export interface APIGateway {
    */
   createAuthorizer(
     args: CreateAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateAuthorizerCommandOutput>;
   createAuthorizer(
     args: CreateAuthorizerCommandInput,
@@ -765,7 +777,7 @@ export interface APIGateway {
   ): void;
   createAuthorizer(
     args: CreateAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateAuthorizerCommandOutput) => void
   ): void;
 
@@ -774,7 +786,7 @@ export interface APIGateway {
    */
   createBasePathMapping(
     args: CreateBasePathMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateBasePathMappingCommandOutput>;
   createBasePathMapping(
     args: CreateBasePathMappingCommandInput,
@@ -782,7 +794,7 @@ export interface APIGateway {
   ): void;
   createBasePathMapping(
     args: CreateBasePathMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateBasePathMappingCommandOutput) => void
   ): void;
 
@@ -791,7 +803,7 @@ export interface APIGateway {
    */
   createDeployment(
     args: CreateDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateDeploymentCommandOutput>;
   createDeployment(
     args: CreateDeploymentCommandInput,
@@ -799,7 +811,7 @@ export interface APIGateway {
   ): void;
   createDeployment(
     args: CreateDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): void;
 
@@ -808,7 +820,7 @@ export interface APIGateway {
    */
   createDocumentationPart(
     args: CreateDocumentationPartCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateDocumentationPartCommandOutput>;
   createDocumentationPart(
     args: CreateDocumentationPartCommandInput,
@@ -816,7 +828,7 @@ export interface APIGateway {
   ): void;
   createDocumentationPart(
     args: CreateDocumentationPartCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateDocumentationPartCommandOutput) => void
   ): void;
 
@@ -825,7 +837,7 @@ export interface APIGateway {
    */
   createDocumentationVersion(
     args: CreateDocumentationVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateDocumentationVersionCommandOutput>;
   createDocumentationVersion(
     args: CreateDocumentationVersionCommandInput,
@@ -833,7 +845,7 @@ export interface APIGateway {
   ): void;
   createDocumentationVersion(
     args: CreateDocumentationVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateDocumentationVersionCommandOutput) => void
   ): void;
 
@@ -842,7 +854,7 @@ export interface APIGateway {
    */
   createDomainName(
     args: CreateDomainNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateDomainNameCommandOutput>;
   createDomainName(
     args: CreateDomainNameCommandInput,
@@ -850,7 +862,7 @@ export interface APIGateway {
   ): void;
   createDomainName(
     args: CreateDomainNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateDomainNameCommandOutput) => void
   ): void;
 
@@ -859,7 +871,7 @@ export interface APIGateway {
    */
   createDomainNameAccessAssociation(
     args: CreateDomainNameAccessAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateDomainNameAccessAssociationCommandOutput>;
   createDomainNameAccessAssociation(
     args: CreateDomainNameAccessAssociationCommandInput,
@@ -867,7 +879,7 @@ export interface APIGateway {
   ): void;
   createDomainNameAccessAssociation(
     args: CreateDomainNameAccessAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateDomainNameAccessAssociationCommandOutput) => void
   ): void;
 
@@ -876,7 +888,7 @@ export interface APIGateway {
    */
   createModel(
     args: CreateModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateModelCommandOutput>;
   createModel(
     args: CreateModelCommandInput,
@@ -884,7 +896,7 @@ export interface APIGateway {
   ): void;
   createModel(
     args: CreateModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateModelCommandOutput) => void
   ): void;
 
@@ -893,7 +905,7 @@ export interface APIGateway {
    */
   createRequestValidator(
     args: CreateRequestValidatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateRequestValidatorCommandOutput>;
   createRequestValidator(
     args: CreateRequestValidatorCommandInput,
@@ -901,7 +913,7 @@ export interface APIGateway {
   ): void;
   createRequestValidator(
     args: CreateRequestValidatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateRequestValidatorCommandOutput) => void
   ): void;
 
@@ -910,7 +922,7 @@ export interface APIGateway {
    */
   createResource(
     args: CreateResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateResourceCommandOutput>;
   createResource(
     args: CreateResourceCommandInput,
@@ -918,7 +930,7 @@ export interface APIGateway {
   ): void;
   createResource(
     args: CreateResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateResourceCommandOutput) => void
   ): void;
 
@@ -927,7 +939,7 @@ export interface APIGateway {
    */
   createRestApi(
     args: CreateRestApiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateRestApiCommandOutput>;
   createRestApi(
     args: CreateRestApiCommandInput,
@@ -935,7 +947,7 @@ export interface APIGateway {
   ): void;
   createRestApi(
     args: CreateRestApiCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateRestApiCommandOutput) => void
   ): void;
 
@@ -944,7 +956,7 @@ export interface APIGateway {
    */
   createStage(
     args: CreateStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateStageCommandOutput>;
   createStage(
     args: CreateStageCommandInput,
@@ -952,7 +964,7 @@ export interface APIGateway {
   ): void;
   createStage(
     args: CreateStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateStageCommandOutput) => void
   ): void;
 
@@ -961,7 +973,7 @@ export interface APIGateway {
    */
   createUsagePlan(
     args: CreateUsagePlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateUsagePlanCommandOutput>;
   createUsagePlan(
     args: CreateUsagePlanCommandInput,
@@ -969,7 +981,7 @@ export interface APIGateway {
   ): void;
   createUsagePlan(
     args: CreateUsagePlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateUsagePlanCommandOutput) => void
   ): void;
 
@@ -978,7 +990,7 @@ export interface APIGateway {
    */
   createUsagePlanKey(
     args: CreateUsagePlanKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateUsagePlanKeyCommandOutput>;
   createUsagePlanKey(
     args: CreateUsagePlanKeyCommandInput,
@@ -986,7 +998,7 @@ export interface APIGateway {
   ): void;
   createUsagePlanKey(
     args: CreateUsagePlanKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateUsagePlanKeyCommandOutput) => void
   ): void;
 
@@ -995,7 +1007,7 @@ export interface APIGateway {
    */
   createVpcLink(
     args: CreateVpcLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<CreateVpcLinkCommandOutput>;
   createVpcLink(
     args: CreateVpcLinkCommandInput,
@@ -1003,7 +1015,7 @@ export interface APIGateway {
   ): void;
   createVpcLink(
     args: CreateVpcLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: CreateVpcLinkCommandOutput) => void
   ): void;
 
@@ -1012,7 +1024,7 @@ export interface APIGateway {
    */
   deleteApiKey(
     args: DeleteApiKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteApiKeyCommandOutput>;
   deleteApiKey(
     args: DeleteApiKeyCommandInput,
@@ -1020,7 +1032,7 @@ export interface APIGateway {
   ): void;
   deleteApiKey(
     args: DeleteApiKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteApiKeyCommandOutput) => void
   ): void;
 
@@ -1029,7 +1041,7 @@ export interface APIGateway {
    */
   deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteAuthorizerCommandOutput>;
   deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
@@ -1037,7 +1049,7 @@ export interface APIGateway {
   ): void;
   deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteAuthorizerCommandOutput) => void
   ): void;
 
@@ -1046,7 +1058,7 @@ export interface APIGateway {
    */
   deleteBasePathMapping(
     args: DeleteBasePathMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteBasePathMappingCommandOutput>;
   deleteBasePathMapping(
     args: DeleteBasePathMappingCommandInput,
@@ -1054,7 +1066,7 @@ export interface APIGateway {
   ): void;
   deleteBasePathMapping(
     args: DeleteBasePathMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteBasePathMappingCommandOutput) => void
   ): void;
 
@@ -1063,7 +1075,7 @@ export interface APIGateway {
    */
   deleteClientCertificate(
     args: DeleteClientCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteClientCertificateCommandOutput>;
   deleteClientCertificate(
     args: DeleteClientCertificateCommandInput,
@@ -1071,7 +1083,7 @@ export interface APIGateway {
   ): void;
   deleteClientCertificate(
     args: DeleteClientCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteClientCertificateCommandOutput) => void
   ): void;
 
@@ -1080,7 +1092,7 @@ export interface APIGateway {
    */
   deleteDeployment(
     args: DeleteDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteDeploymentCommandOutput>;
   deleteDeployment(
     args: DeleteDeploymentCommandInput,
@@ -1088,7 +1100,7 @@ export interface APIGateway {
   ): void;
   deleteDeployment(
     args: DeleteDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteDeploymentCommandOutput) => void
   ): void;
 
@@ -1097,7 +1109,7 @@ export interface APIGateway {
    */
   deleteDocumentationPart(
     args: DeleteDocumentationPartCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteDocumentationPartCommandOutput>;
   deleteDocumentationPart(
     args: DeleteDocumentationPartCommandInput,
@@ -1105,7 +1117,7 @@ export interface APIGateway {
   ): void;
   deleteDocumentationPart(
     args: DeleteDocumentationPartCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteDocumentationPartCommandOutput) => void
   ): void;
 
@@ -1114,7 +1126,7 @@ export interface APIGateway {
    */
   deleteDocumentationVersion(
     args: DeleteDocumentationVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteDocumentationVersionCommandOutput>;
   deleteDocumentationVersion(
     args: DeleteDocumentationVersionCommandInput,
@@ -1122,7 +1134,7 @@ export interface APIGateway {
   ): void;
   deleteDocumentationVersion(
     args: DeleteDocumentationVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteDocumentationVersionCommandOutput) => void
   ): void;
 
@@ -1131,7 +1143,7 @@ export interface APIGateway {
    */
   deleteDomainName(
     args: DeleteDomainNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteDomainNameCommandOutput>;
   deleteDomainName(
     args: DeleteDomainNameCommandInput,
@@ -1139,7 +1151,7 @@ export interface APIGateway {
   ): void;
   deleteDomainName(
     args: DeleteDomainNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteDomainNameCommandOutput) => void
   ): void;
 
@@ -1148,7 +1160,7 @@ export interface APIGateway {
    */
   deleteDomainNameAccessAssociation(
     args: DeleteDomainNameAccessAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteDomainNameAccessAssociationCommandOutput>;
   deleteDomainNameAccessAssociation(
     args: DeleteDomainNameAccessAssociationCommandInput,
@@ -1156,7 +1168,7 @@ export interface APIGateway {
   ): void;
   deleteDomainNameAccessAssociation(
     args: DeleteDomainNameAccessAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteDomainNameAccessAssociationCommandOutput) => void
   ): void;
 
@@ -1165,7 +1177,7 @@ export interface APIGateway {
    */
   deleteGatewayResponse(
     args: DeleteGatewayResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteGatewayResponseCommandOutput>;
   deleteGatewayResponse(
     args: DeleteGatewayResponseCommandInput,
@@ -1173,7 +1185,7 @@ export interface APIGateway {
   ): void;
   deleteGatewayResponse(
     args: DeleteGatewayResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteGatewayResponseCommandOutput) => void
   ): void;
 
@@ -1182,7 +1194,7 @@ export interface APIGateway {
    */
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteIntegrationCommandOutput>;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
@@ -1190,7 +1202,7 @@ export interface APIGateway {
   ): void;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
 
@@ -1199,7 +1211,7 @@ export interface APIGateway {
    */
   deleteIntegrationResponse(
     args: DeleteIntegrationResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteIntegrationResponseCommandOutput>;
   deleteIntegrationResponse(
     args: DeleteIntegrationResponseCommandInput,
@@ -1207,7 +1219,7 @@ export interface APIGateway {
   ): void;
   deleteIntegrationResponse(
     args: DeleteIntegrationResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteIntegrationResponseCommandOutput) => void
   ): void;
 
@@ -1216,7 +1228,7 @@ export interface APIGateway {
    */
   deleteMethod(
     args: DeleteMethodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteMethodCommandOutput>;
   deleteMethod(
     args: DeleteMethodCommandInput,
@@ -1224,7 +1236,7 @@ export interface APIGateway {
   ): void;
   deleteMethod(
     args: DeleteMethodCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteMethodCommandOutput) => void
   ): void;
 
@@ -1233,7 +1245,7 @@ export interface APIGateway {
    */
   deleteMethodResponse(
     args: DeleteMethodResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteMethodResponseCommandOutput>;
   deleteMethodResponse(
     args: DeleteMethodResponseCommandInput,
@@ -1241,7 +1253,7 @@ export interface APIGateway {
   ): void;
   deleteMethodResponse(
     args: DeleteMethodResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteMethodResponseCommandOutput) => void
   ): void;
 
@@ -1250,7 +1262,7 @@ export interface APIGateway {
    */
   deleteModel(
     args: DeleteModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteModelCommandOutput>;
   deleteModel(
     args: DeleteModelCommandInput,
@@ -1258,7 +1270,7 @@ export interface APIGateway {
   ): void;
   deleteModel(
     args: DeleteModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteModelCommandOutput) => void
   ): void;
 
@@ -1267,7 +1279,7 @@ export interface APIGateway {
    */
   deleteRequestValidator(
     args: DeleteRequestValidatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteRequestValidatorCommandOutput>;
   deleteRequestValidator(
     args: DeleteRequestValidatorCommandInput,
@@ -1275,7 +1287,7 @@ export interface APIGateway {
   ): void;
   deleteRequestValidator(
     args: DeleteRequestValidatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteRequestValidatorCommandOutput) => void
   ): void;
 
@@ -1284,7 +1296,7 @@ export interface APIGateway {
    */
   deleteResource(
     args: DeleteResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteResourceCommandOutput>;
   deleteResource(
     args: DeleteResourceCommandInput,
@@ -1292,7 +1304,7 @@ export interface APIGateway {
   ): void;
   deleteResource(
     args: DeleteResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteResourceCommandOutput) => void
   ): void;
 
@@ -1301,7 +1313,7 @@ export interface APIGateway {
    */
   deleteRestApi(
     args: DeleteRestApiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteRestApiCommandOutput>;
   deleteRestApi(
     args: DeleteRestApiCommandInput,
@@ -1309,7 +1321,7 @@ export interface APIGateway {
   ): void;
   deleteRestApi(
     args: DeleteRestApiCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteRestApiCommandOutput) => void
   ): void;
 
@@ -1318,7 +1330,7 @@ export interface APIGateway {
    */
   deleteStage(
     args: DeleteStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteStageCommandOutput>;
   deleteStage(
     args: DeleteStageCommandInput,
@@ -1326,7 +1338,7 @@ export interface APIGateway {
   ): void;
   deleteStage(
     args: DeleteStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteStageCommandOutput) => void
   ): void;
 
@@ -1335,7 +1347,7 @@ export interface APIGateway {
    */
   deleteUsagePlan(
     args: DeleteUsagePlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteUsagePlanCommandOutput>;
   deleteUsagePlan(
     args: DeleteUsagePlanCommandInput,
@@ -1343,7 +1355,7 @@ export interface APIGateway {
   ): void;
   deleteUsagePlan(
     args: DeleteUsagePlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteUsagePlanCommandOutput) => void
   ): void;
 
@@ -1352,7 +1364,7 @@ export interface APIGateway {
    */
   deleteUsagePlanKey(
     args: DeleteUsagePlanKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteUsagePlanKeyCommandOutput>;
   deleteUsagePlanKey(
     args: DeleteUsagePlanKeyCommandInput,
@@ -1360,7 +1372,7 @@ export interface APIGateway {
   ): void;
   deleteUsagePlanKey(
     args: DeleteUsagePlanKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteUsagePlanKeyCommandOutput) => void
   ): void;
 
@@ -1369,7 +1381,7 @@ export interface APIGateway {
    */
   deleteVpcLink(
     args: DeleteVpcLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<DeleteVpcLinkCommandOutput>;
   deleteVpcLink(
     args: DeleteVpcLinkCommandInput,
@@ -1377,7 +1389,7 @@ export interface APIGateway {
   ): void;
   deleteVpcLink(
     args: DeleteVpcLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: DeleteVpcLinkCommandOutput) => void
   ): void;
 
@@ -1386,7 +1398,7 @@ export interface APIGateway {
    */
   flushStageAuthorizersCache(
     args: FlushStageAuthorizersCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<FlushStageAuthorizersCacheCommandOutput>;
   flushStageAuthorizersCache(
     args: FlushStageAuthorizersCacheCommandInput,
@@ -1394,7 +1406,7 @@ export interface APIGateway {
   ): void;
   flushStageAuthorizersCache(
     args: FlushStageAuthorizersCacheCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: FlushStageAuthorizersCacheCommandOutput) => void
   ): void;
 
@@ -1403,7 +1415,7 @@ export interface APIGateway {
    */
   flushStageCache(
     args: FlushStageCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<FlushStageCacheCommandOutput>;
   flushStageCache(
     args: FlushStageCacheCommandInput,
@@ -1411,7 +1423,7 @@ export interface APIGateway {
   ): void;
   flushStageCache(
     args: FlushStageCacheCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: FlushStageCacheCommandOutput) => void
   ): void;
 
@@ -1421,7 +1433,7 @@ export interface APIGateway {
   generateClientCertificate(): Promise<GenerateClientCertificateCommandOutput>;
   generateClientCertificate(
     args: GenerateClientCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GenerateClientCertificateCommandOutput>;
   generateClientCertificate(
     args: GenerateClientCertificateCommandInput,
@@ -1429,7 +1441,7 @@ export interface APIGateway {
   ): void;
   generateClientCertificate(
     args: GenerateClientCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GenerateClientCertificateCommandOutput) => void
   ): void;
 
@@ -1439,7 +1451,7 @@ export interface APIGateway {
   getAccount(): Promise<GetAccountCommandOutput>;
   getAccount(
     args: GetAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetAccountCommandOutput>;
   getAccount(
     args: GetAccountCommandInput,
@@ -1447,7 +1459,7 @@ export interface APIGateway {
   ): void;
   getAccount(
     args: GetAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetAccountCommandOutput) => void
   ): void;
 
@@ -1456,7 +1468,7 @@ export interface APIGateway {
    */
   getApiKey(
     args: GetApiKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetApiKeyCommandOutput>;
   getApiKey(
     args: GetApiKeyCommandInput,
@@ -1464,7 +1476,7 @@ export interface APIGateway {
   ): void;
   getApiKey(
     args: GetApiKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetApiKeyCommandOutput) => void
   ): void;
 
@@ -1474,7 +1486,7 @@ export interface APIGateway {
   getApiKeys(): Promise<GetApiKeysCommandOutput>;
   getApiKeys(
     args: GetApiKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetApiKeysCommandOutput>;
   getApiKeys(
     args: GetApiKeysCommandInput,
@@ -1482,7 +1494,7 @@ export interface APIGateway {
   ): void;
   getApiKeys(
     args: GetApiKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetApiKeysCommandOutput) => void
   ): void;
 
@@ -1491,7 +1503,7 @@ export interface APIGateway {
    */
   getAuthorizer(
     args: GetAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetAuthorizerCommandOutput>;
   getAuthorizer(
     args: GetAuthorizerCommandInput,
@@ -1499,7 +1511,7 @@ export interface APIGateway {
   ): void;
   getAuthorizer(
     args: GetAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetAuthorizerCommandOutput) => void
   ): void;
 
@@ -1508,7 +1520,7 @@ export interface APIGateway {
    */
   getAuthorizers(
     args: GetAuthorizersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetAuthorizersCommandOutput>;
   getAuthorizers(
     args: GetAuthorizersCommandInput,
@@ -1516,7 +1528,7 @@ export interface APIGateway {
   ): void;
   getAuthorizers(
     args: GetAuthorizersCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetAuthorizersCommandOutput) => void
   ): void;
 
@@ -1525,7 +1537,7 @@ export interface APIGateway {
    */
   getBasePathMapping(
     args: GetBasePathMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetBasePathMappingCommandOutput>;
   getBasePathMapping(
     args: GetBasePathMappingCommandInput,
@@ -1533,7 +1545,7 @@ export interface APIGateway {
   ): void;
   getBasePathMapping(
     args: GetBasePathMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetBasePathMappingCommandOutput) => void
   ): void;
 
@@ -1542,7 +1554,7 @@ export interface APIGateway {
    */
   getBasePathMappings(
     args: GetBasePathMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetBasePathMappingsCommandOutput>;
   getBasePathMappings(
     args: GetBasePathMappingsCommandInput,
@@ -1550,7 +1562,7 @@ export interface APIGateway {
   ): void;
   getBasePathMappings(
     args: GetBasePathMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetBasePathMappingsCommandOutput) => void
   ): void;
 
@@ -1559,7 +1571,7 @@ export interface APIGateway {
    */
   getClientCertificate(
     args: GetClientCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetClientCertificateCommandOutput>;
   getClientCertificate(
     args: GetClientCertificateCommandInput,
@@ -1567,7 +1579,7 @@ export interface APIGateway {
   ): void;
   getClientCertificate(
     args: GetClientCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetClientCertificateCommandOutput) => void
   ): void;
 
@@ -1577,7 +1589,7 @@ export interface APIGateway {
   getClientCertificates(): Promise<GetClientCertificatesCommandOutput>;
   getClientCertificates(
     args: GetClientCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetClientCertificatesCommandOutput>;
   getClientCertificates(
     args: GetClientCertificatesCommandInput,
@@ -1585,7 +1597,7 @@ export interface APIGateway {
   ): void;
   getClientCertificates(
     args: GetClientCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetClientCertificatesCommandOutput) => void
   ): void;
 
@@ -1594,7 +1606,7 @@ export interface APIGateway {
    */
   getDeployment(
     args: GetDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetDeploymentCommandOutput>;
   getDeployment(
     args: GetDeploymentCommandInput,
@@ -1602,7 +1614,7 @@ export interface APIGateway {
   ): void;
   getDeployment(
     args: GetDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetDeploymentCommandOutput) => void
   ): void;
 
@@ -1611,7 +1623,7 @@ export interface APIGateway {
    */
   getDeployments(
     args: GetDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetDeploymentsCommandOutput>;
   getDeployments(
     args: GetDeploymentsCommandInput,
@@ -1619,7 +1631,7 @@ export interface APIGateway {
   ): void;
   getDeployments(
     args: GetDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetDeploymentsCommandOutput) => void
   ): void;
 
@@ -1628,7 +1640,7 @@ export interface APIGateway {
    */
   getDocumentationPart(
     args: GetDocumentationPartCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetDocumentationPartCommandOutput>;
   getDocumentationPart(
     args: GetDocumentationPartCommandInput,
@@ -1636,7 +1648,7 @@ export interface APIGateway {
   ): void;
   getDocumentationPart(
     args: GetDocumentationPartCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetDocumentationPartCommandOutput) => void
   ): void;
 
@@ -1645,7 +1657,7 @@ export interface APIGateway {
    */
   getDocumentationParts(
     args: GetDocumentationPartsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetDocumentationPartsCommandOutput>;
   getDocumentationParts(
     args: GetDocumentationPartsCommandInput,
@@ -1653,7 +1665,7 @@ export interface APIGateway {
   ): void;
   getDocumentationParts(
     args: GetDocumentationPartsCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetDocumentationPartsCommandOutput) => void
   ): void;
 
@@ -1662,7 +1674,7 @@ export interface APIGateway {
    */
   getDocumentationVersion(
     args: GetDocumentationVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetDocumentationVersionCommandOutput>;
   getDocumentationVersion(
     args: GetDocumentationVersionCommandInput,
@@ -1670,7 +1682,7 @@ export interface APIGateway {
   ): void;
   getDocumentationVersion(
     args: GetDocumentationVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetDocumentationVersionCommandOutput) => void
   ): void;
 
@@ -1679,7 +1691,7 @@ export interface APIGateway {
    */
   getDocumentationVersions(
     args: GetDocumentationVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetDocumentationVersionsCommandOutput>;
   getDocumentationVersions(
     args: GetDocumentationVersionsCommandInput,
@@ -1687,7 +1699,7 @@ export interface APIGateway {
   ): void;
   getDocumentationVersions(
     args: GetDocumentationVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetDocumentationVersionsCommandOutput) => void
   ): void;
 
@@ -1696,7 +1708,7 @@ export interface APIGateway {
    */
   getDomainName(
     args: GetDomainNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetDomainNameCommandOutput>;
   getDomainName(
     args: GetDomainNameCommandInput,
@@ -1704,7 +1716,7 @@ export interface APIGateway {
   ): void;
   getDomainName(
     args: GetDomainNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetDomainNameCommandOutput) => void
   ): void;
 
@@ -1714,7 +1726,7 @@ export interface APIGateway {
   getDomainNameAccessAssociations(): Promise<GetDomainNameAccessAssociationsCommandOutput>;
   getDomainNameAccessAssociations(
     args: GetDomainNameAccessAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetDomainNameAccessAssociationsCommandOutput>;
   getDomainNameAccessAssociations(
     args: GetDomainNameAccessAssociationsCommandInput,
@@ -1722,7 +1734,7 @@ export interface APIGateway {
   ): void;
   getDomainNameAccessAssociations(
     args: GetDomainNameAccessAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetDomainNameAccessAssociationsCommandOutput) => void
   ): void;
 
@@ -1732,7 +1744,7 @@ export interface APIGateway {
   getDomainNames(): Promise<GetDomainNamesCommandOutput>;
   getDomainNames(
     args: GetDomainNamesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetDomainNamesCommandOutput>;
   getDomainNames(
     args: GetDomainNamesCommandInput,
@@ -1740,7 +1752,7 @@ export interface APIGateway {
   ): void;
   getDomainNames(
     args: GetDomainNamesCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetDomainNamesCommandOutput) => void
   ): void;
 
@@ -1749,7 +1761,7 @@ export interface APIGateway {
    */
   getExport(
     args: GetExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetExportCommandOutput>;
   getExport(
     args: GetExportCommandInput,
@@ -1757,7 +1769,7 @@ export interface APIGateway {
   ): void;
   getExport(
     args: GetExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetExportCommandOutput) => void
   ): void;
 
@@ -1766,7 +1778,7 @@ export interface APIGateway {
    */
   getGatewayResponse(
     args: GetGatewayResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetGatewayResponseCommandOutput>;
   getGatewayResponse(
     args: GetGatewayResponseCommandInput,
@@ -1774,7 +1786,7 @@ export interface APIGateway {
   ): void;
   getGatewayResponse(
     args: GetGatewayResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetGatewayResponseCommandOutput) => void
   ): void;
 
@@ -1783,7 +1795,7 @@ export interface APIGateway {
    */
   getGatewayResponses(
     args: GetGatewayResponsesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetGatewayResponsesCommandOutput>;
   getGatewayResponses(
     args: GetGatewayResponsesCommandInput,
@@ -1791,7 +1803,7 @@ export interface APIGateway {
   ): void;
   getGatewayResponses(
     args: GetGatewayResponsesCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetGatewayResponsesCommandOutput) => void
   ): void;
 
@@ -1800,7 +1812,7 @@ export interface APIGateway {
    */
   getIntegration(
     args: GetIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetIntegrationCommandOutput>;
   getIntegration(
     args: GetIntegrationCommandInput,
@@ -1808,7 +1820,7 @@ export interface APIGateway {
   ): void;
   getIntegration(
     args: GetIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetIntegrationCommandOutput) => void
   ): void;
 
@@ -1817,7 +1829,7 @@ export interface APIGateway {
    */
   getIntegrationResponse(
     args: GetIntegrationResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetIntegrationResponseCommandOutput>;
   getIntegrationResponse(
     args: GetIntegrationResponseCommandInput,
@@ -1825,7 +1837,7 @@ export interface APIGateway {
   ): void;
   getIntegrationResponse(
     args: GetIntegrationResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetIntegrationResponseCommandOutput) => void
   ): void;
 
@@ -1834,7 +1846,7 @@ export interface APIGateway {
    */
   getMethod(
     args: GetMethodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetMethodCommandOutput>;
   getMethod(
     args: GetMethodCommandInput,
@@ -1842,7 +1854,7 @@ export interface APIGateway {
   ): void;
   getMethod(
     args: GetMethodCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetMethodCommandOutput) => void
   ): void;
 
@@ -1851,7 +1863,7 @@ export interface APIGateway {
    */
   getMethodResponse(
     args: GetMethodResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetMethodResponseCommandOutput>;
   getMethodResponse(
     args: GetMethodResponseCommandInput,
@@ -1859,7 +1871,7 @@ export interface APIGateway {
   ): void;
   getMethodResponse(
     args: GetMethodResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetMethodResponseCommandOutput) => void
   ): void;
 
@@ -1868,7 +1880,7 @@ export interface APIGateway {
    */
   getModel(
     args: GetModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetModelCommandOutput>;
   getModel(
     args: GetModelCommandInput,
@@ -1876,7 +1888,7 @@ export interface APIGateway {
   ): void;
   getModel(
     args: GetModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetModelCommandOutput) => void
   ): void;
 
@@ -1885,7 +1897,7 @@ export interface APIGateway {
    */
   getModels(
     args: GetModelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetModelsCommandOutput>;
   getModels(
     args: GetModelsCommandInput,
@@ -1893,7 +1905,7 @@ export interface APIGateway {
   ): void;
   getModels(
     args: GetModelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetModelsCommandOutput) => void
   ): void;
 
@@ -1902,7 +1914,7 @@ export interface APIGateway {
    */
   getModelTemplate(
     args: GetModelTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetModelTemplateCommandOutput>;
   getModelTemplate(
     args: GetModelTemplateCommandInput,
@@ -1910,7 +1922,7 @@ export interface APIGateway {
   ): void;
   getModelTemplate(
     args: GetModelTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetModelTemplateCommandOutput) => void
   ): void;
 
@@ -1919,7 +1931,7 @@ export interface APIGateway {
    */
   getRequestValidator(
     args: GetRequestValidatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetRequestValidatorCommandOutput>;
   getRequestValidator(
     args: GetRequestValidatorCommandInput,
@@ -1927,7 +1939,7 @@ export interface APIGateway {
   ): void;
   getRequestValidator(
     args: GetRequestValidatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetRequestValidatorCommandOutput) => void
   ): void;
 
@@ -1936,7 +1948,7 @@ export interface APIGateway {
    */
   getRequestValidators(
     args: GetRequestValidatorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetRequestValidatorsCommandOutput>;
   getRequestValidators(
     args: GetRequestValidatorsCommandInput,
@@ -1944,7 +1956,7 @@ export interface APIGateway {
   ): void;
   getRequestValidators(
     args: GetRequestValidatorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetRequestValidatorsCommandOutput) => void
   ): void;
 
@@ -1953,7 +1965,7 @@ export interface APIGateway {
    */
   getResource(
     args: GetResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetResourceCommandOutput>;
   getResource(
     args: GetResourceCommandInput,
@@ -1961,7 +1973,7 @@ export interface APIGateway {
   ): void;
   getResource(
     args: GetResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetResourceCommandOutput) => void
   ): void;
 
@@ -1970,7 +1982,7 @@ export interface APIGateway {
    */
   getResources(
     args: GetResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetResourcesCommandOutput>;
   getResources(
     args: GetResourcesCommandInput,
@@ -1978,7 +1990,7 @@ export interface APIGateway {
   ): void;
   getResources(
     args: GetResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetResourcesCommandOutput) => void
   ): void;
 
@@ -1987,7 +1999,7 @@ export interface APIGateway {
    */
   getRestApi(
     args: GetRestApiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetRestApiCommandOutput>;
   getRestApi(
     args: GetRestApiCommandInput,
@@ -1995,7 +2007,7 @@ export interface APIGateway {
   ): void;
   getRestApi(
     args: GetRestApiCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetRestApiCommandOutput) => void
   ): void;
 
@@ -2005,7 +2017,7 @@ export interface APIGateway {
   getRestApis(): Promise<GetRestApisCommandOutput>;
   getRestApis(
     args: GetRestApisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetRestApisCommandOutput>;
   getRestApis(
     args: GetRestApisCommandInput,
@@ -2013,7 +2025,7 @@ export interface APIGateway {
   ): void;
   getRestApis(
     args: GetRestApisCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetRestApisCommandOutput) => void
   ): void;
 
@@ -2022,7 +2034,7 @@ export interface APIGateway {
    */
   getSdk(
     args: GetSdkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetSdkCommandOutput>;
   getSdk(
     args: GetSdkCommandInput,
@@ -2030,7 +2042,7 @@ export interface APIGateway {
   ): void;
   getSdk(
     args: GetSdkCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetSdkCommandOutput) => void
   ): void;
 
@@ -2039,7 +2051,7 @@ export interface APIGateway {
    */
   getSdkType(
     args: GetSdkTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetSdkTypeCommandOutput>;
   getSdkType(
     args: GetSdkTypeCommandInput,
@@ -2047,7 +2059,7 @@ export interface APIGateway {
   ): void;
   getSdkType(
     args: GetSdkTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetSdkTypeCommandOutput) => void
   ): void;
 
@@ -2057,7 +2069,7 @@ export interface APIGateway {
   getSdkTypes(): Promise<GetSdkTypesCommandOutput>;
   getSdkTypes(
     args: GetSdkTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetSdkTypesCommandOutput>;
   getSdkTypes(
     args: GetSdkTypesCommandInput,
@@ -2065,7 +2077,7 @@ export interface APIGateway {
   ): void;
   getSdkTypes(
     args: GetSdkTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetSdkTypesCommandOutput) => void
   ): void;
 
@@ -2074,7 +2086,7 @@ export interface APIGateway {
    */
   getStage(
     args: GetStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetStageCommandOutput>;
   getStage(
     args: GetStageCommandInput,
@@ -2082,7 +2094,7 @@ export interface APIGateway {
   ): void;
   getStage(
     args: GetStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetStageCommandOutput) => void
   ): void;
 
@@ -2091,7 +2103,7 @@ export interface APIGateway {
    */
   getStages(
     args: GetStagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetStagesCommandOutput>;
   getStages(
     args: GetStagesCommandInput,
@@ -2099,7 +2111,7 @@ export interface APIGateway {
   ): void;
   getStages(
     args: GetStagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetStagesCommandOutput) => void
   ): void;
 
@@ -2108,7 +2120,7 @@ export interface APIGateway {
    */
   getTags(
     args: GetTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetTagsCommandOutput>;
   getTags(
     args: GetTagsCommandInput,
@@ -2116,7 +2128,7 @@ export interface APIGateway {
   ): void;
   getTags(
     args: GetTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetTagsCommandOutput) => void
   ): void;
 
@@ -2125,7 +2137,7 @@ export interface APIGateway {
    */
   getUsage(
     args: GetUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetUsageCommandOutput>;
   getUsage(
     args: GetUsageCommandInput,
@@ -2133,7 +2145,7 @@ export interface APIGateway {
   ): void;
   getUsage(
     args: GetUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetUsageCommandOutput) => void
   ): void;
 
@@ -2142,7 +2154,7 @@ export interface APIGateway {
    */
   getUsagePlan(
     args: GetUsagePlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetUsagePlanCommandOutput>;
   getUsagePlan(
     args: GetUsagePlanCommandInput,
@@ -2150,7 +2162,7 @@ export interface APIGateway {
   ): void;
   getUsagePlan(
     args: GetUsagePlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetUsagePlanCommandOutput) => void
   ): void;
 
@@ -2159,7 +2171,7 @@ export interface APIGateway {
    */
   getUsagePlanKey(
     args: GetUsagePlanKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetUsagePlanKeyCommandOutput>;
   getUsagePlanKey(
     args: GetUsagePlanKeyCommandInput,
@@ -2167,7 +2179,7 @@ export interface APIGateway {
   ): void;
   getUsagePlanKey(
     args: GetUsagePlanKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetUsagePlanKeyCommandOutput) => void
   ): void;
 
@@ -2176,7 +2188,7 @@ export interface APIGateway {
    */
   getUsagePlanKeys(
     args: GetUsagePlanKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetUsagePlanKeysCommandOutput>;
   getUsagePlanKeys(
     args: GetUsagePlanKeysCommandInput,
@@ -2184,7 +2196,7 @@ export interface APIGateway {
   ): void;
   getUsagePlanKeys(
     args: GetUsagePlanKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetUsagePlanKeysCommandOutput) => void
   ): void;
 
@@ -2194,7 +2206,7 @@ export interface APIGateway {
   getUsagePlans(): Promise<GetUsagePlansCommandOutput>;
   getUsagePlans(
     args: GetUsagePlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetUsagePlansCommandOutput>;
   getUsagePlans(
     args: GetUsagePlansCommandInput,
@@ -2202,7 +2214,7 @@ export interface APIGateway {
   ): void;
   getUsagePlans(
     args: GetUsagePlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetUsagePlansCommandOutput) => void
   ): void;
 
@@ -2211,7 +2223,7 @@ export interface APIGateway {
    */
   getVpcLink(
     args: GetVpcLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetVpcLinkCommandOutput>;
   getVpcLink(
     args: GetVpcLinkCommandInput,
@@ -2219,7 +2231,7 @@ export interface APIGateway {
   ): void;
   getVpcLink(
     args: GetVpcLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetVpcLinkCommandOutput) => void
   ): void;
 
@@ -2229,7 +2241,7 @@ export interface APIGateway {
   getVpcLinks(): Promise<GetVpcLinksCommandOutput>;
   getVpcLinks(
     args: GetVpcLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetVpcLinksCommandOutput>;
   getVpcLinks(
     args: GetVpcLinksCommandInput,
@@ -2237,7 +2249,7 @@ export interface APIGateway {
   ): void;
   getVpcLinks(
     args: GetVpcLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetVpcLinksCommandOutput) => void
   ): void;
 
@@ -2246,7 +2258,7 @@ export interface APIGateway {
    */
   importApiKeys(
     args: ImportApiKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<ImportApiKeysCommandOutput>;
   importApiKeys(
     args: ImportApiKeysCommandInput,
@@ -2254,7 +2266,7 @@ export interface APIGateway {
   ): void;
   importApiKeys(
     args: ImportApiKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: ImportApiKeysCommandOutput) => void
   ): void;
 
@@ -2263,7 +2275,7 @@ export interface APIGateway {
    */
   importDocumentationParts(
     args: ImportDocumentationPartsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<ImportDocumentationPartsCommandOutput>;
   importDocumentationParts(
     args: ImportDocumentationPartsCommandInput,
@@ -2271,7 +2283,7 @@ export interface APIGateway {
   ): void;
   importDocumentationParts(
     args: ImportDocumentationPartsCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: ImportDocumentationPartsCommandOutput) => void
   ): void;
 
@@ -2280,7 +2292,7 @@ export interface APIGateway {
    */
   importRestApi(
     args: ImportRestApiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<ImportRestApiCommandOutput>;
   importRestApi(
     args: ImportRestApiCommandInput,
@@ -2288,7 +2300,7 @@ export interface APIGateway {
   ): void;
   importRestApi(
     args: ImportRestApiCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: ImportRestApiCommandOutput) => void
   ): void;
 
@@ -2297,7 +2309,7 @@ export interface APIGateway {
    */
   putGatewayResponse(
     args: PutGatewayResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<PutGatewayResponseCommandOutput>;
   putGatewayResponse(
     args: PutGatewayResponseCommandInput,
@@ -2305,7 +2317,7 @@ export interface APIGateway {
   ): void;
   putGatewayResponse(
     args: PutGatewayResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: PutGatewayResponseCommandOutput) => void
   ): void;
 
@@ -2314,7 +2326,7 @@ export interface APIGateway {
    */
   putIntegration(
     args: PutIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<PutIntegrationCommandOutput>;
   putIntegration(
     args: PutIntegrationCommandInput,
@@ -2322,7 +2334,7 @@ export interface APIGateway {
   ): void;
   putIntegration(
     args: PutIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: PutIntegrationCommandOutput) => void
   ): void;
 
@@ -2331,7 +2343,7 @@ export interface APIGateway {
    */
   putIntegrationResponse(
     args: PutIntegrationResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<PutIntegrationResponseCommandOutput>;
   putIntegrationResponse(
     args: PutIntegrationResponseCommandInput,
@@ -2339,7 +2351,7 @@ export interface APIGateway {
   ): void;
   putIntegrationResponse(
     args: PutIntegrationResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: PutIntegrationResponseCommandOutput) => void
   ): void;
 
@@ -2348,7 +2360,7 @@ export interface APIGateway {
    */
   putMethod(
     args: PutMethodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<PutMethodCommandOutput>;
   putMethod(
     args: PutMethodCommandInput,
@@ -2356,7 +2368,7 @@ export interface APIGateway {
   ): void;
   putMethod(
     args: PutMethodCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: PutMethodCommandOutput) => void
   ): void;
 
@@ -2365,7 +2377,7 @@ export interface APIGateway {
    */
   putMethodResponse(
     args: PutMethodResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<PutMethodResponseCommandOutput>;
   putMethodResponse(
     args: PutMethodResponseCommandInput,
@@ -2373,7 +2385,7 @@ export interface APIGateway {
   ): void;
   putMethodResponse(
     args: PutMethodResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: PutMethodResponseCommandOutput) => void
   ): void;
 
@@ -2382,7 +2394,7 @@ export interface APIGateway {
    */
   putRestApi(
     args: PutRestApiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<PutRestApiCommandOutput>;
   putRestApi(
     args: PutRestApiCommandInput,
@@ -2390,7 +2402,7 @@ export interface APIGateway {
   ): void;
   putRestApi(
     args: PutRestApiCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: PutRestApiCommandOutput) => void
   ): void;
 
@@ -2399,7 +2411,7 @@ export interface APIGateway {
    */
   rejectDomainNameAccessAssociation(
     args: RejectDomainNameAccessAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<RejectDomainNameAccessAssociationCommandOutput>;
   rejectDomainNameAccessAssociation(
     args: RejectDomainNameAccessAssociationCommandInput,
@@ -2407,7 +2419,7 @@ export interface APIGateway {
   ): void;
   rejectDomainNameAccessAssociation(
     args: RejectDomainNameAccessAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: RejectDomainNameAccessAssociationCommandOutput) => void
   ): void;
 
@@ -2416,7 +2428,7 @@ export interface APIGateway {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2424,7 +2436,7 @@ export interface APIGateway {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2433,7 +2445,7 @@ export interface APIGateway {
    */
   testInvokeAuthorizer(
     args: TestInvokeAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<TestInvokeAuthorizerCommandOutput>;
   testInvokeAuthorizer(
     args: TestInvokeAuthorizerCommandInput,
@@ -2441,7 +2453,7 @@ export interface APIGateway {
   ): void;
   testInvokeAuthorizer(
     args: TestInvokeAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: TestInvokeAuthorizerCommandOutput) => void
   ): void;
 
@@ -2450,7 +2462,7 @@ export interface APIGateway {
    */
   testInvokeMethod(
     args: TestInvokeMethodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<TestInvokeMethodCommandOutput>;
   testInvokeMethod(
     args: TestInvokeMethodCommandInput,
@@ -2458,7 +2470,7 @@ export interface APIGateway {
   ): void;
   testInvokeMethod(
     args: TestInvokeMethodCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: TestInvokeMethodCommandOutput) => void
   ): void;
 
@@ -2467,7 +2479,7 @@ export interface APIGateway {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2475,7 +2487,7 @@ export interface APIGateway {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2485,7 +2497,7 @@ export interface APIGateway {
   updateAccount(): Promise<UpdateAccountCommandOutput>;
   updateAccount(
     args: UpdateAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateAccountCommandOutput>;
   updateAccount(
     args: UpdateAccountCommandInput,
@@ -2493,7 +2505,7 @@ export interface APIGateway {
   ): void;
   updateAccount(
     args: UpdateAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateAccountCommandOutput) => void
   ): void;
 
@@ -2502,7 +2514,7 @@ export interface APIGateway {
    */
   updateApiKey(
     args: UpdateApiKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateApiKeyCommandOutput>;
   updateApiKey(
     args: UpdateApiKeyCommandInput,
@@ -2510,7 +2522,7 @@ export interface APIGateway {
   ): void;
   updateApiKey(
     args: UpdateApiKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateApiKeyCommandOutput) => void
   ): void;
 
@@ -2519,7 +2531,7 @@ export interface APIGateway {
    */
   updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateAuthorizerCommandOutput>;
   updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
@@ -2527,7 +2539,7 @@ export interface APIGateway {
   ): void;
   updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateAuthorizerCommandOutput) => void
   ): void;
 
@@ -2536,7 +2548,7 @@ export interface APIGateway {
    */
   updateBasePathMapping(
     args: UpdateBasePathMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateBasePathMappingCommandOutput>;
   updateBasePathMapping(
     args: UpdateBasePathMappingCommandInput,
@@ -2544,7 +2556,7 @@ export interface APIGateway {
   ): void;
   updateBasePathMapping(
     args: UpdateBasePathMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateBasePathMappingCommandOutput) => void
   ): void;
 
@@ -2553,7 +2565,7 @@ export interface APIGateway {
    */
   updateClientCertificate(
     args: UpdateClientCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateClientCertificateCommandOutput>;
   updateClientCertificate(
     args: UpdateClientCertificateCommandInput,
@@ -2561,7 +2573,7 @@ export interface APIGateway {
   ): void;
   updateClientCertificate(
     args: UpdateClientCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateClientCertificateCommandOutput) => void
   ): void;
 
@@ -2570,7 +2582,7 @@ export interface APIGateway {
    */
   updateDeployment(
     args: UpdateDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateDeploymentCommandOutput>;
   updateDeployment(
     args: UpdateDeploymentCommandInput,
@@ -2578,7 +2590,7 @@ export interface APIGateway {
   ): void;
   updateDeployment(
     args: UpdateDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateDeploymentCommandOutput) => void
   ): void;
 
@@ -2587,7 +2599,7 @@ export interface APIGateway {
    */
   updateDocumentationPart(
     args: UpdateDocumentationPartCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateDocumentationPartCommandOutput>;
   updateDocumentationPart(
     args: UpdateDocumentationPartCommandInput,
@@ -2595,7 +2607,7 @@ export interface APIGateway {
   ): void;
   updateDocumentationPart(
     args: UpdateDocumentationPartCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateDocumentationPartCommandOutput) => void
   ): void;
 
@@ -2604,7 +2616,7 @@ export interface APIGateway {
    */
   updateDocumentationVersion(
     args: UpdateDocumentationVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateDocumentationVersionCommandOutput>;
   updateDocumentationVersion(
     args: UpdateDocumentationVersionCommandInput,
@@ -2612,7 +2624,7 @@ export interface APIGateway {
   ): void;
   updateDocumentationVersion(
     args: UpdateDocumentationVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateDocumentationVersionCommandOutput) => void
   ): void;
 
@@ -2621,7 +2633,7 @@ export interface APIGateway {
    */
   updateDomainName(
     args: UpdateDomainNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateDomainNameCommandOutput>;
   updateDomainName(
     args: UpdateDomainNameCommandInput,
@@ -2629,7 +2641,7 @@ export interface APIGateway {
   ): void;
   updateDomainName(
     args: UpdateDomainNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateDomainNameCommandOutput) => void
   ): void;
 
@@ -2638,7 +2650,7 @@ export interface APIGateway {
    */
   updateGatewayResponse(
     args: UpdateGatewayResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateGatewayResponseCommandOutput>;
   updateGatewayResponse(
     args: UpdateGatewayResponseCommandInput,
@@ -2646,7 +2658,7 @@ export interface APIGateway {
   ): void;
   updateGatewayResponse(
     args: UpdateGatewayResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateGatewayResponseCommandOutput) => void
   ): void;
 
@@ -2655,7 +2667,7 @@ export interface APIGateway {
    */
   updateIntegration(
     args: UpdateIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateIntegrationCommandOutput>;
   updateIntegration(
     args: UpdateIntegrationCommandInput,
@@ -2663,7 +2675,7 @@ export interface APIGateway {
   ): void;
   updateIntegration(
     args: UpdateIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateIntegrationCommandOutput) => void
   ): void;
 
@@ -2672,7 +2684,7 @@ export interface APIGateway {
    */
   updateIntegrationResponse(
     args: UpdateIntegrationResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateIntegrationResponseCommandOutput>;
   updateIntegrationResponse(
     args: UpdateIntegrationResponseCommandInput,
@@ -2680,7 +2692,7 @@ export interface APIGateway {
   ): void;
   updateIntegrationResponse(
     args: UpdateIntegrationResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateIntegrationResponseCommandOutput) => void
   ): void;
 
@@ -2689,7 +2701,7 @@ export interface APIGateway {
    */
   updateMethod(
     args: UpdateMethodCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateMethodCommandOutput>;
   updateMethod(
     args: UpdateMethodCommandInput,
@@ -2697,7 +2709,7 @@ export interface APIGateway {
   ): void;
   updateMethod(
     args: UpdateMethodCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateMethodCommandOutput) => void
   ): void;
 
@@ -2706,7 +2718,7 @@ export interface APIGateway {
    */
   updateMethodResponse(
     args: UpdateMethodResponseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateMethodResponseCommandOutput>;
   updateMethodResponse(
     args: UpdateMethodResponseCommandInput,
@@ -2714,7 +2726,7 @@ export interface APIGateway {
   ): void;
   updateMethodResponse(
     args: UpdateMethodResponseCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateMethodResponseCommandOutput) => void
   ): void;
 
@@ -2723,7 +2735,7 @@ export interface APIGateway {
    */
   updateModel(
     args: UpdateModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateModelCommandOutput>;
   updateModel(
     args: UpdateModelCommandInput,
@@ -2731,7 +2743,7 @@ export interface APIGateway {
   ): void;
   updateModel(
     args: UpdateModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateModelCommandOutput) => void
   ): void;
 
@@ -2740,7 +2752,7 @@ export interface APIGateway {
    */
   updateRequestValidator(
     args: UpdateRequestValidatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateRequestValidatorCommandOutput>;
   updateRequestValidator(
     args: UpdateRequestValidatorCommandInput,
@@ -2748,7 +2760,7 @@ export interface APIGateway {
   ): void;
   updateRequestValidator(
     args: UpdateRequestValidatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateRequestValidatorCommandOutput) => void
   ): void;
 
@@ -2757,7 +2769,7 @@ export interface APIGateway {
    */
   updateResource(
     args: UpdateResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateResourceCommandOutput>;
   updateResource(
     args: UpdateResourceCommandInput,
@@ -2765,7 +2777,7 @@ export interface APIGateway {
   ): void;
   updateResource(
     args: UpdateResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateResourceCommandOutput) => void
   ): void;
 
@@ -2774,7 +2786,7 @@ export interface APIGateway {
    */
   updateRestApi(
     args: UpdateRestApiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateRestApiCommandOutput>;
   updateRestApi(
     args: UpdateRestApiCommandInput,
@@ -2782,7 +2794,7 @@ export interface APIGateway {
   ): void;
   updateRestApi(
     args: UpdateRestApiCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateRestApiCommandOutput) => void
   ): void;
 
@@ -2791,7 +2803,7 @@ export interface APIGateway {
    */
   updateStage(
     args: UpdateStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateStageCommandOutput>;
   updateStage(
     args: UpdateStageCommandInput,
@@ -2799,7 +2811,7 @@ export interface APIGateway {
   ): void;
   updateStage(
     args: UpdateStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateStageCommandOutput) => void
   ): void;
 
@@ -2808,7 +2820,7 @@ export interface APIGateway {
    */
   updateUsage(
     args: UpdateUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateUsageCommandOutput>;
   updateUsage(
     args: UpdateUsageCommandInput,
@@ -2816,7 +2828,7 @@ export interface APIGateway {
   ): void;
   updateUsage(
     args: UpdateUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateUsageCommandOutput) => void
   ): void;
 
@@ -2825,7 +2837,7 @@ export interface APIGateway {
    */
   updateUsagePlan(
     args: UpdateUsagePlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateUsagePlanCommandOutput>;
   updateUsagePlan(
     args: UpdateUsagePlanCommandInput,
@@ -2833,7 +2845,7 @@ export interface APIGateway {
   ): void;
   updateUsagePlan(
     args: UpdateUsagePlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateUsagePlanCommandOutput) => void
   ): void;
 
@@ -2842,7 +2854,7 @@ export interface APIGateway {
    */
   updateVpcLink(
     args: UpdateVpcLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<UpdateVpcLinkCommandOutput>;
   updateVpcLink(
     args: UpdateVpcLinkCommandInput,
@@ -2850,7 +2862,7 @@ export interface APIGateway {
   ): void;
   updateVpcLink(
     args: UpdateVpcLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: UpdateVpcLinkCommandOutput) => void
   ): void;
 

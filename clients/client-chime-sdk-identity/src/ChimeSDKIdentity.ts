@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ChimeSDKIdentityClient } from "./ChimeSDKIdentityClient";
 import {
@@ -199,13 +204,20 @@ const paginators = {
   paginateListAppInstanceUsers,
 };
 
+/**
+ * @public
+ */
+export interface ChimeSDKIdentityRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ChimeSDKIdentity {
   /**
    * @see {@link CreateAppInstanceCommand}
    */
   createAppInstance(
     args: CreateAppInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<CreateAppInstanceCommandOutput>;
   createAppInstance(
     args: CreateAppInstanceCommandInput,
@@ -213,7 +225,7 @@ export interface ChimeSDKIdentity {
   ): void;
   createAppInstance(
     args: CreateAppInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: CreateAppInstanceCommandOutput) => void
   ): void;
 
@@ -222,7 +234,7 @@ export interface ChimeSDKIdentity {
    */
   createAppInstanceAdmin(
     args: CreateAppInstanceAdminCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<CreateAppInstanceAdminCommandOutput>;
   createAppInstanceAdmin(
     args: CreateAppInstanceAdminCommandInput,
@@ -230,7 +242,7 @@ export interface ChimeSDKIdentity {
   ): void;
   createAppInstanceAdmin(
     args: CreateAppInstanceAdminCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: CreateAppInstanceAdminCommandOutput) => void
   ): void;
 
@@ -239,7 +251,7 @@ export interface ChimeSDKIdentity {
    */
   createAppInstanceBot(
     args: CreateAppInstanceBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<CreateAppInstanceBotCommandOutput>;
   createAppInstanceBot(
     args: CreateAppInstanceBotCommandInput,
@@ -247,7 +259,7 @@ export interface ChimeSDKIdentity {
   ): void;
   createAppInstanceBot(
     args: CreateAppInstanceBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: CreateAppInstanceBotCommandOutput) => void
   ): void;
 
@@ -256,7 +268,7 @@ export interface ChimeSDKIdentity {
    */
   createAppInstanceUser(
     args: CreateAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<CreateAppInstanceUserCommandOutput>;
   createAppInstanceUser(
     args: CreateAppInstanceUserCommandInput,
@@ -264,7 +276,7 @@ export interface ChimeSDKIdentity {
   ): void;
   createAppInstanceUser(
     args: CreateAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: CreateAppInstanceUserCommandOutput) => void
   ): void;
 
@@ -273,7 +285,7 @@ export interface ChimeSDKIdentity {
    */
   deleteAppInstance(
     args: DeleteAppInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DeleteAppInstanceCommandOutput>;
   deleteAppInstance(
     args: DeleteAppInstanceCommandInput,
@@ -281,7 +293,7 @@ export interface ChimeSDKIdentity {
   ): void;
   deleteAppInstance(
     args: DeleteAppInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DeleteAppInstanceCommandOutput) => void
   ): void;
 
@@ -290,7 +302,7 @@ export interface ChimeSDKIdentity {
    */
   deleteAppInstanceAdmin(
     args: DeleteAppInstanceAdminCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DeleteAppInstanceAdminCommandOutput>;
   deleteAppInstanceAdmin(
     args: DeleteAppInstanceAdminCommandInput,
@@ -298,7 +310,7 @@ export interface ChimeSDKIdentity {
   ): void;
   deleteAppInstanceAdmin(
     args: DeleteAppInstanceAdminCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DeleteAppInstanceAdminCommandOutput) => void
   ): void;
 
@@ -307,7 +319,7 @@ export interface ChimeSDKIdentity {
    */
   deleteAppInstanceBot(
     args: DeleteAppInstanceBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DeleteAppInstanceBotCommandOutput>;
   deleteAppInstanceBot(
     args: DeleteAppInstanceBotCommandInput,
@@ -315,7 +327,7 @@ export interface ChimeSDKIdentity {
   ): void;
   deleteAppInstanceBot(
     args: DeleteAppInstanceBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DeleteAppInstanceBotCommandOutput) => void
   ): void;
 
@@ -324,7 +336,7 @@ export interface ChimeSDKIdentity {
    */
   deleteAppInstanceUser(
     args: DeleteAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DeleteAppInstanceUserCommandOutput>;
   deleteAppInstanceUser(
     args: DeleteAppInstanceUserCommandInput,
@@ -332,7 +344,7 @@ export interface ChimeSDKIdentity {
   ): void;
   deleteAppInstanceUser(
     args: DeleteAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DeleteAppInstanceUserCommandOutput) => void
   ): void;
 
@@ -341,7 +353,7 @@ export interface ChimeSDKIdentity {
    */
   deregisterAppInstanceUserEndpoint(
     args: DeregisterAppInstanceUserEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DeregisterAppInstanceUserEndpointCommandOutput>;
   deregisterAppInstanceUserEndpoint(
     args: DeregisterAppInstanceUserEndpointCommandInput,
@@ -349,7 +361,7 @@ export interface ChimeSDKIdentity {
   ): void;
   deregisterAppInstanceUserEndpoint(
     args: DeregisterAppInstanceUserEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DeregisterAppInstanceUserEndpointCommandOutput) => void
   ): void;
 
@@ -358,7 +370,7 @@ export interface ChimeSDKIdentity {
    */
   describeAppInstance(
     args: DescribeAppInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DescribeAppInstanceCommandOutput>;
   describeAppInstance(
     args: DescribeAppInstanceCommandInput,
@@ -366,7 +378,7 @@ export interface ChimeSDKIdentity {
   ): void;
   describeAppInstance(
     args: DescribeAppInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DescribeAppInstanceCommandOutput) => void
   ): void;
 
@@ -375,7 +387,7 @@ export interface ChimeSDKIdentity {
    */
   describeAppInstanceAdmin(
     args: DescribeAppInstanceAdminCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DescribeAppInstanceAdminCommandOutput>;
   describeAppInstanceAdmin(
     args: DescribeAppInstanceAdminCommandInput,
@@ -383,7 +395,7 @@ export interface ChimeSDKIdentity {
   ): void;
   describeAppInstanceAdmin(
     args: DescribeAppInstanceAdminCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DescribeAppInstanceAdminCommandOutput) => void
   ): void;
 
@@ -392,7 +404,7 @@ export interface ChimeSDKIdentity {
    */
   describeAppInstanceBot(
     args: DescribeAppInstanceBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DescribeAppInstanceBotCommandOutput>;
   describeAppInstanceBot(
     args: DescribeAppInstanceBotCommandInput,
@@ -400,7 +412,7 @@ export interface ChimeSDKIdentity {
   ): void;
   describeAppInstanceBot(
     args: DescribeAppInstanceBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DescribeAppInstanceBotCommandOutput) => void
   ): void;
 
@@ -409,7 +421,7 @@ export interface ChimeSDKIdentity {
    */
   describeAppInstanceUser(
     args: DescribeAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DescribeAppInstanceUserCommandOutput>;
   describeAppInstanceUser(
     args: DescribeAppInstanceUserCommandInput,
@@ -417,7 +429,7 @@ export interface ChimeSDKIdentity {
   ): void;
   describeAppInstanceUser(
     args: DescribeAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
   ): void;
 
@@ -426,7 +438,7 @@ export interface ChimeSDKIdentity {
    */
   describeAppInstanceUserEndpoint(
     args: DescribeAppInstanceUserEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<DescribeAppInstanceUserEndpointCommandOutput>;
   describeAppInstanceUserEndpoint(
     args: DescribeAppInstanceUserEndpointCommandInput,
@@ -434,7 +446,7 @@ export interface ChimeSDKIdentity {
   ): void;
   describeAppInstanceUserEndpoint(
     args: DescribeAppInstanceUserEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: DescribeAppInstanceUserEndpointCommandOutput) => void
   ): void;
 
@@ -443,7 +455,7 @@ export interface ChimeSDKIdentity {
    */
   getAppInstanceRetentionSettings(
     args: GetAppInstanceRetentionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<GetAppInstanceRetentionSettingsCommandOutput>;
   getAppInstanceRetentionSettings(
     args: GetAppInstanceRetentionSettingsCommandInput,
@@ -451,7 +463,7 @@ export interface ChimeSDKIdentity {
   ): void;
   getAppInstanceRetentionSettings(
     args: GetAppInstanceRetentionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: GetAppInstanceRetentionSettingsCommandOutput) => void
   ): void;
 
@@ -460,7 +472,7 @@ export interface ChimeSDKIdentity {
    */
   listAppInstanceAdmins(
     args: ListAppInstanceAdminsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<ListAppInstanceAdminsCommandOutput>;
   listAppInstanceAdmins(
     args: ListAppInstanceAdminsCommandInput,
@@ -468,7 +480,7 @@ export interface ChimeSDKIdentity {
   ): void;
   listAppInstanceAdmins(
     args: ListAppInstanceAdminsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: ListAppInstanceAdminsCommandOutput) => void
   ): void;
 
@@ -477,7 +489,7 @@ export interface ChimeSDKIdentity {
    */
   listAppInstanceBots(
     args: ListAppInstanceBotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<ListAppInstanceBotsCommandOutput>;
   listAppInstanceBots(
     args: ListAppInstanceBotsCommandInput,
@@ -485,7 +497,7 @@ export interface ChimeSDKIdentity {
   ): void;
   listAppInstanceBots(
     args: ListAppInstanceBotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: ListAppInstanceBotsCommandOutput) => void
   ): void;
 
@@ -495,7 +507,7 @@ export interface ChimeSDKIdentity {
   listAppInstances(): Promise<ListAppInstancesCommandOutput>;
   listAppInstances(
     args: ListAppInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<ListAppInstancesCommandOutput>;
   listAppInstances(
     args: ListAppInstancesCommandInput,
@@ -503,7 +515,7 @@ export interface ChimeSDKIdentity {
   ): void;
   listAppInstances(
     args: ListAppInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: ListAppInstancesCommandOutput) => void
   ): void;
 
@@ -512,7 +524,7 @@ export interface ChimeSDKIdentity {
    */
   listAppInstanceUserEndpoints(
     args: ListAppInstanceUserEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<ListAppInstanceUserEndpointsCommandOutput>;
   listAppInstanceUserEndpoints(
     args: ListAppInstanceUserEndpointsCommandInput,
@@ -520,7 +532,7 @@ export interface ChimeSDKIdentity {
   ): void;
   listAppInstanceUserEndpoints(
     args: ListAppInstanceUserEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: ListAppInstanceUserEndpointsCommandOutput) => void
   ): void;
 
@@ -529,7 +541,7 @@ export interface ChimeSDKIdentity {
    */
   listAppInstanceUsers(
     args: ListAppInstanceUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<ListAppInstanceUsersCommandOutput>;
   listAppInstanceUsers(
     args: ListAppInstanceUsersCommandInput,
@@ -537,7 +549,7 @@ export interface ChimeSDKIdentity {
   ): void;
   listAppInstanceUsers(
     args: ListAppInstanceUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: ListAppInstanceUsersCommandOutput) => void
   ): void;
 
@@ -546,7 +558,7 @@ export interface ChimeSDKIdentity {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -554,7 +566,7 @@ export interface ChimeSDKIdentity {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -563,7 +575,7 @@ export interface ChimeSDKIdentity {
    */
   putAppInstanceRetentionSettings(
     args: PutAppInstanceRetentionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<PutAppInstanceRetentionSettingsCommandOutput>;
   putAppInstanceRetentionSettings(
     args: PutAppInstanceRetentionSettingsCommandInput,
@@ -571,7 +583,7 @@ export interface ChimeSDKIdentity {
   ): void;
   putAppInstanceRetentionSettings(
     args: PutAppInstanceRetentionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
   ): void;
 
@@ -580,7 +592,7 @@ export interface ChimeSDKIdentity {
    */
   putAppInstanceUserExpirationSettings(
     args: PutAppInstanceUserExpirationSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<PutAppInstanceUserExpirationSettingsCommandOutput>;
   putAppInstanceUserExpirationSettings(
     args: PutAppInstanceUserExpirationSettingsCommandInput,
@@ -588,7 +600,7 @@ export interface ChimeSDKIdentity {
   ): void;
   putAppInstanceUserExpirationSettings(
     args: PutAppInstanceUserExpirationSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: PutAppInstanceUserExpirationSettingsCommandOutput) => void
   ): void;
 
@@ -597,7 +609,7 @@ export interface ChimeSDKIdentity {
    */
   registerAppInstanceUserEndpoint(
     args: RegisterAppInstanceUserEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<RegisterAppInstanceUserEndpointCommandOutput>;
   registerAppInstanceUserEndpoint(
     args: RegisterAppInstanceUserEndpointCommandInput,
@@ -605,7 +617,7 @@ export interface ChimeSDKIdentity {
   ): void;
   registerAppInstanceUserEndpoint(
     args: RegisterAppInstanceUserEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: RegisterAppInstanceUserEndpointCommandOutput) => void
   ): void;
 
@@ -614,7 +626,7 @@ export interface ChimeSDKIdentity {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -622,7 +634,7 @@ export interface ChimeSDKIdentity {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -631,7 +643,7 @@ export interface ChimeSDKIdentity {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -639,7 +651,7 @@ export interface ChimeSDKIdentity {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -648,7 +660,7 @@ export interface ChimeSDKIdentity {
    */
   updateAppInstance(
     args: UpdateAppInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<UpdateAppInstanceCommandOutput>;
   updateAppInstance(
     args: UpdateAppInstanceCommandInput,
@@ -656,7 +668,7 @@ export interface ChimeSDKIdentity {
   ): void;
   updateAppInstance(
     args: UpdateAppInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: UpdateAppInstanceCommandOutput) => void
   ): void;
 
@@ -665,7 +677,7 @@ export interface ChimeSDKIdentity {
    */
   updateAppInstanceBot(
     args: UpdateAppInstanceBotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<UpdateAppInstanceBotCommandOutput>;
   updateAppInstanceBot(
     args: UpdateAppInstanceBotCommandInput,
@@ -673,7 +685,7 @@ export interface ChimeSDKIdentity {
   ): void;
   updateAppInstanceBot(
     args: UpdateAppInstanceBotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: UpdateAppInstanceBotCommandOutput) => void
   ): void;
 
@@ -682,7 +694,7 @@ export interface ChimeSDKIdentity {
    */
   updateAppInstanceUser(
     args: UpdateAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<UpdateAppInstanceUserCommandOutput>;
   updateAppInstanceUser(
     args: UpdateAppInstanceUserCommandInput,
@@ -690,7 +702,7 @@ export interface ChimeSDKIdentity {
   ): void;
   updateAppInstanceUser(
     args: UpdateAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
   ): void;
 
@@ -699,7 +711,7 @@ export interface ChimeSDKIdentity {
    */
   updateAppInstanceUserEndpoint(
     args: UpdateAppInstanceUserEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKIdentityRequestOptions
   ): Promise<UpdateAppInstanceUserEndpointCommandOutput>;
   updateAppInstanceUserEndpoint(
     args: UpdateAppInstanceUserEndpointCommandInput,
@@ -707,7 +719,7 @@ export interface ChimeSDKIdentity {
   ): void;
   updateAppInstanceUserEndpoint(
     args: UpdateAppInstanceUserEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKIdentityRequestOptions,
     cb: (err: any, data?: UpdateAppInstanceUserEndpointCommandOutput) => void
   ): void;
 

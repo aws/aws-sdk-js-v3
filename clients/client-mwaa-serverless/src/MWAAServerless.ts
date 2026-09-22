@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateWorkflowCommandInput,
@@ -107,13 +112,20 @@ const paginators = {
   paginateListWorkflowVersions,
 };
 
+/**
+ * @public
+ */
+export interface MWAAServerlessRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MWAAServerless {
   /**
    * @see {@link CreateWorkflowCommand}
    */
   createWorkflow(
     args: CreateWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<CreateWorkflowCommandOutput>;
   createWorkflow(
     args: CreateWorkflowCommandInput,
@@ -121,7 +133,7 @@ export interface MWAAServerless {
   ): void;
   createWorkflow(
     args: CreateWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: CreateWorkflowCommandOutput) => void
   ): void;
 
@@ -130,7 +142,7 @@ export interface MWAAServerless {
    */
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<DeleteWorkflowCommandOutput>;
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
@@ -138,7 +150,7 @@ export interface MWAAServerless {
   ): void;
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
   ): void;
 
@@ -147,7 +159,7 @@ export interface MWAAServerless {
    */
   getTaskInstance(
     args: GetTaskInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<GetTaskInstanceCommandOutput>;
   getTaskInstance(
     args: GetTaskInstanceCommandInput,
@@ -155,7 +167,7 @@ export interface MWAAServerless {
   ): void;
   getTaskInstance(
     args: GetTaskInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: GetTaskInstanceCommandOutput) => void
   ): void;
 
@@ -164,7 +176,7 @@ export interface MWAAServerless {
    */
   getWorkflow(
     args: GetWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<GetWorkflowCommandOutput>;
   getWorkflow(
     args: GetWorkflowCommandInput,
@@ -172,7 +184,7 @@ export interface MWAAServerless {
   ): void;
   getWorkflow(
     args: GetWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: GetWorkflowCommandOutput) => void
   ): void;
 
@@ -181,7 +193,7 @@ export interface MWAAServerless {
    */
   getWorkflowRun(
     args: GetWorkflowRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<GetWorkflowRunCommandOutput>;
   getWorkflowRun(
     args: GetWorkflowRunCommandInput,
@@ -189,7 +201,7 @@ export interface MWAAServerless {
   ): void;
   getWorkflowRun(
     args: GetWorkflowRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: GetWorkflowRunCommandOutput) => void
   ): void;
 
@@ -198,7 +210,7 @@ export interface MWAAServerless {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -206,7 +218,7 @@ export interface MWAAServerless {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -215,7 +227,7 @@ export interface MWAAServerless {
    */
   listTaskInstances(
     args: ListTaskInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<ListTaskInstancesCommandOutput>;
   listTaskInstances(
     args: ListTaskInstancesCommandInput,
@@ -223,7 +235,7 @@ export interface MWAAServerless {
   ): void;
   listTaskInstances(
     args: ListTaskInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: ListTaskInstancesCommandOutput) => void
   ): void;
 
@@ -232,7 +244,7 @@ export interface MWAAServerless {
    */
   listWorkflowRuns(
     args: ListWorkflowRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<ListWorkflowRunsCommandOutput>;
   listWorkflowRuns(
     args: ListWorkflowRunsCommandInput,
@@ -240,7 +252,7 @@ export interface MWAAServerless {
   ): void;
   listWorkflowRuns(
     args: ListWorkflowRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: ListWorkflowRunsCommandOutput) => void
   ): void;
 
@@ -250,7 +262,7 @@ export interface MWAAServerless {
   listWorkflows(): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(
     args: ListWorkflowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(
     args: ListWorkflowsCommandInput,
@@ -258,7 +270,7 @@ export interface MWAAServerless {
   ): void;
   listWorkflows(
     args: ListWorkflowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: ListWorkflowsCommandOutput) => void
   ): void;
 
@@ -267,7 +279,7 @@ export interface MWAAServerless {
    */
   listWorkflowVersions(
     args: ListWorkflowVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<ListWorkflowVersionsCommandOutput>;
   listWorkflowVersions(
     args: ListWorkflowVersionsCommandInput,
@@ -275,7 +287,7 @@ export interface MWAAServerless {
   ): void;
   listWorkflowVersions(
     args: ListWorkflowVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: ListWorkflowVersionsCommandOutput) => void
   ): void;
 
@@ -284,7 +296,7 @@ export interface MWAAServerless {
    */
   startWorkflowRun(
     args: StartWorkflowRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<StartWorkflowRunCommandOutput>;
   startWorkflowRun(
     args: StartWorkflowRunCommandInput,
@@ -292,7 +304,7 @@ export interface MWAAServerless {
   ): void;
   startWorkflowRun(
     args: StartWorkflowRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: StartWorkflowRunCommandOutput) => void
   ): void;
 
@@ -301,7 +313,7 @@ export interface MWAAServerless {
    */
   stopWorkflowRun(
     args: StopWorkflowRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<StopWorkflowRunCommandOutput>;
   stopWorkflowRun(
     args: StopWorkflowRunCommandInput,
@@ -309,7 +321,7 @@ export interface MWAAServerless {
   ): void;
   stopWorkflowRun(
     args: StopWorkflowRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: StopWorkflowRunCommandOutput) => void
   ): void;
 
@@ -318,7 +330,7 @@ export interface MWAAServerless {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -326,7 +338,7 @@ export interface MWAAServerless {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -335,7 +347,7 @@ export interface MWAAServerless {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -343,7 +355,7 @@ export interface MWAAServerless {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -352,7 +364,7 @@ export interface MWAAServerless {
    */
   updateWorkflow(
     args: UpdateWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAAServerlessRequestOptions
   ): Promise<UpdateWorkflowCommandOutput>;
   updateWorkflow(
     args: UpdateWorkflowCommandInput,
@@ -360,7 +372,7 @@ export interface MWAAServerless {
   ): void;
   updateWorkflow(
     args: UpdateWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAAServerlessRequestOptions,
     cb: (err: any, data?: UpdateWorkflowCommandOutput) => void
   ): void;
 

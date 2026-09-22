@@ -20,6 +20,7 @@ const _IDPRCE = "IDPRejectedClaimException";
 const _IITE = "InvalidIdentityTokenException";
 const _K = "Key";
 const _MPDE = "MalformedPolicyDocumentException";
+const _MSTS = "MinimumSessionTokenSize";
 const _P = "Policy";
 const _PA = "PolicyArns";
 const _PAr = "ProviderArn";
@@ -39,6 +40,8 @@ const _SFWIT = "SubjectFromWebIdentityToken";
 const _SI = "SourceIdentity";
 const _SN = "SerialNumber";
 const _ST = "SessionToken";
+const _STS = "SessionTokenSize";
+const _STU = "SessionTokenUtilization";
 const _T = "Tags";
 const _TC = "TokenCode";
 const _TTK = "TransitiveTagKeys";
@@ -80,10 +83,10 @@ import {
 import { STSServiceException } from "../models/STSServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var STSServiceException$: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
 _s_registry.registerError(STSServiceException$, STSServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE,
   { [_aQE]: [`ExpiredTokenException`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
@@ -144,23 +147,23 @@ export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU,
 ];
 export var AssumeRoleRequest$: StaticStructureSchema = [3, n0, _ARR,
   0,
-  [_RA, _RSN, _PA, _P, _DS, _T, _TTK, _EI, _SN, _TC, _SI, _PC],
-  [0, 0, () => policyDescriptorListType, 0, 1, () => tagListType, 64 | 0, 0, 0, 0, 0, () => ProvidedContextsListType], 2
+  [_RA, _RSN, _PA, _P, _DS, _T, _TTK, _EI, _SN, _TC, _SI, _PC, _MSTS],
+  [0, 0, () => policyDescriptorListType, 0, 1, () => tagListType, 64 | 0, 0, 0, 0, 0, () => ProvidedContextsListType, 1], 2
 ];
 export var AssumeRoleResponse$: StaticStructureSchema = [3, n0, _ARRs,
   0,
-  [_C, _ARU, _PPS, _SI],
-  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0]
+  [_C, _ARU, _PPS, _SI, _STU, _STS],
+  [[() => Credentials$, 0], () => AssumedRoleUser$, 1, 0, 1, 1]
 ];
 export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [3, n0, _ARWWIR,
   0,
-  [_RA, _RSN, _WIT, _PI, _PA, _P, _DS],
-  [0, 0, [() => clientTokenType, 0], 0, () => policyDescriptorListType, 0, 1], 3
+  [_RA, _RSN, _WIT, _PI, _PA, _P, _DS, _MSTS],
+  [0, 0, [() => clientTokenType, 0], 0, () => policyDescriptorListType, 0, 1, 1], 3
 ];
 export var AssumeRoleWithWebIdentityResponse$: StaticStructureSchema = [3, n0, _ARWWIRs,
   0,
-  [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI],
-  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0]
+  [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI, _STU, _STS],
+  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0, 1, 1]
 ];
 export var Credentials$: StaticStructureSchema = [3, n0, _C,
   0,

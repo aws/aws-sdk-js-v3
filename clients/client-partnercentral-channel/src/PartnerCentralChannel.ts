@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptChannelHandshakeCommandInput,
@@ -117,13 +122,20 @@ const paginators = {
   paginateListRelationships,
 };
 
+/**
+ * @public
+ */
+export interface PartnerCentralChannelRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PartnerCentralChannel {
   /**
    * @see {@link AcceptChannelHandshakeCommand}
    */
   acceptChannelHandshake(
     args: AcceptChannelHandshakeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<AcceptChannelHandshakeCommandOutput>;
   acceptChannelHandshake(
     args: AcceptChannelHandshakeCommandInput,
@@ -131,7 +143,7 @@ export interface PartnerCentralChannel {
   ): void;
   acceptChannelHandshake(
     args: AcceptChannelHandshakeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: AcceptChannelHandshakeCommandOutput) => void
   ): void;
 
@@ -140,7 +152,7 @@ export interface PartnerCentralChannel {
    */
   cancelChannelHandshake(
     args: CancelChannelHandshakeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<CancelChannelHandshakeCommandOutput>;
   cancelChannelHandshake(
     args: CancelChannelHandshakeCommandInput,
@@ -148,7 +160,7 @@ export interface PartnerCentralChannel {
   ): void;
   cancelChannelHandshake(
     args: CancelChannelHandshakeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: CancelChannelHandshakeCommandOutput) => void
   ): void;
 
@@ -157,7 +169,7 @@ export interface PartnerCentralChannel {
    */
   createChannelHandshake(
     args: CreateChannelHandshakeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<CreateChannelHandshakeCommandOutput>;
   createChannelHandshake(
     args: CreateChannelHandshakeCommandInput,
@@ -165,7 +177,7 @@ export interface PartnerCentralChannel {
   ): void;
   createChannelHandshake(
     args: CreateChannelHandshakeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: CreateChannelHandshakeCommandOutput) => void
   ): void;
 
@@ -174,7 +186,7 @@ export interface PartnerCentralChannel {
    */
   createProgramManagementAccount(
     args: CreateProgramManagementAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<CreateProgramManagementAccountCommandOutput>;
   createProgramManagementAccount(
     args: CreateProgramManagementAccountCommandInput,
@@ -182,7 +194,7 @@ export interface PartnerCentralChannel {
   ): void;
   createProgramManagementAccount(
     args: CreateProgramManagementAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: CreateProgramManagementAccountCommandOutput) => void
   ): void;
 
@@ -191,7 +203,7 @@ export interface PartnerCentralChannel {
    */
   createRelationship(
     args: CreateRelationshipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<CreateRelationshipCommandOutput>;
   createRelationship(
     args: CreateRelationshipCommandInput,
@@ -199,7 +211,7 @@ export interface PartnerCentralChannel {
   ): void;
   createRelationship(
     args: CreateRelationshipCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: CreateRelationshipCommandOutput) => void
   ): void;
 
@@ -208,7 +220,7 @@ export interface PartnerCentralChannel {
    */
   deleteProgramManagementAccount(
     args: DeleteProgramManagementAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<DeleteProgramManagementAccountCommandOutput>;
   deleteProgramManagementAccount(
     args: DeleteProgramManagementAccountCommandInput,
@@ -216,7 +228,7 @@ export interface PartnerCentralChannel {
   ): void;
   deleteProgramManagementAccount(
     args: DeleteProgramManagementAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: DeleteProgramManagementAccountCommandOutput) => void
   ): void;
 
@@ -225,7 +237,7 @@ export interface PartnerCentralChannel {
    */
   deleteRelationship(
     args: DeleteRelationshipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<DeleteRelationshipCommandOutput>;
   deleteRelationship(
     args: DeleteRelationshipCommandInput,
@@ -233,7 +245,7 @@ export interface PartnerCentralChannel {
   ): void;
   deleteRelationship(
     args: DeleteRelationshipCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: DeleteRelationshipCommandOutput) => void
   ): void;
 
@@ -242,7 +254,7 @@ export interface PartnerCentralChannel {
    */
   getRelationship(
     args: GetRelationshipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<GetRelationshipCommandOutput>;
   getRelationship(
     args: GetRelationshipCommandInput,
@@ -250,7 +262,7 @@ export interface PartnerCentralChannel {
   ): void;
   getRelationship(
     args: GetRelationshipCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: GetRelationshipCommandOutput) => void
   ): void;
 
@@ -259,7 +271,7 @@ export interface PartnerCentralChannel {
    */
   listChannelHandshakes(
     args: ListChannelHandshakesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<ListChannelHandshakesCommandOutput>;
   listChannelHandshakes(
     args: ListChannelHandshakesCommandInput,
@@ -267,7 +279,7 @@ export interface PartnerCentralChannel {
   ): void;
   listChannelHandshakes(
     args: ListChannelHandshakesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: ListChannelHandshakesCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface PartnerCentralChannel {
    */
   listProgramManagementAccounts(
     args: ListProgramManagementAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<ListProgramManagementAccountsCommandOutput>;
   listProgramManagementAccounts(
     args: ListProgramManagementAccountsCommandInput,
@@ -284,7 +296,7 @@ export interface PartnerCentralChannel {
   ): void;
   listProgramManagementAccounts(
     args: ListProgramManagementAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: ListProgramManagementAccountsCommandOutput) => void
   ): void;
 
@@ -293,7 +305,7 @@ export interface PartnerCentralChannel {
    */
   listRelationships(
     args: ListRelationshipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<ListRelationshipsCommandOutput>;
   listRelationships(
     args: ListRelationshipsCommandInput,
@@ -301,7 +313,7 @@ export interface PartnerCentralChannel {
   ): void;
   listRelationships(
     args: ListRelationshipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: ListRelationshipsCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface PartnerCentralChannel {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -318,7 +330,7 @@ export interface PartnerCentralChannel {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -327,7 +339,7 @@ export interface PartnerCentralChannel {
    */
   rejectChannelHandshake(
     args: RejectChannelHandshakeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<RejectChannelHandshakeCommandOutput>;
   rejectChannelHandshake(
     args: RejectChannelHandshakeCommandInput,
@@ -335,7 +347,7 @@ export interface PartnerCentralChannel {
   ): void;
   rejectChannelHandshake(
     args: RejectChannelHandshakeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: RejectChannelHandshakeCommandOutput) => void
   ): void;
 
@@ -344,7 +356,7 @@ export interface PartnerCentralChannel {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -352,7 +364,7 @@ export interface PartnerCentralChannel {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -361,7 +373,7 @@ export interface PartnerCentralChannel {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -369,7 +381,7 @@ export interface PartnerCentralChannel {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -378,7 +390,7 @@ export interface PartnerCentralChannel {
    */
   updateProgramManagementAccount(
     args: UpdateProgramManagementAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<UpdateProgramManagementAccountCommandOutput>;
   updateProgramManagementAccount(
     args: UpdateProgramManagementAccountCommandInput,
@@ -386,7 +398,7 @@ export interface PartnerCentralChannel {
   ): void;
   updateProgramManagementAccount(
     args: UpdateProgramManagementAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: UpdateProgramManagementAccountCommandOutput) => void
   ): void;
 
@@ -395,7 +407,7 @@ export interface PartnerCentralChannel {
    */
   updateRelationship(
     args: UpdateRelationshipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralChannelRequestOptions
   ): Promise<UpdateRelationshipCommandOutput>;
   updateRelationship(
     args: UpdateRelationshipCommandInput,
@@ -403,7 +415,7 @@ export interface PartnerCentralChannel {
   ): void;
   updateRelationship(
     args: UpdateRelationshipCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: UpdateRelationshipCommandOutput) => void
   ): void;
 

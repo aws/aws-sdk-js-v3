@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BillingClient } from "./BillingClient";
 import {
@@ -139,13 +144,20 @@ const paginators = {
   paginateListSourceViewsForBillingView,
 };
 
+/**
+ * @public
+ */
+export interface BillingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Billing {
   /**
    * @see {@link AssociateSourceViewsCommand}
    */
   associateSourceViews(
     args: AssociateSourceViewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<AssociateSourceViewsCommandOutput>;
   associateSourceViews(
     args: AssociateSourceViewsCommandInput,
@@ -153,7 +165,7 @@ export interface Billing {
   ): void;
   associateSourceViews(
     args: AssociateSourceViewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: AssociateSourceViewsCommandOutput) => void
   ): void;
 
@@ -162,7 +174,7 @@ export interface Billing {
    */
   createBillingView(
     args: CreateBillingViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<CreateBillingViewCommandOutput>;
   createBillingView(
     args: CreateBillingViewCommandInput,
@@ -170,7 +182,7 @@ export interface Billing {
   ): void;
   createBillingView(
     args: CreateBillingViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: CreateBillingViewCommandOutput) => void
   ): void;
 
@@ -179,7 +191,7 @@ export interface Billing {
    */
   deleteBillingView(
     args: DeleteBillingViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<DeleteBillingViewCommandOutput>;
   deleteBillingView(
     args: DeleteBillingViewCommandInput,
@@ -187,7 +199,7 @@ export interface Billing {
   ): void;
   deleteBillingView(
     args: DeleteBillingViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: DeleteBillingViewCommandOutput) => void
   ): void;
 
@@ -196,7 +208,7 @@ export interface Billing {
    */
   disassociateSourceViews(
     args: DisassociateSourceViewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<DisassociateSourceViewsCommandOutput>;
   disassociateSourceViews(
     args: DisassociateSourceViewsCommandInput,
@@ -204,7 +216,7 @@ export interface Billing {
   ): void;
   disassociateSourceViews(
     args: DisassociateSourceViewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: DisassociateSourceViewsCommandOutput) => void
   ): void;
 
@@ -213,7 +225,7 @@ export interface Billing {
    */
   getBillingPreferences(
     args: GetBillingPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<GetBillingPreferencesCommandOutput>;
   getBillingPreferences(
     args: GetBillingPreferencesCommandInput,
@@ -221,7 +233,7 @@ export interface Billing {
   ): void;
   getBillingPreferences(
     args: GetBillingPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: GetBillingPreferencesCommandOutput) => void
   ): void;
 
@@ -230,7 +242,7 @@ export interface Billing {
    */
   getBillingView(
     args: GetBillingViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<GetBillingViewCommandOutput>;
   getBillingView(
     args: GetBillingViewCommandInput,
@@ -238,7 +250,7 @@ export interface Billing {
   ): void;
   getBillingView(
     args: GetBillingViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: GetBillingViewCommandOutput) => void
   ): void;
 
@@ -247,7 +259,7 @@ export interface Billing {
    */
   getCreditAllocationHistory(
     args: GetCreditAllocationHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<GetCreditAllocationHistoryCommandOutput>;
   getCreditAllocationHistory(
     args: GetCreditAllocationHistoryCommandInput,
@@ -255,7 +267,7 @@ export interface Billing {
   ): void;
   getCreditAllocationHistory(
     args: GetCreditAllocationHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: GetCreditAllocationHistoryCommandOutput) => void
   ): void;
 
@@ -264,7 +276,7 @@ export interface Billing {
    */
   getCredits(
     args: GetCreditsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<GetCreditsCommandOutput>;
   getCredits(
     args: GetCreditsCommandInput,
@@ -272,7 +284,7 @@ export interface Billing {
   ): void;
   getCredits(
     args: GetCreditsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: GetCreditsCommandOutput) => void
   ): void;
 
@@ -281,7 +293,7 @@ export interface Billing {
    */
   getEnterpriseSupportChargeSummary(
     args: GetEnterpriseSupportChargeSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<GetEnterpriseSupportChargeSummaryCommandOutput>;
   getEnterpriseSupportChargeSummary(
     args: GetEnterpriseSupportChargeSummaryCommandInput,
@@ -289,7 +301,7 @@ export interface Billing {
   ): void;
   getEnterpriseSupportChargeSummary(
     args: GetEnterpriseSupportChargeSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: GetEnterpriseSupportChargeSummaryCommandOutput) => void
   ): void;
 
@@ -298,7 +310,7 @@ export interface Billing {
    */
   getEnterpriseSupportContractDetails(
     args: GetEnterpriseSupportContractDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<GetEnterpriseSupportContractDetailsCommandOutput>;
   getEnterpriseSupportContractDetails(
     args: GetEnterpriseSupportContractDetailsCommandInput,
@@ -306,7 +318,7 @@ export interface Billing {
   ): void;
   getEnterpriseSupportContractDetails(
     args: GetEnterpriseSupportContractDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: GetEnterpriseSupportContractDetailsCommandOutput) => void
   ): void;
 
@@ -315,7 +327,7 @@ export interface Billing {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -323,7 +335,7 @@ export interface Billing {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -333,7 +345,7 @@ export interface Billing {
   listBillingViews(): Promise<ListBillingViewsCommandOutput>;
   listBillingViews(
     args: ListBillingViewsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<ListBillingViewsCommandOutput>;
   listBillingViews(
     args: ListBillingViewsCommandInput,
@@ -341,7 +353,7 @@ export interface Billing {
   ): void;
   listBillingViews(
     args: ListBillingViewsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: ListBillingViewsCommandOutput) => void
   ): void;
 
@@ -350,7 +362,7 @@ export interface Billing {
    */
   listEnterpriseSupportLinkedAccountCharges(
     args: ListEnterpriseSupportLinkedAccountChargesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<ListEnterpriseSupportLinkedAccountChargesCommandOutput>;
   listEnterpriseSupportLinkedAccountCharges(
     args: ListEnterpriseSupportLinkedAccountChargesCommandInput,
@@ -358,7 +370,7 @@ export interface Billing {
   ): void;
   listEnterpriseSupportLinkedAccountCharges(
     args: ListEnterpriseSupportLinkedAccountChargesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: ListEnterpriseSupportLinkedAccountChargesCommandOutput) => void
   ): void;
 
@@ -367,7 +379,7 @@ export interface Billing {
    */
   listSourceViewsForBillingView(
     args: ListSourceViewsForBillingViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<ListSourceViewsForBillingViewCommandOutput>;
   listSourceViewsForBillingView(
     args: ListSourceViewsForBillingViewCommandInput,
@@ -375,7 +387,7 @@ export interface Billing {
   ): void;
   listSourceViewsForBillingView(
     args: ListSourceViewsForBillingViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: ListSourceViewsForBillingViewCommandOutput) => void
   ): void;
 
@@ -384,7 +396,7 @@ export interface Billing {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -392,7 +404,7 @@ export interface Billing {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -401,7 +413,7 @@ export interface Billing {
    */
   redeemCredits(
     args: RedeemCreditsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<RedeemCreditsCommandOutput>;
   redeemCredits(
     args: RedeemCreditsCommandInput,
@@ -409,7 +421,7 @@ export interface Billing {
   ): void;
   redeemCredits(
     args: RedeemCreditsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: RedeemCreditsCommandOutput) => void
   ): void;
 
@@ -418,7 +430,7 @@ export interface Billing {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -426,7 +438,7 @@ export interface Billing {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -435,7 +447,7 @@ export interface Billing {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -443,7 +455,7 @@ export interface Billing {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -452,7 +464,7 @@ export interface Billing {
    */
   updateBillingPreferences(
     args: UpdateBillingPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<UpdateBillingPreferencesCommandOutput>;
   updateBillingPreferences(
     args: UpdateBillingPreferencesCommandInput,
@@ -460,7 +472,7 @@ export interface Billing {
   ): void;
   updateBillingPreferences(
     args: UpdateBillingPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: UpdateBillingPreferencesCommandOutput) => void
   ): void;
 
@@ -469,7 +481,7 @@ export interface Billing {
    */
   updateBillingView(
     args: UpdateBillingViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BillingRequestOptions
   ): Promise<UpdateBillingViewCommandOutput>;
   updateBillingView(
     args: UpdateBillingViewCommandInput,
@@ -477,7 +489,7 @@ export interface Billing {
   ): void;
   updateBillingView(
     args: UpdateBillingViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: BillingRequestOptions,
     cb: (err: any, data?: UpdateBillingViewCommandOutput) => void
   ): void;
 

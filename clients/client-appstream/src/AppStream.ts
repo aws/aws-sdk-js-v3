@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -557,13 +558,20 @@ const waiters = {
   waitUntilFleetStopped,
 };
 
+/**
+ * @public
+ */
+export interface AppStreamRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AppStream {
   /**
    * @see {@link AssociateAppBlockBuilderAppBlockCommand}
    */
   associateAppBlockBuilderAppBlock(
     args: AssociateAppBlockBuilderAppBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<AssociateAppBlockBuilderAppBlockCommandOutput>;
   associateAppBlockBuilderAppBlock(
     args: AssociateAppBlockBuilderAppBlockCommandInput,
@@ -571,7 +579,7 @@ export interface AppStream {
   ): void;
   associateAppBlockBuilderAppBlock(
     args: AssociateAppBlockBuilderAppBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: AssociateAppBlockBuilderAppBlockCommandOutput) => void
   ): void;
 
@@ -580,7 +588,7 @@ export interface AppStream {
    */
   associateApplicationFleet(
     args: AssociateApplicationFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<AssociateApplicationFleetCommandOutput>;
   associateApplicationFleet(
     args: AssociateApplicationFleetCommandInput,
@@ -588,7 +596,7 @@ export interface AppStream {
   ): void;
   associateApplicationFleet(
     args: AssociateApplicationFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: AssociateApplicationFleetCommandOutput) => void
   ): void;
 
@@ -597,7 +605,7 @@ export interface AppStream {
    */
   associateApplicationToEntitlement(
     args: AssociateApplicationToEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<AssociateApplicationToEntitlementCommandOutput>;
   associateApplicationToEntitlement(
     args: AssociateApplicationToEntitlementCommandInput,
@@ -605,7 +613,7 @@ export interface AppStream {
   ): void;
   associateApplicationToEntitlement(
     args: AssociateApplicationToEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: AssociateApplicationToEntitlementCommandOutput) => void
   ): void;
 
@@ -614,7 +622,7 @@ export interface AppStream {
    */
   associateFleet(
     args: AssociateFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<AssociateFleetCommandOutput>;
   associateFleet(
     args: AssociateFleetCommandInput,
@@ -622,7 +630,7 @@ export interface AppStream {
   ): void;
   associateFleet(
     args: AssociateFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: AssociateFleetCommandOutput) => void
   ): void;
 
@@ -631,7 +639,7 @@ export interface AppStream {
    */
   associateSoftwareToImageBuilder(
     args: AssociateSoftwareToImageBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<AssociateSoftwareToImageBuilderCommandOutput>;
   associateSoftwareToImageBuilder(
     args: AssociateSoftwareToImageBuilderCommandInput,
@@ -639,7 +647,7 @@ export interface AppStream {
   ): void;
   associateSoftwareToImageBuilder(
     args: AssociateSoftwareToImageBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: AssociateSoftwareToImageBuilderCommandOutput) => void
   ): void;
 
@@ -648,7 +656,7 @@ export interface AppStream {
    */
   batchAssociateUserStack(
     args: BatchAssociateUserStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<BatchAssociateUserStackCommandOutput>;
   batchAssociateUserStack(
     args: BatchAssociateUserStackCommandInput,
@@ -656,7 +664,7 @@ export interface AppStream {
   ): void;
   batchAssociateUserStack(
     args: BatchAssociateUserStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: BatchAssociateUserStackCommandOutput) => void
   ): void;
 
@@ -665,7 +673,7 @@ export interface AppStream {
    */
   batchDisassociateUserStack(
     args: BatchDisassociateUserStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<BatchDisassociateUserStackCommandOutput>;
   batchDisassociateUserStack(
     args: BatchDisassociateUserStackCommandInput,
@@ -673,7 +681,7 @@ export interface AppStream {
   ): void;
   batchDisassociateUserStack(
     args: BatchDisassociateUserStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: BatchDisassociateUserStackCommandOutput) => void
   ): void;
 
@@ -682,7 +690,7 @@ export interface AppStream {
    */
   copyImage(
     args: CopyImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CopyImageCommandOutput>;
   copyImage(
     args: CopyImageCommandInput,
@@ -690,7 +698,7 @@ export interface AppStream {
   ): void;
   copyImage(
     args: CopyImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CopyImageCommandOutput) => void
   ): void;
 
@@ -699,7 +707,7 @@ export interface AppStream {
    */
   createAppBlock(
     args: CreateAppBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateAppBlockCommandOutput>;
   createAppBlock(
     args: CreateAppBlockCommandInput,
@@ -707,7 +715,7 @@ export interface AppStream {
   ): void;
   createAppBlock(
     args: CreateAppBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateAppBlockCommandOutput) => void
   ): void;
 
@@ -716,7 +724,7 @@ export interface AppStream {
    */
   createAppBlockBuilder(
     args: CreateAppBlockBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateAppBlockBuilderCommandOutput>;
   createAppBlockBuilder(
     args: CreateAppBlockBuilderCommandInput,
@@ -724,7 +732,7 @@ export interface AppStream {
   ): void;
   createAppBlockBuilder(
     args: CreateAppBlockBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateAppBlockBuilderCommandOutput) => void
   ): void;
 
@@ -733,7 +741,7 @@ export interface AppStream {
    */
   createAppBlockBuilderStreamingURL(
     args: CreateAppBlockBuilderStreamingURLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateAppBlockBuilderStreamingURLCommandOutput>;
   createAppBlockBuilderStreamingURL(
     args: CreateAppBlockBuilderStreamingURLCommandInput,
@@ -741,7 +749,7 @@ export interface AppStream {
   ): void;
   createAppBlockBuilderStreamingURL(
     args: CreateAppBlockBuilderStreamingURLCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateAppBlockBuilderStreamingURLCommandOutput) => void
   ): void;
 
@@ -750,7 +758,7 @@ export interface AppStream {
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -758,7 +766,7 @@ export interface AppStream {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -767,7 +775,7 @@ export interface AppStream {
    */
   createDirectoryConfig(
     args: CreateDirectoryConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateDirectoryConfigCommandOutput>;
   createDirectoryConfig(
     args: CreateDirectoryConfigCommandInput,
@@ -775,7 +783,7 @@ export interface AppStream {
   ): void;
   createDirectoryConfig(
     args: CreateDirectoryConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateDirectoryConfigCommandOutput) => void
   ): void;
 
@@ -784,7 +792,7 @@ export interface AppStream {
    */
   createEntitlement(
     args: CreateEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateEntitlementCommandOutput>;
   createEntitlement(
     args: CreateEntitlementCommandInput,
@@ -792,7 +800,7 @@ export interface AppStream {
   ): void;
   createEntitlement(
     args: CreateEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateEntitlementCommandOutput) => void
   ): void;
 
@@ -801,7 +809,7 @@ export interface AppStream {
    */
   createExportImageTask(
     args: CreateExportImageTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateExportImageTaskCommandOutput>;
   createExportImageTask(
     args: CreateExportImageTaskCommandInput,
@@ -809,7 +817,7 @@ export interface AppStream {
   ): void;
   createExportImageTask(
     args: CreateExportImageTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateExportImageTaskCommandOutput) => void
   ): void;
 
@@ -818,7 +826,7 @@ export interface AppStream {
    */
   createFleet(
     args: CreateFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateFleetCommandOutput>;
   createFleet(
     args: CreateFleetCommandInput,
@@ -826,7 +834,7 @@ export interface AppStream {
   ): void;
   createFleet(
     args: CreateFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateFleetCommandOutput) => void
   ): void;
 
@@ -835,7 +843,7 @@ export interface AppStream {
    */
   createImageBuilder(
     args: CreateImageBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateImageBuilderCommandOutput>;
   createImageBuilder(
     args: CreateImageBuilderCommandInput,
@@ -843,7 +851,7 @@ export interface AppStream {
   ): void;
   createImageBuilder(
     args: CreateImageBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateImageBuilderCommandOutput) => void
   ): void;
 
@@ -852,7 +860,7 @@ export interface AppStream {
    */
   createImageBuilderStreamingURL(
     args: CreateImageBuilderStreamingURLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateImageBuilderStreamingURLCommandOutput>;
   createImageBuilderStreamingURL(
     args: CreateImageBuilderStreamingURLCommandInput,
@@ -860,7 +868,7 @@ export interface AppStream {
   ): void;
   createImageBuilderStreamingURL(
     args: CreateImageBuilderStreamingURLCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateImageBuilderStreamingURLCommandOutput) => void
   ): void;
 
@@ -869,7 +877,7 @@ export interface AppStream {
    */
   createImportedImage(
     args: CreateImportedImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateImportedImageCommandOutput>;
   createImportedImage(
     args: CreateImportedImageCommandInput,
@@ -877,7 +885,7 @@ export interface AppStream {
   ): void;
   createImportedImage(
     args: CreateImportedImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateImportedImageCommandOutput) => void
   ): void;
 
@@ -886,7 +894,7 @@ export interface AppStream {
    */
   createStack(
     args: CreateStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateStackCommandOutput>;
   createStack(
     args: CreateStackCommandInput,
@@ -894,7 +902,7 @@ export interface AppStream {
   ): void;
   createStack(
     args: CreateStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateStackCommandOutput) => void
   ): void;
 
@@ -903,7 +911,7 @@ export interface AppStream {
    */
   createStreamingURL(
     args: CreateStreamingURLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateStreamingURLCommandOutput>;
   createStreamingURL(
     args: CreateStreamingURLCommandInput,
@@ -911,7 +919,7 @@ export interface AppStream {
   ): void;
   createStreamingURL(
     args: CreateStreamingURLCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateStreamingURLCommandOutput) => void
   ): void;
 
@@ -920,7 +928,7 @@ export interface AppStream {
    */
   createThemeForStack(
     args: CreateThemeForStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateThemeForStackCommandOutput>;
   createThemeForStack(
     args: CreateThemeForStackCommandInput,
@@ -928,7 +936,7 @@ export interface AppStream {
   ): void;
   createThemeForStack(
     args: CreateThemeForStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateThemeForStackCommandOutput) => void
   ): void;
 
@@ -937,7 +945,7 @@ export interface AppStream {
    */
   createUpdatedImage(
     args: CreateUpdatedImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateUpdatedImageCommandOutput>;
   createUpdatedImage(
     args: CreateUpdatedImageCommandInput,
@@ -945,7 +953,7 @@ export interface AppStream {
   ): void;
   createUpdatedImage(
     args: CreateUpdatedImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateUpdatedImageCommandOutput) => void
   ): void;
 
@@ -955,7 +963,7 @@ export interface AppStream {
   createUsageReportSubscription(): Promise<CreateUsageReportSubscriptionCommandOutput>;
   createUsageReportSubscription(
     args: CreateUsageReportSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateUsageReportSubscriptionCommandOutput>;
   createUsageReportSubscription(
     args: CreateUsageReportSubscriptionCommandInput,
@@ -963,7 +971,7 @@ export interface AppStream {
   ): void;
   createUsageReportSubscription(
     args: CreateUsageReportSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateUsageReportSubscriptionCommandOutput) => void
   ): void;
 
@@ -972,7 +980,7 @@ export interface AppStream {
    */
   createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<CreateUserCommandOutput>;
   createUser(
     args: CreateUserCommandInput,
@@ -980,7 +988,7 @@ export interface AppStream {
   ): void;
   createUser(
     args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
 
@@ -989,7 +997,7 @@ export interface AppStream {
    */
   deleteAppBlock(
     args: DeleteAppBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteAppBlockCommandOutput>;
   deleteAppBlock(
     args: DeleteAppBlockCommandInput,
@@ -997,7 +1005,7 @@ export interface AppStream {
   ): void;
   deleteAppBlock(
     args: DeleteAppBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteAppBlockCommandOutput) => void
   ): void;
 
@@ -1006,7 +1014,7 @@ export interface AppStream {
    */
   deleteAppBlockBuilder(
     args: DeleteAppBlockBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteAppBlockBuilderCommandOutput>;
   deleteAppBlockBuilder(
     args: DeleteAppBlockBuilderCommandInput,
@@ -1014,7 +1022,7 @@ export interface AppStream {
   ): void;
   deleteAppBlockBuilder(
     args: DeleteAppBlockBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteAppBlockBuilderCommandOutput) => void
   ): void;
 
@@ -1023,7 +1031,7 @@ export interface AppStream {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -1031,7 +1039,7 @@ export interface AppStream {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -1040,7 +1048,7 @@ export interface AppStream {
    */
   deleteDirectoryConfig(
     args: DeleteDirectoryConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteDirectoryConfigCommandOutput>;
   deleteDirectoryConfig(
     args: DeleteDirectoryConfigCommandInput,
@@ -1048,7 +1056,7 @@ export interface AppStream {
   ): void;
   deleteDirectoryConfig(
     args: DeleteDirectoryConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteDirectoryConfigCommandOutput) => void
   ): void;
 
@@ -1057,7 +1065,7 @@ export interface AppStream {
    */
   deleteEntitlement(
     args: DeleteEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteEntitlementCommandOutput>;
   deleteEntitlement(
     args: DeleteEntitlementCommandInput,
@@ -1065,7 +1073,7 @@ export interface AppStream {
   ): void;
   deleteEntitlement(
     args: DeleteEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteEntitlementCommandOutput) => void
   ): void;
 
@@ -1074,7 +1082,7 @@ export interface AppStream {
    */
   deleteFleet(
     args: DeleteFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteFleetCommandOutput>;
   deleteFleet(
     args: DeleteFleetCommandInput,
@@ -1082,7 +1090,7 @@ export interface AppStream {
   ): void;
   deleteFleet(
     args: DeleteFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteFleetCommandOutput) => void
   ): void;
 
@@ -1091,7 +1099,7 @@ export interface AppStream {
    */
   deleteImage(
     args: DeleteImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteImageCommandOutput>;
   deleteImage(
     args: DeleteImageCommandInput,
@@ -1099,7 +1107,7 @@ export interface AppStream {
   ): void;
   deleteImage(
     args: DeleteImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteImageCommandOutput) => void
   ): void;
 
@@ -1108,7 +1116,7 @@ export interface AppStream {
    */
   deleteImageBuilder(
     args: DeleteImageBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteImageBuilderCommandOutput>;
   deleteImageBuilder(
     args: DeleteImageBuilderCommandInput,
@@ -1116,7 +1124,7 @@ export interface AppStream {
   ): void;
   deleteImageBuilder(
     args: DeleteImageBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteImageBuilderCommandOutput) => void
   ): void;
 
@@ -1125,7 +1133,7 @@ export interface AppStream {
    */
   deleteImagePermissions(
     args: DeleteImagePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteImagePermissionsCommandOutput>;
   deleteImagePermissions(
     args: DeleteImagePermissionsCommandInput,
@@ -1133,7 +1141,7 @@ export interface AppStream {
   ): void;
   deleteImagePermissions(
     args: DeleteImagePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteImagePermissionsCommandOutput) => void
   ): void;
 
@@ -1142,7 +1150,7 @@ export interface AppStream {
    */
   deleteStack(
     args: DeleteStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteStackCommandOutput>;
   deleteStack(
     args: DeleteStackCommandInput,
@@ -1150,7 +1158,7 @@ export interface AppStream {
   ): void;
   deleteStack(
     args: DeleteStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteStackCommandOutput) => void
   ): void;
 
@@ -1159,7 +1167,7 @@ export interface AppStream {
    */
   deleteThemeForStack(
     args: DeleteThemeForStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteThemeForStackCommandOutput>;
   deleteThemeForStack(
     args: DeleteThemeForStackCommandInput,
@@ -1167,7 +1175,7 @@ export interface AppStream {
   ): void;
   deleteThemeForStack(
     args: DeleteThemeForStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteThemeForStackCommandOutput) => void
   ): void;
 
@@ -1177,7 +1185,7 @@ export interface AppStream {
   deleteUsageReportSubscription(): Promise<DeleteUsageReportSubscriptionCommandOutput>;
   deleteUsageReportSubscription(
     args: DeleteUsageReportSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteUsageReportSubscriptionCommandOutput>;
   deleteUsageReportSubscription(
     args: DeleteUsageReportSubscriptionCommandInput,
@@ -1185,7 +1193,7 @@ export interface AppStream {
   ): void;
   deleteUsageReportSubscription(
     args: DeleteUsageReportSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteUsageReportSubscriptionCommandOutput) => void
   ): void;
 
@@ -1194,7 +1202,7 @@ export interface AppStream {
    */
   deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DeleteUserCommandOutput>;
   deleteUser(
     args: DeleteUserCommandInput,
@@ -1202,7 +1210,7 @@ export interface AppStream {
   ): void;
   deleteUser(
     args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
@@ -1212,7 +1220,7 @@ export interface AppStream {
   describeAppBlockBuilderAppBlockAssociations(): Promise<DescribeAppBlockBuilderAppBlockAssociationsCommandOutput>;
   describeAppBlockBuilderAppBlockAssociations(
     args: DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeAppBlockBuilderAppBlockAssociationsCommandOutput>;
   describeAppBlockBuilderAppBlockAssociations(
     args: DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
@@ -1220,7 +1228,7 @@ export interface AppStream {
   ): void;
   describeAppBlockBuilderAppBlockAssociations(
     args: DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeAppBlockBuilderAppBlockAssociationsCommandOutput) => void
   ): void;
 
@@ -1230,7 +1238,7 @@ export interface AppStream {
   describeAppBlockBuilders(): Promise<DescribeAppBlockBuildersCommandOutput>;
   describeAppBlockBuilders(
     args: DescribeAppBlockBuildersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeAppBlockBuildersCommandOutput>;
   describeAppBlockBuilders(
     args: DescribeAppBlockBuildersCommandInput,
@@ -1238,7 +1246,7 @@ export interface AppStream {
   ): void;
   describeAppBlockBuilders(
     args: DescribeAppBlockBuildersCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeAppBlockBuildersCommandOutput) => void
   ): void;
 
@@ -1248,7 +1256,7 @@ export interface AppStream {
   describeAppBlocks(): Promise<DescribeAppBlocksCommandOutput>;
   describeAppBlocks(
     args: DescribeAppBlocksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeAppBlocksCommandOutput>;
   describeAppBlocks(
     args: DescribeAppBlocksCommandInput,
@@ -1256,7 +1264,7 @@ export interface AppStream {
   ): void;
   describeAppBlocks(
     args: DescribeAppBlocksCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeAppBlocksCommandOutput) => void
   ): void;
 
@@ -1266,7 +1274,7 @@ export interface AppStream {
   describeApplicationFleetAssociations(): Promise<DescribeApplicationFleetAssociationsCommandOutput>;
   describeApplicationFleetAssociations(
     args: DescribeApplicationFleetAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeApplicationFleetAssociationsCommandOutput>;
   describeApplicationFleetAssociations(
     args: DescribeApplicationFleetAssociationsCommandInput,
@@ -1274,7 +1282,7 @@ export interface AppStream {
   ): void;
   describeApplicationFleetAssociations(
     args: DescribeApplicationFleetAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeApplicationFleetAssociationsCommandOutput) => void
   ): void;
 
@@ -1284,7 +1292,7 @@ export interface AppStream {
   describeApplications(): Promise<DescribeApplicationsCommandOutput>;
   describeApplications(
     args: DescribeApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeApplicationsCommandOutput>;
   describeApplications(
     args: DescribeApplicationsCommandInput,
@@ -1292,7 +1300,7 @@ export interface AppStream {
   ): void;
   describeApplications(
     args: DescribeApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeApplicationsCommandOutput) => void
   ): void;
 
@@ -1301,7 +1309,7 @@ export interface AppStream {
    */
   describeAppLicenseUsage(
     args: DescribeAppLicenseUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeAppLicenseUsageCommandOutput>;
   describeAppLicenseUsage(
     args: DescribeAppLicenseUsageCommandInput,
@@ -1309,7 +1317,7 @@ export interface AppStream {
   ): void;
   describeAppLicenseUsage(
     args: DescribeAppLicenseUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeAppLicenseUsageCommandOutput) => void
   ): void;
 
@@ -1319,7 +1327,7 @@ export interface AppStream {
   describeDirectoryConfigs(): Promise<DescribeDirectoryConfigsCommandOutput>;
   describeDirectoryConfigs(
     args: DescribeDirectoryConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeDirectoryConfigsCommandOutput>;
   describeDirectoryConfigs(
     args: DescribeDirectoryConfigsCommandInput,
@@ -1327,7 +1335,7 @@ export interface AppStream {
   ): void;
   describeDirectoryConfigs(
     args: DescribeDirectoryConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeDirectoryConfigsCommandOutput) => void
   ): void;
 
@@ -1336,7 +1344,7 @@ export interface AppStream {
    */
   describeEntitlements(
     args: DescribeEntitlementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeEntitlementsCommandOutput>;
   describeEntitlements(
     args: DescribeEntitlementsCommandInput,
@@ -1344,7 +1352,7 @@ export interface AppStream {
   ): void;
   describeEntitlements(
     args: DescribeEntitlementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeEntitlementsCommandOutput) => void
   ): void;
 
@@ -1354,7 +1362,7 @@ export interface AppStream {
   describeFleets(): Promise<DescribeFleetsCommandOutput>;
   describeFleets(
     args: DescribeFleetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeFleetsCommandOutput>;
   describeFleets(
     args: DescribeFleetsCommandInput,
@@ -1362,7 +1370,7 @@ export interface AppStream {
   ): void;
   describeFleets(
     args: DescribeFleetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeFleetsCommandOutput) => void
   ): void;
 
@@ -1372,7 +1380,7 @@ export interface AppStream {
   describeImageBuilders(): Promise<DescribeImageBuildersCommandOutput>;
   describeImageBuilders(
     args: DescribeImageBuildersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeImageBuildersCommandOutput>;
   describeImageBuilders(
     args: DescribeImageBuildersCommandInput,
@@ -1380,7 +1388,7 @@ export interface AppStream {
   ): void;
   describeImageBuilders(
     args: DescribeImageBuildersCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeImageBuildersCommandOutput) => void
   ): void;
 
@@ -1389,7 +1397,7 @@ export interface AppStream {
    */
   describeImagePermissions(
     args: DescribeImagePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeImagePermissionsCommandOutput>;
   describeImagePermissions(
     args: DescribeImagePermissionsCommandInput,
@@ -1397,7 +1405,7 @@ export interface AppStream {
   ): void;
   describeImagePermissions(
     args: DescribeImagePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeImagePermissionsCommandOutput) => void
   ): void;
 
@@ -1407,7 +1415,7 @@ export interface AppStream {
   describeImages(): Promise<DescribeImagesCommandOutput>;
   describeImages(
     args: DescribeImagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeImagesCommandOutput>;
   describeImages(
     args: DescribeImagesCommandInput,
@@ -1415,7 +1423,7 @@ export interface AppStream {
   ): void;
   describeImages(
     args: DescribeImagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeImagesCommandOutput) => void
   ): void;
 
@@ -1424,7 +1432,7 @@ export interface AppStream {
    */
   describeSessions(
     args: DescribeSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeSessionsCommandOutput>;
   describeSessions(
     args: DescribeSessionsCommandInput,
@@ -1432,7 +1440,7 @@ export interface AppStream {
   ): void;
   describeSessions(
     args: DescribeSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeSessionsCommandOutput) => void
   ): void;
 
@@ -1441,7 +1449,7 @@ export interface AppStream {
    */
   describeSoftwareAssociations(
     args: DescribeSoftwareAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeSoftwareAssociationsCommandOutput>;
   describeSoftwareAssociations(
     args: DescribeSoftwareAssociationsCommandInput,
@@ -1449,7 +1457,7 @@ export interface AppStream {
   ): void;
   describeSoftwareAssociations(
     args: DescribeSoftwareAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeSoftwareAssociationsCommandOutput) => void
   ): void;
 
@@ -1459,7 +1467,7 @@ export interface AppStream {
   describeStacks(): Promise<DescribeStacksCommandOutput>;
   describeStacks(
     args: DescribeStacksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeStacksCommandOutput>;
   describeStacks(
     args: DescribeStacksCommandInput,
@@ -1467,7 +1475,7 @@ export interface AppStream {
   ): void;
   describeStacks(
     args: DescribeStacksCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeStacksCommandOutput) => void
   ): void;
 
@@ -1476,7 +1484,7 @@ export interface AppStream {
    */
   describeThemeForStack(
     args: DescribeThemeForStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeThemeForStackCommandOutput>;
   describeThemeForStack(
     args: DescribeThemeForStackCommandInput,
@@ -1484,7 +1492,7 @@ export interface AppStream {
   ): void;
   describeThemeForStack(
     args: DescribeThemeForStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeThemeForStackCommandOutput) => void
   ): void;
 
@@ -1494,7 +1502,7 @@ export interface AppStream {
   describeUsageReportSubscriptions(): Promise<DescribeUsageReportSubscriptionsCommandOutput>;
   describeUsageReportSubscriptions(
     args: DescribeUsageReportSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeUsageReportSubscriptionsCommandOutput>;
   describeUsageReportSubscriptions(
     args: DescribeUsageReportSubscriptionsCommandInput,
@@ -1502,7 +1510,7 @@ export interface AppStream {
   ): void;
   describeUsageReportSubscriptions(
     args: DescribeUsageReportSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeUsageReportSubscriptionsCommandOutput) => void
   ): void;
 
@@ -1511,7 +1519,7 @@ export interface AppStream {
    */
   describeUsers(
     args: DescribeUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeUsersCommandOutput>;
   describeUsers(
     args: DescribeUsersCommandInput,
@@ -1519,7 +1527,7 @@ export interface AppStream {
   ): void;
   describeUsers(
     args: DescribeUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeUsersCommandOutput) => void
   ): void;
 
@@ -1529,7 +1537,7 @@ export interface AppStream {
   describeUserStackAssociations(): Promise<DescribeUserStackAssociationsCommandOutput>;
   describeUserStackAssociations(
     args: DescribeUserStackAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DescribeUserStackAssociationsCommandOutput>;
   describeUserStackAssociations(
     args: DescribeUserStackAssociationsCommandInput,
@@ -1537,7 +1545,7 @@ export interface AppStream {
   ): void;
   describeUserStackAssociations(
     args: DescribeUserStackAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DescribeUserStackAssociationsCommandOutput) => void
   ): void;
 
@@ -1546,7 +1554,7 @@ export interface AppStream {
    */
   disableUser(
     args: DisableUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DisableUserCommandOutput>;
   disableUser(
     args: DisableUserCommandInput,
@@ -1554,7 +1562,7 @@ export interface AppStream {
   ): void;
   disableUser(
     args: DisableUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DisableUserCommandOutput) => void
   ): void;
 
@@ -1563,7 +1571,7 @@ export interface AppStream {
    */
   disassociateAppBlockBuilderAppBlock(
     args: DisassociateAppBlockBuilderAppBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DisassociateAppBlockBuilderAppBlockCommandOutput>;
   disassociateAppBlockBuilderAppBlock(
     args: DisassociateAppBlockBuilderAppBlockCommandInput,
@@ -1571,7 +1579,7 @@ export interface AppStream {
   ): void;
   disassociateAppBlockBuilderAppBlock(
     args: DisassociateAppBlockBuilderAppBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DisassociateAppBlockBuilderAppBlockCommandOutput) => void
   ): void;
 
@@ -1580,7 +1588,7 @@ export interface AppStream {
    */
   disassociateApplicationFleet(
     args: DisassociateApplicationFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DisassociateApplicationFleetCommandOutput>;
   disassociateApplicationFleet(
     args: DisassociateApplicationFleetCommandInput,
@@ -1588,7 +1596,7 @@ export interface AppStream {
   ): void;
   disassociateApplicationFleet(
     args: DisassociateApplicationFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DisassociateApplicationFleetCommandOutput) => void
   ): void;
 
@@ -1597,7 +1605,7 @@ export interface AppStream {
    */
   disassociateApplicationFromEntitlement(
     args: DisassociateApplicationFromEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DisassociateApplicationFromEntitlementCommandOutput>;
   disassociateApplicationFromEntitlement(
     args: DisassociateApplicationFromEntitlementCommandInput,
@@ -1605,7 +1613,7 @@ export interface AppStream {
   ): void;
   disassociateApplicationFromEntitlement(
     args: DisassociateApplicationFromEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DisassociateApplicationFromEntitlementCommandOutput) => void
   ): void;
 
@@ -1614,7 +1622,7 @@ export interface AppStream {
    */
   disassociateFleet(
     args: DisassociateFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DisassociateFleetCommandOutput>;
   disassociateFleet(
     args: DisassociateFleetCommandInput,
@@ -1622,7 +1630,7 @@ export interface AppStream {
   ): void;
   disassociateFleet(
     args: DisassociateFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DisassociateFleetCommandOutput) => void
   ): void;
 
@@ -1631,7 +1639,7 @@ export interface AppStream {
    */
   disassociateSoftwareFromImageBuilder(
     args: DisassociateSoftwareFromImageBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DisassociateSoftwareFromImageBuilderCommandOutput>;
   disassociateSoftwareFromImageBuilder(
     args: DisassociateSoftwareFromImageBuilderCommandInput,
@@ -1639,7 +1647,7 @@ export interface AppStream {
   ): void;
   disassociateSoftwareFromImageBuilder(
     args: DisassociateSoftwareFromImageBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DisassociateSoftwareFromImageBuilderCommandOutput) => void
   ): void;
 
@@ -1648,7 +1656,7 @@ export interface AppStream {
    */
   drainSessionInstance(
     args: DrainSessionInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<DrainSessionInstanceCommandOutput>;
   drainSessionInstance(
     args: DrainSessionInstanceCommandInput,
@@ -1656,7 +1664,7 @@ export interface AppStream {
   ): void;
   drainSessionInstance(
     args: DrainSessionInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: DrainSessionInstanceCommandOutput) => void
   ): void;
 
@@ -1665,7 +1673,7 @@ export interface AppStream {
    */
   enableUser(
     args: EnableUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<EnableUserCommandOutput>;
   enableUser(
     args: EnableUserCommandInput,
@@ -1673,7 +1681,7 @@ export interface AppStream {
   ): void;
   enableUser(
     args: EnableUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: EnableUserCommandOutput) => void
   ): void;
 
@@ -1682,7 +1690,7 @@ export interface AppStream {
    */
   expireSession(
     args: ExpireSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<ExpireSessionCommandOutput>;
   expireSession(
     args: ExpireSessionCommandInput,
@@ -1690,7 +1698,7 @@ export interface AppStream {
   ): void;
   expireSession(
     args: ExpireSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: ExpireSessionCommandOutput) => void
   ): void;
 
@@ -1700,7 +1708,7 @@ export interface AppStream {
   getExportImageTask(): Promise<GetExportImageTaskCommandOutput>;
   getExportImageTask(
     args: GetExportImageTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<GetExportImageTaskCommandOutput>;
   getExportImageTask(
     args: GetExportImageTaskCommandInput,
@@ -1708,7 +1716,7 @@ export interface AppStream {
   ): void;
   getExportImageTask(
     args: GetExportImageTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: GetExportImageTaskCommandOutput) => void
   ): void;
 
@@ -1717,7 +1725,7 @@ export interface AppStream {
    */
   listAssociatedFleets(
     args: ListAssociatedFleetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<ListAssociatedFleetsCommandOutput>;
   listAssociatedFleets(
     args: ListAssociatedFleetsCommandInput,
@@ -1725,7 +1733,7 @@ export interface AppStream {
   ): void;
   listAssociatedFleets(
     args: ListAssociatedFleetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: ListAssociatedFleetsCommandOutput) => void
   ): void;
 
@@ -1734,7 +1742,7 @@ export interface AppStream {
    */
   listAssociatedStacks(
     args: ListAssociatedStacksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<ListAssociatedStacksCommandOutput>;
   listAssociatedStacks(
     args: ListAssociatedStacksCommandInput,
@@ -1742,7 +1750,7 @@ export interface AppStream {
   ): void;
   listAssociatedStacks(
     args: ListAssociatedStacksCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: ListAssociatedStacksCommandOutput) => void
   ): void;
 
@@ -1751,7 +1759,7 @@ export interface AppStream {
    */
   listEntitledApplications(
     args: ListEntitledApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<ListEntitledApplicationsCommandOutput>;
   listEntitledApplications(
     args: ListEntitledApplicationsCommandInput,
@@ -1759,7 +1767,7 @@ export interface AppStream {
   ): void;
   listEntitledApplications(
     args: ListEntitledApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: ListEntitledApplicationsCommandOutput) => void
   ): void;
 
@@ -1769,7 +1777,7 @@ export interface AppStream {
   listExportImageTasks(): Promise<ListExportImageTasksCommandOutput>;
   listExportImageTasks(
     args: ListExportImageTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<ListExportImageTasksCommandOutput>;
   listExportImageTasks(
     args: ListExportImageTasksCommandInput,
@@ -1777,7 +1785,7 @@ export interface AppStream {
   ): void;
   listExportImageTasks(
     args: ListExportImageTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: ListExportImageTasksCommandOutput) => void
   ): void;
 
@@ -1786,7 +1794,7 @@ export interface AppStream {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1794,7 +1802,7 @@ export interface AppStream {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1803,7 +1811,7 @@ export interface AppStream {
    */
   startAppBlockBuilder(
     args: StartAppBlockBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<StartAppBlockBuilderCommandOutput>;
   startAppBlockBuilder(
     args: StartAppBlockBuilderCommandInput,
@@ -1811,7 +1819,7 @@ export interface AppStream {
   ): void;
   startAppBlockBuilder(
     args: StartAppBlockBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: StartAppBlockBuilderCommandOutput) => void
   ): void;
 
@@ -1820,7 +1828,7 @@ export interface AppStream {
    */
   startFleet(
     args: StartFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<StartFleetCommandOutput>;
   startFleet(
     args: StartFleetCommandInput,
@@ -1828,7 +1836,7 @@ export interface AppStream {
   ): void;
   startFleet(
     args: StartFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: StartFleetCommandOutput) => void
   ): void;
 
@@ -1837,7 +1845,7 @@ export interface AppStream {
    */
   startImageBuilder(
     args: StartImageBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<StartImageBuilderCommandOutput>;
   startImageBuilder(
     args: StartImageBuilderCommandInput,
@@ -1845,7 +1853,7 @@ export interface AppStream {
   ): void;
   startImageBuilder(
     args: StartImageBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: StartImageBuilderCommandOutput) => void
   ): void;
 
@@ -1854,7 +1862,7 @@ export interface AppStream {
    */
   startSoftwareDeploymentToImageBuilder(
     args: StartSoftwareDeploymentToImageBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<StartSoftwareDeploymentToImageBuilderCommandOutput>;
   startSoftwareDeploymentToImageBuilder(
     args: StartSoftwareDeploymentToImageBuilderCommandInput,
@@ -1862,7 +1870,7 @@ export interface AppStream {
   ): void;
   startSoftwareDeploymentToImageBuilder(
     args: StartSoftwareDeploymentToImageBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: StartSoftwareDeploymentToImageBuilderCommandOutput) => void
   ): void;
 
@@ -1871,7 +1879,7 @@ export interface AppStream {
    */
   stopAppBlockBuilder(
     args: StopAppBlockBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<StopAppBlockBuilderCommandOutput>;
   stopAppBlockBuilder(
     args: StopAppBlockBuilderCommandInput,
@@ -1879,7 +1887,7 @@ export interface AppStream {
   ): void;
   stopAppBlockBuilder(
     args: StopAppBlockBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: StopAppBlockBuilderCommandOutput) => void
   ): void;
 
@@ -1888,7 +1896,7 @@ export interface AppStream {
    */
   stopFleet(
     args: StopFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<StopFleetCommandOutput>;
   stopFleet(
     args: StopFleetCommandInput,
@@ -1896,7 +1904,7 @@ export interface AppStream {
   ): void;
   stopFleet(
     args: StopFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: StopFleetCommandOutput) => void
   ): void;
 
@@ -1905,7 +1913,7 @@ export interface AppStream {
    */
   stopImageBuilder(
     args: StopImageBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<StopImageBuilderCommandOutput>;
   stopImageBuilder(
     args: StopImageBuilderCommandInput,
@@ -1913,7 +1921,7 @@ export interface AppStream {
   ): void;
   stopImageBuilder(
     args: StopImageBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: StopImageBuilderCommandOutput) => void
   ): void;
 
@@ -1922,7 +1930,7 @@ export interface AppStream {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1930,7 +1938,7 @@ export interface AppStream {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1939,7 +1947,7 @@ export interface AppStream {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1947,7 +1955,7 @@ export interface AppStream {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1956,7 +1964,7 @@ export interface AppStream {
    */
   updateAppBlockBuilder(
     args: UpdateAppBlockBuilderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<UpdateAppBlockBuilderCommandOutput>;
   updateAppBlockBuilder(
     args: UpdateAppBlockBuilderCommandInput,
@@ -1964,7 +1972,7 @@ export interface AppStream {
   ): void;
   updateAppBlockBuilder(
     args: UpdateAppBlockBuilderCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: UpdateAppBlockBuilderCommandOutput) => void
   ): void;
 
@@ -1973,7 +1981,7 @@ export interface AppStream {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -1981,7 +1989,7 @@ export interface AppStream {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
@@ -1990,7 +1998,7 @@ export interface AppStream {
    */
   updateDirectoryConfig(
     args: UpdateDirectoryConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<UpdateDirectoryConfigCommandOutput>;
   updateDirectoryConfig(
     args: UpdateDirectoryConfigCommandInput,
@@ -1998,7 +2006,7 @@ export interface AppStream {
   ): void;
   updateDirectoryConfig(
     args: UpdateDirectoryConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: UpdateDirectoryConfigCommandOutput) => void
   ): void;
 
@@ -2007,7 +2015,7 @@ export interface AppStream {
    */
   updateEntitlement(
     args: UpdateEntitlementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<UpdateEntitlementCommandOutput>;
   updateEntitlement(
     args: UpdateEntitlementCommandInput,
@@ -2015,7 +2023,7 @@ export interface AppStream {
   ): void;
   updateEntitlement(
     args: UpdateEntitlementCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: UpdateEntitlementCommandOutput) => void
   ): void;
 
@@ -2025,7 +2033,7 @@ export interface AppStream {
   updateFleet(): Promise<UpdateFleetCommandOutput>;
   updateFleet(
     args: UpdateFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<UpdateFleetCommandOutput>;
   updateFleet(
     args: UpdateFleetCommandInput,
@@ -2033,7 +2041,7 @@ export interface AppStream {
   ): void;
   updateFleet(
     args: UpdateFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: UpdateFleetCommandOutput) => void
   ): void;
 
@@ -2042,7 +2050,7 @@ export interface AppStream {
    */
   updateImagePermissions(
     args: UpdateImagePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<UpdateImagePermissionsCommandOutput>;
   updateImagePermissions(
     args: UpdateImagePermissionsCommandInput,
@@ -2050,7 +2058,7 @@ export interface AppStream {
   ): void;
   updateImagePermissions(
     args: UpdateImagePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: UpdateImagePermissionsCommandOutput) => void
   ): void;
 
@@ -2059,7 +2067,7 @@ export interface AppStream {
    */
   updateStack(
     args: UpdateStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<UpdateStackCommandOutput>;
   updateStack(
     args: UpdateStackCommandInput,
@@ -2067,7 +2075,7 @@ export interface AppStream {
   ): void;
   updateStack(
     args: UpdateStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: UpdateStackCommandOutput) => void
   ): void;
 
@@ -2076,7 +2084,7 @@ export interface AppStream {
    */
   updateThemeForStack(
     args: UpdateThemeForStackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppStreamRequestOptions
   ): Promise<UpdateThemeForStackCommandOutput>;
   updateThemeForStack(
     args: UpdateThemeForStackCommandInput,
@@ -2084,7 +2092,7 @@ export interface AppStream {
   ): void;
   updateThemeForStack(
     args: UpdateThemeForStackCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppStreamRequestOptions,
     cb: (err: any, data?: UpdateThemeForStackCommandOutput) => void
   ): void;
 

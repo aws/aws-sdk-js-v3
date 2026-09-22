@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type JoinStorageSessionAsViewerCommandInput,
@@ -19,13 +19,20 @@ const commands = {
   JoinStorageSessionAsViewerCommand,
 };
 
+/**
+ * @public
+ */
+export interface KinesisVideoWebRTCStorageRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface KinesisVideoWebRTCStorage {
   /**
    * @see {@link JoinStorageSessionCommand}
    */
   joinStorageSession(
     args: JoinStorageSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisVideoWebRTCStorageRequestOptions
   ): Promise<JoinStorageSessionCommandOutput>;
   joinStorageSession(
     args: JoinStorageSessionCommandInput,
@@ -33,7 +40,7 @@ export interface KinesisVideoWebRTCStorage {
   ): void;
   joinStorageSession(
     args: JoinStorageSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisVideoWebRTCStorageRequestOptions,
     cb: (err: any, data?: JoinStorageSessionCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface KinesisVideoWebRTCStorage {
    */
   joinStorageSessionAsViewer(
     args: JoinStorageSessionAsViewerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisVideoWebRTCStorageRequestOptions
   ): Promise<JoinStorageSessionAsViewerCommandOutput>;
   joinStorageSessionAsViewer(
     args: JoinStorageSessionAsViewerCommandInput,
@@ -50,7 +57,7 @@ export interface KinesisVideoWebRTCStorage {
   ): void;
   joinStorageSessionAsViewer(
     args: JoinStorageSessionAsViewerCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisVideoWebRTCStorageRequestOptions,
     cb: (err: any, data?: JoinStorageSessionAsViewerCommandOutput) => void
   ): void;
 }

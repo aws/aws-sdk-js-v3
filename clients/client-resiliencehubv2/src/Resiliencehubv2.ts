@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -491,13 +492,20 @@ const waiters = {
   waitUntilReportSucceeded,
 };
 
+/**
+ * @public
+ */
+export interface Resiliencehubv2RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Resiliencehubv2 {
   /**
    * @see {@link CreateAssertionCommand}
    */
   createAssertion(
     args: CreateAssertionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreateAssertionCommandOutput>;
   createAssertion(
     args: CreateAssertionCommandInput,
@@ -505,7 +513,7 @@ export interface Resiliencehubv2 {
   ): void;
   createAssertion(
     args: CreateAssertionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreateAssertionCommandOutput) => void
   ): void;
 
@@ -514,7 +522,7 @@ export interface Resiliencehubv2 {
    */
   createInputSource(
     args: CreateInputSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreateInputSourceCommandOutput>;
   createInputSource(
     args: CreateInputSourceCommandInput,
@@ -522,7 +530,7 @@ export interface Resiliencehubv2 {
   ): void;
   createInputSource(
     args: CreateInputSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreateInputSourceCommandOutput) => void
   ): void;
 
@@ -531,7 +539,7 @@ export interface Resiliencehubv2 {
    */
   createPolicy(
     args: CreatePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreatePolicyCommandOutput>;
   createPolicy(
     args: CreatePolicyCommandInput,
@@ -539,7 +547,7 @@ export interface Resiliencehubv2 {
   ): void;
   createPolicy(
     args: CreatePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreatePolicyCommandOutput) => void
   ): void;
 
@@ -548,7 +556,7 @@ export interface Resiliencehubv2 {
    */
   createReport(
     args: CreateReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreateReportCommandOutput>;
   createReport(
     args: CreateReportCommandInput,
@@ -556,7 +564,7 @@ export interface Resiliencehubv2 {
   ): void;
   createReport(
     args: CreateReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreateReportCommandOutput) => void
   ): void;
 
@@ -565,7 +573,7 @@ export interface Resiliencehubv2 {
    */
   createService(
     args: CreateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreateServiceCommandOutput>;
   createService(
     args: CreateServiceCommandInput,
@@ -573,7 +581,7 @@ export interface Resiliencehubv2 {
   ): void;
   createService(
     args: CreateServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreateServiceCommandOutput) => void
   ): void;
 
@@ -582,7 +590,7 @@ export interface Resiliencehubv2 {
    */
   createServiceFunction(
     args: CreateServiceFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreateServiceFunctionCommandOutput>;
   createServiceFunction(
     args: CreateServiceFunctionCommandInput,
@@ -590,7 +598,7 @@ export interface Resiliencehubv2 {
   ): void;
   createServiceFunction(
     args: CreateServiceFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreateServiceFunctionCommandOutput) => void
   ): void;
 
@@ -599,7 +607,7 @@ export interface Resiliencehubv2 {
    */
   createServiceFunctionResources(
     args: CreateServiceFunctionResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreateServiceFunctionResourcesCommandOutput>;
   createServiceFunctionResources(
     args: CreateServiceFunctionResourcesCommandInput,
@@ -607,7 +615,7 @@ export interface Resiliencehubv2 {
   ): void;
   createServiceFunctionResources(
     args: CreateServiceFunctionResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreateServiceFunctionResourcesCommandOutput) => void
   ): void;
 
@@ -616,7 +624,7 @@ export interface Resiliencehubv2 {
    */
   createSystem(
     args: CreateSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreateSystemCommandOutput>;
   createSystem(
     args: CreateSystemCommandInput,
@@ -624,7 +632,7 @@ export interface Resiliencehubv2 {
   ): void;
   createSystem(
     args: CreateSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreateSystemCommandOutput) => void
   ): void;
 
@@ -633,7 +641,7 @@ export interface Resiliencehubv2 {
    */
   createTest(
     args: CreateTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreateTestCommandOutput>;
   createTest(
     args: CreateTestCommandInput,
@@ -641,7 +649,7 @@ export interface Resiliencehubv2 {
   ): void;
   createTest(
     args: CreateTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreateTestCommandOutput) => void
   ): void;
 
@@ -650,7 +658,7 @@ export interface Resiliencehubv2 {
    */
   createUserJourney(
     args: CreateUserJourneyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<CreateUserJourneyCommandOutput>;
   createUserJourney(
     args: CreateUserJourneyCommandInput,
@@ -658,7 +666,7 @@ export interface Resiliencehubv2 {
   ): void;
   createUserJourney(
     args: CreateUserJourneyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: CreateUserJourneyCommandOutput) => void
   ): void;
 
@@ -667,7 +675,7 @@ export interface Resiliencehubv2 {
    */
   deleteAssertion(
     args: DeleteAssertionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeleteAssertionCommandOutput>;
   deleteAssertion(
     args: DeleteAssertionCommandInput,
@@ -675,7 +683,7 @@ export interface Resiliencehubv2 {
   ): void;
   deleteAssertion(
     args: DeleteAssertionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeleteAssertionCommandOutput) => void
   ): void;
 
@@ -684,7 +692,7 @@ export interface Resiliencehubv2 {
    */
   deleteInputSource(
     args: DeleteInputSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeleteInputSourceCommandOutput>;
   deleteInputSource(
     args: DeleteInputSourceCommandInput,
@@ -692,7 +700,7 @@ export interface Resiliencehubv2 {
   ): void;
   deleteInputSource(
     args: DeleteInputSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeleteInputSourceCommandOutput) => void
   ): void;
 
@@ -701,7 +709,7 @@ export interface Resiliencehubv2 {
    */
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeletePolicyCommandOutput>;
   deletePolicy(
     args: DeletePolicyCommandInput,
@@ -709,7 +717,7 @@ export interface Resiliencehubv2 {
   ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeletePolicyCommandOutput) => void
   ): void;
 
@@ -718,7 +726,7 @@ export interface Resiliencehubv2 {
    */
   deleteService(
     args: DeleteServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeleteServiceCommandOutput>;
   deleteService(
     args: DeleteServiceCommandInput,
@@ -726,7 +734,7 @@ export interface Resiliencehubv2 {
   ): void;
   deleteService(
     args: DeleteServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeleteServiceCommandOutput) => void
   ): void;
 
@@ -735,7 +743,7 @@ export interface Resiliencehubv2 {
    */
   deleteServiceFunction(
     args: DeleteServiceFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeleteServiceFunctionCommandOutput>;
   deleteServiceFunction(
     args: DeleteServiceFunctionCommandInput,
@@ -743,7 +751,7 @@ export interface Resiliencehubv2 {
   ): void;
   deleteServiceFunction(
     args: DeleteServiceFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeleteServiceFunctionCommandOutput) => void
   ): void;
 
@@ -752,7 +760,7 @@ export interface Resiliencehubv2 {
    */
   deleteServiceFunctionResources(
     args: DeleteServiceFunctionResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeleteServiceFunctionResourcesCommandOutput>;
   deleteServiceFunctionResources(
     args: DeleteServiceFunctionResourcesCommandInput,
@@ -760,7 +768,7 @@ export interface Resiliencehubv2 {
   ): void;
   deleteServiceFunctionResources(
     args: DeleteServiceFunctionResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeleteServiceFunctionResourcesCommandOutput) => void
   ): void;
 
@@ -769,7 +777,7 @@ export interface Resiliencehubv2 {
    */
   deleteSystem(
     args: DeleteSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeleteSystemCommandOutput>;
   deleteSystem(
     args: DeleteSystemCommandInput,
@@ -777,7 +785,7 @@ export interface Resiliencehubv2 {
   ): void;
   deleteSystem(
     args: DeleteSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeleteSystemCommandOutput) => void
   ): void;
 
@@ -786,7 +794,7 @@ export interface Resiliencehubv2 {
    */
   deleteTest(
     args: DeleteTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeleteTestCommandOutput>;
   deleteTest(
     args: DeleteTestCommandInput,
@@ -794,7 +802,7 @@ export interface Resiliencehubv2 {
   ): void;
   deleteTest(
     args: DeleteTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeleteTestCommandOutput) => void
   ): void;
 
@@ -803,7 +811,7 @@ export interface Resiliencehubv2 {
    */
   deleteTestSources(
     args: DeleteTestSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeleteTestSourcesCommandOutput>;
   deleteTestSources(
     args: DeleteTestSourcesCommandInput,
@@ -811,7 +819,7 @@ export interface Resiliencehubv2 {
   ): void;
   deleteTestSources(
     args: DeleteTestSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeleteTestSourcesCommandOutput) => void
   ): void;
 
@@ -820,7 +828,7 @@ export interface Resiliencehubv2 {
    */
   deleteUserJourney(
     args: DeleteUserJourneyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<DeleteUserJourneyCommandOutput>;
   deleteUserJourney(
     args: DeleteUserJourneyCommandInput,
@@ -828,7 +836,7 @@ export interface Resiliencehubv2 {
   ): void;
   deleteUserJourney(
     args: DeleteUserJourneyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: DeleteUserJourneyCommandOutput) => void
   ): void;
 
@@ -837,7 +845,7 @@ export interface Resiliencehubv2 {
    */
   getDependencyInsights(
     args: GetDependencyInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<GetDependencyInsightsCommandOutput>;
   getDependencyInsights(
     args: GetDependencyInsightsCommandInput,
@@ -845,7 +853,7 @@ export interface Resiliencehubv2 {
   ): void;
   getDependencyInsights(
     args: GetDependencyInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: GetDependencyInsightsCommandOutput) => void
   ): void;
 
@@ -854,7 +862,7 @@ export interface Resiliencehubv2 {
    */
   getFailureModeFinding(
     args: GetFailureModeFindingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<GetFailureModeFindingCommandOutput>;
   getFailureModeFinding(
     args: GetFailureModeFindingCommandInput,
@@ -862,7 +870,7 @@ export interface Resiliencehubv2 {
   ): void;
   getFailureModeFinding(
     args: GetFailureModeFindingCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: GetFailureModeFindingCommandOutput) => void
   ): void;
 
@@ -871,7 +879,7 @@ export interface Resiliencehubv2 {
    */
   getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<GetPolicyCommandOutput>;
   getPolicy(
     args: GetPolicyCommandInput,
@@ -879,7 +887,7 @@ export interface Resiliencehubv2 {
   ): void;
   getPolicy(
     args: GetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
@@ -888,7 +896,7 @@ export interface Resiliencehubv2 {
    */
   getService(
     args: GetServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<GetServiceCommandOutput>;
   getService(
     args: GetServiceCommandInput,
@@ -896,7 +904,7 @@ export interface Resiliencehubv2 {
   ): void;
   getService(
     args: GetServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
   ): void;
 
@@ -905,7 +913,7 @@ export interface Resiliencehubv2 {
    */
   getSystem(
     args: GetSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<GetSystemCommandOutput>;
   getSystem(
     args: GetSystemCommandInput,
@@ -913,7 +921,7 @@ export interface Resiliencehubv2 {
   ): void;
   getSystem(
     args: GetSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: GetSystemCommandOutput) => void
   ): void;
 
@@ -922,7 +930,7 @@ export interface Resiliencehubv2 {
    */
   getTest(
     args: GetTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<GetTestCommandOutput>;
   getTest(
     args: GetTestCommandInput,
@@ -930,7 +938,7 @@ export interface Resiliencehubv2 {
   ): void;
   getTest(
     args: GetTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: GetTestCommandOutput) => void
   ): void;
 
@@ -939,7 +947,7 @@ export interface Resiliencehubv2 {
    */
   getTestRun(
     args: GetTestRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<GetTestRunCommandOutput>;
   getTestRun(
     args: GetTestRunCommandInput,
@@ -947,7 +955,7 @@ export interface Resiliencehubv2 {
   ): void;
   getTestRun(
     args: GetTestRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: GetTestRunCommandOutput) => void
   ): void;
 
@@ -956,7 +964,7 @@ export interface Resiliencehubv2 {
    */
   getTestTemplate(
     args: GetTestTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<GetTestTemplateCommandOutput>;
   getTestTemplate(
     args: GetTestTemplateCommandInput,
@@ -964,7 +972,7 @@ export interface Resiliencehubv2 {
   ): void;
   getTestTemplate(
     args: GetTestTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: GetTestTemplateCommandOutput) => void
   ): void;
 
@@ -973,7 +981,7 @@ export interface Resiliencehubv2 {
    */
   getUserJourney(
     args: GetUserJourneyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<GetUserJourneyCommandOutput>;
   getUserJourney(
     args: GetUserJourneyCommandInput,
@@ -981,7 +989,7 @@ export interface Resiliencehubv2 {
   ): void;
   getUserJourney(
     args: GetUserJourneyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: GetUserJourneyCommandOutput) => void
   ): void;
 
@@ -990,7 +998,7 @@ export interface Resiliencehubv2 {
    */
   importApp(
     args: ImportAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ImportAppCommandOutput>;
   importApp(
     args: ImportAppCommandInput,
@@ -998,7 +1006,7 @@ export interface Resiliencehubv2 {
   ): void;
   importApp(
     args: ImportAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ImportAppCommandOutput) => void
   ): void;
 
@@ -1007,7 +1015,7 @@ export interface Resiliencehubv2 {
    */
   importPolicy(
     args: ImportPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ImportPolicyCommandOutput>;
   importPolicy(
     args: ImportPolicyCommandInput,
@@ -1015,7 +1023,7 @@ export interface Resiliencehubv2 {
   ): void;
   importPolicy(
     args: ImportPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ImportPolicyCommandOutput) => void
   ): void;
 
@@ -1024,7 +1032,7 @@ export interface Resiliencehubv2 {
    */
   listAssertions(
     args: ListAssertionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListAssertionsCommandOutput>;
   listAssertions(
     args: ListAssertionsCommandInput,
@@ -1032,7 +1040,7 @@ export interface Resiliencehubv2 {
   ): void;
   listAssertions(
     args: ListAssertionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListAssertionsCommandOutput) => void
   ): void;
 
@@ -1042,7 +1050,7 @@ export interface Resiliencehubv2 {
   listDependencies(): Promise<ListDependenciesCommandOutput>;
   listDependencies(
     args: ListDependenciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListDependenciesCommandOutput>;
   listDependencies(
     args: ListDependenciesCommandInput,
@@ -1050,7 +1058,7 @@ export interface Resiliencehubv2 {
   ): void;
   listDependencies(
     args: ListDependenciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListDependenciesCommandOutput) => void
   ): void;
 
@@ -1059,7 +1067,7 @@ export interface Resiliencehubv2 {
    */
   listFailureModeAssessments(
     args: ListFailureModeAssessmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListFailureModeAssessmentsCommandOutput>;
   listFailureModeAssessments(
     args: ListFailureModeAssessmentsCommandInput,
@@ -1067,7 +1075,7 @@ export interface Resiliencehubv2 {
   ): void;
   listFailureModeAssessments(
     args: ListFailureModeAssessmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListFailureModeAssessmentsCommandOutput) => void
   ): void;
 
@@ -1076,7 +1084,7 @@ export interface Resiliencehubv2 {
    */
   listFailureModeFindings(
     args: ListFailureModeFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListFailureModeFindingsCommandOutput>;
   listFailureModeFindings(
     args: ListFailureModeFindingsCommandInput,
@@ -1084,7 +1092,7 @@ export interface Resiliencehubv2 {
   ): void;
   listFailureModeFindings(
     args: ListFailureModeFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListFailureModeFindingsCommandOutput) => void
   ): void;
 
@@ -1093,7 +1101,7 @@ export interface Resiliencehubv2 {
    */
   listInputSources(
     args: ListInputSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListInputSourcesCommandOutput>;
   listInputSources(
     args: ListInputSourcesCommandInput,
@@ -1101,7 +1109,7 @@ export interface Resiliencehubv2 {
   ): void;
   listInputSources(
     args: ListInputSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListInputSourcesCommandOutput) => void
   ): void;
 
@@ -1111,7 +1119,7 @@ export interface Resiliencehubv2 {
   listPolicies(): Promise<ListPoliciesCommandOutput>;
   listPolicies(
     args: ListPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListPoliciesCommandOutput>;
   listPolicies(
     args: ListPoliciesCommandInput,
@@ -1119,7 +1127,7 @@ export interface Resiliencehubv2 {
   ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListPoliciesCommandOutput) => void
   ): void;
 
@@ -1128,7 +1136,7 @@ export interface Resiliencehubv2 {
    */
   listPolicyEvents(
     args: ListPolicyEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListPolicyEventsCommandOutput>;
   listPolicyEvents(
     args: ListPolicyEventsCommandInput,
@@ -1136,7 +1144,7 @@ export interface Resiliencehubv2 {
   ): void;
   listPolicyEvents(
     args: ListPolicyEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListPolicyEventsCommandOutput) => void
   ): void;
 
@@ -1146,7 +1154,7 @@ export interface Resiliencehubv2 {
   listReports(): Promise<ListReportsCommandOutput>;
   listReports(
     args: ListReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListReportsCommandOutput>;
   listReports(
     args: ListReportsCommandInput,
@@ -1154,7 +1162,7 @@ export interface Resiliencehubv2 {
   ): void;
   listReports(
     args: ListReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListReportsCommandOutput) => void
   ): void;
 
@@ -1163,7 +1171,7 @@ export interface Resiliencehubv2 {
    */
   listResolvedTestRunTargetResources(
     args: ListResolvedTestRunTargetResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListResolvedTestRunTargetResourcesCommandOutput>;
   listResolvedTestRunTargetResources(
     args: ListResolvedTestRunTargetResourcesCommandInput,
@@ -1171,7 +1179,7 @@ export interface Resiliencehubv2 {
   ): void;
   listResolvedTestRunTargetResources(
     args: ListResolvedTestRunTargetResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListResolvedTestRunTargetResourcesCommandOutput) => void
   ): void;
 
@@ -1180,7 +1188,7 @@ export interface Resiliencehubv2 {
    */
   listResources(
     args: ListResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListResourcesCommandOutput>;
   listResources(
     args: ListResourcesCommandInput,
@@ -1188,7 +1196,7 @@ export interface Resiliencehubv2 {
   ): void;
   listResources(
     args: ListResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListResourcesCommandOutput) => void
   ): void;
 
@@ -1197,7 +1205,7 @@ export interface Resiliencehubv2 {
    */
   listServiceEvents(
     args: ListServiceEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListServiceEventsCommandOutput>;
   listServiceEvents(
     args: ListServiceEventsCommandInput,
@@ -1205,7 +1213,7 @@ export interface Resiliencehubv2 {
   ): void;
   listServiceEvents(
     args: ListServiceEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListServiceEventsCommandOutput) => void
   ): void;
 
@@ -1214,7 +1222,7 @@ export interface Resiliencehubv2 {
    */
   listServiceFunctions(
     args: ListServiceFunctionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListServiceFunctionsCommandOutput>;
   listServiceFunctions(
     args: ListServiceFunctionsCommandInput,
@@ -1222,7 +1230,7 @@ export interface Resiliencehubv2 {
   ): void;
   listServiceFunctions(
     args: ListServiceFunctionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListServiceFunctionsCommandOutput) => void
   ): void;
 
@@ -1232,7 +1240,7 @@ export interface Resiliencehubv2 {
   listServices(): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
@@ -1240,7 +1248,7 @@ export interface Resiliencehubv2 {
   ): void;
   listServices(
     args: ListServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListServicesCommandOutput) => void
   ): void;
 
@@ -1249,7 +1257,7 @@ export interface Resiliencehubv2 {
    */
   listServiceTopologyEdges(
     args: ListServiceTopologyEdgesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListServiceTopologyEdgesCommandOutput>;
   listServiceTopologyEdges(
     args: ListServiceTopologyEdgesCommandInput,
@@ -1257,7 +1265,7 @@ export interface Resiliencehubv2 {
   ): void;
   listServiceTopologyEdges(
     args: ListServiceTopologyEdgesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListServiceTopologyEdgesCommandOutput) => void
   ): void;
 
@@ -1266,7 +1274,7 @@ export interface Resiliencehubv2 {
    */
   listSystemEvents(
     args: ListSystemEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListSystemEventsCommandOutput>;
   listSystemEvents(
     args: ListSystemEventsCommandInput,
@@ -1274,7 +1282,7 @@ export interface Resiliencehubv2 {
   ): void;
   listSystemEvents(
     args: ListSystemEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListSystemEventsCommandOutput) => void
   ): void;
 
@@ -1284,7 +1292,7 @@ export interface Resiliencehubv2 {
   listSystems(): Promise<ListSystemsCommandOutput>;
   listSystems(
     args: ListSystemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListSystemsCommandOutput>;
   listSystems(
     args: ListSystemsCommandInput,
@@ -1292,7 +1300,7 @@ export interface Resiliencehubv2 {
   ): void;
   listSystems(
     args: ListSystemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListSystemsCommandOutput) => void
   ): void;
 
@@ -1301,7 +1309,7 @@ export interface Resiliencehubv2 {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1309,7 +1317,7 @@ export interface Resiliencehubv2 {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1318,7 +1326,7 @@ export interface Resiliencehubv2 {
    */
   listTestRunDependencies(
     args: ListTestRunDependenciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListTestRunDependenciesCommandOutput>;
   listTestRunDependencies(
     args: ListTestRunDependenciesCommandInput,
@@ -1326,7 +1334,7 @@ export interface Resiliencehubv2 {
   ): void;
   listTestRunDependencies(
     args: ListTestRunDependenciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListTestRunDependenciesCommandOutput) => void
   ): void;
 
@@ -1335,7 +1343,7 @@ export interface Resiliencehubv2 {
    */
   listTestRunEvents(
     args: ListTestRunEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListTestRunEventsCommandOutput>;
   listTestRunEvents(
     args: ListTestRunEventsCommandInput,
@@ -1343,7 +1351,7 @@ export interface Resiliencehubv2 {
   ): void;
   listTestRunEvents(
     args: ListTestRunEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListTestRunEventsCommandOutput) => void
   ): void;
 
@@ -1352,7 +1360,7 @@ export interface Resiliencehubv2 {
    */
   listTestRuns(
     args: ListTestRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListTestRunsCommandOutput>;
   listTestRuns(
     args: ListTestRunsCommandInput,
@@ -1360,7 +1368,7 @@ export interface Resiliencehubv2 {
   ): void;
   listTestRuns(
     args: ListTestRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListTestRunsCommandOutput) => void
   ): void;
 
@@ -1369,7 +1377,7 @@ export interface Resiliencehubv2 {
    */
   listTestRunSourceEvents(
     args: ListTestRunSourceEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListTestRunSourceEventsCommandOutput>;
   listTestRunSourceEvents(
     args: ListTestRunSourceEventsCommandInput,
@@ -1377,7 +1385,7 @@ export interface Resiliencehubv2 {
   ): void;
   listTestRunSourceEvents(
     args: ListTestRunSourceEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListTestRunSourceEventsCommandOutput) => void
   ): void;
 
@@ -1386,7 +1394,7 @@ export interface Resiliencehubv2 {
    */
   listTestRunSources(
     args: ListTestRunSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListTestRunSourcesCommandOutput>;
   listTestRunSources(
     args: ListTestRunSourcesCommandInput,
@@ -1394,7 +1402,7 @@ export interface Resiliencehubv2 {
   ): void;
   listTestRunSources(
     args: ListTestRunSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListTestRunSourcesCommandOutput) => void
   ): void;
 
@@ -1403,7 +1411,7 @@ export interface Resiliencehubv2 {
    */
   listTests(
     args: ListTestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListTestsCommandOutput>;
   listTests(
     args: ListTestsCommandInput,
@@ -1411,7 +1419,7 @@ export interface Resiliencehubv2 {
   ): void;
   listTests(
     args: ListTestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListTestsCommandOutput) => void
   ): void;
 
@@ -1420,7 +1428,7 @@ export interface Resiliencehubv2 {
    */
   listTestSources(
     args: ListTestSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListTestSourcesCommandOutput>;
   listTestSources(
     args: ListTestSourcesCommandInput,
@@ -1428,7 +1436,7 @@ export interface Resiliencehubv2 {
   ): void;
   listTestSources(
     args: ListTestSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListTestSourcesCommandOutput) => void
   ): void;
 
@@ -1438,7 +1446,7 @@ export interface Resiliencehubv2 {
   listTestTemplates(): Promise<ListTestTemplatesCommandOutput>;
   listTestTemplates(
     args: ListTestTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListTestTemplatesCommandOutput>;
   listTestTemplates(
     args: ListTestTemplatesCommandInput,
@@ -1446,7 +1454,7 @@ export interface Resiliencehubv2 {
   ): void;
   listTestTemplates(
     args: ListTestTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListTestTemplatesCommandOutput) => void
   ): void;
 
@@ -1455,7 +1463,7 @@ export interface Resiliencehubv2 {
    */
   listUserJourneys(
     args: ListUserJourneysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<ListUserJourneysCommandOutput>;
   listUserJourneys(
     args: ListUserJourneysCommandInput,
@@ -1463,7 +1471,7 @@ export interface Resiliencehubv2 {
   ): void;
   listUserJourneys(
     args: ListUserJourneysCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: ListUserJourneysCommandOutput) => void
   ): void;
 
@@ -1472,7 +1480,7 @@ export interface Resiliencehubv2 {
    */
   putTestSources(
     args: PutTestSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<PutTestSourcesCommandOutput>;
   putTestSources(
     args: PutTestSourcesCommandInput,
@@ -1480,7 +1488,7 @@ export interface Resiliencehubv2 {
   ): void;
   putTestSources(
     args: PutTestSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: PutTestSourcesCommandOutput) => void
   ): void;
 
@@ -1489,7 +1497,7 @@ export interface Resiliencehubv2 {
    */
   startDependencyInsights(
     args: StartDependencyInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<StartDependencyInsightsCommandOutput>;
   startDependencyInsights(
     args: StartDependencyInsightsCommandInput,
@@ -1497,7 +1505,7 @@ export interface Resiliencehubv2 {
   ): void;
   startDependencyInsights(
     args: StartDependencyInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: StartDependencyInsightsCommandOutput) => void
   ): void;
 
@@ -1506,7 +1514,7 @@ export interface Resiliencehubv2 {
    */
   startFailureModeAssessment(
     args: StartFailureModeAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<StartFailureModeAssessmentCommandOutput>;
   startFailureModeAssessment(
     args: StartFailureModeAssessmentCommandInput,
@@ -1514,7 +1522,7 @@ export interface Resiliencehubv2 {
   ): void;
   startFailureModeAssessment(
     args: StartFailureModeAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: StartFailureModeAssessmentCommandOutput) => void
   ): void;
 
@@ -1523,7 +1531,7 @@ export interface Resiliencehubv2 {
    */
   startTestRun(
     args: StartTestRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<StartTestRunCommandOutput>;
   startTestRun(
     args: StartTestRunCommandInput,
@@ -1531,7 +1539,7 @@ export interface Resiliencehubv2 {
   ): void;
   startTestRun(
     args: StartTestRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: StartTestRunCommandOutput) => void
   ): void;
 
@@ -1540,7 +1548,7 @@ export interface Resiliencehubv2 {
    */
   stopTestRun(
     args: StopTestRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<StopTestRunCommandOutput>;
   stopTestRun(
     args: StopTestRunCommandInput,
@@ -1548,7 +1556,7 @@ export interface Resiliencehubv2 {
   ): void;
   stopTestRun(
     args: StopTestRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: StopTestRunCommandOutput) => void
   ): void;
 
@@ -1557,7 +1565,7 @@ export interface Resiliencehubv2 {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1565,7 +1573,7 @@ export interface Resiliencehubv2 {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1574,7 +1582,7 @@ export interface Resiliencehubv2 {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1582,7 +1590,7 @@ export interface Resiliencehubv2 {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1591,7 +1599,7 @@ export interface Resiliencehubv2 {
    */
   updateAssertion(
     args: UpdateAssertionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UpdateAssertionCommandOutput>;
   updateAssertion(
     args: UpdateAssertionCommandInput,
@@ -1599,7 +1607,7 @@ export interface Resiliencehubv2 {
   ): void;
   updateAssertion(
     args: UpdateAssertionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UpdateAssertionCommandOutput) => void
   ): void;
 
@@ -1608,7 +1616,7 @@ export interface Resiliencehubv2 {
    */
   updateDependency(
     args: UpdateDependencyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UpdateDependencyCommandOutput>;
   updateDependency(
     args: UpdateDependencyCommandInput,
@@ -1616,7 +1624,7 @@ export interface Resiliencehubv2 {
   ): void;
   updateDependency(
     args: UpdateDependencyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UpdateDependencyCommandOutput) => void
   ): void;
 
@@ -1625,7 +1633,7 @@ export interface Resiliencehubv2 {
    */
   updateFailureModeFinding(
     args: UpdateFailureModeFindingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UpdateFailureModeFindingCommandOutput>;
   updateFailureModeFinding(
     args: UpdateFailureModeFindingCommandInput,
@@ -1633,7 +1641,7 @@ export interface Resiliencehubv2 {
   ): void;
   updateFailureModeFinding(
     args: UpdateFailureModeFindingCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UpdateFailureModeFindingCommandOutput) => void
   ): void;
 
@@ -1642,7 +1650,7 @@ export interface Resiliencehubv2 {
    */
   updatePolicy(
     args: UpdatePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UpdatePolicyCommandOutput>;
   updatePolicy(
     args: UpdatePolicyCommandInput,
@@ -1650,7 +1658,7 @@ export interface Resiliencehubv2 {
   ): void;
   updatePolicy(
     args: UpdatePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UpdatePolicyCommandOutput) => void
   ): void;
 
@@ -1659,7 +1667,7 @@ export interface Resiliencehubv2 {
    */
   updateService(
     args: UpdateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UpdateServiceCommandOutput>;
   updateService(
     args: UpdateServiceCommandInput,
@@ -1667,7 +1675,7 @@ export interface Resiliencehubv2 {
   ): void;
   updateService(
     args: UpdateServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UpdateServiceCommandOutput) => void
   ): void;
 
@@ -1676,7 +1684,7 @@ export interface Resiliencehubv2 {
    */
   updateServiceFunction(
     args: UpdateServiceFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UpdateServiceFunctionCommandOutput>;
   updateServiceFunction(
     args: UpdateServiceFunctionCommandInput,
@@ -1684,7 +1692,7 @@ export interface Resiliencehubv2 {
   ): void;
   updateServiceFunction(
     args: UpdateServiceFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UpdateServiceFunctionCommandOutput) => void
   ): void;
 
@@ -1693,7 +1701,7 @@ export interface Resiliencehubv2 {
    */
   updateSystem(
     args: UpdateSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UpdateSystemCommandOutput>;
   updateSystem(
     args: UpdateSystemCommandInput,
@@ -1701,7 +1709,7 @@ export interface Resiliencehubv2 {
   ): void;
   updateSystem(
     args: UpdateSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UpdateSystemCommandOutput) => void
   ): void;
 
@@ -1710,7 +1718,7 @@ export interface Resiliencehubv2 {
    */
   updateTest(
     args: UpdateTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UpdateTestCommandOutput>;
   updateTest(
     args: UpdateTestCommandInput,
@@ -1718,7 +1726,7 @@ export interface Resiliencehubv2 {
   ): void;
   updateTest(
     args: UpdateTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UpdateTestCommandOutput) => void
   ): void;
 
@@ -1727,7 +1735,7 @@ export interface Resiliencehubv2 {
    */
   updateUserJourney(
     args: UpdateUserJourneyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Resiliencehubv2RequestOptions
   ): Promise<UpdateUserJourneyCommandOutput>;
   updateUserJourney(
     args: UpdateUserJourneyCommandInput,
@@ -1735,7 +1743,7 @@ export interface Resiliencehubv2 {
   ): void;
   updateUserJourney(
     args: UpdateUserJourneyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Resiliencehubv2RequestOptions,
     cb: (err: any, data?: UpdateUserJourneyCommandOutput) => void
   ): void;
 

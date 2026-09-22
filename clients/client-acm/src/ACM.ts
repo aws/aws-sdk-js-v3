@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -282,13 +283,20 @@ const waiters = {
   waitUntilCertificateValidated,
 };
 
+/**
+ * @public
+ */
+export interface ACMRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ACM {
   /**
    * @see {@link AddTagsToCertificateCommand}
    */
   addTagsToCertificate(
     args: AddTagsToCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<AddTagsToCertificateCommandOutput>;
   addTagsToCertificate(
     args: AddTagsToCertificateCommandInput,
@@ -296,7 +304,7 @@ export interface ACM {
   ): void;
   addTagsToCertificate(
     args: AddTagsToCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: AddTagsToCertificateCommandOutput) => void
   ): void;
 
@@ -305,7 +313,7 @@ export interface ACM {
    */
   createAcmeDomainValidation(
     args: CreateAcmeDomainValidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<CreateAcmeDomainValidationCommandOutput>;
   createAcmeDomainValidation(
     args: CreateAcmeDomainValidationCommandInput,
@@ -313,7 +321,7 @@ export interface ACM {
   ): void;
   createAcmeDomainValidation(
     args: CreateAcmeDomainValidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: CreateAcmeDomainValidationCommandOutput) => void
   ): void;
 
@@ -322,7 +330,7 @@ export interface ACM {
    */
   createAcmeEndpoint(
     args: CreateAcmeEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<CreateAcmeEndpointCommandOutput>;
   createAcmeEndpoint(
     args: CreateAcmeEndpointCommandInput,
@@ -330,7 +338,7 @@ export interface ACM {
   ): void;
   createAcmeEndpoint(
     args: CreateAcmeEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: CreateAcmeEndpointCommandOutput) => void
   ): void;
 
@@ -339,7 +347,7 @@ export interface ACM {
    */
   createAcmeExternalAccountBinding(
     args: CreateAcmeExternalAccountBindingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<CreateAcmeExternalAccountBindingCommandOutput>;
   createAcmeExternalAccountBinding(
     args: CreateAcmeExternalAccountBindingCommandInput,
@@ -347,7 +355,7 @@ export interface ACM {
   ): void;
   createAcmeExternalAccountBinding(
     args: CreateAcmeExternalAccountBindingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: CreateAcmeExternalAccountBindingCommandOutput) => void
   ): void;
 
@@ -356,7 +364,7 @@ export interface ACM {
    */
   deleteAcmeDomainValidation(
     args: DeleteAcmeDomainValidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<DeleteAcmeDomainValidationCommandOutput>;
   deleteAcmeDomainValidation(
     args: DeleteAcmeDomainValidationCommandInput,
@@ -364,7 +372,7 @@ export interface ACM {
   ): void;
   deleteAcmeDomainValidation(
     args: DeleteAcmeDomainValidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: DeleteAcmeDomainValidationCommandOutput) => void
   ): void;
 
@@ -373,7 +381,7 @@ export interface ACM {
    */
   deleteAcmeEndpoint(
     args: DeleteAcmeEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<DeleteAcmeEndpointCommandOutput>;
   deleteAcmeEndpoint(
     args: DeleteAcmeEndpointCommandInput,
@@ -381,7 +389,7 @@ export interface ACM {
   ): void;
   deleteAcmeEndpoint(
     args: DeleteAcmeEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: DeleteAcmeEndpointCommandOutput) => void
   ): void;
 
@@ -390,7 +398,7 @@ export interface ACM {
    */
   deleteAcmeExternalAccountBinding(
     args: DeleteAcmeExternalAccountBindingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<DeleteAcmeExternalAccountBindingCommandOutput>;
   deleteAcmeExternalAccountBinding(
     args: DeleteAcmeExternalAccountBindingCommandInput,
@@ -398,7 +406,7 @@ export interface ACM {
   ): void;
   deleteAcmeExternalAccountBinding(
     args: DeleteAcmeExternalAccountBindingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: DeleteAcmeExternalAccountBindingCommandOutput) => void
   ): void;
 
@@ -407,7 +415,7 @@ export interface ACM {
    */
   deleteCertificate(
     args: DeleteCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<DeleteCertificateCommandOutput>;
   deleteCertificate(
     args: DeleteCertificateCommandInput,
@@ -415,7 +423,7 @@ export interface ACM {
   ): void;
   deleteCertificate(
     args: DeleteCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: DeleteCertificateCommandOutput) => void
   ): void;
 
@@ -424,7 +432,7 @@ export interface ACM {
    */
   describeAcmeAccount(
     args: DescribeAcmeAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<DescribeAcmeAccountCommandOutput>;
   describeAcmeAccount(
     args: DescribeAcmeAccountCommandInput,
@@ -432,7 +440,7 @@ export interface ACM {
   ): void;
   describeAcmeAccount(
     args: DescribeAcmeAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: DescribeAcmeAccountCommandOutput) => void
   ): void;
 
@@ -441,7 +449,7 @@ export interface ACM {
    */
   describeAcmeDomainValidation(
     args: DescribeAcmeDomainValidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<DescribeAcmeDomainValidationCommandOutput>;
   describeAcmeDomainValidation(
     args: DescribeAcmeDomainValidationCommandInput,
@@ -449,7 +457,7 @@ export interface ACM {
   ): void;
   describeAcmeDomainValidation(
     args: DescribeAcmeDomainValidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: DescribeAcmeDomainValidationCommandOutput) => void
   ): void;
 
@@ -458,7 +466,7 @@ export interface ACM {
    */
   describeAcmeEndpoint(
     args: DescribeAcmeEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<DescribeAcmeEndpointCommandOutput>;
   describeAcmeEndpoint(
     args: DescribeAcmeEndpointCommandInput,
@@ -466,7 +474,7 @@ export interface ACM {
   ): void;
   describeAcmeEndpoint(
     args: DescribeAcmeEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: DescribeAcmeEndpointCommandOutput) => void
   ): void;
 
@@ -475,7 +483,7 @@ export interface ACM {
    */
   describeAcmeExternalAccountBinding(
     args: DescribeAcmeExternalAccountBindingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<DescribeAcmeExternalAccountBindingCommandOutput>;
   describeAcmeExternalAccountBinding(
     args: DescribeAcmeExternalAccountBindingCommandInput,
@@ -483,7 +491,7 @@ export interface ACM {
   ): void;
   describeAcmeExternalAccountBinding(
     args: DescribeAcmeExternalAccountBindingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: DescribeAcmeExternalAccountBindingCommandOutput) => void
   ): void;
 
@@ -492,7 +500,7 @@ export interface ACM {
    */
   describeCertificate(
     args: DescribeCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<DescribeCertificateCommandOutput>;
   describeCertificate(
     args: DescribeCertificateCommandInput,
@@ -500,7 +508,7 @@ export interface ACM {
   ): void;
   describeCertificate(
     args: DescribeCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: DescribeCertificateCommandOutput) => void
   ): void;
 
@@ -509,7 +517,7 @@ export interface ACM {
    */
   exportCertificate(
     args: ExportCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ExportCertificateCommandOutput>;
   exportCertificate(
     args: ExportCertificateCommandInput,
@@ -517,7 +525,7 @@ export interface ACM {
   ): void;
   exportCertificate(
     args: ExportCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ExportCertificateCommandOutput) => void
   ): void;
 
@@ -527,7 +535,7 @@ export interface ACM {
   getAccountConfiguration(): Promise<GetAccountConfigurationCommandOutput>;
   getAccountConfiguration(
     args: GetAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<GetAccountConfigurationCommandOutput>;
   getAccountConfiguration(
     args: GetAccountConfigurationCommandInput,
@@ -535,7 +543,7 @@ export interface ACM {
   ): void;
   getAccountConfiguration(
     args: GetAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: GetAccountConfigurationCommandOutput) => void
   ): void;
 
@@ -544,7 +552,7 @@ export interface ACM {
    */
   getAcmeExternalAccountBindingCredentials(
     args: GetAcmeExternalAccountBindingCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<GetAcmeExternalAccountBindingCredentialsCommandOutput>;
   getAcmeExternalAccountBindingCredentials(
     args: GetAcmeExternalAccountBindingCredentialsCommandInput,
@@ -552,7 +560,7 @@ export interface ACM {
   ): void;
   getAcmeExternalAccountBindingCredentials(
     args: GetAcmeExternalAccountBindingCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: GetAcmeExternalAccountBindingCredentialsCommandOutput) => void
   ): void;
 
@@ -561,7 +569,7 @@ export interface ACM {
    */
   getCertificate(
     args: GetCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<GetCertificateCommandOutput>;
   getCertificate(
     args: GetCertificateCommandInput,
@@ -569,7 +577,7 @@ export interface ACM {
   ): void;
   getCertificate(
     args: GetCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: GetCertificateCommandOutput) => void
   ): void;
 
@@ -578,7 +586,7 @@ export interface ACM {
    */
   importCertificate(
     args: ImportCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ImportCertificateCommandOutput>;
   importCertificate(
     args: ImportCertificateCommandInput,
@@ -586,7 +594,7 @@ export interface ACM {
   ): void;
   importCertificate(
     args: ImportCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ImportCertificateCommandOutput) => void
   ): void;
 
@@ -595,7 +603,7 @@ export interface ACM {
    */
   listAcmeAccounts(
     args: ListAcmeAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ListAcmeAccountsCommandOutput>;
   listAcmeAccounts(
     args: ListAcmeAccountsCommandInput,
@@ -603,7 +611,7 @@ export interface ACM {
   ): void;
   listAcmeAccounts(
     args: ListAcmeAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ListAcmeAccountsCommandOutput) => void
   ): void;
 
@@ -612,7 +620,7 @@ export interface ACM {
    */
   listAcmeDomainValidations(
     args: ListAcmeDomainValidationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ListAcmeDomainValidationsCommandOutput>;
   listAcmeDomainValidations(
     args: ListAcmeDomainValidationsCommandInput,
@@ -620,7 +628,7 @@ export interface ACM {
   ): void;
   listAcmeDomainValidations(
     args: ListAcmeDomainValidationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ListAcmeDomainValidationsCommandOutput) => void
   ): void;
 
@@ -630,7 +638,7 @@ export interface ACM {
   listAcmeEndpoints(): Promise<ListAcmeEndpointsCommandOutput>;
   listAcmeEndpoints(
     args: ListAcmeEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ListAcmeEndpointsCommandOutput>;
   listAcmeEndpoints(
     args: ListAcmeEndpointsCommandInput,
@@ -638,7 +646,7 @@ export interface ACM {
   ): void;
   listAcmeEndpoints(
     args: ListAcmeEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ListAcmeEndpointsCommandOutput) => void
   ): void;
 
@@ -647,7 +655,7 @@ export interface ACM {
    */
   listAcmeExternalAccountBindings(
     args: ListAcmeExternalAccountBindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ListAcmeExternalAccountBindingsCommandOutput>;
   listAcmeExternalAccountBindings(
     args: ListAcmeExternalAccountBindingsCommandInput,
@@ -655,7 +663,7 @@ export interface ACM {
   ): void;
   listAcmeExternalAccountBindings(
     args: ListAcmeExternalAccountBindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ListAcmeExternalAccountBindingsCommandOutput) => void
   ): void;
 
@@ -664,7 +672,7 @@ export interface ACM {
    */
   listCertificateDomainValidations(
     args: ListCertificateDomainValidationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ListCertificateDomainValidationsCommandOutput>;
   listCertificateDomainValidations(
     args: ListCertificateDomainValidationsCommandInput,
@@ -672,7 +680,7 @@ export interface ACM {
   ): void;
   listCertificateDomainValidations(
     args: ListCertificateDomainValidationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ListCertificateDomainValidationsCommandOutput) => void
   ): void;
 
@@ -682,7 +690,7 @@ export interface ACM {
   listCertificates(): Promise<ListCertificatesCommandOutput>;
   listCertificates(
     args: ListCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ListCertificatesCommandOutput>;
   listCertificates(
     args: ListCertificatesCommandInput,
@@ -690,7 +698,7 @@ export interface ACM {
   ): void;
   listCertificates(
     args: ListCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ListCertificatesCommandOutput) => void
   ): void;
 
@@ -699,7 +707,7 @@ export interface ACM {
    */
   listTagsForCertificate(
     args: ListTagsForCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ListTagsForCertificateCommandOutput>;
   listTagsForCertificate(
     args: ListTagsForCertificateCommandInput,
@@ -707,7 +715,7 @@ export interface ACM {
   ): void;
   listTagsForCertificate(
     args: ListTagsForCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ListTagsForCertificateCommandOutput) => void
   ): void;
 
@@ -716,7 +724,7 @@ export interface ACM {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -724,7 +732,7 @@ export interface ACM {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -733,7 +741,7 @@ export interface ACM {
    */
   putAccountConfiguration(
     args: PutAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<PutAccountConfigurationCommandOutput>;
   putAccountConfiguration(
     args: PutAccountConfigurationCommandInput,
@@ -741,7 +749,7 @@ export interface ACM {
   ): void;
   putAccountConfiguration(
     args: PutAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: PutAccountConfigurationCommandOutput) => void
   ): void;
 
@@ -750,7 +758,7 @@ export interface ACM {
    */
   removeTagsFromCertificate(
     args: RemoveTagsFromCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<RemoveTagsFromCertificateCommandOutput>;
   removeTagsFromCertificate(
     args: RemoveTagsFromCertificateCommandInput,
@@ -758,7 +766,7 @@ export interface ACM {
   ): void;
   removeTagsFromCertificate(
     args: RemoveTagsFromCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: RemoveTagsFromCertificateCommandOutput) => void
   ): void;
 
@@ -767,7 +775,7 @@ export interface ACM {
    */
   renewCertificate(
     args: RenewCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<RenewCertificateCommandOutput>;
   renewCertificate(
     args: RenewCertificateCommandInput,
@@ -775,7 +783,7 @@ export interface ACM {
   ): void;
   renewCertificate(
     args: RenewCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: RenewCertificateCommandOutput) => void
   ): void;
 
@@ -784,7 +792,7 @@ export interface ACM {
    */
   requestCertificate(
     args: RequestCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<RequestCertificateCommandOutput>;
   requestCertificate(
     args: RequestCertificateCommandInput,
@@ -792,7 +800,7 @@ export interface ACM {
   ): void;
   requestCertificate(
     args: RequestCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: RequestCertificateCommandOutput) => void
   ): void;
 
@@ -801,7 +809,7 @@ export interface ACM {
    */
   resendValidationEmail(
     args: ResendValidationEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<ResendValidationEmailCommandOutput>;
   resendValidationEmail(
     args: ResendValidationEmailCommandInput,
@@ -809,7 +817,7 @@ export interface ACM {
   ): void;
   resendValidationEmail(
     args: ResendValidationEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: ResendValidationEmailCommandOutput) => void
   ): void;
 
@@ -818,7 +826,7 @@ export interface ACM {
    */
   revokeAcmeAccount(
     args: RevokeAcmeAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<RevokeAcmeAccountCommandOutput>;
   revokeAcmeAccount(
     args: RevokeAcmeAccountCommandInput,
@@ -826,7 +834,7 @@ export interface ACM {
   ): void;
   revokeAcmeAccount(
     args: RevokeAcmeAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: RevokeAcmeAccountCommandOutput) => void
   ): void;
 
@@ -835,7 +843,7 @@ export interface ACM {
    */
   revokeAcmeExternalAccountBinding(
     args: RevokeAcmeExternalAccountBindingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<RevokeAcmeExternalAccountBindingCommandOutput>;
   revokeAcmeExternalAccountBinding(
     args: RevokeAcmeExternalAccountBindingCommandInput,
@@ -843,7 +851,7 @@ export interface ACM {
   ): void;
   revokeAcmeExternalAccountBinding(
     args: RevokeAcmeExternalAccountBindingCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: RevokeAcmeExternalAccountBindingCommandOutput) => void
   ): void;
 
@@ -852,7 +860,7 @@ export interface ACM {
    */
   revokeCertificate(
     args: RevokeCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<RevokeCertificateCommandOutput>;
   revokeCertificate(
     args: RevokeCertificateCommandInput,
@@ -860,7 +868,7 @@ export interface ACM {
   ): void;
   revokeCertificate(
     args: RevokeCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: RevokeCertificateCommandOutput) => void
   ): void;
 
@@ -870,7 +878,7 @@ export interface ACM {
   searchCertificates(): Promise<SearchCertificatesCommandOutput>;
   searchCertificates(
     args: SearchCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<SearchCertificatesCommandOutput>;
   searchCertificates(
     args: SearchCertificatesCommandInput,
@@ -878,7 +886,7 @@ export interface ACM {
   ): void;
   searchCertificates(
     args: SearchCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: SearchCertificatesCommandOutput) => void
   ): void;
 
@@ -887,7 +895,7 @@ export interface ACM {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -895,7 +903,7 @@ export interface ACM {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -904,7 +912,7 @@ export interface ACM {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -912,7 +920,7 @@ export interface ACM {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -921,7 +929,7 @@ export interface ACM {
    */
   updateAcmeDomainValidation(
     args: UpdateAcmeDomainValidationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<UpdateAcmeDomainValidationCommandOutput>;
   updateAcmeDomainValidation(
     args: UpdateAcmeDomainValidationCommandInput,
@@ -929,7 +937,7 @@ export interface ACM {
   ): void;
   updateAcmeDomainValidation(
     args: UpdateAcmeDomainValidationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: UpdateAcmeDomainValidationCommandOutput) => void
   ): void;
 
@@ -938,7 +946,7 @@ export interface ACM {
    */
   updateAcmeEndpoint(
     args: UpdateAcmeEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<UpdateAcmeEndpointCommandOutput>;
   updateAcmeEndpoint(
     args: UpdateAcmeEndpointCommandInput,
@@ -946,7 +954,7 @@ export interface ACM {
   ): void;
   updateAcmeEndpoint(
     args: UpdateAcmeEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: UpdateAcmeEndpointCommandOutput) => void
   ): void;
 
@@ -955,7 +963,7 @@ export interface ACM {
    */
   updateCertificateOptions(
     args: UpdateCertificateOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMRequestOptions
   ): Promise<UpdateCertificateOptionsCommandOutput>;
   updateCertificateOptions(
     args: UpdateCertificateOptionsCommandInput,
@@ -963,7 +971,7 @@ export interface ACM {
   ): void;
   updateCertificateOptions(
     args: UpdateCertificateOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMRequestOptions,
     cb: (err: any, data?: UpdateCertificateOptionsCommandOutput) => void
   ): void;
 

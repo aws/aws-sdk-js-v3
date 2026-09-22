@@ -347,10 +347,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var ConnectCampaignsV2ServiceException$: StaticErrorSchema = [-3, _s, "ConnectCampaignsV2ServiceException", 0, [], []];
 _s_registry.registerError(ConnectCampaignsV2ServiceException$, ConnectCampaignsV2ServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _xAET],

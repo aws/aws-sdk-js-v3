@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -277,13 +278,20 @@ const waiters = {
   waitUntilContactUpdated,
 };
 
+/**
+ * @public
+ */
+export interface GroundStationRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface GroundStation {
   /**
    * @see {@link CancelContactCommand}
    */
   cancelContact(
     args: CancelContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<CancelContactCommandOutput>;
   cancelContact(
     args: CancelContactCommandInput,
@@ -291,7 +299,7 @@ export interface GroundStation {
   ): void;
   cancelContact(
     args: CancelContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: CancelContactCommandOutput) => void
   ): void;
 
@@ -300,7 +308,7 @@ export interface GroundStation {
    */
   createConfig(
     args: CreateConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<CreateConfigCommandOutput>;
   createConfig(
     args: CreateConfigCommandInput,
@@ -308,7 +316,7 @@ export interface GroundStation {
   ): void;
   createConfig(
     args: CreateConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: CreateConfigCommandOutput) => void
   ): void;
 
@@ -317,7 +325,7 @@ export interface GroundStation {
    */
   createDataflowEndpointGroup(
     args: CreateDataflowEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<CreateDataflowEndpointGroupCommandOutput>;
   createDataflowEndpointGroup(
     args: CreateDataflowEndpointGroupCommandInput,
@@ -325,7 +333,7 @@ export interface GroundStation {
   ): void;
   createDataflowEndpointGroup(
     args: CreateDataflowEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: CreateDataflowEndpointGroupCommandOutput) => void
   ): void;
 
@@ -334,7 +342,7 @@ export interface GroundStation {
    */
   createDataflowEndpointGroupV2(
     args: CreateDataflowEndpointGroupV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<CreateDataflowEndpointGroupV2CommandOutput>;
   createDataflowEndpointGroupV2(
     args: CreateDataflowEndpointGroupV2CommandInput,
@@ -342,7 +350,7 @@ export interface GroundStation {
   ): void;
   createDataflowEndpointGroupV2(
     args: CreateDataflowEndpointGroupV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: CreateDataflowEndpointGroupV2CommandOutput) => void
   ): void;
 
@@ -351,7 +359,7 @@ export interface GroundStation {
    */
   createEphemeris(
     args: CreateEphemerisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<CreateEphemerisCommandOutput>;
   createEphemeris(
     args: CreateEphemerisCommandInput,
@@ -359,7 +367,7 @@ export interface GroundStation {
   ): void;
   createEphemeris(
     args: CreateEphemerisCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: CreateEphemerisCommandOutput) => void
   ): void;
 
@@ -368,7 +376,7 @@ export interface GroundStation {
    */
   createMissionProfile(
     args: CreateMissionProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<CreateMissionProfileCommandOutput>;
   createMissionProfile(
     args: CreateMissionProfileCommandInput,
@@ -376,7 +384,7 @@ export interface GroundStation {
   ): void;
   createMissionProfile(
     args: CreateMissionProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: CreateMissionProfileCommandOutput) => void
   ): void;
 
@@ -385,7 +393,7 @@ export interface GroundStation {
    */
   deleteConfig(
     args: DeleteConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<DeleteConfigCommandOutput>;
   deleteConfig(
     args: DeleteConfigCommandInput,
@@ -393,7 +401,7 @@ export interface GroundStation {
   ): void;
   deleteConfig(
     args: DeleteConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: DeleteConfigCommandOutput) => void
   ): void;
 
@@ -402,7 +410,7 @@ export interface GroundStation {
    */
   deleteDataflowEndpointGroup(
     args: DeleteDataflowEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<DeleteDataflowEndpointGroupCommandOutput>;
   deleteDataflowEndpointGroup(
     args: DeleteDataflowEndpointGroupCommandInput,
@@ -410,7 +418,7 @@ export interface GroundStation {
   ): void;
   deleteDataflowEndpointGroup(
     args: DeleteDataflowEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: DeleteDataflowEndpointGroupCommandOutput) => void
   ): void;
 
@@ -419,7 +427,7 @@ export interface GroundStation {
    */
   deleteEphemeris(
     args: DeleteEphemerisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<DeleteEphemerisCommandOutput>;
   deleteEphemeris(
     args: DeleteEphemerisCommandInput,
@@ -427,7 +435,7 @@ export interface GroundStation {
   ): void;
   deleteEphemeris(
     args: DeleteEphemerisCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: DeleteEphemerisCommandOutput) => void
   ): void;
 
@@ -436,7 +444,7 @@ export interface GroundStation {
    */
   deleteMissionProfile(
     args: DeleteMissionProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<DeleteMissionProfileCommandOutput>;
   deleteMissionProfile(
     args: DeleteMissionProfileCommandInput,
@@ -444,7 +452,7 @@ export interface GroundStation {
   ): void;
   deleteMissionProfile(
     args: DeleteMissionProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: DeleteMissionProfileCommandOutput) => void
   ): void;
 
@@ -453,7 +461,7 @@ export interface GroundStation {
    */
   describeContact(
     args: DescribeContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<DescribeContactCommandOutput>;
   describeContact(
     args: DescribeContactCommandInput,
@@ -461,7 +469,7 @@ export interface GroundStation {
   ): void;
   describeContact(
     args: DescribeContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: DescribeContactCommandOutput) => void
   ): void;
 
@@ -470,7 +478,7 @@ export interface GroundStation {
    */
   describeContactVersion(
     args: DescribeContactVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<DescribeContactVersionCommandOutput>;
   describeContactVersion(
     args: DescribeContactVersionCommandInput,
@@ -478,7 +486,7 @@ export interface GroundStation {
   ): void;
   describeContactVersion(
     args: DescribeContactVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: DescribeContactVersionCommandOutput) => void
   ): void;
 
@@ -487,7 +495,7 @@ export interface GroundStation {
    */
   describeEphemeris(
     args: DescribeEphemerisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<DescribeEphemerisCommandOutput>;
   describeEphemeris(
     args: DescribeEphemerisCommandInput,
@@ -495,7 +503,7 @@ export interface GroundStation {
   ): void;
   describeEphemeris(
     args: DescribeEphemerisCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: DescribeEphemerisCommandOutput) => void
   ): void;
 
@@ -504,7 +512,7 @@ export interface GroundStation {
    */
   getAgentConfiguration(
     args: GetAgentConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<GetAgentConfigurationCommandOutput>;
   getAgentConfiguration(
     args: GetAgentConfigurationCommandInput,
@@ -512,7 +520,7 @@ export interface GroundStation {
   ): void;
   getAgentConfiguration(
     args: GetAgentConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: GetAgentConfigurationCommandOutput) => void
   ): void;
 
@@ -521,7 +529,7 @@ export interface GroundStation {
    */
   getAgentTaskResponseUrl(
     args: GetAgentTaskResponseUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<GetAgentTaskResponseUrlCommandOutput>;
   getAgentTaskResponseUrl(
     args: GetAgentTaskResponseUrlCommandInput,
@@ -529,7 +537,7 @@ export interface GroundStation {
   ): void;
   getAgentTaskResponseUrl(
     args: GetAgentTaskResponseUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: GetAgentTaskResponseUrlCommandOutput) => void
   ): void;
 
@@ -538,7 +546,7 @@ export interface GroundStation {
    */
   getConfig(
     args: GetConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<GetConfigCommandOutput>;
   getConfig(
     args: GetConfigCommandInput,
@@ -546,7 +554,7 @@ export interface GroundStation {
   ): void;
   getConfig(
     args: GetConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: GetConfigCommandOutput) => void
   ): void;
 
@@ -555,7 +563,7 @@ export interface GroundStation {
    */
   getDataflowEndpointGroup(
     args: GetDataflowEndpointGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<GetDataflowEndpointGroupCommandOutput>;
   getDataflowEndpointGroup(
     args: GetDataflowEndpointGroupCommandInput,
@@ -563,7 +571,7 @@ export interface GroundStation {
   ): void;
   getDataflowEndpointGroup(
     args: GetDataflowEndpointGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: GetDataflowEndpointGroupCommandOutput) => void
   ): void;
 
@@ -572,7 +580,7 @@ export interface GroundStation {
    */
   getMinuteUsage(
     args: GetMinuteUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<GetMinuteUsageCommandOutput>;
   getMinuteUsage(
     args: GetMinuteUsageCommandInput,
@@ -580,7 +588,7 @@ export interface GroundStation {
   ): void;
   getMinuteUsage(
     args: GetMinuteUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: GetMinuteUsageCommandOutput) => void
   ): void;
 
@@ -589,7 +597,7 @@ export interface GroundStation {
    */
   getMissionProfile(
     args: GetMissionProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<GetMissionProfileCommandOutput>;
   getMissionProfile(
     args: GetMissionProfileCommandInput,
@@ -597,7 +605,7 @@ export interface GroundStation {
   ): void;
   getMissionProfile(
     args: GetMissionProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: GetMissionProfileCommandOutput) => void
   ): void;
 
@@ -606,7 +614,7 @@ export interface GroundStation {
    */
   getSatellite(
     args: GetSatelliteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<GetSatelliteCommandOutput>;
   getSatellite(
     args: GetSatelliteCommandInput,
@@ -614,7 +622,7 @@ export interface GroundStation {
   ): void;
   getSatellite(
     args: GetSatelliteCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: GetSatelliteCommandOutput) => void
   ): void;
 
@@ -623,7 +631,7 @@ export interface GroundStation {
    */
   listAntennas(
     args: ListAntennasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListAntennasCommandOutput>;
   listAntennas(
     args: ListAntennasCommandInput,
@@ -631,7 +639,7 @@ export interface GroundStation {
   ): void;
   listAntennas(
     args: ListAntennasCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListAntennasCommandOutput) => void
   ): void;
 
@@ -641,7 +649,7 @@ export interface GroundStation {
   listConfigs(): Promise<ListConfigsCommandOutput>;
   listConfigs(
     args: ListConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListConfigsCommandOutput>;
   listConfigs(
     args: ListConfigsCommandInput,
@@ -649,7 +657,7 @@ export interface GroundStation {
   ): void;
   listConfigs(
     args: ListConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListConfigsCommandOutput) => void
   ): void;
 
@@ -658,7 +666,7 @@ export interface GroundStation {
    */
   listContacts(
     args: ListContactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListContactsCommandOutput>;
   listContacts(
     args: ListContactsCommandInput,
@@ -666,7 +674,7 @@ export interface GroundStation {
   ): void;
   listContacts(
     args: ListContactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListContactsCommandOutput) => void
   ): void;
 
@@ -675,7 +683,7 @@ export interface GroundStation {
    */
   listContactVersions(
     args: ListContactVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListContactVersionsCommandOutput>;
   listContactVersions(
     args: ListContactVersionsCommandInput,
@@ -683,7 +691,7 @@ export interface GroundStation {
   ): void;
   listContactVersions(
     args: ListContactVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListContactVersionsCommandOutput) => void
   ): void;
 
@@ -693,7 +701,7 @@ export interface GroundStation {
   listDataflowEndpointGroups(): Promise<ListDataflowEndpointGroupsCommandOutput>;
   listDataflowEndpointGroups(
     args: ListDataflowEndpointGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListDataflowEndpointGroupsCommandOutput>;
   listDataflowEndpointGroups(
     args: ListDataflowEndpointGroupsCommandInput,
@@ -701,7 +709,7 @@ export interface GroundStation {
   ): void;
   listDataflowEndpointGroups(
     args: ListDataflowEndpointGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListDataflowEndpointGroupsCommandOutput) => void
   ): void;
 
@@ -710,7 +718,7 @@ export interface GroundStation {
    */
   listEphemerides(
     args: ListEphemeridesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListEphemeridesCommandOutput>;
   listEphemerides(
     args: ListEphemeridesCommandInput,
@@ -718,7 +726,7 @@ export interface GroundStation {
   ): void;
   listEphemerides(
     args: ListEphemeridesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListEphemeridesCommandOutput) => void
   ): void;
 
@@ -727,7 +735,7 @@ export interface GroundStation {
    */
   listGroundStationReservations(
     args: ListGroundStationReservationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListGroundStationReservationsCommandOutput>;
   listGroundStationReservations(
     args: ListGroundStationReservationsCommandInput,
@@ -735,7 +743,7 @@ export interface GroundStation {
   ): void;
   listGroundStationReservations(
     args: ListGroundStationReservationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListGroundStationReservationsCommandOutput) => void
   ): void;
 
@@ -745,7 +753,7 @@ export interface GroundStation {
   listGroundStations(): Promise<ListGroundStationsCommandOutput>;
   listGroundStations(
     args: ListGroundStationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListGroundStationsCommandOutput>;
   listGroundStations(
     args: ListGroundStationsCommandInput,
@@ -753,7 +761,7 @@ export interface GroundStation {
   ): void;
   listGroundStations(
     args: ListGroundStationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListGroundStationsCommandOutput) => void
   ): void;
 
@@ -763,7 +771,7 @@ export interface GroundStation {
   listMissionProfiles(): Promise<ListMissionProfilesCommandOutput>;
   listMissionProfiles(
     args: ListMissionProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListMissionProfilesCommandOutput>;
   listMissionProfiles(
     args: ListMissionProfilesCommandInput,
@@ -771,7 +779,7 @@ export interface GroundStation {
   ): void;
   listMissionProfiles(
     args: ListMissionProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListMissionProfilesCommandOutput) => void
   ): void;
 
@@ -781,7 +789,7 @@ export interface GroundStation {
   listSatellites(): Promise<ListSatellitesCommandOutput>;
   listSatellites(
     args: ListSatellitesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListSatellitesCommandOutput>;
   listSatellites(
     args: ListSatellitesCommandInput,
@@ -789,7 +797,7 @@ export interface GroundStation {
   ): void;
   listSatellites(
     args: ListSatellitesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListSatellitesCommandOutput) => void
   ): void;
 
@@ -798,7 +806,7 @@ export interface GroundStation {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -806,7 +814,7 @@ export interface GroundStation {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -815,7 +823,7 @@ export interface GroundStation {
    */
   registerAgent(
     args: RegisterAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<RegisterAgentCommandOutput>;
   registerAgent(
     args: RegisterAgentCommandInput,
@@ -823,7 +831,7 @@ export interface GroundStation {
   ): void;
   registerAgent(
     args: RegisterAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: RegisterAgentCommandOutput) => void
   ): void;
 
@@ -832,7 +840,7 @@ export interface GroundStation {
    */
   reserveContact(
     args: ReserveContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<ReserveContactCommandOutput>;
   reserveContact(
     args: ReserveContactCommandInput,
@@ -840,7 +848,7 @@ export interface GroundStation {
   ): void;
   reserveContact(
     args: ReserveContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: ReserveContactCommandOutput) => void
   ): void;
 
@@ -849,7 +857,7 @@ export interface GroundStation {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -857,7 +865,7 @@ export interface GroundStation {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -866,7 +874,7 @@ export interface GroundStation {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -874,7 +882,7 @@ export interface GroundStation {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -883,7 +891,7 @@ export interface GroundStation {
    */
   updateAgentStatus(
     args: UpdateAgentStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<UpdateAgentStatusCommandOutput>;
   updateAgentStatus(
     args: UpdateAgentStatusCommandInput,
@@ -891,7 +899,7 @@ export interface GroundStation {
   ): void;
   updateAgentStatus(
     args: UpdateAgentStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: UpdateAgentStatusCommandOutput) => void
   ): void;
 
@@ -900,7 +908,7 @@ export interface GroundStation {
    */
   updateConfig(
     args: UpdateConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<UpdateConfigCommandOutput>;
   updateConfig(
     args: UpdateConfigCommandInput,
@@ -908,7 +916,7 @@ export interface GroundStation {
   ): void;
   updateConfig(
     args: UpdateConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: UpdateConfigCommandOutput) => void
   ): void;
 
@@ -917,7 +925,7 @@ export interface GroundStation {
    */
   updateContact(
     args: UpdateContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<UpdateContactCommandOutput>;
   updateContact(
     args: UpdateContactCommandInput,
@@ -925,7 +933,7 @@ export interface GroundStation {
   ): void;
   updateContact(
     args: UpdateContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: UpdateContactCommandOutput) => void
   ): void;
 
@@ -934,7 +942,7 @@ export interface GroundStation {
    */
   updateEphemeris(
     args: UpdateEphemerisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<UpdateEphemerisCommandOutput>;
   updateEphemeris(
     args: UpdateEphemerisCommandInput,
@@ -942,7 +950,7 @@ export interface GroundStation {
   ): void;
   updateEphemeris(
     args: UpdateEphemerisCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: UpdateEphemerisCommandOutput) => void
   ): void;
 
@@ -951,7 +959,7 @@ export interface GroundStation {
    */
   updateMissionProfile(
     args: UpdateMissionProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GroundStationRequestOptions
   ): Promise<UpdateMissionProfileCommandOutput>;
   updateMissionProfile(
     args: UpdateMissionProfileCommandInput,
@@ -959,7 +967,7 @@ export interface GroundStation {
   ): void;
   updateMissionProfile(
     args: UpdateMissionProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: GroundStationRequestOptions,
     cb: (err: any, data?: UpdateMissionProfileCommandOutput) => void
   ): void;
 

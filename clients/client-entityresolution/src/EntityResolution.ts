@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddPolicyStatementCommandInput,
@@ -243,13 +248,20 @@ const paginators = {
   paginateListSchemaMappings,
 };
 
+/**
+ * @public
+ */
+export interface EntityResolutionRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface EntityResolution {
   /**
    * @see {@link AddPolicyStatementCommand}
    */
   addPolicyStatement(
     args: AddPolicyStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<AddPolicyStatementCommandOutput>;
   addPolicyStatement(
     args: AddPolicyStatementCommandInput,
@@ -257,7 +269,7 @@ export interface EntityResolution {
   ): void;
   addPolicyStatement(
     args: AddPolicyStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: AddPolicyStatementCommandOutput) => void
   ): void;
 
@@ -266,7 +278,7 @@ export interface EntityResolution {
    */
   batchDeleteUniqueId(
     args: BatchDeleteUniqueIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<BatchDeleteUniqueIdCommandOutput>;
   batchDeleteUniqueId(
     args: BatchDeleteUniqueIdCommandInput,
@@ -274,7 +286,7 @@ export interface EntityResolution {
   ): void;
   batchDeleteUniqueId(
     args: BatchDeleteUniqueIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: BatchDeleteUniqueIdCommandOutput) => void
   ): void;
 
@@ -283,7 +295,7 @@ export interface EntityResolution {
    */
   createIdMappingWorkflow(
     args: CreateIdMappingWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<CreateIdMappingWorkflowCommandOutput>;
   createIdMappingWorkflow(
     args: CreateIdMappingWorkflowCommandInput,
@@ -291,7 +303,7 @@ export interface EntityResolution {
   ): void;
   createIdMappingWorkflow(
     args: CreateIdMappingWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: CreateIdMappingWorkflowCommandOutput) => void
   ): void;
 
@@ -300,7 +312,7 @@ export interface EntityResolution {
    */
   createIdNamespace(
     args: CreateIdNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<CreateIdNamespaceCommandOutput>;
   createIdNamespace(
     args: CreateIdNamespaceCommandInput,
@@ -308,7 +320,7 @@ export interface EntityResolution {
   ): void;
   createIdNamespace(
     args: CreateIdNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: CreateIdNamespaceCommandOutput) => void
   ): void;
 
@@ -317,7 +329,7 @@ export interface EntityResolution {
    */
   createMatchingWorkflow(
     args: CreateMatchingWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<CreateMatchingWorkflowCommandOutput>;
   createMatchingWorkflow(
     args: CreateMatchingWorkflowCommandInput,
@@ -325,7 +337,7 @@ export interface EntityResolution {
   ): void;
   createMatchingWorkflow(
     args: CreateMatchingWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: CreateMatchingWorkflowCommandOutput) => void
   ): void;
 
@@ -334,7 +346,7 @@ export interface EntityResolution {
    */
   createSchemaMapping(
     args: CreateSchemaMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<CreateSchemaMappingCommandOutput>;
   createSchemaMapping(
     args: CreateSchemaMappingCommandInput,
@@ -342,7 +354,7 @@ export interface EntityResolution {
   ): void;
   createSchemaMapping(
     args: CreateSchemaMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: CreateSchemaMappingCommandOutput) => void
   ): void;
 
@@ -351,7 +363,7 @@ export interface EntityResolution {
    */
   deleteIdMappingWorkflow(
     args: DeleteIdMappingWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<DeleteIdMappingWorkflowCommandOutput>;
   deleteIdMappingWorkflow(
     args: DeleteIdMappingWorkflowCommandInput,
@@ -359,7 +371,7 @@ export interface EntityResolution {
   ): void;
   deleteIdMappingWorkflow(
     args: DeleteIdMappingWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: DeleteIdMappingWorkflowCommandOutput) => void
   ): void;
 
@@ -368,7 +380,7 @@ export interface EntityResolution {
    */
   deleteIdNamespace(
     args: DeleteIdNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<DeleteIdNamespaceCommandOutput>;
   deleteIdNamespace(
     args: DeleteIdNamespaceCommandInput,
@@ -376,7 +388,7 @@ export interface EntityResolution {
   ): void;
   deleteIdNamespace(
     args: DeleteIdNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: DeleteIdNamespaceCommandOutput) => void
   ): void;
 
@@ -385,7 +397,7 @@ export interface EntityResolution {
    */
   deleteMatchingWorkflow(
     args: DeleteMatchingWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<DeleteMatchingWorkflowCommandOutput>;
   deleteMatchingWorkflow(
     args: DeleteMatchingWorkflowCommandInput,
@@ -393,7 +405,7 @@ export interface EntityResolution {
   ): void;
   deleteMatchingWorkflow(
     args: DeleteMatchingWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: DeleteMatchingWorkflowCommandOutput) => void
   ): void;
 
@@ -402,7 +414,7 @@ export interface EntityResolution {
    */
   deletePolicyStatement(
     args: DeletePolicyStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<DeletePolicyStatementCommandOutput>;
   deletePolicyStatement(
     args: DeletePolicyStatementCommandInput,
@@ -410,7 +422,7 @@ export interface EntityResolution {
   ): void;
   deletePolicyStatement(
     args: DeletePolicyStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: DeletePolicyStatementCommandOutput) => void
   ): void;
 
@@ -419,7 +431,7 @@ export interface EntityResolution {
    */
   deleteSchemaMapping(
     args: DeleteSchemaMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<DeleteSchemaMappingCommandOutput>;
   deleteSchemaMapping(
     args: DeleteSchemaMappingCommandInput,
@@ -427,7 +439,7 @@ export interface EntityResolution {
   ): void;
   deleteSchemaMapping(
     args: DeleteSchemaMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: DeleteSchemaMappingCommandOutput) => void
   ): void;
 
@@ -436,7 +448,7 @@ export interface EntityResolution {
    */
   generateMatchId(
     args: GenerateMatchIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GenerateMatchIdCommandOutput>;
   generateMatchId(
     args: GenerateMatchIdCommandInput,
@@ -444,7 +456,7 @@ export interface EntityResolution {
   ): void;
   generateMatchId(
     args: GenerateMatchIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GenerateMatchIdCommandOutput) => void
   ): void;
 
@@ -453,7 +465,7 @@ export interface EntityResolution {
    */
   getIdMappingJob(
     args: GetIdMappingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GetIdMappingJobCommandOutput>;
   getIdMappingJob(
     args: GetIdMappingJobCommandInput,
@@ -461,7 +473,7 @@ export interface EntityResolution {
   ): void;
   getIdMappingJob(
     args: GetIdMappingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GetIdMappingJobCommandOutput) => void
   ): void;
 
@@ -470,7 +482,7 @@ export interface EntityResolution {
    */
   getIdMappingWorkflow(
     args: GetIdMappingWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GetIdMappingWorkflowCommandOutput>;
   getIdMappingWorkflow(
     args: GetIdMappingWorkflowCommandInput,
@@ -478,7 +490,7 @@ export interface EntityResolution {
   ): void;
   getIdMappingWorkflow(
     args: GetIdMappingWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GetIdMappingWorkflowCommandOutput) => void
   ): void;
 
@@ -487,7 +499,7 @@ export interface EntityResolution {
    */
   getIdNamespace(
     args: GetIdNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GetIdNamespaceCommandOutput>;
   getIdNamespace(
     args: GetIdNamespaceCommandInput,
@@ -495,7 +507,7 @@ export interface EntityResolution {
   ): void;
   getIdNamespace(
     args: GetIdNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GetIdNamespaceCommandOutput) => void
   ): void;
 
@@ -504,7 +516,7 @@ export interface EntityResolution {
    */
   getMatchId(
     args: GetMatchIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GetMatchIdCommandOutput>;
   getMatchId(
     args: GetMatchIdCommandInput,
@@ -512,7 +524,7 @@ export interface EntityResolution {
   ): void;
   getMatchId(
     args: GetMatchIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GetMatchIdCommandOutput) => void
   ): void;
 
@@ -521,7 +533,7 @@ export interface EntityResolution {
    */
   getMatchingJob(
     args: GetMatchingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GetMatchingJobCommandOutput>;
   getMatchingJob(
     args: GetMatchingJobCommandInput,
@@ -529,7 +541,7 @@ export interface EntityResolution {
   ): void;
   getMatchingJob(
     args: GetMatchingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GetMatchingJobCommandOutput) => void
   ): void;
 
@@ -538,7 +550,7 @@ export interface EntityResolution {
    */
   getMatchingWorkflow(
     args: GetMatchingWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GetMatchingWorkflowCommandOutput>;
   getMatchingWorkflow(
     args: GetMatchingWorkflowCommandInput,
@@ -546,7 +558,7 @@ export interface EntityResolution {
   ): void;
   getMatchingWorkflow(
     args: GetMatchingWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GetMatchingWorkflowCommandOutput) => void
   ): void;
 
@@ -555,7 +567,7 @@ export interface EntityResolution {
    */
   getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GetPolicyCommandOutput>;
   getPolicy(
     args: GetPolicyCommandInput,
@@ -563,7 +575,7 @@ export interface EntityResolution {
   ): void;
   getPolicy(
     args: GetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
@@ -572,7 +584,7 @@ export interface EntityResolution {
    */
   getProviderService(
     args: GetProviderServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GetProviderServiceCommandOutput>;
   getProviderService(
     args: GetProviderServiceCommandInput,
@@ -580,7 +592,7 @@ export interface EntityResolution {
   ): void;
   getProviderService(
     args: GetProviderServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GetProviderServiceCommandOutput) => void
   ): void;
 
@@ -589,7 +601,7 @@ export interface EntityResolution {
    */
   getSchemaMapping(
     args: GetSchemaMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<GetSchemaMappingCommandOutput>;
   getSchemaMapping(
     args: GetSchemaMappingCommandInput,
@@ -597,7 +609,7 @@ export interface EntityResolution {
   ): void;
   getSchemaMapping(
     args: GetSchemaMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: GetSchemaMappingCommandOutput) => void
   ): void;
 
@@ -606,7 +618,7 @@ export interface EntityResolution {
    */
   listIdMappingJobs(
     args: ListIdMappingJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<ListIdMappingJobsCommandOutput>;
   listIdMappingJobs(
     args: ListIdMappingJobsCommandInput,
@@ -614,7 +626,7 @@ export interface EntityResolution {
   ): void;
   listIdMappingJobs(
     args: ListIdMappingJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: ListIdMappingJobsCommandOutput) => void
   ): void;
 
@@ -624,7 +636,7 @@ export interface EntityResolution {
   listIdMappingWorkflows(): Promise<ListIdMappingWorkflowsCommandOutput>;
   listIdMappingWorkflows(
     args: ListIdMappingWorkflowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<ListIdMappingWorkflowsCommandOutput>;
   listIdMappingWorkflows(
     args: ListIdMappingWorkflowsCommandInput,
@@ -632,7 +644,7 @@ export interface EntityResolution {
   ): void;
   listIdMappingWorkflows(
     args: ListIdMappingWorkflowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: ListIdMappingWorkflowsCommandOutput) => void
   ): void;
 
@@ -642,7 +654,7 @@ export interface EntityResolution {
   listIdNamespaces(): Promise<ListIdNamespacesCommandOutput>;
   listIdNamespaces(
     args: ListIdNamespacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<ListIdNamespacesCommandOutput>;
   listIdNamespaces(
     args: ListIdNamespacesCommandInput,
@@ -650,7 +662,7 @@ export interface EntityResolution {
   ): void;
   listIdNamespaces(
     args: ListIdNamespacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: ListIdNamespacesCommandOutput) => void
   ): void;
 
@@ -659,7 +671,7 @@ export interface EntityResolution {
    */
   listMatchingJobs(
     args: ListMatchingJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<ListMatchingJobsCommandOutput>;
   listMatchingJobs(
     args: ListMatchingJobsCommandInput,
@@ -667,7 +679,7 @@ export interface EntityResolution {
   ): void;
   listMatchingJobs(
     args: ListMatchingJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: ListMatchingJobsCommandOutput) => void
   ): void;
 
@@ -677,7 +689,7 @@ export interface EntityResolution {
   listMatchingWorkflows(): Promise<ListMatchingWorkflowsCommandOutput>;
   listMatchingWorkflows(
     args: ListMatchingWorkflowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<ListMatchingWorkflowsCommandOutput>;
   listMatchingWorkflows(
     args: ListMatchingWorkflowsCommandInput,
@@ -685,7 +697,7 @@ export interface EntityResolution {
   ): void;
   listMatchingWorkflows(
     args: ListMatchingWorkflowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: ListMatchingWorkflowsCommandOutput) => void
   ): void;
 
@@ -695,7 +707,7 @@ export interface EntityResolution {
   listProviderServices(): Promise<ListProviderServicesCommandOutput>;
   listProviderServices(
     args: ListProviderServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<ListProviderServicesCommandOutput>;
   listProviderServices(
     args: ListProviderServicesCommandInput,
@@ -703,7 +715,7 @@ export interface EntityResolution {
   ): void;
   listProviderServices(
     args: ListProviderServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: ListProviderServicesCommandOutput) => void
   ): void;
 
@@ -713,7 +725,7 @@ export interface EntityResolution {
   listSchemaMappings(): Promise<ListSchemaMappingsCommandOutput>;
   listSchemaMappings(
     args: ListSchemaMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<ListSchemaMappingsCommandOutput>;
   listSchemaMappings(
     args: ListSchemaMappingsCommandInput,
@@ -721,7 +733,7 @@ export interface EntityResolution {
   ): void;
   listSchemaMappings(
     args: ListSchemaMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: ListSchemaMappingsCommandOutput) => void
   ): void;
 
@@ -730,7 +742,7 @@ export interface EntityResolution {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -738,7 +750,7 @@ export interface EntityResolution {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -747,7 +759,7 @@ export interface EntityResolution {
    */
   putPolicy(
     args: PutPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<PutPolicyCommandOutput>;
   putPolicy(
     args: PutPolicyCommandInput,
@@ -755,7 +767,7 @@ export interface EntityResolution {
   ): void;
   putPolicy(
     args: PutPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: PutPolicyCommandOutput) => void
   ): void;
 
@@ -764,7 +776,7 @@ export interface EntityResolution {
    */
   startIdMappingJob(
     args: StartIdMappingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<StartIdMappingJobCommandOutput>;
   startIdMappingJob(
     args: StartIdMappingJobCommandInput,
@@ -772,7 +784,7 @@ export interface EntityResolution {
   ): void;
   startIdMappingJob(
     args: StartIdMappingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: StartIdMappingJobCommandOutput) => void
   ): void;
 
@@ -781,7 +793,7 @@ export interface EntityResolution {
    */
   startMatchingJob(
     args: StartMatchingJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<StartMatchingJobCommandOutput>;
   startMatchingJob(
     args: StartMatchingJobCommandInput,
@@ -789,7 +801,7 @@ export interface EntityResolution {
   ): void;
   startMatchingJob(
     args: StartMatchingJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: StartMatchingJobCommandOutput) => void
   ): void;
 
@@ -798,7 +810,7 @@ export interface EntityResolution {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -806,7 +818,7 @@ export interface EntityResolution {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -815,7 +827,7 @@ export interface EntityResolution {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -823,7 +835,7 @@ export interface EntityResolution {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -832,7 +844,7 @@ export interface EntityResolution {
    */
   updateIdMappingWorkflow(
     args: UpdateIdMappingWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<UpdateIdMappingWorkflowCommandOutput>;
   updateIdMappingWorkflow(
     args: UpdateIdMappingWorkflowCommandInput,
@@ -840,7 +852,7 @@ export interface EntityResolution {
   ): void;
   updateIdMappingWorkflow(
     args: UpdateIdMappingWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: UpdateIdMappingWorkflowCommandOutput) => void
   ): void;
 
@@ -849,7 +861,7 @@ export interface EntityResolution {
    */
   updateIdNamespace(
     args: UpdateIdNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<UpdateIdNamespaceCommandOutput>;
   updateIdNamespace(
     args: UpdateIdNamespaceCommandInput,
@@ -857,7 +869,7 @@ export interface EntityResolution {
   ): void;
   updateIdNamespace(
     args: UpdateIdNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: UpdateIdNamespaceCommandOutput) => void
   ): void;
 
@@ -866,7 +878,7 @@ export interface EntityResolution {
    */
   updateMatchingWorkflow(
     args: UpdateMatchingWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<UpdateMatchingWorkflowCommandOutput>;
   updateMatchingWorkflow(
     args: UpdateMatchingWorkflowCommandInput,
@@ -874,7 +886,7 @@ export interface EntityResolution {
   ): void;
   updateMatchingWorkflow(
     args: UpdateMatchingWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: UpdateMatchingWorkflowCommandOutput) => void
   ): void;
 
@@ -883,7 +895,7 @@ export interface EntityResolution {
    */
   updateSchemaMapping(
     args: UpdateSchemaMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EntityResolutionRequestOptions
   ): Promise<UpdateSchemaMappingCommandOutput>;
   updateSchemaMapping(
     args: UpdateSchemaMappingCommandInput,
@@ -891,7 +903,7 @@ export interface EntityResolution {
   ): void;
   updateSchemaMapping(
     args: UpdateSchemaMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: EntityResolutionRequestOptions,
     cb: (err: any, data?: UpdateSchemaMappingCommandOutput) => void
   ): void;
 

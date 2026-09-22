@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ChimeSDKMessagingClient } from "./ChimeSDKMessagingClient";
 import {
@@ -343,13 +348,20 @@ const paginators = {
   paginateSearchChannels,
 };
 
+/**
+ * @public
+ */
+export interface ChimeSDKMessagingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ChimeSDKMessaging {
   /**
    * @see {@link AssociateChannelFlowCommand}
    */
   associateChannelFlow(
     args: AssociateChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<AssociateChannelFlowCommandOutput>;
   associateChannelFlow(
     args: AssociateChannelFlowCommandInput,
@@ -357,7 +369,7 @@ export interface ChimeSDKMessaging {
   ): void;
   associateChannelFlow(
     args: AssociateChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: AssociateChannelFlowCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface ChimeSDKMessaging {
    */
   batchCreateChannelMembership(
     args: BatchCreateChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<BatchCreateChannelMembershipCommandOutput>;
   batchCreateChannelMembership(
     args: BatchCreateChannelMembershipCommandInput,
@@ -374,7 +386,7 @@ export interface ChimeSDKMessaging {
   ): void;
   batchCreateChannelMembership(
     args: BatchCreateChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface ChimeSDKMessaging {
    */
   channelFlowCallback(
     args: ChannelFlowCallbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ChannelFlowCallbackCommandOutput>;
   channelFlowCallback(
     args: ChannelFlowCallbackCommandInput,
@@ -391,7 +403,7 @@ export interface ChimeSDKMessaging {
   ): void;
   channelFlowCallback(
     args: ChannelFlowCallbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ChannelFlowCallbackCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface ChimeSDKMessaging {
    */
   createChannel(
     args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<CreateChannelCommandOutput>;
   createChannel(
     args: CreateChannelCommandInput,
@@ -408,7 +420,7 @@ export interface ChimeSDKMessaging {
   ): void;
   createChannel(
     args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: CreateChannelCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface ChimeSDKMessaging {
    */
   createChannelBan(
     args: CreateChannelBanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<CreateChannelBanCommandOutput>;
   createChannelBan(
     args: CreateChannelBanCommandInput,
@@ -425,7 +437,7 @@ export interface ChimeSDKMessaging {
   ): void;
   createChannelBan(
     args: CreateChannelBanCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: CreateChannelBanCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface ChimeSDKMessaging {
    */
   createChannelFlow(
     args: CreateChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<CreateChannelFlowCommandOutput>;
   createChannelFlow(
     args: CreateChannelFlowCommandInput,
@@ -442,7 +454,7 @@ export interface ChimeSDKMessaging {
   ): void;
   createChannelFlow(
     args: CreateChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: CreateChannelFlowCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface ChimeSDKMessaging {
    */
   createChannelMembership(
     args: CreateChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<CreateChannelMembershipCommandOutput>;
   createChannelMembership(
     args: CreateChannelMembershipCommandInput,
@@ -459,7 +471,7 @@ export interface ChimeSDKMessaging {
   ): void;
   createChannelMembership(
     args: CreateChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: CreateChannelMembershipCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface ChimeSDKMessaging {
    */
   createChannelModerator(
     args: CreateChannelModeratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<CreateChannelModeratorCommandOutput>;
   createChannelModerator(
     args: CreateChannelModeratorCommandInput,
@@ -476,7 +488,7 @@ export interface ChimeSDKMessaging {
   ): void;
   createChannelModerator(
     args: CreateChannelModeratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: CreateChannelModeratorCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface ChimeSDKMessaging {
    */
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DeleteChannelCommandOutput>;
   deleteChannel(
     args: DeleteChannelCommandInput,
@@ -493,7 +505,7 @@ export interface ChimeSDKMessaging {
   ): void;
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DeleteChannelCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface ChimeSDKMessaging {
    */
   deleteChannelBan(
     args: DeleteChannelBanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DeleteChannelBanCommandOutput>;
   deleteChannelBan(
     args: DeleteChannelBanCommandInput,
@@ -510,7 +522,7 @@ export interface ChimeSDKMessaging {
   ): void;
   deleteChannelBan(
     args: DeleteChannelBanCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DeleteChannelBanCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface ChimeSDKMessaging {
    */
   deleteChannelFlow(
     args: DeleteChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DeleteChannelFlowCommandOutput>;
   deleteChannelFlow(
     args: DeleteChannelFlowCommandInput,
@@ -527,7 +539,7 @@ export interface ChimeSDKMessaging {
   ): void;
   deleteChannelFlow(
     args: DeleteChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DeleteChannelFlowCommandOutput) => void
   ): void;
 
@@ -536,7 +548,7 @@ export interface ChimeSDKMessaging {
    */
   deleteChannelMembership(
     args: DeleteChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DeleteChannelMembershipCommandOutput>;
   deleteChannelMembership(
     args: DeleteChannelMembershipCommandInput,
@@ -544,7 +556,7 @@ export interface ChimeSDKMessaging {
   ): void;
   deleteChannelMembership(
     args: DeleteChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DeleteChannelMembershipCommandOutput) => void
   ): void;
 
@@ -553,7 +565,7 @@ export interface ChimeSDKMessaging {
    */
   deleteChannelMessage(
     args: DeleteChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DeleteChannelMessageCommandOutput>;
   deleteChannelMessage(
     args: DeleteChannelMessageCommandInput,
@@ -561,7 +573,7 @@ export interface ChimeSDKMessaging {
   ): void;
   deleteChannelMessage(
     args: DeleteChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DeleteChannelMessageCommandOutput) => void
   ): void;
 
@@ -570,7 +582,7 @@ export interface ChimeSDKMessaging {
    */
   deleteChannelModerator(
     args: DeleteChannelModeratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DeleteChannelModeratorCommandOutput>;
   deleteChannelModerator(
     args: DeleteChannelModeratorCommandInput,
@@ -578,7 +590,7 @@ export interface ChimeSDKMessaging {
   ): void;
   deleteChannelModerator(
     args: DeleteChannelModeratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DeleteChannelModeratorCommandOutput) => void
   ): void;
 
@@ -587,7 +599,7 @@ export interface ChimeSDKMessaging {
    */
   deleteMessagingStreamingConfigurations(
     args: DeleteMessagingStreamingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput>;
   deleteMessagingStreamingConfigurations(
     args: DeleteMessagingStreamingConfigurationsCommandInput,
@@ -595,7 +607,7 @@ export interface ChimeSDKMessaging {
   ): void;
   deleteMessagingStreamingConfigurations(
     args: DeleteMessagingStreamingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DeleteMessagingStreamingConfigurationsCommandOutput) => void
   ): void;
 
@@ -604,7 +616,7 @@ export interface ChimeSDKMessaging {
    */
   describeChannel(
     args: DescribeChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DescribeChannelCommandOutput>;
   describeChannel(
     args: DescribeChannelCommandInput,
@@ -612,7 +624,7 @@ export interface ChimeSDKMessaging {
   ): void;
   describeChannel(
     args: DescribeChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DescribeChannelCommandOutput) => void
   ): void;
 
@@ -621,7 +633,7 @@ export interface ChimeSDKMessaging {
    */
   describeChannelBan(
     args: DescribeChannelBanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DescribeChannelBanCommandOutput>;
   describeChannelBan(
     args: DescribeChannelBanCommandInput,
@@ -629,7 +641,7 @@ export interface ChimeSDKMessaging {
   ): void;
   describeChannelBan(
     args: DescribeChannelBanCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DescribeChannelBanCommandOutput) => void
   ): void;
 
@@ -638,7 +650,7 @@ export interface ChimeSDKMessaging {
    */
   describeChannelFlow(
     args: DescribeChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DescribeChannelFlowCommandOutput>;
   describeChannelFlow(
     args: DescribeChannelFlowCommandInput,
@@ -646,7 +658,7 @@ export interface ChimeSDKMessaging {
   ): void;
   describeChannelFlow(
     args: DescribeChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DescribeChannelFlowCommandOutput) => void
   ): void;
 
@@ -655,7 +667,7 @@ export interface ChimeSDKMessaging {
    */
   describeChannelMembership(
     args: DescribeChannelMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DescribeChannelMembershipCommandOutput>;
   describeChannelMembership(
     args: DescribeChannelMembershipCommandInput,
@@ -663,7 +675,7 @@ export interface ChimeSDKMessaging {
   ): void;
   describeChannelMembership(
     args: DescribeChannelMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DescribeChannelMembershipCommandOutput) => void
   ): void;
 
@@ -672,7 +684,7 @@ export interface ChimeSDKMessaging {
    */
   describeChannelMembershipForAppInstanceUser(
     args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput>;
   describeChannelMembershipForAppInstanceUser(
     args: DescribeChannelMembershipForAppInstanceUserCommandInput,
@@ -680,7 +692,7 @@ export interface ChimeSDKMessaging {
   ): void;
   describeChannelMembershipForAppInstanceUser(
     args: DescribeChannelMembershipForAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DescribeChannelMembershipForAppInstanceUserCommandOutput) => void
   ): void;
 
@@ -689,7 +701,7 @@ export interface ChimeSDKMessaging {
    */
   describeChannelModeratedByAppInstanceUser(
     args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput>;
   describeChannelModeratedByAppInstanceUser(
     args: DescribeChannelModeratedByAppInstanceUserCommandInput,
@@ -697,7 +709,7 @@ export interface ChimeSDKMessaging {
   ): void;
   describeChannelModeratedByAppInstanceUser(
     args: DescribeChannelModeratedByAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DescribeChannelModeratedByAppInstanceUserCommandOutput) => void
   ): void;
 
@@ -706,7 +718,7 @@ export interface ChimeSDKMessaging {
    */
   describeChannelModerator(
     args: DescribeChannelModeratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DescribeChannelModeratorCommandOutput>;
   describeChannelModerator(
     args: DescribeChannelModeratorCommandInput,
@@ -714,7 +726,7 @@ export interface ChimeSDKMessaging {
   ): void;
   describeChannelModerator(
     args: DescribeChannelModeratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DescribeChannelModeratorCommandOutput) => void
   ): void;
 
@@ -723,7 +735,7 @@ export interface ChimeSDKMessaging {
    */
   disassociateChannelFlow(
     args: DisassociateChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<DisassociateChannelFlowCommandOutput>;
   disassociateChannelFlow(
     args: DisassociateChannelFlowCommandInput,
@@ -731,7 +743,7 @@ export interface ChimeSDKMessaging {
   ): void;
   disassociateChannelFlow(
     args: DisassociateChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: DisassociateChannelFlowCommandOutput) => void
   ): void;
 
@@ -740,7 +752,7 @@ export interface ChimeSDKMessaging {
    */
   getChannelMembershipPreferences(
     args: GetChannelMembershipPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<GetChannelMembershipPreferencesCommandOutput>;
   getChannelMembershipPreferences(
     args: GetChannelMembershipPreferencesCommandInput,
@@ -748,7 +760,7 @@ export interface ChimeSDKMessaging {
   ): void;
   getChannelMembershipPreferences(
     args: GetChannelMembershipPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void
   ): void;
 
@@ -757,7 +769,7 @@ export interface ChimeSDKMessaging {
    */
   getChannelMessage(
     args: GetChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<GetChannelMessageCommandOutput>;
   getChannelMessage(
     args: GetChannelMessageCommandInput,
@@ -765,7 +777,7 @@ export interface ChimeSDKMessaging {
   ): void;
   getChannelMessage(
     args: GetChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: GetChannelMessageCommandOutput) => void
   ): void;
 
@@ -774,7 +786,7 @@ export interface ChimeSDKMessaging {
    */
   getChannelMessageStatus(
     args: GetChannelMessageStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<GetChannelMessageStatusCommandOutput>;
   getChannelMessageStatus(
     args: GetChannelMessageStatusCommandInput,
@@ -782,7 +794,7 @@ export interface ChimeSDKMessaging {
   ): void;
   getChannelMessageStatus(
     args: GetChannelMessageStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: GetChannelMessageStatusCommandOutput) => void
   ): void;
 
@@ -792,7 +804,7 @@ export interface ChimeSDKMessaging {
   getMessagingSessionEndpoint(): Promise<GetMessagingSessionEndpointCommandOutput>;
   getMessagingSessionEndpoint(
     args: GetMessagingSessionEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<GetMessagingSessionEndpointCommandOutput>;
   getMessagingSessionEndpoint(
     args: GetMessagingSessionEndpointCommandInput,
@@ -800,7 +812,7 @@ export interface ChimeSDKMessaging {
   ): void;
   getMessagingSessionEndpoint(
     args: GetMessagingSessionEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: GetMessagingSessionEndpointCommandOutput) => void
   ): void;
 
@@ -809,7 +821,7 @@ export interface ChimeSDKMessaging {
    */
   getMessagingStreamingConfigurations(
     args: GetMessagingStreamingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<GetMessagingStreamingConfigurationsCommandOutput>;
   getMessagingStreamingConfigurations(
     args: GetMessagingStreamingConfigurationsCommandInput,
@@ -817,7 +829,7 @@ export interface ChimeSDKMessaging {
   ): void;
   getMessagingStreamingConfigurations(
     args: GetMessagingStreamingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: GetMessagingStreamingConfigurationsCommandOutput) => void
   ): void;
 
@@ -826,7 +838,7 @@ export interface ChimeSDKMessaging {
    */
   listChannelBans(
     args: ListChannelBansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListChannelBansCommandOutput>;
   listChannelBans(
     args: ListChannelBansCommandInput,
@@ -834,7 +846,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listChannelBans(
     args: ListChannelBansCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListChannelBansCommandOutput) => void
   ): void;
 
@@ -843,7 +855,7 @@ export interface ChimeSDKMessaging {
    */
   listChannelFlows(
     args: ListChannelFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListChannelFlowsCommandOutput>;
   listChannelFlows(
     args: ListChannelFlowsCommandInput,
@@ -851,7 +863,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listChannelFlows(
     args: ListChannelFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListChannelFlowsCommandOutput) => void
   ): void;
 
@@ -860,7 +872,7 @@ export interface ChimeSDKMessaging {
    */
   listChannelMemberships(
     args: ListChannelMembershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListChannelMembershipsCommandOutput>;
   listChannelMemberships(
     args: ListChannelMembershipsCommandInput,
@@ -868,7 +880,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listChannelMemberships(
     args: ListChannelMembershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListChannelMembershipsCommandOutput) => void
   ): void;
 
@@ -877,7 +889,7 @@ export interface ChimeSDKMessaging {
    */
   listChannelMembershipsForAppInstanceUser(
     args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput>;
   listChannelMembershipsForAppInstanceUser(
     args: ListChannelMembershipsForAppInstanceUserCommandInput,
@@ -885,7 +897,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listChannelMembershipsForAppInstanceUser(
     args: ListChannelMembershipsForAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListChannelMembershipsForAppInstanceUserCommandOutput) => void
   ): void;
 
@@ -894,7 +906,7 @@ export interface ChimeSDKMessaging {
    */
   listChannelMessages(
     args: ListChannelMessagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListChannelMessagesCommandOutput>;
   listChannelMessages(
     args: ListChannelMessagesCommandInput,
@@ -902,7 +914,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listChannelMessages(
     args: ListChannelMessagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListChannelMessagesCommandOutput) => void
   ): void;
 
@@ -911,7 +923,7 @@ export interface ChimeSDKMessaging {
    */
   listChannelModerators(
     args: ListChannelModeratorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListChannelModeratorsCommandOutput>;
   listChannelModerators(
     args: ListChannelModeratorsCommandInput,
@@ -919,7 +931,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listChannelModerators(
     args: ListChannelModeratorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListChannelModeratorsCommandOutput) => void
   ): void;
 
@@ -928,7 +940,7 @@ export interface ChimeSDKMessaging {
    */
   listChannels(
     args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
@@ -936,7 +948,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listChannels(
     args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
@@ -945,7 +957,7 @@ export interface ChimeSDKMessaging {
    */
   listChannelsAssociatedWithChannelFlow(
     args: ListChannelsAssociatedWithChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput>;
   listChannelsAssociatedWithChannelFlow(
     args: ListChannelsAssociatedWithChannelFlowCommandInput,
@@ -953,7 +965,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listChannelsAssociatedWithChannelFlow(
     args: ListChannelsAssociatedWithChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void
   ): void;
 
@@ -962,7 +974,7 @@ export interface ChimeSDKMessaging {
    */
   listChannelsModeratedByAppInstanceUser(
     args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput>;
   listChannelsModeratedByAppInstanceUser(
     args: ListChannelsModeratedByAppInstanceUserCommandInput,
@@ -970,7 +982,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listChannelsModeratedByAppInstanceUser(
     args: ListChannelsModeratedByAppInstanceUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
   ): void;
 
@@ -979,7 +991,7 @@ export interface ChimeSDKMessaging {
    */
   listSubChannels(
     args: ListSubChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListSubChannelsCommandOutput>;
   listSubChannels(
     args: ListSubChannelsCommandInput,
@@ -987,7 +999,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listSubChannels(
     args: ListSubChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListSubChannelsCommandOutput) => void
   ): void;
 
@@ -996,7 +1008,7 @@ export interface ChimeSDKMessaging {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1004,7 +1016,7 @@ export interface ChimeSDKMessaging {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1013,7 +1025,7 @@ export interface ChimeSDKMessaging {
    */
   putChannelExpirationSettings(
     args: PutChannelExpirationSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<PutChannelExpirationSettingsCommandOutput>;
   putChannelExpirationSettings(
     args: PutChannelExpirationSettingsCommandInput,
@@ -1021,7 +1033,7 @@ export interface ChimeSDKMessaging {
   ): void;
   putChannelExpirationSettings(
     args: PutChannelExpirationSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: PutChannelExpirationSettingsCommandOutput) => void
   ): void;
 
@@ -1030,7 +1042,7 @@ export interface ChimeSDKMessaging {
    */
   putChannelMembershipPreferences(
     args: PutChannelMembershipPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<PutChannelMembershipPreferencesCommandOutput>;
   putChannelMembershipPreferences(
     args: PutChannelMembershipPreferencesCommandInput,
@@ -1038,7 +1050,7 @@ export interface ChimeSDKMessaging {
   ): void;
   putChannelMembershipPreferences(
     args: PutChannelMembershipPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void
   ): void;
 
@@ -1047,7 +1059,7 @@ export interface ChimeSDKMessaging {
    */
   putMessagingStreamingConfigurations(
     args: PutMessagingStreamingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<PutMessagingStreamingConfigurationsCommandOutput>;
   putMessagingStreamingConfigurations(
     args: PutMessagingStreamingConfigurationsCommandInput,
@@ -1055,7 +1067,7 @@ export interface ChimeSDKMessaging {
   ): void;
   putMessagingStreamingConfigurations(
     args: PutMessagingStreamingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: PutMessagingStreamingConfigurationsCommandOutput) => void
   ): void;
 
@@ -1064,7 +1076,7 @@ export interface ChimeSDKMessaging {
    */
   redactChannelMessage(
     args: RedactChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<RedactChannelMessageCommandOutput>;
   redactChannelMessage(
     args: RedactChannelMessageCommandInput,
@@ -1072,7 +1084,7 @@ export interface ChimeSDKMessaging {
   ): void;
   redactChannelMessage(
     args: RedactChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: RedactChannelMessageCommandOutput) => void
   ): void;
 
@@ -1081,7 +1093,7 @@ export interface ChimeSDKMessaging {
    */
   searchChannels(
     args: SearchChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<SearchChannelsCommandOutput>;
   searchChannels(
     args: SearchChannelsCommandInput,
@@ -1089,7 +1101,7 @@ export interface ChimeSDKMessaging {
   ): void;
   searchChannels(
     args: SearchChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: SearchChannelsCommandOutput) => void
   ): void;
 
@@ -1098,7 +1110,7 @@ export interface ChimeSDKMessaging {
    */
   sendChannelMessage(
     args: SendChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<SendChannelMessageCommandOutput>;
   sendChannelMessage(
     args: SendChannelMessageCommandInput,
@@ -1106,7 +1118,7 @@ export interface ChimeSDKMessaging {
   ): void;
   sendChannelMessage(
     args: SendChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: SendChannelMessageCommandOutput) => void
   ): void;
 
@@ -1115,7 +1127,7 @@ export interface ChimeSDKMessaging {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1123,7 +1135,7 @@ export interface ChimeSDKMessaging {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1132,7 +1144,7 @@ export interface ChimeSDKMessaging {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1140,7 +1152,7 @@ export interface ChimeSDKMessaging {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1149,7 +1161,7 @@ export interface ChimeSDKMessaging {
    */
   updateChannel(
     args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<UpdateChannelCommandOutput>;
   updateChannel(
     args: UpdateChannelCommandInput,
@@ -1157,7 +1169,7 @@ export interface ChimeSDKMessaging {
   ): void;
   updateChannel(
     args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
 
@@ -1166,7 +1178,7 @@ export interface ChimeSDKMessaging {
    */
   updateChannelFlow(
     args: UpdateChannelFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<UpdateChannelFlowCommandOutput>;
   updateChannelFlow(
     args: UpdateChannelFlowCommandInput,
@@ -1174,7 +1186,7 @@ export interface ChimeSDKMessaging {
   ): void;
   updateChannelFlow(
     args: UpdateChannelFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: UpdateChannelFlowCommandOutput) => void
   ): void;
 
@@ -1183,7 +1195,7 @@ export interface ChimeSDKMessaging {
    */
   updateChannelMessage(
     args: UpdateChannelMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<UpdateChannelMessageCommandOutput>;
   updateChannelMessage(
     args: UpdateChannelMessageCommandInput,
@@ -1191,7 +1203,7 @@ export interface ChimeSDKMessaging {
   ): void;
   updateChannelMessage(
     args: UpdateChannelMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: UpdateChannelMessageCommandOutput) => void
   ): void;
 
@@ -1200,7 +1212,7 @@ export interface ChimeSDKMessaging {
    */
   updateChannelReadMarker(
     args: UpdateChannelReadMarkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKMessagingRequestOptions
   ): Promise<UpdateChannelReadMarkerCommandOutput>;
   updateChannelReadMarker(
     args: UpdateChannelReadMarkerCommandInput,
@@ -1208,7 +1220,7 @@ export interface ChimeSDKMessaging {
   ): void;
   updateChannelReadMarker(
     args: UpdateChannelReadMarkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKMessagingRequestOptions,
     cb: (err: any, data?: UpdateChannelReadMarkerCommandOutput) => void
   ): void;
 

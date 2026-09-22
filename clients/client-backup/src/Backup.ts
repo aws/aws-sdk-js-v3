@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BackupClient } from "./BackupClient";
 import {
@@ -761,13 +766,20 @@ const paginators = {
   paginateListTieringConfigurations,
 };
 
+/**
+ * @public
+ */
+export interface BackupRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Backup {
   /**
    * @see {@link AssociateBackupVaultMpaApprovalTeamCommand}
    */
   associateBackupVaultMpaApprovalTeam(
     args: AssociateBackupVaultMpaApprovalTeamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<AssociateBackupVaultMpaApprovalTeamCommandOutput>;
   associateBackupVaultMpaApprovalTeam(
     args: AssociateBackupVaultMpaApprovalTeamCommandInput,
@@ -775,7 +787,7 @@ export interface Backup {
   ): void;
   associateBackupVaultMpaApprovalTeam(
     args: AssociateBackupVaultMpaApprovalTeamCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: AssociateBackupVaultMpaApprovalTeamCommandOutput) => void
   ): void;
 
@@ -784,7 +796,7 @@ export interface Backup {
    */
   cancelLegalHold(
     args: CancelLegalHoldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CancelLegalHoldCommandOutput>;
   cancelLegalHold(
     args: CancelLegalHoldCommandInput,
@@ -792,7 +804,7 @@ export interface Backup {
   ): void;
   cancelLegalHold(
     args: CancelLegalHoldCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CancelLegalHoldCommandOutput) => void
   ): void;
 
@@ -801,7 +813,7 @@ export interface Backup {
    */
   createBackupAccessPoint(
     args: CreateBackupAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateBackupAccessPointCommandOutput>;
   createBackupAccessPoint(
     args: CreateBackupAccessPointCommandInput,
@@ -809,7 +821,7 @@ export interface Backup {
   ): void;
   createBackupAccessPoint(
     args: CreateBackupAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateBackupAccessPointCommandOutput) => void
   ): void;
 
@@ -818,7 +830,7 @@ export interface Backup {
    */
   createBackupPlan(
     args: CreateBackupPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateBackupPlanCommandOutput>;
   createBackupPlan(
     args: CreateBackupPlanCommandInput,
@@ -826,7 +838,7 @@ export interface Backup {
   ): void;
   createBackupPlan(
     args: CreateBackupPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateBackupPlanCommandOutput) => void
   ): void;
 
@@ -835,7 +847,7 @@ export interface Backup {
    */
   createBackupSelection(
     args: CreateBackupSelectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateBackupSelectionCommandOutput>;
   createBackupSelection(
     args: CreateBackupSelectionCommandInput,
@@ -843,7 +855,7 @@ export interface Backup {
   ): void;
   createBackupSelection(
     args: CreateBackupSelectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateBackupSelectionCommandOutput) => void
   ): void;
 
@@ -852,7 +864,7 @@ export interface Backup {
    */
   createBackupVault(
     args: CreateBackupVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateBackupVaultCommandOutput>;
   createBackupVault(
     args: CreateBackupVaultCommandInput,
@@ -860,7 +872,7 @@ export interface Backup {
   ): void;
   createBackupVault(
     args: CreateBackupVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateBackupVaultCommandOutput) => void
   ): void;
 
@@ -869,7 +881,7 @@ export interface Backup {
    */
   createFramework(
     args: CreateFrameworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateFrameworkCommandOutput>;
   createFramework(
     args: CreateFrameworkCommandInput,
@@ -877,7 +889,7 @@ export interface Backup {
   ): void;
   createFramework(
     args: CreateFrameworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateFrameworkCommandOutput) => void
   ): void;
 
@@ -886,7 +898,7 @@ export interface Backup {
    */
   createLegalHold(
     args: CreateLegalHoldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateLegalHoldCommandOutput>;
   createLegalHold(
     args: CreateLegalHoldCommandInput,
@@ -894,7 +906,7 @@ export interface Backup {
   ): void;
   createLegalHold(
     args: CreateLegalHoldCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateLegalHoldCommandOutput) => void
   ): void;
 
@@ -903,7 +915,7 @@ export interface Backup {
    */
   createLogicallyAirGappedBackupVault(
     args: CreateLogicallyAirGappedBackupVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateLogicallyAirGappedBackupVaultCommandOutput>;
   createLogicallyAirGappedBackupVault(
     args: CreateLogicallyAirGappedBackupVaultCommandInput,
@@ -911,7 +923,7 @@ export interface Backup {
   ): void;
   createLogicallyAirGappedBackupVault(
     args: CreateLogicallyAirGappedBackupVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateLogicallyAirGappedBackupVaultCommandOutput) => void
   ): void;
 
@@ -920,7 +932,7 @@ export interface Backup {
    */
   createReportPlan(
     args: CreateReportPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateReportPlanCommandOutput>;
   createReportPlan(
     args: CreateReportPlanCommandInput,
@@ -928,7 +940,7 @@ export interface Backup {
   ): void;
   createReportPlan(
     args: CreateReportPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateReportPlanCommandOutput) => void
   ): void;
 
@@ -937,7 +949,7 @@ export interface Backup {
    */
   createRestoreAccessBackupVault(
     args: CreateRestoreAccessBackupVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateRestoreAccessBackupVaultCommandOutput>;
   createRestoreAccessBackupVault(
     args: CreateRestoreAccessBackupVaultCommandInput,
@@ -945,7 +957,7 @@ export interface Backup {
   ): void;
   createRestoreAccessBackupVault(
     args: CreateRestoreAccessBackupVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateRestoreAccessBackupVaultCommandOutput) => void
   ): void;
 
@@ -954,7 +966,7 @@ export interface Backup {
    */
   createRestoreTestingPlan(
     args: CreateRestoreTestingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateRestoreTestingPlanCommandOutput>;
   createRestoreTestingPlan(
     args: CreateRestoreTestingPlanCommandInput,
@@ -962,7 +974,7 @@ export interface Backup {
   ): void;
   createRestoreTestingPlan(
     args: CreateRestoreTestingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateRestoreTestingPlanCommandOutput) => void
   ): void;
 
@@ -971,7 +983,7 @@ export interface Backup {
    */
   createRestoreTestingSelection(
     args: CreateRestoreTestingSelectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateRestoreTestingSelectionCommandOutput>;
   createRestoreTestingSelection(
     args: CreateRestoreTestingSelectionCommandInput,
@@ -979,7 +991,7 @@ export interface Backup {
   ): void;
   createRestoreTestingSelection(
     args: CreateRestoreTestingSelectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateRestoreTestingSelectionCommandOutput) => void
   ): void;
 
@@ -988,7 +1000,7 @@ export interface Backup {
    */
   createTieringConfiguration(
     args: CreateTieringConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<CreateTieringConfigurationCommandOutput>;
   createTieringConfiguration(
     args: CreateTieringConfigurationCommandInput,
@@ -996,7 +1008,7 @@ export interface Backup {
   ): void;
   createTieringConfiguration(
     args: CreateTieringConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: CreateTieringConfigurationCommandOutput) => void
   ): void;
 
@@ -1005,7 +1017,7 @@ export interface Backup {
    */
   deleteBackupAccessPoint(
     args: DeleteBackupAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteBackupAccessPointCommandOutput>;
   deleteBackupAccessPoint(
     args: DeleteBackupAccessPointCommandInput,
@@ -1013,7 +1025,7 @@ export interface Backup {
   ): void;
   deleteBackupAccessPoint(
     args: DeleteBackupAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteBackupAccessPointCommandOutput) => void
   ): void;
 
@@ -1022,7 +1034,7 @@ export interface Backup {
    */
   deleteBackupPlan(
     args: DeleteBackupPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteBackupPlanCommandOutput>;
   deleteBackupPlan(
     args: DeleteBackupPlanCommandInput,
@@ -1030,7 +1042,7 @@ export interface Backup {
   ): void;
   deleteBackupPlan(
     args: DeleteBackupPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteBackupPlanCommandOutput) => void
   ): void;
 
@@ -1039,7 +1051,7 @@ export interface Backup {
    */
   deleteBackupSelection(
     args: DeleteBackupSelectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteBackupSelectionCommandOutput>;
   deleteBackupSelection(
     args: DeleteBackupSelectionCommandInput,
@@ -1047,7 +1059,7 @@ export interface Backup {
   ): void;
   deleteBackupSelection(
     args: DeleteBackupSelectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteBackupSelectionCommandOutput) => void
   ): void;
 
@@ -1056,7 +1068,7 @@ export interface Backup {
    */
   deleteBackupVault(
     args: DeleteBackupVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteBackupVaultCommandOutput>;
   deleteBackupVault(
     args: DeleteBackupVaultCommandInput,
@@ -1064,7 +1076,7 @@ export interface Backup {
   ): void;
   deleteBackupVault(
     args: DeleteBackupVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteBackupVaultCommandOutput) => void
   ): void;
 
@@ -1073,7 +1085,7 @@ export interface Backup {
    */
   deleteBackupVaultAccessPolicy(
     args: DeleteBackupVaultAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteBackupVaultAccessPolicyCommandOutput>;
   deleteBackupVaultAccessPolicy(
     args: DeleteBackupVaultAccessPolicyCommandInput,
@@ -1081,7 +1093,7 @@ export interface Backup {
   ): void;
   deleteBackupVaultAccessPolicy(
     args: DeleteBackupVaultAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteBackupVaultAccessPolicyCommandOutput) => void
   ): void;
 
@@ -1090,7 +1102,7 @@ export interface Backup {
    */
   deleteBackupVaultLockConfiguration(
     args: DeleteBackupVaultLockConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteBackupVaultLockConfigurationCommandOutput>;
   deleteBackupVaultLockConfiguration(
     args: DeleteBackupVaultLockConfigurationCommandInput,
@@ -1098,7 +1110,7 @@ export interface Backup {
   ): void;
   deleteBackupVaultLockConfiguration(
     args: DeleteBackupVaultLockConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteBackupVaultLockConfigurationCommandOutput) => void
   ): void;
 
@@ -1107,7 +1119,7 @@ export interface Backup {
    */
   deleteBackupVaultNotifications(
     args: DeleteBackupVaultNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteBackupVaultNotificationsCommandOutput>;
   deleteBackupVaultNotifications(
     args: DeleteBackupVaultNotificationsCommandInput,
@@ -1115,7 +1127,7 @@ export interface Backup {
   ): void;
   deleteBackupVaultNotifications(
     args: DeleteBackupVaultNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteBackupVaultNotificationsCommandOutput) => void
   ): void;
 
@@ -1124,7 +1136,7 @@ export interface Backup {
    */
   deleteFramework(
     args: DeleteFrameworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteFrameworkCommandOutput>;
   deleteFramework(
     args: DeleteFrameworkCommandInput,
@@ -1132,7 +1144,7 @@ export interface Backup {
   ): void;
   deleteFramework(
     args: DeleteFrameworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteFrameworkCommandOutput) => void
   ): void;
 
@@ -1141,7 +1153,7 @@ export interface Backup {
    */
   deleteRecoveryPoint(
     args: DeleteRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteRecoveryPointCommandOutput>;
   deleteRecoveryPoint(
     args: DeleteRecoveryPointCommandInput,
@@ -1149,7 +1161,7 @@ export interface Backup {
   ): void;
   deleteRecoveryPoint(
     args: DeleteRecoveryPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteRecoveryPointCommandOutput) => void
   ): void;
 
@@ -1158,7 +1170,7 @@ export interface Backup {
    */
   deleteReportPlan(
     args: DeleteReportPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteReportPlanCommandOutput>;
   deleteReportPlan(
     args: DeleteReportPlanCommandInput,
@@ -1166,7 +1178,7 @@ export interface Backup {
   ): void;
   deleteReportPlan(
     args: DeleteReportPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteReportPlanCommandOutput) => void
   ): void;
 
@@ -1175,7 +1187,7 @@ export interface Backup {
    */
   deleteRestoreTestingPlan(
     args: DeleteRestoreTestingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteRestoreTestingPlanCommandOutput>;
   deleteRestoreTestingPlan(
     args: DeleteRestoreTestingPlanCommandInput,
@@ -1183,7 +1195,7 @@ export interface Backup {
   ): void;
   deleteRestoreTestingPlan(
     args: DeleteRestoreTestingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteRestoreTestingPlanCommandOutput) => void
   ): void;
 
@@ -1192,7 +1204,7 @@ export interface Backup {
    */
   deleteRestoreTestingSelection(
     args: DeleteRestoreTestingSelectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteRestoreTestingSelectionCommandOutput>;
   deleteRestoreTestingSelection(
     args: DeleteRestoreTestingSelectionCommandInput,
@@ -1200,7 +1212,7 @@ export interface Backup {
   ): void;
   deleteRestoreTestingSelection(
     args: DeleteRestoreTestingSelectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteRestoreTestingSelectionCommandOutput) => void
   ): void;
 
@@ -1209,7 +1221,7 @@ export interface Backup {
    */
   deleteTieringConfiguration(
     args: DeleteTieringConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DeleteTieringConfigurationCommandOutput>;
   deleteTieringConfiguration(
     args: DeleteTieringConfigurationCommandInput,
@@ -1217,7 +1229,7 @@ export interface Backup {
   ): void;
   deleteTieringConfiguration(
     args: DeleteTieringConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DeleteTieringConfigurationCommandOutput) => void
   ): void;
 
@@ -1226,7 +1238,7 @@ export interface Backup {
    */
   describeBackupAccessPoint(
     args: DescribeBackupAccessPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeBackupAccessPointCommandOutput>;
   describeBackupAccessPoint(
     args: DescribeBackupAccessPointCommandInput,
@@ -1234,7 +1246,7 @@ export interface Backup {
   ): void;
   describeBackupAccessPoint(
     args: DescribeBackupAccessPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeBackupAccessPointCommandOutput) => void
   ): void;
 
@@ -1243,7 +1255,7 @@ export interface Backup {
    */
   describeBackupJob(
     args: DescribeBackupJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeBackupJobCommandOutput>;
   describeBackupJob(
     args: DescribeBackupJobCommandInput,
@@ -1251,7 +1263,7 @@ export interface Backup {
   ): void;
   describeBackupJob(
     args: DescribeBackupJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeBackupJobCommandOutput) => void
   ): void;
 
@@ -1260,7 +1272,7 @@ export interface Backup {
    */
   describeBackupVault(
     args: DescribeBackupVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeBackupVaultCommandOutput>;
   describeBackupVault(
     args: DescribeBackupVaultCommandInput,
@@ -1268,7 +1280,7 @@ export interface Backup {
   ): void;
   describeBackupVault(
     args: DescribeBackupVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeBackupVaultCommandOutput) => void
   ): void;
 
@@ -1277,7 +1289,7 @@ export interface Backup {
    */
   describeCopyJob(
     args: DescribeCopyJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeCopyJobCommandOutput>;
   describeCopyJob(
     args: DescribeCopyJobCommandInput,
@@ -1285,7 +1297,7 @@ export interface Backup {
   ): void;
   describeCopyJob(
     args: DescribeCopyJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeCopyJobCommandOutput) => void
   ): void;
 
@@ -1294,7 +1306,7 @@ export interface Backup {
    */
   describeFramework(
     args: DescribeFrameworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeFrameworkCommandOutput>;
   describeFramework(
     args: DescribeFrameworkCommandInput,
@@ -1302,7 +1314,7 @@ export interface Backup {
   ): void;
   describeFramework(
     args: DescribeFrameworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeFrameworkCommandOutput) => void
   ): void;
 
@@ -1312,7 +1324,7 @@ export interface Backup {
   describeGlobalSettings(): Promise<DescribeGlobalSettingsCommandOutput>;
   describeGlobalSettings(
     args: DescribeGlobalSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeGlobalSettingsCommandOutput>;
   describeGlobalSettings(
     args: DescribeGlobalSettingsCommandInput,
@@ -1320,7 +1332,7 @@ export interface Backup {
   ): void;
   describeGlobalSettings(
     args: DescribeGlobalSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeGlobalSettingsCommandOutput) => void
   ): void;
 
@@ -1329,7 +1341,7 @@ export interface Backup {
    */
   describeProtectedResource(
     args: DescribeProtectedResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeProtectedResourceCommandOutput>;
   describeProtectedResource(
     args: DescribeProtectedResourceCommandInput,
@@ -1337,7 +1349,7 @@ export interface Backup {
   ): void;
   describeProtectedResource(
     args: DescribeProtectedResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeProtectedResourceCommandOutput) => void
   ): void;
 
@@ -1346,7 +1358,7 @@ export interface Backup {
    */
   describeRecoveryPoint(
     args: DescribeRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeRecoveryPointCommandOutput>;
   describeRecoveryPoint(
     args: DescribeRecoveryPointCommandInput,
@@ -1354,7 +1366,7 @@ export interface Backup {
   ): void;
   describeRecoveryPoint(
     args: DescribeRecoveryPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeRecoveryPointCommandOutput) => void
   ): void;
 
@@ -1364,7 +1376,7 @@ export interface Backup {
   describeRegionSettings(): Promise<DescribeRegionSettingsCommandOutput>;
   describeRegionSettings(
     args: DescribeRegionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeRegionSettingsCommandOutput>;
   describeRegionSettings(
     args: DescribeRegionSettingsCommandInput,
@@ -1372,7 +1384,7 @@ export interface Backup {
   ): void;
   describeRegionSettings(
     args: DescribeRegionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeRegionSettingsCommandOutput) => void
   ): void;
 
@@ -1381,7 +1393,7 @@ export interface Backup {
    */
   describeReportJob(
     args: DescribeReportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeReportJobCommandOutput>;
   describeReportJob(
     args: DescribeReportJobCommandInput,
@@ -1389,7 +1401,7 @@ export interface Backup {
   ): void;
   describeReportJob(
     args: DescribeReportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeReportJobCommandOutput) => void
   ): void;
 
@@ -1398,7 +1410,7 @@ export interface Backup {
    */
   describeReportPlan(
     args: DescribeReportPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeReportPlanCommandOutput>;
   describeReportPlan(
     args: DescribeReportPlanCommandInput,
@@ -1406,7 +1418,7 @@ export interface Backup {
   ): void;
   describeReportPlan(
     args: DescribeReportPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeReportPlanCommandOutput) => void
   ): void;
 
@@ -1415,7 +1427,7 @@ export interface Backup {
    */
   describeRestoreJob(
     args: DescribeRestoreJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeRestoreJobCommandOutput>;
   describeRestoreJob(
     args: DescribeRestoreJobCommandInput,
@@ -1423,7 +1435,7 @@ export interface Backup {
   ): void;
   describeRestoreJob(
     args: DescribeRestoreJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeRestoreJobCommandOutput) => void
   ): void;
 
@@ -1432,7 +1444,7 @@ export interface Backup {
    */
   describeScanJob(
     args: DescribeScanJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DescribeScanJobCommandOutput>;
   describeScanJob(
     args: DescribeScanJobCommandInput,
@@ -1440,7 +1452,7 @@ export interface Backup {
   ): void;
   describeScanJob(
     args: DescribeScanJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DescribeScanJobCommandOutput) => void
   ): void;
 
@@ -1449,7 +1461,7 @@ export interface Backup {
    */
   disassociateBackupVaultMpaApprovalTeam(
     args: DisassociateBackupVaultMpaApprovalTeamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DisassociateBackupVaultMpaApprovalTeamCommandOutput>;
   disassociateBackupVaultMpaApprovalTeam(
     args: DisassociateBackupVaultMpaApprovalTeamCommandInput,
@@ -1457,7 +1469,7 @@ export interface Backup {
   ): void;
   disassociateBackupVaultMpaApprovalTeam(
     args: DisassociateBackupVaultMpaApprovalTeamCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DisassociateBackupVaultMpaApprovalTeamCommandOutput) => void
   ): void;
 
@@ -1466,7 +1478,7 @@ export interface Backup {
    */
   disassociateRecoveryPoint(
     args: DisassociateRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DisassociateRecoveryPointCommandOutput>;
   disassociateRecoveryPoint(
     args: DisassociateRecoveryPointCommandInput,
@@ -1474,7 +1486,7 @@ export interface Backup {
   ): void;
   disassociateRecoveryPoint(
     args: DisassociateRecoveryPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DisassociateRecoveryPointCommandOutput) => void
   ): void;
 
@@ -1483,7 +1495,7 @@ export interface Backup {
    */
   disassociateRecoveryPointFromParent(
     args: DisassociateRecoveryPointFromParentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<DisassociateRecoveryPointFromParentCommandOutput>;
   disassociateRecoveryPointFromParent(
     args: DisassociateRecoveryPointFromParentCommandInput,
@@ -1491,7 +1503,7 @@ export interface Backup {
   ): void;
   disassociateRecoveryPointFromParent(
     args: DisassociateRecoveryPointFromParentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: DisassociateRecoveryPointFromParentCommandOutput) => void
   ): void;
 
@@ -1500,7 +1512,7 @@ export interface Backup {
    */
   exportBackupPlanTemplate(
     args: ExportBackupPlanTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ExportBackupPlanTemplateCommandOutput>;
   exportBackupPlanTemplate(
     args: ExportBackupPlanTemplateCommandInput,
@@ -1508,7 +1520,7 @@ export interface Backup {
   ): void;
   exportBackupPlanTemplate(
     args: ExportBackupPlanTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ExportBackupPlanTemplateCommandOutput) => void
   ): void;
 
@@ -1517,7 +1529,7 @@ export interface Backup {
    */
   getBackupPlan(
     args: GetBackupPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetBackupPlanCommandOutput>;
   getBackupPlan(
     args: GetBackupPlanCommandInput,
@@ -1525,7 +1537,7 @@ export interface Backup {
   ): void;
   getBackupPlan(
     args: GetBackupPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetBackupPlanCommandOutput) => void
   ): void;
 
@@ -1534,7 +1546,7 @@ export interface Backup {
    */
   getBackupPlanFromJSON(
     args: GetBackupPlanFromJSONCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetBackupPlanFromJSONCommandOutput>;
   getBackupPlanFromJSON(
     args: GetBackupPlanFromJSONCommandInput,
@@ -1542,7 +1554,7 @@ export interface Backup {
   ): void;
   getBackupPlanFromJSON(
     args: GetBackupPlanFromJSONCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetBackupPlanFromJSONCommandOutput) => void
   ): void;
 
@@ -1551,7 +1563,7 @@ export interface Backup {
    */
   getBackupPlanFromTemplate(
     args: GetBackupPlanFromTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetBackupPlanFromTemplateCommandOutput>;
   getBackupPlanFromTemplate(
     args: GetBackupPlanFromTemplateCommandInput,
@@ -1559,7 +1571,7 @@ export interface Backup {
   ): void;
   getBackupPlanFromTemplate(
     args: GetBackupPlanFromTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetBackupPlanFromTemplateCommandOutput) => void
   ): void;
 
@@ -1568,7 +1580,7 @@ export interface Backup {
    */
   getBackupSelection(
     args: GetBackupSelectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetBackupSelectionCommandOutput>;
   getBackupSelection(
     args: GetBackupSelectionCommandInput,
@@ -1576,7 +1588,7 @@ export interface Backup {
   ): void;
   getBackupSelection(
     args: GetBackupSelectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetBackupSelectionCommandOutput) => void
   ): void;
 
@@ -1585,7 +1597,7 @@ export interface Backup {
    */
   getBackupVaultAccessPolicy(
     args: GetBackupVaultAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetBackupVaultAccessPolicyCommandOutput>;
   getBackupVaultAccessPolicy(
     args: GetBackupVaultAccessPolicyCommandInput,
@@ -1593,7 +1605,7 @@ export interface Backup {
   ): void;
   getBackupVaultAccessPolicy(
     args: GetBackupVaultAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetBackupVaultAccessPolicyCommandOutput) => void
   ): void;
 
@@ -1602,7 +1614,7 @@ export interface Backup {
    */
   getBackupVaultNotifications(
     args: GetBackupVaultNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetBackupVaultNotificationsCommandOutput>;
   getBackupVaultNotifications(
     args: GetBackupVaultNotificationsCommandInput,
@@ -1610,7 +1622,7 @@ export interface Backup {
   ): void;
   getBackupVaultNotifications(
     args: GetBackupVaultNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetBackupVaultNotificationsCommandOutput) => void
   ): void;
 
@@ -1619,7 +1631,7 @@ export interface Backup {
    */
   getLegalHold(
     args: GetLegalHoldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetLegalHoldCommandOutput>;
   getLegalHold(
     args: GetLegalHoldCommandInput,
@@ -1627,7 +1639,7 @@ export interface Backup {
   ): void;
   getLegalHold(
     args: GetLegalHoldCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetLegalHoldCommandOutput) => void
   ): void;
 
@@ -1636,7 +1648,7 @@ export interface Backup {
    */
   getPITRMalwareScanResults(
     args: GetPITRMalwareScanResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetPITRMalwareScanResultsCommandOutput>;
   getPITRMalwareScanResults(
     args: GetPITRMalwareScanResultsCommandInput,
@@ -1644,7 +1656,7 @@ export interface Backup {
   ): void;
   getPITRMalwareScanResults(
     args: GetPITRMalwareScanResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetPITRMalwareScanResultsCommandOutput) => void
   ): void;
 
@@ -1653,7 +1665,7 @@ export interface Backup {
    */
   getRecoveryPointIndexDetails(
     args: GetRecoveryPointIndexDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetRecoveryPointIndexDetailsCommandOutput>;
   getRecoveryPointIndexDetails(
     args: GetRecoveryPointIndexDetailsCommandInput,
@@ -1661,7 +1673,7 @@ export interface Backup {
   ): void;
   getRecoveryPointIndexDetails(
     args: GetRecoveryPointIndexDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetRecoveryPointIndexDetailsCommandOutput) => void
   ): void;
 
@@ -1670,7 +1682,7 @@ export interface Backup {
    */
   getRecoveryPointRestoreMetadata(
     args: GetRecoveryPointRestoreMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetRecoveryPointRestoreMetadataCommandOutput>;
   getRecoveryPointRestoreMetadata(
     args: GetRecoveryPointRestoreMetadataCommandInput,
@@ -1678,7 +1690,7 @@ export interface Backup {
   ): void;
   getRecoveryPointRestoreMetadata(
     args: GetRecoveryPointRestoreMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetRecoveryPointRestoreMetadataCommandOutput) => void
   ): void;
 
@@ -1687,7 +1699,7 @@ export interface Backup {
    */
   getRestoreJobMetadata(
     args: GetRestoreJobMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetRestoreJobMetadataCommandOutput>;
   getRestoreJobMetadata(
     args: GetRestoreJobMetadataCommandInput,
@@ -1695,7 +1707,7 @@ export interface Backup {
   ): void;
   getRestoreJobMetadata(
     args: GetRestoreJobMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetRestoreJobMetadataCommandOutput) => void
   ): void;
 
@@ -1704,7 +1716,7 @@ export interface Backup {
    */
   getRestoreTestingInferredMetadata(
     args: GetRestoreTestingInferredMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetRestoreTestingInferredMetadataCommandOutput>;
   getRestoreTestingInferredMetadata(
     args: GetRestoreTestingInferredMetadataCommandInput,
@@ -1712,7 +1724,7 @@ export interface Backup {
   ): void;
   getRestoreTestingInferredMetadata(
     args: GetRestoreTestingInferredMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetRestoreTestingInferredMetadataCommandOutput) => void
   ): void;
 
@@ -1721,7 +1733,7 @@ export interface Backup {
    */
   getRestoreTestingPlan(
     args: GetRestoreTestingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetRestoreTestingPlanCommandOutput>;
   getRestoreTestingPlan(
     args: GetRestoreTestingPlanCommandInput,
@@ -1729,7 +1741,7 @@ export interface Backup {
   ): void;
   getRestoreTestingPlan(
     args: GetRestoreTestingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetRestoreTestingPlanCommandOutput) => void
   ): void;
 
@@ -1738,7 +1750,7 @@ export interface Backup {
    */
   getRestoreTestingSelection(
     args: GetRestoreTestingSelectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetRestoreTestingSelectionCommandOutput>;
   getRestoreTestingSelection(
     args: GetRestoreTestingSelectionCommandInput,
@@ -1746,7 +1758,7 @@ export interface Backup {
   ): void;
   getRestoreTestingSelection(
     args: GetRestoreTestingSelectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetRestoreTestingSelectionCommandOutput) => void
   ): void;
 
@@ -1756,7 +1768,7 @@ export interface Backup {
   getSupportedResourceTypes(): Promise<GetSupportedResourceTypesCommandOutput>;
   getSupportedResourceTypes(
     args: GetSupportedResourceTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetSupportedResourceTypesCommandOutput>;
   getSupportedResourceTypes(
     args: GetSupportedResourceTypesCommandInput,
@@ -1764,7 +1776,7 @@ export interface Backup {
   ): void;
   getSupportedResourceTypes(
     args: GetSupportedResourceTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetSupportedResourceTypesCommandOutput) => void
   ): void;
 
@@ -1773,7 +1785,7 @@ export interface Backup {
    */
   getTieringConfiguration(
     args: GetTieringConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<GetTieringConfigurationCommandOutput>;
   getTieringConfiguration(
     args: GetTieringConfigurationCommandInput,
@@ -1781,7 +1793,7 @@ export interface Backup {
   ): void;
   getTieringConfiguration(
     args: GetTieringConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: GetTieringConfigurationCommandOutput) => void
   ): void;
 
@@ -1791,7 +1803,7 @@ export interface Backup {
   listBackupAccessPoints(): Promise<ListBackupAccessPointsCommandOutput>;
   listBackupAccessPoints(
     args: ListBackupAccessPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupAccessPointsCommandOutput>;
   listBackupAccessPoints(
     args: ListBackupAccessPointsCommandInput,
@@ -1799,7 +1811,7 @@ export interface Backup {
   ): void;
   listBackupAccessPoints(
     args: ListBackupAccessPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupAccessPointsCommandOutput) => void
   ): void;
 
@@ -1808,7 +1820,7 @@ export interface Backup {
    */
   listBackupAccessPointsByRecoveryPoint(
     args: ListBackupAccessPointsByRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupAccessPointsByRecoveryPointCommandOutput>;
   listBackupAccessPointsByRecoveryPoint(
     args: ListBackupAccessPointsByRecoveryPointCommandInput,
@@ -1816,7 +1828,7 @@ export interface Backup {
   ): void;
   listBackupAccessPointsByRecoveryPoint(
     args: ListBackupAccessPointsByRecoveryPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupAccessPointsByRecoveryPointCommandOutput) => void
   ): void;
 
@@ -1825,7 +1837,7 @@ export interface Backup {
    */
   listBackupAccessPointsByResource(
     args: ListBackupAccessPointsByResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupAccessPointsByResourceCommandOutput>;
   listBackupAccessPointsByResource(
     args: ListBackupAccessPointsByResourceCommandInput,
@@ -1833,7 +1845,7 @@ export interface Backup {
   ): void;
   listBackupAccessPointsByResource(
     args: ListBackupAccessPointsByResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupAccessPointsByResourceCommandOutput) => void
   ): void;
 
@@ -1843,7 +1855,7 @@ export interface Backup {
   listBackupJobs(): Promise<ListBackupJobsCommandOutput>;
   listBackupJobs(
     args: ListBackupJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupJobsCommandOutput>;
   listBackupJobs(
     args: ListBackupJobsCommandInput,
@@ -1851,7 +1863,7 @@ export interface Backup {
   ): void;
   listBackupJobs(
     args: ListBackupJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupJobsCommandOutput) => void
   ): void;
 
@@ -1861,7 +1873,7 @@ export interface Backup {
   listBackupJobSummaries(): Promise<ListBackupJobSummariesCommandOutput>;
   listBackupJobSummaries(
     args: ListBackupJobSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupJobSummariesCommandOutput>;
   listBackupJobSummaries(
     args: ListBackupJobSummariesCommandInput,
@@ -1869,7 +1881,7 @@ export interface Backup {
   ): void;
   listBackupJobSummaries(
     args: ListBackupJobSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupJobSummariesCommandOutput) => void
   ): void;
 
@@ -1879,7 +1891,7 @@ export interface Backup {
   listBackupPlans(): Promise<ListBackupPlansCommandOutput>;
   listBackupPlans(
     args: ListBackupPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupPlansCommandOutput>;
   listBackupPlans(
     args: ListBackupPlansCommandInput,
@@ -1887,7 +1899,7 @@ export interface Backup {
   ): void;
   listBackupPlans(
     args: ListBackupPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupPlansCommandOutput) => void
   ): void;
 
@@ -1897,7 +1909,7 @@ export interface Backup {
   listBackupPlanTemplates(): Promise<ListBackupPlanTemplatesCommandOutput>;
   listBackupPlanTemplates(
     args: ListBackupPlanTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupPlanTemplatesCommandOutput>;
   listBackupPlanTemplates(
     args: ListBackupPlanTemplatesCommandInput,
@@ -1905,7 +1917,7 @@ export interface Backup {
   ): void;
   listBackupPlanTemplates(
     args: ListBackupPlanTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupPlanTemplatesCommandOutput) => void
   ): void;
 
@@ -1914,7 +1926,7 @@ export interface Backup {
    */
   listBackupPlanVersions(
     args: ListBackupPlanVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupPlanVersionsCommandOutput>;
   listBackupPlanVersions(
     args: ListBackupPlanVersionsCommandInput,
@@ -1922,7 +1934,7 @@ export interface Backup {
   ): void;
   listBackupPlanVersions(
     args: ListBackupPlanVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupPlanVersionsCommandOutput) => void
   ): void;
 
@@ -1931,7 +1943,7 @@ export interface Backup {
    */
   listBackupSelections(
     args: ListBackupSelectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupSelectionsCommandOutput>;
   listBackupSelections(
     args: ListBackupSelectionsCommandInput,
@@ -1939,7 +1951,7 @@ export interface Backup {
   ): void;
   listBackupSelections(
     args: ListBackupSelectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupSelectionsCommandOutput) => void
   ): void;
 
@@ -1949,7 +1961,7 @@ export interface Backup {
   listBackupVaults(): Promise<ListBackupVaultsCommandOutput>;
   listBackupVaults(
     args: ListBackupVaultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListBackupVaultsCommandOutput>;
   listBackupVaults(
     args: ListBackupVaultsCommandInput,
@@ -1957,7 +1969,7 @@ export interface Backup {
   ): void;
   listBackupVaults(
     args: ListBackupVaultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListBackupVaultsCommandOutput) => void
   ): void;
 
@@ -1967,7 +1979,7 @@ export interface Backup {
   listCopyJobs(): Promise<ListCopyJobsCommandOutput>;
   listCopyJobs(
     args: ListCopyJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListCopyJobsCommandOutput>;
   listCopyJobs(
     args: ListCopyJobsCommandInput,
@@ -1975,7 +1987,7 @@ export interface Backup {
   ): void;
   listCopyJobs(
     args: ListCopyJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListCopyJobsCommandOutput) => void
   ): void;
 
@@ -1985,7 +1997,7 @@ export interface Backup {
   listCopyJobSummaries(): Promise<ListCopyJobSummariesCommandOutput>;
   listCopyJobSummaries(
     args: ListCopyJobSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListCopyJobSummariesCommandOutput>;
   listCopyJobSummaries(
     args: ListCopyJobSummariesCommandInput,
@@ -1993,7 +2005,7 @@ export interface Backup {
   ): void;
   listCopyJobSummaries(
     args: ListCopyJobSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListCopyJobSummariesCommandOutput) => void
   ): void;
 
@@ -2003,7 +2015,7 @@ export interface Backup {
   listFrameworks(): Promise<ListFrameworksCommandOutput>;
   listFrameworks(
     args: ListFrameworksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListFrameworksCommandOutput>;
   listFrameworks(
     args: ListFrameworksCommandInput,
@@ -2011,7 +2023,7 @@ export interface Backup {
   ): void;
   listFrameworks(
     args: ListFrameworksCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListFrameworksCommandOutput) => void
   ): void;
 
@@ -2021,7 +2033,7 @@ export interface Backup {
   listIndexedRecoveryPoints(): Promise<ListIndexedRecoveryPointsCommandOutput>;
   listIndexedRecoveryPoints(
     args: ListIndexedRecoveryPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListIndexedRecoveryPointsCommandOutput>;
   listIndexedRecoveryPoints(
     args: ListIndexedRecoveryPointsCommandInput,
@@ -2029,7 +2041,7 @@ export interface Backup {
   ): void;
   listIndexedRecoveryPoints(
     args: ListIndexedRecoveryPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListIndexedRecoveryPointsCommandOutput) => void
   ): void;
 
@@ -2039,7 +2051,7 @@ export interface Backup {
   listLegalHolds(): Promise<ListLegalHoldsCommandOutput>;
   listLegalHolds(
     args: ListLegalHoldsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListLegalHoldsCommandOutput>;
   listLegalHolds(
     args: ListLegalHoldsCommandInput,
@@ -2047,7 +2059,7 @@ export interface Backup {
   ): void;
   listLegalHolds(
     args: ListLegalHoldsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListLegalHoldsCommandOutput) => void
   ): void;
 
@@ -2057,7 +2069,7 @@ export interface Backup {
   listProtectedResources(): Promise<ListProtectedResourcesCommandOutput>;
   listProtectedResources(
     args: ListProtectedResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListProtectedResourcesCommandOutput>;
   listProtectedResources(
     args: ListProtectedResourcesCommandInput,
@@ -2065,7 +2077,7 @@ export interface Backup {
   ): void;
   listProtectedResources(
     args: ListProtectedResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListProtectedResourcesCommandOutput) => void
   ): void;
 
@@ -2074,7 +2086,7 @@ export interface Backup {
    */
   listProtectedResourcesByBackupVault(
     args: ListProtectedResourcesByBackupVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListProtectedResourcesByBackupVaultCommandOutput>;
   listProtectedResourcesByBackupVault(
     args: ListProtectedResourcesByBackupVaultCommandInput,
@@ -2082,7 +2094,7 @@ export interface Backup {
   ): void;
   listProtectedResourcesByBackupVault(
     args: ListProtectedResourcesByBackupVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListProtectedResourcesByBackupVaultCommandOutput) => void
   ): void;
 
@@ -2091,7 +2103,7 @@ export interface Backup {
    */
   listRecoveryPointsByBackupVault(
     args: ListRecoveryPointsByBackupVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListRecoveryPointsByBackupVaultCommandOutput>;
   listRecoveryPointsByBackupVault(
     args: ListRecoveryPointsByBackupVaultCommandInput,
@@ -2099,7 +2111,7 @@ export interface Backup {
   ): void;
   listRecoveryPointsByBackupVault(
     args: ListRecoveryPointsByBackupVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListRecoveryPointsByBackupVaultCommandOutput) => void
   ): void;
 
@@ -2108,7 +2120,7 @@ export interface Backup {
    */
   listRecoveryPointsByLegalHold(
     args: ListRecoveryPointsByLegalHoldCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListRecoveryPointsByLegalHoldCommandOutput>;
   listRecoveryPointsByLegalHold(
     args: ListRecoveryPointsByLegalHoldCommandInput,
@@ -2116,7 +2128,7 @@ export interface Backup {
   ): void;
   listRecoveryPointsByLegalHold(
     args: ListRecoveryPointsByLegalHoldCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListRecoveryPointsByLegalHoldCommandOutput) => void
   ): void;
 
@@ -2125,7 +2137,7 @@ export interface Backup {
    */
   listRecoveryPointsByResource(
     args: ListRecoveryPointsByResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListRecoveryPointsByResourceCommandOutput>;
   listRecoveryPointsByResource(
     args: ListRecoveryPointsByResourceCommandInput,
@@ -2133,7 +2145,7 @@ export interface Backup {
   ): void;
   listRecoveryPointsByResource(
     args: ListRecoveryPointsByResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListRecoveryPointsByResourceCommandOutput) => void
   ): void;
 
@@ -2143,7 +2155,7 @@ export interface Backup {
   listReportJobs(): Promise<ListReportJobsCommandOutput>;
   listReportJobs(
     args: ListReportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListReportJobsCommandOutput>;
   listReportJobs(
     args: ListReportJobsCommandInput,
@@ -2151,7 +2163,7 @@ export interface Backup {
   ): void;
   listReportJobs(
     args: ListReportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListReportJobsCommandOutput) => void
   ): void;
 
@@ -2161,7 +2173,7 @@ export interface Backup {
   listReportPlans(): Promise<ListReportPlansCommandOutput>;
   listReportPlans(
     args: ListReportPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListReportPlansCommandOutput>;
   listReportPlans(
     args: ListReportPlansCommandInput,
@@ -2169,7 +2181,7 @@ export interface Backup {
   ): void;
   listReportPlans(
     args: ListReportPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListReportPlansCommandOutput) => void
   ): void;
 
@@ -2178,7 +2190,7 @@ export interface Backup {
    */
   listRestoreAccessBackupVaults(
     args: ListRestoreAccessBackupVaultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListRestoreAccessBackupVaultsCommandOutput>;
   listRestoreAccessBackupVaults(
     args: ListRestoreAccessBackupVaultsCommandInput,
@@ -2186,7 +2198,7 @@ export interface Backup {
   ): void;
   listRestoreAccessBackupVaults(
     args: ListRestoreAccessBackupVaultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListRestoreAccessBackupVaultsCommandOutput) => void
   ): void;
 
@@ -2196,7 +2208,7 @@ export interface Backup {
   listRestoreJobs(): Promise<ListRestoreJobsCommandOutput>;
   listRestoreJobs(
     args: ListRestoreJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListRestoreJobsCommandOutput>;
   listRestoreJobs(
     args: ListRestoreJobsCommandInput,
@@ -2204,7 +2216,7 @@ export interface Backup {
   ): void;
   listRestoreJobs(
     args: ListRestoreJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListRestoreJobsCommandOutput) => void
   ): void;
 
@@ -2213,7 +2225,7 @@ export interface Backup {
    */
   listRestoreJobsByProtectedResource(
     args: ListRestoreJobsByProtectedResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListRestoreJobsByProtectedResourceCommandOutput>;
   listRestoreJobsByProtectedResource(
     args: ListRestoreJobsByProtectedResourceCommandInput,
@@ -2221,7 +2233,7 @@ export interface Backup {
   ): void;
   listRestoreJobsByProtectedResource(
     args: ListRestoreJobsByProtectedResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListRestoreJobsByProtectedResourceCommandOutput) => void
   ): void;
 
@@ -2231,7 +2243,7 @@ export interface Backup {
   listRestoreJobSummaries(): Promise<ListRestoreJobSummariesCommandOutput>;
   listRestoreJobSummaries(
     args: ListRestoreJobSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListRestoreJobSummariesCommandOutput>;
   listRestoreJobSummaries(
     args: ListRestoreJobSummariesCommandInput,
@@ -2239,7 +2251,7 @@ export interface Backup {
   ): void;
   listRestoreJobSummaries(
     args: ListRestoreJobSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListRestoreJobSummariesCommandOutput) => void
   ): void;
 
@@ -2249,7 +2261,7 @@ export interface Backup {
   listRestoreTestingPlans(): Promise<ListRestoreTestingPlansCommandOutput>;
   listRestoreTestingPlans(
     args: ListRestoreTestingPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListRestoreTestingPlansCommandOutput>;
   listRestoreTestingPlans(
     args: ListRestoreTestingPlansCommandInput,
@@ -2257,7 +2269,7 @@ export interface Backup {
   ): void;
   listRestoreTestingPlans(
     args: ListRestoreTestingPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListRestoreTestingPlansCommandOutput) => void
   ): void;
 
@@ -2266,7 +2278,7 @@ export interface Backup {
    */
   listRestoreTestingSelections(
     args: ListRestoreTestingSelectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListRestoreTestingSelectionsCommandOutput>;
   listRestoreTestingSelections(
     args: ListRestoreTestingSelectionsCommandInput,
@@ -2274,7 +2286,7 @@ export interface Backup {
   ): void;
   listRestoreTestingSelections(
     args: ListRestoreTestingSelectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListRestoreTestingSelectionsCommandOutput) => void
   ): void;
 
@@ -2284,7 +2296,7 @@ export interface Backup {
   listScanJobs(): Promise<ListScanJobsCommandOutput>;
   listScanJobs(
     args: ListScanJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListScanJobsCommandOutput>;
   listScanJobs(
     args: ListScanJobsCommandInput,
@@ -2292,7 +2304,7 @@ export interface Backup {
   ): void;
   listScanJobs(
     args: ListScanJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListScanJobsCommandOutput) => void
   ): void;
 
@@ -2302,7 +2314,7 @@ export interface Backup {
   listScanJobSummaries(): Promise<ListScanJobSummariesCommandOutput>;
   listScanJobSummaries(
     args: ListScanJobSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListScanJobSummariesCommandOutput>;
   listScanJobSummaries(
     args: ListScanJobSummariesCommandInput,
@@ -2310,7 +2322,7 @@ export interface Backup {
   ): void;
   listScanJobSummaries(
     args: ListScanJobSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListScanJobSummariesCommandOutput) => void
   ): void;
 
@@ -2319,7 +2331,7 @@ export interface Backup {
    */
   listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListTagsCommandOutput>;
   listTags(
     args: ListTagsCommandInput,
@@ -2327,7 +2339,7 @@ export interface Backup {
   ): void;
   listTags(
     args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
 
@@ -2337,7 +2349,7 @@ export interface Backup {
   listTieringConfigurations(): Promise<ListTieringConfigurationsCommandOutput>;
   listTieringConfigurations(
     args: ListTieringConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<ListTieringConfigurationsCommandOutput>;
   listTieringConfigurations(
     args: ListTieringConfigurationsCommandInput,
@@ -2345,7 +2357,7 @@ export interface Backup {
   ): void;
   listTieringConfigurations(
     args: ListTieringConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: ListTieringConfigurationsCommandOutput) => void
   ): void;
 
@@ -2354,7 +2366,7 @@ export interface Backup {
    */
   putBackupVaultAccessPolicy(
     args: PutBackupVaultAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<PutBackupVaultAccessPolicyCommandOutput>;
   putBackupVaultAccessPolicy(
     args: PutBackupVaultAccessPolicyCommandInput,
@@ -2362,7 +2374,7 @@ export interface Backup {
   ): void;
   putBackupVaultAccessPolicy(
     args: PutBackupVaultAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: PutBackupVaultAccessPolicyCommandOutput) => void
   ): void;
 
@@ -2371,7 +2383,7 @@ export interface Backup {
    */
   putBackupVaultLockConfiguration(
     args: PutBackupVaultLockConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<PutBackupVaultLockConfigurationCommandOutput>;
   putBackupVaultLockConfiguration(
     args: PutBackupVaultLockConfigurationCommandInput,
@@ -2379,7 +2391,7 @@ export interface Backup {
   ): void;
   putBackupVaultLockConfiguration(
     args: PutBackupVaultLockConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: PutBackupVaultLockConfigurationCommandOutput) => void
   ): void;
 
@@ -2388,7 +2400,7 @@ export interface Backup {
    */
   putBackupVaultNotifications(
     args: PutBackupVaultNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<PutBackupVaultNotificationsCommandOutput>;
   putBackupVaultNotifications(
     args: PutBackupVaultNotificationsCommandInput,
@@ -2396,7 +2408,7 @@ export interface Backup {
   ): void;
   putBackupVaultNotifications(
     args: PutBackupVaultNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: PutBackupVaultNotificationsCommandOutput) => void
   ): void;
 
@@ -2405,7 +2417,7 @@ export interface Backup {
    */
   putRestoreValidationResult(
     args: PutRestoreValidationResultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<PutRestoreValidationResultCommandOutput>;
   putRestoreValidationResult(
     args: PutRestoreValidationResultCommandInput,
@@ -2413,7 +2425,7 @@ export interface Backup {
   ): void;
   putRestoreValidationResult(
     args: PutRestoreValidationResultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: PutRestoreValidationResultCommandOutput) => void
   ): void;
 
@@ -2422,7 +2434,7 @@ export interface Backup {
    */
   revokeRestoreAccessBackupVault(
     args: RevokeRestoreAccessBackupVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<RevokeRestoreAccessBackupVaultCommandOutput>;
   revokeRestoreAccessBackupVault(
     args: RevokeRestoreAccessBackupVaultCommandInput,
@@ -2430,7 +2442,7 @@ export interface Backup {
   ): void;
   revokeRestoreAccessBackupVault(
     args: RevokeRestoreAccessBackupVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: RevokeRestoreAccessBackupVaultCommandOutput) => void
   ): void;
 
@@ -2439,7 +2451,7 @@ export interface Backup {
    */
   startBackupJob(
     args: StartBackupJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<StartBackupJobCommandOutput>;
   startBackupJob(
     args: StartBackupJobCommandInput,
@@ -2447,7 +2459,7 @@ export interface Backup {
   ): void;
   startBackupJob(
     args: StartBackupJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: StartBackupJobCommandOutput) => void
   ): void;
 
@@ -2456,7 +2468,7 @@ export interface Backup {
    */
   startCopyJob(
     args: StartCopyJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<StartCopyJobCommandOutput>;
   startCopyJob(
     args: StartCopyJobCommandInput,
@@ -2464,7 +2476,7 @@ export interface Backup {
   ): void;
   startCopyJob(
     args: StartCopyJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: StartCopyJobCommandOutput) => void
   ): void;
 
@@ -2473,7 +2485,7 @@ export interface Backup {
    */
   startReportJob(
     args: StartReportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<StartReportJobCommandOutput>;
   startReportJob(
     args: StartReportJobCommandInput,
@@ -2481,7 +2493,7 @@ export interface Backup {
   ): void;
   startReportJob(
     args: StartReportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: StartReportJobCommandOutput) => void
   ): void;
 
@@ -2490,7 +2502,7 @@ export interface Backup {
    */
   startRestoreJob(
     args: StartRestoreJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<StartRestoreJobCommandOutput>;
   startRestoreJob(
     args: StartRestoreJobCommandInput,
@@ -2498,7 +2510,7 @@ export interface Backup {
   ): void;
   startRestoreJob(
     args: StartRestoreJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: StartRestoreJobCommandOutput) => void
   ): void;
 
@@ -2507,7 +2519,7 @@ export interface Backup {
    */
   startScanJob(
     args: StartScanJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<StartScanJobCommandOutput>;
   startScanJob(
     args: StartScanJobCommandInput,
@@ -2515,7 +2527,7 @@ export interface Backup {
   ): void;
   startScanJob(
     args: StartScanJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: StartScanJobCommandOutput) => void
   ): void;
 
@@ -2524,7 +2536,7 @@ export interface Backup {
    */
   stopBackupJob(
     args: StopBackupJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<StopBackupJobCommandOutput>;
   stopBackupJob(
     args: StopBackupJobCommandInput,
@@ -2532,7 +2544,7 @@ export interface Backup {
   ): void;
   stopBackupJob(
     args: StopBackupJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: StopBackupJobCommandOutput) => void
   ): void;
 
@@ -2541,7 +2553,7 @@ export interface Backup {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2549,7 +2561,7 @@ export interface Backup {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2558,7 +2570,7 @@ export interface Backup {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2566,7 +2578,7 @@ export interface Backup {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2575,7 +2587,7 @@ export interface Backup {
    */
   updateBackupPlan(
     args: UpdateBackupPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateBackupPlanCommandOutput>;
   updateBackupPlan(
     args: UpdateBackupPlanCommandInput,
@@ -2583,7 +2595,7 @@ export interface Backup {
   ): void;
   updateBackupPlan(
     args: UpdateBackupPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateBackupPlanCommandOutput) => void
   ): void;
 
@@ -2592,7 +2604,7 @@ export interface Backup {
    */
   updateFramework(
     args: UpdateFrameworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateFrameworkCommandOutput>;
   updateFramework(
     args: UpdateFrameworkCommandInput,
@@ -2600,7 +2612,7 @@ export interface Backup {
   ): void;
   updateFramework(
     args: UpdateFrameworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateFrameworkCommandOutput) => void
   ): void;
 
@@ -2610,7 +2622,7 @@ export interface Backup {
   updateGlobalSettings(): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
@@ -2618,7 +2630,7 @@ export interface Backup {
   ): void;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
   ): void;
 
@@ -2627,7 +2639,7 @@ export interface Backup {
    */
   updateRecoveryPointIndexSettings(
     args: UpdateRecoveryPointIndexSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateRecoveryPointIndexSettingsCommandOutput>;
   updateRecoveryPointIndexSettings(
     args: UpdateRecoveryPointIndexSettingsCommandInput,
@@ -2635,7 +2647,7 @@ export interface Backup {
   ): void;
   updateRecoveryPointIndexSettings(
     args: UpdateRecoveryPointIndexSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateRecoveryPointIndexSettingsCommandOutput) => void
   ): void;
 
@@ -2644,7 +2656,7 @@ export interface Backup {
    */
   updateRecoveryPointLifecycle(
     args: UpdateRecoveryPointLifecycleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateRecoveryPointLifecycleCommandOutput>;
   updateRecoveryPointLifecycle(
     args: UpdateRecoveryPointLifecycleCommandInput,
@@ -2652,7 +2664,7 @@ export interface Backup {
   ): void;
   updateRecoveryPointLifecycle(
     args: UpdateRecoveryPointLifecycleCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateRecoveryPointLifecycleCommandOutput) => void
   ): void;
 
@@ -2662,7 +2674,7 @@ export interface Backup {
   updateRegionSettings(): Promise<UpdateRegionSettingsCommandOutput>;
   updateRegionSettings(
     args: UpdateRegionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateRegionSettingsCommandOutput>;
   updateRegionSettings(
     args: UpdateRegionSettingsCommandInput,
@@ -2670,7 +2682,7 @@ export interface Backup {
   ): void;
   updateRegionSettings(
     args: UpdateRegionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateRegionSettingsCommandOutput) => void
   ): void;
 
@@ -2679,7 +2691,7 @@ export interface Backup {
    */
   updateReportPlan(
     args: UpdateReportPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateReportPlanCommandOutput>;
   updateReportPlan(
     args: UpdateReportPlanCommandInput,
@@ -2687,7 +2699,7 @@ export interface Backup {
   ): void;
   updateReportPlan(
     args: UpdateReportPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateReportPlanCommandOutput) => void
   ): void;
 
@@ -2696,7 +2708,7 @@ export interface Backup {
    */
   updateRestoreTestingPlan(
     args: UpdateRestoreTestingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateRestoreTestingPlanCommandOutput>;
   updateRestoreTestingPlan(
     args: UpdateRestoreTestingPlanCommandInput,
@@ -2704,7 +2716,7 @@ export interface Backup {
   ): void;
   updateRestoreTestingPlan(
     args: UpdateRestoreTestingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateRestoreTestingPlanCommandOutput) => void
   ): void;
 
@@ -2713,7 +2725,7 @@ export interface Backup {
    */
   updateRestoreTestingSelection(
     args: UpdateRestoreTestingSelectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateRestoreTestingSelectionCommandOutput>;
   updateRestoreTestingSelection(
     args: UpdateRestoreTestingSelectionCommandInput,
@@ -2721,7 +2733,7 @@ export interface Backup {
   ): void;
   updateRestoreTestingSelection(
     args: UpdateRestoreTestingSelectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateRestoreTestingSelectionCommandOutput) => void
   ): void;
 
@@ -2730,7 +2742,7 @@ export interface Backup {
    */
   updateTieringConfiguration(
     args: UpdateTieringConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BackupRequestOptions
   ): Promise<UpdateTieringConfigurationCommandOutput>;
   updateTieringConfiguration(
     args: UpdateTieringConfigurationCommandInput,
@@ -2738,7 +2750,7 @@ export interface Backup {
   ): void;
   updateTieringConfiguration(
     args: UpdateTieringConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BackupRequestOptions,
     cb: (err: any, data?: UpdateTieringConfigurationCommandOutput) => void
   ): void;
 

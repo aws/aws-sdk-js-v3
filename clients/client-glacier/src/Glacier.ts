@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -220,13 +221,20 @@ const waiters = {
   waitUntilVaultNotExists,
 };
 
+/**
+ * @public
+ */
+export interface GlacierRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Glacier {
   /**
    * @see {@link AbortMultipartUploadCommand}
    */
   abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<AbortMultipartUploadCommandOutput>;
   abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
@@ -234,7 +242,7 @@ export interface Glacier {
   ): void;
   abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: AbortMultipartUploadCommandOutput) => void
   ): void;
 
@@ -243,7 +251,7 @@ export interface Glacier {
    */
   abortVaultLock(
     args: AbortVaultLockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<AbortVaultLockCommandOutput>;
   abortVaultLock(
     args: AbortVaultLockCommandInput,
@@ -251,7 +259,7 @@ export interface Glacier {
   ): void;
   abortVaultLock(
     args: AbortVaultLockCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: AbortVaultLockCommandOutput) => void
   ): void;
 
@@ -260,7 +268,7 @@ export interface Glacier {
    */
   addTagsToVault(
     args: AddTagsToVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<AddTagsToVaultCommandOutput>;
   addTagsToVault(
     args: AddTagsToVaultCommandInput,
@@ -268,7 +276,7 @@ export interface Glacier {
   ): void;
   addTagsToVault(
     args: AddTagsToVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: AddTagsToVaultCommandOutput) => void
   ): void;
 
@@ -277,7 +285,7 @@ export interface Glacier {
    */
   completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<CompleteMultipartUploadCommandOutput>;
   completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
@@ -285,7 +293,7 @@ export interface Glacier {
   ): void;
   completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: CompleteMultipartUploadCommandOutput) => void
   ): void;
 
@@ -294,7 +302,7 @@ export interface Glacier {
    */
   completeVaultLock(
     args: CompleteVaultLockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<CompleteVaultLockCommandOutput>;
   completeVaultLock(
     args: CompleteVaultLockCommandInput,
@@ -302,7 +310,7 @@ export interface Glacier {
   ): void;
   completeVaultLock(
     args: CompleteVaultLockCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: CompleteVaultLockCommandOutput) => void
   ): void;
 
@@ -311,7 +319,7 @@ export interface Glacier {
    */
   createVault(
     args: CreateVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<CreateVaultCommandOutput>;
   createVault(
     args: CreateVaultCommandInput,
@@ -319,7 +327,7 @@ export interface Glacier {
   ): void;
   createVault(
     args: CreateVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: CreateVaultCommandOutput) => void
   ): void;
 
@@ -328,7 +336,7 @@ export interface Glacier {
    */
   deleteArchive(
     args: DeleteArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<DeleteArchiveCommandOutput>;
   deleteArchive(
     args: DeleteArchiveCommandInput,
@@ -336,7 +344,7 @@ export interface Glacier {
   ): void;
   deleteArchive(
     args: DeleteArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: DeleteArchiveCommandOutput) => void
   ): void;
 
@@ -345,7 +353,7 @@ export interface Glacier {
    */
   deleteVault(
     args: DeleteVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<DeleteVaultCommandOutput>;
   deleteVault(
     args: DeleteVaultCommandInput,
@@ -353,7 +361,7 @@ export interface Glacier {
   ): void;
   deleteVault(
     args: DeleteVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: DeleteVaultCommandOutput) => void
   ): void;
 
@@ -362,7 +370,7 @@ export interface Glacier {
    */
   deleteVaultAccessPolicy(
     args: DeleteVaultAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<DeleteVaultAccessPolicyCommandOutput>;
   deleteVaultAccessPolicy(
     args: DeleteVaultAccessPolicyCommandInput,
@@ -370,7 +378,7 @@ export interface Glacier {
   ): void;
   deleteVaultAccessPolicy(
     args: DeleteVaultAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: DeleteVaultAccessPolicyCommandOutput) => void
   ): void;
 
@@ -379,7 +387,7 @@ export interface Glacier {
    */
   deleteVaultNotifications(
     args: DeleteVaultNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<DeleteVaultNotificationsCommandOutput>;
   deleteVaultNotifications(
     args: DeleteVaultNotificationsCommandInput,
@@ -387,7 +395,7 @@ export interface Glacier {
   ): void;
   deleteVaultNotifications(
     args: DeleteVaultNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: DeleteVaultNotificationsCommandOutput) => void
   ): void;
 
@@ -396,7 +404,7 @@ export interface Glacier {
    */
   describeJob(
     args: DescribeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<DescribeJobCommandOutput>;
   describeJob(
     args: DescribeJobCommandInput,
@@ -404,7 +412,7 @@ export interface Glacier {
   ): void;
   describeJob(
     args: DescribeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: DescribeJobCommandOutput) => void
   ): void;
 
@@ -413,7 +421,7 @@ export interface Glacier {
    */
   describeVault(
     args: DescribeVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<DescribeVaultCommandOutput>;
   describeVault(
     args: DescribeVaultCommandInput,
@@ -421,7 +429,7 @@ export interface Glacier {
   ): void;
   describeVault(
     args: DescribeVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: DescribeVaultCommandOutput) => void
   ): void;
 
@@ -430,7 +438,7 @@ export interface Glacier {
    */
   getDataRetrievalPolicy(
     args: GetDataRetrievalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<GetDataRetrievalPolicyCommandOutput>;
   getDataRetrievalPolicy(
     args: GetDataRetrievalPolicyCommandInput,
@@ -438,7 +446,7 @@ export interface Glacier {
   ): void;
   getDataRetrievalPolicy(
     args: GetDataRetrievalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: GetDataRetrievalPolicyCommandOutput) => void
   ): void;
 
@@ -447,7 +455,7 @@ export interface Glacier {
    */
   getJobOutput(
     args: GetJobOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<GetJobOutputCommandOutput>;
   getJobOutput(
     args: GetJobOutputCommandInput,
@@ -455,7 +463,7 @@ export interface Glacier {
   ): void;
   getJobOutput(
     args: GetJobOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: GetJobOutputCommandOutput) => void
   ): void;
 
@@ -464,7 +472,7 @@ export interface Glacier {
    */
   getVaultAccessPolicy(
     args: GetVaultAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<GetVaultAccessPolicyCommandOutput>;
   getVaultAccessPolicy(
     args: GetVaultAccessPolicyCommandInput,
@@ -472,7 +480,7 @@ export interface Glacier {
   ): void;
   getVaultAccessPolicy(
     args: GetVaultAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: GetVaultAccessPolicyCommandOutput) => void
   ): void;
 
@@ -481,7 +489,7 @@ export interface Glacier {
    */
   getVaultLock(
     args: GetVaultLockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<GetVaultLockCommandOutput>;
   getVaultLock(
     args: GetVaultLockCommandInput,
@@ -489,7 +497,7 @@ export interface Glacier {
   ): void;
   getVaultLock(
     args: GetVaultLockCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: GetVaultLockCommandOutput) => void
   ): void;
 
@@ -498,7 +506,7 @@ export interface Glacier {
    */
   getVaultNotifications(
     args: GetVaultNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<GetVaultNotificationsCommandOutput>;
   getVaultNotifications(
     args: GetVaultNotificationsCommandInput,
@@ -506,7 +514,7 @@ export interface Glacier {
   ): void;
   getVaultNotifications(
     args: GetVaultNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: GetVaultNotificationsCommandOutput) => void
   ): void;
 
@@ -515,7 +523,7 @@ export interface Glacier {
    */
   initiateJob(
     args: InitiateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<InitiateJobCommandOutput>;
   initiateJob(
     args: InitiateJobCommandInput,
@@ -523,7 +531,7 @@ export interface Glacier {
   ): void;
   initiateJob(
     args: InitiateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: InitiateJobCommandOutput) => void
   ): void;
 
@@ -532,7 +540,7 @@ export interface Glacier {
    */
   initiateMultipartUpload(
     args: InitiateMultipartUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<InitiateMultipartUploadCommandOutput>;
   initiateMultipartUpload(
     args: InitiateMultipartUploadCommandInput,
@@ -540,7 +548,7 @@ export interface Glacier {
   ): void;
   initiateMultipartUpload(
     args: InitiateMultipartUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: InitiateMultipartUploadCommandOutput) => void
   ): void;
 
@@ -549,7 +557,7 @@ export interface Glacier {
    */
   initiateVaultLock(
     args: InitiateVaultLockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<InitiateVaultLockCommandOutput>;
   initiateVaultLock(
     args: InitiateVaultLockCommandInput,
@@ -557,7 +565,7 @@ export interface Glacier {
   ): void;
   initiateVaultLock(
     args: InitiateVaultLockCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: InitiateVaultLockCommandOutput) => void
   ): void;
 
@@ -566,7 +574,7 @@ export interface Glacier {
    */
   listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
@@ -574,7 +582,7 @@ export interface Glacier {
   ): void;
   listJobs(
     args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
 
@@ -583,7 +591,7 @@ export interface Glacier {
    */
   listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<ListMultipartUploadsCommandOutput>;
   listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
@@ -591,7 +599,7 @@ export interface Glacier {
   ): void;
   listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: ListMultipartUploadsCommandOutput) => void
   ): void;
 
@@ -600,7 +608,7 @@ export interface Glacier {
    */
   listParts(
     args: ListPartsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<ListPartsCommandOutput>;
   listParts(
     args: ListPartsCommandInput,
@@ -608,7 +616,7 @@ export interface Glacier {
   ): void;
   listParts(
     args: ListPartsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: ListPartsCommandOutput) => void
   ): void;
 
@@ -617,7 +625,7 @@ export interface Glacier {
    */
   listProvisionedCapacity(
     args: ListProvisionedCapacityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<ListProvisionedCapacityCommandOutput>;
   listProvisionedCapacity(
     args: ListProvisionedCapacityCommandInput,
@@ -625,7 +633,7 @@ export interface Glacier {
   ): void;
   listProvisionedCapacity(
     args: ListProvisionedCapacityCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: ListProvisionedCapacityCommandOutput) => void
   ): void;
 
@@ -634,7 +642,7 @@ export interface Glacier {
    */
   listTagsForVault(
     args: ListTagsForVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<ListTagsForVaultCommandOutput>;
   listTagsForVault(
     args: ListTagsForVaultCommandInput,
@@ -642,7 +650,7 @@ export interface Glacier {
   ): void;
   listTagsForVault(
     args: ListTagsForVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: ListTagsForVaultCommandOutput) => void
   ): void;
 
@@ -651,7 +659,7 @@ export interface Glacier {
    */
   listVaults(
     args: ListVaultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<ListVaultsCommandOutput>;
   listVaults(
     args: ListVaultsCommandInput,
@@ -659,7 +667,7 @@ export interface Glacier {
   ): void;
   listVaults(
     args: ListVaultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: ListVaultsCommandOutput) => void
   ): void;
 
@@ -668,7 +676,7 @@ export interface Glacier {
    */
   purchaseProvisionedCapacity(
     args: PurchaseProvisionedCapacityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<PurchaseProvisionedCapacityCommandOutput>;
   purchaseProvisionedCapacity(
     args: PurchaseProvisionedCapacityCommandInput,
@@ -676,7 +684,7 @@ export interface Glacier {
   ): void;
   purchaseProvisionedCapacity(
     args: PurchaseProvisionedCapacityCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: PurchaseProvisionedCapacityCommandOutput) => void
   ): void;
 
@@ -685,7 +693,7 @@ export interface Glacier {
    */
   removeTagsFromVault(
     args: RemoveTagsFromVaultCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<RemoveTagsFromVaultCommandOutput>;
   removeTagsFromVault(
     args: RemoveTagsFromVaultCommandInput,
@@ -693,7 +701,7 @@ export interface Glacier {
   ): void;
   removeTagsFromVault(
     args: RemoveTagsFromVaultCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: RemoveTagsFromVaultCommandOutput) => void
   ): void;
 
@@ -702,7 +710,7 @@ export interface Glacier {
    */
   setDataRetrievalPolicy(
     args: SetDataRetrievalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<SetDataRetrievalPolicyCommandOutput>;
   setDataRetrievalPolicy(
     args: SetDataRetrievalPolicyCommandInput,
@@ -710,7 +718,7 @@ export interface Glacier {
   ): void;
   setDataRetrievalPolicy(
     args: SetDataRetrievalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: SetDataRetrievalPolicyCommandOutput) => void
   ): void;
 
@@ -719,7 +727,7 @@ export interface Glacier {
    */
   setVaultAccessPolicy(
     args: SetVaultAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<SetVaultAccessPolicyCommandOutput>;
   setVaultAccessPolicy(
     args: SetVaultAccessPolicyCommandInput,
@@ -727,7 +735,7 @@ export interface Glacier {
   ): void;
   setVaultAccessPolicy(
     args: SetVaultAccessPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: SetVaultAccessPolicyCommandOutput) => void
   ): void;
 
@@ -736,7 +744,7 @@ export interface Glacier {
    */
   setVaultNotifications(
     args: SetVaultNotificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<SetVaultNotificationsCommandOutput>;
   setVaultNotifications(
     args: SetVaultNotificationsCommandInput,
@@ -744,7 +752,7 @@ export interface Glacier {
   ): void;
   setVaultNotifications(
     args: SetVaultNotificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: SetVaultNotificationsCommandOutput) => void
   ): void;
 
@@ -753,7 +761,7 @@ export interface Glacier {
    */
   uploadArchive(
     args: UploadArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<UploadArchiveCommandOutput>;
   uploadArchive(
     args: UploadArchiveCommandInput,
@@ -761,7 +769,7 @@ export interface Glacier {
   ): void;
   uploadArchive(
     args: UploadArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: UploadArchiveCommandOutput) => void
   ): void;
 
@@ -770,7 +778,7 @@ export interface Glacier {
    */
   uploadMultipartPart(
     args: UploadMultipartPartCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<UploadMultipartPartCommandOutput>;
   uploadMultipartPart(
     args: UploadMultipartPartCommandInput,
@@ -778,7 +786,7 @@ export interface Glacier {
   ): void;
   uploadMultipartPart(
     args: UploadMultipartPartCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: UploadMultipartPartCommandOutput) => void
   ): void;
 

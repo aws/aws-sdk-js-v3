@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CleanRoomsClient } from "./CleanRoomsClient";
 import {
@@ -677,13 +682,20 @@ const paginators = {
   paginateListSchemas,
 };
 
+/**
+ * @public
+ */
+export interface CleanRoomsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CleanRooms {
   /**
    * @see {@link BatchGetCollaborationAnalysisTemplateCommand}
    */
   batchGetCollaborationAnalysisTemplate(
     args: BatchGetCollaborationAnalysisTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<BatchGetCollaborationAnalysisTemplateCommandOutput>;
   batchGetCollaborationAnalysisTemplate(
     args: BatchGetCollaborationAnalysisTemplateCommandInput,
@@ -691,7 +703,7 @@ export interface CleanRooms {
   ): void;
   batchGetCollaborationAnalysisTemplate(
     args: BatchGetCollaborationAnalysisTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: BatchGetCollaborationAnalysisTemplateCommandOutput) => void
   ): void;
 
@@ -700,7 +712,7 @@ export interface CleanRooms {
    */
   batchGetSchema(
     args: BatchGetSchemaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<BatchGetSchemaCommandOutput>;
   batchGetSchema(
     args: BatchGetSchemaCommandInput,
@@ -708,7 +720,7 @@ export interface CleanRooms {
   ): void;
   batchGetSchema(
     args: BatchGetSchemaCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: BatchGetSchemaCommandOutput) => void
   ): void;
 
@@ -717,7 +729,7 @@ export interface CleanRooms {
    */
   batchGetSchemaAnalysisRule(
     args: BatchGetSchemaAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<BatchGetSchemaAnalysisRuleCommandOutput>;
   batchGetSchemaAnalysisRule(
     args: BatchGetSchemaAnalysisRuleCommandInput,
@@ -725,7 +737,7 @@ export interface CleanRooms {
   ): void;
   batchGetSchemaAnalysisRule(
     args: BatchGetSchemaAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: BatchGetSchemaAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -734,7 +746,7 @@ export interface CleanRooms {
    */
   createAnalysisTemplate(
     args: CreateAnalysisTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateAnalysisTemplateCommandOutput>;
   createAnalysisTemplate(
     args: CreateAnalysisTemplateCommandInput,
@@ -742,7 +754,7 @@ export interface CleanRooms {
   ): void;
   createAnalysisTemplate(
     args: CreateAnalysisTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateAnalysisTemplateCommandOutput) => void
   ): void;
 
@@ -751,7 +763,7 @@ export interface CleanRooms {
    */
   createCollaboration(
     args: CreateCollaborationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateCollaborationCommandOutput>;
   createCollaboration(
     args: CreateCollaborationCommandInput,
@@ -759,7 +771,7 @@ export interface CleanRooms {
   ): void;
   createCollaboration(
     args: CreateCollaborationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateCollaborationCommandOutput) => void
   ): void;
 
@@ -768,7 +780,7 @@ export interface CleanRooms {
    */
   createCollaborationChangeRequest(
     args: CreateCollaborationChangeRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateCollaborationChangeRequestCommandOutput>;
   createCollaborationChangeRequest(
     args: CreateCollaborationChangeRequestCommandInput,
@@ -776,7 +788,7 @@ export interface CleanRooms {
   ): void;
   createCollaborationChangeRequest(
     args: CreateCollaborationChangeRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateCollaborationChangeRequestCommandOutput) => void
   ): void;
 
@@ -785,7 +797,7 @@ export interface CleanRooms {
    */
   createConfiguredAudienceModelAssociation(
     args: CreateConfiguredAudienceModelAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateConfiguredAudienceModelAssociationCommandOutput>;
   createConfiguredAudienceModelAssociation(
     args: CreateConfiguredAudienceModelAssociationCommandInput,
@@ -793,7 +805,7 @@ export interface CleanRooms {
   ): void;
   createConfiguredAudienceModelAssociation(
     args: CreateConfiguredAudienceModelAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateConfiguredAudienceModelAssociationCommandOutput) => void
   ): void;
 
@@ -802,7 +814,7 @@ export interface CleanRooms {
    */
   createConfiguredTable(
     args: CreateConfiguredTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateConfiguredTableCommandOutput>;
   createConfiguredTable(
     args: CreateConfiguredTableCommandInput,
@@ -810,7 +822,7 @@ export interface CleanRooms {
   ): void;
   createConfiguredTable(
     args: CreateConfiguredTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateConfiguredTableCommandOutput) => void
   ): void;
 
@@ -819,7 +831,7 @@ export interface CleanRooms {
    */
   createConfiguredTableAnalysisRule(
     args: CreateConfiguredTableAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateConfiguredTableAnalysisRuleCommandOutput>;
   createConfiguredTableAnalysisRule(
     args: CreateConfiguredTableAnalysisRuleCommandInput,
@@ -827,7 +839,7 @@ export interface CleanRooms {
   ): void;
   createConfiguredTableAnalysisRule(
     args: CreateConfiguredTableAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateConfiguredTableAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -836,7 +848,7 @@ export interface CleanRooms {
    */
   createConfiguredTableAssociation(
     args: CreateConfiguredTableAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateConfiguredTableAssociationCommandOutput>;
   createConfiguredTableAssociation(
     args: CreateConfiguredTableAssociationCommandInput,
@@ -844,7 +856,7 @@ export interface CleanRooms {
   ): void;
   createConfiguredTableAssociation(
     args: CreateConfiguredTableAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateConfiguredTableAssociationCommandOutput) => void
   ): void;
 
@@ -853,7 +865,7 @@ export interface CleanRooms {
    */
   createConfiguredTableAssociationAnalysisRule(
     args: CreateConfiguredTableAssociationAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateConfiguredTableAssociationAnalysisRuleCommandOutput>;
   createConfiguredTableAssociationAnalysisRule(
     args: CreateConfiguredTableAssociationAnalysisRuleCommandInput,
@@ -861,7 +873,7 @@ export interface CleanRooms {
   ): void;
   createConfiguredTableAssociationAnalysisRule(
     args: CreateConfiguredTableAssociationAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateConfiguredTableAssociationAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -870,7 +882,7 @@ export interface CleanRooms {
    */
   createIdMappingTable(
     args: CreateIdMappingTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateIdMappingTableCommandOutput>;
   createIdMappingTable(
     args: CreateIdMappingTableCommandInput,
@@ -878,7 +890,7 @@ export interface CleanRooms {
   ): void;
   createIdMappingTable(
     args: CreateIdMappingTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateIdMappingTableCommandOutput) => void
   ): void;
 
@@ -887,7 +899,7 @@ export interface CleanRooms {
    */
   createIdNamespaceAssociation(
     args: CreateIdNamespaceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateIdNamespaceAssociationCommandOutput>;
   createIdNamespaceAssociation(
     args: CreateIdNamespaceAssociationCommandInput,
@@ -895,7 +907,7 @@ export interface CleanRooms {
   ): void;
   createIdNamespaceAssociation(
     args: CreateIdNamespaceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateIdNamespaceAssociationCommandOutput) => void
   ): void;
 
@@ -904,7 +916,7 @@ export interface CleanRooms {
    */
   createIntermediateTable(
     args: CreateIntermediateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateIntermediateTableCommandOutput>;
   createIntermediateTable(
     args: CreateIntermediateTableCommandInput,
@@ -912,7 +924,7 @@ export interface CleanRooms {
   ): void;
   createIntermediateTable(
     args: CreateIntermediateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateIntermediateTableCommandOutput) => void
   ): void;
 
@@ -921,7 +933,7 @@ export interface CleanRooms {
    */
   createIntermediateTableAnalysisRule(
     args: CreateIntermediateTableAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateIntermediateTableAnalysisRuleCommandOutput>;
   createIntermediateTableAnalysisRule(
     args: CreateIntermediateTableAnalysisRuleCommandInput,
@@ -929,7 +941,7 @@ export interface CleanRooms {
   ): void;
   createIntermediateTableAnalysisRule(
     args: CreateIntermediateTableAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateIntermediateTableAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -938,7 +950,7 @@ export interface CleanRooms {
    */
   createMembership(
     args: CreateMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreateMembershipCommandOutput>;
   createMembership(
     args: CreateMembershipCommandInput,
@@ -946,7 +958,7 @@ export interface CleanRooms {
   ): void;
   createMembership(
     args: CreateMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreateMembershipCommandOutput) => void
   ): void;
 
@@ -955,7 +967,7 @@ export interface CleanRooms {
    */
   createPrivacyBudgetTemplate(
     args: CreatePrivacyBudgetTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<CreatePrivacyBudgetTemplateCommandOutput>;
   createPrivacyBudgetTemplate(
     args: CreatePrivacyBudgetTemplateCommandInput,
@@ -963,7 +975,7 @@ export interface CleanRooms {
   ): void;
   createPrivacyBudgetTemplate(
     args: CreatePrivacyBudgetTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: CreatePrivacyBudgetTemplateCommandOutput) => void
   ): void;
 
@@ -972,7 +984,7 @@ export interface CleanRooms {
    */
   deleteAnalysisTemplate(
     args: DeleteAnalysisTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteAnalysisTemplateCommandOutput>;
   deleteAnalysisTemplate(
     args: DeleteAnalysisTemplateCommandInput,
@@ -980,7 +992,7 @@ export interface CleanRooms {
   ): void;
   deleteAnalysisTemplate(
     args: DeleteAnalysisTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteAnalysisTemplateCommandOutput) => void
   ): void;
 
@@ -989,7 +1001,7 @@ export interface CleanRooms {
    */
   deleteCollaboration(
     args: DeleteCollaborationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteCollaborationCommandOutput>;
   deleteCollaboration(
     args: DeleteCollaborationCommandInput,
@@ -997,7 +1009,7 @@ export interface CleanRooms {
   ): void;
   deleteCollaboration(
     args: DeleteCollaborationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteCollaborationCommandOutput) => void
   ): void;
 
@@ -1006,7 +1018,7 @@ export interface CleanRooms {
    */
   deleteConfiguredAudienceModelAssociation(
     args: DeleteConfiguredAudienceModelAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteConfiguredAudienceModelAssociationCommandOutput>;
   deleteConfiguredAudienceModelAssociation(
     args: DeleteConfiguredAudienceModelAssociationCommandInput,
@@ -1014,7 +1026,7 @@ export interface CleanRooms {
   ): void;
   deleteConfiguredAudienceModelAssociation(
     args: DeleteConfiguredAudienceModelAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteConfiguredAudienceModelAssociationCommandOutput) => void
   ): void;
 
@@ -1023,7 +1035,7 @@ export interface CleanRooms {
    */
   deleteConfiguredTable(
     args: DeleteConfiguredTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteConfiguredTableCommandOutput>;
   deleteConfiguredTable(
     args: DeleteConfiguredTableCommandInput,
@@ -1031,7 +1043,7 @@ export interface CleanRooms {
   ): void;
   deleteConfiguredTable(
     args: DeleteConfiguredTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteConfiguredTableCommandOutput) => void
   ): void;
 
@@ -1040,7 +1052,7 @@ export interface CleanRooms {
    */
   deleteConfiguredTableAnalysisRule(
     args: DeleteConfiguredTableAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteConfiguredTableAnalysisRuleCommandOutput>;
   deleteConfiguredTableAnalysisRule(
     args: DeleteConfiguredTableAnalysisRuleCommandInput,
@@ -1048,7 +1060,7 @@ export interface CleanRooms {
   ): void;
   deleteConfiguredTableAnalysisRule(
     args: DeleteConfiguredTableAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteConfiguredTableAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -1057,7 +1069,7 @@ export interface CleanRooms {
    */
   deleteConfiguredTableAssociation(
     args: DeleteConfiguredTableAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteConfiguredTableAssociationCommandOutput>;
   deleteConfiguredTableAssociation(
     args: DeleteConfiguredTableAssociationCommandInput,
@@ -1065,7 +1077,7 @@ export interface CleanRooms {
   ): void;
   deleteConfiguredTableAssociation(
     args: DeleteConfiguredTableAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteConfiguredTableAssociationCommandOutput) => void
   ): void;
 
@@ -1074,7 +1086,7 @@ export interface CleanRooms {
    */
   deleteConfiguredTableAssociationAnalysisRule(
     args: DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteConfiguredTableAssociationAnalysisRuleCommandOutput>;
   deleteConfiguredTableAssociationAnalysisRule(
     args: DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
@@ -1082,7 +1094,7 @@ export interface CleanRooms {
   ): void;
   deleteConfiguredTableAssociationAnalysisRule(
     args: DeleteConfiguredTableAssociationAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteConfiguredTableAssociationAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -1091,7 +1103,7 @@ export interface CleanRooms {
    */
   deleteIdMappingTable(
     args: DeleteIdMappingTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteIdMappingTableCommandOutput>;
   deleteIdMappingTable(
     args: DeleteIdMappingTableCommandInput,
@@ -1099,7 +1111,7 @@ export interface CleanRooms {
   ): void;
   deleteIdMappingTable(
     args: DeleteIdMappingTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteIdMappingTableCommandOutput) => void
   ): void;
 
@@ -1108,7 +1120,7 @@ export interface CleanRooms {
    */
   deleteIdNamespaceAssociation(
     args: DeleteIdNamespaceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteIdNamespaceAssociationCommandOutput>;
   deleteIdNamespaceAssociation(
     args: DeleteIdNamespaceAssociationCommandInput,
@@ -1116,7 +1128,7 @@ export interface CleanRooms {
   ): void;
   deleteIdNamespaceAssociation(
     args: DeleteIdNamespaceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteIdNamespaceAssociationCommandOutput) => void
   ): void;
 
@@ -1125,7 +1137,7 @@ export interface CleanRooms {
    */
   deleteIntermediateTable(
     args: DeleteIntermediateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteIntermediateTableCommandOutput>;
   deleteIntermediateTable(
     args: DeleteIntermediateTableCommandInput,
@@ -1133,7 +1145,7 @@ export interface CleanRooms {
   ): void;
   deleteIntermediateTable(
     args: DeleteIntermediateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteIntermediateTableCommandOutput) => void
   ): void;
 
@@ -1142,7 +1154,7 @@ export interface CleanRooms {
    */
   deleteIntermediateTableAnalysisRule(
     args: DeleteIntermediateTableAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteIntermediateTableAnalysisRuleCommandOutput>;
   deleteIntermediateTableAnalysisRule(
     args: DeleteIntermediateTableAnalysisRuleCommandInput,
@@ -1150,7 +1162,7 @@ export interface CleanRooms {
   ): void;
   deleteIntermediateTableAnalysisRule(
     args: DeleteIntermediateTableAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteIntermediateTableAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -1159,7 +1171,7 @@ export interface CleanRooms {
    */
   deleteMember(
     args: DeleteMemberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteMemberCommandOutput>;
   deleteMember(
     args: DeleteMemberCommandInput,
@@ -1167,7 +1179,7 @@ export interface CleanRooms {
   ): void;
   deleteMember(
     args: DeleteMemberCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteMemberCommandOutput) => void
   ): void;
 
@@ -1176,7 +1188,7 @@ export interface CleanRooms {
    */
   deleteMembership(
     args: DeleteMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeleteMembershipCommandOutput>;
   deleteMembership(
     args: DeleteMembershipCommandInput,
@@ -1184,7 +1196,7 @@ export interface CleanRooms {
   ): void;
   deleteMembership(
     args: DeleteMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeleteMembershipCommandOutput) => void
   ): void;
 
@@ -1193,7 +1205,7 @@ export interface CleanRooms {
    */
   deletePrivacyBudgetTemplate(
     args: DeletePrivacyBudgetTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DeletePrivacyBudgetTemplateCommandOutput>;
   deletePrivacyBudgetTemplate(
     args: DeletePrivacyBudgetTemplateCommandInput,
@@ -1201,7 +1213,7 @@ export interface CleanRooms {
   ): void;
   deletePrivacyBudgetTemplate(
     args: DeletePrivacyBudgetTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DeletePrivacyBudgetTemplateCommandOutput) => void
   ): void;
 
@@ -1210,7 +1222,7 @@ export interface CleanRooms {
    */
   disallowIntermediateTable(
     args: DisallowIntermediateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<DisallowIntermediateTableCommandOutput>;
   disallowIntermediateTable(
     args: DisallowIntermediateTableCommandInput,
@@ -1218,7 +1230,7 @@ export interface CleanRooms {
   ): void;
   disallowIntermediateTable(
     args: DisallowIntermediateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: DisallowIntermediateTableCommandOutput) => void
   ): void;
 
@@ -1227,7 +1239,7 @@ export interface CleanRooms {
    */
   getAnalysisLogExport(
     args: GetAnalysisLogExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetAnalysisLogExportCommandOutput>;
   getAnalysisLogExport(
     args: GetAnalysisLogExportCommandInput,
@@ -1235,7 +1247,7 @@ export interface CleanRooms {
   ): void;
   getAnalysisLogExport(
     args: GetAnalysisLogExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetAnalysisLogExportCommandOutput) => void
   ): void;
 
@@ -1244,7 +1256,7 @@ export interface CleanRooms {
    */
   getAnalysisTemplate(
     args: GetAnalysisTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetAnalysisTemplateCommandOutput>;
   getAnalysisTemplate(
     args: GetAnalysisTemplateCommandInput,
@@ -1252,7 +1264,7 @@ export interface CleanRooms {
   ): void;
   getAnalysisTemplate(
     args: GetAnalysisTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetAnalysisTemplateCommandOutput) => void
   ): void;
 
@@ -1261,7 +1273,7 @@ export interface CleanRooms {
    */
   getCollaboration(
     args: GetCollaborationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetCollaborationCommandOutput>;
   getCollaboration(
     args: GetCollaborationCommandInput,
@@ -1269,7 +1281,7 @@ export interface CleanRooms {
   ): void;
   getCollaboration(
     args: GetCollaborationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetCollaborationCommandOutput) => void
   ): void;
 
@@ -1278,7 +1290,7 @@ export interface CleanRooms {
    */
   getCollaborationAnalysisTemplate(
     args: GetCollaborationAnalysisTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetCollaborationAnalysisTemplateCommandOutput>;
   getCollaborationAnalysisTemplate(
     args: GetCollaborationAnalysisTemplateCommandInput,
@@ -1286,7 +1298,7 @@ export interface CleanRooms {
   ): void;
   getCollaborationAnalysisTemplate(
     args: GetCollaborationAnalysisTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetCollaborationAnalysisTemplateCommandOutput) => void
   ): void;
 
@@ -1295,7 +1307,7 @@ export interface CleanRooms {
    */
   getCollaborationChangeRequest(
     args: GetCollaborationChangeRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetCollaborationChangeRequestCommandOutput>;
   getCollaborationChangeRequest(
     args: GetCollaborationChangeRequestCommandInput,
@@ -1303,7 +1315,7 @@ export interface CleanRooms {
   ): void;
   getCollaborationChangeRequest(
     args: GetCollaborationChangeRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetCollaborationChangeRequestCommandOutput) => void
   ): void;
 
@@ -1312,7 +1324,7 @@ export interface CleanRooms {
    */
   getCollaborationConfiguredAudienceModelAssociation(
     args: GetCollaborationConfiguredAudienceModelAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetCollaborationConfiguredAudienceModelAssociationCommandOutput>;
   getCollaborationConfiguredAudienceModelAssociation(
     args: GetCollaborationConfiguredAudienceModelAssociationCommandInput,
@@ -1320,7 +1332,7 @@ export interface CleanRooms {
   ): void;
   getCollaborationConfiguredAudienceModelAssociation(
     args: GetCollaborationConfiguredAudienceModelAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetCollaborationConfiguredAudienceModelAssociationCommandOutput) => void
   ): void;
 
@@ -1329,7 +1341,7 @@ export interface CleanRooms {
    */
   getCollaborationIdNamespaceAssociation(
     args: GetCollaborationIdNamespaceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetCollaborationIdNamespaceAssociationCommandOutput>;
   getCollaborationIdNamespaceAssociation(
     args: GetCollaborationIdNamespaceAssociationCommandInput,
@@ -1337,7 +1349,7 @@ export interface CleanRooms {
   ): void;
   getCollaborationIdNamespaceAssociation(
     args: GetCollaborationIdNamespaceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetCollaborationIdNamespaceAssociationCommandOutput) => void
   ): void;
 
@@ -1346,7 +1358,7 @@ export interface CleanRooms {
    */
   getCollaborationPrivacyBudgetTemplate(
     args: GetCollaborationPrivacyBudgetTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetCollaborationPrivacyBudgetTemplateCommandOutput>;
   getCollaborationPrivacyBudgetTemplate(
     args: GetCollaborationPrivacyBudgetTemplateCommandInput,
@@ -1354,7 +1366,7 @@ export interface CleanRooms {
   ): void;
   getCollaborationPrivacyBudgetTemplate(
     args: GetCollaborationPrivacyBudgetTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetCollaborationPrivacyBudgetTemplateCommandOutput) => void
   ): void;
 
@@ -1363,7 +1375,7 @@ export interface CleanRooms {
    */
   getConfiguredAudienceModelAssociation(
     args: GetConfiguredAudienceModelAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetConfiguredAudienceModelAssociationCommandOutput>;
   getConfiguredAudienceModelAssociation(
     args: GetConfiguredAudienceModelAssociationCommandInput,
@@ -1371,7 +1383,7 @@ export interface CleanRooms {
   ): void;
   getConfiguredAudienceModelAssociation(
     args: GetConfiguredAudienceModelAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetConfiguredAudienceModelAssociationCommandOutput) => void
   ): void;
 
@@ -1380,7 +1392,7 @@ export interface CleanRooms {
    */
   getConfiguredTable(
     args: GetConfiguredTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetConfiguredTableCommandOutput>;
   getConfiguredTable(
     args: GetConfiguredTableCommandInput,
@@ -1388,7 +1400,7 @@ export interface CleanRooms {
   ): void;
   getConfiguredTable(
     args: GetConfiguredTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetConfiguredTableCommandOutput) => void
   ): void;
 
@@ -1397,7 +1409,7 @@ export interface CleanRooms {
    */
   getConfiguredTableAnalysisRule(
     args: GetConfiguredTableAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetConfiguredTableAnalysisRuleCommandOutput>;
   getConfiguredTableAnalysisRule(
     args: GetConfiguredTableAnalysisRuleCommandInput,
@@ -1405,7 +1417,7 @@ export interface CleanRooms {
   ): void;
   getConfiguredTableAnalysisRule(
     args: GetConfiguredTableAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetConfiguredTableAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -1414,7 +1426,7 @@ export interface CleanRooms {
    */
   getConfiguredTableAssociation(
     args: GetConfiguredTableAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetConfiguredTableAssociationCommandOutput>;
   getConfiguredTableAssociation(
     args: GetConfiguredTableAssociationCommandInput,
@@ -1422,7 +1434,7 @@ export interface CleanRooms {
   ): void;
   getConfiguredTableAssociation(
     args: GetConfiguredTableAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetConfiguredTableAssociationCommandOutput) => void
   ): void;
 
@@ -1431,7 +1443,7 @@ export interface CleanRooms {
    */
   getConfiguredTableAssociationAnalysisRule(
     args: GetConfiguredTableAssociationAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetConfiguredTableAssociationAnalysisRuleCommandOutput>;
   getConfiguredTableAssociationAnalysisRule(
     args: GetConfiguredTableAssociationAnalysisRuleCommandInput,
@@ -1439,7 +1451,7 @@ export interface CleanRooms {
   ): void;
   getConfiguredTableAssociationAnalysisRule(
     args: GetConfiguredTableAssociationAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetConfiguredTableAssociationAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -1448,7 +1460,7 @@ export interface CleanRooms {
    */
   getIdMappingTable(
     args: GetIdMappingTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetIdMappingTableCommandOutput>;
   getIdMappingTable(
     args: GetIdMappingTableCommandInput,
@@ -1456,7 +1468,7 @@ export interface CleanRooms {
   ): void;
   getIdMappingTable(
     args: GetIdMappingTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetIdMappingTableCommandOutput) => void
   ): void;
 
@@ -1465,7 +1477,7 @@ export interface CleanRooms {
    */
   getIdNamespaceAssociation(
     args: GetIdNamespaceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetIdNamespaceAssociationCommandOutput>;
   getIdNamespaceAssociation(
     args: GetIdNamespaceAssociationCommandInput,
@@ -1473,7 +1485,7 @@ export interface CleanRooms {
   ): void;
   getIdNamespaceAssociation(
     args: GetIdNamespaceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetIdNamespaceAssociationCommandOutput) => void
   ): void;
 
@@ -1482,7 +1494,7 @@ export interface CleanRooms {
    */
   getIntermediateTable(
     args: GetIntermediateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetIntermediateTableCommandOutput>;
   getIntermediateTable(
     args: GetIntermediateTableCommandInput,
@@ -1490,7 +1502,7 @@ export interface CleanRooms {
   ): void;
   getIntermediateTable(
     args: GetIntermediateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetIntermediateTableCommandOutput) => void
   ): void;
 
@@ -1499,7 +1511,7 @@ export interface CleanRooms {
    */
   getIntermediateTableAnalysisRule(
     args: GetIntermediateTableAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetIntermediateTableAnalysisRuleCommandOutput>;
   getIntermediateTableAnalysisRule(
     args: GetIntermediateTableAnalysisRuleCommandInput,
@@ -1507,7 +1519,7 @@ export interface CleanRooms {
   ): void;
   getIntermediateTableAnalysisRule(
     args: GetIntermediateTableAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetIntermediateTableAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -1516,7 +1528,7 @@ export interface CleanRooms {
    */
   getMembership(
     args: GetMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetMembershipCommandOutput>;
   getMembership(
     args: GetMembershipCommandInput,
@@ -1524,7 +1536,7 @@ export interface CleanRooms {
   ): void;
   getMembership(
     args: GetMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetMembershipCommandOutput) => void
   ): void;
 
@@ -1533,7 +1545,7 @@ export interface CleanRooms {
    */
   getPrivacyBudgetTemplate(
     args: GetPrivacyBudgetTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetPrivacyBudgetTemplateCommandOutput>;
   getPrivacyBudgetTemplate(
     args: GetPrivacyBudgetTemplateCommandInput,
@@ -1541,7 +1553,7 @@ export interface CleanRooms {
   ): void;
   getPrivacyBudgetTemplate(
     args: GetPrivacyBudgetTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetPrivacyBudgetTemplateCommandOutput) => void
   ): void;
 
@@ -1550,7 +1562,7 @@ export interface CleanRooms {
    */
   getProtectedJob(
     args: GetProtectedJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetProtectedJobCommandOutput>;
   getProtectedJob(
     args: GetProtectedJobCommandInput,
@@ -1558,7 +1570,7 @@ export interface CleanRooms {
   ): void;
   getProtectedJob(
     args: GetProtectedJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetProtectedJobCommandOutput) => void
   ): void;
 
@@ -1567,7 +1579,7 @@ export interface CleanRooms {
    */
   getProtectedQuery(
     args: GetProtectedQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetProtectedQueryCommandOutput>;
   getProtectedQuery(
     args: GetProtectedQueryCommandInput,
@@ -1575,7 +1587,7 @@ export interface CleanRooms {
   ): void;
   getProtectedQuery(
     args: GetProtectedQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetProtectedQueryCommandOutput) => void
   ): void;
 
@@ -1584,7 +1596,7 @@ export interface CleanRooms {
    */
   getSchema(
     args: GetSchemaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetSchemaCommandOutput>;
   getSchema(
     args: GetSchemaCommandInput,
@@ -1592,7 +1604,7 @@ export interface CleanRooms {
   ): void;
   getSchema(
     args: GetSchemaCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetSchemaCommandOutput) => void
   ): void;
 
@@ -1601,7 +1613,7 @@ export interface CleanRooms {
    */
   getSchemaAnalysisRule(
     args: GetSchemaAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<GetSchemaAnalysisRuleCommandOutput>;
   getSchemaAnalysisRule(
     args: GetSchemaAnalysisRuleCommandInput,
@@ -1609,7 +1621,7 @@ export interface CleanRooms {
   ): void;
   getSchemaAnalysisRule(
     args: GetSchemaAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: GetSchemaAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -1618,7 +1630,7 @@ export interface CleanRooms {
    */
   listAnalysisLogExports(
     args: ListAnalysisLogExportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListAnalysisLogExportsCommandOutput>;
   listAnalysisLogExports(
     args: ListAnalysisLogExportsCommandInput,
@@ -1626,7 +1638,7 @@ export interface CleanRooms {
   ): void;
   listAnalysisLogExports(
     args: ListAnalysisLogExportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListAnalysisLogExportsCommandOutput) => void
   ): void;
 
@@ -1635,7 +1647,7 @@ export interface CleanRooms {
    */
   listAnalysisTemplates(
     args: ListAnalysisTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListAnalysisTemplatesCommandOutput>;
   listAnalysisTemplates(
     args: ListAnalysisTemplatesCommandInput,
@@ -1643,7 +1655,7 @@ export interface CleanRooms {
   ): void;
   listAnalysisTemplates(
     args: ListAnalysisTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListAnalysisTemplatesCommandOutput) => void
   ): void;
 
@@ -1652,7 +1664,7 @@ export interface CleanRooms {
    */
   listCollaborationAnalysisTemplates(
     args: ListCollaborationAnalysisTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListCollaborationAnalysisTemplatesCommandOutput>;
   listCollaborationAnalysisTemplates(
     args: ListCollaborationAnalysisTemplatesCommandInput,
@@ -1660,7 +1672,7 @@ export interface CleanRooms {
   ): void;
   listCollaborationAnalysisTemplates(
     args: ListCollaborationAnalysisTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListCollaborationAnalysisTemplatesCommandOutput) => void
   ): void;
 
@@ -1669,7 +1681,7 @@ export interface CleanRooms {
    */
   listCollaborationChangeRequests(
     args: ListCollaborationChangeRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListCollaborationChangeRequestsCommandOutput>;
   listCollaborationChangeRequests(
     args: ListCollaborationChangeRequestsCommandInput,
@@ -1677,7 +1689,7 @@ export interface CleanRooms {
   ): void;
   listCollaborationChangeRequests(
     args: ListCollaborationChangeRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListCollaborationChangeRequestsCommandOutput) => void
   ): void;
 
@@ -1686,7 +1698,7 @@ export interface CleanRooms {
    */
   listCollaborationConfiguredAudienceModelAssociations(
     args: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListCollaborationConfiguredAudienceModelAssociationsCommandOutput>;
   listCollaborationConfiguredAudienceModelAssociations(
     args: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
@@ -1694,7 +1706,7 @@ export interface CleanRooms {
   ): void;
   listCollaborationConfiguredAudienceModelAssociations(
     args: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListCollaborationConfiguredAudienceModelAssociationsCommandOutput) => void
   ): void;
 
@@ -1703,7 +1715,7 @@ export interface CleanRooms {
    */
   listCollaborationIdNamespaceAssociations(
     args: ListCollaborationIdNamespaceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListCollaborationIdNamespaceAssociationsCommandOutput>;
   listCollaborationIdNamespaceAssociations(
     args: ListCollaborationIdNamespaceAssociationsCommandInput,
@@ -1711,7 +1723,7 @@ export interface CleanRooms {
   ): void;
   listCollaborationIdNamespaceAssociations(
     args: ListCollaborationIdNamespaceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListCollaborationIdNamespaceAssociationsCommandOutput) => void
   ): void;
 
@@ -1720,7 +1732,7 @@ export interface CleanRooms {
    */
   listCollaborationPrivacyBudgets(
     args: ListCollaborationPrivacyBudgetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListCollaborationPrivacyBudgetsCommandOutput>;
   listCollaborationPrivacyBudgets(
     args: ListCollaborationPrivacyBudgetsCommandInput,
@@ -1728,7 +1740,7 @@ export interface CleanRooms {
   ): void;
   listCollaborationPrivacyBudgets(
     args: ListCollaborationPrivacyBudgetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListCollaborationPrivacyBudgetsCommandOutput) => void
   ): void;
 
@@ -1737,7 +1749,7 @@ export interface CleanRooms {
    */
   listCollaborationPrivacyBudgetTemplates(
     args: ListCollaborationPrivacyBudgetTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListCollaborationPrivacyBudgetTemplatesCommandOutput>;
   listCollaborationPrivacyBudgetTemplates(
     args: ListCollaborationPrivacyBudgetTemplatesCommandInput,
@@ -1745,7 +1757,7 @@ export interface CleanRooms {
   ): void;
   listCollaborationPrivacyBudgetTemplates(
     args: ListCollaborationPrivacyBudgetTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListCollaborationPrivacyBudgetTemplatesCommandOutput) => void
   ): void;
 
@@ -1755,7 +1767,7 @@ export interface CleanRooms {
   listCollaborations(): Promise<ListCollaborationsCommandOutput>;
   listCollaborations(
     args: ListCollaborationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListCollaborationsCommandOutput>;
   listCollaborations(
     args: ListCollaborationsCommandInput,
@@ -1763,7 +1775,7 @@ export interface CleanRooms {
   ): void;
   listCollaborations(
     args: ListCollaborationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListCollaborationsCommandOutput) => void
   ): void;
 
@@ -1772,7 +1784,7 @@ export interface CleanRooms {
    */
   listConfiguredAudienceModelAssociations(
     args: ListConfiguredAudienceModelAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListConfiguredAudienceModelAssociationsCommandOutput>;
   listConfiguredAudienceModelAssociations(
     args: ListConfiguredAudienceModelAssociationsCommandInput,
@@ -1780,7 +1792,7 @@ export interface CleanRooms {
   ): void;
   listConfiguredAudienceModelAssociations(
     args: ListConfiguredAudienceModelAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListConfiguredAudienceModelAssociationsCommandOutput) => void
   ): void;
 
@@ -1789,7 +1801,7 @@ export interface CleanRooms {
    */
   listConfiguredTableAssociations(
     args: ListConfiguredTableAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListConfiguredTableAssociationsCommandOutput>;
   listConfiguredTableAssociations(
     args: ListConfiguredTableAssociationsCommandInput,
@@ -1797,7 +1809,7 @@ export interface CleanRooms {
   ): void;
   listConfiguredTableAssociations(
     args: ListConfiguredTableAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListConfiguredTableAssociationsCommandOutput) => void
   ): void;
 
@@ -1807,7 +1819,7 @@ export interface CleanRooms {
   listConfiguredTables(): Promise<ListConfiguredTablesCommandOutput>;
   listConfiguredTables(
     args: ListConfiguredTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListConfiguredTablesCommandOutput>;
   listConfiguredTables(
     args: ListConfiguredTablesCommandInput,
@@ -1815,7 +1827,7 @@ export interface CleanRooms {
   ): void;
   listConfiguredTables(
     args: ListConfiguredTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListConfiguredTablesCommandOutput) => void
   ): void;
 
@@ -1824,7 +1836,7 @@ export interface CleanRooms {
    */
   listIdMappingTables(
     args: ListIdMappingTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListIdMappingTablesCommandOutput>;
   listIdMappingTables(
     args: ListIdMappingTablesCommandInput,
@@ -1832,7 +1844,7 @@ export interface CleanRooms {
   ): void;
   listIdMappingTables(
     args: ListIdMappingTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListIdMappingTablesCommandOutput) => void
   ): void;
 
@@ -1841,7 +1853,7 @@ export interface CleanRooms {
    */
   listIdNamespaceAssociations(
     args: ListIdNamespaceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListIdNamespaceAssociationsCommandOutput>;
   listIdNamespaceAssociations(
     args: ListIdNamespaceAssociationsCommandInput,
@@ -1849,7 +1861,7 @@ export interface CleanRooms {
   ): void;
   listIdNamespaceAssociations(
     args: ListIdNamespaceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListIdNamespaceAssociationsCommandOutput) => void
   ): void;
 
@@ -1858,7 +1870,7 @@ export interface CleanRooms {
    */
   listIntermediateTables(
     args: ListIntermediateTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListIntermediateTablesCommandOutput>;
   listIntermediateTables(
     args: ListIntermediateTablesCommandInput,
@@ -1866,7 +1878,7 @@ export interface CleanRooms {
   ): void;
   listIntermediateTables(
     args: ListIntermediateTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListIntermediateTablesCommandOutput) => void
   ): void;
 
@@ -1875,7 +1887,7 @@ export interface CleanRooms {
    */
   listIntermediateTableVersions(
     args: ListIntermediateTableVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListIntermediateTableVersionsCommandOutput>;
   listIntermediateTableVersions(
     args: ListIntermediateTableVersionsCommandInput,
@@ -1883,7 +1895,7 @@ export interface CleanRooms {
   ): void;
   listIntermediateTableVersions(
     args: ListIntermediateTableVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListIntermediateTableVersionsCommandOutput) => void
   ): void;
 
@@ -1892,7 +1904,7 @@ export interface CleanRooms {
    */
   listMembers(
     args: ListMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListMembersCommandOutput>;
   listMembers(
     args: ListMembersCommandInput,
@@ -1900,7 +1912,7 @@ export interface CleanRooms {
   ): void;
   listMembers(
     args: ListMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListMembersCommandOutput) => void
   ): void;
 
@@ -1910,7 +1922,7 @@ export interface CleanRooms {
   listMemberships(): Promise<ListMembershipsCommandOutput>;
   listMemberships(
     args: ListMembershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListMembershipsCommandOutput>;
   listMemberships(
     args: ListMembershipsCommandInput,
@@ -1918,7 +1930,7 @@ export interface CleanRooms {
   ): void;
   listMemberships(
     args: ListMembershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListMembershipsCommandOutput) => void
   ): void;
 
@@ -1927,7 +1939,7 @@ export interface CleanRooms {
    */
   listPrivacyBudgets(
     args: ListPrivacyBudgetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListPrivacyBudgetsCommandOutput>;
   listPrivacyBudgets(
     args: ListPrivacyBudgetsCommandInput,
@@ -1935,7 +1947,7 @@ export interface CleanRooms {
   ): void;
   listPrivacyBudgets(
     args: ListPrivacyBudgetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListPrivacyBudgetsCommandOutput) => void
   ): void;
 
@@ -1944,7 +1956,7 @@ export interface CleanRooms {
    */
   listPrivacyBudgetTemplates(
     args: ListPrivacyBudgetTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListPrivacyBudgetTemplatesCommandOutput>;
   listPrivacyBudgetTemplates(
     args: ListPrivacyBudgetTemplatesCommandInput,
@@ -1952,7 +1964,7 @@ export interface CleanRooms {
   ): void;
   listPrivacyBudgetTemplates(
     args: ListPrivacyBudgetTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListPrivacyBudgetTemplatesCommandOutput) => void
   ): void;
 
@@ -1961,7 +1973,7 @@ export interface CleanRooms {
    */
   listProtectedJobs(
     args: ListProtectedJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListProtectedJobsCommandOutput>;
   listProtectedJobs(
     args: ListProtectedJobsCommandInput,
@@ -1969,7 +1981,7 @@ export interface CleanRooms {
   ): void;
   listProtectedJobs(
     args: ListProtectedJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListProtectedJobsCommandOutput) => void
   ): void;
 
@@ -1978,7 +1990,7 @@ export interface CleanRooms {
    */
   listProtectedQueries(
     args: ListProtectedQueriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListProtectedQueriesCommandOutput>;
   listProtectedQueries(
     args: ListProtectedQueriesCommandInput,
@@ -1986,7 +1998,7 @@ export interface CleanRooms {
   ): void;
   listProtectedQueries(
     args: ListProtectedQueriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListProtectedQueriesCommandOutput) => void
   ): void;
 
@@ -1995,7 +2007,7 @@ export interface CleanRooms {
    */
   listSchemas(
     args: ListSchemasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListSchemasCommandOutput>;
   listSchemas(
     args: ListSchemasCommandInput,
@@ -2003,7 +2015,7 @@ export interface CleanRooms {
   ): void;
   listSchemas(
     args: ListSchemasCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListSchemasCommandOutput) => void
   ): void;
 
@@ -2012,7 +2024,7 @@ export interface CleanRooms {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2020,7 +2032,7 @@ export interface CleanRooms {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2029,7 +2041,7 @@ export interface CleanRooms {
    */
   populateIdMappingTable(
     args: PopulateIdMappingTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<PopulateIdMappingTableCommandOutput>;
   populateIdMappingTable(
     args: PopulateIdMappingTableCommandInput,
@@ -2037,7 +2049,7 @@ export interface CleanRooms {
   ): void;
   populateIdMappingTable(
     args: PopulateIdMappingTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: PopulateIdMappingTableCommandOutput) => void
   ): void;
 
@@ -2046,7 +2058,7 @@ export interface CleanRooms {
    */
   populateIntermediateTable(
     args: PopulateIntermediateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<PopulateIntermediateTableCommandOutput>;
   populateIntermediateTable(
     args: PopulateIntermediateTableCommandInput,
@@ -2054,7 +2066,7 @@ export interface CleanRooms {
   ): void;
   populateIntermediateTable(
     args: PopulateIntermediateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: PopulateIntermediateTableCommandOutput) => void
   ): void;
 
@@ -2063,7 +2075,7 @@ export interface CleanRooms {
    */
   previewPrivacyImpact(
     args: PreviewPrivacyImpactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<PreviewPrivacyImpactCommandOutput>;
   previewPrivacyImpact(
     args: PreviewPrivacyImpactCommandInput,
@@ -2071,7 +2083,7 @@ export interface CleanRooms {
   ): void;
   previewPrivacyImpact(
     args: PreviewPrivacyImpactCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: PreviewPrivacyImpactCommandOutput) => void
   ): void;
 
@@ -2080,7 +2092,7 @@ export interface CleanRooms {
    */
   startAnalysisLogExport(
     args: StartAnalysisLogExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<StartAnalysisLogExportCommandOutput>;
   startAnalysisLogExport(
     args: StartAnalysisLogExportCommandInput,
@@ -2088,7 +2100,7 @@ export interface CleanRooms {
   ): void;
   startAnalysisLogExport(
     args: StartAnalysisLogExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: StartAnalysisLogExportCommandOutput) => void
   ): void;
 
@@ -2097,7 +2109,7 @@ export interface CleanRooms {
    */
   startProtectedJob(
     args: StartProtectedJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<StartProtectedJobCommandOutput>;
   startProtectedJob(
     args: StartProtectedJobCommandInput,
@@ -2105,7 +2117,7 @@ export interface CleanRooms {
   ): void;
   startProtectedJob(
     args: StartProtectedJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: StartProtectedJobCommandOutput) => void
   ): void;
 
@@ -2114,7 +2126,7 @@ export interface CleanRooms {
    */
   startProtectedQuery(
     args: StartProtectedQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<StartProtectedQueryCommandOutput>;
   startProtectedQuery(
     args: StartProtectedQueryCommandInput,
@@ -2122,7 +2134,7 @@ export interface CleanRooms {
   ): void;
   startProtectedQuery(
     args: StartProtectedQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: StartProtectedQueryCommandOutput) => void
   ): void;
 
@@ -2131,7 +2143,7 @@ export interface CleanRooms {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2139,7 +2151,7 @@ export interface CleanRooms {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2148,7 +2160,7 @@ export interface CleanRooms {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2156,7 +2168,7 @@ export interface CleanRooms {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2165,7 +2177,7 @@ export interface CleanRooms {
    */
   updateAnalysisTemplate(
     args: UpdateAnalysisTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateAnalysisTemplateCommandOutput>;
   updateAnalysisTemplate(
     args: UpdateAnalysisTemplateCommandInput,
@@ -2173,7 +2185,7 @@ export interface CleanRooms {
   ): void;
   updateAnalysisTemplate(
     args: UpdateAnalysisTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateAnalysisTemplateCommandOutput) => void
   ): void;
 
@@ -2182,7 +2194,7 @@ export interface CleanRooms {
    */
   updateCollaboration(
     args: UpdateCollaborationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateCollaborationCommandOutput>;
   updateCollaboration(
     args: UpdateCollaborationCommandInput,
@@ -2190,7 +2202,7 @@ export interface CleanRooms {
   ): void;
   updateCollaboration(
     args: UpdateCollaborationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateCollaborationCommandOutput) => void
   ): void;
 
@@ -2199,7 +2211,7 @@ export interface CleanRooms {
    */
   updateCollaborationChangeRequest(
     args: UpdateCollaborationChangeRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateCollaborationChangeRequestCommandOutput>;
   updateCollaborationChangeRequest(
     args: UpdateCollaborationChangeRequestCommandInput,
@@ -2207,7 +2219,7 @@ export interface CleanRooms {
   ): void;
   updateCollaborationChangeRequest(
     args: UpdateCollaborationChangeRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateCollaborationChangeRequestCommandOutput) => void
   ): void;
 
@@ -2216,7 +2228,7 @@ export interface CleanRooms {
    */
   updateConfiguredAudienceModelAssociation(
     args: UpdateConfiguredAudienceModelAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateConfiguredAudienceModelAssociationCommandOutput>;
   updateConfiguredAudienceModelAssociation(
     args: UpdateConfiguredAudienceModelAssociationCommandInput,
@@ -2224,7 +2236,7 @@ export interface CleanRooms {
   ): void;
   updateConfiguredAudienceModelAssociation(
     args: UpdateConfiguredAudienceModelAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateConfiguredAudienceModelAssociationCommandOutput) => void
   ): void;
 
@@ -2233,7 +2245,7 @@ export interface CleanRooms {
    */
   updateConfiguredTable(
     args: UpdateConfiguredTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateConfiguredTableCommandOutput>;
   updateConfiguredTable(
     args: UpdateConfiguredTableCommandInput,
@@ -2241,7 +2253,7 @@ export interface CleanRooms {
   ): void;
   updateConfiguredTable(
     args: UpdateConfiguredTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateConfiguredTableCommandOutput) => void
   ): void;
 
@@ -2250,7 +2262,7 @@ export interface CleanRooms {
    */
   updateConfiguredTableAnalysisRule(
     args: UpdateConfiguredTableAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateConfiguredTableAnalysisRuleCommandOutput>;
   updateConfiguredTableAnalysisRule(
     args: UpdateConfiguredTableAnalysisRuleCommandInput,
@@ -2258,7 +2270,7 @@ export interface CleanRooms {
   ): void;
   updateConfiguredTableAnalysisRule(
     args: UpdateConfiguredTableAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateConfiguredTableAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -2267,7 +2279,7 @@ export interface CleanRooms {
    */
   updateConfiguredTableAssociation(
     args: UpdateConfiguredTableAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateConfiguredTableAssociationCommandOutput>;
   updateConfiguredTableAssociation(
     args: UpdateConfiguredTableAssociationCommandInput,
@@ -2275,7 +2287,7 @@ export interface CleanRooms {
   ): void;
   updateConfiguredTableAssociation(
     args: UpdateConfiguredTableAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateConfiguredTableAssociationCommandOutput) => void
   ): void;
 
@@ -2284,7 +2296,7 @@ export interface CleanRooms {
    */
   updateConfiguredTableAssociationAnalysisRule(
     args: UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateConfiguredTableAssociationAnalysisRuleCommandOutput>;
   updateConfiguredTableAssociationAnalysisRule(
     args: UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
@@ -2292,7 +2304,7 @@ export interface CleanRooms {
   ): void;
   updateConfiguredTableAssociationAnalysisRule(
     args: UpdateConfiguredTableAssociationAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateConfiguredTableAssociationAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -2301,7 +2313,7 @@ export interface CleanRooms {
    */
   updateIdMappingTable(
     args: UpdateIdMappingTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateIdMappingTableCommandOutput>;
   updateIdMappingTable(
     args: UpdateIdMappingTableCommandInput,
@@ -2309,7 +2321,7 @@ export interface CleanRooms {
   ): void;
   updateIdMappingTable(
     args: UpdateIdMappingTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateIdMappingTableCommandOutput) => void
   ): void;
 
@@ -2318,7 +2330,7 @@ export interface CleanRooms {
    */
   updateIdNamespaceAssociation(
     args: UpdateIdNamespaceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateIdNamespaceAssociationCommandOutput>;
   updateIdNamespaceAssociation(
     args: UpdateIdNamespaceAssociationCommandInput,
@@ -2326,7 +2338,7 @@ export interface CleanRooms {
   ): void;
   updateIdNamespaceAssociation(
     args: UpdateIdNamespaceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateIdNamespaceAssociationCommandOutput) => void
   ): void;
 
@@ -2335,7 +2347,7 @@ export interface CleanRooms {
    */
   updateIntermediateTable(
     args: UpdateIntermediateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateIntermediateTableCommandOutput>;
   updateIntermediateTable(
     args: UpdateIntermediateTableCommandInput,
@@ -2343,7 +2355,7 @@ export interface CleanRooms {
   ): void;
   updateIntermediateTable(
     args: UpdateIntermediateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateIntermediateTableCommandOutput) => void
   ): void;
 
@@ -2352,7 +2364,7 @@ export interface CleanRooms {
    */
   updateIntermediateTableAnalysisRule(
     args: UpdateIntermediateTableAnalysisRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateIntermediateTableAnalysisRuleCommandOutput>;
   updateIntermediateTableAnalysisRule(
     args: UpdateIntermediateTableAnalysisRuleCommandInput,
@@ -2360,7 +2372,7 @@ export interface CleanRooms {
   ): void;
   updateIntermediateTableAnalysisRule(
     args: UpdateIntermediateTableAnalysisRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateIntermediateTableAnalysisRuleCommandOutput) => void
   ): void;
 
@@ -2369,7 +2381,7 @@ export interface CleanRooms {
    */
   updateMembership(
     args: UpdateMembershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateMembershipCommandOutput>;
   updateMembership(
     args: UpdateMembershipCommandInput,
@@ -2377,7 +2389,7 @@ export interface CleanRooms {
   ): void;
   updateMembership(
     args: UpdateMembershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateMembershipCommandOutput) => void
   ): void;
 
@@ -2386,7 +2398,7 @@ export interface CleanRooms {
    */
   updatePrivacyBudgetTemplate(
     args: UpdatePrivacyBudgetTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdatePrivacyBudgetTemplateCommandOutput>;
   updatePrivacyBudgetTemplate(
     args: UpdatePrivacyBudgetTemplateCommandInput,
@@ -2394,7 +2406,7 @@ export interface CleanRooms {
   ): void;
   updatePrivacyBudgetTemplate(
     args: UpdatePrivacyBudgetTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdatePrivacyBudgetTemplateCommandOutput) => void
   ): void;
 
@@ -2403,7 +2415,7 @@ export interface CleanRooms {
    */
   updateProtectedJob(
     args: UpdateProtectedJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateProtectedJobCommandOutput>;
   updateProtectedJob(
     args: UpdateProtectedJobCommandInput,
@@ -2411,7 +2423,7 @@ export interface CleanRooms {
   ): void;
   updateProtectedJob(
     args: UpdateProtectedJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateProtectedJobCommandOutput) => void
   ): void;
 
@@ -2420,7 +2432,7 @@ export interface CleanRooms {
    */
   updateProtectedQuery(
     args: UpdateProtectedQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CleanRoomsRequestOptions
   ): Promise<UpdateProtectedQueryCommandOutput>;
   updateProtectedQuery(
     args: UpdateProtectedQueryCommandInput,
@@ -2428,7 +2440,7 @@ export interface CleanRooms {
   ): void;
   updateProtectedQuery(
     args: UpdateProtectedQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CleanRoomsRequestOptions,
     cb: (err: any, data?: UpdateProtectedQueryCommandOutput) => void
   ): void;
 

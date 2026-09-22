@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -144,13 +145,20 @@ const waiters = {
   waitUntilFeedDeleted,
 };
 
+/**
+ * @public
+ */
+export interface ElementalInferenceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ElementalInference {
   /**
    * @see {@link AssociateFeedCommand}
    */
   associateFeed(
     args: AssociateFeedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<AssociateFeedCommandOutput>;
   associateFeed(
     args: AssociateFeedCommandInput,
@@ -158,7 +166,7 @@ export interface ElementalInference {
   ): void;
   associateFeed(
     args: AssociateFeedCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: AssociateFeedCommandOutput) => void
   ): void;
 
@@ -167,7 +175,7 @@ export interface ElementalInference {
    */
   createDictionary(
     args: CreateDictionaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<CreateDictionaryCommandOutput>;
   createDictionary(
     args: CreateDictionaryCommandInput,
@@ -175,7 +183,7 @@ export interface ElementalInference {
   ): void;
   createDictionary(
     args: CreateDictionaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: CreateDictionaryCommandOutput) => void
   ): void;
 
@@ -184,7 +192,7 @@ export interface ElementalInference {
    */
   createFeed(
     args: CreateFeedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<CreateFeedCommandOutput>;
   createFeed(
     args: CreateFeedCommandInput,
@@ -192,7 +200,7 @@ export interface ElementalInference {
   ): void;
   createFeed(
     args: CreateFeedCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: CreateFeedCommandOutput) => void
   ): void;
 
@@ -201,7 +209,7 @@ export interface ElementalInference {
    */
   deleteDictionary(
     args: DeleteDictionaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<DeleteDictionaryCommandOutput>;
   deleteDictionary(
     args: DeleteDictionaryCommandInput,
@@ -209,7 +217,7 @@ export interface ElementalInference {
   ): void;
   deleteDictionary(
     args: DeleteDictionaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: DeleteDictionaryCommandOutput) => void
   ): void;
 
@@ -218,7 +226,7 @@ export interface ElementalInference {
    */
   deleteFeed(
     args: DeleteFeedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<DeleteFeedCommandOutput>;
   deleteFeed(
     args: DeleteFeedCommandInput,
@@ -226,7 +234,7 @@ export interface ElementalInference {
   ): void;
   deleteFeed(
     args: DeleteFeedCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: DeleteFeedCommandOutput) => void
   ): void;
 
@@ -235,7 +243,7 @@ export interface ElementalInference {
    */
   deleteFeedPolicy(
     args: DeleteFeedPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<DeleteFeedPolicyCommandOutput>;
   deleteFeedPolicy(
     args: DeleteFeedPolicyCommandInput,
@@ -243,7 +251,7 @@ export interface ElementalInference {
   ): void;
   deleteFeedPolicy(
     args: DeleteFeedPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: DeleteFeedPolicyCommandOutput) => void
   ): void;
 
@@ -252,7 +260,7 @@ export interface ElementalInference {
    */
   disassociateFeed(
     args: DisassociateFeedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<DisassociateFeedCommandOutput>;
   disassociateFeed(
     args: DisassociateFeedCommandInput,
@@ -260,7 +268,7 @@ export interface ElementalInference {
   ): void;
   disassociateFeed(
     args: DisassociateFeedCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: DisassociateFeedCommandOutput) => void
   ): void;
 
@@ -269,7 +277,7 @@ export interface ElementalInference {
    */
   exportDictionaryEntries(
     args: ExportDictionaryEntriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<ExportDictionaryEntriesCommandOutput>;
   exportDictionaryEntries(
     args: ExportDictionaryEntriesCommandInput,
@@ -277,7 +285,7 @@ export interface ElementalInference {
   ): void;
   exportDictionaryEntries(
     args: ExportDictionaryEntriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: ExportDictionaryEntriesCommandOutput) => void
   ): void;
 
@@ -286,7 +294,7 @@ export interface ElementalInference {
    */
   getDictionary(
     args: GetDictionaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<GetDictionaryCommandOutput>;
   getDictionary(
     args: GetDictionaryCommandInput,
@@ -294,7 +302,7 @@ export interface ElementalInference {
   ): void;
   getDictionary(
     args: GetDictionaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: GetDictionaryCommandOutput) => void
   ): void;
 
@@ -303,7 +311,7 @@ export interface ElementalInference {
    */
   getFeed(
     args: GetFeedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<GetFeedCommandOutput>;
   getFeed(
     args: GetFeedCommandInput,
@@ -311,7 +319,7 @@ export interface ElementalInference {
   ): void;
   getFeed(
     args: GetFeedCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: GetFeedCommandOutput) => void
   ): void;
 
@@ -320,7 +328,7 @@ export interface ElementalInference {
    */
   getFeedPolicy(
     args: GetFeedPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<GetFeedPolicyCommandOutput>;
   getFeedPolicy(
     args: GetFeedPolicyCommandInput,
@@ -328,7 +336,7 @@ export interface ElementalInference {
   ): void;
   getFeedPolicy(
     args: GetFeedPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: GetFeedPolicyCommandOutput) => void
   ): void;
 
@@ -337,7 +345,7 @@ export interface ElementalInference {
    */
   getFixture(
     args: GetFixtureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<GetFixtureCommandOutput>;
   getFixture(
     args: GetFixtureCommandInput,
@@ -345,7 +353,7 @@ export interface ElementalInference {
   ): void;
   getFixture(
     args: GetFixtureCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: GetFixtureCommandOutput) => void
   ): void;
 
@@ -355,7 +363,7 @@ export interface ElementalInference {
   listDictionaries(): Promise<ListDictionariesCommandOutput>;
   listDictionaries(
     args: ListDictionariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<ListDictionariesCommandOutput>;
   listDictionaries(
     args: ListDictionariesCommandInput,
@@ -363,7 +371,7 @@ export interface ElementalInference {
   ): void;
   listDictionaries(
     args: ListDictionariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: ListDictionariesCommandOutput) => void
   ): void;
 
@@ -373,7 +381,7 @@ export interface ElementalInference {
   listFeeds(): Promise<ListFeedsCommandOutput>;
   listFeeds(
     args: ListFeedsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<ListFeedsCommandOutput>;
   listFeeds(
     args: ListFeedsCommandInput,
@@ -381,7 +389,7 @@ export interface ElementalInference {
   ): void;
   listFeeds(
     args: ListFeedsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: ListFeedsCommandOutput) => void
   ): void;
 
@@ -390,7 +398,7 @@ export interface ElementalInference {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -398,7 +406,7 @@ export interface ElementalInference {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -407,7 +415,7 @@ export interface ElementalInference {
    */
   putFeedPolicy(
     args: PutFeedPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<PutFeedPolicyCommandOutput>;
   putFeedPolicy(
     args: PutFeedPolicyCommandInput,
@@ -415,7 +423,7 @@ export interface ElementalInference {
   ): void;
   putFeedPolicy(
     args: PutFeedPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: PutFeedPolicyCommandOutput) => void
   ): void;
 
@@ -424,7 +432,7 @@ export interface ElementalInference {
    */
   searchFixtures(
     args: SearchFixturesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<SearchFixturesCommandOutput>;
   searchFixtures(
     args: SearchFixturesCommandInput,
@@ -432,7 +440,7 @@ export interface ElementalInference {
   ): void;
   searchFixtures(
     args: SearchFixturesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: SearchFixturesCommandOutput) => void
   ): void;
 
@@ -441,7 +449,7 @@ export interface ElementalInference {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -449,7 +457,7 @@ export interface ElementalInference {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -458,7 +466,7 @@ export interface ElementalInference {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -466,7 +474,7 @@ export interface ElementalInference {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -475,7 +483,7 @@ export interface ElementalInference {
    */
   updateDictionary(
     args: UpdateDictionaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<UpdateDictionaryCommandOutput>;
   updateDictionary(
     args: UpdateDictionaryCommandInput,
@@ -483,7 +491,7 @@ export interface ElementalInference {
   ): void;
   updateDictionary(
     args: UpdateDictionaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: UpdateDictionaryCommandOutput) => void
   ): void;
 
@@ -492,7 +500,7 @@ export interface ElementalInference {
    */
   updateFeed(
     args: UpdateFeedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ElementalInferenceRequestOptions
   ): Promise<UpdateFeedCommandOutput>;
   updateFeed(
     args: UpdateFeedCommandInput,
@@ -500,7 +508,7 @@ export interface ElementalInference {
   ): void;
   updateFeed(
     args: UpdateFeedCommandInput,
-    options: __HttpHandlerOptions,
+    options: ElementalInferenceRequestOptions,
     cb: (err: any, data?: UpdateFeedCommandOutput) => void
   ): void;
 

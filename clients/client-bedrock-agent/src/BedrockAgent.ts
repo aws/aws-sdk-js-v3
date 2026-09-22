@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BedrockAgentClient } from "./BedrockAgentClient";
 import {
@@ -471,13 +476,20 @@ const paginators = {
   paginateListPrompts,
 };
 
+/**
+ * @public
+ */
+export interface BedrockAgentRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface BedrockAgent {
   /**
    * @see {@link AssociateAgentCollaboratorCommand}
    */
   associateAgentCollaborator(
     args: AssociateAgentCollaboratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<AssociateAgentCollaboratorCommandOutput>;
   associateAgentCollaborator(
     args: AssociateAgentCollaboratorCommandInput,
@@ -485,7 +497,7 @@ export interface BedrockAgent {
   ): void;
   associateAgentCollaborator(
     args: AssociateAgentCollaboratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: AssociateAgentCollaboratorCommandOutput) => void
   ): void;
 
@@ -494,7 +506,7 @@ export interface BedrockAgent {
    */
   associateAgentKnowledgeBase(
     args: AssociateAgentKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<AssociateAgentKnowledgeBaseCommandOutput>;
   associateAgentKnowledgeBase(
     args: AssociateAgentKnowledgeBaseCommandInput,
@@ -502,7 +514,7 @@ export interface BedrockAgent {
   ): void;
   associateAgentKnowledgeBase(
     args: AssociateAgentKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: AssociateAgentKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -511,7 +523,7 @@ export interface BedrockAgent {
    */
   createAgent(
     args: CreateAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreateAgentCommandOutput>;
   createAgent(
     args: CreateAgentCommandInput,
@@ -519,7 +531,7 @@ export interface BedrockAgent {
   ): void;
   createAgent(
     args: CreateAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreateAgentCommandOutput) => void
   ): void;
 
@@ -528,7 +540,7 @@ export interface BedrockAgent {
    */
   createAgentActionGroup(
     args: CreateAgentActionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreateAgentActionGroupCommandOutput>;
   createAgentActionGroup(
     args: CreateAgentActionGroupCommandInput,
@@ -536,7 +548,7 @@ export interface BedrockAgent {
   ): void;
   createAgentActionGroup(
     args: CreateAgentActionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreateAgentActionGroupCommandOutput) => void
   ): void;
 
@@ -545,7 +557,7 @@ export interface BedrockAgent {
    */
   createAgentAlias(
     args: CreateAgentAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreateAgentAliasCommandOutput>;
   createAgentAlias(
     args: CreateAgentAliasCommandInput,
@@ -553,7 +565,7 @@ export interface BedrockAgent {
   ): void;
   createAgentAlias(
     args: CreateAgentAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreateAgentAliasCommandOutput) => void
   ): void;
 
@@ -562,7 +574,7 @@ export interface BedrockAgent {
    */
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreateDataSourceCommandOutput>;
   createDataSource(
     args: CreateDataSourceCommandInput,
@@ -570,7 +582,7 @@ export interface BedrockAgent {
   ): void;
   createDataSource(
     args: CreateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): void;
 
@@ -579,7 +591,7 @@ export interface BedrockAgent {
    */
   createFlow(
     args: CreateFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreateFlowCommandOutput>;
   createFlow(
     args: CreateFlowCommandInput,
@@ -587,7 +599,7 @@ export interface BedrockAgent {
   ): void;
   createFlow(
     args: CreateFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreateFlowCommandOutput) => void
   ): void;
 
@@ -596,7 +608,7 @@ export interface BedrockAgent {
    */
   createFlowAlias(
     args: CreateFlowAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreateFlowAliasCommandOutput>;
   createFlowAlias(
     args: CreateFlowAliasCommandInput,
@@ -604,7 +616,7 @@ export interface BedrockAgent {
   ): void;
   createFlowAlias(
     args: CreateFlowAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreateFlowAliasCommandOutput) => void
   ): void;
 
@@ -613,7 +625,7 @@ export interface BedrockAgent {
    */
   createFlowVersion(
     args: CreateFlowVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreateFlowVersionCommandOutput>;
   createFlowVersion(
     args: CreateFlowVersionCommandInput,
@@ -621,7 +633,7 @@ export interface BedrockAgent {
   ): void;
   createFlowVersion(
     args: CreateFlowVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreateFlowVersionCommandOutput) => void
   ): void;
 
@@ -630,7 +642,7 @@ export interface BedrockAgent {
    */
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreateKnowledgeBaseCommandOutput>;
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
@@ -638,7 +650,7 @@ export interface BedrockAgent {
   ): void;
   createKnowledgeBase(
     args: CreateKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreateKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -647,7 +659,7 @@ export interface BedrockAgent {
    */
   createPrompt(
     args: CreatePromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreatePromptCommandOutput>;
   createPrompt(
     args: CreatePromptCommandInput,
@@ -655,7 +667,7 @@ export interface BedrockAgent {
   ): void;
   createPrompt(
     args: CreatePromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreatePromptCommandOutput) => void
   ): void;
 
@@ -664,7 +676,7 @@ export interface BedrockAgent {
    */
   createPromptVersion(
     args: CreatePromptVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<CreatePromptVersionCommandOutput>;
   createPromptVersion(
     args: CreatePromptVersionCommandInput,
@@ -672,7 +684,7 @@ export interface BedrockAgent {
   ): void;
   createPromptVersion(
     args: CreatePromptVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: CreatePromptVersionCommandOutput) => void
   ): void;
 
@@ -681,7 +693,7 @@ export interface BedrockAgent {
    */
   deleteAgent(
     args: DeleteAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteAgentCommandOutput>;
   deleteAgent(
     args: DeleteAgentCommandInput,
@@ -689,7 +701,7 @@ export interface BedrockAgent {
   ): void;
   deleteAgent(
     args: DeleteAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteAgentCommandOutput) => void
   ): void;
 
@@ -698,7 +710,7 @@ export interface BedrockAgent {
    */
   deleteAgentActionGroup(
     args: DeleteAgentActionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteAgentActionGroupCommandOutput>;
   deleteAgentActionGroup(
     args: DeleteAgentActionGroupCommandInput,
@@ -706,7 +718,7 @@ export interface BedrockAgent {
   ): void;
   deleteAgentActionGroup(
     args: DeleteAgentActionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteAgentActionGroupCommandOutput) => void
   ): void;
 
@@ -715,7 +727,7 @@ export interface BedrockAgent {
    */
   deleteAgentAlias(
     args: DeleteAgentAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteAgentAliasCommandOutput>;
   deleteAgentAlias(
     args: DeleteAgentAliasCommandInput,
@@ -723,7 +735,7 @@ export interface BedrockAgent {
   ): void;
   deleteAgentAlias(
     args: DeleteAgentAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteAgentAliasCommandOutput) => void
   ): void;
 
@@ -732,7 +744,7 @@ export interface BedrockAgent {
    */
   deleteAgentVersion(
     args: DeleteAgentVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteAgentVersionCommandOutput>;
   deleteAgentVersion(
     args: DeleteAgentVersionCommandInput,
@@ -740,7 +752,7 @@ export interface BedrockAgent {
   ): void;
   deleteAgentVersion(
     args: DeleteAgentVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteAgentVersionCommandOutput) => void
   ): void;
 
@@ -749,7 +761,7 @@ export interface BedrockAgent {
    */
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteDataSourceCommandOutput>;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -757,7 +769,7 @@ export interface BedrockAgent {
   ): void;
   deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): void;
 
@@ -766,7 +778,7 @@ export interface BedrockAgent {
    */
   deleteFlow(
     args: DeleteFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteFlowCommandOutput>;
   deleteFlow(
     args: DeleteFlowCommandInput,
@@ -774,7 +786,7 @@ export interface BedrockAgent {
   ): void;
   deleteFlow(
     args: DeleteFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteFlowCommandOutput) => void
   ): void;
 
@@ -783,7 +795,7 @@ export interface BedrockAgent {
    */
   deleteFlowAlias(
     args: DeleteFlowAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteFlowAliasCommandOutput>;
   deleteFlowAlias(
     args: DeleteFlowAliasCommandInput,
@@ -791,7 +803,7 @@ export interface BedrockAgent {
   ): void;
   deleteFlowAlias(
     args: DeleteFlowAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteFlowAliasCommandOutput) => void
   ): void;
 
@@ -800,7 +812,7 @@ export interface BedrockAgent {
    */
   deleteFlowVersion(
     args: DeleteFlowVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteFlowVersionCommandOutput>;
   deleteFlowVersion(
     args: DeleteFlowVersionCommandInput,
@@ -808,7 +820,7 @@ export interface BedrockAgent {
   ): void;
   deleteFlowVersion(
     args: DeleteFlowVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteFlowVersionCommandOutput) => void
   ): void;
 
@@ -817,7 +829,7 @@ export interface BedrockAgent {
    */
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteKnowledgeBaseCommandOutput>;
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
@@ -825,7 +837,7 @@ export interface BedrockAgent {
   ): void;
   deleteKnowledgeBase(
     args: DeleteKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -834,7 +846,7 @@ export interface BedrockAgent {
    */
   deleteKnowledgeBaseDocuments(
     args: DeleteKnowledgeBaseDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteKnowledgeBaseDocumentsCommandOutput>;
   deleteKnowledgeBaseDocuments(
     args: DeleteKnowledgeBaseDocumentsCommandInput,
@@ -842,7 +854,7 @@ export interface BedrockAgent {
   ): void;
   deleteKnowledgeBaseDocuments(
     args: DeleteKnowledgeBaseDocumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteKnowledgeBaseDocumentsCommandOutput) => void
   ): void;
 
@@ -851,7 +863,7 @@ export interface BedrockAgent {
    */
   deletePrompt(
     args: DeletePromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeletePromptCommandOutput>;
   deletePrompt(
     args: DeletePromptCommandInput,
@@ -859,7 +871,7 @@ export interface BedrockAgent {
   ): void;
   deletePrompt(
     args: DeletePromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeletePromptCommandOutput) => void
   ): void;
 
@@ -868,7 +880,7 @@ export interface BedrockAgent {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -876,7 +888,7 @@ export interface BedrockAgent {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -885,7 +897,7 @@ export interface BedrockAgent {
    */
   disassociateAgentCollaborator(
     args: DisassociateAgentCollaboratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DisassociateAgentCollaboratorCommandOutput>;
   disassociateAgentCollaborator(
     args: DisassociateAgentCollaboratorCommandInput,
@@ -893,7 +905,7 @@ export interface BedrockAgent {
   ): void;
   disassociateAgentCollaborator(
     args: DisassociateAgentCollaboratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DisassociateAgentCollaboratorCommandOutput) => void
   ): void;
 
@@ -902,7 +914,7 @@ export interface BedrockAgent {
    */
   disassociateAgentKnowledgeBase(
     args: DisassociateAgentKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<DisassociateAgentKnowledgeBaseCommandOutput>;
   disassociateAgentKnowledgeBase(
     args: DisassociateAgentKnowledgeBaseCommandInput,
@@ -910,7 +922,7 @@ export interface BedrockAgent {
   ): void;
   disassociateAgentKnowledgeBase(
     args: DisassociateAgentKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: DisassociateAgentKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -919,7 +931,7 @@ export interface BedrockAgent {
    */
   getAgent(
     args: GetAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetAgentCommandOutput>;
   getAgent(
     args: GetAgentCommandInput,
@@ -927,7 +939,7 @@ export interface BedrockAgent {
   ): void;
   getAgent(
     args: GetAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetAgentCommandOutput) => void
   ): void;
 
@@ -936,7 +948,7 @@ export interface BedrockAgent {
    */
   getAgentActionGroup(
     args: GetAgentActionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetAgentActionGroupCommandOutput>;
   getAgentActionGroup(
     args: GetAgentActionGroupCommandInput,
@@ -944,7 +956,7 @@ export interface BedrockAgent {
   ): void;
   getAgentActionGroup(
     args: GetAgentActionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetAgentActionGroupCommandOutput) => void
   ): void;
 
@@ -953,7 +965,7 @@ export interface BedrockAgent {
    */
   getAgentAlias(
     args: GetAgentAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetAgentAliasCommandOutput>;
   getAgentAlias(
     args: GetAgentAliasCommandInput,
@@ -961,7 +973,7 @@ export interface BedrockAgent {
   ): void;
   getAgentAlias(
     args: GetAgentAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetAgentAliasCommandOutput) => void
   ): void;
 
@@ -970,7 +982,7 @@ export interface BedrockAgent {
    */
   getAgentCollaborator(
     args: GetAgentCollaboratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetAgentCollaboratorCommandOutput>;
   getAgentCollaborator(
     args: GetAgentCollaboratorCommandInput,
@@ -978,7 +990,7 @@ export interface BedrockAgent {
   ): void;
   getAgentCollaborator(
     args: GetAgentCollaboratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetAgentCollaboratorCommandOutput) => void
   ): void;
 
@@ -987,7 +999,7 @@ export interface BedrockAgent {
    */
   getAgentKnowledgeBase(
     args: GetAgentKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetAgentKnowledgeBaseCommandOutput>;
   getAgentKnowledgeBase(
     args: GetAgentKnowledgeBaseCommandInput,
@@ -995,7 +1007,7 @@ export interface BedrockAgent {
   ): void;
   getAgentKnowledgeBase(
     args: GetAgentKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetAgentKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -1004,7 +1016,7 @@ export interface BedrockAgent {
    */
   getAgentVersion(
     args: GetAgentVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetAgentVersionCommandOutput>;
   getAgentVersion(
     args: GetAgentVersionCommandInput,
@@ -1012,7 +1024,7 @@ export interface BedrockAgent {
   ): void;
   getAgentVersion(
     args: GetAgentVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetAgentVersionCommandOutput) => void
   ): void;
 
@@ -1021,7 +1033,7 @@ export interface BedrockAgent {
    */
   getDataSource(
     args: GetDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetDataSourceCommandOutput>;
   getDataSource(
     args: GetDataSourceCommandInput,
@@ -1029,7 +1041,7 @@ export interface BedrockAgent {
   ): void;
   getDataSource(
     args: GetDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetDataSourceCommandOutput) => void
   ): void;
 
@@ -1038,7 +1050,7 @@ export interface BedrockAgent {
    */
   getFlow(
     args: GetFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetFlowCommandOutput>;
   getFlow(
     args: GetFlowCommandInput,
@@ -1046,7 +1058,7 @@ export interface BedrockAgent {
   ): void;
   getFlow(
     args: GetFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetFlowCommandOutput) => void
   ): void;
 
@@ -1055,7 +1067,7 @@ export interface BedrockAgent {
    */
   getFlowAlias(
     args: GetFlowAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetFlowAliasCommandOutput>;
   getFlowAlias(
     args: GetFlowAliasCommandInput,
@@ -1063,7 +1075,7 @@ export interface BedrockAgent {
   ): void;
   getFlowAlias(
     args: GetFlowAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetFlowAliasCommandOutput) => void
   ): void;
 
@@ -1072,7 +1084,7 @@ export interface BedrockAgent {
    */
   getFlowVersion(
     args: GetFlowVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetFlowVersionCommandOutput>;
   getFlowVersion(
     args: GetFlowVersionCommandInput,
@@ -1080,7 +1092,7 @@ export interface BedrockAgent {
   ): void;
   getFlowVersion(
     args: GetFlowVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetFlowVersionCommandOutput) => void
   ): void;
 
@@ -1089,7 +1101,7 @@ export interface BedrockAgent {
    */
   getIngestionJob(
     args: GetIngestionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetIngestionJobCommandOutput>;
   getIngestionJob(
     args: GetIngestionJobCommandInput,
@@ -1097,7 +1109,7 @@ export interface BedrockAgent {
   ): void;
   getIngestionJob(
     args: GetIngestionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetIngestionJobCommandOutput) => void
   ): void;
 
@@ -1106,7 +1118,7 @@ export interface BedrockAgent {
    */
   getKnowledgeBase(
     args: GetKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetKnowledgeBaseCommandOutput>;
   getKnowledgeBase(
     args: GetKnowledgeBaseCommandInput,
@@ -1114,7 +1126,7 @@ export interface BedrockAgent {
   ): void;
   getKnowledgeBase(
     args: GetKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -1123,7 +1135,7 @@ export interface BedrockAgent {
    */
   getKnowledgeBaseDocuments(
     args: GetKnowledgeBaseDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetKnowledgeBaseDocumentsCommandOutput>;
   getKnowledgeBaseDocuments(
     args: GetKnowledgeBaseDocumentsCommandInput,
@@ -1131,7 +1143,7 @@ export interface BedrockAgent {
   ): void;
   getKnowledgeBaseDocuments(
     args: GetKnowledgeBaseDocumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetKnowledgeBaseDocumentsCommandOutput) => void
   ): void;
 
@@ -1140,7 +1152,7 @@ export interface BedrockAgent {
    */
   getPrompt(
     args: GetPromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetPromptCommandOutput>;
   getPrompt(
     args: GetPromptCommandInput,
@@ -1148,7 +1160,7 @@ export interface BedrockAgent {
   ): void;
   getPrompt(
     args: GetPromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetPromptCommandOutput) => void
   ): void;
 
@@ -1157,7 +1169,7 @@ export interface BedrockAgent {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -1165,7 +1177,7 @@ export interface BedrockAgent {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1174,7 +1186,7 @@ export interface BedrockAgent {
    */
   ingestKnowledgeBaseDocuments(
     args: IngestKnowledgeBaseDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<IngestKnowledgeBaseDocumentsCommandOutput>;
   ingestKnowledgeBaseDocuments(
     args: IngestKnowledgeBaseDocumentsCommandInput,
@@ -1182,7 +1194,7 @@ export interface BedrockAgent {
   ): void;
   ingestKnowledgeBaseDocuments(
     args: IngestKnowledgeBaseDocumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: IngestKnowledgeBaseDocumentsCommandOutput) => void
   ): void;
 
@@ -1191,7 +1203,7 @@ export interface BedrockAgent {
    */
   listAgentActionGroups(
     args: ListAgentActionGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListAgentActionGroupsCommandOutput>;
   listAgentActionGroups(
     args: ListAgentActionGroupsCommandInput,
@@ -1199,7 +1211,7 @@ export interface BedrockAgent {
   ): void;
   listAgentActionGroups(
     args: ListAgentActionGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListAgentActionGroupsCommandOutput) => void
   ): void;
 
@@ -1208,7 +1220,7 @@ export interface BedrockAgent {
    */
   listAgentAliases(
     args: ListAgentAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListAgentAliasesCommandOutput>;
   listAgentAliases(
     args: ListAgentAliasesCommandInput,
@@ -1216,7 +1228,7 @@ export interface BedrockAgent {
   ): void;
   listAgentAliases(
     args: ListAgentAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListAgentAliasesCommandOutput) => void
   ): void;
 
@@ -1225,7 +1237,7 @@ export interface BedrockAgent {
    */
   listAgentCollaborators(
     args: ListAgentCollaboratorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListAgentCollaboratorsCommandOutput>;
   listAgentCollaborators(
     args: ListAgentCollaboratorsCommandInput,
@@ -1233,7 +1245,7 @@ export interface BedrockAgent {
   ): void;
   listAgentCollaborators(
     args: ListAgentCollaboratorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListAgentCollaboratorsCommandOutput) => void
   ): void;
 
@@ -1242,7 +1254,7 @@ export interface BedrockAgent {
    */
   listAgentKnowledgeBases(
     args: ListAgentKnowledgeBasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListAgentKnowledgeBasesCommandOutput>;
   listAgentKnowledgeBases(
     args: ListAgentKnowledgeBasesCommandInput,
@@ -1250,7 +1262,7 @@ export interface BedrockAgent {
   ): void;
   listAgentKnowledgeBases(
     args: ListAgentKnowledgeBasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListAgentKnowledgeBasesCommandOutput) => void
   ): void;
 
@@ -1260,7 +1272,7 @@ export interface BedrockAgent {
   listAgents(): Promise<ListAgentsCommandOutput>;
   listAgents(
     args: ListAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListAgentsCommandOutput>;
   listAgents(
     args: ListAgentsCommandInput,
@@ -1268,7 +1280,7 @@ export interface BedrockAgent {
   ): void;
   listAgents(
     args: ListAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListAgentsCommandOutput) => void
   ): void;
 
@@ -1277,7 +1289,7 @@ export interface BedrockAgent {
    */
   listAgentVersions(
     args: ListAgentVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListAgentVersionsCommandOutput>;
   listAgentVersions(
     args: ListAgentVersionsCommandInput,
@@ -1285,7 +1297,7 @@ export interface BedrockAgent {
   ): void;
   listAgentVersions(
     args: ListAgentVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListAgentVersionsCommandOutput) => void
   ): void;
 
@@ -1294,7 +1306,7 @@ export interface BedrockAgent {
    */
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListDataSourcesCommandOutput>;
   listDataSources(
     args: ListDataSourcesCommandInput,
@@ -1302,7 +1314,7 @@ export interface BedrockAgent {
   ): void;
   listDataSources(
     args: ListDataSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): void;
 
@@ -1311,7 +1323,7 @@ export interface BedrockAgent {
    */
   listFlowAliases(
     args: ListFlowAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListFlowAliasesCommandOutput>;
   listFlowAliases(
     args: ListFlowAliasesCommandInput,
@@ -1319,7 +1331,7 @@ export interface BedrockAgent {
   ): void;
   listFlowAliases(
     args: ListFlowAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListFlowAliasesCommandOutput) => void
   ): void;
 
@@ -1329,7 +1341,7 @@ export interface BedrockAgent {
   listFlows(): Promise<ListFlowsCommandOutput>;
   listFlows(
     args: ListFlowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListFlowsCommandOutput>;
   listFlows(
     args: ListFlowsCommandInput,
@@ -1337,7 +1349,7 @@ export interface BedrockAgent {
   ): void;
   listFlows(
     args: ListFlowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListFlowsCommandOutput) => void
   ): void;
 
@@ -1346,7 +1358,7 @@ export interface BedrockAgent {
    */
   listFlowVersions(
     args: ListFlowVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListFlowVersionsCommandOutput>;
   listFlowVersions(
     args: ListFlowVersionsCommandInput,
@@ -1354,7 +1366,7 @@ export interface BedrockAgent {
   ): void;
   listFlowVersions(
     args: ListFlowVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListFlowVersionsCommandOutput) => void
   ): void;
 
@@ -1363,7 +1375,7 @@ export interface BedrockAgent {
    */
   listIngestionJobs(
     args: ListIngestionJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListIngestionJobsCommandOutput>;
   listIngestionJobs(
     args: ListIngestionJobsCommandInput,
@@ -1371,7 +1383,7 @@ export interface BedrockAgent {
   ): void;
   listIngestionJobs(
     args: ListIngestionJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListIngestionJobsCommandOutput) => void
   ): void;
 
@@ -1380,7 +1392,7 @@ export interface BedrockAgent {
    */
   listKnowledgeBaseDocuments(
     args: ListKnowledgeBaseDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListKnowledgeBaseDocumentsCommandOutput>;
   listKnowledgeBaseDocuments(
     args: ListKnowledgeBaseDocumentsCommandInput,
@@ -1388,7 +1400,7 @@ export interface BedrockAgent {
   ): void;
   listKnowledgeBaseDocuments(
     args: ListKnowledgeBaseDocumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListKnowledgeBaseDocumentsCommandOutput) => void
   ): void;
 
@@ -1398,7 +1410,7 @@ export interface BedrockAgent {
   listKnowledgeBases(): Promise<ListKnowledgeBasesCommandOutput>;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListKnowledgeBasesCommandOutput>;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
@@ -1406,7 +1418,7 @@ export interface BedrockAgent {
   ): void;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListKnowledgeBasesCommandOutput) => void
   ): void;
 
@@ -1416,7 +1428,7 @@ export interface BedrockAgent {
   listPrompts(): Promise<ListPromptsCommandOutput>;
   listPrompts(
     args: ListPromptsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListPromptsCommandOutput>;
   listPrompts(
     args: ListPromptsCommandInput,
@@ -1424,7 +1436,7 @@ export interface BedrockAgent {
   ): void;
   listPrompts(
     args: ListPromptsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListPromptsCommandOutput) => void
   ): void;
 
@@ -1433,7 +1445,7 @@ export interface BedrockAgent {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1441,7 +1453,7 @@ export interface BedrockAgent {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1450,7 +1462,7 @@ export interface BedrockAgent {
    */
   prepareAgent(
     args: PrepareAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<PrepareAgentCommandOutput>;
   prepareAgent(
     args: PrepareAgentCommandInput,
@@ -1458,7 +1470,7 @@ export interface BedrockAgent {
   ): void;
   prepareAgent(
     args: PrepareAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: PrepareAgentCommandOutput) => void
   ): void;
 
@@ -1467,7 +1479,7 @@ export interface BedrockAgent {
    */
   prepareFlow(
     args: PrepareFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<PrepareFlowCommandOutput>;
   prepareFlow(
     args: PrepareFlowCommandInput,
@@ -1475,7 +1487,7 @@ export interface BedrockAgent {
   ): void;
   prepareFlow(
     args: PrepareFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: PrepareFlowCommandOutput) => void
   ): void;
 
@@ -1484,7 +1496,7 @@ export interface BedrockAgent {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -1492,7 +1504,7 @@ export interface BedrockAgent {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1501,7 +1513,7 @@ export interface BedrockAgent {
    */
   startIngestionJob(
     args: StartIngestionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<StartIngestionJobCommandOutput>;
   startIngestionJob(
     args: StartIngestionJobCommandInput,
@@ -1509,7 +1521,7 @@ export interface BedrockAgent {
   ): void;
   startIngestionJob(
     args: StartIngestionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: StartIngestionJobCommandOutput) => void
   ): void;
 
@@ -1518,7 +1530,7 @@ export interface BedrockAgent {
    */
   stopIngestionJob(
     args: StopIngestionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<StopIngestionJobCommandOutput>;
   stopIngestionJob(
     args: StopIngestionJobCommandInput,
@@ -1526,7 +1538,7 @@ export interface BedrockAgent {
   ): void;
   stopIngestionJob(
     args: StopIngestionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: StopIngestionJobCommandOutput) => void
   ): void;
 
@@ -1535,7 +1547,7 @@ export interface BedrockAgent {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1543,7 +1555,7 @@ export interface BedrockAgent {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1552,7 +1564,7 @@ export interface BedrockAgent {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1560,7 +1572,7 @@ export interface BedrockAgent {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1569,7 +1581,7 @@ export interface BedrockAgent {
    */
   updateAgent(
     args: UpdateAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdateAgentCommandOutput>;
   updateAgent(
     args: UpdateAgentCommandInput,
@@ -1577,7 +1589,7 @@ export interface BedrockAgent {
   ): void;
   updateAgent(
     args: UpdateAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdateAgentCommandOutput) => void
   ): void;
 
@@ -1586,7 +1598,7 @@ export interface BedrockAgent {
    */
   updateAgentActionGroup(
     args: UpdateAgentActionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdateAgentActionGroupCommandOutput>;
   updateAgentActionGroup(
     args: UpdateAgentActionGroupCommandInput,
@@ -1594,7 +1606,7 @@ export interface BedrockAgent {
   ): void;
   updateAgentActionGroup(
     args: UpdateAgentActionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdateAgentActionGroupCommandOutput) => void
   ): void;
 
@@ -1603,7 +1615,7 @@ export interface BedrockAgent {
    */
   updateAgentAlias(
     args: UpdateAgentAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdateAgentAliasCommandOutput>;
   updateAgentAlias(
     args: UpdateAgentAliasCommandInput,
@@ -1611,7 +1623,7 @@ export interface BedrockAgent {
   ): void;
   updateAgentAlias(
     args: UpdateAgentAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdateAgentAliasCommandOutput) => void
   ): void;
 
@@ -1620,7 +1632,7 @@ export interface BedrockAgent {
    */
   updateAgentCollaborator(
     args: UpdateAgentCollaboratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdateAgentCollaboratorCommandOutput>;
   updateAgentCollaborator(
     args: UpdateAgentCollaboratorCommandInput,
@@ -1628,7 +1640,7 @@ export interface BedrockAgent {
   ): void;
   updateAgentCollaborator(
     args: UpdateAgentCollaboratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdateAgentCollaboratorCommandOutput) => void
   ): void;
 
@@ -1637,7 +1649,7 @@ export interface BedrockAgent {
    */
   updateAgentKnowledgeBase(
     args: UpdateAgentKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdateAgentKnowledgeBaseCommandOutput>;
   updateAgentKnowledgeBase(
     args: UpdateAgentKnowledgeBaseCommandInput,
@@ -1645,7 +1657,7 @@ export interface BedrockAgent {
   ): void;
   updateAgentKnowledgeBase(
     args: UpdateAgentKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdateAgentKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -1654,7 +1666,7 @@ export interface BedrockAgent {
    */
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdateDataSourceCommandOutput>;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -1662,7 +1674,7 @@ export interface BedrockAgent {
   ): void;
   updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): void;
 
@@ -1671,7 +1683,7 @@ export interface BedrockAgent {
    */
   updateFlow(
     args: UpdateFlowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdateFlowCommandOutput>;
   updateFlow(
     args: UpdateFlowCommandInput,
@@ -1679,7 +1691,7 @@ export interface BedrockAgent {
   ): void;
   updateFlow(
     args: UpdateFlowCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdateFlowCommandOutput) => void
   ): void;
 
@@ -1688,7 +1700,7 @@ export interface BedrockAgent {
    */
   updateFlowAlias(
     args: UpdateFlowAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdateFlowAliasCommandOutput>;
   updateFlowAlias(
     args: UpdateFlowAliasCommandInput,
@@ -1696,7 +1708,7 @@ export interface BedrockAgent {
   ): void;
   updateFlowAlias(
     args: UpdateFlowAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdateFlowAliasCommandOutput) => void
   ): void;
 
@@ -1705,7 +1717,7 @@ export interface BedrockAgent {
    */
   updateKnowledgeBase(
     args: UpdateKnowledgeBaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdateKnowledgeBaseCommandOutput>;
   updateKnowledgeBase(
     args: UpdateKnowledgeBaseCommandInput,
@@ -1713,7 +1725,7 @@ export interface BedrockAgent {
   ): void;
   updateKnowledgeBase(
     args: UpdateKnowledgeBaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdateKnowledgeBaseCommandOutput) => void
   ): void;
 
@@ -1722,7 +1734,7 @@ export interface BedrockAgent {
    */
   updatePrompt(
     args: UpdatePromptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<UpdatePromptCommandOutput>;
   updatePrompt(
     args: UpdatePromptCommandInput,
@@ -1730,7 +1742,7 @@ export interface BedrockAgent {
   ): void;
   updatePrompt(
     args: UpdatePromptCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: UpdatePromptCommandOutput) => void
   ): void;
 
@@ -1739,7 +1751,7 @@ export interface BedrockAgent {
    */
   validateFlowDefinition(
     args: ValidateFlowDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentRequestOptions
   ): Promise<ValidateFlowDefinitionCommandOutput>;
   validateFlowDefinition(
     args: ValidateFlowDefinitionCommandInput,
@@ -1747,7 +1759,7 @@ export interface BedrockAgent {
   ): void;
   validateFlowDefinition(
     args: ValidateFlowDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentRequestOptions,
     cb: (err: any, data?: ValidateFlowDefinitionCommandOutput) => void
   ): void;
 

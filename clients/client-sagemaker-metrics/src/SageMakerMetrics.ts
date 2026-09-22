@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type BatchGetMetricsCommandInput,
@@ -19,13 +19,20 @@ const commands = {
   BatchPutMetricsCommand,
 };
 
+/**
+ * @public
+ */
+export interface SageMakerMetricsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SageMakerMetrics {
   /**
    * @see {@link BatchGetMetricsCommand}
    */
   batchGetMetrics(
     args: BatchGetMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerMetricsRequestOptions
   ): Promise<BatchGetMetricsCommandOutput>;
   batchGetMetrics(
     args: BatchGetMetricsCommandInput,
@@ -33,7 +40,7 @@ export interface SageMakerMetrics {
   ): void;
   batchGetMetrics(
     args: BatchGetMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerMetricsRequestOptions,
     cb: (err: any, data?: BatchGetMetricsCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface SageMakerMetrics {
    */
   batchPutMetrics(
     args: BatchPutMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SageMakerMetricsRequestOptions
   ): Promise<BatchPutMetricsCommandOutput>;
   batchPutMetrics(
     args: BatchPutMetricsCommandInput,
@@ -50,7 +57,7 @@ export interface SageMakerMetrics {
   ): void;
   batchPutMetrics(
     args: BatchPutMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SageMakerMetricsRequestOptions,
     cb: (err: any, data?: BatchPutMetricsCommandOutput) => void
   ): void;
 }

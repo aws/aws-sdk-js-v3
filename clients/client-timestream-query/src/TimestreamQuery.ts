@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CancelQueryCommandInput,
@@ -101,13 +106,20 @@ const paginators = {
   paginateQuery,
 };
 
+/**
+ * @public
+ */
+export interface TimestreamQueryRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface TimestreamQuery {
   /**
    * @see {@link CancelQueryCommand}
    */
   cancelQuery(
     args: CancelQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<CancelQueryCommandOutput>;
   cancelQuery(
     args: CancelQueryCommandInput,
@@ -115,7 +127,7 @@ export interface TimestreamQuery {
   ): void;
   cancelQuery(
     args: CancelQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: CancelQueryCommandOutput) => void
   ): void;
 
@@ -124,7 +136,7 @@ export interface TimestreamQuery {
    */
   createScheduledQuery(
     args: CreateScheduledQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<CreateScheduledQueryCommandOutput>;
   createScheduledQuery(
     args: CreateScheduledQueryCommandInput,
@@ -132,7 +144,7 @@ export interface TimestreamQuery {
   ): void;
   createScheduledQuery(
     args: CreateScheduledQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: CreateScheduledQueryCommandOutput) => void
   ): void;
 
@@ -141,7 +153,7 @@ export interface TimestreamQuery {
    */
   deleteScheduledQuery(
     args: DeleteScheduledQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<DeleteScheduledQueryCommandOutput>;
   deleteScheduledQuery(
     args: DeleteScheduledQueryCommandInput,
@@ -149,7 +161,7 @@ export interface TimestreamQuery {
   ): void;
   deleteScheduledQuery(
     args: DeleteScheduledQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: DeleteScheduledQueryCommandOutput) => void
   ): void;
 
@@ -159,7 +171,7 @@ export interface TimestreamQuery {
   describeAccountSettings(): Promise<DescribeAccountSettingsCommandOutput>;
   describeAccountSettings(
     args: DescribeAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<DescribeAccountSettingsCommandOutput>;
   describeAccountSettings(
     args: DescribeAccountSettingsCommandInput,
@@ -167,7 +179,7 @@ export interface TimestreamQuery {
   ): void;
   describeAccountSettings(
     args: DescribeAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
   ): void;
 
@@ -177,7 +189,7 @@ export interface TimestreamQuery {
   describeEndpoints(): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
@@ -185,7 +197,7 @@ export interface TimestreamQuery {
   ): void;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: DescribeEndpointsCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface TimestreamQuery {
    */
   describeScheduledQuery(
     args: DescribeScheduledQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<DescribeScheduledQueryCommandOutput>;
   describeScheduledQuery(
     args: DescribeScheduledQueryCommandInput,
@@ -202,7 +214,7 @@ export interface TimestreamQuery {
   ): void;
   describeScheduledQuery(
     args: DescribeScheduledQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: DescribeScheduledQueryCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface TimestreamQuery {
    */
   executeScheduledQuery(
     args: ExecuteScheduledQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<ExecuteScheduledQueryCommandOutput>;
   executeScheduledQuery(
     args: ExecuteScheduledQueryCommandInput,
@@ -219,7 +231,7 @@ export interface TimestreamQuery {
   ): void;
   executeScheduledQuery(
     args: ExecuteScheduledQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: ExecuteScheduledQueryCommandOutput) => void
   ): void;
 
@@ -229,7 +241,7 @@ export interface TimestreamQuery {
   listScheduledQueries(): Promise<ListScheduledQueriesCommandOutput>;
   listScheduledQueries(
     args: ListScheduledQueriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<ListScheduledQueriesCommandOutput>;
   listScheduledQueries(
     args: ListScheduledQueriesCommandInput,
@@ -237,7 +249,7 @@ export interface TimestreamQuery {
   ): void;
   listScheduledQueries(
     args: ListScheduledQueriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: ListScheduledQueriesCommandOutput) => void
   ): void;
 
@@ -246,7 +258,7 @@ export interface TimestreamQuery {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -254,7 +266,7 @@ export interface TimestreamQuery {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -263,7 +275,7 @@ export interface TimestreamQuery {
    */
   prepareQuery(
     args: PrepareQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<PrepareQueryCommandOutput>;
   prepareQuery(
     args: PrepareQueryCommandInput,
@@ -271,7 +283,7 @@ export interface TimestreamQuery {
   ): void;
   prepareQuery(
     args: PrepareQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: PrepareQueryCommandOutput) => void
   ): void;
 
@@ -280,7 +292,7 @@ export interface TimestreamQuery {
    */
   query(
     args: QueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<QueryCommandOutput>;
   query(
     args: QueryCommandInput,
@@ -288,7 +300,7 @@ export interface TimestreamQuery {
   ): void;
   query(
     args: QueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: QueryCommandOutput) => void
   ): void;
 
@@ -297,7 +309,7 @@ export interface TimestreamQuery {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -305,7 +317,7 @@ export interface TimestreamQuery {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -314,7 +326,7 @@ export interface TimestreamQuery {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -322,7 +334,7 @@ export interface TimestreamQuery {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface TimestreamQuery {
   updateAccountSettings(): Promise<UpdateAccountSettingsCommandOutput>;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<UpdateAccountSettingsCommandOutput>;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
@@ -340,7 +352,7 @@ export interface TimestreamQuery {
   ): void;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface TimestreamQuery {
    */
   updateScheduledQuery(
     args: UpdateScheduledQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: TimestreamQueryRequestOptions
   ): Promise<UpdateScheduledQueryCommandOutput>;
   updateScheduledQuery(
     args: UpdateScheduledQueryCommandInput,
@@ -357,7 +369,7 @@ export interface TimestreamQuery {
   ): void;
   updateScheduledQuery(
     args: UpdateScheduledQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: TimestreamQueryRequestOptions,
     cb: (err: any, data?: UpdateScheduledQueryCommandOutput) => void
   ): void;
 

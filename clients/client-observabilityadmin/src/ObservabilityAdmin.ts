@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateCentralizationRuleForOrganizationCommandInput,
@@ -267,13 +272,20 @@ const paginators = {
   paginateListTelemetryRulesForOrganization,
 };
 
+/**
+ * @public
+ */
+export interface ObservabilityAdminRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ObservabilityAdmin {
   /**
    * @see {@link CreateCentralizationRuleForOrganizationCommand}
    */
   createCentralizationRuleForOrganization(
     args: CreateCentralizationRuleForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<CreateCentralizationRuleForOrganizationCommandOutput>;
   createCentralizationRuleForOrganization(
     args: CreateCentralizationRuleForOrganizationCommandInput,
@@ -281,7 +293,7 @@ export interface ObservabilityAdmin {
   ): void;
   createCentralizationRuleForOrganization(
     args: CreateCentralizationRuleForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: CreateCentralizationRuleForOrganizationCommandOutput) => void
   ): void;
 
@@ -290,7 +302,7 @@ export interface ObservabilityAdmin {
    */
   createS3TableIntegration(
     args: CreateS3TableIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<CreateS3TableIntegrationCommandOutput>;
   createS3TableIntegration(
     args: CreateS3TableIntegrationCommandInput,
@@ -298,7 +310,7 @@ export interface ObservabilityAdmin {
   ): void;
   createS3TableIntegration(
     args: CreateS3TableIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: CreateS3TableIntegrationCommandOutput) => void
   ): void;
 
@@ -307,7 +319,7 @@ export interface ObservabilityAdmin {
    */
   createTelemetryPipeline(
     args: CreateTelemetryPipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<CreateTelemetryPipelineCommandOutput>;
   createTelemetryPipeline(
     args: CreateTelemetryPipelineCommandInput,
@@ -315,7 +327,7 @@ export interface ObservabilityAdmin {
   ): void;
   createTelemetryPipeline(
     args: CreateTelemetryPipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: CreateTelemetryPipelineCommandOutput) => void
   ): void;
 
@@ -324,7 +336,7 @@ export interface ObservabilityAdmin {
    */
   createTelemetryRule(
     args: CreateTelemetryRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<CreateTelemetryRuleCommandOutput>;
   createTelemetryRule(
     args: CreateTelemetryRuleCommandInput,
@@ -332,7 +344,7 @@ export interface ObservabilityAdmin {
   ): void;
   createTelemetryRule(
     args: CreateTelemetryRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: CreateTelemetryRuleCommandOutput) => void
   ): void;
 
@@ -341,7 +353,7 @@ export interface ObservabilityAdmin {
    */
   createTelemetryRuleForOrganization(
     args: CreateTelemetryRuleForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<CreateTelemetryRuleForOrganizationCommandOutput>;
   createTelemetryRuleForOrganization(
     args: CreateTelemetryRuleForOrganizationCommandInput,
@@ -349,7 +361,7 @@ export interface ObservabilityAdmin {
   ): void;
   createTelemetryRuleForOrganization(
     args: CreateTelemetryRuleForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: CreateTelemetryRuleForOrganizationCommandOutput) => void
   ): void;
 
@@ -358,7 +370,7 @@ export interface ObservabilityAdmin {
    */
   deleteCentralizationRuleForOrganization(
     args: DeleteCentralizationRuleForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<DeleteCentralizationRuleForOrganizationCommandOutput>;
   deleteCentralizationRuleForOrganization(
     args: DeleteCentralizationRuleForOrganizationCommandInput,
@@ -366,7 +378,7 @@ export interface ObservabilityAdmin {
   ): void;
   deleteCentralizationRuleForOrganization(
     args: DeleteCentralizationRuleForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: DeleteCentralizationRuleForOrganizationCommandOutput) => void
   ): void;
 
@@ -375,7 +387,7 @@ export interface ObservabilityAdmin {
    */
   deleteS3TableIntegration(
     args: DeleteS3TableIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<DeleteS3TableIntegrationCommandOutput>;
   deleteS3TableIntegration(
     args: DeleteS3TableIntegrationCommandInput,
@@ -383,7 +395,7 @@ export interface ObservabilityAdmin {
   ): void;
   deleteS3TableIntegration(
     args: DeleteS3TableIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: DeleteS3TableIntegrationCommandOutput) => void
   ): void;
 
@@ -392,7 +404,7 @@ export interface ObservabilityAdmin {
    */
   deleteTelemetryPipeline(
     args: DeleteTelemetryPipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<DeleteTelemetryPipelineCommandOutput>;
   deleteTelemetryPipeline(
     args: DeleteTelemetryPipelineCommandInput,
@@ -400,7 +412,7 @@ export interface ObservabilityAdmin {
   ): void;
   deleteTelemetryPipeline(
     args: DeleteTelemetryPipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: DeleteTelemetryPipelineCommandOutput) => void
   ): void;
 
@@ -409,7 +421,7 @@ export interface ObservabilityAdmin {
    */
   deleteTelemetryRule(
     args: DeleteTelemetryRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<DeleteTelemetryRuleCommandOutput>;
   deleteTelemetryRule(
     args: DeleteTelemetryRuleCommandInput,
@@ -417,7 +429,7 @@ export interface ObservabilityAdmin {
   ): void;
   deleteTelemetryRule(
     args: DeleteTelemetryRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: DeleteTelemetryRuleCommandOutput) => void
   ): void;
 
@@ -426,7 +438,7 @@ export interface ObservabilityAdmin {
    */
   deleteTelemetryRuleForOrganization(
     args: DeleteTelemetryRuleForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<DeleteTelemetryRuleForOrganizationCommandOutput>;
   deleteTelemetryRuleForOrganization(
     args: DeleteTelemetryRuleForOrganizationCommandInput,
@@ -434,7 +446,7 @@ export interface ObservabilityAdmin {
   ): void;
   deleteTelemetryRuleForOrganization(
     args: DeleteTelemetryRuleForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: DeleteTelemetryRuleForOrganizationCommandOutput) => void
   ): void;
 
@@ -443,7 +455,7 @@ export interface ObservabilityAdmin {
    */
   getCentralizationRuleForOrganization(
     args: GetCentralizationRuleForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<GetCentralizationRuleForOrganizationCommandOutput>;
   getCentralizationRuleForOrganization(
     args: GetCentralizationRuleForOrganizationCommandInput,
@@ -451,7 +463,7 @@ export interface ObservabilityAdmin {
   ): void;
   getCentralizationRuleForOrganization(
     args: GetCentralizationRuleForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetCentralizationRuleForOrganizationCommandOutput) => void
   ): void;
 
@@ -460,7 +472,7 @@ export interface ObservabilityAdmin {
    */
   getS3TableIntegration(
     args: GetS3TableIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<GetS3TableIntegrationCommandOutput>;
   getS3TableIntegration(
     args: GetS3TableIntegrationCommandInput,
@@ -468,7 +480,7 @@ export interface ObservabilityAdmin {
   ): void;
   getS3TableIntegration(
     args: GetS3TableIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetS3TableIntegrationCommandOutput) => void
   ): void;
 
@@ -478,7 +490,7 @@ export interface ObservabilityAdmin {
   getTelemetryEnrichmentStatus(): Promise<GetTelemetryEnrichmentStatusCommandOutput>;
   getTelemetryEnrichmentStatus(
     args: GetTelemetryEnrichmentStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<GetTelemetryEnrichmentStatusCommandOutput>;
   getTelemetryEnrichmentStatus(
     args: GetTelemetryEnrichmentStatusCommandInput,
@@ -486,7 +498,7 @@ export interface ObservabilityAdmin {
   ): void;
   getTelemetryEnrichmentStatus(
     args: GetTelemetryEnrichmentStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetTelemetryEnrichmentStatusCommandOutput) => void
   ): void;
 
@@ -496,7 +508,7 @@ export interface ObservabilityAdmin {
   getTelemetryEvaluationStatus(): Promise<GetTelemetryEvaluationStatusCommandOutput>;
   getTelemetryEvaluationStatus(
     args: GetTelemetryEvaluationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<GetTelemetryEvaluationStatusCommandOutput>;
   getTelemetryEvaluationStatus(
     args: GetTelemetryEvaluationStatusCommandInput,
@@ -504,7 +516,7 @@ export interface ObservabilityAdmin {
   ): void;
   getTelemetryEvaluationStatus(
     args: GetTelemetryEvaluationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetTelemetryEvaluationStatusCommandOutput) => void
   ): void;
 
@@ -514,7 +526,7 @@ export interface ObservabilityAdmin {
   getTelemetryEvaluationStatusForOrganization(): Promise<GetTelemetryEvaluationStatusForOrganizationCommandOutput>;
   getTelemetryEvaluationStatusForOrganization(
     args: GetTelemetryEvaluationStatusForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<GetTelemetryEvaluationStatusForOrganizationCommandOutput>;
   getTelemetryEvaluationStatusForOrganization(
     args: GetTelemetryEvaluationStatusForOrganizationCommandInput,
@@ -522,7 +534,7 @@ export interface ObservabilityAdmin {
   ): void;
   getTelemetryEvaluationStatusForOrganization(
     args: GetTelemetryEvaluationStatusForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetTelemetryEvaluationStatusForOrganizationCommandOutput) => void
   ): void;
 
@@ -531,7 +543,7 @@ export interface ObservabilityAdmin {
    */
   getTelemetryPipeline(
     args: GetTelemetryPipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<GetTelemetryPipelineCommandOutput>;
   getTelemetryPipeline(
     args: GetTelemetryPipelineCommandInput,
@@ -539,7 +551,7 @@ export interface ObservabilityAdmin {
   ): void;
   getTelemetryPipeline(
     args: GetTelemetryPipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetTelemetryPipelineCommandOutput) => void
   ): void;
 
@@ -548,7 +560,7 @@ export interface ObservabilityAdmin {
    */
   getTelemetryRule(
     args: GetTelemetryRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<GetTelemetryRuleCommandOutput>;
   getTelemetryRule(
     args: GetTelemetryRuleCommandInput,
@@ -556,7 +568,7 @@ export interface ObservabilityAdmin {
   ): void;
   getTelemetryRule(
     args: GetTelemetryRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetTelemetryRuleCommandOutput) => void
   ): void;
 
@@ -565,7 +577,7 @@ export interface ObservabilityAdmin {
    */
   getTelemetryRuleForOrganization(
     args: GetTelemetryRuleForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<GetTelemetryRuleForOrganizationCommandOutput>;
   getTelemetryRuleForOrganization(
     args: GetTelemetryRuleForOrganizationCommandInput,
@@ -573,7 +585,7 @@ export interface ObservabilityAdmin {
   ): void;
   getTelemetryRuleForOrganization(
     args: GetTelemetryRuleForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: GetTelemetryRuleForOrganizationCommandOutput) => void
   ): void;
 
@@ -583,7 +595,7 @@ export interface ObservabilityAdmin {
   listCentralizationRulesForOrganization(): Promise<ListCentralizationRulesForOrganizationCommandOutput>;
   listCentralizationRulesForOrganization(
     args: ListCentralizationRulesForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<ListCentralizationRulesForOrganizationCommandOutput>;
   listCentralizationRulesForOrganization(
     args: ListCentralizationRulesForOrganizationCommandInput,
@@ -591,7 +603,7 @@ export interface ObservabilityAdmin {
   ): void;
   listCentralizationRulesForOrganization(
     args: ListCentralizationRulesForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListCentralizationRulesForOrganizationCommandOutput) => void
   ): void;
 
@@ -601,7 +613,7 @@ export interface ObservabilityAdmin {
   listResourceTelemetry(): Promise<ListResourceTelemetryCommandOutput>;
   listResourceTelemetry(
     args: ListResourceTelemetryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<ListResourceTelemetryCommandOutput>;
   listResourceTelemetry(
     args: ListResourceTelemetryCommandInput,
@@ -609,7 +621,7 @@ export interface ObservabilityAdmin {
   ): void;
   listResourceTelemetry(
     args: ListResourceTelemetryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListResourceTelemetryCommandOutput) => void
   ): void;
 
@@ -619,7 +631,7 @@ export interface ObservabilityAdmin {
   listResourceTelemetryForOrganization(): Promise<ListResourceTelemetryForOrganizationCommandOutput>;
   listResourceTelemetryForOrganization(
     args: ListResourceTelemetryForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<ListResourceTelemetryForOrganizationCommandOutput>;
   listResourceTelemetryForOrganization(
     args: ListResourceTelemetryForOrganizationCommandInput,
@@ -627,7 +639,7 @@ export interface ObservabilityAdmin {
   ): void;
   listResourceTelemetryForOrganization(
     args: ListResourceTelemetryForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListResourceTelemetryForOrganizationCommandOutput) => void
   ): void;
 
@@ -637,7 +649,7 @@ export interface ObservabilityAdmin {
   listS3TableIntegrations(): Promise<ListS3TableIntegrationsCommandOutput>;
   listS3TableIntegrations(
     args: ListS3TableIntegrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<ListS3TableIntegrationsCommandOutput>;
   listS3TableIntegrations(
     args: ListS3TableIntegrationsCommandInput,
@@ -645,7 +657,7 @@ export interface ObservabilityAdmin {
   ): void;
   listS3TableIntegrations(
     args: ListS3TableIntegrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListS3TableIntegrationsCommandOutput) => void
   ): void;
 
@@ -654,7 +666,7 @@ export interface ObservabilityAdmin {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -662,7 +674,7 @@ export interface ObservabilityAdmin {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -672,7 +684,7 @@ export interface ObservabilityAdmin {
   listTelemetryPipelines(): Promise<ListTelemetryPipelinesCommandOutput>;
   listTelemetryPipelines(
     args: ListTelemetryPipelinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<ListTelemetryPipelinesCommandOutput>;
   listTelemetryPipelines(
     args: ListTelemetryPipelinesCommandInput,
@@ -680,7 +692,7 @@ export interface ObservabilityAdmin {
   ): void;
   listTelemetryPipelines(
     args: ListTelemetryPipelinesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListTelemetryPipelinesCommandOutput) => void
   ): void;
 
@@ -690,7 +702,7 @@ export interface ObservabilityAdmin {
   listTelemetryRules(): Promise<ListTelemetryRulesCommandOutput>;
   listTelemetryRules(
     args: ListTelemetryRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<ListTelemetryRulesCommandOutput>;
   listTelemetryRules(
     args: ListTelemetryRulesCommandInput,
@@ -698,7 +710,7 @@ export interface ObservabilityAdmin {
   ): void;
   listTelemetryRules(
     args: ListTelemetryRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListTelemetryRulesCommandOutput) => void
   ): void;
 
@@ -708,7 +720,7 @@ export interface ObservabilityAdmin {
   listTelemetryRulesForOrganization(): Promise<ListTelemetryRulesForOrganizationCommandOutput>;
   listTelemetryRulesForOrganization(
     args: ListTelemetryRulesForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<ListTelemetryRulesForOrganizationCommandOutput>;
   listTelemetryRulesForOrganization(
     args: ListTelemetryRulesForOrganizationCommandInput,
@@ -716,7 +728,7 @@ export interface ObservabilityAdmin {
   ): void;
   listTelemetryRulesForOrganization(
     args: ListTelemetryRulesForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ListTelemetryRulesForOrganizationCommandOutput) => void
   ): void;
 
@@ -726,7 +738,7 @@ export interface ObservabilityAdmin {
   startTelemetryEnrichment(): Promise<StartTelemetryEnrichmentCommandOutput>;
   startTelemetryEnrichment(
     args: StartTelemetryEnrichmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<StartTelemetryEnrichmentCommandOutput>;
   startTelemetryEnrichment(
     args: StartTelemetryEnrichmentCommandInput,
@@ -734,7 +746,7 @@ export interface ObservabilityAdmin {
   ): void;
   startTelemetryEnrichment(
     args: StartTelemetryEnrichmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: StartTelemetryEnrichmentCommandOutput) => void
   ): void;
 
@@ -744,7 +756,7 @@ export interface ObservabilityAdmin {
   startTelemetryEvaluation(): Promise<StartTelemetryEvaluationCommandOutput>;
   startTelemetryEvaluation(
     args: StartTelemetryEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<StartTelemetryEvaluationCommandOutput>;
   startTelemetryEvaluation(
     args: StartTelemetryEvaluationCommandInput,
@@ -752,7 +764,7 @@ export interface ObservabilityAdmin {
   ): void;
   startTelemetryEvaluation(
     args: StartTelemetryEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: StartTelemetryEvaluationCommandOutput) => void
   ): void;
 
@@ -762,7 +774,7 @@ export interface ObservabilityAdmin {
   startTelemetryEvaluationForOrganization(): Promise<StartTelemetryEvaluationForOrganizationCommandOutput>;
   startTelemetryEvaluationForOrganization(
     args: StartTelemetryEvaluationForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<StartTelemetryEvaluationForOrganizationCommandOutput>;
   startTelemetryEvaluationForOrganization(
     args: StartTelemetryEvaluationForOrganizationCommandInput,
@@ -770,7 +782,7 @@ export interface ObservabilityAdmin {
   ): void;
   startTelemetryEvaluationForOrganization(
     args: StartTelemetryEvaluationForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: StartTelemetryEvaluationForOrganizationCommandOutput) => void
   ): void;
 
@@ -780,7 +792,7 @@ export interface ObservabilityAdmin {
   stopTelemetryEnrichment(): Promise<StopTelemetryEnrichmentCommandOutput>;
   stopTelemetryEnrichment(
     args: StopTelemetryEnrichmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<StopTelemetryEnrichmentCommandOutput>;
   stopTelemetryEnrichment(
     args: StopTelemetryEnrichmentCommandInput,
@@ -788,7 +800,7 @@ export interface ObservabilityAdmin {
   ): void;
   stopTelemetryEnrichment(
     args: StopTelemetryEnrichmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: StopTelemetryEnrichmentCommandOutput) => void
   ): void;
 
@@ -798,7 +810,7 @@ export interface ObservabilityAdmin {
   stopTelemetryEvaluation(): Promise<StopTelemetryEvaluationCommandOutput>;
   stopTelemetryEvaluation(
     args: StopTelemetryEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<StopTelemetryEvaluationCommandOutput>;
   stopTelemetryEvaluation(
     args: StopTelemetryEvaluationCommandInput,
@@ -806,7 +818,7 @@ export interface ObservabilityAdmin {
   ): void;
   stopTelemetryEvaluation(
     args: StopTelemetryEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: StopTelemetryEvaluationCommandOutput) => void
   ): void;
 
@@ -816,7 +828,7 @@ export interface ObservabilityAdmin {
   stopTelemetryEvaluationForOrganization(): Promise<StopTelemetryEvaluationForOrganizationCommandOutput>;
   stopTelemetryEvaluationForOrganization(
     args: StopTelemetryEvaluationForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<StopTelemetryEvaluationForOrganizationCommandOutput>;
   stopTelemetryEvaluationForOrganization(
     args: StopTelemetryEvaluationForOrganizationCommandInput,
@@ -824,7 +836,7 @@ export interface ObservabilityAdmin {
   ): void;
   stopTelemetryEvaluationForOrganization(
     args: StopTelemetryEvaluationForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: StopTelemetryEvaluationForOrganizationCommandOutput) => void
   ): void;
 
@@ -833,7 +845,7 @@ export interface ObservabilityAdmin {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -841,7 +853,7 @@ export interface ObservabilityAdmin {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -850,7 +862,7 @@ export interface ObservabilityAdmin {
    */
   testTelemetryPipeline(
     args: TestTelemetryPipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<TestTelemetryPipelineCommandOutput>;
   testTelemetryPipeline(
     args: TestTelemetryPipelineCommandInput,
@@ -858,7 +870,7 @@ export interface ObservabilityAdmin {
   ): void;
   testTelemetryPipeline(
     args: TestTelemetryPipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: TestTelemetryPipelineCommandOutput) => void
   ): void;
 
@@ -867,7 +879,7 @@ export interface ObservabilityAdmin {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -875,7 +887,7 @@ export interface ObservabilityAdmin {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -884,7 +896,7 @@ export interface ObservabilityAdmin {
    */
   updateCentralizationRuleForOrganization(
     args: UpdateCentralizationRuleForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<UpdateCentralizationRuleForOrganizationCommandOutput>;
   updateCentralizationRuleForOrganization(
     args: UpdateCentralizationRuleForOrganizationCommandInput,
@@ -892,7 +904,7 @@ export interface ObservabilityAdmin {
   ): void;
   updateCentralizationRuleForOrganization(
     args: UpdateCentralizationRuleForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: UpdateCentralizationRuleForOrganizationCommandOutput) => void
   ): void;
 
@@ -901,7 +913,7 @@ export interface ObservabilityAdmin {
    */
   updateTelemetryPipeline(
     args: UpdateTelemetryPipelineCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<UpdateTelemetryPipelineCommandOutput>;
   updateTelemetryPipeline(
     args: UpdateTelemetryPipelineCommandInput,
@@ -909,7 +921,7 @@ export interface ObservabilityAdmin {
   ): void;
   updateTelemetryPipeline(
     args: UpdateTelemetryPipelineCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: UpdateTelemetryPipelineCommandOutput) => void
   ): void;
 
@@ -918,7 +930,7 @@ export interface ObservabilityAdmin {
    */
   updateTelemetryRule(
     args: UpdateTelemetryRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<UpdateTelemetryRuleCommandOutput>;
   updateTelemetryRule(
     args: UpdateTelemetryRuleCommandInput,
@@ -926,7 +938,7 @@ export interface ObservabilityAdmin {
   ): void;
   updateTelemetryRule(
     args: UpdateTelemetryRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: UpdateTelemetryRuleCommandOutput) => void
   ): void;
 
@@ -935,7 +947,7 @@ export interface ObservabilityAdmin {
    */
   updateTelemetryRuleForOrganization(
     args: UpdateTelemetryRuleForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<UpdateTelemetryRuleForOrganizationCommandOutput>;
   updateTelemetryRuleForOrganization(
     args: UpdateTelemetryRuleForOrganizationCommandInput,
@@ -943,7 +955,7 @@ export interface ObservabilityAdmin {
   ): void;
   updateTelemetryRuleForOrganization(
     args: UpdateTelemetryRuleForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: UpdateTelemetryRuleForOrganizationCommandOutput) => void
   ): void;
 
@@ -952,7 +964,7 @@ export interface ObservabilityAdmin {
    */
   validateTelemetryPipelineConfiguration(
     args: ValidateTelemetryPipelineConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ObservabilityAdminRequestOptions
   ): Promise<ValidateTelemetryPipelineConfigurationCommandOutput>;
   validateTelemetryPipelineConfiguration(
     args: ValidateTelemetryPipelineConfigurationCommandInput,
@@ -960,7 +972,7 @@ export interface ObservabilityAdmin {
   ): void;
   validateTelemetryPipelineConfiguration(
     args: ValidateTelemetryPipelineConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ObservabilityAdminRequestOptions,
     cb: (err: any, data?: ValidateTelemetryPipelineConfigurationCommandOutput) => void
   ): void;
 

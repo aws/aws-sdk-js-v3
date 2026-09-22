@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -207,13 +208,20 @@ const waiters = {
   waitUntilTransformerJobSucceeded,
 };
 
+/**
+ * @public
+ */
+export interface B2biRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface B2bi {
   /**
    * @see {@link CreateCapabilityCommand}
    */
   createCapability(
     args: CreateCapabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<CreateCapabilityCommandOutput>;
   createCapability(
     args: CreateCapabilityCommandInput,
@@ -221,7 +229,7 @@ export interface B2bi {
   ): void;
   createCapability(
     args: CreateCapabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: CreateCapabilityCommandOutput) => void
   ): void;
 
@@ -230,7 +238,7 @@ export interface B2bi {
    */
   createPartnership(
     args: CreatePartnershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<CreatePartnershipCommandOutput>;
   createPartnership(
     args: CreatePartnershipCommandInput,
@@ -238,7 +246,7 @@ export interface B2bi {
   ): void;
   createPartnership(
     args: CreatePartnershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: CreatePartnershipCommandOutput) => void
   ): void;
 
@@ -247,7 +255,7 @@ export interface B2bi {
    */
   createProfile(
     args: CreateProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<CreateProfileCommandOutput>;
   createProfile(
     args: CreateProfileCommandInput,
@@ -255,7 +263,7 @@ export interface B2bi {
   ): void;
   createProfile(
     args: CreateProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: CreateProfileCommandOutput) => void
   ): void;
 
@@ -264,7 +272,7 @@ export interface B2bi {
    */
   createStarterMappingTemplate(
     args: CreateStarterMappingTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<CreateStarterMappingTemplateCommandOutput>;
   createStarterMappingTemplate(
     args: CreateStarterMappingTemplateCommandInput,
@@ -272,7 +280,7 @@ export interface B2bi {
   ): void;
   createStarterMappingTemplate(
     args: CreateStarterMappingTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: CreateStarterMappingTemplateCommandOutput) => void
   ): void;
 
@@ -281,7 +289,7 @@ export interface B2bi {
    */
   createTransformer(
     args: CreateTransformerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<CreateTransformerCommandOutput>;
   createTransformer(
     args: CreateTransformerCommandInput,
@@ -289,7 +297,7 @@ export interface B2bi {
   ): void;
   createTransformer(
     args: CreateTransformerCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: CreateTransformerCommandOutput) => void
   ): void;
 
@@ -298,7 +306,7 @@ export interface B2bi {
    */
   deleteCapability(
     args: DeleteCapabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<DeleteCapabilityCommandOutput>;
   deleteCapability(
     args: DeleteCapabilityCommandInput,
@@ -306,7 +314,7 @@ export interface B2bi {
   ): void;
   deleteCapability(
     args: DeleteCapabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: DeleteCapabilityCommandOutput) => void
   ): void;
 
@@ -315,7 +323,7 @@ export interface B2bi {
    */
   deletePartnership(
     args: DeletePartnershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<DeletePartnershipCommandOutput>;
   deletePartnership(
     args: DeletePartnershipCommandInput,
@@ -323,7 +331,7 @@ export interface B2bi {
   ): void;
   deletePartnership(
     args: DeletePartnershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: DeletePartnershipCommandOutput) => void
   ): void;
 
@@ -332,7 +340,7 @@ export interface B2bi {
    */
   deleteProfile(
     args: DeleteProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<DeleteProfileCommandOutput>;
   deleteProfile(
     args: DeleteProfileCommandInput,
@@ -340,7 +348,7 @@ export interface B2bi {
   ): void;
   deleteProfile(
     args: DeleteProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: DeleteProfileCommandOutput) => void
   ): void;
 
@@ -349,7 +357,7 @@ export interface B2bi {
    */
   deleteTransformer(
     args: DeleteTransformerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<DeleteTransformerCommandOutput>;
   deleteTransformer(
     args: DeleteTransformerCommandInput,
@@ -357,7 +365,7 @@ export interface B2bi {
   ): void;
   deleteTransformer(
     args: DeleteTransformerCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: DeleteTransformerCommandOutput) => void
   ): void;
 
@@ -366,7 +374,7 @@ export interface B2bi {
    */
   generateMapping(
     args: GenerateMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<GenerateMappingCommandOutput>;
   generateMapping(
     args: GenerateMappingCommandInput,
@@ -374,7 +382,7 @@ export interface B2bi {
   ): void;
   generateMapping(
     args: GenerateMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: GenerateMappingCommandOutput) => void
   ): void;
 
@@ -383,7 +391,7 @@ export interface B2bi {
    */
   getCapability(
     args: GetCapabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<GetCapabilityCommandOutput>;
   getCapability(
     args: GetCapabilityCommandInput,
@@ -391,7 +399,7 @@ export interface B2bi {
   ): void;
   getCapability(
     args: GetCapabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: GetCapabilityCommandOutput) => void
   ): void;
 
@@ -400,7 +408,7 @@ export interface B2bi {
    */
   getPartnership(
     args: GetPartnershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<GetPartnershipCommandOutput>;
   getPartnership(
     args: GetPartnershipCommandInput,
@@ -408,7 +416,7 @@ export interface B2bi {
   ): void;
   getPartnership(
     args: GetPartnershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: GetPartnershipCommandOutput) => void
   ): void;
 
@@ -417,7 +425,7 @@ export interface B2bi {
    */
   getProfile(
     args: GetProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<GetProfileCommandOutput>;
   getProfile(
     args: GetProfileCommandInput,
@@ -425,7 +433,7 @@ export interface B2bi {
   ): void;
   getProfile(
     args: GetProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: GetProfileCommandOutput) => void
   ): void;
 
@@ -434,7 +442,7 @@ export interface B2bi {
    */
   getTransformer(
     args: GetTransformerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<GetTransformerCommandOutput>;
   getTransformer(
     args: GetTransformerCommandInput,
@@ -442,7 +450,7 @@ export interface B2bi {
   ): void;
   getTransformer(
     args: GetTransformerCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: GetTransformerCommandOutput) => void
   ): void;
 
@@ -451,7 +459,7 @@ export interface B2bi {
    */
   getTransformerJob(
     args: GetTransformerJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<GetTransformerJobCommandOutput>;
   getTransformerJob(
     args: GetTransformerJobCommandInput,
@@ -459,7 +467,7 @@ export interface B2bi {
   ): void;
   getTransformerJob(
     args: GetTransformerJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: GetTransformerJobCommandOutput) => void
   ): void;
 
@@ -469,7 +477,7 @@ export interface B2bi {
   listCapabilities(): Promise<ListCapabilitiesCommandOutput>;
   listCapabilities(
     args: ListCapabilitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<ListCapabilitiesCommandOutput>;
   listCapabilities(
     args: ListCapabilitiesCommandInput,
@@ -477,7 +485,7 @@ export interface B2bi {
   ): void;
   listCapabilities(
     args: ListCapabilitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: ListCapabilitiesCommandOutput) => void
   ): void;
 
@@ -487,7 +495,7 @@ export interface B2bi {
   listPartnerships(): Promise<ListPartnershipsCommandOutput>;
   listPartnerships(
     args: ListPartnershipsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<ListPartnershipsCommandOutput>;
   listPartnerships(
     args: ListPartnershipsCommandInput,
@@ -495,7 +503,7 @@ export interface B2bi {
   ): void;
   listPartnerships(
     args: ListPartnershipsCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: ListPartnershipsCommandOutput) => void
   ): void;
 
@@ -505,7 +513,7 @@ export interface B2bi {
   listProfiles(): Promise<ListProfilesCommandOutput>;
   listProfiles(
     args: ListProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<ListProfilesCommandOutput>;
   listProfiles(
     args: ListProfilesCommandInput,
@@ -513,7 +521,7 @@ export interface B2bi {
   ): void;
   listProfiles(
     args: ListProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: ListProfilesCommandOutput) => void
   ): void;
 
@@ -522,7 +530,7 @@ export interface B2bi {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -530,7 +538,7 @@ export interface B2bi {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -540,7 +548,7 @@ export interface B2bi {
   listTransformers(): Promise<ListTransformersCommandOutput>;
   listTransformers(
     args: ListTransformersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<ListTransformersCommandOutput>;
   listTransformers(
     args: ListTransformersCommandInput,
@@ -548,7 +556,7 @@ export interface B2bi {
   ): void;
   listTransformers(
     args: ListTransformersCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: ListTransformersCommandOutput) => void
   ): void;
 
@@ -557,7 +565,7 @@ export interface B2bi {
    */
   startTransformerJob(
     args: StartTransformerJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<StartTransformerJobCommandOutput>;
   startTransformerJob(
     args: StartTransformerJobCommandInput,
@@ -565,7 +573,7 @@ export interface B2bi {
   ): void;
   startTransformerJob(
     args: StartTransformerJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: StartTransformerJobCommandOutput) => void
   ): void;
 
@@ -574,7 +582,7 @@ export interface B2bi {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -582,7 +590,7 @@ export interface B2bi {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -591,7 +599,7 @@ export interface B2bi {
    */
   testConversion(
     args: TestConversionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<TestConversionCommandOutput>;
   testConversion(
     args: TestConversionCommandInput,
@@ -599,7 +607,7 @@ export interface B2bi {
   ): void;
   testConversion(
     args: TestConversionCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: TestConversionCommandOutput) => void
   ): void;
 
@@ -608,7 +616,7 @@ export interface B2bi {
    */
   testMapping(
     args: TestMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<TestMappingCommandOutput>;
   testMapping(
     args: TestMappingCommandInput,
@@ -616,7 +624,7 @@ export interface B2bi {
   ): void;
   testMapping(
     args: TestMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: TestMappingCommandOutput) => void
   ): void;
 
@@ -625,7 +633,7 @@ export interface B2bi {
    */
   testParsing(
     args: TestParsingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<TestParsingCommandOutput>;
   testParsing(
     args: TestParsingCommandInput,
@@ -633,7 +641,7 @@ export interface B2bi {
   ): void;
   testParsing(
     args: TestParsingCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: TestParsingCommandOutput) => void
   ): void;
 
@@ -642,7 +650,7 @@ export interface B2bi {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -650,7 +658,7 @@ export interface B2bi {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -659,7 +667,7 @@ export interface B2bi {
    */
   updateCapability(
     args: UpdateCapabilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<UpdateCapabilityCommandOutput>;
   updateCapability(
     args: UpdateCapabilityCommandInput,
@@ -667,7 +675,7 @@ export interface B2bi {
   ): void;
   updateCapability(
     args: UpdateCapabilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: UpdateCapabilityCommandOutput) => void
   ): void;
 
@@ -676,7 +684,7 @@ export interface B2bi {
    */
   updatePartnership(
     args: UpdatePartnershipCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<UpdatePartnershipCommandOutput>;
   updatePartnership(
     args: UpdatePartnershipCommandInput,
@@ -684,7 +692,7 @@ export interface B2bi {
   ): void;
   updatePartnership(
     args: UpdatePartnershipCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: UpdatePartnershipCommandOutput) => void
   ): void;
 
@@ -693,7 +701,7 @@ export interface B2bi {
    */
   updateProfile(
     args: UpdateProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<UpdateProfileCommandOutput>;
   updateProfile(
     args: UpdateProfileCommandInput,
@@ -701,7 +709,7 @@ export interface B2bi {
   ): void;
   updateProfile(
     args: UpdateProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: UpdateProfileCommandOutput) => void
   ): void;
 
@@ -710,7 +718,7 @@ export interface B2bi {
    */
   updateTransformer(
     args: UpdateTransformerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: B2biRequestOptions
   ): Promise<UpdateTransformerCommandOutput>;
   updateTransformer(
     args: UpdateTransformerCommandInput,
@@ -718,7 +726,7 @@ export interface B2bi {
   ): void;
   updateTransformer(
     args: UpdateTransformerCommandInput,
-    options: __HttpHandlerOptions,
+    options: B2biRequestOptions,
     cb: (err: any, data?: UpdateTransformerCommandOutput) => void
   ): void;
 

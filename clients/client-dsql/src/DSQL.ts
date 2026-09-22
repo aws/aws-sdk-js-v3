@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -122,6 +123,13 @@ const waiters = {
   waitUntilStreamNotExists,
 };
 
+/**
+ * @public
+ */
+export interface DSQLRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DSQL {
   /**
    * @see {@link CreateClusterCommand}
@@ -129,7 +137,7 @@ export interface DSQL {
   createCluster(): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
@@ -137,7 +145,7 @@ export interface DSQL {
   ): void;
   createCluster(
     args: CreateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
@@ -146,7 +154,7 @@ export interface DSQL {
    */
   createStream(
     args: CreateStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<CreateStreamCommandOutput>;
   createStream(
     args: CreateStreamCommandInput,
@@ -154,7 +162,7 @@ export interface DSQL {
   ): void;
   createStream(
     args: CreateStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: CreateStreamCommandOutput) => void
   ): void;
 
@@ -163,7 +171,7 @@ export interface DSQL {
    */
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<DeleteClusterCommandOutput>;
   deleteCluster(
     args: DeleteClusterCommandInput,
@@ -171,7 +179,7 @@ export interface DSQL {
   ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
 
@@ -180,7 +188,7 @@ export interface DSQL {
    */
   deleteClusterPolicy(
     args: DeleteClusterPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<DeleteClusterPolicyCommandOutput>;
   deleteClusterPolicy(
     args: DeleteClusterPolicyCommandInput,
@@ -188,7 +196,7 @@ export interface DSQL {
   ): void;
   deleteClusterPolicy(
     args: DeleteClusterPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: DeleteClusterPolicyCommandOutput) => void
   ): void;
 
@@ -197,7 +205,7 @@ export interface DSQL {
    */
   deleteStream(
     args: DeleteStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<DeleteStreamCommandOutput>;
   deleteStream(
     args: DeleteStreamCommandInput,
@@ -205,7 +213,7 @@ export interface DSQL {
   ): void;
   deleteStream(
     args: DeleteStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: DeleteStreamCommandOutput) => void
   ): void;
 
@@ -214,7 +222,7 @@ export interface DSQL {
    */
   getCluster(
     args: GetClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<GetClusterCommandOutput>;
   getCluster(
     args: GetClusterCommandInput,
@@ -222,7 +230,7 @@ export interface DSQL {
   ): void;
   getCluster(
     args: GetClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: GetClusterCommandOutput) => void
   ): void;
 
@@ -231,7 +239,7 @@ export interface DSQL {
    */
   getClusterPolicy(
     args: GetClusterPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<GetClusterPolicyCommandOutput>;
   getClusterPolicy(
     args: GetClusterPolicyCommandInput,
@@ -239,7 +247,7 @@ export interface DSQL {
   ): void;
   getClusterPolicy(
     args: GetClusterPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: GetClusterPolicyCommandOutput) => void
   ): void;
 
@@ -248,7 +256,7 @@ export interface DSQL {
    */
   getStream(
     args: GetStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<GetStreamCommandOutput>;
   getStream(
     args: GetStreamCommandInput,
@@ -256,7 +264,7 @@ export interface DSQL {
   ): void;
   getStream(
     args: GetStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: GetStreamCommandOutput) => void
   ): void;
 
@@ -265,7 +273,7 @@ export interface DSQL {
    */
   getVpcEndpointServiceName(
     args: GetVpcEndpointServiceNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<GetVpcEndpointServiceNameCommandOutput>;
   getVpcEndpointServiceName(
     args: GetVpcEndpointServiceNameCommandInput,
@@ -273,7 +281,7 @@ export interface DSQL {
   ): void;
   getVpcEndpointServiceName(
     args: GetVpcEndpointServiceNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: GetVpcEndpointServiceNameCommandOutput) => void
   ): void;
 
@@ -283,7 +291,7 @@ export interface DSQL {
   listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
@@ -291,7 +299,7 @@ export interface DSQL {
   ): void;
   listClusters(
     args: ListClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: ListClustersCommandOutput) => void
   ): void;
 
@@ -300,7 +308,7 @@ export interface DSQL {
    */
   listStreams(
     args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<ListStreamsCommandOutput>;
   listStreams(
     args: ListStreamsCommandInput,
@@ -308,7 +316,7 @@ export interface DSQL {
   ): void;
   listStreams(
     args: ListStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: ListStreamsCommandOutput) => void
   ): void;
 
@@ -317,7 +325,7 @@ export interface DSQL {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -325,7 +333,7 @@ export interface DSQL {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -334,7 +342,7 @@ export interface DSQL {
    */
   putClusterPolicy(
     args: PutClusterPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<PutClusterPolicyCommandOutput>;
   putClusterPolicy(
     args: PutClusterPolicyCommandInput,
@@ -342,7 +350,7 @@ export interface DSQL {
   ): void;
   putClusterPolicy(
     args: PutClusterPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: PutClusterPolicyCommandOutput) => void
   ): void;
 
@@ -351,7 +359,7 @@ export interface DSQL {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -359,7 +367,7 @@ export interface DSQL {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -368,7 +376,7 @@ export interface DSQL {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -376,7 +384,7 @@ export interface DSQL {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -385,7 +393,7 @@ export interface DSQL {
    */
   updateCluster(
     args: UpdateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DSQLRequestOptions
   ): Promise<UpdateClusterCommandOutput>;
   updateCluster(
     args: UpdateClusterCommandInput,
@@ -393,7 +401,7 @@ export interface DSQL {
   ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DSQLRequestOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
 

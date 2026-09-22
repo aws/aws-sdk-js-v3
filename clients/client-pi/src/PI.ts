@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreatePerformanceAnalysisReportCommandInput,
@@ -107,13 +112,20 @@ const paginators = {
   paginateListPerformanceAnalysisReports,
 };
 
+/**
+ * @public
+ */
+export interface PIRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PI {
   /**
    * @see {@link CreatePerformanceAnalysisReportCommand}
    */
   createPerformanceAnalysisReport(
     args: CreatePerformanceAnalysisReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<CreatePerformanceAnalysisReportCommandOutput>;
   createPerformanceAnalysisReport(
     args: CreatePerformanceAnalysisReportCommandInput,
@@ -121,7 +133,7 @@ export interface PI {
   ): void;
   createPerformanceAnalysisReport(
     args: CreatePerformanceAnalysisReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: CreatePerformanceAnalysisReportCommandOutput) => void
   ): void;
 
@@ -130,7 +142,7 @@ export interface PI {
    */
   deletePerformanceAnalysisReport(
     args: DeletePerformanceAnalysisReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<DeletePerformanceAnalysisReportCommandOutput>;
   deletePerformanceAnalysisReport(
     args: DeletePerformanceAnalysisReportCommandInput,
@@ -138,7 +150,7 @@ export interface PI {
   ): void;
   deletePerformanceAnalysisReport(
     args: DeletePerformanceAnalysisReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: DeletePerformanceAnalysisReportCommandOutput) => void
   ): void;
 
@@ -147,7 +159,7 @@ export interface PI {
    */
   describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<DescribeDimensionKeysCommandOutput>;
   describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
@@ -155,7 +167,7 @@ export interface PI {
   ): void;
   describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: DescribeDimensionKeysCommandOutput) => void
   ): void;
 
@@ -164,7 +176,7 @@ export interface PI {
    */
   getDimensionKeyDetails(
     args: GetDimensionKeyDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<GetDimensionKeyDetailsCommandOutput>;
   getDimensionKeyDetails(
     args: GetDimensionKeyDetailsCommandInput,
@@ -172,7 +184,7 @@ export interface PI {
   ): void;
   getDimensionKeyDetails(
     args: GetDimensionKeyDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: GetDimensionKeyDetailsCommandOutput) => void
   ): void;
 
@@ -181,7 +193,7 @@ export interface PI {
    */
   getPerformanceAnalysisReport(
     args: GetPerformanceAnalysisReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<GetPerformanceAnalysisReportCommandOutput>;
   getPerformanceAnalysisReport(
     args: GetPerformanceAnalysisReportCommandInput,
@@ -189,7 +201,7 @@ export interface PI {
   ): void;
   getPerformanceAnalysisReport(
     args: GetPerformanceAnalysisReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: GetPerformanceAnalysisReportCommandOutput) => void
   ): void;
 
@@ -198,7 +210,7 @@ export interface PI {
    */
   getResourceMetadata(
     args: GetResourceMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<GetResourceMetadataCommandOutput>;
   getResourceMetadata(
     args: GetResourceMetadataCommandInput,
@@ -206,7 +218,7 @@ export interface PI {
   ): void;
   getResourceMetadata(
     args: GetResourceMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: GetResourceMetadataCommandOutput) => void
   ): void;
 
@@ -215,7 +227,7 @@ export interface PI {
    */
   getResourceMetrics(
     args: GetResourceMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<GetResourceMetricsCommandOutput>;
   getResourceMetrics(
     args: GetResourceMetricsCommandInput,
@@ -223,7 +235,7 @@ export interface PI {
   ): void;
   getResourceMetrics(
     args: GetResourceMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: GetResourceMetricsCommandOutput) => void
   ): void;
 
@@ -232,7 +244,7 @@ export interface PI {
    */
   listAvailableResourceDimensions(
     args: ListAvailableResourceDimensionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<ListAvailableResourceDimensionsCommandOutput>;
   listAvailableResourceDimensions(
     args: ListAvailableResourceDimensionsCommandInput,
@@ -240,7 +252,7 @@ export interface PI {
   ): void;
   listAvailableResourceDimensions(
     args: ListAvailableResourceDimensionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: ListAvailableResourceDimensionsCommandOutput) => void
   ): void;
 
@@ -249,7 +261,7 @@ export interface PI {
    */
   listAvailableResourceMetrics(
     args: ListAvailableResourceMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<ListAvailableResourceMetricsCommandOutput>;
   listAvailableResourceMetrics(
     args: ListAvailableResourceMetricsCommandInput,
@@ -257,7 +269,7 @@ export interface PI {
   ): void;
   listAvailableResourceMetrics(
     args: ListAvailableResourceMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: ListAvailableResourceMetricsCommandOutput) => void
   ): void;
 
@@ -266,7 +278,7 @@ export interface PI {
    */
   listPerformanceAnalysisReportRecommendations(
     args: ListPerformanceAnalysisReportRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<ListPerformanceAnalysisReportRecommendationsCommandOutput>;
   listPerformanceAnalysisReportRecommendations(
     args: ListPerformanceAnalysisReportRecommendationsCommandInput,
@@ -274,7 +286,7 @@ export interface PI {
   ): void;
   listPerformanceAnalysisReportRecommendations(
     args: ListPerformanceAnalysisReportRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: ListPerformanceAnalysisReportRecommendationsCommandOutput) => void
   ): void;
 
@@ -283,7 +295,7 @@ export interface PI {
    */
   listPerformanceAnalysisReports(
     args: ListPerformanceAnalysisReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<ListPerformanceAnalysisReportsCommandOutput>;
   listPerformanceAnalysisReports(
     args: ListPerformanceAnalysisReportsCommandInput,
@@ -291,7 +303,7 @@ export interface PI {
   ): void;
   listPerformanceAnalysisReports(
     args: ListPerformanceAnalysisReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: ListPerformanceAnalysisReportsCommandOutput) => void
   ): void;
 
@@ -300,7 +312,7 @@ export interface PI {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -308,7 +320,7 @@ export interface PI {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -317,7 +329,7 @@ export interface PI {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -325,7 +337,7 @@ export interface PI {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -334,7 +346,7 @@ export interface PI {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PIRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -342,7 +354,7 @@ export interface PI {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PIRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

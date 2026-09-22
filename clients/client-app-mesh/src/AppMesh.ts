@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { AppMeshClient } from "./AppMeshClient";
 import {
@@ -253,13 +258,20 @@ const paginators = {
   paginateListVirtualServices,
 };
 
+/**
+ * @public
+ */
+export interface AppMeshRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AppMesh {
   /**
    * @see {@link CreateGatewayRouteCommand}
    */
   createGatewayRoute(
     args: CreateGatewayRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<CreateGatewayRouteCommandOutput>;
   createGatewayRoute(
     args: CreateGatewayRouteCommandInput,
@@ -267,7 +279,7 @@ export interface AppMesh {
   ): void;
   createGatewayRoute(
     args: CreateGatewayRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: CreateGatewayRouteCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface AppMesh {
    */
   createMesh(
     args: CreateMeshCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<CreateMeshCommandOutput>;
   createMesh(
     args: CreateMeshCommandInput,
@@ -284,7 +296,7 @@ export interface AppMesh {
   ): void;
   createMesh(
     args: CreateMeshCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: CreateMeshCommandOutput) => void
   ): void;
 
@@ -293,7 +305,7 @@ export interface AppMesh {
    */
   createRoute(
     args: CreateRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<CreateRouteCommandOutput>;
   createRoute(
     args: CreateRouteCommandInput,
@@ -301,7 +313,7 @@ export interface AppMesh {
   ): void;
   createRoute(
     args: CreateRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: CreateRouteCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface AppMesh {
    */
   createVirtualGateway(
     args: CreateVirtualGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<CreateVirtualGatewayCommandOutput>;
   createVirtualGateway(
     args: CreateVirtualGatewayCommandInput,
@@ -318,7 +330,7 @@ export interface AppMesh {
   ): void;
   createVirtualGateway(
     args: CreateVirtualGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: CreateVirtualGatewayCommandOutput) => void
   ): void;
 
@@ -327,7 +339,7 @@ export interface AppMesh {
    */
   createVirtualNode(
     args: CreateVirtualNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<CreateVirtualNodeCommandOutput>;
   createVirtualNode(
     args: CreateVirtualNodeCommandInput,
@@ -335,7 +347,7 @@ export interface AppMesh {
   ): void;
   createVirtualNode(
     args: CreateVirtualNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: CreateVirtualNodeCommandOutput) => void
   ): void;
 
@@ -344,7 +356,7 @@ export interface AppMesh {
    */
   createVirtualRouter(
     args: CreateVirtualRouterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<CreateVirtualRouterCommandOutput>;
   createVirtualRouter(
     args: CreateVirtualRouterCommandInput,
@@ -352,7 +364,7 @@ export interface AppMesh {
   ): void;
   createVirtualRouter(
     args: CreateVirtualRouterCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: CreateVirtualRouterCommandOutput) => void
   ): void;
 
@@ -361,7 +373,7 @@ export interface AppMesh {
    */
   createVirtualService(
     args: CreateVirtualServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<CreateVirtualServiceCommandOutput>;
   createVirtualService(
     args: CreateVirtualServiceCommandInput,
@@ -369,7 +381,7 @@ export interface AppMesh {
   ): void;
   createVirtualService(
     args: CreateVirtualServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: CreateVirtualServiceCommandOutput) => void
   ): void;
 
@@ -378,7 +390,7 @@ export interface AppMesh {
    */
   deleteGatewayRoute(
     args: DeleteGatewayRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DeleteGatewayRouteCommandOutput>;
   deleteGatewayRoute(
     args: DeleteGatewayRouteCommandInput,
@@ -386,7 +398,7 @@ export interface AppMesh {
   ): void;
   deleteGatewayRoute(
     args: DeleteGatewayRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DeleteGatewayRouteCommandOutput) => void
   ): void;
 
@@ -395,7 +407,7 @@ export interface AppMesh {
    */
   deleteMesh(
     args: DeleteMeshCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DeleteMeshCommandOutput>;
   deleteMesh(
     args: DeleteMeshCommandInput,
@@ -403,7 +415,7 @@ export interface AppMesh {
   ): void;
   deleteMesh(
     args: DeleteMeshCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DeleteMeshCommandOutput) => void
   ): void;
 
@@ -412,7 +424,7 @@ export interface AppMesh {
    */
   deleteRoute(
     args: DeleteRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DeleteRouteCommandOutput>;
   deleteRoute(
     args: DeleteRouteCommandInput,
@@ -420,7 +432,7 @@ export interface AppMesh {
   ): void;
   deleteRoute(
     args: DeleteRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DeleteRouteCommandOutput) => void
   ): void;
 
@@ -429,7 +441,7 @@ export interface AppMesh {
    */
   deleteVirtualGateway(
     args: DeleteVirtualGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DeleteVirtualGatewayCommandOutput>;
   deleteVirtualGateway(
     args: DeleteVirtualGatewayCommandInput,
@@ -437,7 +449,7 @@ export interface AppMesh {
   ): void;
   deleteVirtualGateway(
     args: DeleteVirtualGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DeleteVirtualGatewayCommandOutput) => void
   ): void;
 
@@ -446,7 +458,7 @@ export interface AppMesh {
    */
   deleteVirtualNode(
     args: DeleteVirtualNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DeleteVirtualNodeCommandOutput>;
   deleteVirtualNode(
     args: DeleteVirtualNodeCommandInput,
@@ -454,7 +466,7 @@ export interface AppMesh {
   ): void;
   deleteVirtualNode(
     args: DeleteVirtualNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DeleteVirtualNodeCommandOutput) => void
   ): void;
 
@@ -463,7 +475,7 @@ export interface AppMesh {
    */
   deleteVirtualRouter(
     args: DeleteVirtualRouterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DeleteVirtualRouterCommandOutput>;
   deleteVirtualRouter(
     args: DeleteVirtualRouterCommandInput,
@@ -471,7 +483,7 @@ export interface AppMesh {
   ): void;
   deleteVirtualRouter(
     args: DeleteVirtualRouterCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DeleteVirtualRouterCommandOutput) => void
   ): void;
 
@@ -480,7 +492,7 @@ export interface AppMesh {
    */
   deleteVirtualService(
     args: DeleteVirtualServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DeleteVirtualServiceCommandOutput>;
   deleteVirtualService(
     args: DeleteVirtualServiceCommandInput,
@@ -488,7 +500,7 @@ export interface AppMesh {
   ): void;
   deleteVirtualService(
     args: DeleteVirtualServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DeleteVirtualServiceCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface AppMesh {
    */
   describeGatewayRoute(
     args: DescribeGatewayRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DescribeGatewayRouteCommandOutput>;
   describeGatewayRoute(
     args: DescribeGatewayRouteCommandInput,
@@ -505,7 +517,7 @@ export interface AppMesh {
   ): void;
   describeGatewayRoute(
     args: DescribeGatewayRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DescribeGatewayRouteCommandOutput) => void
   ): void;
 
@@ -514,7 +526,7 @@ export interface AppMesh {
    */
   describeMesh(
     args: DescribeMeshCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DescribeMeshCommandOutput>;
   describeMesh(
     args: DescribeMeshCommandInput,
@@ -522,7 +534,7 @@ export interface AppMesh {
   ): void;
   describeMesh(
     args: DescribeMeshCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DescribeMeshCommandOutput) => void
   ): void;
 
@@ -531,7 +543,7 @@ export interface AppMesh {
    */
   describeRoute(
     args: DescribeRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DescribeRouteCommandOutput>;
   describeRoute(
     args: DescribeRouteCommandInput,
@@ -539,7 +551,7 @@ export interface AppMesh {
   ): void;
   describeRoute(
     args: DescribeRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DescribeRouteCommandOutput) => void
   ): void;
 
@@ -548,7 +560,7 @@ export interface AppMesh {
    */
   describeVirtualGateway(
     args: DescribeVirtualGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DescribeVirtualGatewayCommandOutput>;
   describeVirtualGateway(
     args: DescribeVirtualGatewayCommandInput,
@@ -556,7 +568,7 @@ export interface AppMesh {
   ): void;
   describeVirtualGateway(
     args: DescribeVirtualGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DescribeVirtualGatewayCommandOutput) => void
   ): void;
 
@@ -565,7 +577,7 @@ export interface AppMesh {
    */
   describeVirtualNode(
     args: DescribeVirtualNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DescribeVirtualNodeCommandOutput>;
   describeVirtualNode(
     args: DescribeVirtualNodeCommandInput,
@@ -573,7 +585,7 @@ export interface AppMesh {
   ): void;
   describeVirtualNode(
     args: DescribeVirtualNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DescribeVirtualNodeCommandOutput) => void
   ): void;
 
@@ -582,7 +594,7 @@ export interface AppMesh {
    */
   describeVirtualRouter(
     args: DescribeVirtualRouterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DescribeVirtualRouterCommandOutput>;
   describeVirtualRouter(
     args: DescribeVirtualRouterCommandInput,
@@ -590,7 +602,7 @@ export interface AppMesh {
   ): void;
   describeVirtualRouter(
     args: DescribeVirtualRouterCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DescribeVirtualRouterCommandOutput) => void
   ): void;
 
@@ -599,7 +611,7 @@ export interface AppMesh {
    */
   describeVirtualService(
     args: DescribeVirtualServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<DescribeVirtualServiceCommandOutput>;
   describeVirtualService(
     args: DescribeVirtualServiceCommandInput,
@@ -607,7 +619,7 @@ export interface AppMesh {
   ): void;
   describeVirtualService(
     args: DescribeVirtualServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: DescribeVirtualServiceCommandOutput) => void
   ): void;
 
@@ -616,7 +628,7 @@ export interface AppMesh {
    */
   listGatewayRoutes(
     args: ListGatewayRoutesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<ListGatewayRoutesCommandOutput>;
   listGatewayRoutes(
     args: ListGatewayRoutesCommandInput,
@@ -624,7 +636,7 @@ export interface AppMesh {
   ): void;
   listGatewayRoutes(
     args: ListGatewayRoutesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: ListGatewayRoutesCommandOutput) => void
   ): void;
 
@@ -634,7 +646,7 @@ export interface AppMesh {
   listMeshes(): Promise<ListMeshesCommandOutput>;
   listMeshes(
     args: ListMeshesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<ListMeshesCommandOutput>;
   listMeshes(
     args: ListMeshesCommandInput,
@@ -642,7 +654,7 @@ export interface AppMesh {
   ): void;
   listMeshes(
     args: ListMeshesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: ListMeshesCommandOutput) => void
   ): void;
 
@@ -651,7 +663,7 @@ export interface AppMesh {
    */
   listRoutes(
     args: ListRoutesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<ListRoutesCommandOutput>;
   listRoutes(
     args: ListRoutesCommandInput,
@@ -659,7 +671,7 @@ export interface AppMesh {
   ): void;
   listRoutes(
     args: ListRoutesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: ListRoutesCommandOutput) => void
   ): void;
 
@@ -668,7 +680,7 @@ export interface AppMesh {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -676,7 +688,7 @@ export interface AppMesh {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -685,7 +697,7 @@ export interface AppMesh {
    */
   listVirtualGateways(
     args: ListVirtualGatewaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<ListVirtualGatewaysCommandOutput>;
   listVirtualGateways(
     args: ListVirtualGatewaysCommandInput,
@@ -693,7 +705,7 @@ export interface AppMesh {
   ): void;
   listVirtualGateways(
     args: ListVirtualGatewaysCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: ListVirtualGatewaysCommandOutput) => void
   ): void;
 
@@ -702,7 +714,7 @@ export interface AppMesh {
    */
   listVirtualNodes(
     args: ListVirtualNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<ListVirtualNodesCommandOutput>;
   listVirtualNodes(
     args: ListVirtualNodesCommandInput,
@@ -710,7 +722,7 @@ export interface AppMesh {
   ): void;
   listVirtualNodes(
     args: ListVirtualNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: ListVirtualNodesCommandOutput) => void
   ): void;
 
@@ -719,7 +731,7 @@ export interface AppMesh {
    */
   listVirtualRouters(
     args: ListVirtualRoutersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<ListVirtualRoutersCommandOutput>;
   listVirtualRouters(
     args: ListVirtualRoutersCommandInput,
@@ -727,7 +739,7 @@ export interface AppMesh {
   ): void;
   listVirtualRouters(
     args: ListVirtualRoutersCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: ListVirtualRoutersCommandOutput) => void
   ): void;
 
@@ -736,7 +748,7 @@ export interface AppMesh {
    */
   listVirtualServices(
     args: ListVirtualServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<ListVirtualServicesCommandOutput>;
   listVirtualServices(
     args: ListVirtualServicesCommandInput,
@@ -744,7 +756,7 @@ export interface AppMesh {
   ): void;
   listVirtualServices(
     args: ListVirtualServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: ListVirtualServicesCommandOutput) => void
   ): void;
 
@@ -753,7 +765,7 @@ export interface AppMesh {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -761,7 +773,7 @@ export interface AppMesh {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -770,7 +782,7 @@ export interface AppMesh {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -778,7 +790,7 @@ export interface AppMesh {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -787,7 +799,7 @@ export interface AppMesh {
    */
   updateGatewayRoute(
     args: UpdateGatewayRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<UpdateGatewayRouteCommandOutput>;
   updateGatewayRoute(
     args: UpdateGatewayRouteCommandInput,
@@ -795,7 +807,7 @@ export interface AppMesh {
   ): void;
   updateGatewayRoute(
     args: UpdateGatewayRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: UpdateGatewayRouteCommandOutput) => void
   ): void;
 
@@ -804,7 +816,7 @@ export interface AppMesh {
    */
   updateMesh(
     args: UpdateMeshCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<UpdateMeshCommandOutput>;
   updateMesh(
     args: UpdateMeshCommandInput,
@@ -812,7 +824,7 @@ export interface AppMesh {
   ): void;
   updateMesh(
     args: UpdateMeshCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: UpdateMeshCommandOutput) => void
   ): void;
 
@@ -821,7 +833,7 @@ export interface AppMesh {
    */
   updateRoute(
     args: UpdateRouteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<UpdateRouteCommandOutput>;
   updateRoute(
     args: UpdateRouteCommandInput,
@@ -829,7 +841,7 @@ export interface AppMesh {
   ): void;
   updateRoute(
     args: UpdateRouteCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: UpdateRouteCommandOutput) => void
   ): void;
 
@@ -838,7 +850,7 @@ export interface AppMesh {
    */
   updateVirtualGateway(
     args: UpdateVirtualGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<UpdateVirtualGatewayCommandOutput>;
   updateVirtualGateway(
     args: UpdateVirtualGatewayCommandInput,
@@ -846,7 +858,7 @@ export interface AppMesh {
   ): void;
   updateVirtualGateway(
     args: UpdateVirtualGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: UpdateVirtualGatewayCommandOutput) => void
   ): void;
 
@@ -855,7 +867,7 @@ export interface AppMesh {
    */
   updateVirtualNode(
     args: UpdateVirtualNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<UpdateVirtualNodeCommandOutput>;
   updateVirtualNode(
     args: UpdateVirtualNodeCommandInput,
@@ -863,7 +875,7 @@ export interface AppMesh {
   ): void;
   updateVirtualNode(
     args: UpdateVirtualNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: UpdateVirtualNodeCommandOutput) => void
   ): void;
 
@@ -872,7 +884,7 @@ export interface AppMesh {
    */
   updateVirtualRouter(
     args: UpdateVirtualRouterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<UpdateVirtualRouterCommandOutput>;
   updateVirtualRouter(
     args: UpdateVirtualRouterCommandInput,
@@ -880,7 +892,7 @@ export interface AppMesh {
   ): void;
   updateVirtualRouter(
     args: UpdateVirtualRouterCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: UpdateVirtualRouterCommandOutput) => void
   ): void;
 
@@ -889,7 +901,7 @@ export interface AppMesh {
    */
   updateVirtualService(
     args: UpdateVirtualServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppMeshRequestOptions
   ): Promise<UpdateVirtualServiceCommandOutput>;
   updateVirtualService(
     args: UpdateVirtualServiceCommandInput,
@@ -897,7 +909,7 @@ export interface AppMesh {
   ): void;
   updateVirtualService(
     args: UpdateVirtualServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppMeshRequestOptions,
     cb: (err: any, data?: UpdateVirtualServiceCommandOutput) => void
   ): void;
 

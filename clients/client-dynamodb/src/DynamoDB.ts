@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -374,13 +375,20 @@ const waiters = {
   waitUntilTableNotExists,
 };
 
+/**
+ * @public
+ */
+export interface DynamoDBRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DynamoDB {
   /**
    * @see {@link BatchExecuteStatementCommand}
    */
   batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<BatchExecuteStatementCommandOutput>;
   batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
@@ -388,7 +396,7 @@ export interface DynamoDB {
   ): void;
   batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: BatchExecuteStatementCommandOutput) => void
   ): void;
 
@@ -397,7 +405,7 @@ export interface DynamoDB {
    */
   batchGetItem(
     args: BatchGetItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<BatchGetItemCommandOutput>;
   batchGetItem(
     args: BatchGetItemCommandInput,
@@ -405,7 +413,7 @@ export interface DynamoDB {
   ): void;
   batchGetItem(
     args: BatchGetItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: BatchGetItemCommandOutput) => void
   ): void;
 
@@ -414,7 +422,7 @@ export interface DynamoDB {
    */
   batchWriteItem(
     args: BatchWriteItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<BatchWriteItemCommandOutput>;
   batchWriteItem(
     args: BatchWriteItemCommandInput,
@@ -422,7 +430,7 @@ export interface DynamoDB {
   ): void;
   batchWriteItem(
     args: BatchWriteItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: BatchWriteItemCommandOutput) => void
   ): void;
 
@@ -431,7 +439,7 @@ export interface DynamoDB {
    */
   createBackup(
     args: CreateBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<CreateBackupCommandOutput>;
   createBackup(
     args: CreateBackupCommandInput,
@@ -439,7 +447,7 @@ export interface DynamoDB {
   ): void;
   createBackup(
     args: CreateBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: CreateBackupCommandOutput) => void
   ): void;
 
@@ -448,7 +456,7 @@ export interface DynamoDB {
    */
   createGlobalTable(
     args: CreateGlobalTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<CreateGlobalTableCommandOutput>;
   createGlobalTable(
     args: CreateGlobalTableCommandInput,
@@ -456,7 +464,7 @@ export interface DynamoDB {
   ): void;
   createGlobalTable(
     args: CreateGlobalTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: CreateGlobalTableCommandOutput) => void
   ): void;
 
@@ -465,7 +473,7 @@ export interface DynamoDB {
    */
   createTable(
     args: CreateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<CreateTableCommandOutput>;
   createTable(
     args: CreateTableCommandInput,
@@ -473,7 +481,7 @@ export interface DynamoDB {
   ): void;
   createTable(
     args: CreateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: CreateTableCommandOutput) => void
   ): void;
 
@@ -482,7 +490,7 @@ export interface DynamoDB {
    */
   deleteBackup(
     args: DeleteBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DeleteBackupCommandOutput>;
   deleteBackup(
     args: DeleteBackupCommandInput,
@@ -490,7 +498,7 @@ export interface DynamoDB {
   ): void;
   deleteBackup(
     args: DeleteBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DeleteBackupCommandOutput) => void
   ): void;
 
@@ -499,7 +507,7 @@ export interface DynamoDB {
    */
   deleteItem(
     args: DeleteItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DeleteItemCommandOutput>;
   deleteItem(
     args: DeleteItemCommandInput,
@@ -507,7 +515,7 @@ export interface DynamoDB {
   ): void;
   deleteItem(
     args: DeleteItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DeleteItemCommandOutput) => void
   ): void;
 
@@ -516,7 +524,7 @@ export interface DynamoDB {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -524,7 +532,7 @@ export interface DynamoDB {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -533,7 +541,7 @@ export interface DynamoDB {
    */
   deleteTable(
     args: DeleteTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DeleteTableCommandOutput>;
   deleteTable(
     args: DeleteTableCommandInput,
@@ -541,7 +549,7 @@ export interface DynamoDB {
   ): void;
   deleteTable(
     args: DeleteTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DeleteTableCommandOutput) => void
   ): void;
 
@@ -550,7 +558,7 @@ export interface DynamoDB {
    */
   describeBackup(
     args: DescribeBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeBackupCommandOutput>;
   describeBackup(
     args: DescribeBackupCommandInput,
@@ -558,7 +566,7 @@ export interface DynamoDB {
   ): void;
   describeBackup(
     args: DescribeBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeBackupCommandOutput) => void
   ): void;
 
@@ -567,7 +575,7 @@ export interface DynamoDB {
    */
   describeContinuousBackups(
     args: DescribeContinuousBackupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeContinuousBackupsCommandOutput>;
   describeContinuousBackups(
     args: DescribeContinuousBackupsCommandInput,
@@ -575,7 +583,7 @@ export interface DynamoDB {
   ): void;
   describeContinuousBackups(
     args: DescribeContinuousBackupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeContinuousBackupsCommandOutput) => void
   ): void;
 
@@ -584,7 +592,7 @@ export interface DynamoDB {
    */
   describeContributorInsights(
     args: DescribeContributorInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeContributorInsightsCommandOutput>;
   describeContributorInsights(
     args: DescribeContributorInsightsCommandInput,
@@ -592,7 +600,7 @@ export interface DynamoDB {
   ): void;
   describeContributorInsights(
     args: DescribeContributorInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeContributorInsightsCommandOutput) => void
   ): void;
 
@@ -602,7 +610,7 @@ export interface DynamoDB {
   describeEndpoints(): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
@@ -610,7 +618,7 @@ export interface DynamoDB {
   ): void;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeEndpointsCommandOutput) => void
   ): void;
 
@@ -619,7 +627,7 @@ export interface DynamoDB {
    */
   describeExport(
     args: DescribeExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeExportCommandOutput>;
   describeExport(
     args: DescribeExportCommandInput,
@@ -627,7 +635,7 @@ export interface DynamoDB {
   ): void;
   describeExport(
     args: DescribeExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeExportCommandOutput) => void
   ): void;
 
@@ -636,7 +644,7 @@ export interface DynamoDB {
    */
   describeGlobalTable(
     args: DescribeGlobalTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeGlobalTableCommandOutput>;
   describeGlobalTable(
     args: DescribeGlobalTableCommandInput,
@@ -644,7 +652,7 @@ export interface DynamoDB {
   ): void;
   describeGlobalTable(
     args: DescribeGlobalTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeGlobalTableCommandOutput) => void
   ): void;
 
@@ -653,7 +661,7 @@ export interface DynamoDB {
    */
   describeGlobalTableSettings(
     args: DescribeGlobalTableSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeGlobalTableSettingsCommandOutput>;
   describeGlobalTableSettings(
     args: DescribeGlobalTableSettingsCommandInput,
@@ -661,7 +669,7 @@ export interface DynamoDB {
   ): void;
   describeGlobalTableSettings(
     args: DescribeGlobalTableSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeGlobalTableSettingsCommandOutput) => void
   ): void;
 
@@ -670,7 +678,7 @@ export interface DynamoDB {
    */
   describeImport(
     args: DescribeImportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeImportCommandOutput>;
   describeImport(
     args: DescribeImportCommandInput,
@@ -678,7 +686,7 @@ export interface DynamoDB {
   ): void;
   describeImport(
     args: DescribeImportCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeImportCommandOutput) => void
   ): void;
 
@@ -687,7 +695,7 @@ export interface DynamoDB {
    */
   describeKinesisStreamingDestination(
     args: DescribeKinesisStreamingDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeKinesisStreamingDestinationCommandOutput>;
   describeKinesisStreamingDestination(
     args: DescribeKinesisStreamingDestinationCommandInput,
@@ -695,7 +703,7 @@ export interface DynamoDB {
   ): void;
   describeKinesisStreamingDestination(
     args: DescribeKinesisStreamingDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeKinesisStreamingDestinationCommandOutput) => void
   ): void;
 
@@ -705,7 +713,7 @@ export interface DynamoDB {
   describeLimits(): Promise<DescribeLimitsCommandOutput>;
   describeLimits(
     args: DescribeLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeLimitsCommandOutput>;
   describeLimits(
     args: DescribeLimitsCommandInput,
@@ -713,7 +721,7 @@ export interface DynamoDB {
   ): void;
   describeLimits(
     args: DescribeLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeLimitsCommandOutput) => void
   ): void;
 
@@ -722,7 +730,7 @@ export interface DynamoDB {
    */
   describeTable(
     args: DescribeTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeTableCommandOutput>;
   describeTable(
     args: DescribeTableCommandInput,
@@ -730,7 +738,7 @@ export interface DynamoDB {
   ): void;
   describeTable(
     args: DescribeTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeTableCommandOutput) => void
   ): void;
 
@@ -739,7 +747,7 @@ export interface DynamoDB {
    */
   describeTableReplicaAutoScaling(
     args: DescribeTableReplicaAutoScalingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeTableReplicaAutoScalingCommandOutput>;
   describeTableReplicaAutoScaling(
     args: DescribeTableReplicaAutoScalingCommandInput,
@@ -747,7 +755,7 @@ export interface DynamoDB {
   ): void;
   describeTableReplicaAutoScaling(
     args: DescribeTableReplicaAutoScalingCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeTableReplicaAutoScalingCommandOutput) => void
   ): void;
 
@@ -756,7 +764,7 @@ export interface DynamoDB {
    */
   describeTimeToLive(
     args: DescribeTimeToLiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DescribeTimeToLiveCommandOutput>;
   describeTimeToLive(
     args: DescribeTimeToLiveCommandInput,
@@ -764,7 +772,7 @@ export interface DynamoDB {
   ): void;
   describeTimeToLive(
     args: DescribeTimeToLiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DescribeTimeToLiveCommandOutput) => void
   ): void;
 
@@ -773,7 +781,7 @@ export interface DynamoDB {
    */
   disableKinesisStreamingDestination(
     args: DisableKinesisStreamingDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<DisableKinesisStreamingDestinationCommandOutput>;
   disableKinesisStreamingDestination(
     args: DisableKinesisStreamingDestinationCommandInput,
@@ -781,7 +789,7 @@ export interface DynamoDB {
   ): void;
   disableKinesisStreamingDestination(
     args: DisableKinesisStreamingDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: DisableKinesisStreamingDestinationCommandOutput) => void
   ): void;
 
@@ -790,7 +798,7 @@ export interface DynamoDB {
    */
   enableKinesisStreamingDestination(
     args: EnableKinesisStreamingDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<EnableKinesisStreamingDestinationCommandOutput>;
   enableKinesisStreamingDestination(
     args: EnableKinesisStreamingDestinationCommandInput,
@@ -798,7 +806,7 @@ export interface DynamoDB {
   ): void;
   enableKinesisStreamingDestination(
     args: EnableKinesisStreamingDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: EnableKinesisStreamingDestinationCommandOutput) => void
   ): void;
 
@@ -807,7 +815,7 @@ export interface DynamoDB {
    */
   executeStatement(
     args: ExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ExecuteStatementCommandOutput>;
   executeStatement(
     args: ExecuteStatementCommandInput,
@@ -815,7 +823,7 @@ export interface DynamoDB {
   ): void;
   executeStatement(
     args: ExecuteStatementCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ExecuteStatementCommandOutput) => void
   ): void;
 
@@ -824,7 +832,7 @@ export interface DynamoDB {
    */
   executeTransaction(
     args: ExecuteTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ExecuteTransactionCommandOutput>;
   executeTransaction(
     args: ExecuteTransactionCommandInput,
@@ -832,7 +840,7 @@ export interface DynamoDB {
   ): void;
   executeTransaction(
     args: ExecuteTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ExecuteTransactionCommandOutput) => void
   ): void;
 
@@ -841,7 +849,7 @@ export interface DynamoDB {
    */
   exportTableToPointInTime(
     args: ExportTableToPointInTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ExportTableToPointInTimeCommandOutput>;
   exportTableToPointInTime(
     args: ExportTableToPointInTimeCommandInput,
@@ -849,7 +857,7 @@ export interface DynamoDB {
   ): void;
   exportTableToPointInTime(
     args: ExportTableToPointInTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
   ): void;
 
@@ -858,7 +866,7 @@ export interface DynamoDB {
    */
   getItem(
     args: GetItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<GetItemCommandOutput>;
   getItem(
     args: GetItemCommandInput,
@@ -866,7 +874,7 @@ export interface DynamoDB {
   ): void;
   getItem(
     args: GetItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: GetItemCommandOutput) => void
   ): void;
 
@@ -875,7 +883,7 @@ export interface DynamoDB {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -883,7 +891,7 @@ export interface DynamoDB {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -892,7 +900,7 @@ export interface DynamoDB {
    */
   importTable(
     args: ImportTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ImportTableCommandOutput>;
   importTable(
     args: ImportTableCommandInput,
@@ -900,7 +908,7 @@ export interface DynamoDB {
   ): void;
   importTable(
     args: ImportTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ImportTableCommandOutput) => void
   ): void;
 
@@ -910,7 +918,7 @@ export interface DynamoDB {
   listBackups(): Promise<ListBackupsCommandOutput>;
   listBackups(
     args: ListBackupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ListBackupsCommandOutput>;
   listBackups(
     args: ListBackupsCommandInput,
@@ -918,7 +926,7 @@ export interface DynamoDB {
   ): void;
   listBackups(
     args: ListBackupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ListBackupsCommandOutput) => void
   ): void;
 
@@ -928,7 +936,7 @@ export interface DynamoDB {
   listContributorInsights(): Promise<ListContributorInsightsCommandOutput>;
   listContributorInsights(
     args: ListContributorInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ListContributorInsightsCommandOutput>;
   listContributorInsights(
     args: ListContributorInsightsCommandInput,
@@ -936,7 +944,7 @@ export interface DynamoDB {
   ): void;
   listContributorInsights(
     args: ListContributorInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ListContributorInsightsCommandOutput) => void
   ): void;
 
@@ -946,7 +954,7 @@ export interface DynamoDB {
   listExports(): Promise<ListExportsCommandOutput>;
   listExports(
     args: ListExportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ListExportsCommandOutput>;
   listExports(
     args: ListExportsCommandInput,
@@ -954,7 +962,7 @@ export interface DynamoDB {
   ): void;
   listExports(
     args: ListExportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ListExportsCommandOutput) => void
   ): void;
 
@@ -964,7 +972,7 @@ export interface DynamoDB {
   listGlobalTables(): Promise<ListGlobalTablesCommandOutput>;
   listGlobalTables(
     args: ListGlobalTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ListGlobalTablesCommandOutput>;
   listGlobalTables(
     args: ListGlobalTablesCommandInput,
@@ -972,7 +980,7 @@ export interface DynamoDB {
   ): void;
   listGlobalTables(
     args: ListGlobalTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ListGlobalTablesCommandOutput) => void
   ): void;
 
@@ -982,7 +990,7 @@ export interface DynamoDB {
   listImports(): Promise<ListImportsCommandOutput>;
   listImports(
     args: ListImportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ListImportsCommandOutput>;
   listImports(
     args: ListImportsCommandInput,
@@ -990,7 +998,7 @@ export interface DynamoDB {
   ): void;
   listImports(
     args: ListImportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ListImportsCommandOutput) => void
   ): void;
 
@@ -1000,7 +1008,7 @@ export interface DynamoDB {
   listTables(): Promise<ListTablesCommandOutput>;
   listTables(
     args: ListTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ListTablesCommandOutput>;
   listTables(
     args: ListTablesCommandInput,
@@ -1008,7 +1016,7 @@ export interface DynamoDB {
   ): void;
   listTables(
     args: ListTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ListTablesCommandOutput) => void
   ): void;
 
@@ -1017,7 +1025,7 @@ export interface DynamoDB {
    */
   listTagsOfResource(
     args: ListTagsOfResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ListTagsOfResourceCommandOutput>;
   listTagsOfResource(
     args: ListTagsOfResourceCommandInput,
@@ -1025,7 +1033,7 @@ export interface DynamoDB {
   ): void;
   listTagsOfResource(
     args: ListTagsOfResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ListTagsOfResourceCommandOutput) => void
   ): void;
 
@@ -1034,7 +1042,7 @@ export interface DynamoDB {
    */
   putItem(
     args: PutItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<PutItemCommandOutput>;
   putItem(
     args: PutItemCommandInput,
@@ -1042,7 +1050,7 @@ export interface DynamoDB {
   ): void;
   putItem(
     args: PutItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: PutItemCommandOutput) => void
   ): void;
 
@@ -1051,7 +1059,7 @@ export interface DynamoDB {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -1059,7 +1067,7 @@ export interface DynamoDB {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1068,7 +1076,7 @@ export interface DynamoDB {
    */
   query(
     args: QueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<QueryCommandOutput>;
   query(
     args: QueryCommandInput,
@@ -1076,7 +1084,7 @@ export interface DynamoDB {
   ): void;
   query(
     args: QueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: QueryCommandOutput) => void
   ): void;
 
@@ -1085,7 +1093,7 @@ export interface DynamoDB {
    */
   restoreTableFromBackup(
     args: RestoreTableFromBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<RestoreTableFromBackupCommandOutput>;
   restoreTableFromBackup(
     args: RestoreTableFromBackupCommandInput,
@@ -1093,7 +1101,7 @@ export interface DynamoDB {
   ): void;
   restoreTableFromBackup(
     args: RestoreTableFromBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: RestoreTableFromBackupCommandOutput) => void
   ): void;
 
@@ -1102,7 +1110,7 @@ export interface DynamoDB {
    */
   restoreTableToPointInTime(
     args: RestoreTableToPointInTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<RestoreTableToPointInTimeCommandOutput>;
   restoreTableToPointInTime(
     args: RestoreTableToPointInTimeCommandInput,
@@ -1110,7 +1118,7 @@ export interface DynamoDB {
   ): void;
   restoreTableToPointInTime(
     args: RestoreTableToPointInTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: RestoreTableToPointInTimeCommandOutput) => void
   ): void;
 
@@ -1119,7 +1127,7 @@ export interface DynamoDB {
    */
   scan(
     args: ScanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<ScanCommandOutput>;
   scan(
     args: ScanCommandInput,
@@ -1127,7 +1135,7 @@ export interface DynamoDB {
   ): void;
   scan(
     args: ScanCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: ScanCommandOutput) => void
   ): void;
 
@@ -1136,7 +1144,7 @@ export interface DynamoDB {
    */
   searchVectors(
     args: SearchVectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<SearchVectorsCommandOutput>;
   searchVectors(
     args: SearchVectorsCommandInput,
@@ -1144,7 +1152,7 @@ export interface DynamoDB {
   ): void;
   searchVectors(
     args: SearchVectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: SearchVectorsCommandOutput) => void
   ): void;
 
@@ -1153,7 +1161,7 @@ export interface DynamoDB {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1161,7 +1169,7 @@ export interface DynamoDB {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1170,7 +1178,7 @@ export interface DynamoDB {
    */
   transactGetItems(
     args: TransactGetItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<TransactGetItemsCommandOutput>;
   transactGetItems(
     args: TransactGetItemsCommandInput,
@@ -1178,7 +1186,7 @@ export interface DynamoDB {
   ): void;
   transactGetItems(
     args: TransactGetItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: TransactGetItemsCommandOutput) => void
   ): void;
 
@@ -1187,7 +1195,7 @@ export interface DynamoDB {
    */
   transactWriteItems(
     args: TransactWriteItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<TransactWriteItemsCommandOutput>;
   transactWriteItems(
     args: TransactWriteItemsCommandInput,
@@ -1195,7 +1203,7 @@ export interface DynamoDB {
   ): void;
   transactWriteItems(
     args: TransactWriteItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: TransactWriteItemsCommandOutput) => void
   ): void;
 
@@ -1204,7 +1212,7 @@ export interface DynamoDB {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1212,7 +1220,7 @@ export interface DynamoDB {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1221,7 +1229,7 @@ export interface DynamoDB {
    */
   updateContinuousBackups(
     args: UpdateContinuousBackupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UpdateContinuousBackupsCommandOutput>;
   updateContinuousBackups(
     args: UpdateContinuousBackupsCommandInput,
@@ -1229,7 +1237,7 @@ export interface DynamoDB {
   ): void;
   updateContinuousBackups(
     args: UpdateContinuousBackupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UpdateContinuousBackupsCommandOutput) => void
   ): void;
 
@@ -1238,7 +1246,7 @@ export interface DynamoDB {
    */
   updateContributorInsights(
     args: UpdateContributorInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UpdateContributorInsightsCommandOutput>;
   updateContributorInsights(
     args: UpdateContributorInsightsCommandInput,
@@ -1246,7 +1254,7 @@ export interface DynamoDB {
   ): void;
   updateContributorInsights(
     args: UpdateContributorInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UpdateContributorInsightsCommandOutput) => void
   ): void;
 
@@ -1255,7 +1263,7 @@ export interface DynamoDB {
    */
   updateGlobalTable(
     args: UpdateGlobalTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UpdateGlobalTableCommandOutput>;
   updateGlobalTable(
     args: UpdateGlobalTableCommandInput,
@@ -1263,7 +1271,7 @@ export interface DynamoDB {
   ): void;
   updateGlobalTable(
     args: UpdateGlobalTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UpdateGlobalTableCommandOutput) => void
   ): void;
 
@@ -1272,7 +1280,7 @@ export interface DynamoDB {
    */
   updateGlobalTableSettings(
     args: UpdateGlobalTableSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UpdateGlobalTableSettingsCommandOutput>;
   updateGlobalTableSettings(
     args: UpdateGlobalTableSettingsCommandInput,
@@ -1280,7 +1288,7 @@ export interface DynamoDB {
   ): void;
   updateGlobalTableSettings(
     args: UpdateGlobalTableSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UpdateGlobalTableSettingsCommandOutput) => void
   ): void;
 
@@ -1289,7 +1297,7 @@ export interface DynamoDB {
    */
   updateItem(
     args: UpdateItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UpdateItemCommandOutput>;
   updateItem(
     args: UpdateItemCommandInput,
@@ -1297,7 +1305,7 @@ export interface DynamoDB {
   ): void;
   updateItem(
     args: UpdateItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UpdateItemCommandOutput) => void
   ): void;
 
@@ -1306,7 +1314,7 @@ export interface DynamoDB {
    */
   updateKinesisStreamingDestination(
     args: UpdateKinesisStreamingDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UpdateKinesisStreamingDestinationCommandOutput>;
   updateKinesisStreamingDestination(
     args: UpdateKinesisStreamingDestinationCommandInput,
@@ -1314,7 +1322,7 @@ export interface DynamoDB {
   ): void;
   updateKinesisStreamingDestination(
     args: UpdateKinesisStreamingDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UpdateKinesisStreamingDestinationCommandOutput) => void
   ): void;
 
@@ -1323,7 +1331,7 @@ export interface DynamoDB {
    */
   updateTable(
     args: UpdateTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UpdateTableCommandOutput>;
   updateTable(
     args: UpdateTableCommandInput,
@@ -1331,7 +1339,7 @@ export interface DynamoDB {
   ): void;
   updateTable(
     args: UpdateTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UpdateTableCommandOutput) => void
   ): void;
 
@@ -1340,7 +1348,7 @@ export interface DynamoDB {
    */
   updateTableReplicaAutoScaling(
     args: UpdateTableReplicaAutoScalingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UpdateTableReplicaAutoScalingCommandOutput>;
   updateTableReplicaAutoScaling(
     args: UpdateTableReplicaAutoScalingCommandInput,
@@ -1348,7 +1356,7 @@ export interface DynamoDB {
   ): void;
   updateTableReplicaAutoScaling(
     args: UpdateTableReplicaAutoScalingCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UpdateTableReplicaAutoScalingCommandOutput) => void
   ): void;
 
@@ -1357,7 +1365,7 @@ export interface DynamoDB {
    */
   updateTimeToLive(
     args: UpdateTimeToLiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DynamoDBRequestOptions
   ): Promise<UpdateTimeToLiveCommandOutput>;
   updateTimeToLive(
     args: UpdateTimeToLiveCommandInput,
@@ -1365,7 +1373,7 @@ export interface DynamoDB {
   ): void;
   updateTimeToLive(
     args: UpdateTimeToLiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: DynamoDBRequestOptions,
     cb: (err: any, data?: UpdateTimeToLiveCommandOutput) => void
   ): void;
 

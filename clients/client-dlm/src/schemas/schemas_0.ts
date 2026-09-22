@@ -171,10 +171,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var DLMServiceException$: StaticErrorSchema = [-3, _s, "DLMServiceException", 0, [], []];
 _s_registry.registerError(DLMServiceException$, DLMServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_M, _C],

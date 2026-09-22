@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type ContentTypeParametersCommandInput,
@@ -111,6 +111,13 @@ const commands = {
   SparseNullsOperationCommand,
 };
 
+/**
+ * @public
+ */
+export interface JsonProtocolRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface JsonProtocol {
   /**
    * @see {@link ContentTypeParametersCommand}
@@ -118,7 +125,7 @@ export interface JsonProtocol {
   contentTypeParameters(): Promise<ContentTypeParametersCommandOutput>;
   contentTypeParameters(
     args: ContentTypeParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<ContentTypeParametersCommandOutput>;
   contentTypeParameters(
     args: ContentTypeParametersCommandInput,
@@ -126,7 +133,7 @@ export interface JsonProtocol {
   ): void;
   contentTypeParameters(
     args: ContentTypeParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: ContentTypeParametersCommandOutput) => void
   ): void;
 
@@ -136,7 +143,7 @@ export interface JsonProtocol {
   datetimeOffsets(): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
@@ -144,7 +151,7 @@ export interface JsonProtocol {
   ): void;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: DatetimeOffsetsCommandOutput) => void
   ): void;
 
@@ -154,7 +161,7 @@ export interface JsonProtocol {
   emptyOperation(): Promise<EmptyOperationCommandOutput>;
   emptyOperation(
     args: EmptyOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<EmptyOperationCommandOutput>;
   emptyOperation(
     args: EmptyOperationCommandInput,
@@ -162,7 +169,7 @@ export interface JsonProtocol {
   ): void;
   emptyOperation(
     args: EmptyOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: EmptyOperationCommandOutput) => void
   ): void;
 
@@ -172,7 +179,7 @@ export interface JsonProtocol {
   endpointOperation(): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
@@ -180,7 +187,7 @@ export interface JsonProtocol {
   ): void;
   endpointOperation(
     args: EndpointOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: EndpointOperationCommandOutput) => void
   ): void;
 
@@ -189,7 +196,7 @@ export interface JsonProtocol {
    */
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<EndpointWithHostLabelOperationCommandOutput>;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
@@ -197,7 +204,7 @@ export interface JsonProtocol {
   ): void;
   endpointWithHostLabelOperation(
     args: EndpointWithHostLabelOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
   ): void;
 
@@ -207,7 +214,7 @@ export interface JsonProtocol {
   fractionalSeconds(): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
@@ -215,7 +222,7 @@ export interface JsonProtocol {
   ): void;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: FractionalSecondsCommandOutput) => void
   ): void;
 
@@ -225,7 +232,7 @@ export interface JsonProtocol {
   greetingWithErrors(): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
@@ -233,7 +240,7 @@ export interface JsonProtocol {
   ): void;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: GreetingWithErrorsCommandOutput) => void
   ): void;
 
@@ -243,7 +250,7 @@ export interface JsonProtocol {
   hostWithPathOperation(): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
@@ -251,7 +258,7 @@ export interface JsonProtocol {
   ): void;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: HostWithPathOperationCommandOutput) => void
   ): void;
 
@@ -261,7 +268,7 @@ export interface JsonProtocol {
   jsonEnums(): Promise<JsonEnumsCommandOutput>;
   jsonEnums(
     args: JsonEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<JsonEnumsCommandOutput>;
   jsonEnums(
     args: JsonEnumsCommandInput,
@@ -269,7 +276,7 @@ export interface JsonProtocol {
   ): void;
   jsonEnums(
     args: JsonEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: JsonEnumsCommandOutput) => void
   ): void;
 
@@ -279,7 +286,7 @@ export interface JsonProtocol {
   jsonIntEnums(): Promise<JsonIntEnumsCommandOutput>;
   jsonIntEnums(
     args: JsonIntEnumsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<JsonIntEnumsCommandOutput>;
   jsonIntEnums(
     args: JsonIntEnumsCommandInput,
@@ -287,7 +294,7 @@ export interface JsonProtocol {
   ): void;
   jsonIntEnums(
     args: JsonIntEnumsCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: JsonIntEnumsCommandOutput) => void
   ): void;
 
@@ -297,7 +304,7 @@ export interface JsonProtocol {
   jsonUnions(): Promise<JsonUnionsCommandOutput>;
   jsonUnions(
     args: JsonUnionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<JsonUnionsCommandOutput>;
   jsonUnions(
     args: JsonUnionsCommandInput,
@@ -305,7 +312,7 @@ export interface JsonProtocol {
   ): void;
   jsonUnions(
     args: JsonUnionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: JsonUnionsCommandOutput) => void
   ): void;
 
@@ -315,7 +322,7 @@ export interface JsonProtocol {
   kitchenSinkOperation(): Promise<KitchenSinkOperationCommandOutput>;
   kitchenSinkOperation(
     args: KitchenSinkOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<KitchenSinkOperationCommandOutput>;
   kitchenSinkOperation(
     args: KitchenSinkOperationCommandInput,
@@ -323,7 +330,7 @@ export interface JsonProtocol {
   ): void;
   kitchenSinkOperation(
     args: KitchenSinkOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: KitchenSinkOperationCommandOutput) => void
   ): void;
 
@@ -333,7 +340,7 @@ export interface JsonProtocol {
   nullOperation(): Promise<NullOperationCommandOutput>;
   nullOperation(
     args: NullOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<NullOperationCommandOutput>;
   nullOperation(
     args: NullOperationCommandInput,
@@ -341,7 +348,7 @@ export interface JsonProtocol {
   ): void;
   nullOperation(
     args: NullOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: NullOperationCommandOutput) => void
   ): void;
 
@@ -351,7 +358,7 @@ export interface JsonProtocol {
   operationWithOptionalInputOutput(): Promise<OperationWithOptionalInputOutputCommandOutput>;
   operationWithOptionalInputOutput(
     args: OperationWithOptionalInputOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<OperationWithOptionalInputOutputCommandOutput>;
   operationWithOptionalInputOutput(
     args: OperationWithOptionalInputOutputCommandInput,
@@ -359,7 +366,7 @@ export interface JsonProtocol {
   ): void;
   operationWithOptionalInputOutput(
     args: OperationWithOptionalInputOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: OperationWithOptionalInputOutputCommandOutput) => void
   ): void;
 
@@ -369,7 +376,7 @@ export interface JsonProtocol {
   putAndGetInlineDocuments(): Promise<PutAndGetInlineDocumentsCommandOutput>;
   putAndGetInlineDocuments(
     args: PutAndGetInlineDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<PutAndGetInlineDocumentsCommandOutput>;
   putAndGetInlineDocuments(
     args: PutAndGetInlineDocumentsCommandInput,
@@ -377,7 +384,7 @@ export interface JsonProtocol {
   ): void;
   putAndGetInlineDocuments(
     args: PutAndGetInlineDocumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: PutAndGetInlineDocumentsCommandOutput) => void
   ): void;
 
@@ -387,7 +394,7 @@ export interface JsonProtocol {
   putWithContentEncoding(): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
@@ -395,7 +402,7 @@ export interface JsonProtocol {
   ): void;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: PutWithContentEncodingCommandOutput) => void
   ): void;
 
@@ -405,7 +412,7 @@ export interface JsonProtocol {
   simpleScalarProperties(): Promise<SimpleScalarPropertiesCommandOutput>;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<SimpleScalarPropertiesCommandOutput>;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
@@ -413,7 +420,7 @@ export interface JsonProtocol {
   ): void;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: SimpleScalarPropertiesCommandOutput) => void
   ): void;
 
@@ -423,7 +430,7 @@ export interface JsonProtocol {
   sparseNullsOperation(): Promise<SparseNullsOperationCommandOutput>;
   sparseNullsOperation(
     args: SparseNullsOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: JsonProtocolRequestOptions
   ): Promise<SparseNullsOperationCommandOutput>;
   sparseNullsOperation(
     args: SparseNullsOperationCommandInput,
@@ -431,7 +438,7 @@ export interface JsonProtocol {
   ): void;
   sparseNullsOperation(
     args: SparseNullsOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: JsonProtocolRequestOptions,
     cb: (err: any, data?: SparseNullsOperationCommandOutput) => void
   ): void;
 }

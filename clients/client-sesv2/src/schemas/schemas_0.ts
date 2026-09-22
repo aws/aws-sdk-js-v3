@@ -869,10 +869,10 @@ import {
 import { SESv2ServiceException } from "../models/SESv2ServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var SESv2ServiceException$: StaticErrorSchema = [-3, _s, "SESv2ServiceException", 0, [], []];
 _s_registry.registerError(SESv2ServiceException$, SESv2ServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var AccountSuspendedException$: StaticErrorSchema = [-3, n0, _ASE,
   { [_e]: _c, [_hE]: 400 },
   [_m],

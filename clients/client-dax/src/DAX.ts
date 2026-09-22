@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CreateClusterCommandInput,
@@ -129,13 +129,20 @@ const commands = {
   UpdateSubnetGroupCommand,
 };
 
+/**
+ * @public
+ */
+export interface DAXRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DAX {
   /**
    * @see {@link CreateClusterCommand}
    */
   createCluster(
     args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
@@ -143,7 +150,7 @@ export interface DAX {
   ): void;
   createCluster(
     args: CreateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
@@ -152,7 +159,7 @@ export interface DAX {
    */
   createParameterGroup(
     args: CreateParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<CreateParameterGroupCommandOutput>;
   createParameterGroup(
     args: CreateParameterGroupCommandInput,
@@ -160,7 +167,7 @@ export interface DAX {
   ): void;
   createParameterGroup(
     args: CreateParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: CreateParameterGroupCommandOutput) => void
   ): void;
 
@@ -169,7 +176,7 @@ export interface DAX {
    */
   createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<CreateSubnetGroupCommandOutput>;
   createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
@@ -177,7 +184,7 @@ export interface DAX {
   ): void;
   createSubnetGroup(
     args: CreateSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: CreateSubnetGroupCommandOutput) => void
   ): void;
 
@@ -186,7 +193,7 @@ export interface DAX {
    */
   decreaseReplicationFactor(
     args: DecreaseReplicationFactorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DecreaseReplicationFactorCommandOutput>;
   decreaseReplicationFactor(
     args: DecreaseReplicationFactorCommandInput,
@@ -194,7 +201,7 @@ export interface DAX {
   ): void;
   decreaseReplicationFactor(
     args: DecreaseReplicationFactorCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DecreaseReplicationFactorCommandOutput) => void
   ): void;
 
@@ -203,7 +210,7 @@ export interface DAX {
    */
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DeleteClusterCommandOutput>;
   deleteCluster(
     args: DeleteClusterCommandInput,
@@ -211,7 +218,7 @@ export interface DAX {
   ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
 
@@ -220,7 +227,7 @@ export interface DAX {
    */
   deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DeleteParameterGroupCommandOutput>;
   deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
@@ -228,7 +235,7 @@ export interface DAX {
   ): void;
   deleteParameterGroup(
     args: DeleteParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DeleteParameterGroupCommandOutput) => void
   ): void;
 
@@ -237,7 +244,7 @@ export interface DAX {
    */
   deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DeleteSubnetGroupCommandOutput>;
   deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
@@ -245,7 +252,7 @@ export interface DAX {
   ): void;
   deleteSubnetGroup(
     args: DeleteSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DeleteSubnetGroupCommandOutput) => void
   ): void;
 
@@ -255,7 +262,7 @@ export interface DAX {
   describeClusters(): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
@@ -263,7 +270,7 @@ export interface DAX {
   ): void;
   describeClusters(
     args: DescribeClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DescribeClustersCommandOutput) => void
   ): void;
 
@@ -273,7 +280,7 @@ export interface DAX {
   describeDefaultParameters(): Promise<DescribeDefaultParametersCommandOutput>;
   describeDefaultParameters(
     args: DescribeDefaultParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DescribeDefaultParametersCommandOutput>;
   describeDefaultParameters(
     args: DescribeDefaultParametersCommandInput,
@@ -281,7 +288,7 @@ export interface DAX {
   ): void;
   describeDefaultParameters(
     args: DescribeDefaultParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DescribeDefaultParametersCommandOutput) => void
   ): void;
 
@@ -291,7 +298,7 @@ export interface DAX {
   describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
@@ -299,7 +306,7 @@ export interface DAX {
   ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DescribeEventsCommandOutput) => void
   ): void;
 
@@ -309,7 +316,7 @@ export interface DAX {
   describeParameterGroups(): Promise<DescribeParameterGroupsCommandOutput>;
   describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DescribeParameterGroupsCommandOutput>;
   describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
@@ -317,7 +324,7 @@ export interface DAX {
   ): void;
   describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DescribeParameterGroupsCommandOutput) => void
   ): void;
 
@@ -326,7 +333,7 @@ export interface DAX {
    */
   describeParameters(
     args: DescribeParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DescribeParametersCommandOutput>;
   describeParameters(
     args: DescribeParametersCommandInput,
@@ -334,7 +341,7 @@ export interface DAX {
   ): void;
   describeParameters(
     args: DescribeParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DescribeParametersCommandOutput) => void
   ): void;
 
@@ -344,7 +351,7 @@ export interface DAX {
   describeSubnetGroups(): Promise<DescribeSubnetGroupsCommandOutput>;
   describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<DescribeSubnetGroupsCommandOutput>;
   describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
@@ -352,7 +359,7 @@ export interface DAX {
   ): void;
   describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: DescribeSubnetGroupsCommandOutput) => void
   ): void;
 
@@ -361,7 +368,7 @@ export interface DAX {
    */
   increaseReplicationFactor(
     args: IncreaseReplicationFactorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<IncreaseReplicationFactorCommandOutput>;
   increaseReplicationFactor(
     args: IncreaseReplicationFactorCommandInput,
@@ -369,7 +376,7 @@ export interface DAX {
   ): void;
   increaseReplicationFactor(
     args: IncreaseReplicationFactorCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: IncreaseReplicationFactorCommandOutput) => void
   ): void;
 
@@ -378,7 +385,7 @@ export interface DAX {
    */
   listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<ListTagsCommandOutput>;
   listTags(
     args: ListTagsCommandInput,
@@ -386,7 +393,7 @@ export interface DAX {
   ): void;
   listTags(
     args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
 
@@ -395,7 +402,7 @@ export interface DAX {
    */
   rebootNode(
     args: RebootNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<RebootNodeCommandOutput>;
   rebootNode(
     args: RebootNodeCommandInput,
@@ -403,7 +410,7 @@ export interface DAX {
   ): void;
   rebootNode(
     args: RebootNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: RebootNodeCommandOutput) => void
   ): void;
 
@@ -412,7 +419,7 @@ export interface DAX {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -420,7 +427,7 @@ export interface DAX {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -429,7 +436,7 @@ export interface DAX {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -437,7 +444,7 @@ export interface DAX {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -446,7 +453,7 @@ export interface DAX {
    */
   updateCluster(
     args: UpdateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<UpdateClusterCommandOutput>;
   updateCluster(
     args: UpdateClusterCommandInput,
@@ -454,7 +461,7 @@ export interface DAX {
   ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
 
@@ -463,7 +470,7 @@ export interface DAX {
    */
   updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<UpdateParameterGroupCommandOutput>;
   updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
@@ -471,7 +478,7 @@ export interface DAX {
   ): void;
   updateParameterGroup(
     args: UpdateParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: UpdateParameterGroupCommandOutput) => void
   ): void;
 
@@ -480,7 +487,7 @@ export interface DAX {
    */
   updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DAXRequestOptions
   ): Promise<UpdateSubnetGroupCommandOutput>;
   updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
@@ -488,7 +495,7 @@ export interface DAX {
   ): void;
   updateSubnetGroup(
     args: UpdateSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DAXRequestOptions,
     cb: (err: any, data?: UpdateSubnetGroupCommandOutput) => void
   ): void;
 }

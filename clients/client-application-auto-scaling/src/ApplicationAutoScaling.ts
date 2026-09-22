@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ApplicationAutoScalingClient } from "./ApplicationAutoScalingClient";
 import {
@@ -101,13 +106,20 @@ const paginators = {
   paginateDescribeScheduledActions,
 };
 
+/**
+ * @public
+ */
+export interface ApplicationAutoScalingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ApplicationAutoScaling {
   /**
    * @see {@link DeleteScalingPolicyCommand}
    */
   deleteScalingPolicy(
     args: DeleteScalingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<DeleteScalingPolicyCommandOutput>;
   deleteScalingPolicy(
     args: DeleteScalingPolicyCommandInput,
@@ -115,7 +127,7 @@ export interface ApplicationAutoScaling {
   ): void;
   deleteScalingPolicy(
     args: DeleteScalingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: DeleteScalingPolicyCommandOutput) => void
   ): void;
 
@@ -124,7 +136,7 @@ export interface ApplicationAutoScaling {
    */
   deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<DeleteScheduledActionCommandOutput>;
   deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
@@ -132,7 +144,7 @@ export interface ApplicationAutoScaling {
   ): void;
   deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: DeleteScheduledActionCommandOutput) => void
   ): void;
 
@@ -141,7 +153,7 @@ export interface ApplicationAutoScaling {
    */
   deregisterScalableTarget(
     args: DeregisterScalableTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<DeregisterScalableTargetCommandOutput>;
   deregisterScalableTarget(
     args: DeregisterScalableTargetCommandInput,
@@ -149,7 +161,7 @@ export interface ApplicationAutoScaling {
   ): void;
   deregisterScalableTarget(
     args: DeregisterScalableTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: DeregisterScalableTargetCommandOutput) => void
   ): void;
 
@@ -158,7 +170,7 @@ export interface ApplicationAutoScaling {
    */
   describeScalableTargets(
     args: DescribeScalableTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<DescribeScalableTargetsCommandOutput>;
   describeScalableTargets(
     args: DescribeScalableTargetsCommandInput,
@@ -166,7 +178,7 @@ export interface ApplicationAutoScaling {
   ): void;
   describeScalableTargets(
     args: DescribeScalableTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: DescribeScalableTargetsCommandOutput) => void
   ): void;
 
@@ -175,7 +187,7 @@ export interface ApplicationAutoScaling {
    */
   describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<DescribeScalingActivitiesCommandOutput>;
   describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
@@ -183,7 +195,7 @@ export interface ApplicationAutoScaling {
   ): void;
   describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: DescribeScalingActivitiesCommandOutput) => void
   ): void;
 
@@ -192,7 +204,7 @@ export interface ApplicationAutoScaling {
    */
   describeScalingPolicies(
     args: DescribeScalingPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<DescribeScalingPoliciesCommandOutput>;
   describeScalingPolicies(
     args: DescribeScalingPoliciesCommandInput,
@@ -200,7 +212,7 @@ export interface ApplicationAutoScaling {
   ): void;
   describeScalingPolicies(
     args: DescribeScalingPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: DescribeScalingPoliciesCommandOutput) => void
   ): void;
 
@@ -209,7 +221,7 @@ export interface ApplicationAutoScaling {
    */
   describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<DescribeScheduledActionsCommandOutput>;
   describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
@@ -217,7 +229,7 @@ export interface ApplicationAutoScaling {
   ): void;
   describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: DescribeScheduledActionsCommandOutput) => void
   ): void;
 
@@ -226,7 +238,7 @@ export interface ApplicationAutoScaling {
    */
   getPredictiveScalingForecast(
     args: GetPredictiveScalingForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<GetPredictiveScalingForecastCommandOutput>;
   getPredictiveScalingForecast(
     args: GetPredictiveScalingForecastCommandInput,
@@ -234,7 +246,7 @@ export interface ApplicationAutoScaling {
   ): void;
   getPredictiveScalingForecast(
     args: GetPredictiveScalingForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: GetPredictiveScalingForecastCommandOutput) => void
   ): void;
 
@@ -243,7 +255,7 @@ export interface ApplicationAutoScaling {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -251,7 +263,7 @@ export interface ApplicationAutoScaling {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -260,7 +272,7 @@ export interface ApplicationAutoScaling {
    */
   putScalingPolicy(
     args: PutScalingPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<PutScalingPolicyCommandOutput>;
   putScalingPolicy(
     args: PutScalingPolicyCommandInput,
@@ -268,7 +280,7 @@ export interface ApplicationAutoScaling {
   ): void;
   putScalingPolicy(
     args: PutScalingPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: PutScalingPolicyCommandOutput) => void
   ): void;
 
@@ -277,7 +289,7 @@ export interface ApplicationAutoScaling {
    */
   putScheduledAction(
     args: PutScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<PutScheduledActionCommandOutput>;
   putScheduledAction(
     args: PutScheduledActionCommandInput,
@@ -285,7 +297,7 @@ export interface ApplicationAutoScaling {
   ): void;
   putScheduledAction(
     args: PutScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: PutScheduledActionCommandOutput) => void
   ): void;
 
@@ -294,7 +306,7 @@ export interface ApplicationAutoScaling {
    */
   registerScalableTarget(
     args: RegisterScalableTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<RegisterScalableTargetCommandOutput>;
   registerScalableTarget(
     args: RegisterScalableTargetCommandInput,
@@ -302,7 +314,7 @@ export interface ApplicationAutoScaling {
   ): void;
   registerScalableTarget(
     args: RegisterScalableTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: RegisterScalableTargetCommandOutput) => void
   ): void;
 
@@ -311,7 +323,7 @@ export interface ApplicationAutoScaling {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -319,7 +331,7 @@ export interface ApplicationAutoScaling {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -328,7 +340,7 @@ export interface ApplicationAutoScaling {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApplicationAutoScalingRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -336,7 +348,7 @@ export interface ApplicationAutoScaling {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApplicationAutoScalingRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptAdministratorInvitationCommandInput,
@@ -761,13 +766,20 @@ const paginators = {
   paginateListStandardsControlAssociations,
 };
 
+/**
+ * @public
+ */
+export interface SecurityHubRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SecurityHub {
   /**
    * @see {@link AcceptAdministratorInvitationCommand}
    */
   acceptAdministratorInvitation(
     args: AcceptAdministratorInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<AcceptAdministratorInvitationCommandOutput>;
   acceptAdministratorInvitation(
     args: AcceptAdministratorInvitationCommandInput,
@@ -775,7 +787,7 @@ export interface SecurityHub {
   ): void;
   acceptAdministratorInvitation(
     args: AcceptAdministratorInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: AcceptAdministratorInvitationCommandOutput) => void
   ): void;
 
@@ -784,7 +796,7 @@ export interface SecurityHub {
    */
   acceptInvitation(
     args: AcceptInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<AcceptInvitationCommandOutput>;
   acceptInvitation(
     args: AcceptInvitationCommandInput,
@@ -792,7 +804,7 @@ export interface SecurityHub {
   ): void;
   acceptInvitation(
     args: AcceptInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: AcceptInvitationCommandOutput) => void
   ): void;
 
@@ -801,7 +813,7 @@ export interface SecurityHub {
    */
   batchDeleteAutomationRules(
     args: BatchDeleteAutomationRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchDeleteAutomationRulesCommandOutput>;
   batchDeleteAutomationRules(
     args: BatchDeleteAutomationRulesCommandInput,
@@ -809,7 +821,7 @@ export interface SecurityHub {
   ): void;
   batchDeleteAutomationRules(
     args: BatchDeleteAutomationRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchDeleteAutomationRulesCommandOutput) => void
   ): void;
 
@@ -818,7 +830,7 @@ export interface SecurityHub {
    */
   batchDisableStandards(
     args: BatchDisableStandardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchDisableStandardsCommandOutput>;
   batchDisableStandards(
     args: BatchDisableStandardsCommandInput,
@@ -826,7 +838,7 @@ export interface SecurityHub {
   ): void;
   batchDisableStandards(
     args: BatchDisableStandardsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchDisableStandardsCommandOutput) => void
   ): void;
 
@@ -835,7 +847,7 @@ export interface SecurityHub {
    */
   batchEnableStandards(
     args: BatchEnableStandardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchEnableStandardsCommandOutput>;
   batchEnableStandards(
     args: BatchEnableStandardsCommandInput,
@@ -843,7 +855,7 @@ export interface SecurityHub {
   ): void;
   batchEnableStandards(
     args: BatchEnableStandardsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchEnableStandardsCommandOutput) => void
   ): void;
 
@@ -852,7 +864,7 @@ export interface SecurityHub {
    */
   batchGetAutomationRules(
     args: BatchGetAutomationRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchGetAutomationRulesCommandOutput>;
   batchGetAutomationRules(
     args: BatchGetAutomationRulesCommandInput,
@@ -860,7 +872,7 @@ export interface SecurityHub {
   ): void;
   batchGetAutomationRules(
     args: BatchGetAutomationRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchGetAutomationRulesCommandOutput) => void
   ): void;
 
@@ -869,7 +881,7 @@ export interface SecurityHub {
    */
   batchGetConfigurationPolicyAssociations(
     args: BatchGetConfigurationPolicyAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchGetConfigurationPolicyAssociationsCommandOutput>;
   batchGetConfigurationPolicyAssociations(
     args: BatchGetConfigurationPolicyAssociationsCommandInput,
@@ -877,7 +889,7 @@ export interface SecurityHub {
   ): void;
   batchGetConfigurationPolicyAssociations(
     args: BatchGetConfigurationPolicyAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchGetConfigurationPolicyAssociationsCommandOutput) => void
   ): void;
 
@@ -886,7 +898,7 @@ export interface SecurityHub {
    */
   batchGetSecurityControls(
     args: BatchGetSecurityControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchGetSecurityControlsCommandOutput>;
   batchGetSecurityControls(
     args: BatchGetSecurityControlsCommandInput,
@@ -894,7 +906,7 @@ export interface SecurityHub {
   ): void;
   batchGetSecurityControls(
     args: BatchGetSecurityControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchGetSecurityControlsCommandOutput) => void
   ): void;
 
@@ -903,7 +915,7 @@ export interface SecurityHub {
    */
   batchGetStandardsControlAssociations(
     args: BatchGetStandardsControlAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchGetStandardsControlAssociationsCommandOutput>;
   batchGetStandardsControlAssociations(
     args: BatchGetStandardsControlAssociationsCommandInput,
@@ -911,7 +923,7 @@ export interface SecurityHub {
   ): void;
   batchGetStandardsControlAssociations(
     args: BatchGetStandardsControlAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchGetStandardsControlAssociationsCommandOutput) => void
   ): void;
 
@@ -920,7 +932,7 @@ export interface SecurityHub {
    */
   batchImportFindings(
     args: BatchImportFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchImportFindingsCommandOutput>;
   batchImportFindings(
     args: BatchImportFindingsCommandInput,
@@ -928,7 +940,7 @@ export interface SecurityHub {
   ): void;
   batchImportFindings(
     args: BatchImportFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchImportFindingsCommandOutput) => void
   ): void;
 
@@ -937,7 +949,7 @@ export interface SecurityHub {
    */
   batchUpdateAutomationRules(
     args: BatchUpdateAutomationRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchUpdateAutomationRulesCommandOutput>;
   batchUpdateAutomationRules(
     args: BatchUpdateAutomationRulesCommandInput,
@@ -945,7 +957,7 @@ export interface SecurityHub {
   ): void;
   batchUpdateAutomationRules(
     args: BatchUpdateAutomationRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchUpdateAutomationRulesCommandOutput) => void
   ): void;
 
@@ -954,7 +966,7 @@ export interface SecurityHub {
    */
   batchUpdateFindings(
     args: BatchUpdateFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchUpdateFindingsCommandOutput>;
   batchUpdateFindings(
     args: BatchUpdateFindingsCommandInput,
@@ -962,7 +974,7 @@ export interface SecurityHub {
   ): void;
   batchUpdateFindings(
     args: BatchUpdateFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchUpdateFindingsCommandOutput) => void
   ): void;
 
@@ -972,7 +984,7 @@ export interface SecurityHub {
   batchUpdateFindingsV2(): Promise<BatchUpdateFindingsV2CommandOutput>;
   batchUpdateFindingsV2(
     args: BatchUpdateFindingsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchUpdateFindingsV2CommandOutput>;
   batchUpdateFindingsV2(
     args: BatchUpdateFindingsV2CommandInput,
@@ -980,7 +992,7 @@ export interface SecurityHub {
   ): void;
   batchUpdateFindingsV2(
     args: BatchUpdateFindingsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchUpdateFindingsV2CommandOutput) => void
   ): void;
 
@@ -989,7 +1001,7 @@ export interface SecurityHub {
    */
   batchUpdateStandardsControlAssociations(
     args: BatchUpdateStandardsControlAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<BatchUpdateStandardsControlAssociationsCommandOutput>;
   batchUpdateStandardsControlAssociations(
     args: BatchUpdateStandardsControlAssociationsCommandInput,
@@ -997,7 +1009,7 @@ export interface SecurityHub {
   ): void;
   batchUpdateStandardsControlAssociations(
     args: BatchUpdateStandardsControlAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
   ): void;
 
@@ -1006,7 +1018,7 @@ export interface SecurityHub {
    */
   createActionTarget(
     args: CreateActionTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateActionTargetCommandOutput>;
   createActionTarget(
     args: CreateActionTargetCommandInput,
@@ -1014,7 +1026,7 @@ export interface SecurityHub {
   ): void;
   createActionTarget(
     args: CreateActionTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateActionTargetCommandOutput) => void
   ): void;
 
@@ -1023,7 +1035,7 @@ export interface SecurityHub {
    */
   createAggregatorV2(
     args: CreateAggregatorV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateAggregatorV2CommandOutput>;
   createAggregatorV2(
     args: CreateAggregatorV2CommandInput,
@@ -1031,7 +1043,7 @@ export interface SecurityHub {
   ): void;
   createAggregatorV2(
     args: CreateAggregatorV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateAggregatorV2CommandOutput) => void
   ): void;
 
@@ -1040,7 +1052,7 @@ export interface SecurityHub {
    */
   createAutomationRule(
     args: CreateAutomationRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateAutomationRuleCommandOutput>;
   createAutomationRule(
     args: CreateAutomationRuleCommandInput,
@@ -1048,7 +1060,7 @@ export interface SecurityHub {
   ): void;
   createAutomationRule(
     args: CreateAutomationRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateAutomationRuleCommandOutput) => void
   ): void;
 
@@ -1057,7 +1069,7 @@ export interface SecurityHub {
    */
   createAutomationRuleV2(
     args: CreateAutomationRuleV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateAutomationRuleV2CommandOutput>;
   createAutomationRuleV2(
     args: CreateAutomationRuleV2CommandInput,
@@ -1065,7 +1077,7 @@ export interface SecurityHub {
   ): void;
   createAutomationRuleV2(
     args: CreateAutomationRuleV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateAutomationRuleV2CommandOutput) => void
   ): void;
 
@@ -1074,7 +1086,7 @@ export interface SecurityHub {
    */
   createConfigurationPolicy(
     args: CreateConfigurationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateConfigurationPolicyCommandOutput>;
   createConfigurationPolicy(
     args: CreateConfigurationPolicyCommandInput,
@@ -1082,7 +1094,7 @@ export interface SecurityHub {
   ): void;
   createConfigurationPolicy(
     args: CreateConfigurationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateConfigurationPolicyCommandOutput) => void
   ): void;
 
@@ -1091,7 +1103,7 @@ export interface SecurityHub {
    */
   createConnector(
     args: CreateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateConnectorCommandOutput>;
   createConnector(
     args: CreateConnectorCommandInput,
@@ -1099,7 +1111,7 @@ export interface SecurityHub {
   ): void;
   createConnector(
     args: CreateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateConnectorCommandOutput) => void
   ): void;
 
@@ -1108,7 +1120,7 @@ export interface SecurityHub {
    */
   createConnectorV2(
     args: CreateConnectorV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateConnectorV2CommandOutput>;
   createConnectorV2(
     args: CreateConnectorV2CommandInput,
@@ -1116,7 +1128,7 @@ export interface SecurityHub {
   ): void;
   createConnectorV2(
     args: CreateConnectorV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateConnectorV2CommandOutput) => void
   ): void;
 
@@ -1125,7 +1137,7 @@ export interface SecurityHub {
    */
   createFindingAggregator(
     args: CreateFindingAggregatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateFindingAggregatorCommandOutput>;
   createFindingAggregator(
     args: CreateFindingAggregatorCommandInput,
@@ -1133,7 +1145,7 @@ export interface SecurityHub {
   ): void;
   createFindingAggregator(
     args: CreateFindingAggregatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateFindingAggregatorCommandOutput) => void
   ): void;
 
@@ -1142,7 +1154,7 @@ export interface SecurityHub {
    */
   createInsight(
     args: CreateInsightCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateInsightCommandOutput>;
   createInsight(
     args: CreateInsightCommandInput,
@@ -1150,7 +1162,7 @@ export interface SecurityHub {
   ): void;
   createInsight(
     args: CreateInsightCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateInsightCommandOutput) => void
   ): void;
 
@@ -1159,7 +1171,7 @@ export interface SecurityHub {
    */
   createMembers(
     args: CreateMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateMembersCommandOutput>;
   createMembers(
     args: CreateMembersCommandInput,
@@ -1167,7 +1179,7 @@ export interface SecurityHub {
   ): void;
   createMembers(
     args: CreateMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateMembersCommandOutput) => void
   ): void;
 
@@ -1176,7 +1188,7 @@ export interface SecurityHub {
    */
   createTicketV2(
     args: CreateTicketV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<CreateTicketV2CommandOutput>;
   createTicketV2(
     args: CreateTicketV2CommandInput,
@@ -1184,7 +1196,7 @@ export interface SecurityHub {
   ): void;
   createTicketV2(
     args: CreateTicketV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: CreateTicketV2CommandOutput) => void
   ): void;
 
@@ -1193,7 +1205,7 @@ export interface SecurityHub {
    */
   declineInvitations(
     args: DeclineInvitationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeclineInvitationsCommandOutput>;
   declineInvitations(
     args: DeclineInvitationsCommandInput,
@@ -1201,7 +1213,7 @@ export interface SecurityHub {
   ): void;
   declineInvitations(
     args: DeclineInvitationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeclineInvitationsCommandOutput) => void
   ): void;
 
@@ -1210,7 +1222,7 @@ export interface SecurityHub {
    */
   deleteActionTarget(
     args: DeleteActionTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteActionTargetCommandOutput>;
   deleteActionTarget(
     args: DeleteActionTargetCommandInput,
@@ -1218,7 +1230,7 @@ export interface SecurityHub {
   ): void;
   deleteActionTarget(
     args: DeleteActionTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteActionTargetCommandOutput) => void
   ): void;
 
@@ -1227,7 +1239,7 @@ export interface SecurityHub {
    */
   deleteAggregatorV2(
     args: DeleteAggregatorV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteAggregatorV2CommandOutput>;
   deleteAggregatorV2(
     args: DeleteAggregatorV2CommandInput,
@@ -1235,7 +1247,7 @@ export interface SecurityHub {
   ): void;
   deleteAggregatorV2(
     args: DeleteAggregatorV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteAggregatorV2CommandOutput) => void
   ): void;
 
@@ -1244,7 +1256,7 @@ export interface SecurityHub {
    */
   deleteAutomationRuleV2(
     args: DeleteAutomationRuleV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteAutomationRuleV2CommandOutput>;
   deleteAutomationRuleV2(
     args: DeleteAutomationRuleV2CommandInput,
@@ -1252,7 +1264,7 @@ export interface SecurityHub {
   ): void;
   deleteAutomationRuleV2(
     args: DeleteAutomationRuleV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteAutomationRuleV2CommandOutput) => void
   ): void;
 
@@ -1261,7 +1273,7 @@ export interface SecurityHub {
    */
   deleteConfigurationPolicy(
     args: DeleteConfigurationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteConfigurationPolicyCommandOutput>;
   deleteConfigurationPolicy(
     args: DeleteConfigurationPolicyCommandInput,
@@ -1269,7 +1281,7 @@ export interface SecurityHub {
   ): void;
   deleteConfigurationPolicy(
     args: DeleteConfigurationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteConfigurationPolicyCommandOutput) => void
   ): void;
 
@@ -1278,7 +1290,7 @@ export interface SecurityHub {
    */
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteConnectorCommandOutput>;
   deleteConnector(
     args: DeleteConnectorCommandInput,
@@ -1286,7 +1298,7 @@ export interface SecurityHub {
   ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
@@ -1295,7 +1307,7 @@ export interface SecurityHub {
    */
   deleteConnectorV2(
     args: DeleteConnectorV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteConnectorV2CommandOutput>;
   deleteConnectorV2(
     args: DeleteConnectorV2CommandInput,
@@ -1303,7 +1315,7 @@ export interface SecurityHub {
   ): void;
   deleteConnectorV2(
     args: DeleteConnectorV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteConnectorV2CommandOutput) => void
   ): void;
 
@@ -1312,7 +1324,7 @@ export interface SecurityHub {
    */
   deleteFindingAggregator(
     args: DeleteFindingAggregatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteFindingAggregatorCommandOutput>;
   deleteFindingAggregator(
     args: DeleteFindingAggregatorCommandInput,
@@ -1320,7 +1332,7 @@ export interface SecurityHub {
   ): void;
   deleteFindingAggregator(
     args: DeleteFindingAggregatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteFindingAggregatorCommandOutput) => void
   ): void;
 
@@ -1329,7 +1341,7 @@ export interface SecurityHub {
    */
   deleteInsight(
     args: DeleteInsightCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteInsightCommandOutput>;
   deleteInsight(
     args: DeleteInsightCommandInput,
@@ -1337,7 +1349,7 @@ export interface SecurityHub {
   ): void;
   deleteInsight(
     args: DeleteInsightCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteInsightCommandOutput) => void
   ): void;
 
@@ -1346,7 +1358,7 @@ export interface SecurityHub {
    */
   deleteInvitations(
     args: DeleteInvitationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteInvitationsCommandOutput>;
   deleteInvitations(
     args: DeleteInvitationsCommandInput,
@@ -1354,7 +1366,7 @@ export interface SecurityHub {
   ): void;
   deleteInvitations(
     args: DeleteInvitationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteInvitationsCommandOutput) => void
   ): void;
 
@@ -1363,7 +1375,7 @@ export interface SecurityHub {
    */
   deleteMembers(
     args: DeleteMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DeleteMembersCommandOutput>;
   deleteMembers(
     args: DeleteMembersCommandInput,
@@ -1371,7 +1383,7 @@ export interface SecurityHub {
   ): void;
   deleteMembers(
     args: DeleteMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DeleteMembersCommandOutput) => void
   ): void;
 
@@ -1381,7 +1393,7 @@ export interface SecurityHub {
   describeActionTargets(): Promise<DescribeActionTargetsCommandOutput>;
   describeActionTargets(
     args: DescribeActionTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DescribeActionTargetsCommandOutput>;
   describeActionTargets(
     args: DescribeActionTargetsCommandInput,
@@ -1389,7 +1401,7 @@ export interface SecurityHub {
   ): void;
   describeActionTargets(
     args: DescribeActionTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DescribeActionTargetsCommandOutput) => void
   ): void;
 
@@ -1399,7 +1411,7 @@ export interface SecurityHub {
   describeHub(): Promise<DescribeHubCommandOutput>;
   describeHub(
     args: DescribeHubCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DescribeHubCommandOutput>;
   describeHub(
     args: DescribeHubCommandInput,
@@ -1407,7 +1419,7 @@ export interface SecurityHub {
   ): void;
   describeHub(
     args: DescribeHubCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DescribeHubCommandOutput) => void
   ): void;
 
@@ -1417,7 +1429,7 @@ export interface SecurityHub {
   describeOrganizationConfiguration(): Promise<DescribeOrganizationConfigurationCommandOutput>;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DescribeOrganizationConfigurationCommandOutput>;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
@@ -1425,7 +1437,7 @@ export interface SecurityHub {
   ): void;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void
   ): void;
 
@@ -1435,7 +1447,7 @@ export interface SecurityHub {
   describeProducts(): Promise<DescribeProductsCommandOutput>;
   describeProducts(
     args: DescribeProductsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DescribeProductsCommandOutput>;
   describeProducts(
     args: DescribeProductsCommandInput,
@@ -1443,7 +1455,7 @@ export interface SecurityHub {
   ): void;
   describeProducts(
     args: DescribeProductsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DescribeProductsCommandOutput) => void
   ): void;
 
@@ -1453,7 +1465,7 @@ export interface SecurityHub {
   describeProductsV2(): Promise<DescribeProductsV2CommandOutput>;
   describeProductsV2(
     args: DescribeProductsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DescribeProductsV2CommandOutput>;
   describeProductsV2(
     args: DescribeProductsV2CommandInput,
@@ -1461,7 +1473,7 @@ export interface SecurityHub {
   ): void;
   describeProductsV2(
     args: DescribeProductsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DescribeProductsV2CommandOutput) => void
   ): void;
 
@@ -1471,7 +1483,7 @@ export interface SecurityHub {
   describeSecurityHubV2(): Promise<DescribeSecurityHubV2CommandOutput>;
   describeSecurityHubV2(
     args: DescribeSecurityHubV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DescribeSecurityHubV2CommandOutput>;
   describeSecurityHubV2(
     args: DescribeSecurityHubV2CommandInput,
@@ -1479,7 +1491,7 @@ export interface SecurityHub {
   ): void;
   describeSecurityHubV2(
     args: DescribeSecurityHubV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DescribeSecurityHubV2CommandOutput) => void
   ): void;
 
@@ -1489,7 +1501,7 @@ export interface SecurityHub {
   describeStandards(): Promise<DescribeStandardsCommandOutput>;
   describeStandards(
     args: DescribeStandardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DescribeStandardsCommandOutput>;
   describeStandards(
     args: DescribeStandardsCommandInput,
@@ -1497,7 +1509,7 @@ export interface SecurityHub {
   ): void;
   describeStandards(
     args: DescribeStandardsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DescribeStandardsCommandOutput) => void
   ): void;
 
@@ -1506,7 +1518,7 @@ export interface SecurityHub {
    */
   describeStandardsControls(
     args: DescribeStandardsControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DescribeStandardsControlsCommandOutput>;
   describeStandardsControls(
     args: DescribeStandardsControlsCommandInput,
@@ -1514,7 +1526,7 @@ export interface SecurityHub {
   ): void;
   describeStandardsControls(
     args: DescribeStandardsControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DescribeStandardsControlsCommandOutput) => void
   ): void;
 
@@ -1523,7 +1535,7 @@ export interface SecurityHub {
    */
   disableImportFindingsForProduct(
     args: DisableImportFindingsForProductCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DisableImportFindingsForProductCommandOutput>;
   disableImportFindingsForProduct(
     args: DisableImportFindingsForProductCommandInput,
@@ -1531,7 +1543,7 @@ export interface SecurityHub {
   ): void;
   disableImportFindingsForProduct(
     args: DisableImportFindingsForProductCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DisableImportFindingsForProductCommandOutput) => void
   ): void;
 
@@ -1540,7 +1552,7 @@ export interface SecurityHub {
    */
   disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DisableOrganizationAdminAccountCommandOutput>;
   disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
@@ -1548,7 +1560,7 @@ export interface SecurityHub {
   ): void;
   disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DisableOrganizationAdminAccountCommandOutput) => void
   ): void;
 
@@ -1558,7 +1570,7 @@ export interface SecurityHub {
   disableSecurityHub(): Promise<DisableSecurityHubCommandOutput>;
   disableSecurityHub(
     args: DisableSecurityHubCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DisableSecurityHubCommandOutput>;
   disableSecurityHub(
     args: DisableSecurityHubCommandInput,
@@ -1566,7 +1578,7 @@ export interface SecurityHub {
   ): void;
   disableSecurityHub(
     args: DisableSecurityHubCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DisableSecurityHubCommandOutput) => void
   ): void;
 
@@ -1575,7 +1587,7 @@ export interface SecurityHub {
    */
   disableSecurityHubFeatureV2(
     args: DisableSecurityHubFeatureV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DisableSecurityHubFeatureV2CommandOutput>;
   disableSecurityHubFeatureV2(
     args: DisableSecurityHubFeatureV2CommandInput,
@@ -1583,7 +1595,7 @@ export interface SecurityHub {
   ): void;
   disableSecurityHubFeatureV2(
     args: DisableSecurityHubFeatureV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DisableSecurityHubFeatureV2CommandOutput) => void
   ): void;
 
@@ -1593,7 +1605,7 @@ export interface SecurityHub {
   disableSecurityHubV2(): Promise<DisableSecurityHubV2CommandOutput>;
   disableSecurityHubV2(
     args: DisableSecurityHubV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DisableSecurityHubV2CommandOutput>;
   disableSecurityHubV2(
     args: DisableSecurityHubV2CommandInput,
@@ -1601,7 +1613,7 @@ export interface SecurityHub {
   ): void;
   disableSecurityHubV2(
     args: DisableSecurityHubV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DisableSecurityHubV2CommandOutput) => void
   ): void;
 
@@ -1611,7 +1623,7 @@ export interface SecurityHub {
   disassociateFromAdministratorAccount(): Promise<DisassociateFromAdministratorAccountCommandOutput>;
   disassociateFromAdministratorAccount(
     args: DisassociateFromAdministratorAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DisassociateFromAdministratorAccountCommandOutput>;
   disassociateFromAdministratorAccount(
     args: DisassociateFromAdministratorAccountCommandInput,
@@ -1619,7 +1631,7 @@ export interface SecurityHub {
   ): void;
   disassociateFromAdministratorAccount(
     args: DisassociateFromAdministratorAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
   ): void;
 
@@ -1629,7 +1641,7 @@ export interface SecurityHub {
   disassociateFromMasterAccount(): Promise<DisassociateFromMasterAccountCommandOutput>;
   disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DisassociateFromMasterAccountCommandOutput>;
   disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
@@ -1637,7 +1649,7 @@ export interface SecurityHub {
   ): void;
   disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DisassociateFromMasterAccountCommandOutput) => void
   ): void;
 
@@ -1646,7 +1658,7 @@ export interface SecurityHub {
    */
   disassociateMembers(
     args: DisassociateMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<DisassociateMembersCommandOutput>;
   disassociateMembers(
     args: DisassociateMembersCommandInput,
@@ -1654,7 +1666,7 @@ export interface SecurityHub {
   ): void;
   disassociateMembers(
     args: DisassociateMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: DisassociateMembersCommandOutput) => void
   ): void;
 
@@ -1663,7 +1675,7 @@ export interface SecurityHub {
    */
   enableImportFindingsForProduct(
     args: EnableImportFindingsForProductCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<EnableImportFindingsForProductCommandOutput>;
   enableImportFindingsForProduct(
     args: EnableImportFindingsForProductCommandInput,
@@ -1671,7 +1683,7 @@ export interface SecurityHub {
   ): void;
   enableImportFindingsForProduct(
     args: EnableImportFindingsForProductCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: EnableImportFindingsForProductCommandOutput) => void
   ): void;
 
@@ -1680,7 +1692,7 @@ export interface SecurityHub {
    */
   enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<EnableOrganizationAdminAccountCommandOutput>;
   enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
@@ -1688,7 +1700,7 @@ export interface SecurityHub {
   ): void;
   enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: EnableOrganizationAdminAccountCommandOutput) => void
   ): void;
 
@@ -1698,7 +1710,7 @@ export interface SecurityHub {
   enableSecurityHub(): Promise<EnableSecurityHubCommandOutput>;
   enableSecurityHub(
     args: EnableSecurityHubCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<EnableSecurityHubCommandOutput>;
   enableSecurityHub(
     args: EnableSecurityHubCommandInput,
@@ -1706,7 +1718,7 @@ export interface SecurityHub {
   ): void;
   enableSecurityHub(
     args: EnableSecurityHubCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: EnableSecurityHubCommandOutput) => void
   ): void;
 
@@ -1715,7 +1727,7 @@ export interface SecurityHub {
    */
   enableSecurityHubFeatureV2(
     args: EnableSecurityHubFeatureV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<EnableSecurityHubFeatureV2CommandOutput>;
   enableSecurityHubFeatureV2(
     args: EnableSecurityHubFeatureV2CommandInput,
@@ -1723,7 +1735,7 @@ export interface SecurityHub {
   ): void;
   enableSecurityHubFeatureV2(
     args: EnableSecurityHubFeatureV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: EnableSecurityHubFeatureV2CommandOutput) => void
   ): void;
 
@@ -1733,7 +1745,7 @@ export interface SecurityHub {
   enableSecurityHubV2(): Promise<EnableSecurityHubV2CommandOutput>;
   enableSecurityHubV2(
     args: EnableSecurityHubV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<EnableSecurityHubV2CommandOutput>;
   enableSecurityHubV2(
     args: EnableSecurityHubV2CommandInput,
@@ -1741,7 +1753,7 @@ export interface SecurityHub {
   ): void;
   enableSecurityHubV2(
     args: EnableSecurityHubV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: EnableSecurityHubV2CommandOutput) => void
   ): void;
 
@@ -1750,7 +1762,7 @@ export interface SecurityHub {
    */
   generateRecommendedPolicyV2(
     args: GenerateRecommendedPolicyV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GenerateRecommendedPolicyV2CommandOutput>;
   generateRecommendedPolicyV2(
     args: GenerateRecommendedPolicyV2CommandInput,
@@ -1758,7 +1770,7 @@ export interface SecurityHub {
   ): void;
   generateRecommendedPolicyV2(
     args: GenerateRecommendedPolicyV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GenerateRecommendedPolicyV2CommandOutput) => void
   ): void;
 
@@ -1768,7 +1780,7 @@ export interface SecurityHub {
   getAdministratorAccount(): Promise<GetAdministratorAccountCommandOutput>;
   getAdministratorAccount(
     args: GetAdministratorAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetAdministratorAccountCommandOutput>;
   getAdministratorAccount(
     args: GetAdministratorAccountCommandInput,
@@ -1776,7 +1788,7 @@ export interface SecurityHub {
   ): void;
   getAdministratorAccount(
     args: GetAdministratorAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetAdministratorAccountCommandOutput) => void
   ): void;
 
@@ -1785,7 +1797,7 @@ export interface SecurityHub {
    */
   getAggregatorV2(
     args: GetAggregatorV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetAggregatorV2CommandOutput>;
   getAggregatorV2(
     args: GetAggregatorV2CommandInput,
@@ -1793,7 +1805,7 @@ export interface SecurityHub {
   ): void;
   getAggregatorV2(
     args: GetAggregatorV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetAggregatorV2CommandOutput) => void
   ): void;
 
@@ -1802,7 +1814,7 @@ export interface SecurityHub {
    */
   getAutomationRuleV2(
     args: GetAutomationRuleV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetAutomationRuleV2CommandOutput>;
   getAutomationRuleV2(
     args: GetAutomationRuleV2CommandInput,
@@ -1810,7 +1822,7 @@ export interface SecurityHub {
   ): void;
   getAutomationRuleV2(
     args: GetAutomationRuleV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetAutomationRuleV2CommandOutput) => void
   ): void;
 
@@ -1819,7 +1831,7 @@ export interface SecurityHub {
    */
   getConfigurationPolicy(
     args: GetConfigurationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetConfigurationPolicyCommandOutput>;
   getConfigurationPolicy(
     args: GetConfigurationPolicyCommandInput,
@@ -1827,7 +1839,7 @@ export interface SecurityHub {
   ): void;
   getConfigurationPolicy(
     args: GetConfigurationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetConfigurationPolicyCommandOutput) => void
   ): void;
 
@@ -1836,7 +1848,7 @@ export interface SecurityHub {
    */
   getConfigurationPolicyAssociation(
     args: GetConfigurationPolicyAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetConfigurationPolicyAssociationCommandOutput>;
   getConfigurationPolicyAssociation(
     args: GetConfigurationPolicyAssociationCommandInput,
@@ -1844,7 +1856,7 @@ export interface SecurityHub {
   ): void;
   getConfigurationPolicyAssociation(
     args: GetConfigurationPolicyAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetConfigurationPolicyAssociationCommandOutput) => void
   ): void;
 
@@ -1853,7 +1865,7 @@ export interface SecurityHub {
    */
   getConnector(
     args: GetConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetConnectorCommandOutput>;
   getConnector(
     args: GetConnectorCommandInput,
@@ -1861,7 +1873,7 @@ export interface SecurityHub {
   ): void;
   getConnector(
     args: GetConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetConnectorCommandOutput) => void
   ): void;
 
@@ -1870,7 +1882,7 @@ export interface SecurityHub {
    */
   getConnectorV2(
     args: GetConnectorV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetConnectorV2CommandOutput>;
   getConnectorV2(
     args: GetConnectorV2CommandInput,
@@ -1878,7 +1890,7 @@ export interface SecurityHub {
   ): void;
   getConnectorV2(
     args: GetConnectorV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetConnectorV2CommandOutput) => void
   ): void;
 
@@ -1888,7 +1900,7 @@ export interface SecurityHub {
   getEnabledStandards(): Promise<GetEnabledStandardsCommandOutput>;
   getEnabledStandards(
     args: GetEnabledStandardsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetEnabledStandardsCommandOutput>;
   getEnabledStandards(
     args: GetEnabledStandardsCommandInput,
@@ -1896,7 +1908,7 @@ export interface SecurityHub {
   ): void;
   getEnabledStandards(
     args: GetEnabledStandardsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetEnabledStandardsCommandOutput) => void
   ): void;
 
@@ -1905,7 +1917,7 @@ export interface SecurityHub {
    */
   getFindingAggregator(
     args: GetFindingAggregatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetFindingAggregatorCommandOutput>;
   getFindingAggregator(
     args: GetFindingAggregatorCommandInput,
@@ -1913,7 +1925,7 @@ export interface SecurityHub {
   ): void;
   getFindingAggregator(
     args: GetFindingAggregatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetFindingAggregatorCommandOutput) => void
   ): void;
 
@@ -1922,7 +1934,7 @@ export interface SecurityHub {
    */
   getFindingHistory(
     args: GetFindingHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetFindingHistoryCommandOutput>;
   getFindingHistory(
     args: GetFindingHistoryCommandInput,
@@ -1930,7 +1942,7 @@ export interface SecurityHub {
   ): void;
   getFindingHistory(
     args: GetFindingHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetFindingHistoryCommandOutput) => void
   ): void;
 
@@ -1940,7 +1952,7 @@ export interface SecurityHub {
   getFindings(): Promise<GetFindingsCommandOutput>;
   getFindings(
     args: GetFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetFindingsCommandOutput>;
   getFindings(
     args: GetFindingsCommandInput,
@@ -1948,7 +1960,7 @@ export interface SecurityHub {
   ): void;
   getFindings(
     args: GetFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetFindingsCommandOutput) => void
   ): void;
 
@@ -1957,7 +1969,7 @@ export interface SecurityHub {
    */
   getFindingStatisticsV2(
     args: GetFindingStatisticsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetFindingStatisticsV2CommandOutput>;
   getFindingStatisticsV2(
     args: GetFindingStatisticsV2CommandInput,
@@ -1965,7 +1977,7 @@ export interface SecurityHub {
   ): void;
   getFindingStatisticsV2(
     args: GetFindingStatisticsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetFindingStatisticsV2CommandOutput) => void
   ): void;
 
@@ -1974,7 +1986,7 @@ export interface SecurityHub {
    */
   getFindingsTrendsV2(
     args: GetFindingsTrendsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetFindingsTrendsV2CommandOutput>;
   getFindingsTrendsV2(
     args: GetFindingsTrendsV2CommandInput,
@@ -1982,7 +1994,7 @@ export interface SecurityHub {
   ): void;
   getFindingsTrendsV2(
     args: GetFindingsTrendsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetFindingsTrendsV2CommandOutput) => void
   ): void;
 
@@ -1992,7 +2004,7 @@ export interface SecurityHub {
   getFindingsV2(): Promise<GetFindingsV2CommandOutput>;
   getFindingsV2(
     args: GetFindingsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetFindingsV2CommandOutput>;
   getFindingsV2(
     args: GetFindingsV2CommandInput,
@@ -2000,7 +2012,7 @@ export interface SecurityHub {
   ): void;
   getFindingsV2(
     args: GetFindingsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetFindingsV2CommandOutput) => void
   ): void;
 
@@ -2009,7 +2021,7 @@ export interface SecurityHub {
    */
   getInsightResults(
     args: GetInsightResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetInsightResultsCommandOutput>;
   getInsightResults(
     args: GetInsightResultsCommandInput,
@@ -2017,7 +2029,7 @@ export interface SecurityHub {
   ): void;
   getInsightResults(
     args: GetInsightResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetInsightResultsCommandOutput) => void
   ): void;
 
@@ -2027,7 +2039,7 @@ export interface SecurityHub {
   getInsights(): Promise<GetInsightsCommandOutput>;
   getInsights(
     args: GetInsightsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetInsightsCommandOutput>;
   getInsights(
     args: GetInsightsCommandInput,
@@ -2035,7 +2047,7 @@ export interface SecurityHub {
   ): void;
   getInsights(
     args: GetInsightsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetInsightsCommandOutput) => void
   ): void;
 
@@ -2045,7 +2057,7 @@ export interface SecurityHub {
   getInvitationsCount(): Promise<GetInvitationsCountCommandOutput>;
   getInvitationsCount(
     args: GetInvitationsCountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetInvitationsCountCommandOutput>;
   getInvitationsCount(
     args: GetInvitationsCountCommandInput,
@@ -2053,7 +2065,7 @@ export interface SecurityHub {
   ): void;
   getInvitationsCount(
     args: GetInvitationsCountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetInvitationsCountCommandOutput) => void
   ): void;
 
@@ -2063,7 +2075,7 @@ export interface SecurityHub {
   getMasterAccount(): Promise<GetMasterAccountCommandOutput>;
   getMasterAccount(
     args: GetMasterAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetMasterAccountCommandOutput>;
   getMasterAccount(
     args: GetMasterAccountCommandInput,
@@ -2071,7 +2083,7 @@ export interface SecurityHub {
   ): void;
   getMasterAccount(
     args: GetMasterAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetMasterAccountCommandOutput) => void
   ): void;
 
@@ -2080,7 +2092,7 @@ export interface SecurityHub {
    */
   getMembers(
     args: GetMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetMembersCommandOutput>;
   getMembers(
     args: GetMembersCommandInput,
@@ -2088,7 +2100,7 @@ export interface SecurityHub {
   ): void;
   getMembers(
     args: GetMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetMembersCommandOutput) => void
   ): void;
 
@@ -2097,7 +2109,7 @@ export interface SecurityHub {
    */
   getRecommendedPolicyV2(
     args: GetRecommendedPolicyV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetRecommendedPolicyV2CommandOutput>;
   getRecommendedPolicyV2(
     args: GetRecommendedPolicyV2CommandInput,
@@ -2105,7 +2117,7 @@ export interface SecurityHub {
   ): void;
   getRecommendedPolicyV2(
     args: GetRecommendedPolicyV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetRecommendedPolicyV2CommandOutput) => void
   ): void;
 
@@ -2114,7 +2126,7 @@ export interface SecurityHub {
    */
   getResourcesStatisticsV2(
     args: GetResourcesStatisticsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetResourcesStatisticsV2CommandOutput>;
   getResourcesStatisticsV2(
     args: GetResourcesStatisticsV2CommandInput,
@@ -2122,7 +2134,7 @@ export interface SecurityHub {
   ): void;
   getResourcesStatisticsV2(
     args: GetResourcesStatisticsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetResourcesStatisticsV2CommandOutput) => void
   ): void;
 
@@ -2131,7 +2143,7 @@ export interface SecurityHub {
    */
   getResourcesTrendsV2(
     args: GetResourcesTrendsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetResourcesTrendsV2CommandOutput>;
   getResourcesTrendsV2(
     args: GetResourcesTrendsV2CommandInput,
@@ -2139,7 +2151,7 @@ export interface SecurityHub {
   ): void;
   getResourcesTrendsV2(
     args: GetResourcesTrendsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetResourcesTrendsV2CommandOutput) => void
   ): void;
 
@@ -2149,7 +2161,7 @@ export interface SecurityHub {
   getResourcesV2(): Promise<GetResourcesV2CommandOutput>;
   getResourcesV2(
     args: GetResourcesV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetResourcesV2CommandOutput>;
   getResourcesV2(
     args: GetResourcesV2CommandInput,
@@ -2157,7 +2169,7 @@ export interface SecurityHub {
   ): void;
   getResourcesV2(
     args: GetResourcesV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetResourcesV2CommandOutput) => void
   ): void;
 
@@ -2166,7 +2178,7 @@ export interface SecurityHub {
    */
   getSecurityControlDefinition(
     args: GetSecurityControlDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<GetSecurityControlDefinitionCommandOutput>;
   getSecurityControlDefinition(
     args: GetSecurityControlDefinitionCommandInput,
@@ -2174,7 +2186,7 @@ export interface SecurityHub {
   ): void;
   getSecurityControlDefinition(
     args: GetSecurityControlDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: GetSecurityControlDefinitionCommandOutput) => void
   ): void;
 
@@ -2183,7 +2195,7 @@ export interface SecurityHub {
    */
   inviteMembers(
     args: InviteMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<InviteMembersCommandOutput>;
   inviteMembers(
     args: InviteMembersCommandInput,
@@ -2191,7 +2203,7 @@ export interface SecurityHub {
   ): void;
   inviteMembers(
     args: InviteMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: InviteMembersCommandOutput) => void
   ): void;
 
@@ -2201,7 +2213,7 @@ export interface SecurityHub {
   listAggregatorsV2(): Promise<ListAggregatorsV2CommandOutput>;
   listAggregatorsV2(
     args: ListAggregatorsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListAggregatorsV2CommandOutput>;
   listAggregatorsV2(
     args: ListAggregatorsV2CommandInput,
@@ -2209,7 +2221,7 @@ export interface SecurityHub {
   ): void;
   listAggregatorsV2(
     args: ListAggregatorsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListAggregatorsV2CommandOutput) => void
   ): void;
 
@@ -2219,7 +2231,7 @@ export interface SecurityHub {
   listAutomationRules(): Promise<ListAutomationRulesCommandOutput>;
   listAutomationRules(
     args: ListAutomationRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListAutomationRulesCommandOutput>;
   listAutomationRules(
     args: ListAutomationRulesCommandInput,
@@ -2227,7 +2239,7 @@ export interface SecurityHub {
   ): void;
   listAutomationRules(
     args: ListAutomationRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListAutomationRulesCommandOutput) => void
   ): void;
 
@@ -2237,7 +2249,7 @@ export interface SecurityHub {
   listAutomationRulesV2(): Promise<ListAutomationRulesV2CommandOutput>;
   listAutomationRulesV2(
     args: ListAutomationRulesV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListAutomationRulesV2CommandOutput>;
   listAutomationRulesV2(
     args: ListAutomationRulesV2CommandInput,
@@ -2245,7 +2257,7 @@ export interface SecurityHub {
   ): void;
   listAutomationRulesV2(
     args: ListAutomationRulesV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListAutomationRulesV2CommandOutput) => void
   ): void;
 
@@ -2255,7 +2267,7 @@ export interface SecurityHub {
   listConfigurationPolicies(): Promise<ListConfigurationPoliciesCommandOutput>;
   listConfigurationPolicies(
     args: ListConfigurationPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListConfigurationPoliciesCommandOutput>;
   listConfigurationPolicies(
     args: ListConfigurationPoliciesCommandInput,
@@ -2263,7 +2275,7 @@ export interface SecurityHub {
   ): void;
   listConfigurationPolicies(
     args: ListConfigurationPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListConfigurationPoliciesCommandOutput) => void
   ): void;
 
@@ -2273,7 +2285,7 @@ export interface SecurityHub {
   listConfigurationPolicyAssociations(): Promise<ListConfigurationPolicyAssociationsCommandOutput>;
   listConfigurationPolicyAssociations(
     args: ListConfigurationPolicyAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListConfigurationPolicyAssociationsCommandOutput>;
   listConfigurationPolicyAssociations(
     args: ListConfigurationPolicyAssociationsCommandInput,
@@ -2281,7 +2293,7 @@ export interface SecurityHub {
   ): void;
   listConfigurationPolicyAssociations(
     args: ListConfigurationPolicyAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListConfigurationPolicyAssociationsCommandOutput) => void
   ): void;
 
@@ -2291,7 +2303,7 @@ export interface SecurityHub {
   listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
@@ -2299,7 +2311,7 @@ export interface SecurityHub {
   ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListConnectorsCommandOutput) => void
   ): void;
 
@@ -2309,7 +2321,7 @@ export interface SecurityHub {
   listConnectorsV2(): Promise<ListConnectorsV2CommandOutput>;
   listConnectorsV2(
     args: ListConnectorsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListConnectorsV2CommandOutput>;
   listConnectorsV2(
     args: ListConnectorsV2CommandInput,
@@ -2317,7 +2329,7 @@ export interface SecurityHub {
   ): void;
   listConnectorsV2(
     args: ListConnectorsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListConnectorsV2CommandOutput) => void
   ): void;
 
@@ -2327,7 +2339,7 @@ export interface SecurityHub {
   listEnabledProductsForImport(): Promise<ListEnabledProductsForImportCommandOutput>;
   listEnabledProductsForImport(
     args: ListEnabledProductsForImportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListEnabledProductsForImportCommandOutput>;
   listEnabledProductsForImport(
     args: ListEnabledProductsForImportCommandInput,
@@ -2335,7 +2347,7 @@ export interface SecurityHub {
   ): void;
   listEnabledProductsForImport(
     args: ListEnabledProductsForImportCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListEnabledProductsForImportCommandOutput) => void
   ): void;
 
@@ -2345,7 +2357,7 @@ export interface SecurityHub {
   listFindingAggregators(): Promise<ListFindingAggregatorsCommandOutput>;
   listFindingAggregators(
     args: ListFindingAggregatorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListFindingAggregatorsCommandOutput>;
   listFindingAggregators(
     args: ListFindingAggregatorsCommandInput,
@@ -2353,7 +2365,7 @@ export interface SecurityHub {
   ): void;
   listFindingAggregators(
     args: ListFindingAggregatorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListFindingAggregatorsCommandOutput) => void
   ): void;
 
@@ -2363,7 +2375,7 @@ export interface SecurityHub {
   listFreeTrialStatusesV2(): Promise<ListFreeTrialStatusesV2CommandOutput>;
   listFreeTrialStatusesV2(
     args: ListFreeTrialStatusesV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListFreeTrialStatusesV2CommandOutput>;
   listFreeTrialStatusesV2(
     args: ListFreeTrialStatusesV2CommandInput,
@@ -2371,7 +2383,7 @@ export interface SecurityHub {
   ): void;
   listFreeTrialStatusesV2(
     args: ListFreeTrialStatusesV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListFreeTrialStatusesV2CommandOutput) => void
   ): void;
 
@@ -2381,7 +2393,7 @@ export interface SecurityHub {
   listInvitations(): Promise<ListInvitationsCommandOutput>;
   listInvitations(
     args: ListInvitationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListInvitationsCommandOutput>;
   listInvitations(
     args: ListInvitationsCommandInput,
@@ -2389,7 +2401,7 @@ export interface SecurityHub {
   ): void;
   listInvitations(
     args: ListInvitationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListInvitationsCommandOutput) => void
   ): void;
 
@@ -2399,7 +2411,7 @@ export interface SecurityHub {
   listMembers(): Promise<ListMembersCommandOutput>;
   listMembers(
     args: ListMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListMembersCommandOutput>;
   listMembers(
     args: ListMembersCommandInput,
@@ -2407,7 +2419,7 @@ export interface SecurityHub {
   ): void;
   listMembers(
     args: ListMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListMembersCommandOutput) => void
   ): void;
 
@@ -2417,7 +2429,7 @@ export interface SecurityHub {
   listOrganizationAdminAccounts(): Promise<ListOrganizationAdminAccountsCommandOutput>;
   listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListOrganizationAdminAccountsCommandOutput>;
   listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
@@ -2425,7 +2437,7 @@ export interface SecurityHub {
   ): void;
   listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListOrganizationAdminAccountsCommandOutput) => void
   ): void;
 
@@ -2435,7 +2447,7 @@ export interface SecurityHub {
   listSecurityControlDefinitions(): Promise<ListSecurityControlDefinitionsCommandOutput>;
   listSecurityControlDefinitions(
     args: ListSecurityControlDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListSecurityControlDefinitionsCommandOutput>;
   listSecurityControlDefinitions(
     args: ListSecurityControlDefinitionsCommandInput,
@@ -2443,7 +2455,7 @@ export interface SecurityHub {
   ): void;
   listSecurityControlDefinitions(
     args: ListSecurityControlDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListSecurityControlDefinitionsCommandOutput) => void
   ): void;
 
@@ -2452,7 +2464,7 @@ export interface SecurityHub {
    */
   listStandardsControlAssociations(
     args: ListStandardsControlAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListStandardsControlAssociationsCommandOutput>;
   listStandardsControlAssociations(
     args: ListStandardsControlAssociationsCommandInput,
@@ -2460,7 +2472,7 @@ export interface SecurityHub {
   ): void;
   listStandardsControlAssociations(
     args: ListStandardsControlAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListStandardsControlAssociationsCommandOutput) => void
   ): void;
 
@@ -2469,7 +2481,7 @@ export interface SecurityHub {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2477,7 +2489,7 @@ export interface SecurityHub {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2486,7 +2498,7 @@ export interface SecurityHub {
    */
   registerConnectorV2(
     args: RegisterConnectorV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<RegisterConnectorV2CommandOutput>;
   registerConnectorV2(
     args: RegisterConnectorV2CommandInput,
@@ -2494,7 +2506,7 @@ export interface SecurityHub {
   ): void;
   registerConnectorV2(
     args: RegisterConnectorV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: RegisterConnectorV2CommandOutput) => void
   ): void;
 
@@ -2503,7 +2515,7 @@ export interface SecurityHub {
    */
   startConfigurationPolicyAssociation(
     args: StartConfigurationPolicyAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<StartConfigurationPolicyAssociationCommandOutput>;
   startConfigurationPolicyAssociation(
     args: StartConfigurationPolicyAssociationCommandInput,
@@ -2511,7 +2523,7 @@ export interface SecurityHub {
   ): void;
   startConfigurationPolicyAssociation(
     args: StartConfigurationPolicyAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: StartConfigurationPolicyAssociationCommandOutput) => void
   ): void;
 
@@ -2520,7 +2532,7 @@ export interface SecurityHub {
    */
   startConfigurationPolicyDisassociation(
     args: StartConfigurationPolicyDisassociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<StartConfigurationPolicyDisassociationCommandOutput>;
   startConfigurationPolicyDisassociation(
     args: StartConfigurationPolicyDisassociationCommandInput,
@@ -2528,7 +2540,7 @@ export interface SecurityHub {
   ): void;
   startConfigurationPolicyDisassociation(
     args: StartConfigurationPolicyDisassociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: StartConfigurationPolicyDisassociationCommandOutput) => void
   ): void;
 
@@ -2537,7 +2549,7 @@ export interface SecurityHub {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2545,7 +2557,7 @@ export interface SecurityHub {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2554,7 +2566,7 @@ export interface SecurityHub {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2562,7 +2574,7 @@ export interface SecurityHub {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2571,7 +2583,7 @@ export interface SecurityHub {
    */
   updateActionTarget(
     args: UpdateActionTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateActionTargetCommandOutput>;
   updateActionTarget(
     args: UpdateActionTargetCommandInput,
@@ -2579,7 +2591,7 @@ export interface SecurityHub {
   ): void;
   updateActionTarget(
     args: UpdateActionTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateActionTargetCommandOutput) => void
   ): void;
 
@@ -2588,7 +2600,7 @@ export interface SecurityHub {
    */
   updateAggregatorV2(
     args: UpdateAggregatorV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateAggregatorV2CommandOutput>;
   updateAggregatorV2(
     args: UpdateAggregatorV2CommandInput,
@@ -2596,7 +2608,7 @@ export interface SecurityHub {
   ): void;
   updateAggregatorV2(
     args: UpdateAggregatorV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateAggregatorV2CommandOutput) => void
   ): void;
 
@@ -2605,7 +2617,7 @@ export interface SecurityHub {
    */
   updateAutomationRuleV2(
     args: UpdateAutomationRuleV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateAutomationRuleV2CommandOutput>;
   updateAutomationRuleV2(
     args: UpdateAutomationRuleV2CommandInput,
@@ -2613,7 +2625,7 @@ export interface SecurityHub {
   ): void;
   updateAutomationRuleV2(
     args: UpdateAutomationRuleV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateAutomationRuleV2CommandOutput) => void
   ): void;
 
@@ -2622,7 +2634,7 @@ export interface SecurityHub {
    */
   updateConfigurationPolicy(
     args: UpdateConfigurationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateConfigurationPolicyCommandOutput>;
   updateConfigurationPolicy(
     args: UpdateConfigurationPolicyCommandInput,
@@ -2630,7 +2642,7 @@ export interface SecurityHub {
   ): void;
   updateConfigurationPolicy(
     args: UpdateConfigurationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateConfigurationPolicyCommandOutput) => void
   ): void;
 
@@ -2639,7 +2651,7 @@ export interface SecurityHub {
    */
   updateConnector(
     args: UpdateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateConnectorCommandOutput>;
   updateConnector(
     args: UpdateConnectorCommandInput,
@@ -2647,7 +2659,7 @@ export interface SecurityHub {
   ): void;
   updateConnector(
     args: UpdateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateConnectorCommandOutput) => void
   ): void;
 
@@ -2656,7 +2668,7 @@ export interface SecurityHub {
    */
   updateConnectorV2(
     args: UpdateConnectorV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateConnectorV2CommandOutput>;
   updateConnectorV2(
     args: UpdateConnectorV2CommandInput,
@@ -2664,7 +2676,7 @@ export interface SecurityHub {
   ): void;
   updateConnectorV2(
     args: UpdateConnectorV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateConnectorV2CommandOutput) => void
   ): void;
 
@@ -2673,7 +2685,7 @@ export interface SecurityHub {
    */
   updateFindingAggregator(
     args: UpdateFindingAggregatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateFindingAggregatorCommandOutput>;
   updateFindingAggregator(
     args: UpdateFindingAggregatorCommandInput,
@@ -2681,7 +2693,7 @@ export interface SecurityHub {
   ): void;
   updateFindingAggregator(
     args: UpdateFindingAggregatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateFindingAggregatorCommandOutput) => void
   ): void;
 
@@ -2690,7 +2702,7 @@ export interface SecurityHub {
    */
   updateFindings(
     args: UpdateFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateFindingsCommandOutput>;
   updateFindings(
     args: UpdateFindingsCommandInput,
@@ -2698,7 +2710,7 @@ export interface SecurityHub {
   ): void;
   updateFindings(
     args: UpdateFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateFindingsCommandOutput) => void
   ): void;
 
@@ -2707,7 +2719,7 @@ export interface SecurityHub {
    */
   updateInsight(
     args: UpdateInsightCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateInsightCommandOutput>;
   updateInsight(
     args: UpdateInsightCommandInput,
@@ -2715,7 +2727,7 @@ export interface SecurityHub {
   ): void;
   updateInsight(
     args: UpdateInsightCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateInsightCommandOutput) => void
   ): void;
 
@@ -2724,7 +2736,7 @@ export interface SecurityHub {
    */
   updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateOrganizationConfigurationCommandOutput>;
   updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,
@@ -2732,7 +2744,7 @@ export interface SecurityHub {
   ): void;
   updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
   ): void;
 
@@ -2741,7 +2753,7 @@ export interface SecurityHub {
    */
   updateSecurityControl(
     args: UpdateSecurityControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateSecurityControlCommandOutput>;
   updateSecurityControl(
     args: UpdateSecurityControlCommandInput,
@@ -2749,7 +2761,7 @@ export interface SecurityHub {
   ): void;
   updateSecurityControl(
     args: UpdateSecurityControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateSecurityControlCommandOutput) => void
   ): void;
 
@@ -2759,7 +2771,7 @@ export interface SecurityHub {
   updateSecurityHubConfiguration(): Promise<UpdateSecurityHubConfigurationCommandOutput>;
   updateSecurityHubConfiguration(
     args: UpdateSecurityHubConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateSecurityHubConfigurationCommandOutput>;
   updateSecurityHubConfiguration(
     args: UpdateSecurityHubConfigurationCommandInput,
@@ -2767,7 +2779,7 @@ export interface SecurityHub {
   ): void;
   updateSecurityHubConfiguration(
     args: UpdateSecurityHubConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateSecurityHubConfigurationCommandOutput) => void
   ): void;
 
@@ -2776,7 +2788,7 @@ export interface SecurityHub {
    */
   updateStandardsControl(
     args: UpdateStandardsControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecurityHubRequestOptions
   ): Promise<UpdateStandardsControlCommandOutput>;
   updateStandardsControl(
     args: UpdateStandardsControlCommandInput,
@@ -2784,7 +2796,7 @@ export interface SecurityHub {
   ): void;
   updateStandardsControl(
     args: UpdateStandardsControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecurityHubRequestOptions,
     cb: (err: any, data?: UpdateStandardsControlCommandOutput) => void
   ): void;
 

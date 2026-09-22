@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateServiceCommandInput,
@@ -399,13 +404,20 @@ const paginators = {
   paginateListTriggers,
 };
 
+/**
+ * @public
+ */
+export interface DevOpsAgentRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DevOpsAgent {
   /**
    * @see {@link AssociateServiceCommand}
    */
   associateService(
     args: AssociateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<AssociateServiceCommandOutput>;
   associateService(
     args: AssociateServiceCommandInput,
@@ -413,7 +425,7 @@ export interface DevOpsAgent {
   ): void;
   associateService(
     args: AssociateServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: AssociateServiceCommandOutput) => void
   ): void;
 
@@ -422,7 +434,7 @@ export interface DevOpsAgent {
    */
   createAgentSpace(
     args: CreateAgentSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<CreateAgentSpaceCommandOutput>;
   createAgentSpace(
     args: CreateAgentSpaceCommandInput,
@@ -430,7 +442,7 @@ export interface DevOpsAgent {
   ): void;
   createAgentSpace(
     args: CreateAgentSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: CreateAgentSpaceCommandOutput) => void
   ): void;
 
@@ -439,7 +451,7 @@ export interface DevOpsAgent {
    */
   createAsset(
     args: CreateAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<CreateAssetCommandOutput>;
   createAsset(
     args: CreateAssetCommandInput,
@@ -447,7 +459,7 @@ export interface DevOpsAgent {
   ): void;
   createAsset(
     args: CreateAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: CreateAssetCommandOutput) => void
   ): void;
 
@@ -456,7 +468,7 @@ export interface DevOpsAgent {
    */
   createAssetFile(
     args: CreateAssetFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<CreateAssetFileCommandOutput>;
   createAssetFile(
     args: CreateAssetFileCommandInput,
@@ -464,7 +476,7 @@ export interface DevOpsAgent {
   ): void;
   createAssetFile(
     args: CreateAssetFileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: CreateAssetFileCommandOutput) => void
   ): void;
 
@@ -473,7 +485,7 @@ export interface DevOpsAgent {
    */
   createBacklogTask(
     args: CreateBacklogTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<CreateBacklogTaskCommandOutput>;
   createBacklogTask(
     args: CreateBacklogTaskCommandInput,
@@ -481,7 +493,7 @@ export interface DevOpsAgent {
   ): void;
   createBacklogTask(
     args: CreateBacklogTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: CreateBacklogTaskCommandOutput) => void
   ): void;
 
@@ -490,7 +502,7 @@ export interface DevOpsAgent {
    */
   createChat(
     args: CreateChatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<CreateChatCommandOutput>;
   createChat(
     args: CreateChatCommandInput,
@@ -498,7 +510,7 @@ export interface DevOpsAgent {
   ): void;
   createChat(
     args: CreateChatCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: CreateChatCommandOutput) => void
   ): void;
 
@@ -507,7 +519,7 @@ export interface DevOpsAgent {
    */
   createPrivateConnection(
     args: CreatePrivateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<CreatePrivateConnectionCommandOutput>;
   createPrivateConnection(
     args: CreatePrivateConnectionCommandInput,
@@ -515,7 +527,7 @@ export interface DevOpsAgent {
   ): void;
   createPrivateConnection(
     args: CreatePrivateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: CreatePrivateConnectionCommandOutput) => void
   ): void;
 
@@ -524,7 +536,7 @@ export interface DevOpsAgent {
    */
   createTrigger(
     args: CreateTriggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<CreateTriggerCommandOutput>;
   createTrigger(
     args: CreateTriggerCommandInput,
@@ -532,7 +544,7 @@ export interface DevOpsAgent {
   ): void;
   createTrigger(
     args: CreateTriggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: CreateTriggerCommandOutput) => void
   ): void;
 
@@ -541,7 +553,7 @@ export interface DevOpsAgent {
    */
   deleteAgentSpace(
     args: DeleteAgentSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<DeleteAgentSpaceCommandOutput>;
   deleteAgentSpace(
     args: DeleteAgentSpaceCommandInput,
@@ -549,7 +561,7 @@ export interface DevOpsAgent {
   ): void;
   deleteAgentSpace(
     args: DeleteAgentSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: DeleteAgentSpaceCommandOutput) => void
   ): void;
 
@@ -558,7 +570,7 @@ export interface DevOpsAgent {
    */
   deleteAsset(
     args: DeleteAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<DeleteAssetCommandOutput>;
   deleteAsset(
     args: DeleteAssetCommandInput,
@@ -566,7 +578,7 @@ export interface DevOpsAgent {
   ): void;
   deleteAsset(
     args: DeleteAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: DeleteAssetCommandOutput) => void
   ): void;
 
@@ -575,7 +587,7 @@ export interface DevOpsAgent {
    */
   deleteAssetFile(
     args: DeleteAssetFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<DeleteAssetFileCommandOutput>;
   deleteAssetFile(
     args: DeleteAssetFileCommandInput,
@@ -583,7 +595,7 @@ export interface DevOpsAgent {
   ): void;
   deleteAssetFile(
     args: DeleteAssetFileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: DeleteAssetFileCommandOutput) => void
   ): void;
 
@@ -592,7 +604,7 @@ export interface DevOpsAgent {
    */
   deletePrivateConnection(
     args: DeletePrivateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<DeletePrivateConnectionCommandOutput>;
   deletePrivateConnection(
     args: DeletePrivateConnectionCommandInput,
@@ -600,7 +612,7 @@ export interface DevOpsAgent {
   ): void;
   deletePrivateConnection(
     args: DeletePrivateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: DeletePrivateConnectionCommandOutput) => void
   ): void;
 
@@ -609,7 +621,7 @@ export interface DevOpsAgent {
    */
   deleteTrigger(
     args: DeleteTriggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<DeleteTriggerCommandOutput>;
   deleteTrigger(
     args: DeleteTriggerCommandInput,
@@ -617,7 +629,7 @@ export interface DevOpsAgent {
   ): void;
   deleteTrigger(
     args: DeleteTriggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: DeleteTriggerCommandOutput) => void
   ): void;
 
@@ -626,7 +638,7 @@ export interface DevOpsAgent {
    */
   deregisterService(
     args: DeregisterServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<DeregisterServiceCommandOutput>;
   deregisterService(
     args: DeregisterServiceCommandInput,
@@ -634,7 +646,7 @@ export interface DevOpsAgent {
   ): void;
   deregisterService(
     args: DeregisterServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: DeregisterServiceCommandOutput) => void
   ): void;
 
@@ -643,7 +655,7 @@ export interface DevOpsAgent {
    */
   describePrivateConnection(
     args: DescribePrivateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<DescribePrivateConnectionCommandOutput>;
   describePrivateConnection(
     args: DescribePrivateConnectionCommandInput,
@@ -651,7 +663,7 @@ export interface DevOpsAgent {
   ): void;
   describePrivateConnection(
     args: DescribePrivateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: DescribePrivateConnectionCommandOutput) => void
   ): void;
 
@@ -660,7 +672,7 @@ export interface DevOpsAgent {
    */
   disableOperatorApp(
     args: DisableOperatorAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<DisableOperatorAppCommandOutput>;
   disableOperatorApp(
     args: DisableOperatorAppCommandInput,
@@ -668,7 +680,7 @@ export interface DevOpsAgent {
   ): void;
   disableOperatorApp(
     args: DisableOperatorAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: DisableOperatorAppCommandOutput) => void
   ): void;
 
@@ -677,7 +689,7 @@ export interface DevOpsAgent {
    */
   disassociateService(
     args: DisassociateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<DisassociateServiceCommandOutput>;
   disassociateService(
     args: DisassociateServiceCommandInput,
@@ -685,7 +697,7 @@ export interface DevOpsAgent {
   ): void;
   disassociateService(
     args: DisassociateServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: DisassociateServiceCommandOutput) => void
   ): void;
 
@@ -694,7 +706,7 @@ export interface DevOpsAgent {
    */
   enableOperatorApp(
     args: EnableOperatorAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<EnableOperatorAppCommandOutput>;
   enableOperatorApp(
     args: EnableOperatorAppCommandInput,
@@ -702,7 +714,7 @@ export interface DevOpsAgent {
   ): void;
   enableOperatorApp(
     args: EnableOperatorAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: EnableOperatorAppCommandOutput) => void
   ): void;
 
@@ -712,7 +724,7 @@ export interface DevOpsAgent {
   getAccountUsage(): Promise<GetAccountUsageCommandOutput>;
   getAccountUsage(
     args: GetAccountUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetAccountUsageCommandOutput>;
   getAccountUsage(
     args: GetAccountUsageCommandInput,
@@ -720,7 +732,7 @@ export interface DevOpsAgent {
   ): void;
   getAccountUsage(
     args: GetAccountUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetAccountUsageCommandOutput) => void
   ): void;
 
@@ -729,7 +741,7 @@ export interface DevOpsAgent {
    */
   getAgentSpace(
     args: GetAgentSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetAgentSpaceCommandOutput>;
   getAgentSpace(
     args: GetAgentSpaceCommandInput,
@@ -737,7 +749,7 @@ export interface DevOpsAgent {
   ): void;
   getAgentSpace(
     args: GetAgentSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetAgentSpaceCommandOutput) => void
   ): void;
 
@@ -746,7 +758,7 @@ export interface DevOpsAgent {
    */
   getAsset(
     args: GetAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetAssetCommandOutput>;
   getAsset(
     args: GetAssetCommandInput,
@@ -754,7 +766,7 @@ export interface DevOpsAgent {
   ): void;
   getAsset(
     args: GetAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetAssetCommandOutput) => void
   ): void;
 
@@ -763,7 +775,7 @@ export interface DevOpsAgent {
    */
   getAssetContent(
     args: GetAssetContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetAssetContentCommandOutput>;
   getAssetContent(
     args: GetAssetContentCommandInput,
@@ -771,7 +783,7 @@ export interface DevOpsAgent {
   ): void;
   getAssetContent(
     args: GetAssetContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetAssetContentCommandOutput) => void
   ): void;
 
@@ -780,7 +792,7 @@ export interface DevOpsAgent {
    */
   getAssetFile(
     args: GetAssetFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetAssetFileCommandOutput>;
   getAssetFile(
     args: GetAssetFileCommandInput,
@@ -788,7 +800,7 @@ export interface DevOpsAgent {
   ): void;
   getAssetFile(
     args: GetAssetFileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetAssetFileCommandOutput) => void
   ): void;
 
@@ -797,7 +809,7 @@ export interface DevOpsAgent {
    */
   getAssociation(
     args: GetAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetAssociationCommandOutput>;
   getAssociation(
     args: GetAssociationCommandInput,
@@ -805,7 +817,7 @@ export interface DevOpsAgent {
   ): void;
   getAssociation(
     args: GetAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetAssociationCommandOutput) => void
   ): void;
 
@@ -814,7 +826,7 @@ export interface DevOpsAgent {
    */
   getBacklogTask(
     args: GetBacklogTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetBacklogTaskCommandOutput>;
   getBacklogTask(
     args: GetBacklogTaskCommandInput,
@@ -822,7 +834,7 @@ export interface DevOpsAgent {
   ): void;
   getBacklogTask(
     args: GetBacklogTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetBacklogTaskCommandOutput) => void
   ): void;
 
@@ -831,7 +843,7 @@ export interface DevOpsAgent {
    */
   getOperatorApp(
     args: GetOperatorAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetOperatorAppCommandOutput>;
   getOperatorApp(
     args: GetOperatorAppCommandInput,
@@ -839,7 +851,7 @@ export interface DevOpsAgent {
   ): void;
   getOperatorApp(
     args: GetOperatorAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetOperatorAppCommandOutput) => void
   ): void;
 
@@ -848,7 +860,7 @@ export interface DevOpsAgent {
    */
   getRecommendation(
     args: GetRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetRecommendationCommandOutput>;
   getRecommendation(
     args: GetRecommendationCommandInput,
@@ -856,7 +868,7 @@ export interface DevOpsAgent {
   ): void;
   getRecommendation(
     args: GetRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetRecommendationCommandOutput) => void
   ): void;
 
@@ -865,7 +877,7 @@ export interface DevOpsAgent {
    */
   getService(
     args: GetServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetServiceCommandOutput>;
   getService(
     args: GetServiceCommandInput,
@@ -873,7 +885,7 @@ export interface DevOpsAgent {
   ): void;
   getService(
     args: GetServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
   ): void;
 
@@ -882,7 +894,7 @@ export interface DevOpsAgent {
    */
   getTrigger(
     args: GetTriggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<GetTriggerCommandOutput>;
   getTrigger(
     args: GetTriggerCommandInput,
@@ -890,7 +902,7 @@ export interface DevOpsAgent {
   ): void;
   getTrigger(
     args: GetTriggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: GetTriggerCommandOutput) => void
   ): void;
 
@@ -900,7 +912,7 @@ export interface DevOpsAgent {
   listAgentSpaces(): Promise<ListAgentSpacesCommandOutput>;
   listAgentSpaces(
     args: ListAgentSpacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListAgentSpacesCommandOutput>;
   listAgentSpaces(
     args: ListAgentSpacesCommandInput,
@@ -908,7 +920,7 @@ export interface DevOpsAgent {
   ): void;
   listAgentSpaces(
     args: ListAgentSpacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListAgentSpacesCommandOutput) => void
   ): void;
 
@@ -917,7 +929,7 @@ export interface DevOpsAgent {
    */
   listAssetFiles(
     args: ListAssetFilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListAssetFilesCommandOutput>;
   listAssetFiles(
     args: ListAssetFilesCommandInput,
@@ -925,7 +937,7 @@ export interface DevOpsAgent {
   ): void;
   listAssetFiles(
     args: ListAssetFilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListAssetFilesCommandOutput) => void
   ): void;
 
@@ -934,7 +946,7 @@ export interface DevOpsAgent {
    */
   listAssets(
     args: ListAssetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListAssetsCommandOutput>;
   listAssets(
     args: ListAssetsCommandInput,
@@ -942,7 +954,7 @@ export interface DevOpsAgent {
   ): void;
   listAssets(
     args: ListAssetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListAssetsCommandOutput) => void
   ): void;
 
@@ -952,7 +964,7 @@ export interface DevOpsAgent {
   listAssetTypes(): Promise<ListAssetTypesCommandOutput>;
   listAssetTypes(
     args: ListAssetTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListAssetTypesCommandOutput>;
   listAssetTypes(
     args: ListAssetTypesCommandInput,
@@ -960,7 +972,7 @@ export interface DevOpsAgent {
   ): void;
   listAssetTypes(
     args: ListAssetTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListAssetTypesCommandOutput) => void
   ): void;
 
@@ -969,7 +981,7 @@ export interface DevOpsAgent {
    */
   listAssetVersions(
     args: ListAssetVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListAssetVersionsCommandOutput>;
   listAssetVersions(
     args: ListAssetVersionsCommandInput,
@@ -977,7 +989,7 @@ export interface DevOpsAgent {
   ): void;
   listAssetVersions(
     args: ListAssetVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListAssetVersionsCommandOutput) => void
   ): void;
 
@@ -986,7 +998,7 @@ export interface DevOpsAgent {
    */
   listAssociations(
     args: ListAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListAssociationsCommandOutput>;
   listAssociations(
     args: ListAssociationsCommandInput,
@@ -994,7 +1006,7 @@ export interface DevOpsAgent {
   ): void;
   listAssociations(
     args: ListAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListAssociationsCommandOutput) => void
   ): void;
 
@@ -1003,7 +1015,7 @@ export interface DevOpsAgent {
    */
   listBacklogTasks(
     args: ListBacklogTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListBacklogTasksCommandOutput>;
   listBacklogTasks(
     args: ListBacklogTasksCommandInput,
@@ -1011,7 +1023,7 @@ export interface DevOpsAgent {
   ): void;
   listBacklogTasks(
     args: ListBacklogTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListBacklogTasksCommandOutput) => void
   ): void;
 
@@ -1020,7 +1032,7 @@ export interface DevOpsAgent {
    */
   listChats(
     args: ListChatsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListChatsCommandOutput>;
   listChats(
     args: ListChatsCommandInput,
@@ -1028,7 +1040,7 @@ export interface DevOpsAgent {
   ): void;
   listChats(
     args: ListChatsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListChatsCommandOutput) => void
   ): void;
 
@@ -1037,7 +1049,7 @@ export interface DevOpsAgent {
    */
   listExecutions(
     args: ListExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListExecutionsCommandOutput>;
   listExecutions(
     args: ListExecutionsCommandInput,
@@ -1045,7 +1057,7 @@ export interface DevOpsAgent {
   ): void;
   listExecutions(
     args: ListExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListExecutionsCommandOutput) => void
   ): void;
 
@@ -1054,7 +1066,7 @@ export interface DevOpsAgent {
    */
   listGoals(
     args: ListGoalsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListGoalsCommandOutput>;
   listGoals(
     args: ListGoalsCommandInput,
@@ -1062,7 +1074,7 @@ export interface DevOpsAgent {
   ): void;
   listGoals(
     args: ListGoalsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListGoalsCommandOutput) => void
   ): void;
 
@@ -1071,7 +1083,7 @@ export interface DevOpsAgent {
    */
   listJournalRecords(
     args: ListJournalRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListJournalRecordsCommandOutput>;
   listJournalRecords(
     args: ListJournalRecordsCommandInput,
@@ -1079,7 +1091,7 @@ export interface DevOpsAgent {
   ): void;
   listJournalRecords(
     args: ListJournalRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListJournalRecordsCommandOutput) => void
   ): void;
 
@@ -1088,7 +1100,7 @@ export interface DevOpsAgent {
    */
   listPendingMessages(
     args: ListPendingMessagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListPendingMessagesCommandOutput>;
   listPendingMessages(
     args: ListPendingMessagesCommandInput,
@@ -1096,7 +1108,7 @@ export interface DevOpsAgent {
   ): void;
   listPendingMessages(
     args: ListPendingMessagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListPendingMessagesCommandOutput) => void
   ): void;
 
@@ -1106,7 +1118,7 @@ export interface DevOpsAgent {
   listPrivateConnections(): Promise<ListPrivateConnectionsCommandOutput>;
   listPrivateConnections(
     args: ListPrivateConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListPrivateConnectionsCommandOutput>;
   listPrivateConnections(
     args: ListPrivateConnectionsCommandInput,
@@ -1114,7 +1126,7 @@ export interface DevOpsAgent {
   ): void;
   listPrivateConnections(
     args: ListPrivateConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListPrivateConnectionsCommandOutput) => void
   ): void;
 
@@ -1123,7 +1135,7 @@ export interface DevOpsAgent {
    */
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
@@ -1131,7 +1143,7 @@ export interface DevOpsAgent {
   ): void;
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListRecommendationsCommandOutput) => void
   ): void;
 
@@ -1141,7 +1153,7 @@ export interface DevOpsAgent {
   listServices(): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
@@ -1149,7 +1161,7 @@ export interface DevOpsAgent {
   ): void;
   listServices(
     args: ListServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListServicesCommandOutput) => void
   ): void;
 
@@ -1158,7 +1170,7 @@ export interface DevOpsAgent {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1166,7 +1178,7 @@ export interface DevOpsAgent {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1175,7 +1187,7 @@ export interface DevOpsAgent {
    */
   listTriggers(
     args: ListTriggersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListTriggersCommandOutput>;
   listTriggers(
     args: ListTriggersCommandInput,
@@ -1183,7 +1195,7 @@ export interface DevOpsAgent {
   ): void;
   listTriggers(
     args: ListTriggersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListTriggersCommandOutput) => void
   ): void;
 
@@ -1192,7 +1204,7 @@ export interface DevOpsAgent {
    */
   listWebhooks(
     args: ListWebhooksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ListWebhooksCommandOutput>;
   listWebhooks(
     args: ListWebhooksCommandInput,
@@ -1200,7 +1212,7 @@ export interface DevOpsAgent {
   ): void;
   listWebhooks(
     args: ListWebhooksCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ListWebhooksCommandOutput) => void
   ): void;
 
@@ -1209,7 +1221,7 @@ export interface DevOpsAgent {
    */
   registerService(
     args: RegisterServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<RegisterServiceCommandOutput>;
   registerService(
     args: RegisterServiceCommandInput,
@@ -1217,7 +1229,7 @@ export interface DevOpsAgent {
   ): void;
   registerService(
     args: RegisterServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: RegisterServiceCommandOutput) => void
   ): void;
 
@@ -1226,7 +1238,7 @@ export interface DevOpsAgent {
    */
   sendMessage(
     args: SendMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<SendMessageCommandOutput>;
   sendMessage(
     args: SendMessageCommandInput,
@@ -1234,7 +1246,7 @@ export interface DevOpsAgent {
   ): void;
   sendMessage(
     args: SendMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: SendMessageCommandOutput) => void
   ): void;
 
@@ -1243,7 +1255,7 @@ export interface DevOpsAgent {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1251,7 +1263,7 @@ export interface DevOpsAgent {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1260,7 +1272,7 @@ export interface DevOpsAgent {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1268,7 +1280,7 @@ export interface DevOpsAgent {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1277,7 +1289,7 @@ export interface DevOpsAgent {
    */
   updateAgentSpace(
     args: UpdateAgentSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateAgentSpaceCommandOutput>;
   updateAgentSpace(
     args: UpdateAgentSpaceCommandInput,
@@ -1285,7 +1297,7 @@ export interface DevOpsAgent {
   ): void;
   updateAgentSpace(
     args: UpdateAgentSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateAgentSpaceCommandOutput) => void
   ): void;
 
@@ -1294,7 +1306,7 @@ export interface DevOpsAgent {
    */
   updateApprovalAction(
     args: UpdateApprovalActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateApprovalActionCommandOutput>;
   updateApprovalAction(
     args: UpdateApprovalActionCommandInput,
@@ -1302,7 +1314,7 @@ export interface DevOpsAgent {
   ): void;
   updateApprovalAction(
     args: UpdateApprovalActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateApprovalActionCommandOutput) => void
   ): void;
 
@@ -1311,7 +1323,7 @@ export interface DevOpsAgent {
    */
   updateAsset(
     args: UpdateAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateAssetCommandOutput>;
   updateAsset(
     args: UpdateAssetCommandInput,
@@ -1319,7 +1331,7 @@ export interface DevOpsAgent {
   ): void;
   updateAsset(
     args: UpdateAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateAssetCommandOutput) => void
   ): void;
 
@@ -1328,7 +1340,7 @@ export interface DevOpsAgent {
    */
   updateAssetFile(
     args: UpdateAssetFileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateAssetFileCommandOutput>;
   updateAssetFile(
     args: UpdateAssetFileCommandInput,
@@ -1336,7 +1348,7 @@ export interface DevOpsAgent {
   ): void;
   updateAssetFile(
     args: UpdateAssetFileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateAssetFileCommandOutput) => void
   ): void;
 
@@ -1345,7 +1357,7 @@ export interface DevOpsAgent {
    */
   updateAssociation(
     args: UpdateAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateAssociationCommandOutput>;
   updateAssociation(
     args: UpdateAssociationCommandInput,
@@ -1353,7 +1365,7 @@ export interface DevOpsAgent {
   ): void;
   updateAssociation(
     args: UpdateAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateAssociationCommandOutput) => void
   ): void;
 
@@ -1362,7 +1374,7 @@ export interface DevOpsAgent {
    */
   updateBacklogTask(
     args: UpdateBacklogTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateBacklogTaskCommandOutput>;
   updateBacklogTask(
     args: UpdateBacklogTaskCommandInput,
@@ -1370,7 +1382,7 @@ export interface DevOpsAgent {
   ): void;
   updateBacklogTask(
     args: UpdateBacklogTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateBacklogTaskCommandOutput) => void
   ): void;
 
@@ -1379,7 +1391,7 @@ export interface DevOpsAgent {
    */
   updateGoal(
     args: UpdateGoalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateGoalCommandOutput>;
   updateGoal(
     args: UpdateGoalCommandInput,
@@ -1387,7 +1399,7 @@ export interface DevOpsAgent {
   ): void;
   updateGoal(
     args: UpdateGoalCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateGoalCommandOutput) => void
   ): void;
 
@@ -1396,7 +1408,7 @@ export interface DevOpsAgent {
    */
   updateOperatorAppIdpConfig(
     args: UpdateOperatorAppIdpConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateOperatorAppIdpConfigCommandOutput>;
   updateOperatorAppIdpConfig(
     args: UpdateOperatorAppIdpConfigCommandInput,
@@ -1404,7 +1416,7 @@ export interface DevOpsAgent {
   ): void;
   updateOperatorAppIdpConfig(
     args: UpdateOperatorAppIdpConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateOperatorAppIdpConfigCommandOutput) => void
   ): void;
 
@@ -1413,7 +1425,7 @@ export interface DevOpsAgent {
    */
   updatePrivateConnectionCertificate(
     args: UpdatePrivateConnectionCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdatePrivateConnectionCertificateCommandOutput>;
   updatePrivateConnectionCertificate(
     args: UpdatePrivateConnectionCertificateCommandInput,
@@ -1421,7 +1433,7 @@ export interface DevOpsAgent {
   ): void;
   updatePrivateConnectionCertificate(
     args: UpdatePrivateConnectionCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdatePrivateConnectionCertificateCommandOutput) => void
   ): void;
 
@@ -1430,7 +1442,7 @@ export interface DevOpsAgent {
    */
   updateRecommendation(
     args: UpdateRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateRecommendationCommandOutput>;
   updateRecommendation(
     args: UpdateRecommendationCommandInput,
@@ -1438,7 +1450,7 @@ export interface DevOpsAgent {
   ): void;
   updateRecommendation(
     args: UpdateRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateRecommendationCommandOutput) => void
   ): void;
 
@@ -1447,7 +1459,7 @@ export interface DevOpsAgent {
    */
   updateTrigger(
     args: UpdateTriggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<UpdateTriggerCommandOutput>;
   updateTrigger(
     args: UpdateTriggerCommandInput,
@@ -1455,7 +1467,7 @@ export interface DevOpsAgent {
   ): void;
   updateTrigger(
     args: UpdateTriggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: UpdateTriggerCommandOutput) => void
   ): void;
 
@@ -1464,7 +1476,7 @@ export interface DevOpsAgent {
    */
   validateAwsAssociations(
     args: ValidateAwsAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DevOpsAgentRequestOptions
   ): Promise<ValidateAwsAssociationsCommandOutput>;
   validateAwsAssociations(
     args: ValidateAwsAssociationsCommandInput,
@@ -1472,7 +1484,7 @@ export interface DevOpsAgent {
   ): void;
   validateAwsAssociations(
     args: ValidateAwsAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DevOpsAgentRequestOptions,
     cb: (err: any, data?: ValidateAwsAssociationsCommandOutput) => void
   ): void;
 

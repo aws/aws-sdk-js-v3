@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreatePipeCommandInput,
@@ -59,13 +64,20 @@ const paginators = {
   paginateListPipes,
 };
 
+/**
+ * @public
+ */
+export interface PipesRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Pipes {
   /**
    * @see {@link CreatePipeCommand}
    */
   createPipe(
     args: CreatePipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<CreatePipeCommandOutput>;
   createPipe(
     args: CreatePipeCommandInput,
@@ -73,7 +85,7 @@ export interface Pipes {
   ): void;
   createPipe(
     args: CreatePipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: CreatePipeCommandOutput) => void
   ): void;
 
@@ -82,7 +94,7 @@ export interface Pipes {
    */
   deletePipe(
     args: DeletePipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<DeletePipeCommandOutput>;
   deletePipe(
     args: DeletePipeCommandInput,
@@ -90,7 +102,7 @@ export interface Pipes {
   ): void;
   deletePipe(
     args: DeletePipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: DeletePipeCommandOutput) => void
   ): void;
 
@@ -99,7 +111,7 @@ export interface Pipes {
    */
   describePipe(
     args: DescribePipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<DescribePipeCommandOutput>;
   describePipe(
     args: DescribePipeCommandInput,
@@ -107,7 +119,7 @@ export interface Pipes {
   ): void;
   describePipe(
     args: DescribePipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: DescribePipeCommandOutput) => void
   ): void;
 
@@ -117,7 +129,7 @@ export interface Pipes {
   listPipes(): Promise<ListPipesCommandOutput>;
   listPipes(
     args: ListPipesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<ListPipesCommandOutput>;
   listPipes(
     args: ListPipesCommandInput,
@@ -125,7 +137,7 @@ export interface Pipes {
   ): void;
   listPipes(
     args: ListPipesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: ListPipesCommandOutput) => void
   ): void;
 
@@ -134,7 +146,7 @@ export interface Pipes {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -142,7 +154,7 @@ export interface Pipes {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -151,7 +163,7 @@ export interface Pipes {
    */
   startPipe(
     args: StartPipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<StartPipeCommandOutput>;
   startPipe(
     args: StartPipeCommandInput,
@@ -159,7 +171,7 @@ export interface Pipes {
   ): void;
   startPipe(
     args: StartPipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: StartPipeCommandOutput) => void
   ): void;
 
@@ -168,7 +180,7 @@ export interface Pipes {
    */
   stopPipe(
     args: StopPipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<StopPipeCommandOutput>;
   stopPipe(
     args: StopPipeCommandInput,
@@ -176,7 +188,7 @@ export interface Pipes {
   ): void;
   stopPipe(
     args: StopPipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: StopPipeCommandOutput) => void
   ): void;
 
@@ -185,7 +197,7 @@ export interface Pipes {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -193,7 +205,7 @@ export interface Pipes {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -202,7 +214,7 @@ export interface Pipes {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -210,7 +222,7 @@ export interface Pipes {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -219,7 +231,7 @@ export interface Pipes {
    */
   updatePipe(
     args: UpdatePipeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PipesRequestOptions
   ): Promise<UpdatePipeCommandOutput>;
   updatePipe(
     args: UpdatePipeCommandInput,
@@ -227,7 +239,7 @@ export interface Pipes {
   ): void;
   updatePipe(
     args: UpdatePipeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PipesRequestOptions,
     cb: (err: any, data?: UpdatePipeCommandOutput) => void
   ): void;
 

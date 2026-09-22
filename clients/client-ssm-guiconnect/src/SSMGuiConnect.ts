@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type DeleteConnectionRecordingPreferencesCommandInput,
@@ -25,6 +25,13 @@ const commands = {
   UpdateConnectionRecordingPreferencesCommand,
 };
 
+/**
+ * @public
+ */
+export interface SSMGuiConnectRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SSMGuiConnect {
   /**
    * @see {@link DeleteConnectionRecordingPreferencesCommand}
@@ -32,7 +39,7 @@ export interface SSMGuiConnect {
   deleteConnectionRecordingPreferences(): Promise<DeleteConnectionRecordingPreferencesCommandOutput>;
   deleteConnectionRecordingPreferences(
     args: DeleteConnectionRecordingPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMGuiConnectRequestOptions
   ): Promise<DeleteConnectionRecordingPreferencesCommandOutput>;
   deleteConnectionRecordingPreferences(
     args: DeleteConnectionRecordingPreferencesCommandInput,
@@ -40,7 +47,7 @@ export interface SSMGuiConnect {
   ): void;
   deleteConnectionRecordingPreferences(
     args: DeleteConnectionRecordingPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMGuiConnectRequestOptions,
     cb: (err: any, data?: DeleteConnectionRecordingPreferencesCommandOutput) => void
   ): void;
 
@@ -50,7 +57,7 @@ export interface SSMGuiConnect {
   getConnectionRecordingPreferences(): Promise<GetConnectionRecordingPreferencesCommandOutput>;
   getConnectionRecordingPreferences(
     args: GetConnectionRecordingPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMGuiConnectRequestOptions
   ): Promise<GetConnectionRecordingPreferencesCommandOutput>;
   getConnectionRecordingPreferences(
     args: GetConnectionRecordingPreferencesCommandInput,
@@ -58,7 +65,7 @@ export interface SSMGuiConnect {
   ): void;
   getConnectionRecordingPreferences(
     args: GetConnectionRecordingPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMGuiConnectRequestOptions,
     cb: (err: any, data?: GetConnectionRecordingPreferencesCommandOutput) => void
   ): void;
 
@@ -67,7 +74,7 @@ export interface SSMGuiConnect {
    */
   updateConnectionRecordingPreferences(
     args: UpdateConnectionRecordingPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SSMGuiConnectRequestOptions
   ): Promise<UpdateConnectionRecordingPreferencesCommandOutput>;
   updateConnectionRecordingPreferences(
     args: UpdateConnectionRecordingPreferencesCommandInput,
@@ -75,7 +82,7 @@ export interface SSMGuiConnect {
   ): void;
   updateConnectionRecordingPreferences(
     args: UpdateConnectionRecordingPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SSMGuiConnectRequestOptions,
     cb: (err: any, data?: UpdateConnectionRecordingPreferencesCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type PutActionInteractionsCommandInput,
@@ -25,13 +25,20 @@ const commands = {
   PutUsersCommand,
 };
 
+/**
+ * @public
+ */
+export interface PersonalizeEventsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PersonalizeEvents {
   /**
    * @see {@link PutActionInteractionsCommand}
    */
   putActionInteractions(
     args: PutActionInteractionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PersonalizeEventsRequestOptions
   ): Promise<PutActionInteractionsCommandOutput>;
   putActionInteractions(
     args: PutActionInteractionsCommandInput,
@@ -39,7 +46,7 @@ export interface PersonalizeEvents {
   ): void;
   putActionInteractions(
     args: PutActionInteractionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PersonalizeEventsRequestOptions,
     cb: (err: any, data?: PutActionInteractionsCommandOutput) => void
   ): void;
 
@@ -48,7 +55,7 @@ export interface PersonalizeEvents {
    */
   putActions(
     args: PutActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PersonalizeEventsRequestOptions
   ): Promise<PutActionsCommandOutput>;
   putActions(
     args: PutActionsCommandInput,
@@ -56,7 +63,7 @@ export interface PersonalizeEvents {
   ): void;
   putActions(
     args: PutActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PersonalizeEventsRequestOptions,
     cb: (err: any, data?: PutActionsCommandOutput) => void
   ): void;
 
@@ -65,7 +72,7 @@ export interface PersonalizeEvents {
    */
   putEvents(
     args: PutEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PersonalizeEventsRequestOptions
   ): Promise<PutEventsCommandOutput>;
   putEvents(
     args: PutEventsCommandInput,
@@ -73,7 +80,7 @@ export interface PersonalizeEvents {
   ): void;
   putEvents(
     args: PutEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PersonalizeEventsRequestOptions,
     cb: (err: any, data?: PutEventsCommandOutput) => void
   ): void;
 
@@ -82,7 +89,7 @@ export interface PersonalizeEvents {
    */
   putItems(
     args: PutItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PersonalizeEventsRequestOptions
   ): Promise<PutItemsCommandOutput>;
   putItems(
     args: PutItemsCommandInput,
@@ -90,7 +97,7 @@ export interface PersonalizeEvents {
   ): void;
   putItems(
     args: PutItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PersonalizeEventsRequestOptions,
     cb: (err: any, data?: PutItemsCommandOutput) => void
   ): void;
 
@@ -99,7 +106,7 @@ export interface PersonalizeEvents {
    */
   putUsers(
     args: PutUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PersonalizeEventsRequestOptions
   ): Promise<PutUsersCommandOutput>;
   putUsers(
     args: PutUsersCommandInput,
@@ -107,7 +114,7 @@ export interface PersonalizeEvents {
   ): void;
   putUsers(
     args: PutUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: PersonalizeEventsRequestOptions,
     cb: (err: any, data?: PutUsersCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DeleteObjectCommandInput,
@@ -29,13 +34,20 @@ const paginators = {
   paginateListItems,
 };
 
+/**
+ * @public
+ */
+export interface MediaStoreDataRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MediaStoreData {
   /**
    * @see {@link DeleteObjectCommand}
    */
   deleteObject(
     args: DeleteObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreDataRequestOptions
   ): Promise<DeleteObjectCommandOutput>;
   deleteObject(
     args: DeleteObjectCommandInput,
@@ -43,7 +55,7 @@ export interface MediaStoreData {
   ): void;
   deleteObject(
     args: DeleteObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreDataRequestOptions,
     cb: (err: any, data?: DeleteObjectCommandOutput) => void
   ): void;
 
@@ -52,7 +64,7 @@ export interface MediaStoreData {
    */
   describeObject(
     args: DescribeObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreDataRequestOptions
   ): Promise<DescribeObjectCommandOutput>;
   describeObject(
     args: DescribeObjectCommandInput,
@@ -60,7 +72,7 @@ export interface MediaStoreData {
   ): void;
   describeObject(
     args: DescribeObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreDataRequestOptions,
     cb: (err: any, data?: DescribeObjectCommandOutput) => void
   ): void;
 
@@ -69,7 +81,7 @@ export interface MediaStoreData {
    */
   getObject(
     args: GetObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreDataRequestOptions
   ): Promise<GetObjectCommandOutput>;
   getObject(
     args: GetObjectCommandInput,
@@ -77,7 +89,7 @@ export interface MediaStoreData {
   ): void;
   getObject(
     args: GetObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreDataRequestOptions,
     cb: (err: any, data?: GetObjectCommandOutput) => void
   ): void;
 
@@ -87,7 +99,7 @@ export interface MediaStoreData {
   listItems(): Promise<ListItemsCommandOutput>;
   listItems(
     args: ListItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreDataRequestOptions
   ): Promise<ListItemsCommandOutput>;
   listItems(
     args: ListItemsCommandInput,
@@ -95,7 +107,7 @@ export interface MediaStoreData {
   ): void;
   listItems(
     args: ListItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreDataRequestOptions,
     cb: (err: any, data?: ListItemsCommandOutput) => void
   ): void;
 
@@ -104,7 +116,7 @@ export interface MediaStoreData {
    */
   putObject(
     args: PutObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaStoreDataRequestOptions
   ): Promise<PutObjectCommandOutput>;
   putObject(
     args: PutObjectCommandInput,
@@ -112,7 +124,7 @@ export interface MediaStoreData {
   ): void;
   putObject(
     args: PutObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaStoreDataRequestOptions,
     cb: (err: any, data?: PutObjectCommandOutput) => void
   ): void;
 

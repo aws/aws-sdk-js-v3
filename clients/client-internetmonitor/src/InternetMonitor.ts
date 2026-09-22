@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateMonitorCommandInput,
@@ -109,13 +114,20 @@ const paginators = {
   paginateListMonitors,
 };
 
+/**
+ * @public
+ */
+export interface InternetMonitorRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface InternetMonitor {
   /**
    * @see {@link CreateMonitorCommand}
    */
   createMonitor(
     args: CreateMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<CreateMonitorCommandOutput>;
   createMonitor(
     args: CreateMonitorCommandInput,
@@ -123,7 +135,7 @@ export interface InternetMonitor {
   ): void;
   createMonitor(
     args: CreateMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: CreateMonitorCommandOutput) => void
   ): void;
 
@@ -132,7 +144,7 @@ export interface InternetMonitor {
    */
   deleteMonitor(
     args: DeleteMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<DeleteMonitorCommandOutput>;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
@@ -140,7 +152,7 @@ export interface InternetMonitor {
   ): void;
   deleteMonitor(
     args: DeleteMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: DeleteMonitorCommandOutput) => void
   ): void;
 
@@ -149,7 +161,7 @@ export interface InternetMonitor {
    */
   getHealthEvent(
     args: GetHealthEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<GetHealthEventCommandOutput>;
   getHealthEvent(
     args: GetHealthEventCommandInput,
@@ -157,7 +169,7 @@ export interface InternetMonitor {
   ): void;
   getHealthEvent(
     args: GetHealthEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: GetHealthEventCommandOutput) => void
   ): void;
 
@@ -166,7 +178,7 @@ export interface InternetMonitor {
    */
   getInternetEvent(
     args: GetInternetEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<GetInternetEventCommandOutput>;
   getInternetEvent(
     args: GetInternetEventCommandInput,
@@ -174,7 +186,7 @@ export interface InternetMonitor {
   ): void;
   getInternetEvent(
     args: GetInternetEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: GetInternetEventCommandOutput) => void
   ): void;
 
@@ -183,7 +195,7 @@ export interface InternetMonitor {
    */
   getMonitor(
     args: GetMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<GetMonitorCommandOutput>;
   getMonitor(
     args: GetMonitorCommandInput,
@@ -191,7 +203,7 @@ export interface InternetMonitor {
   ): void;
   getMonitor(
     args: GetMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: GetMonitorCommandOutput) => void
   ): void;
 
@@ -200,7 +212,7 @@ export interface InternetMonitor {
    */
   getQueryResults(
     args: GetQueryResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<GetQueryResultsCommandOutput>;
   getQueryResults(
     args: GetQueryResultsCommandInput,
@@ -208,7 +220,7 @@ export interface InternetMonitor {
   ): void;
   getQueryResults(
     args: GetQueryResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): void;
 
@@ -217,7 +229,7 @@ export interface InternetMonitor {
    */
   getQueryStatus(
     args: GetQueryStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<GetQueryStatusCommandOutput>;
   getQueryStatus(
     args: GetQueryStatusCommandInput,
@@ -225,7 +237,7 @@ export interface InternetMonitor {
   ): void;
   getQueryStatus(
     args: GetQueryStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: GetQueryStatusCommandOutput) => void
   ): void;
 
@@ -234,7 +246,7 @@ export interface InternetMonitor {
    */
   listHealthEvents(
     args: ListHealthEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<ListHealthEventsCommandOutput>;
   listHealthEvents(
     args: ListHealthEventsCommandInput,
@@ -242,7 +254,7 @@ export interface InternetMonitor {
   ): void;
   listHealthEvents(
     args: ListHealthEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: ListHealthEventsCommandOutput) => void
   ): void;
 
@@ -252,7 +264,7 @@ export interface InternetMonitor {
   listInternetEvents(): Promise<ListInternetEventsCommandOutput>;
   listInternetEvents(
     args: ListInternetEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<ListInternetEventsCommandOutput>;
   listInternetEvents(
     args: ListInternetEventsCommandInput,
@@ -260,7 +272,7 @@ export interface InternetMonitor {
   ): void;
   listInternetEvents(
     args: ListInternetEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: ListInternetEventsCommandOutput) => void
   ): void;
 
@@ -270,7 +282,7 @@ export interface InternetMonitor {
   listMonitors(): Promise<ListMonitorsCommandOutput>;
   listMonitors(
     args: ListMonitorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<ListMonitorsCommandOutput>;
   listMonitors(
     args: ListMonitorsCommandInput,
@@ -278,7 +290,7 @@ export interface InternetMonitor {
   ): void;
   listMonitors(
     args: ListMonitorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: ListMonitorsCommandOutput) => void
   ): void;
 
@@ -287,7 +299,7 @@ export interface InternetMonitor {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -295,7 +307,7 @@ export interface InternetMonitor {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -304,7 +316,7 @@ export interface InternetMonitor {
    */
   startQuery(
     args: StartQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<StartQueryCommandOutput>;
   startQuery(
     args: StartQueryCommandInput,
@@ -312,7 +324,7 @@ export interface InternetMonitor {
   ): void;
   startQuery(
     args: StartQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: StartQueryCommandOutput) => void
   ): void;
 
@@ -321,7 +333,7 @@ export interface InternetMonitor {
    */
   stopQuery(
     args: StopQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<StopQueryCommandOutput>;
   stopQuery(
     args: StopQueryCommandInput,
@@ -329,7 +341,7 @@ export interface InternetMonitor {
   ): void;
   stopQuery(
     args: StopQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: StopQueryCommandOutput) => void
   ): void;
 
@@ -338,7 +350,7 @@ export interface InternetMonitor {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -346,7 +358,7 @@ export interface InternetMonitor {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -355,7 +367,7 @@ export interface InternetMonitor {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -363,7 +375,7 @@ export interface InternetMonitor {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -372,7 +384,7 @@ export interface InternetMonitor {
    */
   updateMonitor(
     args: UpdateMonitorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: InternetMonitorRequestOptions
   ): Promise<UpdateMonitorCommandOutput>;
   updateMonitor(
     args: UpdateMonitorCommandInput,
@@ -380,7 +392,7 @@ export interface InternetMonitor {
   ): void;
   updateMonitor(
     args: UpdateMonitorCommandInput,
-    options: __HttpHandlerOptions,
+    options: InternetMonitorRequestOptions,
     cb: (err: any, data?: UpdateMonitorCommandOutput) => void
   ): void;
 

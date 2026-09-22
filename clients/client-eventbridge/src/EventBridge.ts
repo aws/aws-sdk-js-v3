@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type ActivateEventSourceCommandInput,
@@ -337,13 +337,20 @@ const commands = {
   UpdateEventBusCommand,
 };
 
+/**
+ * @public
+ */
+export interface EventBridgeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface EventBridge {
   /**
    * @see {@link ActivateEventSourceCommand}
    */
   activateEventSource(
     args: ActivateEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ActivateEventSourceCommandOutput>;
   activateEventSource(
     args: ActivateEventSourceCommandInput,
@@ -351,7 +358,7 @@ export interface EventBridge {
   ): void;
   activateEventSource(
     args: ActivateEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ActivateEventSourceCommandOutput) => void
   ): void;
 
@@ -360,7 +367,7 @@ export interface EventBridge {
    */
   cancelReplay(
     args: CancelReplayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<CancelReplayCommandOutput>;
   cancelReplay(
     args: CancelReplayCommandInput,
@@ -368,7 +375,7 @@ export interface EventBridge {
   ): void;
   cancelReplay(
     args: CancelReplayCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: CancelReplayCommandOutput) => void
   ): void;
 
@@ -377,7 +384,7 @@ export interface EventBridge {
    */
   createApiDestination(
     args: CreateApiDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<CreateApiDestinationCommandOutput>;
   createApiDestination(
     args: CreateApiDestinationCommandInput,
@@ -385,7 +392,7 @@ export interface EventBridge {
   ): void;
   createApiDestination(
     args: CreateApiDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: CreateApiDestinationCommandOutput) => void
   ): void;
 
@@ -394,7 +401,7 @@ export interface EventBridge {
    */
   createArchive(
     args: CreateArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<CreateArchiveCommandOutput>;
   createArchive(
     args: CreateArchiveCommandInput,
@@ -402,7 +409,7 @@ export interface EventBridge {
   ): void;
   createArchive(
     args: CreateArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: CreateArchiveCommandOutput) => void
   ): void;
 
@@ -411,7 +418,7 @@ export interface EventBridge {
    */
   createConnection(
     args: CreateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<CreateConnectionCommandOutput>;
   createConnection(
     args: CreateConnectionCommandInput,
@@ -419,7 +426,7 @@ export interface EventBridge {
   ): void;
   createConnection(
     args: CreateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: CreateConnectionCommandOutput) => void
   ): void;
 
@@ -428,7 +435,7 @@ export interface EventBridge {
    */
   createEndpoint(
     args: CreateEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<CreateEndpointCommandOutput>;
   createEndpoint(
     args: CreateEndpointCommandInput,
@@ -436,7 +443,7 @@ export interface EventBridge {
   ): void;
   createEndpoint(
     args: CreateEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: CreateEndpointCommandOutput) => void
   ): void;
 
@@ -445,7 +452,7 @@ export interface EventBridge {
    */
   createEventBus(
     args: CreateEventBusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<CreateEventBusCommandOutput>;
   createEventBus(
     args: CreateEventBusCommandInput,
@@ -453,7 +460,7 @@ export interface EventBridge {
   ): void;
   createEventBus(
     args: CreateEventBusCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: CreateEventBusCommandOutput) => void
   ): void;
 
@@ -462,7 +469,7 @@ export interface EventBridge {
    */
   createPartnerEventSource(
     args: CreatePartnerEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<CreatePartnerEventSourceCommandOutput>;
   createPartnerEventSource(
     args: CreatePartnerEventSourceCommandInput,
@@ -470,7 +477,7 @@ export interface EventBridge {
   ): void;
   createPartnerEventSource(
     args: CreatePartnerEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: CreatePartnerEventSourceCommandOutput) => void
   ): void;
 
@@ -479,7 +486,7 @@ export interface EventBridge {
    */
   deactivateEventSource(
     args: DeactivateEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DeactivateEventSourceCommandOutput>;
   deactivateEventSource(
     args: DeactivateEventSourceCommandInput,
@@ -487,7 +494,7 @@ export interface EventBridge {
   ): void;
   deactivateEventSource(
     args: DeactivateEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DeactivateEventSourceCommandOutput) => void
   ): void;
 
@@ -496,7 +503,7 @@ export interface EventBridge {
    */
   deauthorizeConnection(
     args: DeauthorizeConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DeauthorizeConnectionCommandOutput>;
   deauthorizeConnection(
     args: DeauthorizeConnectionCommandInput,
@@ -504,7 +511,7 @@ export interface EventBridge {
   ): void;
   deauthorizeConnection(
     args: DeauthorizeConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DeauthorizeConnectionCommandOutput) => void
   ): void;
 
@@ -513,7 +520,7 @@ export interface EventBridge {
    */
   deleteApiDestination(
     args: DeleteApiDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DeleteApiDestinationCommandOutput>;
   deleteApiDestination(
     args: DeleteApiDestinationCommandInput,
@@ -521,7 +528,7 @@ export interface EventBridge {
   ): void;
   deleteApiDestination(
     args: DeleteApiDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DeleteApiDestinationCommandOutput) => void
   ): void;
 
@@ -530,7 +537,7 @@ export interface EventBridge {
    */
   deleteArchive(
     args: DeleteArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DeleteArchiveCommandOutput>;
   deleteArchive(
     args: DeleteArchiveCommandInput,
@@ -538,7 +545,7 @@ export interface EventBridge {
   ): void;
   deleteArchive(
     args: DeleteArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DeleteArchiveCommandOutput) => void
   ): void;
 
@@ -547,7 +554,7 @@ export interface EventBridge {
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -555,7 +562,7 @@ export interface EventBridge {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -564,7 +571,7 @@ export interface EventBridge {
    */
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DeleteEndpointCommandOutput>;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -572,7 +579,7 @@ export interface EventBridge {
   ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): void;
 
@@ -581,7 +588,7 @@ export interface EventBridge {
    */
   deleteEventBus(
     args: DeleteEventBusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DeleteEventBusCommandOutput>;
   deleteEventBus(
     args: DeleteEventBusCommandInput,
@@ -589,7 +596,7 @@ export interface EventBridge {
   ): void;
   deleteEventBus(
     args: DeleteEventBusCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DeleteEventBusCommandOutput) => void
   ): void;
 
@@ -598,7 +605,7 @@ export interface EventBridge {
    */
   deletePartnerEventSource(
     args: DeletePartnerEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DeletePartnerEventSourceCommandOutput>;
   deletePartnerEventSource(
     args: DeletePartnerEventSourceCommandInput,
@@ -606,7 +613,7 @@ export interface EventBridge {
   ): void;
   deletePartnerEventSource(
     args: DeletePartnerEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DeletePartnerEventSourceCommandOutput) => void
   ): void;
 
@@ -615,7 +622,7 @@ export interface EventBridge {
    */
   deleteRule(
     args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DeleteRuleCommandOutput>;
   deleteRule(
     args: DeleteRuleCommandInput,
@@ -623,7 +630,7 @@ export interface EventBridge {
   ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DeleteRuleCommandOutput) => void
   ): void;
 
@@ -632,7 +639,7 @@ export interface EventBridge {
    */
   describeApiDestination(
     args: DescribeApiDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DescribeApiDestinationCommandOutput>;
   describeApiDestination(
     args: DescribeApiDestinationCommandInput,
@@ -640,7 +647,7 @@ export interface EventBridge {
   ): void;
   describeApiDestination(
     args: DescribeApiDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DescribeApiDestinationCommandOutput) => void
   ): void;
 
@@ -649,7 +656,7 @@ export interface EventBridge {
    */
   describeArchive(
     args: DescribeArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DescribeArchiveCommandOutput>;
   describeArchive(
     args: DescribeArchiveCommandInput,
@@ -657,7 +664,7 @@ export interface EventBridge {
   ): void;
   describeArchive(
     args: DescribeArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DescribeArchiveCommandOutput) => void
   ): void;
 
@@ -666,7 +673,7 @@ export interface EventBridge {
    */
   describeConnection(
     args: DescribeConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DescribeConnectionCommandOutput>;
   describeConnection(
     args: DescribeConnectionCommandInput,
@@ -674,7 +681,7 @@ export interface EventBridge {
   ): void;
   describeConnection(
     args: DescribeConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DescribeConnectionCommandOutput) => void
   ): void;
 
@@ -683,7 +690,7 @@ export interface EventBridge {
    */
   describeEndpoint(
     args: DescribeEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DescribeEndpointCommandOutput>;
   describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -691,7 +698,7 @@ export interface EventBridge {
   ): void;
   describeEndpoint(
     args: DescribeEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): void;
 
@@ -701,7 +708,7 @@ export interface EventBridge {
   describeEventBus(): Promise<DescribeEventBusCommandOutput>;
   describeEventBus(
     args: DescribeEventBusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DescribeEventBusCommandOutput>;
   describeEventBus(
     args: DescribeEventBusCommandInput,
@@ -709,7 +716,7 @@ export interface EventBridge {
   ): void;
   describeEventBus(
     args: DescribeEventBusCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DescribeEventBusCommandOutput) => void
   ): void;
 
@@ -718,7 +725,7 @@ export interface EventBridge {
    */
   describeEventSource(
     args: DescribeEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DescribeEventSourceCommandOutput>;
   describeEventSource(
     args: DescribeEventSourceCommandInput,
@@ -726,7 +733,7 @@ export interface EventBridge {
   ): void;
   describeEventSource(
     args: DescribeEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DescribeEventSourceCommandOutput) => void
   ): void;
 
@@ -735,7 +742,7 @@ export interface EventBridge {
    */
   describePartnerEventSource(
     args: DescribePartnerEventSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DescribePartnerEventSourceCommandOutput>;
   describePartnerEventSource(
     args: DescribePartnerEventSourceCommandInput,
@@ -743,7 +750,7 @@ export interface EventBridge {
   ): void;
   describePartnerEventSource(
     args: DescribePartnerEventSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DescribePartnerEventSourceCommandOutput) => void
   ): void;
 
@@ -752,7 +759,7 @@ export interface EventBridge {
    */
   describeReplay(
     args: DescribeReplayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DescribeReplayCommandOutput>;
   describeReplay(
     args: DescribeReplayCommandInput,
@@ -760,7 +767,7 @@ export interface EventBridge {
   ): void;
   describeReplay(
     args: DescribeReplayCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DescribeReplayCommandOutput) => void
   ): void;
 
@@ -769,7 +776,7 @@ export interface EventBridge {
    */
   describeRule(
     args: DescribeRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DescribeRuleCommandOutput>;
   describeRule(
     args: DescribeRuleCommandInput,
@@ -777,7 +784,7 @@ export interface EventBridge {
   ): void;
   describeRule(
     args: DescribeRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DescribeRuleCommandOutput) => void
   ): void;
 
@@ -786,7 +793,7 @@ export interface EventBridge {
    */
   disableRule(
     args: DisableRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<DisableRuleCommandOutput>;
   disableRule(
     args: DisableRuleCommandInput,
@@ -794,7 +801,7 @@ export interface EventBridge {
   ): void;
   disableRule(
     args: DisableRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: DisableRuleCommandOutput) => void
   ): void;
 
@@ -803,7 +810,7 @@ export interface EventBridge {
    */
   enableRule(
     args: EnableRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<EnableRuleCommandOutput>;
   enableRule(
     args: EnableRuleCommandInput,
@@ -811,7 +818,7 @@ export interface EventBridge {
   ): void;
   enableRule(
     args: EnableRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: EnableRuleCommandOutput) => void
   ): void;
 
@@ -821,7 +828,7 @@ export interface EventBridge {
   listApiDestinations(): Promise<ListApiDestinationsCommandOutput>;
   listApiDestinations(
     args: ListApiDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListApiDestinationsCommandOutput>;
   listApiDestinations(
     args: ListApiDestinationsCommandInput,
@@ -829,7 +836,7 @@ export interface EventBridge {
   ): void;
   listApiDestinations(
     args: ListApiDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListApiDestinationsCommandOutput) => void
   ): void;
 
@@ -839,7 +846,7 @@ export interface EventBridge {
   listArchives(): Promise<ListArchivesCommandOutput>;
   listArchives(
     args: ListArchivesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListArchivesCommandOutput>;
   listArchives(
     args: ListArchivesCommandInput,
@@ -847,7 +854,7 @@ export interface EventBridge {
   ): void;
   listArchives(
     args: ListArchivesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListArchivesCommandOutput) => void
   ): void;
 
@@ -857,7 +864,7 @@ export interface EventBridge {
   listConnections(): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
@@ -865,7 +872,7 @@ export interface EventBridge {
   ): void;
   listConnections(
     args: ListConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListConnectionsCommandOutput) => void
   ): void;
 
@@ -875,7 +882,7 @@ export interface EventBridge {
   listEndpoints(): Promise<ListEndpointsCommandOutput>;
   listEndpoints(
     args: ListEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListEndpointsCommandOutput>;
   listEndpoints(
     args: ListEndpointsCommandInput,
@@ -883,7 +890,7 @@ export interface EventBridge {
   ): void;
   listEndpoints(
     args: ListEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListEndpointsCommandOutput) => void
   ): void;
 
@@ -893,7 +900,7 @@ export interface EventBridge {
   listEventBuses(): Promise<ListEventBusesCommandOutput>;
   listEventBuses(
     args: ListEventBusesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListEventBusesCommandOutput>;
   listEventBuses(
     args: ListEventBusesCommandInput,
@@ -901,7 +908,7 @@ export interface EventBridge {
   ): void;
   listEventBuses(
     args: ListEventBusesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListEventBusesCommandOutput) => void
   ): void;
 
@@ -911,7 +918,7 @@ export interface EventBridge {
   listEventSources(): Promise<ListEventSourcesCommandOutput>;
   listEventSources(
     args: ListEventSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListEventSourcesCommandOutput>;
   listEventSources(
     args: ListEventSourcesCommandInput,
@@ -919,7 +926,7 @@ export interface EventBridge {
   ): void;
   listEventSources(
     args: ListEventSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListEventSourcesCommandOutput) => void
   ): void;
 
@@ -928,7 +935,7 @@ export interface EventBridge {
    */
   listPartnerEventSourceAccounts(
     args: ListPartnerEventSourceAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListPartnerEventSourceAccountsCommandOutput>;
   listPartnerEventSourceAccounts(
     args: ListPartnerEventSourceAccountsCommandInput,
@@ -936,7 +943,7 @@ export interface EventBridge {
   ): void;
   listPartnerEventSourceAccounts(
     args: ListPartnerEventSourceAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListPartnerEventSourceAccountsCommandOutput) => void
   ): void;
 
@@ -945,7 +952,7 @@ export interface EventBridge {
    */
   listPartnerEventSources(
     args: ListPartnerEventSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListPartnerEventSourcesCommandOutput>;
   listPartnerEventSources(
     args: ListPartnerEventSourcesCommandInput,
@@ -953,7 +960,7 @@ export interface EventBridge {
   ): void;
   listPartnerEventSources(
     args: ListPartnerEventSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListPartnerEventSourcesCommandOutput) => void
   ): void;
 
@@ -963,7 +970,7 @@ export interface EventBridge {
   listReplays(): Promise<ListReplaysCommandOutput>;
   listReplays(
     args: ListReplaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListReplaysCommandOutput>;
   listReplays(
     args: ListReplaysCommandInput,
@@ -971,7 +978,7 @@ export interface EventBridge {
   ): void;
   listReplays(
     args: ListReplaysCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListReplaysCommandOutput) => void
   ): void;
 
@@ -980,7 +987,7 @@ export interface EventBridge {
    */
   listRuleNamesByTarget(
     args: ListRuleNamesByTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListRuleNamesByTargetCommandOutput>;
   listRuleNamesByTarget(
     args: ListRuleNamesByTargetCommandInput,
@@ -988,7 +995,7 @@ export interface EventBridge {
   ): void;
   listRuleNamesByTarget(
     args: ListRuleNamesByTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListRuleNamesByTargetCommandOutput) => void
   ): void;
 
@@ -998,7 +1005,7 @@ export interface EventBridge {
   listRules(): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
@@ -1006,7 +1013,7 @@ export interface EventBridge {
   ): void;
   listRules(
     args: ListRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListRulesCommandOutput) => void
   ): void;
 
@@ -1015,7 +1022,7 @@ export interface EventBridge {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1023,7 +1030,7 @@ export interface EventBridge {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1032,7 +1039,7 @@ export interface EventBridge {
    */
   listTargetsByRule(
     args: ListTargetsByRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<ListTargetsByRuleCommandOutput>;
   listTargetsByRule(
     args: ListTargetsByRuleCommandInput,
@@ -1040,7 +1047,7 @@ export interface EventBridge {
   ): void;
   listTargetsByRule(
     args: ListTargetsByRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: ListTargetsByRuleCommandOutput) => void
   ): void;
 
@@ -1049,7 +1056,7 @@ export interface EventBridge {
    */
   putEvents(
     args: PutEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<PutEventsCommandOutput>;
   putEvents(
     args: PutEventsCommandInput,
@@ -1057,7 +1064,7 @@ export interface EventBridge {
   ): void;
   putEvents(
     args: PutEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: PutEventsCommandOutput) => void
   ): void;
 
@@ -1066,7 +1073,7 @@ export interface EventBridge {
    */
   putPartnerEvents(
     args: PutPartnerEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<PutPartnerEventsCommandOutput>;
   putPartnerEvents(
     args: PutPartnerEventsCommandInput,
@@ -1074,7 +1081,7 @@ export interface EventBridge {
   ): void;
   putPartnerEvents(
     args: PutPartnerEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: PutPartnerEventsCommandOutput) => void
   ): void;
 
@@ -1084,7 +1091,7 @@ export interface EventBridge {
   putPermission(): Promise<PutPermissionCommandOutput>;
   putPermission(
     args: PutPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<PutPermissionCommandOutput>;
   putPermission(
     args: PutPermissionCommandInput,
@@ -1092,7 +1099,7 @@ export interface EventBridge {
   ): void;
   putPermission(
     args: PutPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: PutPermissionCommandOutput) => void
   ): void;
 
@@ -1101,7 +1108,7 @@ export interface EventBridge {
    */
   putRule(
     args: PutRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<PutRuleCommandOutput>;
   putRule(
     args: PutRuleCommandInput,
@@ -1109,7 +1116,7 @@ export interface EventBridge {
   ): void;
   putRule(
     args: PutRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: PutRuleCommandOutput) => void
   ): void;
 
@@ -1118,7 +1125,7 @@ export interface EventBridge {
    */
   putTargets(
     args: PutTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<PutTargetsCommandOutput>;
   putTargets(
     args: PutTargetsCommandInput,
@@ -1126,7 +1133,7 @@ export interface EventBridge {
   ): void;
   putTargets(
     args: PutTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: PutTargetsCommandOutput) => void
   ): void;
 
@@ -1136,7 +1143,7 @@ export interface EventBridge {
   removePermission(): Promise<RemovePermissionCommandOutput>;
   removePermission(
     args: RemovePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<RemovePermissionCommandOutput>;
   removePermission(
     args: RemovePermissionCommandInput,
@@ -1144,7 +1151,7 @@ export interface EventBridge {
   ): void;
   removePermission(
     args: RemovePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: RemovePermissionCommandOutput) => void
   ): void;
 
@@ -1153,7 +1160,7 @@ export interface EventBridge {
    */
   removeTargets(
     args: RemoveTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<RemoveTargetsCommandOutput>;
   removeTargets(
     args: RemoveTargetsCommandInput,
@@ -1161,7 +1168,7 @@ export interface EventBridge {
   ): void;
   removeTargets(
     args: RemoveTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: RemoveTargetsCommandOutput) => void
   ): void;
 
@@ -1170,7 +1177,7 @@ export interface EventBridge {
    */
   startReplay(
     args: StartReplayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<StartReplayCommandOutput>;
   startReplay(
     args: StartReplayCommandInput,
@@ -1178,7 +1185,7 @@ export interface EventBridge {
   ): void;
   startReplay(
     args: StartReplayCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: StartReplayCommandOutput) => void
   ): void;
 
@@ -1187,7 +1194,7 @@ export interface EventBridge {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1195,7 +1202,7 @@ export interface EventBridge {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1204,7 +1211,7 @@ export interface EventBridge {
    */
   testEventPattern(
     args: TestEventPatternCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<TestEventPatternCommandOutput>;
   testEventPattern(
     args: TestEventPatternCommandInput,
@@ -1212,7 +1219,7 @@ export interface EventBridge {
   ): void;
   testEventPattern(
     args: TestEventPatternCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: TestEventPatternCommandOutput) => void
   ): void;
 
@@ -1221,7 +1228,7 @@ export interface EventBridge {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1229,7 +1236,7 @@ export interface EventBridge {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1238,7 +1245,7 @@ export interface EventBridge {
    */
   updateApiDestination(
     args: UpdateApiDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<UpdateApiDestinationCommandOutput>;
   updateApiDestination(
     args: UpdateApiDestinationCommandInput,
@@ -1246,7 +1253,7 @@ export interface EventBridge {
   ): void;
   updateApiDestination(
     args: UpdateApiDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: UpdateApiDestinationCommandOutput) => void
   ): void;
 
@@ -1255,7 +1262,7 @@ export interface EventBridge {
    */
   updateArchive(
     args: UpdateArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<UpdateArchiveCommandOutput>;
   updateArchive(
     args: UpdateArchiveCommandInput,
@@ -1263,7 +1270,7 @@ export interface EventBridge {
   ): void;
   updateArchive(
     args: UpdateArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: UpdateArchiveCommandOutput) => void
   ): void;
 
@@ -1272,7 +1279,7 @@ export interface EventBridge {
    */
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<UpdateConnectionCommandOutput>;
   updateConnection(
     args: UpdateConnectionCommandInput,
@@ -1280,7 +1287,7 @@ export interface EventBridge {
   ): void;
   updateConnection(
     args: UpdateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: UpdateConnectionCommandOutput) => void
   ): void;
 
@@ -1289,7 +1296,7 @@ export interface EventBridge {
    */
   updateEndpoint(
     args: UpdateEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<UpdateEndpointCommandOutput>;
   updateEndpoint(
     args: UpdateEndpointCommandInput,
@@ -1297,7 +1304,7 @@ export interface EventBridge {
   ): void;
   updateEndpoint(
     args: UpdateEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): void;
 
@@ -1307,7 +1314,7 @@ export interface EventBridge {
   updateEventBus(): Promise<UpdateEventBusCommandOutput>;
   updateEventBus(
     args: UpdateEventBusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EventBridgeRequestOptions
   ): Promise<UpdateEventBusCommandOutput>;
   updateEventBus(
     args: UpdateEventBusCommandInput,
@@ -1315,7 +1322,7 @@ export interface EventBridge {
   ): void;
   updateEventBus(
     args: UpdateEventBusCommandInput,
-    options: __HttpHandlerOptions,
+    options: EventBridgeRequestOptions,
     cb: (err: any, data?: UpdateEventBusCommandOutput) => void
   ): void;
 }

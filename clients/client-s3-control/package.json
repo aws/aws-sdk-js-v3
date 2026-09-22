@@ -56,11 +56,11 @@
     "@aws-sdk/credential-provider-node": "workspace:^3.972.83",
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.76",
     "@aws-sdk/types": "workspace:^3.974.5",
-    "@smithy/core": "^3.33.3",
-    "@smithy/fetch-http-handler": "^5.7.2",
+    "@smithy/core": "^3.35.0",
+    "@smithy/fetch-http-handler": "^5.8.0",
     "@smithy/middleware-apply-body-checksum": "^4.6.3",
-    "@smithy/node-http-handler": "^4.11.3",
-    "@smithy/types": "^4.17.2",
+    "@smithy/node-http-handler": "^4.12.1",
+    "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateResourceTypesCommandInput,
@@ -729,13 +734,20 @@ const paginators = {
   paginateSelectResourceConfig,
 };
 
+/**
+ * @public
+ */
+export interface ConfigServiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ConfigService {
   /**
    * @see {@link AssociateResourceTypesCommand}
    */
   associateResourceTypes(
     args: AssociateResourceTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<AssociateResourceTypesCommandOutput>;
   associateResourceTypes(
     args: AssociateResourceTypesCommandInput,
@@ -743,7 +755,7 @@ export interface ConfigService {
   ): void;
   associateResourceTypes(
     args: AssociateResourceTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: AssociateResourceTypesCommandOutput) => void
   ): void;
 
@@ -752,7 +764,7 @@ export interface ConfigService {
    */
   batchGetAggregateResourceConfig(
     args: BatchGetAggregateResourceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<BatchGetAggregateResourceConfigCommandOutput>;
   batchGetAggregateResourceConfig(
     args: BatchGetAggregateResourceConfigCommandInput,
@@ -760,7 +772,7 @@ export interface ConfigService {
   ): void;
   batchGetAggregateResourceConfig(
     args: BatchGetAggregateResourceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: BatchGetAggregateResourceConfigCommandOutput) => void
   ): void;
 
@@ -769,7 +781,7 @@ export interface ConfigService {
    */
   batchGetResourceConfig(
     args: BatchGetResourceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<BatchGetResourceConfigCommandOutput>;
   batchGetResourceConfig(
     args: BatchGetResourceConfigCommandInput,
@@ -777,7 +789,7 @@ export interface ConfigService {
   ): void;
   batchGetResourceConfig(
     args: BatchGetResourceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: BatchGetResourceConfigCommandOutput) => void
   ): void;
 
@@ -786,7 +798,7 @@ export interface ConfigService {
    */
   deleteAggregationAuthorization(
     args: DeleteAggregationAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteAggregationAuthorizationCommandOutput>;
   deleteAggregationAuthorization(
     args: DeleteAggregationAuthorizationCommandInput,
@@ -794,7 +806,7 @@ export interface ConfigService {
   ): void;
   deleteAggregationAuthorization(
     args: DeleteAggregationAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteAggregationAuthorizationCommandOutput) => void
   ): void;
 
@@ -803,7 +815,7 @@ export interface ConfigService {
    */
   deleteConfigRule(
     args: DeleteConfigRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteConfigRuleCommandOutput>;
   deleteConfigRule(
     args: DeleteConfigRuleCommandInput,
@@ -811,7 +823,7 @@ export interface ConfigService {
   ): void;
   deleteConfigRule(
     args: DeleteConfigRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteConfigRuleCommandOutput) => void
   ): void;
 
@@ -820,7 +832,7 @@ export interface ConfigService {
    */
   deleteConfigurationAggregator(
     args: DeleteConfigurationAggregatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteConfigurationAggregatorCommandOutput>;
   deleteConfigurationAggregator(
     args: DeleteConfigurationAggregatorCommandInput,
@@ -828,7 +840,7 @@ export interface ConfigService {
   ): void;
   deleteConfigurationAggregator(
     args: DeleteConfigurationAggregatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteConfigurationAggregatorCommandOutput) => void
   ): void;
 
@@ -837,7 +849,7 @@ export interface ConfigService {
    */
   deleteConfigurationRecorder(
     args: DeleteConfigurationRecorderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteConfigurationRecorderCommandOutput>;
   deleteConfigurationRecorder(
     args: DeleteConfigurationRecorderCommandInput,
@@ -845,7 +857,7 @@ export interface ConfigService {
   ): void;
   deleteConfigurationRecorder(
     args: DeleteConfigurationRecorderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteConfigurationRecorderCommandOutput) => void
   ): void;
 
@@ -854,7 +866,7 @@ export interface ConfigService {
    */
   deleteConformancePack(
     args: DeleteConformancePackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteConformancePackCommandOutput>;
   deleteConformancePack(
     args: DeleteConformancePackCommandInput,
@@ -862,7 +874,7 @@ export interface ConfigService {
   ): void;
   deleteConformancePack(
     args: DeleteConformancePackCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteConformancePackCommandOutput) => void
   ): void;
 
@@ -871,7 +883,7 @@ export interface ConfigService {
    */
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteConnectorCommandOutput>;
   deleteConnector(
     args: DeleteConnectorCommandInput,
@@ -879,7 +891,7 @@ export interface ConfigService {
   ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
@@ -888,7 +900,7 @@ export interface ConfigService {
    */
   deleteDeliveryChannel(
     args: DeleteDeliveryChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteDeliveryChannelCommandOutput>;
   deleteDeliveryChannel(
     args: DeleteDeliveryChannelCommandInput,
@@ -896,7 +908,7 @@ export interface ConfigService {
   ): void;
   deleteDeliveryChannel(
     args: DeleteDeliveryChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteDeliveryChannelCommandOutput) => void
   ): void;
 
@@ -905,7 +917,7 @@ export interface ConfigService {
    */
   deleteEvaluationResults(
     args: DeleteEvaluationResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteEvaluationResultsCommandOutput>;
   deleteEvaluationResults(
     args: DeleteEvaluationResultsCommandInput,
@@ -913,7 +925,7 @@ export interface ConfigService {
   ): void;
   deleteEvaluationResults(
     args: DeleteEvaluationResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteEvaluationResultsCommandOutput) => void
   ): void;
 
@@ -922,7 +934,7 @@ export interface ConfigService {
    */
   deleteOrganizationConfigRule(
     args: DeleteOrganizationConfigRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteOrganizationConfigRuleCommandOutput>;
   deleteOrganizationConfigRule(
     args: DeleteOrganizationConfigRuleCommandInput,
@@ -930,7 +942,7 @@ export interface ConfigService {
   ): void;
   deleteOrganizationConfigRule(
     args: DeleteOrganizationConfigRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteOrganizationConfigRuleCommandOutput) => void
   ): void;
 
@@ -939,7 +951,7 @@ export interface ConfigService {
    */
   deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteOrganizationConformancePackCommandOutput>;
   deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
@@ -947,7 +959,7 @@ export interface ConfigService {
   ): void;
   deleteOrganizationConformancePack(
     args: DeleteOrganizationConformancePackCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteOrganizationConformancePackCommandOutput) => void
   ): void;
 
@@ -956,7 +968,7 @@ export interface ConfigService {
    */
   deletePendingAggregationRequest(
     args: DeletePendingAggregationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeletePendingAggregationRequestCommandOutput>;
   deletePendingAggregationRequest(
     args: DeletePendingAggregationRequestCommandInput,
@@ -964,7 +976,7 @@ export interface ConfigService {
   ): void;
   deletePendingAggregationRequest(
     args: DeletePendingAggregationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeletePendingAggregationRequestCommandOutput) => void
   ): void;
 
@@ -973,7 +985,7 @@ export interface ConfigService {
    */
   deleteRemediationConfiguration(
     args: DeleteRemediationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteRemediationConfigurationCommandOutput>;
   deleteRemediationConfiguration(
     args: DeleteRemediationConfigurationCommandInput,
@@ -981,7 +993,7 @@ export interface ConfigService {
   ): void;
   deleteRemediationConfiguration(
     args: DeleteRemediationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteRemediationConfigurationCommandOutput) => void
   ): void;
 
@@ -990,7 +1002,7 @@ export interface ConfigService {
    */
   deleteRemediationExceptions(
     args: DeleteRemediationExceptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteRemediationExceptionsCommandOutput>;
   deleteRemediationExceptions(
     args: DeleteRemediationExceptionsCommandInput,
@@ -998,7 +1010,7 @@ export interface ConfigService {
   ): void;
   deleteRemediationExceptions(
     args: DeleteRemediationExceptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteRemediationExceptionsCommandOutput) => void
   ): void;
 
@@ -1007,7 +1019,7 @@ export interface ConfigService {
    */
   deleteResourceConfig(
     args: DeleteResourceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteResourceConfigCommandOutput>;
   deleteResourceConfig(
     args: DeleteResourceConfigCommandInput,
@@ -1015,7 +1027,7 @@ export interface ConfigService {
   ): void;
   deleteResourceConfig(
     args: DeleteResourceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteResourceConfigCommandOutput) => void
   ): void;
 
@@ -1024,7 +1036,7 @@ export interface ConfigService {
    */
   deleteRetentionConfiguration(
     args: DeleteRetentionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteRetentionConfigurationCommandOutput>;
   deleteRetentionConfiguration(
     args: DeleteRetentionConfigurationCommandInput,
@@ -1032,7 +1044,7 @@ export interface ConfigService {
   ): void;
   deleteRetentionConfiguration(
     args: DeleteRetentionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteRetentionConfigurationCommandOutput) => void
   ): void;
 
@@ -1042,7 +1054,7 @@ export interface ConfigService {
   deleteServiceLinkedConfigurationRecorder(): Promise<DeleteServiceLinkedConfigurationRecorderCommandOutput>;
   deleteServiceLinkedConfigurationRecorder(
     args: DeleteServiceLinkedConfigurationRecorderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteServiceLinkedConfigurationRecorderCommandOutput>;
   deleteServiceLinkedConfigurationRecorder(
     args: DeleteServiceLinkedConfigurationRecorderCommandInput,
@@ -1050,7 +1062,7 @@ export interface ConfigService {
   ): void;
   deleteServiceLinkedConfigurationRecorder(
     args: DeleteServiceLinkedConfigurationRecorderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteServiceLinkedConfigurationRecorderCommandOutput) => void
   ): void;
 
@@ -1059,7 +1071,7 @@ export interface ConfigService {
    */
   deleteStoredQuery(
     args: DeleteStoredQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeleteStoredQueryCommandOutput>;
   deleteStoredQuery(
     args: DeleteStoredQueryCommandInput,
@@ -1067,7 +1079,7 @@ export interface ConfigService {
   ): void;
   deleteStoredQuery(
     args: DeleteStoredQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeleteStoredQueryCommandOutput) => void
   ): void;
 
@@ -1076,7 +1088,7 @@ export interface ConfigService {
    */
   deliverConfigSnapshot(
     args: DeliverConfigSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DeliverConfigSnapshotCommandOutput>;
   deliverConfigSnapshot(
     args: DeliverConfigSnapshotCommandInput,
@@ -1084,7 +1096,7 @@ export interface ConfigService {
   ): void;
   deliverConfigSnapshot(
     args: DeliverConfigSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DeliverConfigSnapshotCommandOutput) => void
   ): void;
 
@@ -1093,7 +1105,7 @@ export interface ConfigService {
    */
   describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput>;
   describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
@@ -1101,7 +1113,7 @@ export interface ConfigService {
   ): void;
   describeAggregateComplianceByConfigRules(
     args: DescribeAggregateComplianceByConfigRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeAggregateComplianceByConfigRulesCommandOutput) => void
   ): void;
 
@@ -1110,7 +1122,7 @@ export interface ConfigService {
    */
   describeAggregateComplianceByConformancePacks(
     args: DescribeAggregateComplianceByConformancePacksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeAggregateComplianceByConformancePacksCommandOutput>;
   describeAggregateComplianceByConformancePacks(
     args: DescribeAggregateComplianceByConformancePacksCommandInput,
@@ -1118,7 +1130,7 @@ export interface ConfigService {
   ): void;
   describeAggregateComplianceByConformancePacks(
     args: DescribeAggregateComplianceByConformancePacksCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeAggregateComplianceByConformancePacksCommandOutput) => void
   ): void;
 
@@ -1128,7 +1140,7 @@ export interface ConfigService {
   describeAggregationAuthorizations(): Promise<DescribeAggregationAuthorizationsCommandOutput>;
   describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeAggregationAuthorizationsCommandOutput>;
   describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
@@ -1136,7 +1148,7 @@ export interface ConfigService {
   ): void;
   describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeAggregationAuthorizationsCommandOutput) => void
   ): void;
 
@@ -1146,7 +1158,7 @@ export interface ConfigService {
   describeComplianceByConfigRule(): Promise<DescribeComplianceByConfigRuleCommandOutput>;
   describeComplianceByConfigRule(
     args: DescribeComplianceByConfigRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeComplianceByConfigRuleCommandOutput>;
   describeComplianceByConfigRule(
     args: DescribeComplianceByConfigRuleCommandInput,
@@ -1154,7 +1166,7 @@ export interface ConfigService {
   ): void;
   describeComplianceByConfigRule(
     args: DescribeComplianceByConfigRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeComplianceByConfigRuleCommandOutput) => void
   ): void;
 
@@ -1164,7 +1176,7 @@ export interface ConfigService {
   describeComplianceByResource(): Promise<DescribeComplianceByResourceCommandOutput>;
   describeComplianceByResource(
     args: DescribeComplianceByResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeComplianceByResourceCommandOutput>;
   describeComplianceByResource(
     args: DescribeComplianceByResourceCommandInput,
@@ -1172,7 +1184,7 @@ export interface ConfigService {
   ): void;
   describeComplianceByResource(
     args: DescribeComplianceByResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeComplianceByResourceCommandOutput) => void
   ): void;
 
@@ -1182,7 +1194,7 @@ export interface ConfigService {
   describeConfigRuleEvaluationStatus(): Promise<DescribeConfigRuleEvaluationStatusCommandOutput>;
   describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput>;
   describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
@@ -1190,7 +1202,7 @@ export interface ConfigService {
   ): void;
   describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeConfigRuleEvaluationStatusCommandOutput) => void
   ): void;
 
@@ -1200,7 +1212,7 @@ export interface ConfigService {
   describeConfigRules(): Promise<DescribeConfigRulesCommandOutput>;
   describeConfigRules(
     args: DescribeConfigRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeConfigRulesCommandOutput>;
   describeConfigRules(
     args: DescribeConfigRulesCommandInput,
@@ -1208,7 +1220,7 @@ export interface ConfigService {
   ): void;
   describeConfigRules(
     args: DescribeConfigRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeConfigRulesCommandOutput) => void
   ): void;
 
@@ -1218,7 +1230,7 @@ export interface ConfigService {
   describeConfigurationAggregators(): Promise<DescribeConfigurationAggregatorsCommandOutput>;
   describeConfigurationAggregators(
     args: DescribeConfigurationAggregatorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeConfigurationAggregatorsCommandOutput>;
   describeConfigurationAggregators(
     args: DescribeConfigurationAggregatorsCommandInput,
@@ -1226,7 +1238,7 @@ export interface ConfigService {
   ): void;
   describeConfigurationAggregators(
     args: DescribeConfigurationAggregatorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeConfigurationAggregatorsCommandOutput) => void
   ): void;
 
@@ -1235,7 +1247,7 @@ export interface ConfigService {
    */
   describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput>;
   describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
@@ -1243,7 +1255,7 @@ export interface ConfigService {
   ): void;
   describeConfigurationAggregatorSourcesStatus(
     args: DescribeConfigurationAggregatorSourcesStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeConfigurationAggregatorSourcesStatusCommandOutput) => void
   ): void;
 
@@ -1253,7 +1265,7 @@ export interface ConfigService {
   describeConfigurationRecorders(): Promise<DescribeConfigurationRecordersCommandOutput>;
   describeConfigurationRecorders(
     args: DescribeConfigurationRecordersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeConfigurationRecordersCommandOutput>;
   describeConfigurationRecorders(
     args: DescribeConfigurationRecordersCommandInput,
@@ -1261,7 +1273,7 @@ export interface ConfigService {
   ): void;
   describeConfigurationRecorders(
     args: DescribeConfigurationRecordersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeConfigurationRecordersCommandOutput) => void
   ): void;
 
@@ -1271,7 +1283,7 @@ export interface ConfigService {
   describeConfigurationRecorderStatus(): Promise<DescribeConfigurationRecorderStatusCommandOutput>;
   describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeConfigurationRecorderStatusCommandOutput>;
   describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
@@ -1279,7 +1291,7 @@ export interface ConfigService {
   ): void;
   describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeConfigurationRecorderStatusCommandOutput) => void
   ): void;
 
@@ -1288,7 +1300,7 @@ export interface ConfigService {
    */
   describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeConformancePackComplianceCommandOutput>;
   describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
@@ -1296,7 +1308,7 @@ export interface ConfigService {
   ): void;
   describeConformancePackCompliance(
     args: DescribeConformancePackComplianceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeConformancePackComplianceCommandOutput) => void
   ): void;
 
@@ -1306,7 +1318,7 @@ export interface ConfigService {
   describeConformancePacks(): Promise<DescribeConformancePacksCommandOutput>;
   describeConformancePacks(
     args: DescribeConformancePacksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeConformancePacksCommandOutput>;
   describeConformancePacks(
     args: DescribeConformancePacksCommandInput,
@@ -1314,7 +1326,7 @@ export interface ConfigService {
   ): void;
   describeConformancePacks(
     args: DescribeConformancePacksCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeConformancePacksCommandOutput) => void
   ): void;
 
@@ -1324,7 +1336,7 @@ export interface ConfigService {
   describeConformancePackStatus(): Promise<DescribeConformancePackStatusCommandOutput>;
   describeConformancePackStatus(
     args: DescribeConformancePackStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeConformancePackStatusCommandOutput>;
   describeConformancePackStatus(
     args: DescribeConformancePackStatusCommandInput,
@@ -1332,7 +1344,7 @@ export interface ConfigService {
   ): void;
   describeConformancePackStatus(
     args: DescribeConformancePackStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeConformancePackStatusCommandOutput) => void
   ): void;
 
@@ -1342,7 +1354,7 @@ export interface ConfigService {
   describeDeliveryChannels(): Promise<DescribeDeliveryChannelsCommandOutput>;
   describeDeliveryChannels(
     args: DescribeDeliveryChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeDeliveryChannelsCommandOutput>;
   describeDeliveryChannels(
     args: DescribeDeliveryChannelsCommandInput,
@@ -1350,7 +1362,7 @@ export interface ConfigService {
   ): void;
   describeDeliveryChannels(
     args: DescribeDeliveryChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeDeliveryChannelsCommandOutput) => void
   ): void;
 
@@ -1360,7 +1372,7 @@ export interface ConfigService {
   describeDeliveryChannelStatus(): Promise<DescribeDeliveryChannelStatusCommandOutput>;
   describeDeliveryChannelStatus(
     args: DescribeDeliveryChannelStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeDeliveryChannelStatusCommandOutput>;
   describeDeliveryChannelStatus(
     args: DescribeDeliveryChannelStatusCommandInput,
@@ -1368,7 +1380,7 @@ export interface ConfigService {
   ): void;
   describeDeliveryChannelStatus(
     args: DescribeDeliveryChannelStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeDeliveryChannelStatusCommandOutput) => void
   ): void;
 
@@ -1378,7 +1390,7 @@ export interface ConfigService {
   describeOrganizationConfigRules(): Promise<DescribeOrganizationConfigRulesCommandOutput>;
   describeOrganizationConfigRules(
     args: DescribeOrganizationConfigRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeOrganizationConfigRulesCommandOutput>;
   describeOrganizationConfigRules(
     args: DescribeOrganizationConfigRulesCommandInput,
@@ -1386,7 +1398,7 @@ export interface ConfigService {
   ): void;
   describeOrganizationConfigRules(
     args: DescribeOrganizationConfigRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeOrganizationConfigRulesCommandOutput) => void
   ): void;
 
@@ -1396,7 +1408,7 @@ export interface ConfigService {
   describeOrganizationConfigRuleStatuses(): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput>;
   describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput>;
   describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
@@ -1404,7 +1416,7 @@ export interface ConfigService {
   ): void;
   describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeOrganizationConfigRuleStatusesCommandOutput) => void
   ): void;
 
@@ -1414,7 +1426,7 @@ export interface ConfigService {
   describeOrganizationConformancePacks(): Promise<DescribeOrganizationConformancePacksCommandOutput>;
   describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeOrganizationConformancePacksCommandOutput>;
   describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
@@ -1422,7 +1434,7 @@ export interface ConfigService {
   ): void;
   describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeOrganizationConformancePacksCommandOutput) => void
   ): void;
 
@@ -1432,7 +1444,7 @@ export interface ConfigService {
   describeOrganizationConformancePackStatuses(): Promise<DescribeOrganizationConformancePackStatusesCommandOutput>;
   describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeOrganizationConformancePackStatusesCommandOutput>;
   describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
@@ -1440,7 +1452,7 @@ export interface ConfigService {
   ): void;
   describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeOrganizationConformancePackStatusesCommandOutput) => void
   ): void;
 
@@ -1450,7 +1462,7 @@ export interface ConfigService {
   describePendingAggregationRequests(): Promise<DescribePendingAggregationRequestsCommandOutput>;
   describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribePendingAggregationRequestsCommandOutput>;
   describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
@@ -1458,7 +1470,7 @@ export interface ConfigService {
   ): void;
   describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribePendingAggregationRequestsCommandOutput) => void
   ): void;
 
@@ -1467,7 +1479,7 @@ export interface ConfigService {
    */
   describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeRemediationConfigurationsCommandOutput>;
   describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
@@ -1475,7 +1487,7 @@ export interface ConfigService {
   ): void;
   describeRemediationConfigurations(
     args: DescribeRemediationConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeRemediationConfigurationsCommandOutput) => void
   ): void;
 
@@ -1484,7 +1496,7 @@ export interface ConfigService {
    */
   describeRemediationExceptions(
     args: DescribeRemediationExceptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeRemediationExceptionsCommandOutput>;
   describeRemediationExceptions(
     args: DescribeRemediationExceptionsCommandInput,
@@ -1492,7 +1504,7 @@ export interface ConfigService {
   ): void;
   describeRemediationExceptions(
     args: DescribeRemediationExceptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeRemediationExceptionsCommandOutput) => void
   ): void;
 
@@ -1501,7 +1513,7 @@ export interface ConfigService {
    */
   describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeRemediationExecutionStatusCommandOutput>;
   describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
@@ -1509,7 +1521,7 @@ export interface ConfigService {
   ): void;
   describeRemediationExecutionStatus(
     args: DescribeRemediationExecutionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeRemediationExecutionStatusCommandOutput) => void
   ): void;
 
@@ -1519,7 +1531,7 @@ export interface ConfigService {
   describeRetentionConfigurations(): Promise<DescribeRetentionConfigurationsCommandOutput>;
   describeRetentionConfigurations(
     args: DescribeRetentionConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DescribeRetentionConfigurationsCommandOutput>;
   describeRetentionConfigurations(
     args: DescribeRetentionConfigurationsCommandInput,
@@ -1527,7 +1539,7 @@ export interface ConfigService {
   ): void;
   describeRetentionConfigurations(
     args: DescribeRetentionConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DescribeRetentionConfigurationsCommandOutput) => void
   ): void;
 
@@ -1536,7 +1548,7 @@ export interface ConfigService {
    */
   disassociateResourceTypes(
     args: DisassociateResourceTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<DisassociateResourceTypesCommandOutput>;
   disassociateResourceTypes(
     args: DisassociateResourceTypesCommandInput,
@@ -1544,7 +1556,7 @@ export interface ConfigService {
   ): void;
   disassociateResourceTypes(
     args: DisassociateResourceTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: DisassociateResourceTypesCommandOutput) => void
   ): void;
 
@@ -1553,7 +1565,7 @@ export interface ConfigService {
    */
   getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput>;
   getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
@@ -1561,7 +1573,7 @@ export interface ConfigService {
   ): void;
   getAggregateComplianceDetailsByConfigRule(
     args: GetAggregateComplianceDetailsByConfigRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetAggregateComplianceDetailsByConfigRuleCommandOutput) => void
   ): void;
 
@@ -1570,7 +1582,7 @@ export interface ConfigService {
    */
   getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput>;
   getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
@@ -1578,7 +1590,7 @@ export interface ConfigService {
   ): void;
   getAggregateConfigRuleComplianceSummary(
     args: GetAggregateConfigRuleComplianceSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetAggregateConfigRuleComplianceSummaryCommandOutput) => void
   ): void;
 
@@ -1587,7 +1599,7 @@ export interface ConfigService {
    */
   getAggregateConformancePackComplianceSummary(
     args: GetAggregateConformancePackComplianceSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetAggregateConformancePackComplianceSummaryCommandOutput>;
   getAggregateConformancePackComplianceSummary(
     args: GetAggregateConformancePackComplianceSummaryCommandInput,
@@ -1595,7 +1607,7 @@ export interface ConfigService {
   ): void;
   getAggregateConformancePackComplianceSummary(
     args: GetAggregateConformancePackComplianceSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetAggregateConformancePackComplianceSummaryCommandOutput) => void
   ): void;
 
@@ -1604,7 +1616,7 @@ export interface ConfigService {
    */
   getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetAggregateDiscoveredResourceCountsCommandOutput>;
   getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
@@ -1612,7 +1624,7 @@ export interface ConfigService {
   ): void;
   getAggregateDiscoveredResourceCounts(
     args: GetAggregateDiscoveredResourceCountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetAggregateDiscoveredResourceCountsCommandOutput) => void
   ): void;
 
@@ -1621,7 +1633,7 @@ export interface ConfigService {
    */
   getAggregateResourceConfig(
     args: GetAggregateResourceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetAggregateResourceConfigCommandOutput>;
   getAggregateResourceConfig(
     args: GetAggregateResourceConfigCommandInput,
@@ -1629,7 +1641,7 @@ export interface ConfigService {
   ): void;
   getAggregateResourceConfig(
     args: GetAggregateResourceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetAggregateResourceConfigCommandOutput) => void
   ): void;
 
@@ -1638,7 +1650,7 @@ export interface ConfigService {
    */
   getComplianceDetailsByConfigRule(
     args: GetComplianceDetailsByConfigRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetComplianceDetailsByConfigRuleCommandOutput>;
   getComplianceDetailsByConfigRule(
     args: GetComplianceDetailsByConfigRuleCommandInput,
@@ -1646,7 +1658,7 @@ export interface ConfigService {
   ): void;
   getComplianceDetailsByConfigRule(
     args: GetComplianceDetailsByConfigRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetComplianceDetailsByConfigRuleCommandOutput) => void
   ): void;
 
@@ -1656,7 +1668,7 @@ export interface ConfigService {
   getComplianceDetailsByResource(): Promise<GetComplianceDetailsByResourceCommandOutput>;
   getComplianceDetailsByResource(
     args: GetComplianceDetailsByResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetComplianceDetailsByResourceCommandOutput>;
   getComplianceDetailsByResource(
     args: GetComplianceDetailsByResourceCommandInput,
@@ -1664,7 +1676,7 @@ export interface ConfigService {
   ): void;
   getComplianceDetailsByResource(
     args: GetComplianceDetailsByResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetComplianceDetailsByResourceCommandOutput) => void
   ): void;
 
@@ -1674,7 +1686,7 @@ export interface ConfigService {
   getComplianceSummaryByConfigRule(): Promise<GetComplianceSummaryByConfigRuleCommandOutput>;
   getComplianceSummaryByConfigRule(
     args: GetComplianceSummaryByConfigRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetComplianceSummaryByConfigRuleCommandOutput>;
   getComplianceSummaryByConfigRule(
     args: GetComplianceSummaryByConfigRuleCommandInput,
@@ -1682,7 +1694,7 @@ export interface ConfigService {
   ): void;
   getComplianceSummaryByConfigRule(
     args: GetComplianceSummaryByConfigRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetComplianceSummaryByConfigRuleCommandOutput) => void
   ): void;
 
@@ -1692,7 +1704,7 @@ export interface ConfigService {
   getComplianceSummaryByResourceType(): Promise<GetComplianceSummaryByResourceTypeCommandOutput>;
   getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetComplianceSummaryByResourceTypeCommandOutput>;
   getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
@@ -1700,7 +1712,7 @@ export interface ConfigService {
   ): void;
   getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetComplianceSummaryByResourceTypeCommandOutput) => void
   ): void;
 
@@ -1709,7 +1721,7 @@ export interface ConfigService {
    */
   getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetConformancePackComplianceDetailsCommandOutput>;
   getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
@@ -1717,7 +1729,7 @@ export interface ConfigService {
   ): void;
   getConformancePackComplianceDetails(
     args: GetConformancePackComplianceDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetConformancePackComplianceDetailsCommandOutput) => void
   ): void;
 
@@ -1726,7 +1738,7 @@ export interface ConfigService {
    */
   getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetConformancePackComplianceSummaryCommandOutput>;
   getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
@@ -1734,7 +1746,7 @@ export interface ConfigService {
   ): void;
   getConformancePackComplianceSummary(
     args: GetConformancePackComplianceSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetConformancePackComplianceSummaryCommandOutput) => void
   ): void;
 
@@ -1743,7 +1755,7 @@ export interface ConfigService {
    */
   getConnector(
     args: GetConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetConnectorCommandOutput>;
   getConnector(
     args: GetConnectorCommandInput,
@@ -1751,7 +1763,7 @@ export interface ConfigService {
   ): void;
   getConnector(
     args: GetConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetConnectorCommandOutput) => void
   ): void;
 
@@ -1761,7 +1773,7 @@ export interface ConfigService {
   getCustomRulePolicy(): Promise<GetCustomRulePolicyCommandOutput>;
   getCustomRulePolicy(
     args: GetCustomRulePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetCustomRulePolicyCommandOutput>;
   getCustomRulePolicy(
     args: GetCustomRulePolicyCommandInput,
@@ -1769,7 +1781,7 @@ export interface ConfigService {
   ): void;
   getCustomRulePolicy(
     args: GetCustomRulePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetCustomRulePolicyCommandOutput) => void
   ): void;
 
@@ -1779,7 +1791,7 @@ export interface ConfigService {
   getDiscoveredResourceCounts(): Promise<GetDiscoveredResourceCountsCommandOutput>;
   getDiscoveredResourceCounts(
     args: GetDiscoveredResourceCountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetDiscoveredResourceCountsCommandOutput>;
   getDiscoveredResourceCounts(
     args: GetDiscoveredResourceCountsCommandInput,
@@ -1787,7 +1799,7 @@ export interface ConfigService {
   ): void;
   getDiscoveredResourceCounts(
     args: GetDiscoveredResourceCountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetDiscoveredResourceCountsCommandOutput) => void
   ): void;
 
@@ -1796,7 +1808,7 @@ export interface ConfigService {
    */
   getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput>;
   getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
@@ -1804,7 +1816,7 @@ export interface ConfigService {
   ): void;
   getOrganizationConfigRuleDetailedStatus(
     args: GetOrganizationConfigRuleDetailedStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetOrganizationConfigRuleDetailedStatusCommandOutput) => void
   ): void;
 
@@ -1813,7 +1825,7 @@ export interface ConfigService {
    */
   getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput>;
   getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
@@ -1821,7 +1833,7 @@ export interface ConfigService {
   ): void;
   getOrganizationConformancePackDetailedStatus(
     args: GetOrganizationConformancePackDetailedStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetOrganizationConformancePackDetailedStatusCommandOutput) => void
   ): void;
 
@@ -1830,7 +1842,7 @@ export interface ConfigService {
    */
   getOrganizationCustomRulePolicy(
     args: GetOrganizationCustomRulePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetOrganizationCustomRulePolicyCommandOutput>;
   getOrganizationCustomRulePolicy(
     args: GetOrganizationCustomRulePolicyCommandInput,
@@ -1838,7 +1850,7 @@ export interface ConfigService {
   ): void;
   getOrganizationCustomRulePolicy(
     args: GetOrganizationCustomRulePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetOrganizationCustomRulePolicyCommandOutput) => void
   ): void;
 
@@ -1847,7 +1859,7 @@ export interface ConfigService {
    */
   getResourceConfigHistory(
     args: GetResourceConfigHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetResourceConfigHistoryCommandOutput>;
   getResourceConfigHistory(
     args: GetResourceConfigHistoryCommandInput,
@@ -1855,7 +1867,7 @@ export interface ConfigService {
   ): void;
   getResourceConfigHistory(
     args: GetResourceConfigHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetResourceConfigHistoryCommandOutput) => void
   ): void;
 
@@ -1864,7 +1876,7 @@ export interface ConfigService {
    */
   getResourceEvaluationSummary(
     args: GetResourceEvaluationSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetResourceEvaluationSummaryCommandOutput>;
   getResourceEvaluationSummary(
     args: GetResourceEvaluationSummaryCommandInput,
@@ -1872,7 +1884,7 @@ export interface ConfigService {
   ): void;
   getResourceEvaluationSummary(
     args: GetResourceEvaluationSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetResourceEvaluationSummaryCommandOutput) => void
   ): void;
 
@@ -1881,7 +1893,7 @@ export interface ConfigService {
    */
   getStoredQuery(
     args: GetStoredQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<GetStoredQueryCommandOutput>;
   getStoredQuery(
     args: GetStoredQueryCommandInput,
@@ -1889,7 +1901,7 @@ export interface ConfigService {
   ): void;
   getStoredQuery(
     args: GetStoredQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: GetStoredQueryCommandOutput) => void
   ): void;
 
@@ -1898,7 +1910,7 @@ export interface ConfigService {
    */
   listAggregateDiscoveredResources(
     args: ListAggregateDiscoveredResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<ListAggregateDiscoveredResourcesCommandOutput>;
   listAggregateDiscoveredResources(
     args: ListAggregateDiscoveredResourcesCommandInput,
@@ -1906,7 +1918,7 @@ export interface ConfigService {
   ): void;
   listAggregateDiscoveredResources(
     args: ListAggregateDiscoveredResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: ListAggregateDiscoveredResourcesCommandOutput) => void
   ): void;
 
@@ -1916,7 +1928,7 @@ export interface ConfigService {
   listConfigurationRecorders(): Promise<ListConfigurationRecordersCommandOutput>;
   listConfigurationRecorders(
     args: ListConfigurationRecordersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<ListConfigurationRecordersCommandOutput>;
   listConfigurationRecorders(
     args: ListConfigurationRecordersCommandInput,
@@ -1924,7 +1936,7 @@ export interface ConfigService {
   ): void;
   listConfigurationRecorders(
     args: ListConfigurationRecordersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: ListConfigurationRecordersCommandOutput) => void
   ): void;
 
@@ -1934,7 +1946,7 @@ export interface ConfigService {
   listConformancePackComplianceScores(): Promise<ListConformancePackComplianceScoresCommandOutput>;
   listConformancePackComplianceScores(
     args: ListConformancePackComplianceScoresCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<ListConformancePackComplianceScoresCommandOutput>;
   listConformancePackComplianceScores(
     args: ListConformancePackComplianceScoresCommandInput,
@@ -1942,7 +1954,7 @@ export interface ConfigService {
   ): void;
   listConformancePackComplianceScores(
     args: ListConformancePackComplianceScoresCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: ListConformancePackComplianceScoresCommandOutput) => void
   ): void;
 
@@ -1952,7 +1964,7 @@ export interface ConfigService {
   listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
@@ -1960,7 +1972,7 @@ export interface ConfigService {
   ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: ListConnectorsCommandOutput) => void
   ): void;
 
@@ -1969,7 +1981,7 @@ export interface ConfigService {
    */
   listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<ListDiscoveredResourcesCommandOutput>;
   listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
@@ -1977,7 +1989,7 @@ export interface ConfigService {
   ): void;
   listDiscoveredResources(
     args: ListDiscoveredResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
   ): void;
 
@@ -1987,7 +1999,7 @@ export interface ConfigService {
   listResourceEvaluations(): Promise<ListResourceEvaluationsCommandOutput>;
   listResourceEvaluations(
     args: ListResourceEvaluationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<ListResourceEvaluationsCommandOutput>;
   listResourceEvaluations(
     args: ListResourceEvaluationsCommandInput,
@@ -1995,7 +2007,7 @@ export interface ConfigService {
   ): void;
   listResourceEvaluations(
     args: ListResourceEvaluationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: ListResourceEvaluationsCommandOutput) => void
   ): void;
 
@@ -2005,7 +2017,7 @@ export interface ConfigService {
   listStoredQueries(): Promise<ListStoredQueriesCommandOutput>;
   listStoredQueries(
     args: ListStoredQueriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<ListStoredQueriesCommandOutput>;
   listStoredQueries(
     args: ListStoredQueriesCommandInput,
@@ -2013,7 +2025,7 @@ export interface ConfigService {
   ): void;
   listStoredQueries(
     args: ListStoredQueriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: ListStoredQueriesCommandOutput) => void
   ): void;
 
@@ -2022,7 +2034,7 @@ export interface ConfigService {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2030,7 +2042,7 @@ export interface ConfigService {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2039,7 +2051,7 @@ export interface ConfigService {
    */
   putAggregationAuthorization(
     args: PutAggregationAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutAggregationAuthorizationCommandOutput>;
   putAggregationAuthorization(
     args: PutAggregationAuthorizationCommandInput,
@@ -2047,7 +2059,7 @@ export interface ConfigService {
   ): void;
   putAggregationAuthorization(
     args: PutAggregationAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutAggregationAuthorizationCommandOutput) => void
   ): void;
 
@@ -2056,7 +2068,7 @@ export interface ConfigService {
    */
   putConfigRule(
     args: PutConfigRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutConfigRuleCommandOutput>;
   putConfigRule(
     args: PutConfigRuleCommandInput,
@@ -2064,7 +2076,7 @@ export interface ConfigService {
   ): void;
   putConfigRule(
     args: PutConfigRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutConfigRuleCommandOutput) => void
   ): void;
 
@@ -2073,7 +2085,7 @@ export interface ConfigService {
    */
   putConfigurationAggregator(
     args: PutConfigurationAggregatorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutConfigurationAggregatorCommandOutput>;
   putConfigurationAggregator(
     args: PutConfigurationAggregatorCommandInput,
@@ -2081,7 +2093,7 @@ export interface ConfigService {
   ): void;
   putConfigurationAggregator(
     args: PutConfigurationAggregatorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutConfigurationAggregatorCommandOutput) => void
   ): void;
 
@@ -2090,7 +2102,7 @@ export interface ConfigService {
    */
   putConfigurationRecorder(
     args: PutConfigurationRecorderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutConfigurationRecorderCommandOutput>;
   putConfigurationRecorder(
     args: PutConfigurationRecorderCommandInput,
@@ -2098,7 +2110,7 @@ export interface ConfigService {
   ): void;
   putConfigurationRecorder(
     args: PutConfigurationRecorderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutConfigurationRecorderCommandOutput) => void
   ): void;
 
@@ -2107,7 +2119,7 @@ export interface ConfigService {
    */
   putConformancePack(
     args: PutConformancePackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutConformancePackCommandOutput>;
   putConformancePack(
     args: PutConformancePackCommandInput,
@@ -2115,7 +2127,7 @@ export interface ConfigService {
   ): void;
   putConformancePack(
     args: PutConformancePackCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutConformancePackCommandOutput) => void
   ): void;
 
@@ -2124,7 +2136,7 @@ export interface ConfigService {
    */
   putConnector(
     args: PutConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutConnectorCommandOutput>;
   putConnector(
     args: PutConnectorCommandInput,
@@ -2132,7 +2144,7 @@ export interface ConfigService {
   ): void;
   putConnector(
     args: PutConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutConnectorCommandOutput) => void
   ): void;
 
@@ -2141,7 +2153,7 @@ export interface ConfigService {
    */
   putDeliveryChannel(
     args: PutDeliveryChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutDeliveryChannelCommandOutput>;
   putDeliveryChannel(
     args: PutDeliveryChannelCommandInput,
@@ -2149,7 +2161,7 @@ export interface ConfigService {
   ): void;
   putDeliveryChannel(
     args: PutDeliveryChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutDeliveryChannelCommandOutput) => void
   ): void;
 
@@ -2158,7 +2170,7 @@ export interface ConfigService {
    */
   putEvaluations(
     args: PutEvaluationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutEvaluationsCommandOutput>;
   putEvaluations(
     args: PutEvaluationsCommandInput,
@@ -2166,7 +2178,7 @@ export interface ConfigService {
   ): void;
   putEvaluations(
     args: PutEvaluationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutEvaluationsCommandOutput) => void
   ): void;
 
@@ -2175,7 +2187,7 @@ export interface ConfigService {
    */
   putExternalEvaluation(
     args: PutExternalEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutExternalEvaluationCommandOutput>;
   putExternalEvaluation(
     args: PutExternalEvaluationCommandInput,
@@ -2183,7 +2195,7 @@ export interface ConfigService {
   ): void;
   putExternalEvaluation(
     args: PutExternalEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutExternalEvaluationCommandOutput) => void
   ): void;
 
@@ -2192,7 +2204,7 @@ export interface ConfigService {
    */
   putOrganizationConfigRule(
     args: PutOrganizationConfigRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutOrganizationConfigRuleCommandOutput>;
   putOrganizationConfigRule(
     args: PutOrganizationConfigRuleCommandInput,
@@ -2200,7 +2212,7 @@ export interface ConfigService {
   ): void;
   putOrganizationConfigRule(
     args: PutOrganizationConfigRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutOrganizationConfigRuleCommandOutput) => void
   ): void;
 
@@ -2209,7 +2221,7 @@ export interface ConfigService {
    */
   putOrganizationConformancePack(
     args: PutOrganizationConformancePackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutOrganizationConformancePackCommandOutput>;
   putOrganizationConformancePack(
     args: PutOrganizationConformancePackCommandInput,
@@ -2217,7 +2229,7 @@ export interface ConfigService {
   ): void;
   putOrganizationConformancePack(
     args: PutOrganizationConformancePackCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutOrganizationConformancePackCommandOutput) => void
   ): void;
 
@@ -2226,7 +2238,7 @@ export interface ConfigService {
    */
   putRemediationConfigurations(
     args: PutRemediationConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutRemediationConfigurationsCommandOutput>;
   putRemediationConfigurations(
     args: PutRemediationConfigurationsCommandInput,
@@ -2234,7 +2246,7 @@ export interface ConfigService {
   ): void;
   putRemediationConfigurations(
     args: PutRemediationConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutRemediationConfigurationsCommandOutput) => void
   ): void;
 
@@ -2243,7 +2255,7 @@ export interface ConfigService {
    */
   putRemediationExceptions(
     args: PutRemediationExceptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutRemediationExceptionsCommandOutput>;
   putRemediationExceptions(
     args: PutRemediationExceptionsCommandInput,
@@ -2251,7 +2263,7 @@ export interface ConfigService {
   ): void;
   putRemediationExceptions(
     args: PutRemediationExceptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutRemediationExceptionsCommandOutput) => void
   ): void;
 
@@ -2260,7 +2272,7 @@ export interface ConfigService {
    */
   putResourceConfig(
     args: PutResourceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutResourceConfigCommandOutput>;
   putResourceConfig(
     args: PutResourceConfigCommandInput,
@@ -2268,7 +2280,7 @@ export interface ConfigService {
   ): void;
   putResourceConfig(
     args: PutResourceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutResourceConfigCommandOutput) => void
   ): void;
 
@@ -2277,7 +2289,7 @@ export interface ConfigService {
    */
   putRetentionConfiguration(
     args: PutRetentionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutRetentionConfigurationCommandOutput>;
   putRetentionConfiguration(
     args: PutRetentionConfigurationCommandInput,
@@ -2285,7 +2297,7 @@ export interface ConfigService {
   ): void;
   putRetentionConfiguration(
     args: PutRetentionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutRetentionConfigurationCommandOutput) => void
   ): void;
 
@@ -2294,7 +2306,7 @@ export interface ConfigService {
    */
   putServiceLinkedConfigurationRecorder(
     args: PutServiceLinkedConfigurationRecorderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutServiceLinkedConfigurationRecorderCommandOutput>;
   putServiceLinkedConfigurationRecorder(
     args: PutServiceLinkedConfigurationRecorderCommandInput,
@@ -2302,7 +2314,7 @@ export interface ConfigService {
   ): void;
   putServiceLinkedConfigurationRecorder(
     args: PutServiceLinkedConfigurationRecorderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutServiceLinkedConfigurationRecorderCommandOutput) => void
   ): void;
 
@@ -2311,7 +2323,7 @@ export interface ConfigService {
    */
   putStoredQuery(
     args: PutStoredQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutStoredQueryCommandOutput>;
   putStoredQuery(
     args: PutStoredQueryCommandInput,
@@ -2319,7 +2331,7 @@ export interface ConfigService {
   ): void;
   putStoredQuery(
     args: PutStoredQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutStoredQueryCommandOutput) => void
   ): void;
 
@@ -2328,7 +2340,7 @@ export interface ConfigService {
    */
   putThirdPartyServiceLinkedConfigurationRecorder(
     args: PutThirdPartyServiceLinkedConfigurationRecorderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput>;
   putThirdPartyServiceLinkedConfigurationRecorder(
     args: PutThirdPartyServiceLinkedConfigurationRecorderCommandInput,
@@ -2336,7 +2348,7 @@ export interface ConfigService {
   ): void;
   putThirdPartyServiceLinkedConfigurationRecorder(
     args: PutThirdPartyServiceLinkedConfigurationRecorderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput) => void
   ): void;
 
@@ -2345,7 +2357,7 @@ export interface ConfigService {
    */
   selectAggregateResourceConfig(
     args: SelectAggregateResourceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<SelectAggregateResourceConfigCommandOutput>;
   selectAggregateResourceConfig(
     args: SelectAggregateResourceConfigCommandInput,
@@ -2353,7 +2365,7 @@ export interface ConfigService {
   ): void;
   selectAggregateResourceConfig(
     args: SelectAggregateResourceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: SelectAggregateResourceConfigCommandOutput) => void
   ): void;
 
@@ -2362,7 +2374,7 @@ export interface ConfigService {
    */
   selectResourceConfig(
     args: SelectResourceConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<SelectResourceConfigCommandOutput>;
   selectResourceConfig(
     args: SelectResourceConfigCommandInput,
@@ -2370,7 +2382,7 @@ export interface ConfigService {
   ): void;
   selectResourceConfig(
     args: SelectResourceConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: SelectResourceConfigCommandOutput) => void
   ): void;
 
@@ -2380,7 +2392,7 @@ export interface ConfigService {
   startConfigRulesEvaluation(): Promise<StartConfigRulesEvaluationCommandOutput>;
   startConfigRulesEvaluation(
     args: StartConfigRulesEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<StartConfigRulesEvaluationCommandOutput>;
   startConfigRulesEvaluation(
     args: StartConfigRulesEvaluationCommandInput,
@@ -2388,7 +2400,7 @@ export interface ConfigService {
   ): void;
   startConfigRulesEvaluation(
     args: StartConfigRulesEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: StartConfigRulesEvaluationCommandOutput) => void
   ): void;
 
@@ -2397,7 +2409,7 @@ export interface ConfigService {
    */
   startConfigurationRecorder(
     args: StartConfigurationRecorderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<StartConfigurationRecorderCommandOutput>;
   startConfigurationRecorder(
     args: StartConfigurationRecorderCommandInput,
@@ -2405,7 +2417,7 @@ export interface ConfigService {
   ): void;
   startConfigurationRecorder(
     args: StartConfigurationRecorderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: StartConfigurationRecorderCommandOutput) => void
   ): void;
 
@@ -2414,7 +2426,7 @@ export interface ConfigService {
    */
   startRemediationExecution(
     args: StartRemediationExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<StartRemediationExecutionCommandOutput>;
   startRemediationExecution(
     args: StartRemediationExecutionCommandInput,
@@ -2422,7 +2434,7 @@ export interface ConfigService {
   ): void;
   startRemediationExecution(
     args: StartRemediationExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: StartRemediationExecutionCommandOutput) => void
   ): void;
 
@@ -2431,7 +2443,7 @@ export interface ConfigService {
    */
   startResourceEvaluation(
     args: StartResourceEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<StartResourceEvaluationCommandOutput>;
   startResourceEvaluation(
     args: StartResourceEvaluationCommandInput,
@@ -2439,7 +2451,7 @@ export interface ConfigService {
   ): void;
   startResourceEvaluation(
     args: StartResourceEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: StartResourceEvaluationCommandOutput) => void
   ): void;
 
@@ -2448,7 +2460,7 @@ export interface ConfigService {
    */
   stopConfigurationRecorder(
     args: StopConfigurationRecorderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<StopConfigurationRecorderCommandOutput>;
   stopConfigurationRecorder(
     args: StopConfigurationRecorderCommandInput,
@@ -2456,7 +2468,7 @@ export interface ConfigService {
   ): void;
   stopConfigurationRecorder(
     args: StopConfigurationRecorderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: StopConfigurationRecorderCommandOutput) => void
   ): void;
 
@@ -2465,7 +2477,7 @@ export interface ConfigService {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2473,7 +2485,7 @@ export interface ConfigService {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2482,7 +2494,7 @@ export interface ConfigService {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConfigServiceRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2490,7 +2502,7 @@ export interface ConfigService {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConfigServiceRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

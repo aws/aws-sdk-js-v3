@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddLFTagsToResourceCommandInput,
@@ -397,13 +402,20 @@ const paginators = {
   paginateSearchTablesByLFTags,
 };
 
+/**
+ * @public
+ */
+export interface LakeFormationRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface LakeFormation {
   /**
    * @see {@link AddLFTagsToResourceCommand}
    */
   addLFTagsToResource(
     args: AddLFTagsToResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<AddLFTagsToResourceCommandOutput>;
   addLFTagsToResource(
     args: AddLFTagsToResourceCommandInput,
@@ -411,7 +423,7 @@ export interface LakeFormation {
   ): void;
   addLFTagsToResource(
     args: AddLFTagsToResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: AddLFTagsToResourceCommandOutput) => void
   ): void;
 
@@ -420,7 +432,7 @@ export interface LakeFormation {
    */
   assumeDecoratedRoleWithSAML(
     args: AssumeDecoratedRoleWithSAMLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<AssumeDecoratedRoleWithSAMLCommandOutput>;
   assumeDecoratedRoleWithSAML(
     args: AssumeDecoratedRoleWithSAMLCommandInput,
@@ -428,7 +440,7 @@ export interface LakeFormation {
   ): void;
   assumeDecoratedRoleWithSAML(
     args: AssumeDecoratedRoleWithSAMLCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: AssumeDecoratedRoleWithSAMLCommandOutput) => void
   ): void;
 
@@ -437,7 +449,7 @@ export interface LakeFormation {
    */
   batchGrantPermissions(
     args: BatchGrantPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<BatchGrantPermissionsCommandOutput>;
   batchGrantPermissions(
     args: BatchGrantPermissionsCommandInput,
@@ -445,7 +457,7 @@ export interface LakeFormation {
   ): void;
   batchGrantPermissions(
     args: BatchGrantPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: BatchGrantPermissionsCommandOutput) => void
   ): void;
 
@@ -454,7 +466,7 @@ export interface LakeFormation {
    */
   batchRevokePermissions(
     args: BatchRevokePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<BatchRevokePermissionsCommandOutput>;
   batchRevokePermissions(
     args: BatchRevokePermissionsCommandInput,
@@ -462,7 +474,7 @@ export interface LakeFormation {
   ): void;
   batchRevokePermissions(
     args: BatchRevokePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: BatchRevokePermissionsCommandOutput) => void
   ): void;
 
@@ -471,7 +483,7 @@ export interface LakeFormation {
    */
   cancelTransaction(
     args: CancelTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<CancelTransactionCommandOutput>;
   cancelTransaction(
     args: CancelTransactionCommandInput,
@@ -479,7 +491,7 @@ export interface LakeFormation {
   ): void;
   cancelTransaction(
     args: CancelTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: CancelTransactionCommandOutput) => void
   ): void;
 
@@ -488,7 +500,7 @@ export interface LakeFormation {
    */
   commitTransaction(
     args: CommitTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<CommitTransactionCommandOutput>;
   commitTransaction(
     args: CommitTransactionCommandInput,
@@ -496,7 +508,7 @@ export interface LakeFormation {
   ): void;
   commitTransaction(
     args: CommitTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: CommitTransactionCommandOutput) => void
   ): void;
 
@@ -505,7 +517,7 @@ export interface LakeFormation {
    */
   createDataCellsFilter(
     args: CreateDataCellsFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<CreateDataCellsFilterCommandOutput>;
   createDataCellsFilter(
     args: CreateDataCellsFilterCommandInput,
@@ -513,7 +525,7 @@ export interface LakeFormation {
   ): void;
   createDataCellsFilter(
     args: CreateDataCellsFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: CreateDataCellsFilterCommandOutput) => void
   ): void;
 
@@ -523,7 +535,7 @@ export interface LakeFormation {
   createLakeFormationIdentityCenterConfiguration(): Promise<CreateLakeFormationIdentityCenterConfigurationCommandOutput>;
   createLakeFormationIdentityCenterConfiguration(
     args: CreateLakeFormationIdentityCenterConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<CreateLakeFormationIdentityCenterConfigurationCommandOutput>;
   createLakeFormationIdentityCenterConfiguration(
     args: CreateLakeFormationIdentityCenterConfigurationCommandInput,
@@ -531,7 +543,7 @@ export interface LakeFormation {
   ): void;
   createLakeFormationIdentityCenterConfiguration(
     args: CreateLakeFormationIdentityCenterConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: CreateLakeFormationIdentityCenterConfigurationCommandOutput) => void
   ): void;
 
@@ -540,7 +552,7 @@ export interface LakeFormation {
    */
   createLakeFormationOptIn(
     args: CreateLakeFormationOptInCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<CreateLakeFormationOptInCommandOutput>;
   createLakeFormationOptIn(
     args: CreateLakeFormationOptInCommandInput,
@@ -548,7 +560,7 @@ export interface LakeFormation {
   ): void;
   createLakeFormationOptIn(
     args: CreateLakeFormationOptInCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: CreateLakeFormationOptInCommandOutput) => void
   ): void;
 
@@ -557,7 +569,7 @@ export interface LakeFormation {
    */
   createLFTag(
     args: CreateLFTagCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<CreateLFTagCommandOutput>;
   createLFTag(
     args: CreateLFTagCommandInput,
@@ -565,7 +577,7 @@ export interface LakeFormation {
   ): void;
   createLFTag(
     args: CreateLFTagCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: CreateLFTagCommandOutput) => void
   ): void;
 
@@ -574,7 +586,7 @@ export interface LakeFormation {
    */
   createLFTagExpression(
     args: CreateLFTagExpressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<CreateLFTagExpressionCommandOutput>;
   createLFTagExpression(
     args: CreateLFTagExpressionCommandInput,
@@ -582,7 +594,7 @@ export interface LakeFormation {
   ): void;
   createLFTagExpression(
     args: CreateLFTagExpressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: CreateLFTagExpressionCommandOutput) => void
   ): void;
 
@@ -592,7 +604,7 @@ export interface LakeFormation {
   deleteDataCellsFilter(): Promise<DeleteDataCellsFilterCommandOutput>;
   deleteDataCellsFilter(
     args: DeleteDataCellsFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DeleteDataCellsFilterCommandOutput>;
   deleteDataCellsFilter(
     args: DeleteDataCellsFilterCommandInput,
@@ -600,7 +612,7 @@ export interface LakeFormation {
   ): void;
   deleteDataCellsFilter(
     args: DeleteDataCellsFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DeleteDataCellsFilterCommandOutput) => void
   ): void;
 
@@ -610,7 +622,7 @@ export interface LakeFormation {
   deleteLakeFormationIdentityCenterConfiguration(): Promise<DeleteLakeFormationIdentityCenterConfigurationCommandOutput>;
   deleteLakeFormationIdentityCenterConfiguration(
     args: DeleteLakeFormationIdentityCenterConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DeleteLakeFormationIdentityCenterConfigurationCommandOutput>;
   deleteLakeFormationIdentityCenterConfiguration(
     args: DeleteLakeFormationIdentityCenterConfigurationCommandInput,
@@ -618,7 +630,7 @@ export interface LakeFormation {
   ): void;
   deleteLakeFormationIdentityCenterConfiguration(
     args: DeleteLakeFormationIdentityCenterConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DeleteLakeFormationIdentityCenterConfigurationCommandOutput) => void
   ): void;
 
@@ -627,7 +639,7 @@ export interface LakeFormation {
    */
   deleteLakeFormationOptIn(
     args: DeleteLakeFormationOptInCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DeleteLakeFormationOptInCommandOutput>;
   deleteLakeFormationOptIn(
     args: DeleteLakeFormationOptInCommandInput,
@@ -635,7 +647,7 @@ export interface LakeFormation {
   ): void;
   deleteLakeFormationOptIn(
     args: DeleteLakeFormationOptInCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DeleteLakeFormationOptInCommandOutput) => void
   ): void;
 
@@ -644,7 +656,7 @@ export interface LakeFormation {
    */
   deleteLFTag(
     args: DeleteLFTagCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DeleteLFTagCommandOutput>;
   deleteLFTag(
     args: DeleteLFTagCommandInput,
@@ -652,7 +664,7 @@ export interface LakeFormation {
   ): void;
   deleteLFTag(
     args: DeleteLFTagCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DeleteLFTagCommandOutput) => void
   ): void;
 
@@ -661,7 +673,7 @@ export interface LakeFormation {
    */
   deleteLFTagExpression(
     args: DeleteLFTagExpressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DeleteLFTagExpressionCommandOutput>;
   deleteLFTagExpression(
     args: DeleteLFTagExpressionCommandInput,
@@ -669,7 +681,7 @@ export interface LakeFormation {
   ): void;
   deleteLFTagExpression(
     args: DeleteLFTagExpressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DeleteLFTagExpressionCommandOutput) => void
   ): void;
 
@@ -678,7 +690,7 @@ export interface LakeFormation {
    */
   deleteObjectsOnCancel(
     args: DeleteObjectsOnCancelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DeleteObjectsOnCancelCommandOutput>;
   deleteObjectsOnCancel(
     args: DeleteObjectsOnCancelCommandInput,
@@ -686,7 +698,7 @@ export interface LakeFormation {
   ): void;
   deleteObjectsOnCancel(
     args: DeleteObjectsOnCancelCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DeleteObjectsOnCancelCommandOutput) => void
   ): void;
 
@@ -695,7 +707,7 @@ export interface LakeFormation {
    */
   deregisterResource(
     args: DeregisterResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DeregisterResourceCommandOutput>;
   deregisterResource(
     args: DeregisterResourceCommandInput,
@@ -703,7 +715,7 @@ export interface LakeFormation {
   ): void;
   deregisterResource(
     args: DeregisterResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DeregisterResourceCommandOutput) => void
   ): void;
 
@@ -713,7 +725,7 @@ export interface LakeFormation {
   describeLakeFormationIdentityCenterConfiguration(): Promise<DescribeLakeFormationIdentityCenterConfigurationCommandOutput>;
   describeLakeFormationIdentityCenterConfiguration(
     args: DescribeLakeFormationIdentityCenterConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DescribeLakeFormationIdentityCenterConfigurationCommandOutput>;
   describeLakeFormationIdentityCenterConfiguration(
     args: DescribeLakeFormationIdentityCenterConfigurationCommandInput,
@@ -721,7 +733,7 @@ export interface LakeFormation {
   ): void;
   describeLakeFormationIdentityCenterConfiguration(
     args: DescribeLakeFormationIdentityCenterConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DescribeLakeFormationIdentityCenterConfigurationCommandOutput) => void
   ): void;
 
@@ -730,7 +742,7 @@ export interface LakeFormation {
    */
   describeResource(
     args: DescribeResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DescribeResourceCommandOutput>;
   describeResource(
     args: DescribeResourceCommandInput,
@@ -738,7 +750,7 @@ export interface LakeFormation {
   ): void;
   describeResource(
     args: DescribeResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DescribeResourceCommandOutput) => void
   ): void;
 
@@ -747,7 +759,7 @@ export interface LakeFormation {
    */
   describeTransaction(
     args: DescribeTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<DescribeTransactionCommandOutput>;
   describeTransaction(
     args: DescribeTransactionCommandInput,
@@ -755,7 +767,7 @@ export interface LakeFormation {
   ): void;
   describeTransaction(
     args: DescribeTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: DescribeTransactionCommandOutput) => void
   ): void;
 
@@ -765,7 +777,7 @@ export interface LakeFormation {
   extendTransaction(): Promise<ExtendTransactionCommandOutput>;
   extendTransaction(
     args: ExtendTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<ExtendTransactionCommandOutput>;
   extendTransaction(
     args: ExtendTransactionCommandInput,
@@ -773,7 +785,7 @@ export interface LakeFormation {
   ): void;
   extendTransaction(
     args: ExtendTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: ExtendTransactionCommandOutput) => void
   ): void;
 
@@ -782,7 +794,7 @@ export interface LakeFormation {
    */
   getDataCellsFilter(
     args: GetDataCellsFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetDataCellsFilterCommandOutput>;
   getDataCellsFilter(
     args: GetDataCellsFilterCommandInput,
@@ -790,7 +802,7 @@ export interface LakeFormation {
   ): void;
   getDataCellsFilter(
     args: GetDataCellsFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetDataCellsFilterCommandOutput) => void
   ): void;
 
@@ -800,7 +812,7 @@ export interface LakeFormation {
   getDataLakePrincipal(): Promise<GetDataLakePrincipalCommandOutput>;
   getDataLakePrincipal(
     args: GetDataLakePrincipalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetDataLakePrincipalCommandOutput>;
   getDataLakePrincipal(
     args: GetDataLakePrincipalCommandInput,
@@ -808,7 +820,7 @@ export interface LakeFormation {
   ): void;
   getDataLakePrincipal(
     args: GetDataLakePrincipalCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetDataLakePrincipalCommandOutput) => void
   ): void;
 
@@ -818,7 +830,7 @@ export interface LakeFormation {
   getDataLakeSettings(): Promise<GetDataLakeSettingsCommandOutput>;
   getDataLakeSettings(
     args: GetDataLakeSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetDataLakeSettingsCommandOutput>;
   getDataLakeSettings(
     args: GetDataLakeSettingsCommandInput,
@@ -826,7 +838,7 @@ export interface LakeFormation {
   ): void;
   getDataLakeSettings(
     args: GetDataLakeSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetDataLakeSettingsCommandOutput) => void
   ): void;
 
@@ -835,7 +847,7 @@ export interface LakeFormation {
    */
   getEffectivePermissionsForPath(
     args: GetEffectivePermissionsForPathCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetEffectivePermissionsForPathCommandOutput>;
   getEffectivePermissionsForPath(
     args: GetEffectivePermissionsForPathCommandInput,
@@ -843,7 +855,7 @@ export interface LakeFormation {
   ): void;
   getEffectivePermissionsForPath(
     args: GetEffectivePermissionsForPathCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetEffectivePermissionsForPathCommandOutput) => void
   ): void;
 
@@ -852,7 +864,7 @@ export interface LakeFormation {
    */
   getLFTag(
     args: GetLFTagCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetLFTagCommandOutput>;
   getLFTag(
     args: GetLFTagCommandInput,
@@ -860,7 +872,7 @@ export interface LakeFormation {
   ): void;
   getLFTag(
     args: GetLFTagCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetLFTagCommandOutput) => void
   ): void;
 
@@ -869,7 +881,7 @@ export interface LakeFormation {
    */
   getLFTagExpression(
     args: GetLFTagExpressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetLFTagExpressionCommandOutput>;
   getLFTagExpression(
     args: GetLFTagExpressionCommandInput,
@@ -877,7 +889,7 @@ export interface LakeFormation {
   ): void;
   getLFTagExpression(
     args: GetLFTagExpressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetLFTagExpressionCommandOutput) => void
   ): void;
 
@@ -886,7 +898,7 @@ export interface LakeFormation {
    */
   getQueryState(
     args: GetQueryStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetQueryStateCommandOutput>;
   getQueryState(
     args: GetQueryStateCommandInput,
@@ -894,7 +906,7 @@ export interface LakeFormation {
   ): void;
   getQueryState(
     args: GetQueryStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetQueryStateCommandOutput) => void
   ): void;
 
@@ -903,7 +915,7 @@ export interface LakeFormation {
    */
   getQueryStatistics(
     args: GetQueryStatisticsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetQueryStatisticsCommandOutput>;
   getQueryStatistics(
     args: GetQueryStatisticsCommandInput,
@@ -911,7 +923,7 @@ export interface LakeFormation {
   ): void;
   getQueryStatistics(
     args: GetQueryStatisticsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetQueryStatisticsCommandOutput) => void
   ): void;
 
@@ -920,7 +932,7 @@ export interface LakeFormation {
    */
   getResourceLFTags(
     args: GetResourceLFTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetResourceLFTagsCommandOutput>;
   getResourceLFTags(
     args: GetResourceLFTagsCommandInput,
@@ -928,7 +940,7 @@ export interface LakeFormation {
   ): void;
   getResourceLFTags(
     args: GetResourceLFTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetResourceLFTagsCommandOutput) => void
   ): void;
 
@@ -937,7 +949,7 @@ export interface LakeFormation {
    */
   getTableObjects(
     args: GetTableObjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetTableObjectsCommandOutput>;
   getTableObjects(
     args: GetTableObjectsCommandInput,
@@ -945,7 +957,7 @@ export interface LakeFormation {
   ): void;
   getTableObjects(
     args: GetTableObjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetTableObjectsCommandOutput) => void
   ): void;
 
@@ -955,7 +967,7 @@ export interface LakeFormation {
   getTemporaryDataLocationCredentials(): Promise<GetTemporaryDataLocationCredentialsCommandOutput>;
   getTemporaryDataLocationCredentials(
     args: GetTemporaryDataLocationCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetTemporaryDataLocationCredentialsCommandOutput>;
   getTemporaryDataLocationCredentials(
     args: GetTemporaryDataLocationCredentialsCommandInput,
@@ -963,7 +975,7 @@ export interface LakeFormation {
   ): void;
   getTemporaryDataLocationCredentials(
     args: GetTemporaryDataLocationCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetTemporaryDataLocationCredentialsCommandOutput) => void
   ): void;
 
@@ -972,7 +984,7 @@ export interface LakeFormation {
    */
   getTemporaryGluePartitionCredentials(
     args: GetTemporaryGluePartitionCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetTemporaryGluePartitionCredentialsCommandOutput>;
   getTemporaryGluePartitionCredentials(
     args: GetTemporaryGluePartitionCredentialsCommandInput,
@@ -980,7 +992,7 @@ export interface LakeFormation {
   ): void;
   getTemporaryGluePartitionCredentials(
     args: GetTemporaryGluePartitionCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetTemporaryGluePartitionCredentialsCommandOutput) => void
   ): void;
 
@@ -989,7 +1001,7 @@ export interface LakeFormation {
    */
   getTemporaryGlueTableCredentials(
     args: GetTemporaryGlueTableCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetTemporaryGlueTableCredentialsCommandOutput>;
   getTemporaryGlueTableCredentials(
     args: GetTemporaryGlueTableCredentialsCommandInput,
@@ -997,7 +1009,7 @@ export interface LakeFormation {
   ): void;
   getTemporaryGlueTableCredentials(
     args: GetTemporaryGlueTableCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetTemporaryGlueTableCredentialsCommandOutput) => void
   ): void;
 
@@ -1006,7 +1018,7 @@ export interface LakeFormation {
    */
   getWorkUnitResults(
     args: GetWorkUnitResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetWorkUnitResultsCommandOutput>;
   getWorkUnitResults(
     args: GetWorkUnitResultsCommandInput,
@@ -1014,7 +1026,7 @@ export interface LakeFormation {
   ): void;
   getWorkUnitResults(
     args: GetWorkUnitResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetWorkUnitResultsCommandOutput) => void
   ): void;
 
@@ -1023,7 +1035,7 @@ export interface LakeFormation {
    */
   getWorkUnits(
     args: GetWorkUnitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GetWorkUnitsCommandOutput>;
   getWorkUnits(
     args: GetWorkUnitsCommandInput,
@@ -1031,7 +1043,7 @@ export interface LakeFormation {
   ): void;
   getWorkUnits(
     args: GetWorkUnitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GetWorkUnitsCommandOutput) => void
   ): void;
 
@@ -1040,7 +1052,7 @@ export interface LakeFormation {
    */
   grantPermissions(
     args: GrantPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<GrantPermissionsCommandOutput>;
   grantPermissions(
     args: GrantPermissionsCommandInput,
@@ -1048,7 +1060,7 @@ export interface LakeFormation {
   ): void;
   grantPermissions(
     args: GrantPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: GrantPermissionsCommandOutput) => void
   ): void;
 
@@ -1058,7 +1070,7 @@ export interface LakeFormation {
   listDataCellsFilter(): Promise<ListDataCellsFilterCommandOutput>;
   listDataCellsFilter(
     args: ListDataCellsFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<ListDataCellsFilterCommandOutput>;
   listDataCellsFilter(
     args: ListDataCellsFilterCommandInput,
@@ -1066,7 +1078,7 @@ export interface LakeFormation {
   ): void;
   listDataCellsFilter(
     args: ListDataCellsFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: ListDataCellsFilterCommandOutput) => void
   ): void;
 
@@ -1076,7 +1088,7 @@ export interface LakeFormation {
   listLakeFormationOptIns(): Promise<ListLakeFormationOptInsCommandOutput>;
   listLakeFormationOptIns(
     args: ListLakeFormationOptInsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<ListLakeFormationOptInsCommandOutput>;
   listLakeFormationOptIns(
     args: ListLakeFormationOptInsCommandInput,
@@ -1084,7 +1096,7 @@ export interface LakeFormation {
   ): void;
   listLakeFormationOptIns(
     args: ListLakeFormationOptInsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: ListLakeFormationOptInsCommandOutput) => void
   ): void;
 
@@ -1094,7 +1106,7 @@ export interface LakeFormation {
   listLFTagExpressions(): Promise<ListLFTagExpressionsCommandOutput>;
   listLFTagExpressions(
     args: ListLFTagExpressionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<ListLFTagExpressionsCommandOutput>;
   listLFTagExpressions(
     args: ListLFTagExpressionsCommandInput,
@@ -1102,7 +1114,7 @@ export interface LakeFormation {
   ): void;
   listLFTagExpressions(
     args: ListLFTagExpressionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: ListLFTagExpressionsCommandOutput) => void
   ): void;
 
@@ -1112,7 +1124,7 @@ export interface LakeFormation {
   listLFTags(): Promise<ListLFTagsCommandOutput>;
   listLFTags(
     args: ListLFTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<ListLFTagsCommandOutput>;
   listLFTags(
     args: ListLFTagsCommandInput,
@@ -1120,7 +1132,7 @@ export interface LakeFormation {
   ): void;
   listLFTags(
     args: ListLFTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: ListLFTagsCommandOutput) => void
   ): void;
 
@@ -1130,7 +1142,7 @@ export interface LakeFormation {
   listPermissions(): Promise<ListPermissionsCommandOutput>;
   listPermissions(
     args: ListPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<ListPermissionsCommandOutput>;
   listPermissions(
     args: ListPermissionsCommandInput,
@@ -1138,7 +1150,7 @@ export interface LakeFormation {
   ): void;
   listPermissions(
     args: ListPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: ListPermissionsCommandOutput) => void
   ): void;
 
@@ -1148,7 +1160,7 @@ export interface LakeFormation {
   listResources(): Promise<ListResourcesCommandOutput>;
   listResources(
     args: ListResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<ListResourcesCommandOutput>;
   listResources(
     args: ListResourcesCommandInput,
@@ -1156,7 +1168,7 @@ export interface LakeFormation {
   ): void;
   listResources(
     args: ListResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: ListResourcesCommandOutput) => void
   ): void;
 
@@ -1165,7 +1177,7 @@ export interface LakeFormation {
    */
   listTableStorageOptimizers(
     args: ListTableStorageOptimizersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<ListTableStorageOptimizersCommandOutput>;
   listTableStorageOptimizers(
     args: ListTableStorageOptimizersCommandInput,
@@ -1173,7 +1185,7 @@ export interface LakeFormation {
   ): void;
   listTableStorageOptimizers(
     args: ListTableStorageOptimizersCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: ListTableStorageOptimizersCommandOutput) => void
   ): void;
 
@@ -1183,7 +1195,7 @@ export interface LakeFormation {
   listTransactions(): Promise<ListTransactionsCommandOutput>;
   listTransactions(
     args: ListTransactionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<ListTransactionsCommandOutput>;
   listTransactions(
     args: ListTransactionsCommandInput,
@@ -1191,7 +1203,7 @@ export interface LakeFormation {
   ): void;
   listTransactions(
     args: ListTransactionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: ListTransactionsCommandOutput) => void
   ): void;
 
@@ -1200,7 +1212,7 @@ export interface LakeFormation {
    */
   putDataLakeSettings(
     args: PutDataLakeSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<PutDataLakeSettingsCommandOutput>;
   putDataLakeSettings(
     args: PutDataLakeSettingsCommandInput,
@@ -1208,7 +1220,7 @@ export interface LakeFormation {
   ): void;
   putDataLakeSettings(
     args: PutDataLakeSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: PutDataLakeSettingsCommandOutput) => void
   ): void;
 
@@ -1217,7 +1229,7 @@ export interface LakeFormation {
    */
   registerResource(
     args: RegisterResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<RegisterResourceCommandOutput>;
   registerResource(
     args: RegisterResourceCommandInput,
@@ -1225,7 +1237,7 @@ export interface LakeFormation {
   ): void;
   registerResource(
     args: RegisterResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: RegisterResourceCommandOutput) => void
   ): void;
 
@@ -1234,7 +1246,7 @@ export interface LakeFormation {
    */
   removeLFTagsFromResource(
     args: RemoveLFTagsFromResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<RemoveLFTagsFromResourceCommandOutput>;
   removeLFTagsFromResource(
     args: RemoveLFTagsFromResourceCommandInput,
@@ -1242,7 +1254,7 @@ export interface LakeFormation {
   ): void;
   removeLFTagsFromResource(
     args: RemoveLFTagsFromResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: RemoveLFTagsFromResourceCommandOutput) => void
   ): void;
 
@@ -1251,7 +1263,7 @@ export interface LakeFormation {
    */
   revokePermissions(
     args: RevokePermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<RevokePermissionsCommandOutput>;
   revokePermissions(
     args: RevokePermissionsCommandInput,
@@ -1259,7 +1271,7 @@ export interface LakeFormation {
   ): void;
   revokePermissions(
     args: RevokePermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: RevokePermissionsCommandOutput) => void
   ): void;
 
@@ -1268,7 +1280,7 @@ export interface LakeFormation {
    */
   searchDatabasesByLFTags(
     args: SearchDatabasesByLFTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<SearchDatabasesByLFTagsCommandOutput>;
   searchDatabasesByLFTags(
     args: SearchDatabasesByLFTagsCommandInput,
@@ -1276,7 +1288,7 @@ export interface LakeFormation {
   ): void;
   searchDatabasesByLFTags(
     args: SearchDatabasesByLFTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: SearchDatabasesByLFTagsCommandOutput) => void
   ): void;
 
@@ -1285,7 +1297,7 @@ export interface LakeFormation {
    */
   searchTablesByLFTags(
     args: SearchTablesByLFTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<SearchTablesByLFTagsCommandOutput>;
   searchTablesByLFTags(
     args: SearchTablesByLFTagsCommandInput,
@@ -1293,7 +1305,7 @@ export interface LakeFormation {
   ): void;
   searchTablesByLFTags(
     args: SearchTablesByLFTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: SearchTablesByLFTagsCommandOutput) => void
   ): void;
 
@@ -1302,7 +1314,7 @@ export interface LakeFormation {
    */
   startQueryPlanning(
     args: StartQueryPlanningCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<StartQueryPlanningCommandOutput>;
   startQueryPlanning(
     args: StartQueryPlanningCommandInput,
@@ -1310,7 +1322,7 @@ export interface LakeFormation {
   ): void;
   startQueryPlanning(
     args: StartQueryPlanningCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: StartQueryPlanningCommandOutput) => void
   ): void;
 
@@ -1320,7 +1332,7 @@ export interface LakeFormation {
   startTransaction(): Promise<StartTransactionCommandOutput>;
   startTransaction(
     args: StartTransactionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<StartTransactionCommandOutput>;
   startTransaction(
     args: StartTransactionCommandInput,
@@ -1328,7 +1340,7 @@ export interface LakeFormation {
   ): void;
   startTransaction(
     args: StartTransactionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: StartTransactionCommandOutput) => void
   ): void;
 
@@ -1337,7 +1349,7 @@ export interface LakeFormation {
    */
   updateDataCellsFilter(
     args: UpdateDataCellsFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<UpdateDataCellsFilterCommandOutput>;
   updateDataCellsFilter(
     args: UpdateDataCellsFilterCommandInput,
@@ -1345,7 +1357,7 @@ export interface LakeFormation {
   ): void;
   updateDataCellsFilter(
     args: UpdateDataCellsFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: UpdateDataCellsFilterCommandOutput) => void
   ): void;
 
@@ -1355,7 +1367,7 @@ export interface LakeFormation {
   updateLakeFormationIdentityCenterConfiguration(): Promise<UpdateLakeFormationIdentityCenterConfigurationCommandOutput>;
   updateLakeFormationIdentityCenterConfiguration(
     args: UpdateLakeFormationIdentityCenterConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<UpdateLakeFormationIdentityCenterConfigurationCommandOutput>;
   updateLakeFormationIdentityCenterConfiguration(
     args: UpdateLakeFormationIdentityCenterConfigurationCommandInput,
@@ -1363,7 +1375,7 @@ export interface LakeFormation {
   ): void;
   updateLakeFormationIdentityCenterConfiguration(
     args: UpdateLakeFormationIdentityCenterConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: UpdateLakeFormationIdentityCenterConfigurationCommandOutput) => void
   ): void;
 
@@ -1372,7 +1384,7 @@ export interface LakeFormation {
    */
   updateLFTag(
     args: UpdateLFTagCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<UpdateLFTagCommandOutput>;
   updateLFTag(
     args: UpdateLFTagCommandInput,
@@ -1380,7 +1392,7 @@ export interface LakeFormation {
   ): void;
   updateLFTag(
     args: UpdateLFTagCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: UpdateLFTagCommandOutput) => void
   ): void;
 
@@ -1389,7 +1401,7 @@ export interface LakeFormation {
    */
   updateLFTagExpression(
     args: UpdateLFTagExpressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<UpdateLFTagExpressionCommandOutput>;
   updateLFTagExpression(
     args: UpdateLFTagExpressionCommandInput,
@@ -1397,7 +1409,7 @@ export interface LakeFormation {
   ): void;
   updateLFTagExpression(
     args: UpdateLFTagExpressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: UpdateLFTagExpressionCommandOutput) => void
   ): void;
 
@@ -1406,7 +1418,7 @@ export interface LakeFormation {
    */
   updateResource(
     args: UpdateResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<UpdateResourceCommandOutput>;
   updateResource(
     args: UpdateResourceCommandInput,
@@ -1414,7 +1426,7 @@ export interface LakeFormation {
   ): void;
   updateResource(
     args: UpdateResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: UpdateResourceCommandOutput) => void
   ): void;
 
@@ -1423,7 +1435,7 @@ export interface LakeFormation {
    */
   updateTableObjects(
     args: UpdateTableObjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<UpdateTableObjectsCommandOutput>;
   updateTableObjects(
     args: UpdateTableObjectsCommandInput,
@@ -1431,7 +1443,7 @@ export interface LakeFormation {
   ): void;
   updateTableObjects(
     args: UpdateTableObjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: UpdateTableObjectsCommandOutput) => void
   ): void;
 
@@ -1440,7 +1452,7 @@ export interface LakeFormation {
    */
   updateTableStorageOptimizer(
     args: UpdateTableStorageOptimizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LakeFormationRequestOptions
   ): Promise<UpdateTableStorageOptimizerCommandOutput>;
   updateTableStorageOptimizer(
     args: UpdateTableStorageOptimizerCommandInput,
@@ -1448,7 +1460,7 @@ export interface LakeFormation {
   ): void;
   updateTableStorageOptimizer(
     args: UpdateTableStorageOptimizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: LakeFormationRequestOptions,
     cb: (err: any, data?: UpdateTableStorageOptimizerCommandOutput) => void
   ): void;
 

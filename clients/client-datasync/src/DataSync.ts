@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CancelTaskExecutionCommandInput,
@@ -333,13 +338,20 @@ const paginators = {
   paginateListTasks,
 };
 
+/**
+ * @public
+ */
+export interface DataSyncRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DataSync {
   /**
    * @see {@link CancelTaskExecutionCommand}
    */
   cancelTaskExecution(
     args: CancelTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CancelTaskExecutionCommandOutput>;
   cancelTaskExecution(
     args: CancelTaskExecutionCommandInput,
@@ -347,7 +359,7 @@ export interface DataSync {
   ): void;
   cancelTaskExecution(
     args: CancelTaskExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CancelTaskExecutionCommandOutput) => void
   ): void;
 
@@ -356,7 +368,7 @@ export interface DataSync {
    */
   createAgent(
     args: CreateAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateAgentCommandOutput>;
   createAgent(
     args: CreateAgentCommandInput,
@@ -364,7 +376,7 @@ export interface DataSync {
   ): void;
   createAgent(
     args: CreateAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateAgentCommandOutput) => void
   ): void;
 
@@ -373,7 +385,7 @@ export interface DataSync {
    */
   createLocationAzureBlob(
     args: CreateLocationAzureBlobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationAzureBlobCommandOutput>;
   createLocationAzureBlob(
     args: CreateLocationAzureBlobCommandInput,
@@ -381,7 +393,7 @@ export interface DataSync {
   ): void;
   createLocationAzureBlob(
     args: CreateLocationAzureBlobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationAzureBlobCommandOutput) => void
   ): void;
 
@@ -390,7 +402,7 @@ export interface DataSync {
    */
   createLocationEfs(
     args: CreateLocationEfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationEfsCommandOutput>;
   createLocationEfs(
     args: CreateLocationEfsCommandInput,
@@ -398,7 +410,7 @@ export interface DataSync {
   ): void;
   createLocationEfs(
     args: CreateLocationEfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationEfsCommandOutput) => void
   ): void;
 
@@ -407,7 +419,7 @@ export interface DataSync {
    */
   createLocationFsxLustre(
     args: CreateLocationFsxLustreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationFsxLustreCommandOutput>;
   createLocationFsxLustre(
     args: CreateLocationFsxLustreCommandInput,
@@ -415,7 +427,7 @@ export interface DataSync {
   ): void;
   createLocationFsxLustre(
     args: CreateLocationFsxLustreCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationFsxLustreCommandOutput) => void
   ): void;
 
@@ -424,7 +436,7 @@ export interface DataSync {
    */
   createLocationFsxOntap(
     args: CreateLocationFsxOntapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationFsxOntapCommandOutput>;
   createLocationFsxOntap(
     args: CreateLocationFsxOntapCommandInput,
@@ -432,7 +444,7 @@ export interface DataSync {
   ): void;
   createLocationFsxOntap(
     args: CreateLocationFsxOntapCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationFsxOntapCommandOutput) => void
   ): void;
 
@@ -441,7 +453,7 @@ export interface DataSync {
    */
   createLocationFsxOpenZfs(
     args: CreateLocationFsxOpenZfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationFsxOpenZfsCommandOutput>;
   createLocationFsxOpenZfs(
     args: CreateLocationFsxOpenZfsCommandInput,
@@ -449,7 +461,7 @@ export interface DataSync {
   ): void;
   createLocationFsxOpenZfs(
     args: CreateLocationFsxOpenZfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationFsxOpenZfsCommandOutput) => void
   ): void;
 
@@ -458,7 +470,7 @@ export interface DataSync {
    */
   createLocationFsxWindows(
     args: CreateLocationFsxWindowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationFsxWindowsCommandOutput>;
   createLocationFsxWindows(
     args: CreateLocationFsxWindowsCommandInput,
@@ -466,7 +478,7 @@ export interface DataSync {
   ): void;
   createLocationFsxWindows(
     args: CreateLocationFsxWindowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
   ): void;
 
@@ -475,7 +487,7 @@ export interface DataSync {
    */
   createLocationHdfs(
     args: CreateLocationHdfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationHdfsCommandOutput>;
   createLocationHdfs(
     args: CreateLocationHdfsCommandInput,
@@ -483,7 +495,7 @@ export interface DataSync {
   ): void;
   createLocationHdfs(
     args: CreateLocationHdfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationHdfsCommandOutput) => void
   ): void;
 
@@ -492,7 +504,7 @@ export interface DataSync {
    */
   createLocationNfs(
     args: CreateLocationNfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationNfsCommandOutput>;
   createLocationNfs(
     args: CreateLocationNfsCommandInput,
@@ -500,7 +512,7 @@ export interface DataSync {
   ): void;
   createLocationNfs(
     args: CreateLocationNfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationNfsCommandOutput) => void
   ): void;
 
@@ -509,7 +521,7 @@ export interface DataSync {
    */
   createLocationObjectStorage(
     args: CreateLocationObjectStorageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationObjectStorageCommandOutput>;
   createLocationObjectStorage(
     args: CreateLocationObjectStorageCommandInput,
@@ -517,7 +529,7 @@ export interface DataSync {
   ): void;
   createLocationObjectStorage(
     args: CreateLocationObjectStorageCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationObjectStorageCommandOutput) => void
   ): void;
 
@@ -526,7 +538,7 @@ export interface DataSync {
    */
   createLocationS3(
     args: CreateLocationS3CommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationS3CommandOutput>;
   createLocationS3(
     args: CreateLocationS3CommandInput,
@@ -534,7 +546,7 @@ export interface DataSync {
   ): void;
   createLocationS3(
     args: CreateLocationS3CommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationS3CommandOutput) => void
   ): void;
 
@@ -543,7 +555,7 @@ export interface DataSync {
    */
   createLocationSmb(
     args: CreateLocationSmbCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateLocationSmbCommandOutput>;
   createLocationSmb(
     args: CreateLocationSmbCommandInput,
@@ -551,7 +563,7 @@ export interface DataSync {
   ): void;
   createLocationSmb(
     args: CreateLocationSmbCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateLocationSmbCommandOutput) => void
   ): void;
 
@@ -560,7 +572,7 @@ export interface DataSync {
    */
   createTask(
     args: CreateTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<CreateTaskCommandOutput>;
   createTask(
     args: CreateTaskCommandInput,
@@ -568,7 +580,7 @@ export interface DataSync {
   ): void;
   createTask(
     args: CreateTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: CreateTaskCommandOutput) => void
   ): void;
 
@@ -577,7 +589,7 @@ export interface DataSync {
    */
   deleteAgent(
     args: DeleteAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DeleteAgentCommandOutput>;
   deleteAgent(
     args: DeleteAgentCommandInput,
@@ -585,7 +597,7 @@ export interface DataSync {
   ): void;
   deleteAgent(
     args: DeleteAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DeleteAgentCommandOutput) => void
   ): void;
 
@@ -594,7 +606,7 @@ export interface DataSync {
    */
   deleteLocation(
     args: DeleteLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DeleteLocationCommandOutput>;
   deleteLocation(
     args: DeleteLocationCommandInput,
@@ -602,7 +614,7 @@ export interface DataSync {
   ): void;
   deleteLocation(
     args: DeleteLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DeleteLocationCommandOutput) => void
   ): void;
 
@@ -611,7 +623,7 @@ export interface DataSync {
    */
   deleteTask(
     args: DeleteTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DeleteTaskCommandOutput>;
   deleteTask(
     args: DeleteTaskCommandInput,
@@ -619,7 +631,7 @@ export interface DataSync {
   ): void;
   deleteTask(
     args: DeleteTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DeleteTaskCommandOutput) => void
   ): void;
 
@@ -628,7 +640,7 @@ export interface DataSync {
    */
   describeAgent(
     args: DescribeAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeAgentCommandOutput>;
   describeAgent(
     args: DescribeAgentCommandInput,
@@ -636,7 +648,7 @@ export interface DataSync {
   ): void;
   describeAgent(
     args: DescribeAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeAgentCommandOutput) => void
   ): void;
 
@@ -645,7 +657,7 @@ export interface DataSync {
    */
   describeLocationAzureBlob(
     args: DescribeLocationAzureBlobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationAzureBlobCommandOutput>;
   describeLocationAzureBlob(
     args: DescribeLocationAzureBlobCommandInput,
@@ -653,7 +665,7 @@ export interface DataSync {
   ): void;
   describeLocationAzureBlob(
     args: DescribeLocationAzureBlobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationAzureBlobCommandOutput) => void
   ): void;
 
@@ -662,7 +674,7 @@ export interface DataSync {
    */
   describeLocationEfs(
     args: DescribeLocationEfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationEfsCommandOutput>;
   describeLocationEfs(
     args: DescribeLocationEfsCommandInput,
@@ -670,7 +682,7 @@ export interface DataSync {
   ): void;
   describeLocationEfs(
     args: DescribeLocationEfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationEfsCommandOutput) => void
   ): void;
 
@@ -679,7 +691,7 @@ export interface DataSync {
    */
   describeLocationFsxLustre(
     args: DescribeLocationFsxLustreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationFsxLustreCommandOutput>;
   describeLocationFsxLustre(
     args: DescribeLocationFsxLustreCommandInput,
@@ -687,7 +699,7 @@ export interface DataSync {
   ): void;
   describeLocationFsxLustre(
     args: DescribeLocationFsxLustreCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationFsxLustreCommandOutput) => void
   ): void;
 
@@ -696,7 +708,7 @@ export interface DataSync {
    */
   describeLocationFsxOntap(
     args: DescribeLocationFsxOntapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationFsxOntapCommandOutput>;
   describeLocationFsxOntap(
     args: DescribeLocationFsxOntapCommandInput,
@@ -704,7 +716,7 @@ export interface DataSync {
   ): void;
   describeLocationFsxOntap(
     args: DescribeLocationFsxOntapCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationFsxOntapCommandOutput) => void
   ): void;
 
@@ -713,7 +725,7 @@ export interface DataSync {
    */
   describeLocationFsxOpenZfs(
     args: DescribeLocationFsxOpenZfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationFsxOpenZfsCommandOutput>;
   describeLocationFsxOpenZfs(
     args: DescribeLocationFsxOpenZfsCommandInput,
@@ -721,7 +733,7 @@ export interface DataSync {
   ): void;
   describeLocationFsxOpenZfs(
     args: DescribeLocationFsxOpenZfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationFsxOpenZfsCommandOutput) => void
   ): void;
 
@@ -730,7 +742,7 @@ export interface DataSync {
    */
   describeLocationFsxWindows(
     args: DescribeLocationFsxWindowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationFsxWindowsCommandOutput>;
   describeLocationFsxWindows(
     args: DescribeLocationFsxWindowsCommandInput,
@@ -738,7 +750,7 @@ export interface DataSync {
   ): void;
   describeLocationFsxWindows(
     args: DescribeLocationFsxWindowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
   ): void;
 
@@ -747,7 +759,7 @@ export interface DataSync {
    */
   describeLocationHdfs(
     args: DescribeLocationHdfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationHdfsCommandOutput>;
   describeLocationHdfs(
     args: DescribeLocationHdfsCommandInput,
@@ -755,7 +767,7 @@ export interface DataSync {
   ): void;
   describeLocationHdfs(
     args: DescribeLocationHdfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationHdfsCommandOutput) => void
   ): void;
 
@@ -764,7 +776,7 @@ export interface DataSync {
    */
   describeLocationNfs(
     args: DescribeLocationNfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationNfsCommandOutput>;
   describeLocationNfs(
     args: DescribeLocationNfsCommandInput,
@@ -772,7 +784,7 @@ export interface DataSync {
   ): void;
   describeLocationNfs(
     args: DescribeLocationNfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationNfsCommandOutput) => void
   ): void;
 
@@ -781,7 +793,7 @@ export interface DataSync {
    */
   describeLocationObjectStorage(
     args: DescribeLocationObjectStorageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationObjectStorageCommandOutput>;
   describeLocationObjectStorage(
     args: DescribeLocationObjectStorageCommandInput,
@@ -789,7 +801,7 @@ export interface DataSync {
   ): void;
   describeLocationObjectStorage(
     args: DescribeLocationObjectStorageCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationObjectStorageCommandOutput) => void
   ): void;
 
@@ -798,7 +810,7 @@ export interface DataSync {
    */
   describeLocationS3(
     args: DescribeLocationS3CommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationS3CommandOutput>;
   describeLocationS3(
     args: DescribeLocationS3CommandInput,
@@ -806,7 +818,7 @@ export interface DataSync {
   ): void;
   describeLocationS3(
     args: DescribeLocationS3CommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationS3CommandOutput) => void
   ): void;
 
@@ -815,7 +827,7 @@ export interface DataSync {
    */
   describeLocationSmb(
     args: DescribeLocationSmbCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeLocationSmbCommandOutput>;
   describeLocationSmb(
     args: DescribeLocationSmbCommandInput,
@@ -823,7 +835,7 @@ export interface DataSync {
   ): void;
   describeLocationSmb(
     args: DescribeLocationSmbCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeLocationSmbCommandOutput) => void
   ): void;
 
@@ -832,7 +844,7 @@ export interface DataSync {
    */
   describeTask(
     args: DescribeTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeTaskCommandOutput>;
   describeTask(
     args: DescribeTaskCommandInput,
@@ -840,7 +852,7 @@ export interface DataSync {
   ): void;
   describeTask(
     args: DescribeTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeTaskCommandOutput) => void
   ): void;
 
@@ -849,7 +861,7 @@ export interface DataSync {
    */
   describeTaskExecution(
     args: DescribeTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<DescribeTaskExecutionCommandOutput>;
   describeTaskExecution(
     args: DescribeTaskExecutionCommandInput,
@@ -857,7 +869,7 @@ export interface DataSync {
   ): void;
   describeTaskExecution(
     args: DescribeTaskExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: DescribeTaskExecutionCommandOutput) => void
   ): void;
 
@@ -867,7 +879,7 @@ export interface DataSync {
   listAgents(): Promise<ListAgentsCommandOutput>;
   listAgents(
     args: ListAgentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<ListAgentsCommandOutput>;
   listAgents(
     args: ListAgentsCommandInput,
@@ -875,7 +887,7 @@ export interface DataSync {
   ): void;
   listAgents(
     args: ListAgentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: ListAgentsCommandOutput) => void
   ): void;
 
@@ -885,7 +897,7 @@ export interface DataSync {
   listLocations(): Promise<ListLocationsCommandOutput>;
   listLocations(
     args: ListLocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<ListLocationsCommandOutput>;
   listLocations(
     args: ListLocationsCommandInput,
@@ -893,7 +905,7 @@ export interface DataSync {
   ): void;
   listLocations(
     args: ListLocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: ListLocationsCommandOutput) => void
   ): void;
 
@@ -902,7 +914,7 @@ export interface DataSync {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -910,7 +922,7 @@ export interface DataSync {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -920,7 +932,7 @@ export interface DataSync {
   listTaskExecutions(): Promise<ListTaskExecutionsCommandOutput>;
   listTaskExecutions(
     args: ListTaskExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<ListTaskExecutionsCommandOutput>;
   listTaskExecutions(
     args: ListTaskExecutionsCommandInput,
@@ -928,7 +940,7 @@ export interface DataSync {
   ): void;
   listTaskExecutions(
     args: ListTaskExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: ListTaskExecutionsCommandOutput) => void
   ): void;
 
@@ -938,7 +950,7 @@ export interface DataSync {
   listTasks(): Promise<ListTasksCommandOutput>;
   listTasks(
     args: ListTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<ListTasksCommandOutput>;
   listTasks(
     args: ListTasksCommandInput,
@@ -946,7 +958,7 @@ export interface DataSync {
   ): void;
   listTasks(
     args: ListTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: ListTasksCommandOutput) => void
   ): void;
 
@@ -955,7 +967,7 @@ export interface DataSync {
    */
   startTaskExecution(
     args: StartTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<StartTaskExecutionCommandOutput>;
   startTaskExecution(
     args: StartTaskExecutionCommandInput,
@@ -963,7 +975,7 @@ export interface DataSync {
   ): void;
   startTaskExecution(
     args: StartTaskExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: StartTaskExecutionCommandOutput) => void
   ): void;
 
@@ -972,7 +984,7 @@ export interface DataSync {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -980,7 +992,7 @@ export interface DataSync {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -989,7 +1001,7 @@ export interface DataSync {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -997,7 +1009,7 @@ export interface DataSync {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1006,7 +1018,7 @@ export interface DataSync {
    */
   updateAgent(
     args: UpdateAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateAgentCommandOutput>;
   updateAgent(
     args: UpdateAgentCommandInput,
@@ -1014,7 +1026,7 @@ export interface DataSync {
   ): void;
   updateAgent(
     args: UpdateAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateAgentCommandOutput) => void
   ): void;
 
@@ -1023,7 +1035,7 @@ export interface DataSync {
    */
   updateLocationAzureBlob(
     args: UpdateLocationAzureBlobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationAzureBlobCommandOutput>;
   updateLocationAzureBlob(
     args: UpdateLocationAzureBlobCommandInput,
@@ -1031,7 +1043,7 @@ export interface DataSync {
   ): void;
   updateLocationAzureBlob(
     args: UpdateLocationAzureBlobCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationAzureBlobCommandOutput) => void
   ): void;
 
@@ -1040,7 +1052,7 @@ export interface DataSync {
    */
   updateLocationEfs(
     args: UpdateLocationEfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationEfsCommandOutput>;
   updateLocationEfs(
     args: UpdateLocationEfsCommandInput,
@@ -1048,7 +1060,7 @@ export interface DataSync {
   ): void;
   updateLocationEfs(
     args: UpdateLocationEfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationEfsCommandOutput) => void
   ): void;
 
@@ -1057,7 +1069,7 @@ export interface DataSync {
    */
   updateLocationFsxLustre(
     args: UpdateLocationFsxLustreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationFsxLustreCommandOutput>;
   updateLocationFsxLustre(
     args: UpdateLocationFsxLustreCommandInput,
@@ -1065,7 +1077,7 @@ export interface DataSync {
   ): void;
   updateLocationFsxLustre(
     args: UpdateLocationFsxLustreCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationFsxLustreCommandOutput) => void
   ): void;
 
@@ -1074,7 +1086,7 @@ export interface DataSync {
    */
   updateLocationFsxOntap(
     args: UpdateLocationFsxOntapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationFsxOntapCommandOutput>;
   updateLocationFsxOntap(
     args: UpdateLocationFsxOntapCommandInput,
@@ -1082,7 +1094,7 @@ export interface DataSync {
   ): void;
   updateLocationFsxOntap(
     args: UpdateLocationFsxOntapCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationFsxOntapCommandOutput) => void
   ): void;
 
@@ -1091,7 +1103,7 @@ export interface DataSync {
    */
   updateLocationFsxOpenZfs(
     args: UpdateLocationFsxOpenZfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationFsxOpenZfsCommandOutput>;
   updateLocationFsxOpenZfs(
     args: UpdateLocationFsxOpenZfsCommandInput,
@@ -1099,7 +1111,7 @@ export interface DataSync {
   ): void;
   updateLocationFsxOpenZfs(
     args: UpdateLocationFsxOpenZfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationFsxOpenZfsCommandOutput) => void
   ): void;
 
@@ -1108,7 +1120,7 @@ export interface DataSync {
    */
   updateLocationFsxWindows(
     args: UpdateLocationFsxWindowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationFsxWindowsCommandOutput>;
   updateLocationFsxWindows(
     args: UpdateLocationFsxWindowsCommandInput,
@@ -1116,7 +1128,7 @@ export interface DataSync {
   ): void;
   updateLocationFsxWindows(
     args: UpdateLocationFsxWindowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationFsxWindowsCommandOutput) => void
   ): void;
 
@@ -1125,7 +1137,7 @@ export interface DataSync {
    */
   updateLocationHdfs(
     args: UpdateLocationHdfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationHdfsCommandOutput>;
   updateLocationHdfs(
     args: UpdateLocationHdfsCommandInput,
@@ -1133,7 +1145,7 @@ export interface DataSync {
   ): void;
   updateLocationHdfs(
     args: UpdateLocationHdfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationHdfsCommandOutput) => void
   ): void;
 
@@ -1142,7 +1154,7 @@ export interface DataSync {
    */
   updateLocationNfs(
     args: UpdateLocationNfsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationNfsCommandOutput>;
   updateLocationNfs(
     args: UpdateLocationNfsCommandInput,
@@ -1150,7 +1162,7 @@ export interface DataSync {
   ): void;
   updateLocationNfs(
     args: UpdateLocationNfsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationNfsCommandOutput) => void
   ): void;
 
@@ -1159,7 +1171,7 @@ export interface DataSync {
    */
   updateLocationObjectStorage(
     args: UpdateLocationObjectStorageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationObjectStorageCommandOutput>;
   updateLocationObjectStorage(
     args: UpdateLocationObjectStorageCommandInput,
@@ -1167,7 +1179,7 @@ export interface DataSync {
   ): void;
   updateLocationObjectStorage(
     args: UpdateLocationObjectStorageCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationObjectStorageCommandOutput) => void
   ): void;
 
@@ -1176,7 +1188,7 @@ export interface DataSync {
    */
   updateLocationS3(
     args: UpdateLocationS3CommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationS3CommandOutput>;
   updateLocationS3(
     args: UpdateLocationS3CommandInput,
@@ -1184,7 +1196,7 @@ export interface DataSync {
   ): void;
   updateLocationS3(
     args: UpdateLocationS3CommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationS3CommandOutput) => void
   ): void;
 
@@ -1193,7 +1205,7 @@ export interface DataSync {
    */
   updateLocationSmb(
     args: UpdateLocationSmbCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateLocationSmbCommandOutput>;
   updateLocationSmb(
     args: UpdateLocationSmbCommandInput,
@@ -1201,7 +1213,7 @@ export interface DataSync {
   ): void;
   updateLocationSmb(
     args: UpdateLocationSmbCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateLocationSmbCommandOutput) => void
   ): void;
 
@@ -1210,7 +1222,7 @@ export interface DataSync {
    */
   updateTask(
     args: UpdateTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateTaskCommandOutput>;
   updateTask(
     args: UpdateTaskCommandInput,
@@ -1218,7 +1230,7 @@ export interface DataSync {
   ): void;
   updateTask(
     args: UpdateTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateTaskCommandOutput) => void
   ): void;
 
@@ -1227,7 +1239,7 @@ export interface DataSync {
    */
   updateTaskExecution(
     args: UpdateTaskExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DataSyncRequestOptions
   ): Promise<UpdateTaskExecutionCommandOutput>;
   updateTaskExecution(
     args: UpdateTaskExecutionCommandInput,
@@ -1235,7 +1247,7 @@ export interface DataSync {
   ): void;
   updateTaskExecution(
     args: UpdateTaskExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DataSyncRequestOptions,
     cb: (err: any, data?: UpdateTaskExecutionCommandOutput) => void
   ): void;
 

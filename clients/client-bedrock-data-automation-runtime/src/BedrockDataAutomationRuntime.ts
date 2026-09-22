@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { BedrockDataAutomationRuntimeClient } from "./BedrockDataAutomationRuntimeClient";
 import {
@@ -43,13 +43,20 @@ const commands = {
   UntagResourceCommand,
 };
 
+/**
+ * @public
+ */
+export interface BedrockDataAutomationRuntimeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface BedrockDataAutomationRuntime {
   /**
    * @see {@link GetDataAutomationStatusCommand}
    */
   getDataAutomationStatus(
     args: GetDataAutomationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRuntimeRequestOptions
   ): Promise<GetDataAutomationStatusCommandOutput>;
   getDataAutomationStatus(
     args: GetDataAutomationStatusCommandInput,
@@ -57,7 +64,7 @@ export interface BedrockDataAutomationRuntime {
   ): void;
   getDataAutomationStatus(
     args: GetDataAutomationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRuntimeRequestOptions,
     cb: (err: any, data?: GetDataAutomationStatusCommandOutput) => void
   ): void;
 
@@ -66,7 +73,7 @@ export interface BedrockDataAutomationRuntime {
    */
   invokeDataAutomation(
     args: InvokeDataAutomationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRuntimeRequestOptions
   ): Promise<InvokeDataAutomationCommandOutput>;
   invokeDataAutomation(
     args: InvokeDataAutomationCommandInput,
@@ -74,7 +81,7 @@ export interface BedrockDataAutomationRuntime {
   ): void;
   invokeDataAutomation(
     args: InvokeDataAutomationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRuntimeRequestOptions,
     cb: (err: any, data?: InvokeDataAutomationCommandOutput) => void
   ): void;
 
@@ -83,7 +90,7 @@ export interface BedrockDataAutomationRuntime {
    */
   invokeDataAutomationAsync(
     args: InvokeDataAutomationAsyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRuntimeRequestOptions
   ): Promise<InvokeDataAutomationAsyncCommandOutput>;
   invokeDataAutomationAsync(
     args: InvokeDataAutomationAsyncCommandInput,
@@ -91,7 +98,7 @@ export interface BedrockDataAutomationRuntime {
   ): void;
   invokeDataAutomationAsync(
     args: InvokeDataAutomationAsyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRuntimeRequestOptions,
     cb: (err: any, data?: InvokeDataAutomationAsyncCommandOutput) => void
   ): void;
 
@@ -100,7 +107,7 @@ export interface BedrockDataAutomationRuntime {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRuntimeRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -108,7 +115,7 @@ export interface BedrockDataAutomationRuntime {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRuntimeRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -117,7 +124,7 @@ export interface BedrockDataAutomationRuntime {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRuntimeRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -125,7 +132,7 @@ export interface BedrockDataAutomationRuntime {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRuntimeRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -134,7 +141,7 @@ export interface BedrockDataAutomationRuntime {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockDataAutomationRuntimeRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -142,7 +149,7 @@ export interface BedrockDataAutomationRuntime {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockDataAutomationRuntimeRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 }

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptEngagementInvitationCommandInput,
@@ -305,13 +310,20 @@ const paginators = {
   paginateListSolutions,
 };
 
+/**
+ * @public
+ */
+export interface PartnerCentralSellingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PartnerCentralSelling {
   /**
    * @see {@link AcceptEngagementInvitationCommand}
    */
   acceptEngagementInvitation(
     args: AcceptEngagementInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<AcceptEngagementInvitationCommandOutput>;
   acceptEngagementInvitation(
     args: AcceptEngagementInvitationCommandInput,
@@ -319,7 +331,7 @@ export interface PartnerCentralSelling {
   ): void;
   acceptEngagementInvitation(
     args: AcceptEngagementInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: AcceptEngagementInvitationCommandOutput) => void
   ): void;
 
@@ -328,7 +340,7 @@ export interface PartnerCentralSelling {
    */
   assignOpportunity(
     args: AssignOpportunityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<AssignOpportunityCommandOutput>;
   assignOpportunity(
     args: AssignOpportunityCommandInput,
@@ -336,7 +348,7 @@ export interface PartnerCentralSelling {
   ): void;
   assignOpportunity(
     args: AssignOpportunityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: AssignOpportunityCommandOutput) => void
   ): void;
 
@@ -345,7 +357,7 @@ export interface PartnerCentralSelling {
    */
   associateOpportunity(
     args: AssociateOpportunityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<AssociateOpportunityCommandOutput>;
   associateOpportunity(
     args: AssociateOpportunityCommandInput,
@@ -353,7 +365,7 @@ export interface PartnerCentralSelling {
   ): void;
   associateOpportunity(
     args: AssociateOpportunityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: AssociateOpportunityCommandOutput) => void
   ): void;
 
@@ -362,7 +374,7 @@ export interface PartnerCentralSelling {
    */
   createEngagement(
     args: CreateEngagementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<CreateEngagementCommandOutput>;
   createEngagement(
     args: CreateEngagementCommandInput,
@@ -370,7 +382,7 @@ export interface PartnerCentralSelling {
   ): void;
   createEngagement(
     args: CreateEngagementCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: CreateEngagementCommandOutput) => void
   ): void;
 
@@ -379,7 +391,7 @@ export interface PartnerCentralSelling {
    */
   createEngagementContext(
     args: CreateEngagementContextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<CreateEngagementContextCommandOutput>;
   createEngagementContext(
     args: CreateEngagementContextCommandInput,
@@ -387,7 +399,7 @@ export interface PartnerCentralSelling {
   ): void;
   createEngagementContext(
     args: CreateEngagementContextCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: CreateEngagementContextCommandOutput) => void
   ): void;
 
@@ -396,7 +408,7 @@ export interface PartnerCentralSelling {
    */
   createEngagementInvitation(
     args: CreateEngagementInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<CreateEngagementInvitationCommandOutput>;
   createEngagementInvitation(
     args: CreateEngagementInvitationCommandInput,
@@ -404,7 +416,7 @@ export interface PartnerCentralSelling {
   ): void;
   createEngagementInvitation(
     args: CreateEngagementInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: CreateEngagementInvitationCommandOutput) => void
   ): void;
 
@@ -413,7 +425,7 @@ export interface PartnerCentralSelling {
    */
   createOpportunity(
     args: CreateOpportunityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<CreateOpportunityCommandOutput>;
   createOpportunity(
     args: CreateOpportunityCommandInput,
@@ -421,7 +433,7 @@ export interface PartnerCentralSelling {
   ): void;
   createOpportunity(
     args: CreateOpportunityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: CreateOpportunityCommandOutput) => void
   ): void;
 
@@ -430,7 +442,7 @@ export interface PartnerCentralSelling {
    */
   createResourceSnapshot(
     args: CreateResourceSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<CreateResourceSnapshotCommandOutput>;
   createResourceSnapshot(
     args: CreateResourceSnapshotCommandInput,
@@ -438,7 +450,7 @@ export interface PartnerCentralSelling {
   ): void;
   createResourceSnapshot(
     args: CreateResourceSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: CreateResourceSnapshotCommandOutput) => void
   ): void;
 
@@ -447,7 +459,7 @@ export interface PartnerCentralSelling {
    */
   createResourceSnapshotJob(
     args: CreateResourceSnapshotJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<CreateResourceSnapshotJobCommandOutput>;
   createResourceSnapshotJob(
     args: CreateResourceSnapshotJobCommandInput,
@@ -455,7 +467,7 @@ export interface PartnerCentralSelling {
   ): void;
   createResourceSnapshotJob(
     args: CreateResourceSnapshotJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: CreateResourceSnapshotJobCommandOutput) => void
   ): void;
 
@@ -464,7 +476,7 @@ export interface PartnerCentralSelling {
    */
   deleteResourceSnapshotJob(
     args: DeleteResourceSnapshotJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<DeleteResourceSnapshotJobCommandOutput>;
   deleteResourceSnapshotJob(
     args: DeleteResourceSnapshotJobCommandInput,
@@ -472,7 +484,7 @@ export interface PartnerCentralSelling {
   ): void;
   deleteResourceSnapshotJob(
     args: DeleteResourceSnapshotJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: DeleteResourceSnapshotJobCommandOutput) => void
   ): void;
 
@@ -481,7 +493,7 @@ export interface PartnerCentralSelling {
    */
   disassociateOpportunity(
     args: DisassociateOpportunityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<DisassociateOpportunityCommandOutput>;
   disassociateOpportunity(
     args: DisassociateOpportunityCommandInput,
@@ -489,7 +501,7 @@ export interface PartnerCentralSelling {
   ): void;
   disassociateOpportunity(
     args: DisassociateOpportunityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: DisassociateOpportunityCommandOutput) => void
   ): void;
 
@@ -498,7 +510,7 @@ export interface PartnerCentralSelling {
    */
   getAwsOpportunitySummary(
     args: GetAwsOpportunitySummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<GetAwsOpportunitySummaryCommandOutput>;
   getAwsOpportunitySummary(
     args: GetAwsOpportunitySummaryCommandInput,
@@ -506,7 +518,7 @@ export interface PartnerCentralSelling {
   ): void;
   getAwsOpportunitySummary(
     args: GetAwsOpportunitySummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: GetAwsOpportunitySummaryCommandOutput) => void
   ): void;
 
@@ -515,7 +527,7 @@ export interface PartnerCentralSelling {
    */
   getEngagement(
     args: GetEngagementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<GetEngagementCommandOutput>;
   getEngagement(
     args: GetEngagementCommandInput,
@@ -523,7 +535,7 @@ export interface PartnerCentralSelling {
   ): void;
   getEngagement(
     args: GetEngagementCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: GetEngagementCommandOutput) => void
   ): void;
 
@@ -532,7 +544,7 @@ export interface PartnerCentralSelling {
    */
   getEngagementInvitation(
     args: GetEngagementInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<GetEngagementInvitationCommandOutput>;
   getEngagementInvitation(
     args: GetEngagementInvitationCommandInput,
@@ -540,7 +552,7 @@ export interface PartnerCentralSelling {
   ): void;
   getEngagementInvitation(
     args: GetEngagementInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: GetEngagementInvitationCommandOutput) => void
   ): void;
 
@@ -549,7 +561,7 @@ export interface PartnerCentralSelling {
    */
   getOpportunity(
     args: GetOpportunityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<GetOpportunityCommandOutput>;
   getOpportunity(
     args: GetOpportunityCommandInput,
@@ -557,7 +569,7 @@ export interface PartnerCentralSelling {
   ): void;
   getOpportunity(
     args: GetOpportunityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: GetOpportunityCommandOutput) => void
   ): void;
 
@@ -566,7 +578,7 @@ export interface PartnerCentralSelling {
    */
   getProspectingFromEngagementTask(
     args: GetProspectingFromEngagementTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<GetProspectingFromEngagementTaskCommandOutput>;
   getProspectingFromEngagementTask(
     args: GetProspectingFromEngagementTaskCommandInput,
@@ -574,7 +586,7 @@ export interface PartnerCentralSelling {
   ): void;
   getProspectingFromEngagementTask(
     args: GetProspectingFromEngagementTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: GetProspectingFromEngagementTaskCommandOutput) => void
   ): void;
 
@@ -583,7 +595,7 @@ export interface PartnerCentralSelling {
    */
   getResourceSnapshot(
     args: GetResourceSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<GetResourceSnapshotCommandOutput>;
   getResourceSnapshot(
     args: GetResourceSnapshotCommandInput,
@@ -591,7 +603,7 @@ export interface PartnerCentralSelling {
   ): void;
   getResourceSnapshot(
     args: GetResourceSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: GetResourceSnapshotCommandOutput) => void
   ): void;
 
@@ -600,7 +612,7 @@ export interface PartnerCentralSelling {
    */
   getResourceSnapshotJob(
     args: GetResourceSnapshotJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<GetResourceSnapshotJobCommandOutput>;
   getResourceSnapshotJob(
     args: GetResourceSnapshotJobCommandInput,
@@ -608,7 +620,7 @@ export interface PartnerCentralSelling {
   ): void;
   getResourceSnapshotJob(
     args: GetResourceSnapshotJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: GetResourceSnapshotJobCommandOutput) => void
   ): void;
 
@@ -617,7 +629,7 @@ export interface PartnerCentralSelling {
    */
   getSellingSystemSettings(
     args: GetSellingSystemSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<GetSellingSystemSettingsCommandOutput>;
   getSellingSystemSettings(
     args: GetSellingSystemSettingsCommandInput,
@@ -625,7 +637,7 @@ export interface PartnerCentralSelling {
   ): void;
   getSellingSystemSettings(
     args: GetSellingSystemSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: GetSellingSystemSettingsCommandOutput) => void
   ): void;
 
@@ -634,7 +646,7 @@ export interface PartnerCentralSelling {
    */
   listEngagementByAcceptingInvitationTasks(
     args: ListEngagementByAcceptingInvitationTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListEngagementByAcceptingInvitationTasksCommandOutput>;
   listEngagementByAcceptingInvitationTasks(
     args: ListEngagementByAcceptingInvitationTasksCommandInput,
@@ -642,7 +654,7 @@ export interface PartnerCentralSelling {
   ): void;
   listEngagementByAcceptingInvitationTasks(
     args: ListEngagementByAcceptingInvitationTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListEngagementByAcceptingInvitationTasksCommandOutput) => void
   ): void;
 
@@ -651,7 +663,7 @@ export interface PartnerCentralSelling {
    */
   listEngagementFromOpportunityTasks(
     args: ListEngagementFromOpportunityTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListEngagementFromOpportunityTasksCommandOutput>;
   listEngagementFromOpportunityTasks(
     args: ListEngagementFromOpportunityTasksCommandInput,
@@ -659,7 +671,7 @@ export interface PartnerCentralSelling {
   ): void;
   listEngagementFromOpportunityTasks(
     args: ListEngagementFromOpportunityTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListEngagementFromOpportunityTasksCommandOutput) => void
   ): void;
 
@@ -668,7 +680,7 @@ export interface PartnerCentralSelling {
    */
   listEngagementInvitations(
     args: ListEngagementInvitationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListEngagementInvitationsCommandOutput>;
   listEngagementInvitations(
     args: ListEngagementInvitationsCommandInput,
@@ -676,7 +688,7 @@ export interface PartnerCentralSelling {
   ): void;
   listEngagementInvitations(
     args: ListEngagementInvitationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListEngagementInvitationsCommandOutput) => void
   ): void;
 
@@ -685,7 +697,7 @@ export interface PartnerCentralSelling {
    */
   listEngagementMembers(
     args: ListEngagementMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListEngagementMembersCommandOutput>;
   listEngagementMembers(
     args: ListEngagementMembersCommandInput,
@@ -693,7 +705,7 @@ export interface PartnerCentralSelling {
   ): void;
   listEngagementMembers(
     args: ListEngagementMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListEngagementMembersCommandOutput) => void
   ): void;
 
@@ -702,7 +714,7 @@ export interface PartnerCentralSelling {
    */
   listEngagementResourceAssociations(
     args: ListEngagementResourceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListEngagementResourceAssociationsCommandOutput>;
   listEngagementResourceAssociations(
     args: ListEngagementResourceAssociationsCommandInput,
@@ -710,7 +722,7 @@ export interface PartnerCentralSelling {
   ): void;
   listEngagementResourceAssociations(
     args: ListEngagementResourceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListEngagementResourceAssociationsCommandOutput) => void
   ): void;
 
@@ -719,7 +731,7 @@ export interface PartnerCentralSelling {
    */
   listEngagements(
     args: ListEngagementsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListEngagementsCommandOutput>;
   listEngagements(
     args: ListEngagementsCommandInput,
@@ -727,7 +739,7 @@ export interface PartnerCentralSelling {
   ): void;
   listEngagements(
     args: ListEngagementsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListEngagementsCommandOutput) => void
   ): void;
 
@@ -736,7 +748,7 @@ export interface PartnerCentralSelling {
    */
   listOpportunities(
     args: ListOpportunitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListOpportunitiesCommandOutput>;
   listOpportunities(
     args: ListOpportunitiesCommandInput,
@@ -744,7 +756,7 @@ export interface PartnerCentralSelling {
   ): void;
   listOpportunities(
     args: ListOpportunitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListOpportunitiesCommandOutput) => void
   ): void;
 
@@ -753,7 +765,7 @@ export interface PartnerCentralSelling {
    */
   listOpportunityFromEngagementTasks(
     args: ListOpportunityFromEngagementTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListOpportunityFromEngagementTasksCommandOutput>;
   listOpportunityFromEngagementTasks(
     args: ListOpportunityFromEngagementTasksCommandInput,
@@ -761,7 +773,7 @@ export interface PartnerCentralSelling {
   ): void;
   listOpportunityFromEngagementTasks(
     args: ListOpportunityFromEngagementTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListOpportunityFromEngagementTasksCommandOutput) => void
   ): void;
 
@@ -770,7 +782,7 @@ export interface PartnerCentralSelling {
    */
   listProspectingFromEngagementTasks(
     args: ListProspectingFromEngagementTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListProspectingFromEngagementTasksCommandOutput>;
   listProspectingFromEngagementTasks(
     args: ListProspectingFromEngagementTasksCommandInput,
@@ -778,7 +790,7 @@ export interface PartnerCentralSelling {
   ): void;
   listProspectingFromEngagementTasks(
     args: ListProspectingFromEngagementTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListProspectingFromEngagementTasksCommandOutput) => void
   ): void;
 
@@ -787,7 +799,7 @@ export interface PartnerCentralSelling {
    */
   listResourceSnapshotJobs(
     args: ListResourceSnapshotJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListResourceSnapshotJobsCommandOutput>;
   listResourceSnapshotJobs(
     args: ListResourceSnapshotJobsCommandInput,
@@ -795,7 +807,7 @@ export interface PartnerCentralSelling {
   ): void;
   listResourceSnapshotJobs(
     args: ListResourceSnapshotJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListResourceSnapshotJobsCommandOutput) => void
   ): void;
 
@@ -804,7 +816,7 @@ export interface PartnerCentralSelling {
    */
   listResourceSnapshots(
     args: ListResourceSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListResourceSnapshotsCommandOutput>;
   listResourceSnapshots(
     args: ListResourceSnapshotsCommandInput,
@@ -812,7 +824,7 @@ export interface PartnerCentralSelling {
   ): void;
   listResourceSnapshots(
     args: ListResourceSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListResourceSnapshotsCommandOutput) => void
   ): void;
 
@@ -821,7 +833,7 @@ export interface PartnerCentralSelling {
    */
   listSolutions(
     args: ListSolutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListSolutionsCommandOutput>;
   listSolutions(
     args: ListSolutionsCommandInput,
@@ -829,7 +841,7 @@ export interface PartnerCentralSelling {
   ): void;
   listSolutions(
     args: ListSolutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListSolutionsCommandOutput) => void
   ): void;
 
@@ -838,7 +850,7 @@ export interface PartnerCentralSelling {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -846,7 +858,7 @@ export interface PartnerCentralSelling {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -855,7 +867,7 @@ export interface PartnerCentralSelling {
    */
   putSellingSystemSettings(
     args: PutSellingSystemSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<PutSellingSystemSettingsCommandOutput>;
   putSellingSystemSettings(
     args: PutSellingSystemSettingsCommandInput,
@@ -863,7 +875,7 @@ export interface PartnerCentralSelling {
   ): void;
   putSellingSystemSettings(
     args: PutSellingSystemSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: PutSellingSystemSettingsCommandOutput) => void
   ): void;
 
@@ -872,7 +884,7 @@ export interface PartnerCentralSelling {
    */
   rejectEngagementInvitation(
     args: RejectEngagementInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<RejectEngagementInvitationCommandOutput>;
   rejectEngagementInvitation(
     args: RejectEngagementInvitationCommandInput,
@@ -880,7 +892,7 @@ export interface PartnerCentralSelling {
   ): void;
   rejectEngagementInvitation(
     args: RejectEngagementInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: RejectEngagementInvitationCommandOutput) => void
   ): void;
 
@@ -889,7 +901,7 @@ export interface PartnerCentralSelling {
    */
   startEngagementByAcceptingInvitationTask(
     args: StartEngagementByAcceptingInvitationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<StartEngagementByAcceptingInvitationTaskCommandOutput>;
   startEngagementByAcceptingInvitationTask(
     args: StartEngagementByAcceptingInvitationTaskCommandInput,
@@ -897,7 +909,7 @@ export interface PartnerCentralSelling {
   ): void;
   startEngagementByAcceptingInvitationTask(
     args: StartEngagementByAcceptingInvitationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: StartEngagementByAcceptingInvitationTaskCommandOutput) => void
   ): void;
 
@@ -906,7 +918,7 @@ export interface PartnerCentralSelling {
    */
   startEngagementFromOpportunityTask(
     args: StartEngagementFromOpportunityTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<StartEngagementFromOpportunityTaskCommandOutput>;
   startEngagementFromOpportunityTask(
     args: StartEngagementFromOpportunityTaskCommandInput,
@@ -914,7 +926,7 @@ export interface PartnerCentralSelling {
   ): void;
   startEngagementFromOpportunityTask(
     args: StartEngagementFromOpportunityTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: StartEngagementFromOpportunityTaskCommandOutput) => void
   ): void;
 
@@ -923,7 +935,7 @@ export interface PartnerCentralSelling {
    */
   startOpportunityFromEngagementTask(
     args: StartOpportunityFromEngagementTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<StartOpportunityFromEngagementTaskCommandOutput>;
   startOpportunityFromEngagementTask(
     args: StartOpportunityFromEngagementTaskCommandInput,
@@ -931,7 +943,7 @@ export interface PartnerCentralSelling {
   ): void;
   startOpportunityFromEngagementTask(
     args: StartOpportunityFromEngagementTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: StartOpportunityFromEngagementTaskCommandOutput) => void
   ): void;
 
@@ -940,7 +952,7 @@ export interface PartnerCentralSelling {
    */
   startProspectingFromEngagementTask(
     args: StartProspectingFromEngagementTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<StartProspectingFromEngagementTaskCommandOutput>;
   startProspectingFromEngagementTask(
     args: StartProspectingFromEngagementTaskCommandInput,
@@ -948,7 +960,7 @@ export interface PartnerCentralSelling {
   ): void;
   startProspectingFromEngagementTask(
     args: StartProspectingFromEngagementTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: StartProspectingFromEngagementTaskCommandOutput) => void
   ): void;
 
@@ -957,7 +969,7 @@ export interface PartnerCentralSelling {
    */
   startResourceSnapshotJob(
     args: StartResourceSnapshotJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<StartResourceSnapshotJobCommandOutput>;
   startResourceSnapshotJob(
     args: StartResourceSnapshotJobCommandInput,
@@ -965,7 +977,7 @@ export interface PartnerCentralSelling {
   ): void;
   startResourceSnapshotJob(
     args: StartResourceSnapshotJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: StartResourceSnapshotJobCommandOutput) => void
   ): void;
 
@@ -974,7 +986,7 @@ export interface PartnerCentralSelling {
    */
   stopResourceSnapshotJob(
     args: StopResourceSnapshotJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<StopResourceSnapshotJobCommandOutput>;
   stopResourceSnapshotJob(
     args: StopResourceSnapshotJobCommandInput,
@@ -982,7 +994,7 @@ export interface PartnerCentralSelling {
   ): void;
   stopResourceSnapshotJob(
     args: StopResourceSnapshotJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: StopResourceSnapshotJobCommandOutput) => void
   ): void;
 
@@ -991,7 +1003,7 @@ export interface PartnerCentralSelling {
    */
   submitOpportunity(
     args: SubmitOpportunityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<SubmitOpportunityCommandOutput>;
   submitOpportunity(
     args: SubmitOpportunityCommandInput,
@@ -999,7 +1011,7 @@ export interface PartnerCentralSelling {
   ): void;
   submitOpportunity(
     args: SubmitOpportunityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: SubmitOpportunityCommandOutput) => void
   ): void;
 
@@ -1008,7 +1020,7 @@ export interface PartnerCentralSelling {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1016,7 +1028,7 @@ export interface PartnerCentralSelling {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1025,7 +1037,7 @@ export interface PartnerCentralSelling {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1033,7 +1045,7 @@ export interface PartnerCentralSelling {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1042,7 +1054,7 @@ export interface PartnerCentralSelling {
    */
   updateEngagementContext(
     args: UpdateEngagementContextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<UpdateEngagementContextCommandOutput>;
   updateEngagementContext(
     args: UpdateEngagementContextCommandInput,
@@ -1050,7 +1062,7 @@ export interface PartnerCentralSelling {
   ): void;
   updateEngagementContext(
     args: UpdateEngagementContextCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: UpdateEngagementContextCommandOutput) => void
   ): void;
 
@@ -1059,7 +1071,7 @@ export interface PartnerCentralSelling {
    */
   updateOpportunity(
     args: UpdateOpportunityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralSellingRequestOptions
   ): Promise<UpdateOpportunityCommandOutput>;
   updateOpportunity(
     args: UpdateOpportunityCommandInput,
@@ -1067,7 +1079,7 @@ export interface PartnerCentralSelling {
   ): void;
   updateOpportunity(
     args: UpdateOpportunityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralSellingRequestOptions,
     cb: (err: any, data?: UpdateOpportunityCommandOutput) => void
   ): void;
 

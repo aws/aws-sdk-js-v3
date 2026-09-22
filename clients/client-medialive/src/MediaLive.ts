@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -837,13 +838,20 @@ const waiters = {
   waitUntilSignalMapUpdated,
 };
 
+/**
+ * @public
+ */
+export interface MediaLiveRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MediaLive {
   /**
    * @see {@link AcceptInputDeviceTransferCommand}
    */
   acceptInputDeviceTransfer(
     args: AcceptInputDeviceTransferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<AcceptInputDeviceTransferCommandOutput>;
   acceptInputDeviceTransfer(
     args: AcceptInputDeviceTransferCommandInput,
@@ -851,7 +859,7 @@ export interface MediaLive {
   ): void;
   acceptInputDeviceTransfer(
     args: AcceptInputDeviceTransferCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: AcceptInputDeviceTransferCommandOutput) => void
   ): void;
 
@@ -861,7 +869,7 @@ export interface MediaLive {
   batchDelete(): Promise<BatchDeleteCommandOutput>;
   batchDelete(
     args: BatchDeleteCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<BatchDeleteCommandOutput>;
   batchDelete(
     args: BatchDeleteCommandInput,
@@ -869,7 +877,7 @@ export interface MediaLive {
   ): void;
   batchDelete(
     args: BatchDeleteCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: BatchDeleteCommandOutput) => void
   ): void;
 
@@ -879,7 +887,7 @@ export interface MediaLive {
   batchStart(): Promise<BatchStartCommandOutput>;
   batchStart(
     args: BatchStartCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<BatchStartCommandOutput>;
   batchStart(
     args: BatchStartCommandInput,
@@ -887,7 +895,7 @@ export interface MediaLive {
   ): void;
   batchStart(
     args: BatchStartCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: BatchStartCommandOutput) => void
   ): void;
 
@@ -897,7 +905,7 @@ export interface MediaLive {
   batchStop(): Promise<BatchStopCommandOutput>;
   batchStop(
     args: BatchStopCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<BatchStopCommandOutput>;
   batchStop(
     args: BatchStopCommandInput,
@@ -905,7 +913,7 @@ export interface MediaLive {
   ): void;
   batchStop(
     args: BatchStopCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: BatchStopCommandOutput) => void
   ): void;
 
@@ -914,7 +922,7 @@ export interface MediaLive {
    */
   batchUpdateSchedule(
     args: BatchUpdateScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<BatchUpdateScheduleCommandOutput>;
   batchUpdateSchedule(
     args: BatchUpdateScheduleCommandInput,
@@ -922,7 +930,7 @@ export interface MediaLive {
   ): void;
   batchUpdateSchedule(
     args: BatchUpdateScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: BatchUpdateScheduleCommandOutput) => void
   ): void;
 
@@ -931,7 +939,7 @@ export interface MediaLive {
    */
   cancelInputDeviceTransfer(
     args: CancelInputDeviceTransferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CancelInputDeviceTransferCommandOutput>;
   cancelInputDeviceTransfer(
     args: CancelInputDeviceTransferCommandInput,
@@ -939,7 +947,7 @@ export interface MediaLive {
   ): void;
   cancelInputDeviceTransfer(
     args: CancelInputDeviceTransferCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CancelInputDeviceTransferCommandOutput) => void
   ): void;
 
@@ -949,7 +957,7 @@ export interface MediaLive {
   claimDevice(): Promise<ClaimDeviceCommandOutput>;
   claimDevice(
     args: ClaimDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ClaimDeviceCommandOutput>;
   claimDevice(
     args: ClaimDeviceCommandInput,
@@ -957,7 +965,7 @@ export interface MediaLive {
   ): void;
   claimDevice(
     args: ClaimDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ClaimDeviceCommandOutput) => void
   ): void;
 
@@ -967,7 +975,7 @@ export interface MediaLive {
   createChannel(): Promise<CreateChannelCommandOutput>;
   createChannel(
     args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateChannelCommandOutput>;
   createChannel(
     args: CreateChannelCommandInput,
@@ -975,7 +983,7 @@ export interface MediaLive {
   ): void;
   createChannel(
     args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateChannelCommandOutput) => void
   ): void;
 
@@ -984,7 +992,7 @@ export interface MediaLive {
    */
   createChannelPlacementGroup(
     args: CreateChannelPlacementGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateChannelPlacementGroupCommandOutput>;
   createChannelPlacementGroup(
     args: CreateChannelPlacementGroupCommandInput,
@@ -992,7 +1000,7 @@ export interface MediaLive {
   ): void;
   createChannelPlacementGroup(
     args: CreateChannelPlacementGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateChannelPlacementGroupCommandOutput) => void
   ): void;
 
@@ -1001,7 +1009,7 @@ export interface MediaLive {
    */
   createCloudWatchAlarmTemplate(
     args: CreateCloudWatchAlarmTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateCloudWatchAlarmTemplateCommandOutput>;
   createCloudWatchAlarmTemplate(
     args: CreateCloudWatchAlarmTemplateCommandInput,
@@ -1009,7 +1017,7 @@ export interface MediaLive {
   ): void;
   createCloudWatchAlarmTemplate(
     args: CreateCloudWatchAlarmTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateCloudWatchAlarmTemplateCommandOutput) => void
   ): void;
 
@@ -1018,7 +1026,7 @@ export interface MediaLive {
    */
   createCloudWatchAlarmTemplateGroup(
     args: CreateCloudWatchAlarmTemplateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateCloudWatchAlarmTemplateGroupCommandOutput>;
   createCloudWatchAlarmTemplateGroup(
     args: CreateCloudWatchAlarmTemplateGroupCommandInput,
@@ -1026,7 +1034,7 @@ export interface MediaLive {
   ): void;
   createCloudWatchAlarmTemplateGroup(
     args: CreateCloudWatchAlarmTemplateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateCloudWatchAlarmTemplateGroupCommandOutput) => void
   ): void;
 
@@ -1036,7 +1044,7 @@ export interface MediaLive {
   createCluster(): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateClusterCommandOutput>;
   createCluster(
     args: CreateClusterCommandInput,
@@ -1044,7 +1052,7 @@ export interface MediaLive {
   ): void;
   createCluster(
     args: CreateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateClusterCommandOutput) => void
   ): void;
 
@@ -1053,7 +1061,7 @@ export interface MediaLive {
    */
   createEventBridgeRuleTemplate(
     args: CreateEventBridgeRuleTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateEventBridgeRuleTemplateCommandOutput>;
   createEventBridgeRuleTemplate(
     args: CreateEventBridgeRuleTemplateCommandInput,
@@ -1061,7 +1069,7 @@ export interface MediaLive {
   ): void;
   createEventBridgeRuleTemplate(
     args: CreateEventBridgeRuleTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateEventBridgeRuleTemplateCommandOutput) => void
   ): void;
 
@@ -1070,7 +1078,7 @@ export interface MediaLive {
    */
   createEventBridgeRuleTemplateGroup(
     args: CreateEventBridgeRuleTemplateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateEventBridgeRuleTemplateGroupCommandOutput>;
   createEventBridgeRuleTemplateGroup(
     args: CreateEventBridgeRuleTemplateGroupCommandInput,
@@ -1078,7 +1086,7 @@ export interface MediaLive {
   ): void;
   createEventBridgeRuleTemplateGroup(
     args: CreateEventBridgeRuleTemplateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateEventBridgeRuleTemplateGroupCommandOutput) => void
   ): void;
 
@@ -1088,7 +1096,7 @@ export interface MediaLive {
   createInput(): Promise<CreateInputCommandOutput>;
   createInput(
     args: CreateInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateInputCommandOutput>;
   createInput(
     args: CreateInputCommandInput,
@@ -1096,7 +1104,7 @@ export interface MediaLive {
   ): void;
   createInput(
     args: CreateInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateInputCommandOutput) => void
   ): void;
 
@@ -1106,7 +1114,7 @@ export interface MediaLive {
   createInputSecurityGroup(): Promise<CreateInputSecurityGroupCommandOutput>;
   createInputSecurityGroup(
     args: CreateInputSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateInputSecurityGroupCommandOutput>;
   createInputSecurityGroup(
     args: CreateInputSecurityGroupCommandInput,
@@ -1114,7 +1122,7 @@ export interface MediaLive {
   ): void;
   createInputSecurityGroup(
     args: CreateInputSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateInputSecurityGroupCommandOutput) => void
   ): void;
 
@@ -1123,7 +1131,7 @@ export interface MediaLive {
    */
   createMultiplex(
     args: CreateMultiplexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateMultiplexCommandOutput>;
   createMultiplex(
     args: CreateMultiplexCommandInput,
@@ -1131,7 +1139,7 @@ export interface MediaLive {
   ): void;
   createMultiplex(
     args: CreateMultiplexCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateMultiplexCommandOutput) => void
   ): void;
 
@@ -1140,7 +1148,7 @@ export interface MediaLive {
    */
   createMultiplexProgram(
     args: CreateMultiplexProgramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateMultiplexProgramCommandOutput>;
   createMultiplexProgram(
     args: CreateMultiplexProgramCommandInput,
@@ -1148,7 +1156,7 @@ export interface MediaLive {
   ): void;
   createMultiplexProgram(
     args: CreateMultiplexProgramCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateMultiplexProgramCommandOutput) => void
   ): void;
 
@@ -1158,7 +1166,7 @@ export interface MediaLive {
   createNetwork(): Promise<CreateNetworkCommandOutput>;
   createNetwork(
     args: CreateNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateNetworkCommandOutput>;
   createNetwork(
     args: CreateNetworkCommandInput,
@@ -1166,7 +1174,7 @@ export interface MediaLive {
   ): void;
   createNetwork(
     args: CreateNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateNetworkCommandOutput) => void
   ): void;
 
@@ -1175,7 +1183,7 @@ export interface MediaLive {
    */
   createNode(
     args: CreateNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateNodeCommandOutput>;
   createNode(
     args: CreateNodeCommandInput,
@@ -1183,7 +1191,7 @@ export interface MediaLive {
   ): void;
   createNode(
     args: CreateNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateNodeCommandOutput) => void
   ): void;
 
@@ -1192,7 +1200,7 @@ export interface MediaLive {
    */
   createNodeRegistrationScript(
     args: CreateNodeRegistrationScriptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateNodeRegistrationScriptCommandOutput>;
   createNodeRegistrationScript(
     args: CreateNodeRegistrationScriptCommandInput,
@@ -1200,7 +1208,7 @@ export interface MediaLive {
   ): void;
   createNodeRegistrationScript(
     args: CreateNodeRegistrationScriptCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateNodeRegistrationScriptCommandOutput) => void
   ): void;
 
@@ -1209,7 +1217,7 @@ export interface MediaLive {
    */
   createPartnerInput(
     args: CreatePartnerInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreatePartnerInputCommandOutput>;
   createPartnerInput(
     args: CreatePartnerInputCommandInput,
@@ -1217,7 +1225,7 @@ export interface MediaLive {
   ): void;
   createPartnerInput(
     args: CreatePartnerInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreatePartnerInputCommandOutput) => void
   ): void;
 
@@ -1227,7 +1235,7 @@ export interface MediaLive {
   createSdiSource(): Promise<CreateSdiSourceCommandOutput>;
   createSdiSource(
     args: CreateSdiSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateSdiSourceCommandOutput>;
   createSdiSource(
     args: CreateSdiSourceCommandInput,
@@ -1235,7 +1243,7 @@ export interface MediaLive {
   ): void;
   createSdiSource(
     args: CreateSdiSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateSdiSourceCommandOutput) => void
   ): void;
 
@@ -1244,7 +1252,7 @@ export interface MediaLive {
    */
   createSignalMap(
     args: CreateSignalMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateSignalMapCommandOutput>;
   createSignalMap(
     args: CreateSignalMapCommandInput,
@@ -1252,7 +1260,7 @@ export interface MediaLive {
   ): void;
   createSignalMap(
     args: CreateSignalMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateSignalMapCommandOutput) => void
   ): void;
 
@@ -1261,7 +1269,7 @@ export interface MediaLive {
    */
   createTags(
     args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<CreateTagsCommandOutput>;
   createTags(
     args: CreateTagsCommandInput,
@@ -1269,7 +1277,7 @@ export interface MediaLive {
   ): void;
   createTags(
     args: CreateTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: CreateTagsCommandOutput) => void
   ): void;
 
@@ -1278,7 +1286,7 @@ export interface MediaLive {
    */
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteChannelCommandOutput>;
   deleteChannel(
     args: DeleteChannelCommandInput,
@@ -1286,7 +1294,7 @@ export interface MediaLive {
   ): void;
   deleteChannel(
     args: DeleteChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteChannelCommandOutput) => void
   ): void;
 
@@ -1295,7 +1303,7 @@ export interface MediaLive {
    */
   deleteChannelPlacementGroup(
     args: DeleteChannelPlacementGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteChannelPlacementGroupCommandOutput>;
   deleteChannelPlacementGroup(
     args: DeleteChannelPlacementGroupCommandInput,
@@ -1303,7 +1311,7 @@ export interface MediaLive {
   ): void;
   deleteChannelPlacementGroup(
     args: DeleteChannelPlacementGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteChannelPlacementGroupCommandOutput) => void
   ): void;
 
@@ -1312,7 +1320,7 @@ export interface MediaLive {
    */
   deleteCloudWatchAlarmTemplate(
     args: DeleteCloudWatchAlarmTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteCloudWatchAlarmTemplateCommandOutput>;
   deleteCloudWatchAlarmTemplate(
     args: DeleteCloudWatchAlarmTemplateCommandInput,
@@ -1320,7 +1328,7 @@ export interface MediaLive {
   ): void;
   deleteCloudWatchAlarmTemplate(
     args: DeleteCloudWatchAlarmTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteCloudWatchAlarmTemplateCommandOutput) => void
   ): void;
 
@@ -1329,7 +1337,7 @@ export interface MediaLive {
    */
   deleteCloudWatchAlarmTemplateGroup(
     args: DeleteCloudWatchAlarmTemplateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteCloudWatchAlarmTemplateGroupCommandOutput>;
   deleteCloudWatchAlarmTemplateGroup(
     args: DeleteCloudWatchAlarmTemplateGroupCommandInput,
@@ -1337,7 +1345,7 @@ export interface MediaLive {
   ): void;
   deleteCloudWatchAlarmTemplateGroup(
     args: DeleteCloudWatchAlarmTemplateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteCloudWatchAlarmTemplateGroupCommandOutput) => void
   ): void;
 
@@ -1346,7 +1354,7 @@ export interface MediaLive {
    */
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteClusterCommandOutput>;
   deleteCluster(
     args: DeleteClusterCommandInput,
@@ -1354,7 +1362,7 @@ export interface MediaLive {
   ): void;
   deleteCluster(
     args: DeleteClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteClusterCommandOutput) => void
   ): void;
 
@@ -1363,7 +1371,7 @@ export interface MediaLive {
    */
   deleteEventBridgeRuleTemplate(
     args: DeleteEventBridgeRuleTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteEventBridgeRuleTemplateCommandOutput>;
   deleteEventBridgeRuleTemplate(
     args: DeleteEventBridgeRuleTemplateCommandInput,
@@ -1371,7 +1379,7 @@ export interface MediaLive {
   ): void;
   deleteEventBridgeRuleTemplate(
     args: DeleteEventBridgeRuleTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteEventBridgeRuleTemplateCommandOutput) => void
   ): void;
 
@@ -1380,7 +1388,7 @@ export interface MediaLive {
    */
   deleteEventBridgeRuleTemplateGroup(
     args: DeleteEventBridgeRuleTemplateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteEventBridgeRuleTemplateGroupCommandOutput>;
   deleteEventBridgeRuleTemplateGroup(
     args: DeleteEventBridgeRuleTemplateGroupCommandInput,
@@ -1388,7 +1396,7 @@ export interface MediaLive {
   ): void;
   deleteEventBridgeRuleTemplateGroup(
     args: DeleteEventBridgeRuleTemplateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteEventBridgeRuleTemplateGroupCommandOutput) => void
   ): void;
 
@@ -1397,7 +1405,7 @@ export interface MediaLive {
    */
   deleteInput(
     args: DeleteInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteInputCommandOutput>;
   deleteInput(
     args: DeleteInputCommandInput,
@@ -1405,7 +1413,7 @@ export interface MediaLive {
   ): void;
   deleteInput(
     args: DeleteInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteInputCommandOutput) => void
   ): void;
 
@@ -1414,7 +1422,7 @@ export interface MediaLive {
    */
   deleteInputSecurityGroup(
     args: DeleteInputSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteInputSecurityGroupCommandOutput>;
   deleteInputSecurityGroup(
     args: DeleteInputSecurityGroupCommandInput,
@@ -1422,7 +1430,7 @@ export interface MediaLive {
   ): void;
   deleteInputSecurityGroup(
     args: DeleteInputSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteInputSecurityGroupCommandOutput) => void
   ): void;
 
@@ -1431,7 +1439,7 @@ export interface MediaLive {
    */
   deleteMultiplex(
     args: DeleteMultiplexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteMultiplexCommandOutput>;
   deleteMultiplex(
     args: DeleteMultiplexCommandInput,
@@ -1439,7 +1447,7 @@ export interface MediaLive {
   ): void;
   deleteMultiplex(
     args: DeleteMultiplexCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteMultiplexCommandOutput) => void
   ): void;
 
@@ -1448,7 +1456,7 @@ export interface MediaLive {
    */
   deleteMultiplexProgram(
     args: DeleteMultiplexProgramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteMultiplexProgramCommandOutput>;
   deleteMultiplexProgram(
     args: DeleteMultiplexProgramCommandInput,
@@ -1456,7 +1464,7 @@ export interface MediaLive {
   ): void;
   deleteMultiplexProgram(
     args: DeleteMultiplexProgramCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteMultiplexProgramCommandOutput) => void
   ): void;
 
@@ -1465,7 +1473,7 @@ export interface MediaLive {
    */
   deleteNetwork(
     args: DeleteNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteNetworkCommandOutput>;
   deleteNetwork(
     args: DeleteNetworkCommandInput,
@@ -1473,7 +1481,7 @@ export interface MediaLive {
   ): void;
   deleteNetwork(
     args: DeleteNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteNetworkCommandOutput) => void
   ): void;
 
@@ -1482,7 +1490,7 @@ export interface MediaLive {
    */
   deleteNode(
     args: DeleteNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteNodeCommandOutput>;
   deleteNode(
     args: DeleteNodeCommandInput,
@@ -1490,7 +1498,7 @@ export interface MediaLive {
   ): void;
   deleteNode(
     args: DeleteNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteNodeCommandOutput) => void
   ): void;
 
@@ -1499,7 +1507,7 @@ export interface MediaLive {
    */
   deleteReservation(
     args: DeleteReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteReservationCommandOutput>;
   deleteReservation(
     args: DeleteReservationCommandInput,
@@ -1507,7 +1515,7 @@ export interface MediaLive {
   ): void;
   deleteReservation(
     args: DeleteReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteReservationCommandOutput) => void
   ): void;
 
@@ -1516,7 +1524,7 @@ export interface MediaLive {
    */
   deleteSchedule(
     args: DeleteScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteScheduleCommandOutput>;
   deleteSchedule(
     args: DeleteScheduleCommandInput,
@@ -1524,7 +1532,7 @@ export interface MediaLive {
   ): void;
   deleteSchedule(
     args: DeleteScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteScheduleCommandOutput) => void
   ): void;
 
@@ -1533,7 +1541,7 @@ export interface MediaLive {
    */
   deleteSdiSource(
     args: DeleteSdiSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteSdiSourceCommandOutput>;
   deleteSdiSource(
     args: DeleteSdiSourceCommandInput,
@@ -1541,7 +1549,7 @@ export interface MediaLive {
   ): void;
   deleteSdiSource(
     args: DeleteSdiSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteSdiSourceCommandOutput) => void
   ): void;
 
@@ -1550,7 +1558,7 @@ export interface MediaLive {
    */
   deleteSignalMap(
     args: DeleteSignalMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteSignalMapCommandOutput>;
   deleteSignalMap(
     args: DeleteSignalMapCommandInput,
@@ -1558,7 +1566,7 @@ export interface MediaLive {
   ): void;
   deleteSignalMap(
     args: DeleteSignalMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteSignalMapCommandOutput) => void
   ): void;
 
@@ -1567,7 +1575,7 @@ export interface MediaLive {
    */
   deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DeleteTagsCommandOutput>;
   deleteTags(
     args: DeleteTagsCommandInput,
@@ -1575,7 +1583,7 @@ export interface MediaLive {
   ): void;
   deleteTags(
     args: DeleteTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DeleteTagsCommandOutput) => void
   ): void;
 
@@ -1585,7 +1593,7 @@ export interface MediaLive {
   describeAccountConfiguration(): Promise<DescribeAccountConfigurationCommandOutput>;
   describeAccountConfiguration(
     args: DescribeAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeAccountConfigurationCommandOutput>;
   describeAccountConfiguration(
     args: DescribeAccountConfigurationCommandInput,
@@ -1593,7 +1601,7 @@ export interface MediaLive {
   ): void;
   describeAccountConfiguration(
     args: DescribeAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeAccountConfigurationCommandOutput) => void
   ): void;
 
@@ -1602,7 +1610,7 @@ export interface MediaLive {
    */
   describeChannel(
     args: DescribeChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeChannelCommandOutput>;
   describeChannel(
     args: DescribeChannelCommandInput,
@@ -1610,7 +1618,7 @@ export interface MediaLive {
   ): void;
   describeChannel(
     args: DescribeChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeChannelCommandOutput) => void
   ): void;
 
@@ -1619,7 +1627,7 @@ export interface MediaLive {
    */
   describeChannelPlacementGroup(
     args: DescribeChannelPlacementGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeChannelPlacementGroupCommandOutput>;
   describeChannelPlacementGroup(
     args: DescribeChannelPlacementGroupCommandInput,
@@ -1627,7 +1635,7 @@ export interface MediaLive {
   ): void;
   describeChannelPlacementGroup(
     args: DescribeChannelPlacementGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeChannelPlacementGroupCommandOutput) => void
   ): void;
 
@@ -1636,7 +1644,7 @@ export interface MediaLive {
    */
   describeCluster(
     args: DescribeClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeClusterCommandOutput>;
   describeCluster(
     args: DescribeClusterCommandInput,
@@ -1644,7 +1652,7 @@ export interface MediaLive {
   ): void;
   describeCluster(
     args: DescribeClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeClusterCommandOutput) => void
   ): void;
 
@@ -1653,7 +1661,7 @@ export interface MediaLive {
    */
   describeInput(
     args: DescribeInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeInputCommandOutput>;
   describeInput(
     args: DescribeInputCommandInput,
@@ -1661,7 +1669,7 @@ export interface MediaLive {
   ): void;
   describeInput(
     args: DescribeInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeInputCommandOutput) => void
   ): void;
 
@@ -1670,7 +1678,7 @@ export interface MediaLive {
    */
   describeInputDevice(
     args: DescribeInputDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeInputDeviceCommandOutput>;
   describeInputDevice(
     args: DescribeInputDeviceCommandInput,
@@ -1678,7 +1686,7 @@ export interface MediaLive {
   ): void;
   describeInputDevice(
     args: DescribeInputDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeInputDeviceCommandOutput) => void
   ): void;
 
@@ -1687,7 +1695,7 @@ export interface MediaLive {
    */
   describeInputDeviceThumbnail(
     args: DescribeInputDeviceThumbnailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeInputDeviceThumbnailCommandOutput>;
   describeInputDeviceThumbnail(
     args: DescribeInputDeviceThumbnailCommandInput,
@@ -1695,7 +1703,7 @@ export interface MediaLive {
   ): void;
   describeInputDeviceThumbnail(
     args: DescribeInputDeviceThumbnailCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeInputDeviceThumbnailCommandOutput) => void
   ): void;
 
@@ -1704,7 +1712,7 @@ export interface MediaLive {
    */
   describeInputSecurityGroup(
     args: DescribeInputSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeInputSecurityGroupCommandOutput>;
   describeInputSecurityGroup(
     args: DescribeInputSecurityGroupCommandInput,
@@ -1712,7 +1720,7 @@ export interface MediaLive {
   ): void;
   describeInputSecurityGroup(
     args: DescribeInputSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeInputSecurityGroupCommandOutput) => void
   ): void;
 
@@ -1721,7 +1729,7 @@ export interface MediaLive {
    */
   describeMultiplex(
     args: DescribeMultiplexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeMultiplexCommandOutput>;
   describeMultiplex(
     args: DescribeMultiplexCommandInput,
@@ -1729,7 +1737,7 @@ export interface MediaLive {
   ): void;
   describeMultiplex(
     args: DescribeMultiplexCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeMultiplexCommandOutput) => void
   ): void;
 
@@ -1738,7 +1746,7 @@ export interface MediaLive {
    */
   describeMultiplexProgram(
     args: DescribeMultiplexProgramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeMultiplexProgramCommandOutput>;
   describeMultiplexProgram(
     args: DescribeMultiplexProgramCommandInput,
@@ -1746,7 +1754,7 @@ export interface MediaLive {
   ): void;
   describeMultiplexProgram(
     args: DescribeMultiplexProgramCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeMultiplexProgramCommandOutput) => void
   ): void;
 
@@ -1755,7 +1763,7 @@ export interface MediaLive {
    */
   describeNetwork(
     args: DescribeNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeNetworkCommandOutput>;
   describeNetwork(
     args: DescribeNetworkCommandInput,
@@ -1763,7 +1771,7 @@ export interface MediaLive {
   ): void;
   describeNetwork(
     args: DescribeNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeNetworkCommandOutput) => void
   ): void;
 
@@ -1772,7 +1780,7 @@ export interface MediaLive {
    */
   describeNode(
     args: DescribeNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeNodeCommandOutput>;
   describeNode(
     args: DescribeNodeCommandInput,
@@ -1780,7 +1788,7 @@ export interface MediaLive {
   ): void;
   describeNode(
     args: DescribeNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeNodeCommandOutput) => void
   ): void;
 
@@ -1789,7 +1797,7 @@ export interface MediaLive {
    */
   describeOffering(
     args: DescribeOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeOfferingCommandOutput>;
   describeOffering(
     args: DescribeOfferingCommandInput,
@@ -1797,7 +1805,7 @@ export interface MediaLive {
   ): void;
   describeOffering(
     args: DescribeOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeOfferingCommandOutput) => void
   ): void;
 
@@ -1806,7 +1814,7 @@ export interface MediaLive {
    */
   describeReservation(
     args: DescribeReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeReservationCommandOutput>;
   describeReservation(
     args: DescribeReservationCommandInput,
@@ -1814,7 +1822,7 @@ export interface MediaLive {
   ): void;
   describeReservation(
     args: DescribeReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeReservationCommandOutput) => void
   ): void;
 
@@ -1823,7 +1831,7 @@ export interface MediaLive {
    */
   describeSchedule(
     args: DescribeScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeScheduleCommandOutput>;
   describeSchedule(
     args: DescribeScheduleCommandInput,
@@ -1831,7 +1839,7 @@ export interface MediaLive {
   ): void;
   describeSchedule(
     args: DescribeScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeScheduleCommandOutput) => void
   ): void;
 
@@ -1840,7 +1848,7 @@ export interface MediaLive {
    */
   describeSdiSource(
     args: DescribeSdiSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeSdiSourceCommandOutput>;
   describeSdiSource(
     args: DescribeSdiSourceCommandInput,
@@ -1848,7 +1856,7 @@ export interface MediaLive {
   ): void;
   describeSdiSource(
     args: DescribeSdiSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeSdiSourceCommandOutput) => void
   ): void;
 
@@ -1857,7 +1865,7 @@ export interface MediaLive {
    */
   describeThumbnails(
     args: DescribeThumbnailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<DescribeThumbnailsCommandOutput>;
   describeThumbnails(
     args: DescribeThumbnailsCommandInput,
@@ -1865,7 +1873,7 @@ export interface MediaLive {
   ): void;
   describeThumbnails(
     args: DescribeThumbnailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: DescribeThumbnailsCommandOutput) => void
   ): void;
 
@@ -1874,7 +1882,7 @@ export interface MediaLive {
    */
   getCloudWatchAlarmTemplate(
     args: GetCloudWatchAlarmTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<GetCloudWatchAlarmTemplateCommandOutput>;
   getCloudWatchAlarmTemplate(
     args: GetCloudWatchAlarmTemplateCommandInput,
@@ -1882,7 +1890,7 @@ export interface MediaLive {
   ): void;
   getCloudWatchAlarmTemplate(
     args: GetCloudWatchAlarmTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: GetCloudWatchAlarmTemplateCommandOutput) => void
   ): void;
 
@@ -1891,7 +1899,7 @@ export interface MediaLive {
    */
   getCloudWatchAlarmTemplateGroup(
     args: GetCloudWatchAlarmTemplateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<GetCloudWatchAlarmTemplateGroupCommandOutput>;
   getCloudWatchAlarmTemplateGroup(
     args: GetCloudWatchAlarmTemplateGroupCommandInput,
@@ -1899,7 +1907,7 @@ export interface MediaLive {
   ): void;
   getCloudWatchAlarmTemplateGroup(
     args: GetCloudWatchAlarmTemplateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: GetCloudWatchAlarmTemplateGroupCommandOutput) => void
   ): void;
 
@@ -1908,7 +1916,7 @@ export interface MediaLive {
    */
   getEventBridgeRuleTemplate(
     args: GetEventBridgeRuleTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<GetEventBridgeRuleTemplateCommandOutput>;
   getEventBridgeRuleTemplate(
     args: GetEventBridgeRuleTemplateCommandInput,
@@ -1916,7 +1924,7 @@ export interface MediaLive {
   ): void;
   getEventBridgeRuleTemplate(
     args: GetEventBridgeRuleTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: GetEventBridgeRuleTemplateCommandOutput) => void
   ): void;
 
@@ -1925,7 +1933,7 @@ export interface MediaLive {
    */
   getEventBridgeRuleTemplateGroup(
     args: GetEventBridgeRuleTemplateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<GetEventBridgeRuleTemplateGroupCommandOutput>;
   getEventBridgeRuleTemplateGroup(
     args: GetEventBridgeRuleTemplateGroupCommandInput,
@@ -1933,7 +1941,7 @@ export interface MediaLive {
   ): void;
   getEventBridgeRuleTemplateGroup(
     args: GetEventBridgeRuleTemplateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: GetEventBridgeRuleTemplateGroupCommandOutput) => void
   ): void;
 
@@ -1942,7 +1950,7 @@ export interface MediaLive {
    */
   getSignalMap(
     args: GetSignalMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<GetSignalMapCommandOutput>;
   getSignalMap(
     args: GetSignalMapCommandInput,
@@ -1950,7 +1958,7 @@ export interface MediaLive {
   ): void;
   getSignalMap(
     args: GetSignalMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: GetSignalMapCommandOutput) => void
   ): void;
 
@@ -1959,7 +1967,7 @@ export interface MediaLive {
    */
   listAlerts(
     args: ListAlertsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListAlertsCommandOutput>;
   listAlerts(
     args: ListAlertsCommandInput,
@@ -1967,7 +1975,7 @@ export interface MediaLive {
   ): void;
   listAlerts(
     args: ListAlertsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListAlertsCommandOutput) => void
   ): void;
 
@@ -1976,7 +1984,7 @@ export interface MediaLive {
    */
   listChannelPlacementGroups(
     args: ListChannelPlacementGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListChannelPlacementGroupsCommandOutput>;
   listChannelPlacementGroups(
     args: ListChannelPlacementGroupsCommandInput,
@@ -1984,7 +1992,7 @@ export interface MediaLive {
   ): void;
   listChannelPlacementGroups(
     args: ListChannelPlacementGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListChannelPlacementGroupsCommandOutput) => void
   ): void;
 
@@ -1994,7 +2002,7 @@ export interface MediaLive {
   listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
@@ -2002,7 +2010,7 @@ export interface MediaLive {
   ): void;
   listChannels(
     args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
@@ -2012,7 +2020,7 @@ export interface MediaLive {
   listCloudWatchAlarmTemplateGroups(): Promise<ListCloudWatchAlarmTemplateGroupsCommandOutput>;
   listCloudWatchAlarmTemplateGroups(
     args: ListCloudWatchAlarmTemplateGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListCloudWatchAlarmTemplateGroupsCommandOutput>;
   listCloudWatchAlarmTemplateGroups(
     args: ListCloudWatchAlarmTemplateGroupsCommandInput,
@@ -2020,7 +2028,7 @@ export interface MediaLive {
   ): void;
   listCloudWatchAlarmTemplateGroups(
     args: ListCloudWatchAlarmTemplateGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListCloudWatchAlarmTemplateGroupsCommandOutput) => void
   ): void;
 
@@ -2030,7 +2038,7 @@ export interface MediaLive {
   listCloudWatchAlarmTemplates(): Promise<ListCloudWatchAlarmTemplatesCommandOutput>;
   listCloudWatchAlarmTemplates(
     args: ListCloudWatchAlarmTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListCloudWatchAlarmTemplatesCommandOutput>;
   listCloudWatchAlarmTemplates(
     args: ListCloudWatchAlarmTemplatesCommandInput,
@@ -2038,7 +2046,7 @@ export interface MediaLive {
   ): void;
   listCloudWatchAlarmTemplates(
     args: ListCloudWatchAlarmTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListCloudWatchAlarmTemplatesCommandOutput) => void
   ): void;
 
@@ -2047,7 +2055,7 @@ export interface MediaLive {
    */
   listClusterAlerts(
     args: ListClusterAlertsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListClusterAlertsCommandOutput>;
   listClusterAlerts(
     args: ListClusterAlertsCommandInput,
@@ -2055,7 +2063,7 @@ export interface MediaLive {
   ): void;
   listClusterAlerts(
     args: ListClusterAlertsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListClusterAlertsCommandOutput) => void
   ): void;
 
@@ -2065,7 +2073,7 @@ export interface MediaLive {
   listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListClustersCommandOutput>;
   listClusters(
     args: ListClustersCommandInput,
@@ -2073,7 +2081,7 @@ export interface MediaLive {
   ): void;
   listClusters(
     args: ListClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListClustersCommandOutput) => void
   ): void;
 
@@ -2083,7 +2091,7 @@ export interface MediaLive {
   listEventBridgeRuleTemplateGroups(): Promise<ListEventBridgeRuleTemplateGroupsCommandOutput>;
   listEventBridgeRuleTemplateGroups(
     args: ListEventBridgeRuleTemplateGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListEventBridgeRuleTemplateGroupsCommandOutput>;
   listEventBridgeRuleTemplateGroups(
     args: ListEventBridgeRuleTemplateGroupsCommandInput,
@@ -2091,7 +2099,7 @@ export interface MediaLive {
   ): void;
   listEventBridgeRuleTemplateGroups(
     args: ListEventBridgeRuleTemplateGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListEventBridgeRuleTemplateGroupsCommandOutput) => void
   ): void;
 
@@ -2101,7 +2109,7 @@ export interface MediaLive {
   listEventBridgeRuleTemplates(): Promise<ListEventBridgeRuleTemplatesCommandOutput>;
   listEventBridgeRuleTemplates(
     args: ListEventBridgeRuleTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListEventBridgeRuleTemplatesCommandOutput>;
   listEventBridgeRuleTemplates(
     args: ListEventBridgeRuleTemplatesCommandInput,
@@ -2109,7 +2117,7 @@ export interface MediaLive {
   ): void;
   listEventBridgeRuleTemplates(
     args: ListEventBridgeRuleTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListEventBridgeRuleTemplatesCommandOutput) => void
   ): void;
 
@@ -2119,7 +2127,7 @@ export interface MediaLive {
   listInputDevices(): Promise<ListInputDevicesCommandOutput>;
   listInputDevices(
     args: ListInputDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListInputDevicesCommandOutput>;
   listInputDevices(
     args: ListInputDevicesCommandInput,
@@ -2127,7 +2135,7 @@ export interface MediaLive {
   ): void;
   listInputDevices(
     args: ListInputDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListInputDevicesCommandOutput) => void
   ): void;
 
@@ -2136,7 +2144,7 @@ export interface MediaLive {
    */
   listInputDeviceTransfers(
     args: ListInputDeviceTransfersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListInputDeviceTransfersCommandOutput>;
   listInputDeviceTransfers(
     args: ListInputDeviceTransfersCommandInput,
@@ -2144,7 +2152,7 @@ export interface MediaLive {
   ): void;
   listInputDeviceTransfers(
     args: ListInputDeviceTransfersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListInputDeviceTransfersCommandOutput) => void
   ): void;
 
@@ -2154,7 +2162,7 @@ export interface MediaLive {
   listInputs(): Promise<ListInputsCommandOutput>;
   listInputs(
     args: ListInputsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListInputsCommandOutput>;
   listInputs(
     args: ListInputsCommandInput,
@@ -2162,7 +2170,7 @@ export interface MediaLive {
   ): void;
   listInputs(
     args: ListInputsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListInputsCommandOutput) => void
   ): void;
 
@@ -2172,7 +2180,7 @@ export interface MediaLive {
   listInputSecurityGroups(): Promise<ListInputSecurityGroupsCommandOutput>;
   listInputSecurityGroups(
     args: ListInputSecurityGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListInputSecurityGroupsCommandOutput>;
   listInputSecurityGroups(
     args: ListInputSecurityGroupsCommandInput,
@@ -2180,7 +2188,7 @@ export interface MediaLive {
   ): void;
   listInputSecurityGroups(
     args: ListInputSecurityGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListInputSecurityGroupsCommandOutput) => void
   ): void;
 
@@ -2189,7 +2197,7 @@ export interface MediaLive {
    */
   listMultiplexAlerts(
     args: ListMultiplexAlertsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListMultiplexAlertsCommandOutput>;
   listMultiplexAlerts(
     args: ListMultiplexAlertsCommandInput,
@@ -2197,7 +2205,7 @@ export interface MediaLive {
   ): void;
   listMultiplexAlerts(
     args: ListMultiplexAlertsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListMultiplexAlertsCommandOutput) => void
   ): void;
 
@@ -2207,7 +2215,7 @@ export interface MediaLive {
   listMultiplexes(): Promise<ListMultiplexesCommandOutput>;
   listMultiplexes(
     args: ListMultiplexesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListMultiplexesCommandOutput>;
   listMultiplexes(
     args: ListMultiplexesCommandInput,
@@ -2215,7 +2223,7 @@ export interface MediaLive {
   ): void;
   listMultiplexes(
     args: ListMultiplexesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListMultiplexesCommandOutput) => void
   ): void;
 
@@ -2224,7 +2232,7 @@ export interface MediaLive {
    */
   listMultiplexPrograms(
     args: ListMultiplexProgramsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListMultiplexProgramsCommandOutput>;
   listMultiplexPrograms(
     args: ListMultiplexProgramsCommandInput,
@@ -2232,7 +2240,7 @@ export interface MediaLive {
   ): void;
   listMultiplexPrograms(
     args: ListMultiplexProgramsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListMultiplexProgramsCommandOutput) => void
   ): void;
 
@@ -2242,7 +2250,7 @@ export interface MediaLive {
   listNetworks(): Promise<ListNetworksCommandOutput>;
   listNetworks(
     args: ListNetworksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListNetworksCommandOutput>;
   listNetworks(
     args: ListNetworksCommandInput,
@@ -2250,7 +2258,7 @@ export interface MediaLive {
   ): void;
   listNetworks(
     args: ListNetworksCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListNetworksCommandOutput) => void
   ): void;
 
@@ -2259,7 +2267,7 @@ export interface MediaLive {
    */
   listNodes(
     args: ListNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListNodesCommandOutput>;
   listNodes(
     args: ListNodesCommandInput,
@@ -2267,7 +2275,7 @@ export interface MediaLive {
   ): void;
   listNodes(
     args: ListNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListNodesCommandOutput) => void
   ): void;
 
@@ -2277,7 +2285,7 @@ export interface MediaLive {
   listOfferings(): Promise<ListOfferingsCommandOutput>;
   listOfferings(
     args: ListOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListOfferingsCommandOutput>;
   listOfferings(
     args: ListOfferingsCommandInput,
@@ -2285,7 +2293,7 @@ export interface MediaLive {
   ): void;
   listOfferings(
     args: ListOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListOfferingsCommandOutput) => void
   ): void;
 
@@ -2295,7 +2303,7 @@ export interface MediaLive {
   listReservations(): Promise<ListReservationsCommandOutput>;
   listReservations(
     args: ListReservationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListReservationsCommandOutput>;
   listReservations(
     args: ListReservationsCommandInput,
@@ -2303,7 +2311,7 @@ export interface MediaLive {
   ): void;
   listReservations(
     args: ListReservationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListReservationsCommandOutput) => void
   ): void;
 
@@ -2313,7 +2321,7 @@ export interface MediaLive {
   listSdiSources(): Promise<ListSdiSourcesCommandOutput>;
   listSdiSources(
     args: ListSdiSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListSdiSourcesCommandOutput>;
   listSdiSources(
     args: ListSdiSourcesCommandInput,
@@ -2321,7 +2329,7 @@ export interface MediaLive {
   ): void;
   listSdiSources(
     args: ListSdiSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListSdiSourcesCommandOutput) => void
   ): void;
 
@@ -2331,7 +2339,7 @@ export interface MediaLive {
   listSignalMaps(): Promise<ListSignalMapsCommandOutput>;
   listSignalMaps(
     args: ListSignalMapsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListSignalMapsCommandOutput>;
   listSignalMaps(
     args: ListSignalMapsCommandInput,
@@ -2339,7 +2347,7 @@ export interface MediaLive {
   ): void;
   listSignalMaps(
     args: ListSignalMapsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListSignalMapsCommandOutput) => void
   ): void;
 
@@ -2348,7 +2356,7 @@ export interface MediaLive {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2356,7 +2364,7 @@ export interface MediaLive {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2366,7 +2374,7 @@ export interface MediaLive {
   listVersions(): Promise<ListVersionsCommandOutput>;
   listVersions(
     args: ListVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<ListVersionsCommandOutput>;
   listVersions(
     args: ListVersionsCommandInput,
@@ -2374,7 +2382,7 @@ export interface MediaLive {
   ): void;
   listVersions(
     args: ListVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: ListVersionsCommandOutput) => void
   ): void;
 
@@ -2383,7 +2391,7 @@ export interface MediaLive {
    */
   purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<PurchaseOfferingCommandOutput>;
   purchaseOffering(
     args: PurchaseOfferingCommandInput,
@@ -2391,7 +2399,7 @@ export interface MediaLive {
   ): void;
   purchaseOffering(
     args: PurchaseOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: PurchaseOfferingCommandOutput) => void
   ): void;
 
@@ -2400,7 +2408,7 @@ export interface MediaLive {
    */
   rebootInputDevice(
     args: RebootInputDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<RebootInputDeviceCommandOutput>;
   rebootInputDevice(
     args: RebootInputDeviceCommandInput,
@@ -2408,7 +2416,7 @@ export interface MediaLive {
   ): void;
   rebootInputDevice(
     args: RebootInputDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: RebootInputDeviceCommandOutput) => void
   ): void;
 
@@ -2417,7 +2425,7 @@ export interface MediaLive {
    */
   rejectInputDeviceTransfer(
     args: RejectInputDeviceTransferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<RejectInputDeviceTransferCommandOutput>;
   rejectInputDeviceTransfer(
     args: RejectInputDeviceTransferCommandInput,
@@ -2425,7 +2433,7 @@ export interface MediaLive {
   ): void;
   rejectInputDeviceTransfer(
     args: RejectInputDeviceTransferCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: RejectInputDeviceTransferCommandOutput) => void
   ): void;
 
@@ -2434,7 +2442,7 @@ export interface MediaLive {
    */
   restartChannelPipelines(
     args: RestartChannelPipelinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<RestartChannelPipelinesCommandOutput>;
   restartChannelPipelines(
     args: RestartChannelPipelinesCommandInput,
@@ -2442,7 +2450,7 @@ export interface MediaLive {
   ): void;
   restartChannelPipelines(
     args: RestartChannelPipelinesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: RestartChannelPipelinesCommandOutput) => void
   ): void;
 
@@ -2451,7 +2459,7 @@ export interface MediaLive {
    */
   startChannel(
     args: StartChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StartChannelCommandOutput>;
   startChannel(
     args: StartChannelCommandInput,
@@ -2459,7 +2467,7 @@ export interface MediaLive {
   ): void;
   startChannel(
     args: StartChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StartChannelCommandOutput) => void
   ): void;
 
@@ -2468,7 +2476,7 @@ export interface MediaLive {
    */
   startDeleteMonitorDeployment(
     args: StartDeleteMonitorDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StartDeleteMonitorDeploymentCommandOutput>;
   startDeleteMonitorDeployment(
     args: StartDeleteMonitorDeploymentCommandInput,
@@ -2476,7 +2484,7 @@ export interface MediaLive {
   ): void;
   startDeleteMonitorDeployment(
     args: StartDeleteMonitorDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StartDeleteMonitorDeploymentCommandOutput) => void
   ): void;
 
@@ -2485,7 +2493,7 @@ export interface MediaLive {
    */
   startInputDevice(
     args: StartInputDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StartInputDeviceCommandOutput>;
   startInputDevice(
     args: StartInputDeviceCommandInput,
@@ -2493,7 +2501,7 @@ export interface MediaLive {
   ): void;
   startInputDevice(
     args: StartInputDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StartInputDeviceCommandOutput) => void
   ): void;
 
@@ -2502,7 +2510,7 @@ export interface MediaLive {
    */
   startInputDeviceMaintenanceWindow(
     args: StartInputDeviceMaintenanceWindowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StartInputDeviceMaintenanceWindowCommandOutput>;
   startInputDeviceMaintenanceWindow(
     args: StartInputDeviceMaintenanceWindowCommandInput,
@@ -2510,7 +2518,7 @@ export interface MediaLive {
   ): void;
   startInputDeviceMaintenanceWindow(
     args: StartInputDeviceMaintenanceWindowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StartInputDeviceMaintenanceWindowCommandOutput) => void
   ): void;
 
@@ -2519,7 +2527,7 @@ export interface MediaLive {
    */
   startMonitorDeployment(
     args: StartMonitorDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StartMonitorDeploymentCommandOutput>;
   startMonitorDeployment(
     args: StartMonitorDeploymentCommandInput,
@@ -2527,7 +2535,7 @@ export interface MediaLive {
   ): void;
   startMonitorDeployment(
     args: StartMonitorDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StartMonitorDeploymentCommandOutput) => void
   ): void;
 
@@ -2536,7 +2544,7 @@ export interface MediaLive {
    */
   startMultiplex(
     args: StartMultiplexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StartMultiplexCommandOutput>;
   startMultiplex(
     args: StartMultiplexCommandInput,
@@ -2544,7 +2552,7 @@ export interface MediaLive {
   ): void;
   startMultiplex(
     args: StartMultiplexCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StartMultiplexCommandOutput) => void
   ): void;
 
@@ -2553,7 +2561,7 @@ export interface MediaLive {
    */
   startUpdateSignalMap(
     args: StartUpdateSignalMapCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StartUpdateSignalMapCommandOutput>;
   startUpdateSignalMap(
     args: StartUpdateSignalMapCommandInput,
@@ -2561,7 +2569,7 @@ export interface MediaLive {
   ): void;
   startUpdateSignalMap(
     args: StartUpdateSignalMapCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StartUpdateSignalMapCommandOutput) => void
   ): void;
 
@@ -2570,7 +2578,7 @@ export interface MediaLive {
    */
   stopChannel(
     args: StopChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StopChannelCommandOutput>;
   stopChannel(
     args: StopChannelCommandInput,
@@ -2578,7 +2586,7 @@ export interface MediaLive {
   ): void;
   stopChannel(
     args: StopChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StopChannelCommandOutput) => void
   ): void;
 
@@ -2587,7 +2595,7 @@ export interface MediaLive {
    */
   stopInputDevice(
     args: StopInputDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StopInputDeviceCommandOutput>;
   stopInputDevice(
     args: StopInputDeviceCommandInput,
@@ -2595,7 +2603,7 @@ export interface MediaLive {
   ): void;
   stopInputDevice(
     args: StopInputDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StopInputDeviceCommandOutput) => void
   ): void;
 
@@ -2604,7 +2612,7 @@ export interface MediaLive {
    */
   stopMultiplex(
     args: StopMultiplexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<StopMultiplexCommandOutput>;
   stopMultiplex(
     args: StopMultiplexCommandInput,
@@ -2612,7 +2620,7 @@ export interface MediaLive {
   ): void;
   stopMultiplex(
     args: StopMultiplexCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: StopMultiplexCommandOutput) => void
   ): void;
 
@@ -2621,7 +2629,7 @@ export interface MediaLive {
    */
   transferInputDevice(
     args: TransferInputDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<TransferInputDeviceCommandOutput>;
   transferInputDevice(
     args: TransferInputDeviceCommandInput,
@@ -2629,7 +2637,7 @@ export interface MediaLive {
   ): void;
   transferInputDevice(
     args: TransferInputDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: TransferInputDeviceCommandOutput) => void
   ): void;
 
@@ -2639,7 +2647,7 @@ export interface MediaLive {
   updateAccountConfiguration(): Promise<UpdateAccountConfigurationCommandOutput>;
   updateAccountConfiguration(
     args: UpdateAccountConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateAccountConfigurationCommandOutput>;
   updateAccountConfiguration(
     args: UpdateAccountConfigurationCommandInput,
@@ -2647,7 +2655,7 @@ export interface MediaLive {
   ): void;
   updateAccountConfiguration(
     args: UpdateAccountConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateAccountConfigurationCommandOutput) => void
   ): void;
 
@@ -2656,7 +2664,7 @@ export interface MediaLive {
    */
   updateChannel(
     args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateChannelCommandOutput>;
   updateChannel(
     args: UpdateChannelCommandInput,
@@ -2664,7 +2672,7 @@ export interface MediaLive {
   ): void;
   updateChannel(
     args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
 
@@ -2673,7 +2681,7 @@ export interface MediaLive {
    */
   updateChannelClass(
     args: UpdateChannelClassCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateChannelClassCommandOutput>;
   updateChannelClass(
     args: UpdateChannelClassCommandInput,
@@ -2681,7 +2689,7 @@ export interface MediaLive {
   ): void;
   updateChannelClass(
     args: UpdateChannelClassCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateChannelClassCommandOutput) => void
   ): void;
 
@@ -2690,7 +2698,7 @@ export interface MediaLive {
    */
   updateChannelPlacementGroup(
     args: UpdateChannelPlacementGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateChannelPlacementGroupCommandOutput>;
   updateChannelPlacementGroup(
     args: UpdateChannelPlacementGroupCommandInput,
@@ -2698,7 +2706,7 @@ export interface MediaLive {
   ): void;
   updateChannelPlacementGroup(
     args: UpdateChannelPlacementGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateChannelPlacementGroupCommandOutput) => void
   ): void;
 
@@ -2707,7 +2715,7 @@ export interface MediaLive {
    */
   updateCloudWatchAlarmTemplate(
     args: UpdateCloudWatchAlarmTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateCloudWatchAlarmTemplateCommandOutput>;
   updateCloudWatchAlarmTemplate(
     args: UpdateCloudWatchAlarmTemplateCommandInput,
@@ -2715,7 +2723,7 @@ export interface MediaLive {
   ): void;
   updateCloudWatchAlarmTemplate(
     args: UpdateCloudWatchAlarmTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateCloudWatchAlarmTemplateCommandOutput) => void
   ): void;
 
@@ -2724,7 +2732,7 @@ export interface MediaLive {
    */
   updateCloudWatchAlarmTemplateGroup(
     args: UpdateCloudWatchAlarmTemplateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateCloudWatchAlarmTemplateGroupCommandOutput>;
   updateCloudWatchAlarmTemplateGroup(
     args: UpdateCloudWatchAlarmTemplateGroupCommandInput,
@@ -2732,7 +2740,7 @@ export interface MediaLive {
   ): void;
   updateCloudWatchAlarmTemplateGroup(
     args: UpdateCloudWatchAlarmTemplateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateCloudWatchAlarmTemplateGroupCommandOutput) => void
   ): void;
 
@@ -2741,7 +2749,7 @@ export interface MediaLive {
    */
   updateCluster(
     args: UpdateClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateClusterCommandOutput>;
   updateCluster(
     args: UpdateClusterCommandInput,
@@ -2749,7 +2757,7 @@ export interface MediaLive {
   ): void;
   updateCluster(
     args: UpdateClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
 
@@ -2758,7 +2766,7 @@ export interface MediaLive {
    */
   updateEventBridgeRuleTemplate(
     args: UpdateEventBridgeRuleTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateEventBridgeRuleTemplateCommandOutput>;
   updateEventBridgeRuleTemplate(
     args: UpdateEventBridgeRuleTemplateCommandInput,
@@ -2766,7 +2774,7 @@ export interface MediaLive {
   ): void;
   updateEventBridgeRuleTemplate(
     args: UpdateEventBridgeRuleTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateEventBridgeRuleTemplateCommandOutput) => void
   ): void;
 
@@ -2775,7 +2783,7 @@ export interface MediaLive {
    */
   updateEventBridgeRuleTemplateGroup(
     args: UpdateEventBridgeRuleTemplateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateEventBridgeRuleTemplateGroupCommandOutput>;
   updateEventBridgeRuleTemplateGroup(
     args: UpdateEventBridgeRuleTemplateGroupCommandInput,
@@ -2783,7 +2791,7 @@ export interface MediaLive {
   ): void;
   updateEventBridgeRuleTemplateGroup(
     args: UpdateEventBridgeRuleTemplateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateEventBridgeRuleTemplateGroupCommandOutput) => void
   ): void;
 
@@ -2792,7 +2800,7 @@ export interface MediaLive {
    */
   updateInput(
     args: UpdateInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateInputCommandOutput>;
   updateInput(
     args: UpdateInputCommandInput,
@@ -2800,7 +2808,7 @@ export interface MediaLive {
   ): void;
   updateInput(
     args: UpdateInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateInputCommandOutput) => void
   ): void;
 
@@ -2809,7 +2817,7 @@ export interface MediaLive {
    */
   updateInputDevice(
     args: UpdateInputDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateInputDeviceCommandOutput>;
   updateInputDevice(
     args: UpdateInputDeviceCommandInput,
@@ -2817,7 +2825,7 @@ export interface MediaLive {
   ): void;
   updateInputDevice(
     args: UpdateInputDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateInputDeviceCommandOutput) => void
   ): void;
 
@@ -2826,7 +2834,7 @@ export interface MediaLive {
    */
   updateInputSecurityGroup(
     args: UpdateInputSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateInputSecurityGroupCommandOutput>;
   updateInputSecurityGroup(
     args: UpdateInputSecurityGroupCommandInput,
@@ -2834,7 +2842,7 @@ export interface MediaLive {
   ): void;
   updateInputSecurityGroup(
     args: UpdateInputSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateInputSecurityGroupCommandOutput) => void
   ): void;
 
@@ -2843,7 +2851,7 @@ export interface MediaLive {
    */
   updateMultiplex(
     args: UpdateMultiplexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateMultiplexCommandOutput>;
   updateMultiplex(
     args: UpdateMultiplexCommandInput,
@@ -2851,7 +2859,7 @@ export interface MediaLive {
   ): void;
   updateMultiplex(
     args: UpdateMultiplexCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateMultiplexCommandOutput) => void
   ): void;
 
@@ -2860,7 +2868,7 @@ export interface MediaLive {
    */
   updateMultiplexProgram(
     args: UpdateMultiplexProgramCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateMultiplexProgramCommandOutput>;
   updateMultiplexProgram(
     args: UpdateMultiplexProgramCommandInput,
@@ -2868,7 +2876,7 @@ export interface MediaLive {
   ): void;
   updateMultiplexProgram(
     args: UpdateMultiplexProgramCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateMultiplexProgramCommandOutput) => void
   ): void;
 
@@ -2877,7 +2885,7 @@ export interface MediaLive {
    */
   updateNetwork(
     args: UpdateNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateNetworkCommandOutput>;
   updateNetwork(
     args: UpdateNetworkCommandInput,
@@ -2885,7 +2893,7 @@ export interface MediaLive {
   ): void;
   updateNetwork(
     args: UpdateNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateNetworkCommandOutput) => void
   ): void;
 
@@ -2894,7 +2902,7 @@ export interface MediaLive {
    */
   updateNode(
     args: UpdateNodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateNodeCommandOutput>;
   updateNode(
     args: UpdateNodeCommandInput,
@@ -2902,7 +2910,7 @@ export interface MediaLive {
   ): void;
   updateNode(
     args: UpdateNodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateNodeCommandOutput) => void
   ): void;
 
@@ -2911,7 +2919,7 @@ export interface MediaLive {
    */
   updateNodeState(
     args: UpdateNodeStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateNodeStateCommandOutput>;
   updateNodeState(
     args: UpdateNodeStateCommandInput,
@@ -2919,7 +2927,7 @@ export interface MediaLive {
   ): void;
   updateNodeState(
     args: UpdateNodeStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateNodeStateCommandOutput) => void
   ): void;
 
@@ -2928,7 +2936,7 @@ export interface MediaLive {
    */
   updateReservation(
     args: UpdateReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateReservationCommandOutput>;
   updateReservation(
     args: UpdateReservationCommandInput,
@@ -2936,7 +2944,7 @@ export interface MediaLive {
   ): void;
   updateReservation(
     args: UpdateReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateReservationCommandOutput) => void
   ): void;
 
@@ -2945,7 +2953,7 @@ export interface MediaLive {
    */
   updateSdiSource(
     args: UpdateSdiSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaLiveRequestOptions
   ): Promise<UpdateSdiSourceCommandOutput>;
   updateSdiSource(
     args: UpdateSdiSourceCommandInput,
@@ -2953,7 +2961,7 @@ export interface MediaLive {
   ): void;
   updateSdiSource(
     args: UpdateSdiSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaLiveRequestOptions,
     cb: (err: any, data?: UpdateSdiSourceCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DescribeReportCreationCommandInput,
@@ -73,6 +78,13 @@ const paginators = {
   paginateListRequiredTags,
 };
 
+/**
+ * @public
+ */
+export interface ResourceGroupsTaggingAPIRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ResourceGroupsTaggingAPI {
   /**
    * @see {@link DescribeReportCreationCommand}
@@ -80,7 +92,7 @@ export interface ResourceGroupsTaggingAPI {
   describeReportCreation(): Promise<DescribeReportCreationCommandOutput>;
   describeReportCreation(
     args: DescribeReportCreationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResourceGroupsTaggingAPIRequestOptions
   ): Promise<DescribeReportCreationCommandOutput>;
   describeReportCreation(
     args: DescribeReportCreationCommandInput,
@@ -88,7 +100,7 @@ export interface ResourceGroupsTaggingAPI {
   ): void;
   describeReportCreation(
     args: DescribeReportCreationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResourceGroupsTaggingAPIRequestOptions,
     cb: (err: any, data?: DescribeReportCreationCommandOutput) => void
   ): void;
 
@@ -98,7 +110,7 @@ export interface ResourceGroupsTaggingAPI {
   getComplianceSummary(): Promise<GetComplianceSummaryCommandOutput>;
   getComplianceSummary(
     args: GetComplianceSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResourceGroupsTaggingAPIRequestOptions
   ): Promise<GetComplianceSummaryCommandOutput>;
   getComplianceSummary(
     args: GetComplianceSummaryCommandInput,
@@ -106,7 +118,7 @@ export interface ResourceGroupsTaggingAPI {
   ): void;
   getComplianceSummary(
     args: GetComplianceSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResourceGroupsTaggingAPIRequestOptions,
     cb: (err: any, data?: GetComplianceSummaryCommandOutput) => void
   ): void;
 
@@ -116,7 +128,7 @@ export interface ResourceGroupsTaggingAPI {
   getResources(): Promise<GetResourcesCommandOutput>;
   getResources(
     args: GetResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResourceGroupsTaggingAPIRequestOptions
   ): Promise<GetResourcesCommandOutput>;
   getResources(
     args: GetResourcesCommandInput,
@@ -124,7 +136,7 @@ export interface ResourceGroupsTaggingAPI {
   ): void;
   getResources(
     args: GetResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResourceGroupsTaggingAPIRequestOptions,
     cb: (err: any, data?: GetResourcesCommandOutput) => void
   ): void;
 
@@ -134,7 +146,7 @@ export interface ResourceGroupsTaggingAPI {
   getTagKeys(): Promise<GetTagKeysCommandOutput>;
   getTagKeys(
     args: GetTagKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResourceGroupsTaggingAPIRequestOptions
   ): Promise<GetTagKeysCommandOutput>;
   getTagKeys(
     args: GetTagKeysCommandInput,
@@ -142,7 +154,7 @@ export interface ResourceGroupsTaggingAPI {
   ): void;
   getTagKeys(
     args: GetTagKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResourceGroupsTaggingAPIRequestOptions,
     cb: (err: any, data?: GetTagKeysCommandOutput) => void
   ): void;
 
@@ -151,7 +163,7 @@ export interface ResourceGroupsTaggingAPI {
    */
   getTagValues(
     args: GetTagValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResourceGroupsTaggingAPIRequestOptions
   ): Promise<GetTagValuesCommandOutput>;
   getTagValues(
     args: GetTagValuesCommandInput,
@@ -159,7 +171,7 @@ export interface ResourceGroupsTaggingAPI {
   ): void;
   getTagValues(
     args: GetTagValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResourceGroupsTaggingAPIRequestOptions,
     cb: (err: any, data?: GetTagValuesCommandOutput) => void
   ): void;
 
@@ -169,7 +181,7 @@ export interface ResourceGroupsTaggingAPI {
   listRequiredTags(): Promise<ListRequiredTagsCommandOutput>;
   listRequiredTags(
     args: ListRequiredTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResourceGroupsTaggingAPIRequestOptions
   ): Promise<ListRequiredTagsCommandOutput>;
   listRequiredTags(
     args: ListRequiredTagsCommandInput,
@@ -177,7 +189,7 @@ export interface ResourceGroupsTaggingAPI {
   ): void;
   listRequiredTags(
     args: ListRequiredTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResourceGroupsTaggingAPIRequestOptions,
     cb: (err: any, data?: ListRequiredTagsCommandOutput) => void
   ): void;
 
@@ -186,7 +198,7 @@ export interface ResourceGroupsTaggingAPI {
    */
   startReportCreation(
     args: StartReportCreationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResourceGroupsTaggingAPIRequestOptions
   ): Promise<StartReportCreationCommandOutput>;
   startReportCreation(
     args: StartReportCreationCommandInput,
@@ -194,7 +206,7 @@ export interface ResourceGroupsTaggingAPI {
   ): void;
   startReportCreation(
     args: StartReportCreationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResourceGroupsTaggingAPIRequestOptions,
     cb: (err: any, data?: StartReportCreationCommandOutput) => void
   ): void;
 
@@ -203,7 +215,7 @@ export interface ResourceGroupsTaggingAPI {
    */
   tagResources(
     args: TagResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResourceGroupsTaggingAPIRequestOptions
   ): Promise<TagResourcesCommandOutput>;
   tagResources(
     args: TagResourcesCommandInput,
@@ -211,7 +223,7 @@ export interface ResourceGroupsTaggingAPI {
   ): void;
   tagResources(
     args: TagResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResourceGroupsTaggingAPIRequestOptions,
     cb: (err: any, data?: TagResourcesCommandOutput) => void
   ): void;
 
@@ -220,7 +232,7 @@ export interface ResourceGroupsTaggingAPI {
    */
   untagResources(
     args: UntagResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResourceGroupsTaggingAPIRequestOptions
   ): Promise<UntagResourcesCommandOutput>;
   untagResources(
     args: UntagResourcesCommandInput,
@@ -228,7 +240,7 @@ export interface ResourceGroupsTaggingAPI {
   ): void;
   untagResources(
     args: UntagResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResourceGroupsTaggingAPIRequestOptions,
     cb: (err: any, data?: UntagResourcesCommandOutput) => void
   ): void;
 

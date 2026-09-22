@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BedrockAgentCoreClient } from "./BedrockAgentCoreClient";
 import {
@@ -421,13 +426,20 @@ const paginators = {
   paginateRetrieveMemoryRecords,
 };
 
+/**
+ * @public
+ */
+export interface BedrockAgentCoreRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface BedrockAgentCore {
   /**
    * @see {@link BatchCreateMemoryRecordsCommand}
    */
   batchCreateMemoryRecords(
     args: BatchCreateMemoryRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<BatchCreateMemoryRecordsCommandOutput>;
   batchCreateMemoryRecords(
     args: BatchCreateMemoryRecordsCommandInput,
@@ -435,7 +447,7 @@ export interface BedrockAgentCore {
   ): void;
   batchCreateMemoryRecords(
     args: BatchCreateMemoryRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: BatchCreateMemoryRecordsCommandOutput) => void
   ): void;
 
@@ -444,7 +456,7 @@ export interface BedrockAgentCore {
    */
   batchDeleteMemoryRecords(
     args: BatchDeleteMemoryRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<BatchDeleteMemoryRecordsCommandOutput>;
   batchDeleteMemoryRecords(
     args: BatchDeleteMemoryRecordsCommandInput,
@@ -452,7 +464,7 @@ export interface BedrockAgentCore {
   ): void;
   batchDeleteMemoryRecords(
     args: BatchDeleteMemoryRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: BatchDeleteMemoryRecordsCommandOutput) => void
   ): void;
 
@@ -461,7 +473,7 @@ export interface BedrockAgentCore {
    */
   batchUpdateMemoryRecords(
     args: BatchUpdateMemoryRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<BatchUpdateMemoryRecordsCommandOutput>;
   batchUpdateMemoryRecords(
     args: BatchUpdateMemoryRecordsCommandInput,
@@ -469,7 +481,7 @@ export interface BedrockAgentCore {
   ): void;
   batchUpdateMemoryRecords(
     args: BatchUpdateMemoryRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: BatchUpdateMemoryRecordsCommandOutput) => void
   ): void;
 
@@ -478,7 +490,7 @@ export interface BedrockAgentCore {
    */
   completeResourceTokenAuth(
     args: CompleteResourceTokenAuthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<CompleteResourceTokenAuthCommandOutput>;
   completeResourceTokenAuth(
     args: CompleteResourceTokenAuthCommandInput,
@@ -486,7 +498,7 @@ export interface BedrockAgentCore {
   ): void;
   completeResourceTokenAuth(
     args: CompleteResourceTokenAuthCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: CompleteResourceTokenAuthCommandOutput) => void
   ): void;
 
@@ -495,7 +507,7 @@ export interface BedrockAgentCore {
    */
   createABTest(
     args: CreateABTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<CreateABTestCommandOutput>;
   createABTest(
     args: CreateABTestCommandInput,
@@ -503,7 +515,7 @@ export interface BedrockAgentCore {
   ): void;
   createABTest(
     args: CreateABTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: CreateABTestCommandOutput) => void
   ): void;
 
@@ -512,7 +524,7 @@ export interface BedrockAgentCore {
    */
   createEvent(
     args: CreateEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<CreateEventCommandOutput>;
   createEvent(
     args: CreateEventCommandInput,
@@ -520,7 +532,7 @@ export interface BedrockAgentCore {
   ): void;
   createEvent(
     args: CreateEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: CreateEventCommandOutput) => void
   ): void;
 
@@ -529,7 +541,7 @@ export interface BedrockAgentCore {
    */
   createPaymentInstrument(
     args: CreatePaymentInstrumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<CreatePaymentInstrumentCommandOutput>;
   createPaymentInstrument(
     args: CreatePaymentInstrumentCommandInput,
@@ -537,7 +549,7 @@ export interface BedrockAgentCore {
   ): void;
   createPaymentInstrument(
     args: CreatePaymentInstrumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: CreatePaymentInstrumentCommandOutput) => void
   ): void;
 
@@ -546,7 +558,7 @@ export interface BedrockAgentCore {
    */
   createPaymentSession(
     args: CreatePaymentSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<CreatePaymentSessionCommandOutput>;
   createPaymentSession(
     args: CreatePaymentSessionCommandInput,
@@ -554,7 +566,7 @@ export interface BedrockAgentCore {
   ): void;
   createPaymentSession(
     args: CreatePaymentSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: CreatePaymentSessionCommandOutput) => void
   ): void;
 
@@ -563,7 +575,7 @@ export interface BedrockAgentCore {
    */
   deleteABTest(
     args: DeleteABTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<DeleteABTestCommandOutput>;
   deleteABTest(
     args: DeleteABTestCommandInput,
@@ -571,7 +583,7 @@ export interface BedrockAgentCore {
   ): void;
   deleteABTest(
     args: DeleteABTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: DeleteABTestCommandOutput) => void
   ): void;
 
@@ -580,7 +592,7 @@ export interface BedrockAgentCore {
    */
   deleteBatchEvaluation(
     args: DeleteBatchEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<DeleteBatchEvaluationCommandOutput>;
   deleteBatchEvaluation(
     args: DeleteBatchEvaluationCommandInput,
@@ -588,7 +600,7 @@ export interface BedrockAgentCore {
   ): void;
   deleteBatchEvaluation(
     args: DeleteBatchEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: DeleteBatchEvaluationCommandOutput) => void
   ): void;
 
@@ -597,7 +609,7 @@ export interface BedrockAgentCore {
    */
   deleteCapacityProviderSession(
     args: DeleteCapacityProviderSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<DeleteCapacityProviderSessionCommandOutput>;
   deleteCapacityProviderSession(
     args: DeleteCapacityProviderSessionCommandInput,
@@ -605,7 +617,7 @@ export interface BedrockAgentCore {
   ): void;
   deleteCapacityProviderSession(
     args: DeleteCapacityProviderSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: DeleteCapacityProviderSessionCommandOutput) => void
   ): void;
 
@@ -614,7 +626,7 @@ export interface BedrockAgentCore {
    */
   deleteEvent(
     args: DeleteEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<DeleteEventCommandOutput>;
   deleteEvent(
     args: DeleteEventCommandInput,
@@ -622,7 +634,7 @@ export interface BedrockAgentCore {
   ): void;
   deleteEvent(
     args: DeleteEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: DeleteEventCommandOutput) => void
   ): void;
 
@@ -631,7 +643,7 @@ export interface BedrockAgentCore {
    */
   deleteMemoryRecord(
     args: DeleteMemoryRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<DeleteMemoryRecordCommandOutput>;
   deleteMemoryRecord(
     args: DeleteMemoryRecordCommandInput,
@@ -639,7 +651,7 @@ export interface BedrockAgentCore {
   ): void;
   deleteMemoryRecord(
     args: DeleteMemoryRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: DeleteMemoryRecordCommandOutput) => void
   ): void;
 
@@ -648,7 +660,7 @@ export interface BedrockAgentCore {
    */
   deletePaymentInstrument(
     args: DeletePaymentInstrumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<DeletePaymentInstrumentCommandOutput>;
   deletePaymentInstrument(
     args: DeletePaymentInstrumentCommandInput,
@@ -656,7 +668,7 @@ export interface BedrockAgentCore {
   ): void;
   deletePaymentInstrument(
     args: DeletePaymentInstrumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: DeletePaymentInstrumentCommandOutput) => void
   ): void;
 
@@ -665,7 +677,7 @@ export interface BedrockAgentCore {
    */
   deletePaymentSession(
     args: DeletePaymentSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<DeletePaymentSessionCommandOutput>;
   deletePaymentSession(
     args: DeletePaymentSessionCommandInput,
@@ -673,7 +685,7 @@ export interface BedrockAgentCore {
   ): void;
   deletePaymentSession(
     args: DeletePaymentSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: DeletePaymentSessionCommandOutput) => void
   ): void;
 
@@ -682,7 +694,7 @@ export interface BedrockAgentCore {
    */
   deleteRecommendation(
     args: DeleteRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<DeleteRecommendationCommandOutput>;
   deleteRecommendation(
     args: DeleteRecommendationCommandInput,
@@ -690,7 +702,7 @@ export interface BedrockAgentCore {
   ): void;
   deleteRecommendation(
     args: DeleteRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: DeleteRecommendationCommandOutput) => void
   ): void;
 
@@ -699,7 +711,7 @@ export interface BedrockAgentCore {
    */
   evaluate(
     args: EvaluateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<EvaluateCommandOutput>;
   evaluate(
     args: EvaluateCommandInput,
@@ -707,7 +719,7 @@ export interface BedrockAgentCore {
   ): void;
   evaluate(
     args: EvaluateCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: EvaluateCommandOutput) => void
   ): void;
 
@@ -716,7 +728,7 @@ export interface BedrockAgentCore {
    */
   getABTest(
     args: GetABTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetABTestCommandOutput>;
   getABTest(
     args: GetABTestCommandInput,
@@ -724,7 +736,7 @@ export interface BedrockAgentCore {
   ): void;
   getABTest(
     args: GetABTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetABTestCommandOutput) => void
   ): void;
 
@@ -733,7 +745,7 @@ export interface BedrockAgentCore {
    */
   getAgentCard(
     args: GetAgentCardCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetAgentCardCommandOutput>;
   getAgentCard(
     args: GetAgentCardCommandInput,
@@ -741,7 +753,7 @@ export interface BedrockAgentCore {
   ): void;
   getAgentCard(
     args: GetAgentCardCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetAgentCardCommandOutput) => void
   ): void;
 
@@ -750,7 +762,7 @@ export interface BedrockAgentCore {
    */
   getBatchEvaluation(
     args: GetBatchEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetBatchEvaluationCommandOutput>;
   getBatchEvaluation(
     args: GetBatchEvaluationCommandInput,
@@ -758,7 +770,7 @@ export interface BedrockAgentCore {
   ): void;
   getBatchEvaluation(
     args: GetBatchEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetBatchEvaluationCommandOutput) => void
   ): void;
 
@@ -767,7 +779,7 @@ export interface BedrockAgentCore {
    */
   getBrowserSession(
     args: GetBrowserSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetBrowserSessionCommandOutput>;
   getBrowserSession(
     args: GetBrowserSessionCommandInput,
@@ -775,7 +787,7 @@ export interface BedrockAgentCore {
   ): void;
   getBrowserSession(
     args: GetBrowserSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetBrowserSessionCommandOutput) => void
   ): void;
 
@@ -784,7 +796,7 @@ export interface BedrockAgentCore {
    */
   getCodeInterpreterSession(
     args: GetCodeInterpreterSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetCodeInterpreterSessionCommandOutput>;
   getCodeInterpreterSession(
     args: GetCodeInterpreterSessionCommandInput,
@@ -792,7 +804,7 @@ export interface BedrockAgentCore {
   ): void;
   getCodeInterpreterSession(
     args: GetCodeInterpreterSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetCodeInterpreterSessionCommandOutput) => void
   ): void;
 
@@ -801,7 +813,7 @@ export interface BedrockAgentCore {
    */
   getEvent(
     args: GetEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetEventCommandOutput>;
   getEvent(
     args: GetEventCommandInput,
@@ -809,7 +821,7 @@ export interface BedrockAgentCore {
   ): void;
   getEvent(
     args: GetEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetEventCommandOutput) => void
   ): void;
 
@@ -818,7 +830,7 @@ export interface BedrockAgentCore {
    */
   getMemoryRecord(
     args: GetMemoryRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetMemoryRecordCommandOutput>;
   getMemoryRecord(
     args: GetMemoryRecordCommandInput,
@@ -826,7 +838,7 @@ export interface BedrockAgentCore {
   ): void;
   getMemoryRecord(
     args: GetMemoryRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetMemoryRecordCommandOutput) => void
   ): void;
 
@@ -835,7 +847,7 @@ export interface BedrockAgentCore {
    */
   getPaymentInstrument(
     args: GetPaymentInstrumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetPaymentInstrumentCommandOutput>;
   getPaymentInstrument(
     args: GetPaymentInstrumentCommandInput,
@@ -843,7 +855,7 @@ export interface BedrockAgentCore {
   ): void;
   getPaymentInstrument(
     args: GetPaymentInstrumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetPaymentInstrumentCommandOutput) => void
   ): void;
 
@@ -852,7 +864,7 @@ export interface BedrockAgentCore {
    */
   getPaymentInstrumentBalance(
     args: GetPaymentInstrumentBalanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetPaymentInstrumentBalanceCommandOutput>;
   getPaymentInstrumentBalance(
     args: GetPaymentInstrumentBalanceCommandInput,
@@ -860,7 +872,7 @@ export interface BedrockAgentCore {
   ): void;
   getPaymentInstrumentBalance(
     args: GetPaymentInstrumentBalanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetPaymentInstrumentBalanceCommandOutput) => void
   ): void;
 
@@ -869,7 +881,7 @@ export interface BedrockAgentCore {
    */
   getPaymentSession(
     args: GetPaymentSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetPaymentSessionCommandOutput>;
   getPaymentSession(
     args: GetPaymentSessionCommandInput,
@@ -877,7 +889,7 @@ export interface BedrockAgentCore {
   ): void;
   getPaymentSession(
     args: GetPaymentSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetPaymentSessionCommandOutput) => void
   ): void;
 
@@ -886,7 +898,7 @@ export interface BedrockAgentCore {
    */
   getRecommendation(
     args: GetRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetRecommendationCommandOutput>;
   getRecommendation(
     args: GetRecommendationCommandInput,
@@ -894,7 +906,7 @@ export interface BedrockAgentCore {
   ): void;
   getRecommendation(
     args: GetRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetRecommendationCommandOutput) => void
   ): void;
 
@@ -903,7 +915,7 @@ export interface BedrockAgentCore {
    */
   getResourceApiKey(
     args: GetResourceApiKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetResourceApiKeyCommandOutput>;
   getResourceApiKey(
     args: GetResourceApiKeyCommandInput,
@@ -911,7 +923,7 @@ export interface BedrockAgentCore {
   ): void;
   getResourceApiKey(
     args: GetResourceApiKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetResourceApiKeyCommandOutput) => void
   ): void;
 
@@ -920,7 +932,7 @@ export interface BedrockAgentCore {
    */
   getResourceOauth2Token(
     args: GetResourceOauth2TokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetResourceOauth2TokenCommandOutput>;
   getResourceOauth2Token(
     args: GetResourceOauth2TokenCommandInput,
@@ -928,7 +940,7 @@ export interface BedrockAgentCore {
   ): void;
   getResourceOauth2Token(
     args: GetResourceOauth2TokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetResourceOauth2TokenCommandOutput) => void
   ): void;
 
@@ -937,7 +949,7 @@ export interface BedrockAgentCore {
    */
   getResourcePaymentToken(
     args: GetResourcePaymentTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetResourcePaymentTokenCommandOutput>;
   getResourcePaymentToken(
     args: GetResourcePaymentTokenCommandInput,
@@ -945,7 +957,7 @@ export interface BedrockAgentCore {
   ): void;
   getResourcePaymentToken(
     args: GetResourcePaymentTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetResourcePaymentTokenCommandOutput) => void
   ): void;
 
@@ -954,7 +966,7 @@ export interface BedrockAgentCore {
    */
   getWorkloadAccessToken(
     args: GetWorkloadAccessTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetWorkloadAccessTokenCommandOutput>;
   getWorkloadAccessToken(
     args: GetWorkloadAccessTokenCommandInput,
@@ -962,7 +974,7 @@ export interface BedrockAgentCore {
   ): void;
   getWorkloadAccessToken(
     args: GetWorkloadAccessTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetWorkloadAccessTokenCommandOutput) => void
   ): void;
 
@@ -971,7 +983,7 @@ export interface BedrockAgentCore {
    */
   getWorkloadAccessTokenForJWT(
     args: GetWorkloadAccessTokenForJWTCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetWorkloadAccessTokenForJWTCommandOutput>;
   getWorkloadAccessTokenForJWT(
     args: GetWorkloadAccessTokenForJWTCommandInput,
@@ -979,7 +991,7 @@ export interface BedrockAgentCore {
   ): void;
   getWorkloadAccessTokenForJWT(
     args: GetWorkloadAccessTokenForJWTCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetWorkloadAccessTokenForJWTCommandOutput) => void
   ): void;
 
@@ -988,7 +1000,7 @@ export interface BedrockAgentCore {
    */
   getWorkloadAccessTokenForUserId(
     args: GetWorkloadAccessTokenForUserIdCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<GetWorkloadAccessTokenForUserIdCommandOutput>;
   getWorkloadAccessTokenForUserId(
     args: GetWorkloadAccessTokenForUserIdCommandInput,
@@ -996,7 +1008,7 @@ export interface BedrockAgentCore {
   ): void;
   getWorkloadAccessTokenForUserId(
     args: GetWorkloadAccessTokenForUserIdCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: GetWorkloadAccessTokenForUserIdCommandOutput) => void
   ): void;
 
@@ -1005,7 +1017,7 @@ export interface BedrockAgentCore {
    */
   ingestData(
     args: IngestDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<IngestDataCommandOutput>;
   ingestData(
     args: IngestDataCommandInput,
@@ -1013,7 +1025,7 @@ export interface BedrockAgentCore {
   ): void;
   ingestData(
     args: IngestDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: IngestDataCommandOutput) => void
   ): void;
 
@@ -1022,7 +1034,7 @@ export interface BedrockAgentCore {
    */
   invokeAgentRuntime(
     args: InvokeAgentRuntimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<InvokeAgentRuntimeCommandOutput>;
   invokeAgentRuntime(
     args: InvokeAgentRuntimeCommandInput,
@@ -1030,7 +1042,7 @@ export interface BedrockAgentCore {
   ): void;
   invokeAgentRuntime(
     args: InvokeAgentRuntimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: InvokeAgentRuntimeCommandOutput) => void
   ): void;
 
@@ -1039,7 +1051,7 @@ export interface BedrockAgentCore {
    */
   invokeAgentRuntimeCommand(
     args: InvokeAgentRuntimeCommandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<InvokeAgentRuntimeCommandCommandOutput>;
   invokeAgentRuntimeCommand(
     args: InvokeAgentRuntimeCommandCommandInput,
@@ -1047,7 +1059,7 @@ export interface BedrockAgentCore {
   ): void;
   invokeAgentRuntimeCommand(
     args: InvokeAgentRuntimeCommandCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: InvokeAgentRuntimeCommandCommandOutput) => void
   ): void;
 
@@ -1056,7 +1068,7 @@ export interface BedrockAgentCore {
    */
   invokeBrowser(
     args: InvokeBrowserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<InvokeBrowserCommandOutput>;
   invokeBrowser(
     args: InvokeBrowserCommandInput,
@@ -1064,7 +1076,7 @@ export interface BedrockAgentCore {
   ): void;
   invokeBrowser(
     args: InvokeBrowserCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: InvokeBrowserCommandOutput) => void
   ): void;
 
@@ -1073,7 +1085,7 @@ export interface BedrockAgentCore {
    */
   invokeCodeInterpreter(
     args: InvokeCodeInterpreterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<InvokeCodeInterpreterCommandOutput>;
   invokeCodeInterpreter(
     args: InvokeCodeInterpreterCommandInput,
@@ -1081,7 +1093,7 @@ export interface BedrockAgentCore {
   ): void;
   invokeCodeInterpreter(
     args: InvokeCodeInterpreterCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: InvokeCodeInterpreterCommandOutput) => void
   ): void;
 
@@ -1090,7 +1102,7 @@ export interface BedrockAgentCore {
    */
   invokeHarness(
     args: InvokeHarnessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<InvokeHarnessCommandOutput>;
   invokeHarness(
     args: InvokeHarnessCommandInput,
@@ -1098,7 +1110,7 @@ export interface BedrockAgentCore {
   ): void;
   invokeHarness(
     args: InvokeHarnessCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: InvokeHarnessCommandOutput) => void
   ): void;
 
@@ -1108,7 +1120,7 @@ export interface BedrockAgentCore {
   listABTests(): Promise<ListABTestsCommandOutput>;
   listABTests(
     args: ListABTestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListABTestsCommandOutput>;
   listABTests(
     args: ListABTestsCommandInput,
@@ -1116,7 +1128,7 @@ export interface BedrockAgentCore {
   ): void;
   listABTests(
     args: ListABTestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListABTestsCommandOutput) => void
   ): void;
 
@@ -1125,7 +1137,7 @@ export interface BedrockAgentCore {
    */
   listActors(
     args: ListActorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListActorsCommandOutput>;
   listActors(
     args: ListActorsCommandInput,
@@ -1133,7 +1145,7 @@ export interface BedrockAgentCore {
   ): void;
   listActors(
     args: ListActorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListActorsCommandOutput) => void
   ): void;
 
@@ -1143,7 +1155,7 @@ export interface BedrockAgentCore {
   listBatchEvaluations(): Promise<ListBatchEvaluationsCommandOutput>;
   listBatchEvaluations(
     args: ListBatchEvaluationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListBatchEvaluationsCommandOutput>;
   listBatchEvaluations(
     args: ListBatchEvaluationsCommandInput,
@@ -1151,7 +1163,7 @@ export interface BedrockAgentCore {
   ): void;
   listBatchEvaluations(
     args: ListBatchEvaluationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListBatchEvaluationsCommandOutput) => void
   ): void;
 
@@ -1160,7 +1172,7 @@ export interface BedrockAgentCore {
    */
   listBrowserSessions(
     args: ListBrowserSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListBrowserSessionsCommandOutput>;
   listBrowserSessions(
     args: ListBrowserSessionsCommandInput,
@@ -1168,7 +1180,7 @@ export interface BedrockAgentCore {
   ): void;
   listBrowserSessions(
     args: ListBrowserSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListBrowserSessionsCommandOutput) => void
   ): void;
 
@@ -1177,7 +1189,7 @@ export interface BedrockAgentCore {
    */
   listCodeInterpreterSessions(
     args: ListCodeInterpreterSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListCodeInterpreterSessionsCommandOutput>;
   listCodeInterpreterSessions(
     args: ListCodeInterpreterSessionsCommandInput,
@@ -1185,7 +1197,7 @@ export interface BedrockAgentCore {
   ): void;
   listCodeInterpreterSessions(
     args: ListCodeInterpreterSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListCodeInterpreterSessionsCommandOutput) => void
   ): void;
 
@@ -1194,7 +1206,7 @@ export interface BedrockAgentCore {
    */
   listEvents(
     args: ListEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListEventsCommandOutput>;
   listEvents(
     args: ListEventsCommandInput,
@@ -1202,7 +1214,7 @@ export interface BedrockAgentCore {
   ): void;
   listEvents(
     args: ListEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListEventsCommandOutput) => void
   ): void;
 
@@ -1211,7 +1223,7 @@ export interface BedrockAgentCore {
    */
   listMemoryExtractionJobs(
     args: ListMemoryExtractionJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListMemoryExtractionJobsCommandOutput>;
   listMemoryExtractionJobs(
     args: ListMemoryExtractionJobsCommandInput,
@@ -1219,7 +1231,7 @@ export interface BedrockAgentCore {
   ): void;
   listMemoryExtractionJobs(
     args: ListMemoryExtractionJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListMemoryExtractionJobsCommandOutput) => void
   ): void;
 
@@ -1228,7 +1240,7 @@ export interface BedrockAgentCore {
    */
   listMemoryRecords(
     args: ListMemoryRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListMemoryRecordsCommandOutput>;
   listMemoryRecords(
     args: ListMemoryRecordsCommandInput,
@@ -1236,7 +1248,7 @@ export interface BedrockAgentCore {
   ): void;
   listMemoryRecords(
     args: ListMemoryRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListMemoryRecordsCommandOutput) => void
   ): void;
 
@@ -1245,7 +1257,7 @@ export interface BedrockAgentCore {
    */
   listPaymentInstruments(
     args: ListPaymentInstrumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListPaymentInstrumentsCommandOutput>;
   listPaymentInstruments(
     args: ListPaymentInstrumentsCommandInput,
@@ -1253,7 +1265,7 @@ export interface BedrockAgentCore {
   ): void;
   listPaymentInstruments(
     args: ListPaymentInstrumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListPaymentInstrumentsCommandOutput) => void
   ): void;
 
@@ -1262,7 +1274,7 @@ export interface BedrockAgentCore {
    */
   listPaymentSessions(
     args: ListPaymentSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListPaymentSessionsCommandOutput>;
   listPaymentSessions(
     args: ListPaymentSessionsCommandInput,
@@ -1270,7 +1282,7 @@ export interface BedrockAgentCore {
   ): void;
   listPaymentSessions(
     args: ListPaymentSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListPaymentSessionsCommandOutput) => void
   ): void;
 
@@ -1280,7 +1292,7 @@ export interface BedrockAgentCore {
   listRecommendations(): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
@@ -1288,7 +1300,7 @@ export interface BedrockAgentCore {
   ): void;
   listRecommendations(
     args: ListRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListRecommendationsCommandOutput) => void
   ): void;
 
@@ -1297,7 +1309,7 @@ export interface BedrockAgentCore {
    */
   listSessions(
     args: ListSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ListSessionsCommandOutput>;
   listSessions(
     args: ListSessionsCommandInput,
@@ -1305,7 +1317,7 @@ export interface BedrockAgentCore {
   ): void;
   listSessions(
     args: ListSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
@@ -1314,7 +1326,7 @@ export interface BedrockAgentCore {
    */
   processPayment(
     args: ProcessPaymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<ProcessPaymentCommandOutput>;
   processPayment(
     args: ProcessPaymentCommandInput,
@@ -1322,7 +1334,7 @@ export interface BedrockAgentCore {
   ): void;
   processPayment(
     args: ProcessPaymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: ProcessPaymentCommandOutput) => void
   ): void;
 
@@ -1331,7 +1343,7 @@ export interface BedrockAgentCore {
    */
   retrieveMemoryRecords(
     args: RetrieveMemoryRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<RetrieveMemoryRecordsCommandOutput>;
   retrieveMemoryRecords(
     args: RetrieveMemoryRecordsCommandInput,
@@ -1339,7 +1351,7 @@ export interface BedrockAgentCore {
   ): void;
   retrieveMemoryRecords(
     args: RetrieveMemoryRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: RetrieveMemoryRecordsCommandOutput) => void
   ): void;
 
@@ -1348,7 +1360,7 @@ export interface BedrockAgentCore {
    */
   saveBrowserSessionProfile(
     args: SaveBrowserSessionProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<SaveBrowserSessionProfileCommandOutput>;
   saveBrowserSessionProfile(
     args: SaveBrowserSessionProfileCommandInput,
@@ -1356,7 +1368,7 @@ export interface BedrockAgentCore {
   ): void;
   saveBrowserSessionProfile(
     args: SaveBrowserSessionProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: SaveBrowserSessionProfileCommandOutput) => void
   ): void;
 
@@ -1365,7 +1377,7 @@ export interface BedrockAgentCore {
    */
   searchRegistryRecords(
     args: SearchRegistryRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<SearchRegistryRecordsCommandOutput>;
   searchRegistryRecords(
     args: SearchRegistryRecordsCommandInput,
@@ -1373,7 +1385,7 @@ export interface BedrockAgentCore {
   ): void;
   searchRegistryRecords(
     args: SearchRegistryRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: SearchRegistryRecordsCommandOutput) => void
   ): void;
 
@@ -1382,7 +1394,7 @@ export interface BedrockAgentCore {
    */
   startBatchEvaluation(
     args: StartBatchEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<StartBatchEvaluationCommandOutput>;
   startBatchEvaluation(
     args: StartBatchEvaluationCommandInput,
@@ -1390,7 +1402,7 @@ export interface BedrockAgentCore {
   ): void;
   startBatchEvaluation(
     args: StartBatchEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: StartBatchEvaluationCommandOutput) => void
   ): void;
 
@@ -1399,7 +1411,7 @@ export interface BedrockAgentCore {
    */
   startBrowserSession(
     args: StartBrowserSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<StartBrowserSessionCommandOutput>;
   startBrowserSession(
     args: StartBrowserSessionCommandInput,
@@ -1407,7 +1419,7 @@ export interface BedrockAgentCore {
   ): void;
   startBrowserSession(
     args: StartBrowserSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: StartBrowserSessionCommandOutput) => void
   ): void;
 
@@ -1416,7 +1428,7 @@ export interface BedrockAgentCore {
    */
   startCodeInterpreterSession(
     args: StartCodeInterpreterSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<StartCodeInterpreterSessionCommandOutput>;
   startCodeInterpreterSession(
     args: StartCodeInterpreterSessionCommandInput,
@@ -1424,7 +1436,7 @@ export interface BedrockAgentCore {
   ): void;
   startCodeInterpreterSession(
     args: StartCodeInterpreterSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: StartCodeInterpreterSessionCommandOutput) => void
   ): void;
 
@@ -1433,7 +1445,7 @@ export interface BedrockAgentCore {
    */
   startMemoryExtractionJob(
     args: StartMemoryExtractionJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<StartMemoryExtractionJobCommandOutput>;
   startMemoryExtractionJob(
     args: StartMemoryExtractionJobCommandInput,
@@ -1441,7 +1453,7 @@ export interface BedrockAgentCore {
   ): void;
   startMemoryExtractionJob(
     args: StartMemoryExtractionJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: StartMemoryExtractionJobCommandOutput) => void
   ): void;
 
@@ -1450,7 +1462,7 @@ export interface BedrockAgentCore {
    */
   startRecommendation(
     args: StartRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<StartRecommendationCommandOutput>;
   startRecommendation(
     args: StartRecommendationCommandInput,
@@ -1458,7 +1470,7 @@ export interface BedrockAgentCore {
   ): void;
   startRecommendation(
     args: StartRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: StartRecommendationCommandOutput) => void
   ): void;
 
@@ -1467,7 +1479,7 @@ export interface BedrockAgentCore {
    */
   stopBatchEvaluation(
     args: StopBatchEvaluationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<StopBatchEvaluationCommandOutput>;
   stopBatchEvaluation(
     args: StopBatchEvaluationCommandInput,
@@ -1475,7 +1487,7 @@ export interface BedrockAgentCore {
   ): void;
   stopBatchEvaluation(
     args: StopBatchEvaluationCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: StopBatchEvaluationCommandOutput) => void
   ): void;
 
@@ -1484,7 +1496,7 @@ export interface BedrockAgentCore {
    */
   stopBrowserSession(
     args: StopBrowserSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<StopBrowserSessionCommandOutput>;
   stopBrowserSession(
     args: StopBrowserSessionCommandInput,
@@ -1492,7 +1504,7 @@ export interface BedrockAgentCore {
   ): void;
   stopBrowserSession(
     args: StopBrowserSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: StopBrowserSessionCommandOutput) => void
   ): void;
 
@@ -1501,7 +1513,7 @@ export interface BedrockAgentCore {
    */
   stopCodeInterpreterSession(
     args: StopCodeInterpreterSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<StopCodeInterpreterSessionCommandOutput>;
   stopCodeInterpreterSession(
     args: StopCodeInterpreterSessionCommandInput,
@@ -1509,7 +1521,7 @@ export interface BedrockAgentCore {
   ): void;
   stopCodeInterpreterSession(
     args: StopCodeInterpreterSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: StopCodeInterpreterSessionCommandOutput) => void
   ): void;
 
@@ -1518,7 +1530,7 @@ export interface BedrockAgentCore {
    */
   stopRuntimeSession(
     args: StopRuntimeSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<StopRuntimeSessionCommandOutput>;
   stopRuntimeSession(
     args: StopRuntimeSessionCommandInput,
@@ -1526,7 +1538,7 @@ export interface BedrockAgentCore {
   ): void;
   stopRuntimeSession(
     args: StopRuntimeSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: StopRuntimeSessionCommandOutput) => void
   ): void;
 
@@ -1535,7 +1547,7 @@ export interface BedrockAgentCore {
    */
   updateABTest(
     args: UpdateABTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<UpdateABTestCommandOutput>;
   updateABTest(
     args: UpdateABTestCommandInput,
@@ -1543,7 +1555,7 @@ export interface BedrockAgentCore {
   ): void;
   updateABTest(
     args: UpdateABTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: UpdateABTestCommandOutput) => void
   ): void;
 
@@ -1552,7 +1564,7 @@ export interface BedrockAgentCore {
    */
   updateBrowserStream(
     args: UpdateBrowserStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BedrockAgentCoreRequestOptions
   ): Promise<UpdateBrowserStreamCommandOutput>;
   updateBrowserStream(
     args: UpdateBrowserStreamCommandInput,
@@ -1560,7 +1572,7 @@ export interface BedrockAgentCore {
   ): void;
   updateBrowserStream(
     args: UpdateBrowserStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: BedrockAgentCoreRequestOptions,
     cb: (err: any, data?: UpdateBrowserStreamCommandOutput) => void
   ): void;
 

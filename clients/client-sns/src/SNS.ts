@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddPermissionCommandInput,
@@ -269,13 +274,20 @@ const paginators = {
   paginateListTopics,
 };
 
+/**
+ * @public
+ */
+export interface SNSRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SNS {
   /**
    * @see {@link AddPermissionCommand}
    */
   addPermission(
     args: AddPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<AddPermissionCommandOutput>;
   addPermission(
     args: AddPermissionCommandInput,
@@ -283,7 +295,7 @@ export interface SNS {
   ): void;
   addPermission(
     args: AddPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: AddPermissionCommandOutput) => void
   ): void;
 
@@ -292,7 +304,7 @@ export interface SNS {
    */
   checkIfPhoneNumberIsOptedOut(
     args: CheckIfPhoneNumberIsOptedOutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput>;
   checkIfPhoneNumberIsOptedOut(
     args: CheckIfPhoneNumberIsOptedOutCommandInput,
@@ -300,7 +312,7 @@ export interface SNS {
   ): void;
   checkIfPhoneNumberIsOptedOut(
     args: CheckIfPhoneNumberIsOptedOutCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: CheckIfPhoneNumberIsOptedOutCommandOutput) => void
   ): void;
 
@@ -309,7 +321,7 @@ export interface SNS {
    */
   confirmSubscription(
     args: ConfirmSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ConfirmSubscriptionCommandOutput>;
   confirmSubscription(
     args: ConfirmSubscriptionCommandInput,
@@ -317,7 +329,7 @@ export interface SNS {
   ): void;
   confirmSubscription(
     args: ConfirmSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ConfirmSubscriptionCommandOutput) => void
   ): void;
 
@@ -326,7 +338,7 @@ export interface SNS {
    */
   createPlatformApplication(
     args: CreatePlatformApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<CreatePlatformApplicationCommandOutput>;
   createPlatformApplication(
     args: CreatePlatformApplicationCommandInput,
@@ -334,7 +346,7 @@ export interface SNS {
   ): void;
   createPlatformApplication(
     args: CreatePlatformApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: CreatePlatformApplicationCommandOutput) => void
   ): void;
 
@@ -343,7 +355,7 @@ export interface SNS {
    */
   createPlatformEndpoint(
     args: CreatePlatformEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<CreatePlatformEndpointCommandOutput>;
   createPlatformEndpoint(
     args: CreatePlatformEndpointCommandInput,
@@ -351,7 +363,7 @@ export interface SNS {
   ): void;
   createPlatformEndpoint(
     args: CreatePlatformEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: CreatePlatformEndpointCommandOutput) => void
   ): void;
 
@@ -360,7 +372,7 @@ export interface SNS {
    */
   createSMSSandboxPhoneNumber(
     args: CreateSMSSandboxPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<CreateSMSSandboxPhoneNumberCommandOutput>;
   createSMSSandboxPhoneNumber(
     args: CreateSMSSandboxPhoneNumberCommandInput,
@@ -368,7 +380,7 @@ export interface SNS {
   ): void;
   createSMSSandboxPhoneNumber(
     args: CreateSMSSandboxPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: CreateSMSSandboxPhoneNumberCommandOutput) => void
   ): void;
 
@@ -377,7 +389,7 @@ export interface SNS {
    */
   createTopic(
     args: CreateTopicCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<CreateTopicCommandOutput>;
   createTopic(
     args: CreateTopicCommandInput,
@@ -385,7 +397,7 @@ export interface SNS {
   ): void;
   createTopic(
     args: CreateTopicCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: CreateTopicCommandOutput) => void
   ): void;
 
@@ -394,7 +406,7 @@ export interface SNS {
    */
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<DeleteEndpointCommandOutput>;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -402,7 +414,7 @@ export interface SNS {
   ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): void;
 
@@ -411,7 +423,7 @@ export interface SNS {
    */
   deletePlatformApplication(
     args: DeletePlatformApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<DeletePlatformApplicationCommandOutput>;
   deletePlatformApplication(
     args: DeletePlatformApplicationCommandInput,
@@ -419,7 +431,7 @@ export interface SNS {
   ): void;
   deletePlatformApplication(
     args: DeletePlatformApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: DeletePlatformApplicationCommandOutput) => void
   ): void;
 
@@ -428,7 +440,7 @@ export interface SNS {
    */
   deleteSMSSandboxPhoneNumber(
     args: DeleteSMSSandboxPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput>;
   deleteSMSSandboxPhoneNumber(
     args: DeleteSMSSandboxPhoneNumberCommandInput,
@@ -436,7 +448,7 @@ export interface SNS {
   ): void;
   deleteSMSSandboxPhoneNumber(
     args: DeleteSMSSandboxPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: DeleteSMSSandboxPhoneNumberCommandOutput) => void
   ): void;
 
@@ -445,7 +457,7 @@ export interface SNS {
    */
   deleteTopic(
     args: DeleteTopicCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<DeleteTopicCommandOutput>;
   deleteTopic(
     args: DeleteTopicCommandInput,
@@ -453,7 +465,7 @@ export interface SNS {
   ): void;
   deleteTopic(
     args: DeleteTopicCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: DeleteTopicCommandOutput) => void
   ): void;
 
@@ -462,7 +474,7 @@ export interface SNS {
    */
   getDataProtectionPolicy(
     args: GetDataProtectionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<GetDataProtectionPolicyCommandOutput>;
   getDataProtectionPolicy(
     args: GetDataProtectionPolicyCommandInput,
@@ -470,7 +482,7 @@ export interface SNS {
   ): void;
   getDataProtectionPolicy(
     args: GetDataProtectionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: GetDataProtectionPolicyCommandOutput) => void
   ): void;
 
@@ -479,7 +491,7 @@ export interface SNS {
    */
   getEndpointAttributes(
     args: GetEndpointAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<GetEndpointAttributesCommandOutput>;
   getEndpointAttributes(
     args: GetEndpointAttributesCommandInput,
@@ -487,7 +499,7 @@ export interface SNS {
   ): void;
   getEndpointAttributes(
     args: GetEndpointAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: GetEndpointAttributesCommandOutput) => void
   ): void;
 
@@ -496,7 +508,7 @@ export interface SNS {
    */
   getPlatformApplicationAttributes(
     args: GetPlatformApplicationAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<GetPlatformApplicationAttributesCommandOutput>;
   getPlatformApplicationAttributes(
     args: GetPlatformApplicationAttributesCommandInput,
@@ -504,7 +516,7 @@ export interface SNS {
   ): void;
   getPlatformApplicationAttributes(
     args: GetPlatformApplicationAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: GetPlatformApplicationAttributesCommandOutput) => void
   ): void;
 
@@ -514,7 +526,7 @@ export interface SNS {
   getSMSAttributes(): Promise<GetSMSAttributesCommandOutput>;
   getSMSAttributes(
     args: GetSMSAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<GetSMSAttributesCommandOutput>;
   getSMSAttributes(
     args: GetSMSAttributesCommandInput,
@@ -522,7 +534,7 @@ export interface SNS {
   ): void;
   getSMSAttributes(
     args: GetSMSAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: GetSMSAttributesCommandOutput) => void
   ): void;
 
@@ -532,7 +544,7 @@ export interface SNS {
   getSMSSandboxAccountStatus(): Promise<GetSMSSandboxAccountStatusCommandOutput>;
   getSMSSandboxAccountStatus(
     args: GetSMSSandboxAccountStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<GetSMSSandboxAccountStatusCommandOutput>;
   getSMSSandboxAccountStatus(
     args: GetSMSSandboxAccountStatusCommandInput,
@@ -540,7 +552,7 @@ export interface SNS {
   ): void;
   getSMSSandboxAccountStatus(
     args: GetSMSSandboxAccountStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: GetSMSSandboxAccountStatusCommandOutput) => void
   ): void;
 
@@ -549,7 +561,7 @@ export interface SNS {
    */
   getSubscriptionAttributes(
     args: GetSubscriptionAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<GetSubscriptionAttributesCommandOutput>;
   getSubscriptionAttributes(
     args: GetSubscriptionAttributesCommandInput,
@@ -557,7 +569,7 @@ export interface SNS {
   ): void;
   getSubscriptionAttributes(
     args: GetSubscriptionAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: GetSubscriptionAttributesCommandOutput) => void
   ): void;
 
@@ -566,7 +578,7 @@ export interface SNS {
    */
   getTopicAttributes(
     args: GetTopicAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<GetTopicAttributesCommandOutput>;
   getTopicAttributes(
     args: GetTopicAttributesCommandInput,
@@ -574,7 +586,7 @@ export interface SNS {
   ): void;
   getTopicAttributes(
     args: GetTopicAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: GetTopicAttributesCommandOutput) => void
   ): void;
 
@@ -583,7 +595,7 @@ export interface SNS {
    */
   listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ListEndpointsByPlatformApplicationCommandOutput>;
   listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
@@ -591,7 +603,7 @@ export interface SNS {
   ): void;
   listEndpointsByPlatformApplication(
     args: ListEndpointsByPlatformApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ListEndpointsByPlatformApplicationCommandOutput) => void
   ): void;
 
@@ -601,7 +613,7 @@ export interface SNS {
   listOriginationNumbers(): Promise<ListOriginationNumbersCommandOutput>;
   listOriginationNumbers(
     args: ListOriginationNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ListOriginationNumbersCommandOutput>;
   listOriginationNumbers(
     args: ListOriginationNumbersCommandInput,
@@ -609,7 +621,7 @@ export interface SNS {
   ): void;
   listOriginationNumbers(
     args: ListOriginationNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ListOriginationNumbersCommandOutput) => void
   ): void;
 
@@ -619,7 +631,7 @@ export interface SNS {
   listPhoneNumbersOptedOut(): Promise<ListPhoneNumbersOptedOutCommandOutput>;
   listPhoneNumbersOptedOut(
     args: ListPhoneNumbersOptedOutCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ListPhoneNumbersOptedOutCommandOutput>;
   listPhoneNumbersOptedOut(
     args: ListPhoneNumbersOptedOutCommandInput,
@@ -627,7 +639,7 @@ export interface SNS {
   ): void;
   listPhoneNumbersOptedOut(
     args: ListPhoneNumbersOptedOutCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ListPhoneNumbersOptedOutCommandOutput) => void
   ): void;
 
@@ -637,7 +649,7 @@ export interface SNS {
   listPlatformApplications(): Promise<ListPlatformApplicationsCommandOutput>;
   listPlatformApplications(
     args: ListPlatformApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ListPlatformApplicationsCommandOutput>;
   listPlatformApplications(
     args: ListPlatformApplicationsCommandInput,
@@ -645,7 +657,7 @@ export interface SNS {
   ): void;
   listPlatformApplications(
     args: ListPlatformApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ListPlatformApplicationsCommandOutput) => void
   ): void;
 
@@ -655,7 +667,7 @@ export interface SNS {
   listSMSSandboxPhoneNumbers(): Promise<ListSMSSandboxPhoneNumbersCommandOutput>;
   listSMSSandboxPhoneNumbers(
     args: ListSMSSandboxPhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ListSMSSandboxPhoneNumbersCommandOutput>;
   listSMSSandboxPhoneNumbers(
     args: ListSMSSandboxPhoneNumbersCommandInput,
@@ -663,7 +675,7 @@ export interface SNS {
   ): void;
   listSMSSandboxPhoneNumbers(
     args: ListSMSSandboxPhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ListSMSSandboxPhoneNumbersCommandOutput) => void
   ): void;
 
@@ -673,7 +685,7 @@ export interface SNS {
   listSubscriptions(): Promise<ListSubscriptionsCommandOutput>;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ListSubscriptionsCommandOutput>;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
@@ -681,7 +693,7 @@ export interface SNS {
   ): void;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
   ): void;
 
@@ -690,7 +702,7 @@ export interface SNS {
    */
   listSubscriptionsByTopic(
     args: ListSubscriptionsByTopicCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ListSubscriptionsByTopicCommandOutput>;
   listSubscriptionsByTopic(
     args: ListSubscriptionsByTopicCommandInput,
@@ -698,7 +710,7 @@ export interface SNS {
   ): void;
   listSubscriptionsByTopic(
     args: ListSubscriptionsByTopicCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ListSubscriptionsByTopicCommandOutput) => void
   ): void;
 
@@ -707,7 +719,7 @@ export interface SNS {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -715,7 +727,7 @@ export interface SNS {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -725,7 +737,7 @@ export interface SNS {
   listTopics(): Promise<ListTopicsCommandOutput>;
   listTopics(
     args: ListTopicsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<ListTopicsCommandOutput>;
   listTopics(
     args: ListTopicsCommandInput,
@@ -733,7 +745,7 @@ export interface SNS {
   ): void;
   listTopics(
     args: ListTopicsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: ListTopicsCommandOutput) => void
   ): void;
 
@@ -742,7 +754,7 @@ export interface SNS {
    */
   optInPhoneNumber(
     args: OptInPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<OptInPhoneNumberCommandOutput>;
   optInPhoneNumber(
     args: OptInPhoneNumberCommandInput,
@@ -750,7 +762,7 @@ export interface SNS {
   ): void;
   optInPhoneNumber(
     args: OptInPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: OptInPhoneNumberCommandOutput) => void
   ): void;
 
@@ -759,7 +771,7 @@ export interface SNS {
    */
   publish(
     args: PublishCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<PublishCommandOutput>;
   publish(
     args: PublishCommandInput,
@@ -767,7 +779,7 @@ export interface SNS {
   ): void;
   publish(
     args: PublishCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: PublishCommandOutput) => void
   ): void;
 
@@ -776,7 +788,7 @@ export interface SNS {
    */
   publishBatch(
     args: PublishBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<PublishBatchCommandOutput>;
   publishBatch(
     args: PublishBatchCommandInput,
@@ -784,7 +796,7 @@ export interface SNS {
   ): void;
   publishBatch(
     args: PublishBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: PublishBatchCommandOutput) => void
   ): void;
 
@@ -793,7 +805,7 @@ export interface SNS {
    */
   putDataProtectionPolicy(
     args: PutDataProtectionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<PutDataProtectionPolicyCommandOutput>;
   putDataProtectionPolicy(
     args: PutDataProtectionPolicyCommandInput,
@@ -801,7 +813,7 @@ export interface SNS {
   ): void;
   putDataProtectionPolicy(
     args: PutDataProtectionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: PutDataProtectionPolicyCommandOutput) => void
   ): void;
 
@@ -810,7 +822,7 @@ export interface SNS {
    */
   removePermission(
     args: RemovePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<RemovePermissionCommandOutput>;
   removePermission(
     args: RemovePermissionCommandInput,
@@ -818,7 +830,7 @@ export interface SNS {
   ): void;
   removePermission(
     args: RemovePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: RemovePermissionCommandOutput) => void
   ): void;
 
@@ -827,7 +839,7 @@ export interface SNS {
    */
   setEndpointAttributes(
     args: SetEndpointAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<SetEndpointAttributesCommandOutput>;
   setEndpointAttributes(
     args: SetEndpointAttributesCommandInput,
@@ -835,7 +847,7 @@ export interface SNS {
   ): void;
   setEndpointAttributes(
     args: SetEndpointAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: SetEndpointAttributesCommandOutput) => void
   ): void;
 
@@ -844,7 +856,7 @@ export interface SNS {
    */
   setPlatformApplicationAttributes(
     args: SetPlatformApplicationAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<SetPlatformApplicationAttributesCommandOutput>;
   setPlatformApplicationAttributes(
     args: SetPlatformApplicationAttributesCommandInput,
@@ -852,7 +864,7 @@ export interface SNS {
   ): void;
   setPlatformApplicationAttributes(
     args: SetPlatformApplicationAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: SetPlatformApplicationAttributesCommandOutput) => void
   ): void;
 
@@ -861,7 +873,7 @@ export interface SNS {
    */
   setSMSAttributes(
     args: SetSMSAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<SetSMSAttributesCommandOutput>;
   setSMSAttributes(
     args: SetSMSAttributesCommandInput,
@@ -869,7 +881,7 @@ export interface SNS {
   ): void;
   setSMSAttributes(
     args: SetSMSAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: SetSMSAttributesCommandOutput) => void
   ): void;
 
@@ -878,7 +890,7 @@ export interface SNS {
    */
   setSubscriptionAttributes(
     args: SetSubscriptionAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<SetSubscriptionAttributesCommandOutput>;
   setSubscriptionAttributes(
     args: SetSubscriptionAttributesCommandInput,
@@ -886,7 +898,7 @@ export interface SNS {
   ): void;
   setSubscriptionAttributes(
     args: SetSubscriptionAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: SetSubscriptionAttributesCommandOutput) => void
   ): void;
 
@@ -895,7 +907,7 @@ export interface SNS {
    */
   setTopicAttributes(
     args: SetTopicAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<SetTopicAttributesCommandOutput>;
   setTopicAttributes(
     args: SetTopicAttributesCommandInput,
@@ -903,7 +915,7 @@ export interface SNS {
   ): void;
   setTopicAttributes(
     args: SetTopicAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: SetTopicAttributesCommandOutput) => void
   ): void;
 
@@ -912,7 +924,7 @@ export interface SNS {
    */
   subscribe(
     args: SubscribeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<SubscribeCommandOutput>;
   subscribe(
     args: SubscribeCommandInput,
@@ -920,7 +932,7 @@ export interface SNS {
   ): void;
   subscribe(
     args: SubscribeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: SubscribeCommandOutput) => void
   ): void;
 
@@ -929,7 +941,7 @@ export interface SNS {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -937,7 +949,7 @@ export interface SNS {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -946,7 +958,7 @@ export interface SNS {
    */
   unsubscribe(
     args: UnsubscribeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<UnsubscribeCommandOutput>;
   unsubscribe(
     args: UnsubscribeCommandInput,
@@ -954,7 +966,7 @@ export interface SNS {
   ): void;
   unsubscribe(
     args: UnsubscribeCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: UnsubscribeCommandOutput) => void
   ): void;
 
@@ -963,7 +975,7 @@ export interface SNS {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -971,7 +983,7 @@ export interface SNS {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -980,7 +992,7 @@ export interface SNS {
    */
   verifySMSSandboxPhoneNumber(
     args: VerifySMSSandboxPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SNSRequestOptions
   ): Promise<VerifySMSSandboxPhoneNumberCommandOutput>;
   verifySMSSandboxPhoneNumber(
     args: VerifySMSSandboxPhoneNumberCommandInput,
@@ -988,7 +1000,7 @@ export interface SNS {
   ): void;
   verifySMSSandboxPhoneNumber(
     args: VerifySMSSandboxPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: SNSRequestOptions,
     cb: (err: any, data?: VerifySMSSandboxPhoneNumberCommandOutput) => void
   ): void;
 

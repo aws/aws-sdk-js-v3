@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchUpdateRuleCommandInput,
@@ -475,13 +480,20 @@ const paginators = {
   paginateListTargets,
 };
 
+/**
+ * @public
+ */
+export interface VPCLatticeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface VPCLattice {
   /**
    * @see {@link BatchUpdateRuleCommand}
    */
   batchUpdateRule(
     args: BatchUpdateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<BatchUpdateRuleCommandOutput>;
   batchUpdateRule(
     args: BatchUpdateRuleCommandInput,
@@ -489,7 +501,7 @@ export interface VPCLattice {
   ): void;
   batchUpdateRule(
     args: BatchUpdateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: BatchUpdateRuleCommandOutput) => void
   ): void;
 
@@ -498,7 +510,7 @@ export interface VPCLattice {
    */
   createAccessLogSubscription(
     args: CreateAccessLogSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateAccessLogSubscriptionCommandOutput>;
   createAccessLogSubscription(
     args: CreateAccessLogSubscriptionCommandInput,
@@ -506,7 +518,7 @@ export interface VPCLattice {
   ): void;
   createAccessLogSubscription(
     args: CreateAccessLogSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateAccessLogSubscriptionCommandOutput) => void
   ): void;
 
@@ -515,7 +527,7 @@ export interface VPCLattice {
    */
   createListener(
     args: CreateListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateListenerCommandOutput>;
   createListener(
     args: CreateListenerCommandInput,
@@ -523,7 +535,7 @@ export interface VPCLattice {
   ): void;
   createListener(
     args: CreateListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateListenerCommandOutput) => void
   ): void;
 
@@ -532,7 +544,7 @@ export interface VPCLattice {
    */
   createResourceConfiguration(
     args: CreateResourceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateResourceConfigurationCommandOutput>;
   createResourceConfiguration(
     args: CreateResourceConfigurationCommandInput,
@@ -540,7 +552,7 @@ export interface VPCLattice {
   ): void;
   createResourceConfiguration(
     args: CreateResourceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateResourceConfigurationCommandOutput) => void
   ): void;
 
@@ -549,7 +561,7 @@ export interface VPCLattice {
    */
   createResourceGateway(
     args: CreateResourceGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateResourceGatewayCommandOutput>;
   createResourceGateway(
     args: CreateResourceGatewayCommandInput,
@@ -557,7 +569,7 @@ export interface VPCLattice {
   ): void;
   createResourceGateway(
     args: CreateResourceGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateResourceGatewayCommandOutput) => void
   ): void;
 
@@ -566,7 +578,7 @@ export interface VPCLattice {
    */
   createRule(
     args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateRuleCommandOutput>;
   createRule(
     args: CreateRuleCommandInput,
@@ -574,7 +586,7 @@ export interface VPCLattice {
   ): void;
   createRule(
     args: CreateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateRuleCommandOutput) => void
   ): void;
 
@@ -583,7 +595,7 @@ export interface VPCLattice {
    */
   createService(
     args: CreateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateServiceCommandOutput>;
   createService(
     args: CreateServiceCommandInput,
@@ -591,7 +603,7 @@ export interface VPCLattice {
   ): void;
   createService(
     args: CreateServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateServiceCommandOutput) => void
   ): void;
 
@@ -600,7 +612,7 @@ export interface VPCLattice {
    */
   createServiceNetwork(
     args: CreateServiceNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateServiceNetworkCommandOutput>;
   createServiceNetwork(
     args: CreateServiceNetworkCommandInput,
@@ -608,7 +620,7 @@ export interface VPCLattice {
   ): void;
   createServiceNetwork(
     args: CreateServiceNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateServiceNetworkCommandOutput) => void
   ): void;
 
@@ -617,7 +629,7 @@ export interface VPCLattice {
    */
   createServiceNetworkResourceAssociation(
     args: CreateServiceNetworkResourceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateServiceNetworkResourceAssociationCommandOutput>;
   createServiceNetworkResourceAssociation(
     args: CreateServiceNetworkResourceAssociationCommandInput,
@@ -625,7 +637,7 @@ export interface VPCLattice {
   ): void;
   createServiceNetworkResourceAssociation(
     args: CreateServiceNetworkResourceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateServiceNetworkResourceAssociationCommandOutput) => void
   ): void;
 
@@ -634,7 +646,7 @@ export interface VPCLattice {
    */
   createServiceNetworkServiceAssociation(
     args: CreateServiceNetworkServiceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateServiceNetworkServiceAssociationCommandOutput>;
   createServiceNetworkServiceAssociation(
     args: CreateServiceNetworkServiceAssociationCommandInput,
@@ -642,7 +654,7 @@ export interface VPCLattice {
   ): void;
   createServiceNetworkServiceAssociation(
     args: CreateServiceNetworkServiceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateServiceNetworkServiceAssociationCommandOutput) => void
   ): void;
 
@@ -651,7 +663,7 @@ export interface VPCLattice {
    */
   createServiceNetworkVpcAssociation(
     args: CreateServiceNetworkVpcAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateServiceNetworkVpcAssociationCommandOutput>;
   createServiceNetworkVpcAssociation(
     args: CreateServiceNetworkVpcAssociationCommandInput,
@@ -659,7 +671,7 @@ export interface VPCLattice {
   ): void;
   createServiceNetworkVpcAssociation(
     args: CreateServiceNetworkVpcAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateServiceNetworkVpcAssociationCommandOutput) => void
   ): void;
 
@@ -668,7 +680,7 @@ export interface VPCLattice {
    */
   createTargetGroup(
     args: CreateTargetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<CreateTargetGroupCommandOutput>;
   createTargetGroup(
     args: CreateTargetGroupCommandInput,
@@ -676,7 +688,7 @@ export interface VPCLattice {
   ): void;
   createTargetGroup(
     args: CreateTargetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: CreateTargetGroupCommandOutput) => void
   ): void;
 
@@ -685,7 +697,7 @@ export interface VPCLattice {
    */
   deleteAccessLogSubscription(
     args: DeleteAccessLogSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteAccessLogSubscriptionCommandOutput>;
   deleteAccessLogSubscription(
     args: DeleteAccessLogSubscriptionCommandInput,
@@ -693,7 +705,7 @@ export interface VPCLattice {
   ): void;
   deleteAccessLogSubscription(
     args: DeleteAccessLogSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteAccessLogSubscriptionCommandOutput) => void
   ): void;
 
@@ -702,7 +714,7 @@ export interface VPCLattice {
    */
   deleteAuthPolicy(
     args: DeleteAuthPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteAuthPolicyCommandOutput>;
   deleteAuthPolicy(
     args: DeleteAuthPolicyCommandInput,
@@ -710,7 +722,7 @@ export interface VPCLattice {
   ): void;
   deleteAuthPolicy(
     args: DeleteAuthPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteAuthPolicyCommandOutput) => void
   ): void;
 
@@ -719,7 +731,7 @@ export interface VPCLattice {
    */
   deleteDomainVerification(
     args: DeleteDomainVerificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteDomainVerificationCommandOutput>;
   deleteDomainVerification(
     args: DeleteDomainVerificationCommandInput,
@@ -727,7 +739,7 @@ export interface VPCLattice {
   ): void;
   deleteDomainVerification(
     args: DeleteDomainVerificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteDomainVerificationCommandOutput) => void
   ): void;
 
@@ -736,7 +748,7 @@ export interface VPCLattice {
    */
   deleteListener(
     args: DeleteListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteListenerCommandOutput>;
   deleteListener(
     args: DeleteListenerCommandInput,
@@ -744,7 +756,7 @@ export interface VPCLattice {
   ): void;
   deleteListener(
     args: DeleteListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteListenerCommandOutput) => void
   ): void;
 
@@ -753,7 +765,7 @@ export interface VPCLattice {
    */
   deleteResourceConfiguration(
     args: DeleteResourceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteResourceConfigurationCommandOutput>;
   deleteResourceConfiguration(
     args: DeleteResourceConfigurationCommandInput,
@@ -761,7 +773,7 @@ export interface VPCLattice {
   ): void;
   deleteResourceConfiguration(
     args: DeleteResourceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteResourceConfigurationCommandOutput) => void
   ): void;
 
@@ -770,7 +782,7 @@ export interface VPCLattice {
    */
   deleteResourceEndpointAssociation(
     args: DeleteResourceEndpointAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteResourceEndpointAssociationCommandOutput>;
   deleteResourceEndpointAssociation(
     args: DeleteResourceEndpointAssociationCommandInput,
@@ -778,7 +790,7 @@ export interface VPCLattice {
   ): void;
   deleteResourceEndpointAssociation(
     args: DeleteResourceEndpointAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteResourceEndpointAssociationCommandOutput) => void
   ): void;
 
@@ -787,7 +799,7 @@ export interface VPCLattice {
    */
   deleteResourceGateway(
     args: DeleteResourceGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteResourceGatewayCommandOutput>;
   deleteResourceGateway(
     args: DeleteResourceGatewayCommandInput,
@@ -795,7 +807,7 @@ export interface VPCLattice {
   ): void;
   deleteResourceGateway(
     args: DeleteResourceGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteResourceGatewayCommandOutput) => void
   ): void;
 
@@ -804,7 +816,7 @@ export interface VPCLattice {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -812,7 +824,7 @@ export interface VPCLattice {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -821,7 +833,7 @@ export interface VPCLattice {
    */
   deleteRule(
     args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteRuleCommandOutput>;
   deleteRule(
     args: DeleteRuleCommandInput,
@@ -829,7 +841,7 @@ export interface VPCLattice {
   ): void;
   deleteRule(
     args: DeleteRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteRuleCommandOutput) => void
   ): void;
 
@@ -838,7 +850,7 @@ export interface VPCLattice {
    */
   deleteService(
     args: DeleteServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteServiceCommandOutput>;
   deleteService(
     args: DeleteServiceCommandInput,
@@ -846,7 +858,7 @@ export interface VPCLattice {
   ): void;
   deleteService(
     args: DeleteServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteServiceCommandOutput) => void
   ): void;
 
@@ -855,7 +867,7 @@ export interface VPCLattice {
    */
   deleteServiceNetwork(
     args: DeleteServiceNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteServiceNetworkCommandOutput>;
   deleteServiceNetwork(
     args: DeleteServiceNetworkCommandInput,
@@ -863,7 +875,7 @@ export interface VPCLattice {
   ): void;
   deleteServiceNetwork(
     args: DeleteServiceNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteServiceNetworkCommandOutput) => void
   ): void;
 
@@ -872,7 +884,7 @@ export interface VPCLattice {
    */
   deleteServiceNetworkResourceAssociation(
     args: DeleteServiceNetworkResourceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteServiceNetworkResourceAssociationCommandOutput>;
   deleteServiceNetworkResourceAssociation(
     args: DeleteServiceNetworkResourceAssociationCommandInput,
@@ -880,7 +892,7 @@ export interface VPCLattice {
   ): void;
   deleteServiceNetworkResourceAssociation(
     args: DeleteServiceNetworkResourceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteServiceNetworkResourceAssociationCommandOutput) => void
   ): void;
 
@@ -889,7 +901,7 @@ export interface VPCLattice {
    */
   deleteServiceNetworkServiceAssociation(
     args: DeleteServiceNetworkServiceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteServiceNetworkServiceAssociationCommandOutput>;
   deleteServiceNetworkServiceAssociation(
     args: DeleteServiceNetworkServiceAssociationCommandInput,
@@ -897,7 +909,7 @@ export interface VPCLattice {
   ): void;
   deleteServiceNetworkServiceAssociation(
     args: DeleteServiceNetworkServiceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteServiceNetworkServiceAssociationCommandOutput) => void
   ): void;
 
@@ -906,7 +918,7 @@ export interface VPCLattice {
    */
   deleteServiceNetworkVpcAssociation(
     args: DeleteServiceNetworkVpcAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteServiceNetworkVpcAssociationCommandOutput>;
   deleteServiceNetworkVpcAssociation(
     args: DeleteServiceNetworkVpcAssociationCommandInput,
@@ -914,7 +926,7 @@ export interface VPCLattice {
   ): void;
   deleteServiceNetworkVpcAssociation(
     args: DeleteServiceNetworkVpcAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteServiceNetworkVpcAssociationCommandOutput) => void
   ): void;
 
@@ -923,7 +935,7 @@ export interface VPCLattice {
    */
   deleteTargetGroup(
     args: DeleteTargetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeleteTargetGroupCommandOutput>;
   deleteTargetGroup(
     args: DeleteTargetGroupCommandInput,
@@ -931,7 +943,7 @@ export interface VPCLattice {
   ): void;
   deleteTargetGroup(
     args: DeleteTargetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeleteTargetGroupCommandOutput) => void
   ): void;
 
@@ -940,7 +952,7 @@ export interface VPCLattice {
    */
   deregisterTargets(
     args: DeregisterTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<DeregisterTargetsCommandOutput>;
   deregisterTargets(
     args: DeregisterTargetsCommandInput,
@@ -948,7 +960,7 @@ export interface VPCLattice {
   ): void;
   deregisterTargets(
     args: DeregisterTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: DeregisterTargetsCommandOutput) => void
   ): void;
 
@@ -957,7 +969,7 @@ export interface VPCLattice {
    */
   getAccessLogSubscription(
     args: GetAccessLogSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetAccessLogSubscriptionCommandOutput>;
   getAccessLogSubscription(
     args: GetAccessLogSubscriptionCommandInput,
@@ -965,7 +977,7 @@ export interface VPCLattice {
   ): void;
   getAccessLogSubscription(
     args: GetAccessLogSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetAccessLogSubscriptionCommandOutput) => void
   ): void;
 
@@ -974,7 +986,7 @@ export interface VPCLattice {
    */
   getAuthPolicy(
     args: GetAuthPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetAuthPolicyCommandOutput>;
   getAuthPolicy(
     args: GetAuthPolicyCommandInput,
@@ -982,7 +994,7 @@ export interface VPCLattice {
   ): void;
   getAuthPolicy(
     args: GetAuthPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetAuthPolicyCommandOutput) => void
   ): void;
 
@@ -991,7 +1003,7 @@ export interface VPCLattice {
    */
   getDomainVerification(
     args: GetDomainVerificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetDomainVerificationCommandOutput>;
   getDomainVerification(
     args: GetDomainVerificationCommandInput,
@@ -999,7 +1011,7 @@ export interface VPCLattice {
   ): void;
   getDomainVerification(
     args: GetDomainVerificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetDomainVerificationCommandOutput) => void
   ): void;
 
@@ -1008,7 +1020,7 @@ export interface VPCLattice {
    */
   getListener(
     args: GetListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetListenerCommandOutput>;
   getListener(
     args: GetListenerCommandInput,
@@ -1016,7 +1028,7 @@ export interface VPCLattice {
   ): void;
   getListener(
     args: GetListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetListenerCommandOutput) => void
   ): void;
 
@@ -1025,7 +1037,7 @@ export interface VPCLattice {
    */
   getResourceConfiguration(
     args: GetResourceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetResourceConfigurationCommandOutput>;
   getResourceConfiguration(
     args: GetResourceConfigurationCommandInput,
@@ -1033,7 +1045,7 @@ export interface VPCLattice {
   ): void;
   getResourceConfiguration(
     args: GetResourceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetResourceConfigurationCommandOutput) => void
   ): void;
 
@@ -1042,7 +1054,7 @@ export interface VPCLattice {
    */
   getResourceGateway(
     args: GetResourceGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetResourceGatewayCommandOutput>;
   getResourceGateway(
     args: GetResourceGatewayCommandInput,
@@ -1050,7 +1062,7 @@ export interface VPCLattice {
   ): void;
   getResourceGateway(
     args: GetResourceGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetResourceGatewayCommandOutput) => void
   ): void;
 
@@ -1059,7 +1071,7 @@ export interface VPCLattice {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -1067,7 +1079,7 @@ export interface VPCLattice {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1076,7 +1088,7 @@ export interface VPCLattice {
    */
   getRule(
     args: GetRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetRuleCommandOutput>;
   getRule(
     args: GetRuleCommandInput,
@@ -1084,7 +1096,7 @@ export interface VPCLattice {
   ): void;
   getRule(
     args: GetRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetRuleCommandOutput) => void
   ): void;
 
@@ -1093,7 +1105,7 @@ export interface VPCLattice {
    */
   getService(
     args: GetServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetServiceCommandOutput>;
   getService(
     args: GetServiceCommandInput,
@@ -1101,7 +1113,7 @@ export interface VPCLattice {
   ): void;
   getService(
     args: GetServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
   ): void;
 
@@ -1110,7 +1122,7 @@ export interface VPCLattice {
    */
   getServiceNetwork(
     args: GetServiceNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetServiceNetworkCommandOutput>;
   getServiceNetwork(
     args: GetServiceNetworkCommandInput,
@@ -1118,7 +1130,7 @@ export interface VPCLattice {
   ): void;
   getServiceNetwork(
     args: GetServiceNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetServiceNetworkCommandOutput) => void
   ): void;
 
@@ -1127,7 +1139,7 @@ export interface VPCLattice {
    */
   getServiceNetworkResourceAssociation(
     args: GetServiceNetworkResourceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetServiceNetworkResourceAssociationCommandOutput>;
   getServiceNetworkResourceAssociation(
     args: GetServiceNetworkResourceAssociationCommandInput,
@@ -1135,7 +1147,7 @@ export interface VPCLattice {
   ): void;
   getServiceNetworkResourceAssociation(
     args: GetServiceNetworkResourceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetServiceNetworkResourceAssociationCommandOutput) => void
   ): void;
 
@@ -1144,7 +1156,7 @@ export interface VPCLattice {
    */
   getServiceNetworkServiceAssociation(
     args: GetServiceNetworkServiceAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetServiceNetworkServiceAssociationCommandOutput>;
   getServiceNetworkServiceAssociation(
     args: GetServiceNetworkServiceAssociationCommandInput,
@@ -1152,7 +1164,7 @@ export interface VPCLattice {
   ): void;
   getServiceNetworkServiceAssociation(
     args: GetServiceNetworkServiceAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetServiceNetworkServiceAssociationCommandOutput) => void
   ): void;
 
@@ -1161,7 +1173,7 @@ export interface VPCLattice {
    */
   getServiceNetworkVpcAssociation(
     args: GetServiceNetworkVpcAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetServiceNetworkVpcAssociationCommandOutput>;
   getServiceNetworkVpcAssociation(
     args: GetServiceNetworkVpcAssociationCommandInput,
@@ -1169,7 +1181,7 @@ export interface VPCLattice {
   ): void;
   getServiceNetworkVpcAssociation(
     args: GetServiceNetworkVpcAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetServiceNetworkVpcAssociationCommandOutput) => void
   ): void;
 
@@ -1178,7 +1190,7 @@ export interface VPCLattice {
    */
   getTargetGroup(
     args: GetTargetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<GetTargetGroupCommandOutput>;
   getTargetGroup(
     args: GetTargetGroupCommandInput,
@@ -1186,7 +1198,7 @@ export interface VPCLattice {
   ): void;
   getTargetGroup(
     args: GetTargetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: GetTargetGroupCommandOutput) => void
   ): void;
 
@@ -1195,7 +1207,7 @@ export interface VPCLattice {
    */
   listAccessLogSubscriptions(
     args: ListAccessLogSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListAccessLogSubscriptionsCommandOutput>;
   listAccessLogSubscriptions(
     args: ListAccessLogSubscriptionsCommandInput,
@@ -1203,7 +1215,7 @@ export interface VPCLattice {
   ): void;
   listAccessLogSubscriptions(
     args: ListAccessLogSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListAccessLogSubscriptionsCommandOutput) => void
   ): void;
 
@@ -1213,7 +1225,7 @@ export interface VPCLattice {
   listDomainVerifications(): Promise<ListDomainVerificationsCommandOutput>;
   listDomainVerifications(
     args: ListDomainVerificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListDomainVerificationsCommandOutput>;
   listDomainVerifications(
     args: ListDomainVerificationsCommandInput,
@@ -1221,7 +1233,7 @@ export interface VPCLattice {
   ): void;
   listDomainVerifications(
     args: ListDomainVerificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListDomainVerificationsCommandOutput) => void
   ): void;
 
@@ -1230,7 +1242,7 @@ export interface VPCLattice {
    */
   listListeners(
     args: ListListenersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListListenersCommandOutput>;
   listListeners(
     args: ListListenersCommandInput,
@@ -1238,7 +1250,7 @@ export interface VPCLattice {
   ): void;
   listListeners(
     args: ListListenersCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListListenersCommandOutput) => void
   ): void;
 
@@ -1248,7 +1260,7 @@ export interface VPCLattice {
   listResourceConfigurations(): Promise<ListResourceConfigurationsCommandOutput>;
   listResourceConfigurations(
     args: ListResourceConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListResourceConfigurationsCommandOutput>;
   listResourceConfigurations(
     args: ListResourceConfigurationsCommandInput,
@@ -1256,7 +1268,7 @@ export interface VPCLattice {
   ): void;
   listResourceConfigurations(
     args: ListResourceConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListResourceConfigurationsCommandOutput) => void
   ): void;
 
@@ -1265,7 +1277,7 @@ export interface VPCLattice {
    */
   listResourceEndpointAssociations(
     args: ListResourceEndpointAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListResourceEndpointAssociationsCommandOutput>;
   listResourceEndpointAssociations(
     args: ListResourceEndpointAssociationsCommandInput,
@@ -1273,7 +1285,7 @@ export interface VPCLattice {
   ): void;
   listResourceEndpointAssociations(
     args: ListResourceEndpointAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListResourceEndpointAssociationsCommandOutput) => void
   ): void;
 
@@ -1283,7 +1295,7 @@ export interface VPCLattice {
   listResourceGateways(): Promise<ListResourceGatewaysCommandOutput>;
   listResourceGateways(
     args: ListResourceGatewaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListResourceGatewaysCommandOutput>;
   listResourceGateways(
     args: ListResourceGatewaysCommandInput,
@@ -1291,7 +1303,7 @@ export interface VPCLattice {
   ): void;
   listResourceGateways(
     args: ListResourceGatewaysCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListResourceGatewaysCommandOutput) => void
   ): void;
 
@@ -1300,7 +1312,7 @@ export interface VPCLattice {
    */
   listRules(
     args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListRulesCommandOutput>;
   listRules(
     args: ListRulesCommandInput,
@@ -1308,7 +1320,7 @@ export interface VPCLattice {
   ): void;
   listRules(
     args: ListRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListRulesCommandOutput) => void
   ): void;
 
@@ -1318,7 +1330,7 @@ export interface VPCLattice {
   listServiceNetworkResourceAssociations(): Promise<ListServiceNetworkResourceAssociationsCommandOutput>;
   listServiceNetworkResourceAssociations(
     args: ListServiceNetworkResourceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListServiceNetworkResourceAssociationsCommandOutput>;
   listServiceNetworkResourceAssociations(
     args: ListServiceNetworkResourceAssociationsCommandInput,
@@ -1326,7 +1338,7 @@ export interface VPCLattice {
   ): void;
   listServiceNetworkResourceAssociations(
     args: ListServiceNetworkResourceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListServiceNetworkResourceAssociationsCommandOutput) => void
   ): void;
 
@@ -1336,7 +1348,7 @@ export interface VPCLattice {
   listServiceNetworks(): Promise<ListServiceNetworksCommandOutput>;
   listServiceNetworks(
     args: ListServiceNetworksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListServiceNetworksCommandOutput>;
   listServiceNetworks(
     args: ListServiceNetworksCommandInput,
@@ -1344,7 +1356,7 @@ export interface VPCLattice {
   ): void;
   listServiceNetworks(
     args: ListServiceNetworksCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListServiceNetworksCommandOutput) => void
   ): void;
 
@@ -1354,7 +1366,7 @@ export interface VPCLattice {
   listServiceNetworkServiceAssociations(): Promise<ListServiceNetworkServiceAssociationsCommandOutput>;
   listServiceNetworkServiceAssociations(
     args: ListServiceNetworkServiceAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListServiceNetworkServiceAssociationsCommandOutput>;
   listServiceNetworkServiceAssociations(
     args: ListServiceNetworkServiceAssociationsCommandInput,
@@ -1362,7 +1374,7 @@ export interface VPCLattice {
   ): void;
   listServiceNetworkServiceAssociations(
     args: ListServiceNetworkServiceAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListServiceNetworkServiceAssociationsCommandOutput) => void
   ): void;
 
@@ -1372,7 +1384,7 @@ export interface VPCLattice {
   listServiceNetworkVpcAssociations(): Promise<ListServiceNetworkVpcAssociationsCommandOutput>;
   listServiceNetworkVpcAssociations(
     args: ListServiceNetworkVpcAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListServiceNetworkVpcAssociationsCommandOutput>;
   listServiceNetworkVpcAssociations(
     args: ListServiceNetworkVpcAssociationsCommandInput,
@@ -1380,7 +1392,7 @@ export interface VPCLattice {
   ): void;
   listServiceNetworkVpcAssociations(
     args: ListServiceNetworkVpcAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListServiceNetworkVpcAssociationsCommandOutput) => void
   ): void;
 
@@ -1389,7 +1401,7 @@ export interface VPCLattice {
    */
   listServiceNetworkVpcEndpointAssociations(
     args: ListServiceNetworkVpcEndpointAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListServiceNetworkVpcEndpointAssociationsCommandOutput>;
   listServiceNetworkVpcEndpointAssociations(
     args: ListServiceNetworkVpcEndpointAssociationsCommandInput,
@@ -1397,7 +1409,7 @@ export interface VPCLattice {
   ): void;
   listServiceNetworkVpcEndpointAssociations(
     args: ListServiceNetworkVpcEndpointAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListServiceNetworkVpcEndpointAssociationsCommandOutput) => void
   ): void;
 
@@ -1407,7 +1419,7 @@ export interface VPCLattice {
   listServices(): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListServicesCommandOutput>;
   listServices(
     args: ListServicesCommandInput,
@@ -1415,7 +1427,7 @@ export interface VPCLattice {
   ): void;
   listServices(
     args: ListServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListServicesCommandOutput) => void
   ): void;
 
@@ -1424,7 +1436,7 @@ export interface VPCLattice {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1432,7 +1444,7 @@ export interface VPCLattice {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1442,7 +1454,7 @@ export interface VPCLattice {
   listTargetGroups(): Promise<ListTargetGroupsCommandOutput>;
   listTargetGroups(
     args: ListTargetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListTargetGroupsCommandOutput>;
   listTargetGroups(
     args: ListTargetGroupsCommandInput,
@@ -1450,7 +1462,7 @@ export interface VPCLattice {
   ): void;
   listTargetGroups(
     args: ListTargetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListTargetGroupsCommandOutput) => void
   ): void;
 
@@ -1459,7 +1471,7 @@ export interface VPCLattice {
    */
   listTargets(
     args: ListTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<ListTargetsCommandOutput>;
   listTargets(
     args: ListTargetsCommandInput,
@@ -1467,7 +1479,7 @@ export interface VPCLattice {
   ): void;
   listTargets(
     args: ListTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: ListTargetsCommandOutput) => void
   ): void;
 
@@ -1476,7 +1488,7 @@ export interface VPCLattice {
    */
   putAuthPolicy(
     args: PutAuthPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<PutAuthPolicyCommandOutput>;
   putAuthPolicy(
     args: PutAuthPolicyCommandInput,
@@ -1484,7 +1496,7 @@ export interface VPCLattice {
   ): void;
   putAuthPolicy(
     args: PutAuthPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: PutAuthPolicyCommandOutput) => void
   ): void;
 
@@ -1493,7 +1505,7 @@ export interface VPCLattice {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -1501,7 +1513,7 @@ export interface VPCLattice {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1510,7 +1522,7 @@ export interface VPCLattice {
    */
   registerTargets(
     args: RegisterTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<RegisterTargetsCommandOutput>;
   registerTargets(
     args: RegisterTargetsCommandInput,
@@ -1518,7 +1530,7 @@ export interface VPCLattice {
   ): void;
   registerTargets(
     args: RegisterTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: RegisterTargetsCommandOutput) => void
   ): void;
 
@@ -1527,7 +1539,7 @@ export interface VPCLattice {
    */
   startDomainVerification(
     args: StartDomainVerificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<StartDomainVerificationCommandOutput>;
   startDomainVerification(
     args: StartDomainVerificationCommandInput,
@@ -1535,7 +1547,7 @@ export interface VPCLattice {
   ): void;
   startDomainVerification(
     args: StartDomainVerificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: StartDomainVerificationCommandOutput) => void
   ): void;
 
@@ -1544,7 +1556,7 @@ export interface VPCLattice {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1552,7 +1564,7 @@ export interface VPCLattice {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1561,7 +1573,7 @@ export interface VPCLattice {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1569,7 +1581,7 @@ export interface VPCLattice {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1578,7 +1590,7 @@ export interface VPCLattice {
    */
   updateAccessLogSubscription(
     args: UpdateAccessLogSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UpdateAccessLogSubscriptionCommandOutput>;
   updateAccessLogSubscription(
     args: UpdateAccessLogSubscriptionCommandInput,
@@ -1586,7 +1598,7 @@ export interface VPCLattice {
   ): void;
   updateAccessLogSubscription(
     args: UpdateAccessLogSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UpdateAccessLogSubscriptionCommandOutput) => void
   ): void;
 
@@ -1595,7 +1607,7 @@ export interface VPCLattice {
    */
   updateListener(
     args: UpdateListenerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UpdateListenerCommandOutput>;
   updateListener(
     args: UpdateListenerCommandInput,
@@ -1603,7 +1615,7 @@ export interface VPCLattice {
   ): void;
   updateListener(
     args: UpdateListenerCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UpdateListenerCommandOutput) => void
   ): void;
 
@@ -1612,7 +1624,7 @@ export interface VPCLattice {
    */
   updateResourceConfiguration(
     args: UpdateResourceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UpdateResourceConfigurationCommandOutput>;
   updateResourceConfiguration(
     args: UpdateResourceConfigurationCommandInput,
@@ -1620,7 +1632,7 @@ export interface VPCLattice {
   ): void;
   updateResourceConfiguration(
     args: UpdateResourceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UpdateResourceConfigurationCommandOutput) => void
   ): void;
 
@@ -1629,7 +1641,7 @@ export interface VPCLattice {
    */
   updateResourceGateway(
     args: UpdateResourceGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UpdateResourceGatewayCommandOutput>;
   updateResourceGateway(
     args: UpdateResourceGatewayCommandInput,
@@ -1637,7 +1649,7 @@ export interface VPCLattice {
   ): void;
   updateResourceGateway(
     args: UpdateResourceGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UpdateResourceGatewayCommandOutput) => void
   ): void;
 
@@ -1646,7 +1658,7 @@ export interface VPCLattice {
    */
   updateRule(
     args: UpdateRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UpdateRuleCommandOutput>;
   updateRule(
     args: UpdateRuleCommandInput,
@@ -1654,7 +1666,7 @@ export interface VPCLattice {
   ): void;
   updateRule(
     args: UpdateRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UpdateRuleCommandOutput) => void
   ): void;
 
@@ -1663,7 +1675,7 @@ export interface VPCLattice {
    */
   updateService(
     args: UpdateServiceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UpdateServiceCommandOutput>;
   updateService(
     args: UpdateServiceCommandInput,
@@ -1671,7 +1683,7 @@ export interface VPCLattice {
   ): void;
   updateService(
     args: UpdateServiceCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UpdateServiceCommandOutput) => void
   ): void;
 
@@ -1680,7 +1692,7 @@ export interface VPCLattice {
    */
   updateServiceNetwork(
     args: UpdateServiceNetworkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UpdateServiceNetworkCommandOutput>;
   updateServiceNetwork(
     args: UpdateServiceNetworkCommandInput,
@@ -1688,7 +1700,7 @@ export interface VPCLattice {
   ): void;
   updateServiceNetwork(
     args: UpdateServiceNetworkCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UpdateServiceNetworkCommandOutput) => void
   ): void;
 
@@ -1697,7 +1709,7 @@ export interface VPCLattice {
    */
   updateServiceNetworkVpcAssociation(
     args: UpdateServiceNetworkVpcAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UpdateServiceNetworkVpcAssociationCommandOutput>;
   updateServiceNetworkVpcAssociation(
     args: UpdateServiceNetworkVpcAssociationCommandInput,
@@ -1705,7 +1717,7 @@ export interface VPCLattice {
   ): void;
   updateServiceNetworkVpcAssociation(
     args: UpdateServiceNetworkVpcAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UpdateServiceNetworkVpcAssociationCommandOutput) => void
   ): void;
 
@@ -1714,7 +1726,7 @@ export interface VPCLattice {
    */
   updateTargetGroup(
     args: UpdateTargetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: VPCLatticeRequestOptions
   ): Promise<UpdateTargetGroupCommandOutput>;
   updateTargetGroup(
     args: UpdateTargetGroupCommandInput,
@@ -1722,7 +1734,7 @@ export interface VPCLattice {
   ): void;
   updateTargetGroup(
     args: UpdateTargetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: VPCLatticeRequestOptions,
     cb: (err: any, data?: UpdateTargetGroupCommandOutput) => void
   ): void;
 

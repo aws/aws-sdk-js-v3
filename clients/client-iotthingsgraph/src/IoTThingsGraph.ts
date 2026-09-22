@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateEntityToThingCommandInput,
@@ -239,13 +244,20 @@ const paginators = {
   paginateSearchThings,
 };
 
+/**
+ * @public
+ */
+export interface IoTThingsGraphRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IoTThingsGraph {
   /**
    * @see {@link AssociateEntityToThingCommand}
    */
   associateEntityToThing(
     args: AssociateEntityToThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<AssociateEntityToThingCommandOutput>;
   associateEntityToThing(
     args: AssociateEntityToThingCommandInput,
@@ -253,7 +265,7 @@ export interface IoTThingsGraph {
   ): void;
   associateEntityToThing(
     args: AssociateEntityToThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: AssociateEntityToThingCommandOutput) => void
   ): void;
 
@@ -262,7 +274,7 @@ export interface IoTThingsGraph {
    */
   createFlowTemplate(
     args: CreateFlowTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<CreateFlowTemplateCommandOutput>;
   createFlowTemplate(
     args: CreateFlowTemplateCommandInput,
@@ -270,7 +282,7 @@ export interface IoTThingsGraph {
   ): void;
   createFlowTemplate(
     args: CreateFlowTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: CreateFlowTemplateCommandOutput) => void
   ): void;
 
@@ -279,7 +291,7 @@ export interface IoTThingsGraph {
    */
   createSystemInstance(
     args: CreateSystemInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<CreateSystemInstanceCommandOutput>;
   createSystemInstance(
     args: CreateSystemInstanceCommandInput,
@@ -287,7 +299,7 @@ export interface IoTThingsGraph {
   ): void;
   createSystemInstance(
     args: CreateSystemInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: CreateSystemInstanceCommandOutput) => void
   ): void;
 
@@ -296,7 +308,7 @@ export interface IoTThingsGraph {
    */
   createSystemTemplate(
     args: CreateSystemTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<CreateSystemTemplateCommandOutput>;
   createSystemTemplate(
     args: CreateSystemTemplateCommandInput,
@@ -304,7 +316,7 @@ export interface IoTThingsGraph {
   ): void;
   createSystemTemplate(
     args: CreateSystemTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: CreateSystemTemplateCommandOutput) => void
   ): void;
 
@@ -313,7 +325,7 @@ export interface IoTThingsGraph {
    */
   deleteFlowTemplate(
     args: DeleteFlowTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<DeleteFlowTemplateCommandOutput>;
   deleteFlowTemplate(
     args: DeleteFlowTemplateCommandInput,
@@ -321,7 +333,7 @@ export interface IoTThingsGraph {
   ): void;
   deleteFlowTemplate(
     args: DeleteFlowTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: DeleteFlowTemplateCommandOutput) => void
   ): void;
 
@@ -331,7 +343,7 @@ export interface IoTThingsGraph {
   deleteNamespace(): Promise<DeleteNamespaceCommandOutput>;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<DeleteNamespaceCommandOutput>;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
@@ -339,7 +351,7 @@ export interface IoTThingsGraph {
   ): void;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface IoTThingsGraph {
   deleteSystemInstance(): Promise<DeleteSystemInstanceCommandOutput>;
   deleteSystemInstance(
     args: DeleteSystemInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<DeleteSystemInstanceCommandOutput>;
   deleteSystemInstance(
     args: DeleteSystemInstanceCommandInput,
@@ -357,7 +369,7 @@ export interface IoTThingsGraph {
   ): void;
   deleteSystemInstance(
     args: DeleteSystemInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: DeleteSystemInstanceCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface IoTThingsGraph {
    */
   deleteSystemTemplate(
     args: DeleteSystemTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<DeleteSystemTemplateCommandOutput>;
   deleteSystemTemplate(
     args: DeleteSystemTemplateCommandInput,
@@ -374,7 +386,7 @@ export interface IoTThingsGraph {
   ): void;
   deleteSystemTemplate(
     args: DeleteSystemTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: DeleteSystemTemplateCommandOutput) => void
   ): void;
 
@@ -384,7 +396,7 @@ export interface IoTThingsGraph {
   deploySystemInstance(): Promise<DeploySystemInstanceCommandOutput>;
   deploySystemInstance(
     args: DeploySystemInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<DeploySystemInstanceCommandOutput>;
   deploySystemInstance(
     args: DeploySystemInstanceCommandInput,
@@ -392,7 +404,7 @@ export interface IoTThingsGraph {
   ): void;
   deploySystemInstance(
     args: DeploySystemInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: DeploySystemInstanceCommandOutput) => void
   ): void;
 
@@ -401,7 +413,7 @@ export interface IoTThingsGraph {
    */
   deprecateFlowTemplate(
     args: DeprecateFlowTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<DeprecateFlowTemplateCommandOutput>;
   deprecateFlowTemplate(
     args: DeprecateFlowTemplateCommandInput,
@@ -409,7 +421,7 @@ export interface IoTThingsGraph {
   ): void;
   deprecateFlowTemplate(
     args: DeprecateFlowTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: DeprecateFlowTemplateCommandOutput) => void
   ): void;
 
@@ -418,7 +430,7 @@ export interface IoTThingsGraph {
    */
   deprecateSystemTemplate(
     args: DeprecateSystemTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<DeprecateSystemTemplateCommandOutput>;
   deprecateSystemTemplate(
     args: DeprecateSystemTemplateCommandInput,
@@ -426,7 +438,7 @@ export interface IoTThingsGraph {
   ): void;
   deprecateSystemTemplate(
     args: DeprecateSystemTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: DeprecateSystemTemplateCommandOutput) => void
   ): void;
 
@@ -436,7 +448,7 @@ export interface IoTThingsGraph {
   describeNamespace(): Promise<DescribeNamespaceCommandOutput>;
   describeNamespace(
     args: DescribeNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<DescribeNamespaceCommandOutput>;
   describeNamespace(
     args: DescribeNamespaceCommandInput,
@@ -444,7 +456,7 @@ export interface IoTThingsGraph {
   ): void;
   describeNamespace(
     args: DescribeNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: DescribeNamespaceCommandOutput) => void
   ): void;
 
@@ -453,7 +465,7 @@ export interface IoTThingsGraph {
    */
   dissociateEntityFromThing(
     args: DissociateEntityFromThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<DissociateEntityFromThingCommandOutput>;
   dissociateEntityFromThing(
     args: DissociateEntityFromThingCommandInput,
@@ -461,7 +473,7 @@ export interface IoTThingsGraph {
   ): void;
   dissociateEntityFromThing(
     args: DissociateEntityFromThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: DissociateEntityFromThingCommandOutput) => void
   ): void;
 
@@ -470,7 +482,7 @@ export interface IoTThingsGraph {
    */
   getEntities(
     args: GetEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<GetEntitiesCommandOutput>;
   getEntities(
     args: GetEntitiesCommandInput,
@@ -478,7 +490,7 @@ export interface IoTThingsGraph {
   ): void;
   getEntities(
     args: GetEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: GetEntitiesCommandOutput) => void
   ): void;
 
@@ -487,7 +499,7 @@ export interface IoTThingsGraph {
    */
   getFlowTemplate(
     args: GetFlowTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<GetFlowTemplateCommandOutput>;
   getFlowTemplate(
     args: GetFlowTemplateCommandInput,
@@ -495,7 +507,7 @@ export interface IoTThingsGraph {
   ): void;
   getFlowTemplate(
     args: GetFlowTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: GetFlowTemplateCommandOutput) => void
   ): void;
 
@@ -504,7 +516,7 @@ export interface IoTThingsGraph {
    */
   getFlowTemplateRevisions(
     args: GetFlowTemplateRevisionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<GetFlowTemplateRevisionsCommandOutput>;
   getFlowTemplateRevisions(
     args: GetFlowTemplateRevisionsCommandInput,
@@ -512,7 +524,7 @@ export interface IoTThingsGraph {
   ): void;
   getFlowTemplateRevisions(
     args: GetFlowTemplateRevisionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: GetFlowTemplateRevisionsCommandOutput) => void
   ): void;
 
@@ -522,7 +534,7 @@ export interface IoTThingsGraph {
   getNamespaceDeletionStatus(): Promise<GetNamespaceDeletionStatusCommandOutput>;
   getNamespaceDeletionStatus(
     args: GetNamespaceDeletionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<GetNamespaceDeletionStatusCommandOutput>;
   getNamespaceDeletionStatus(
     args: GetNamespaceDeletionStatusCommandInput,
@@ -530,7 +542,7 @@ export interface IoTThingsGraph {
   ): void;
   getNamespaceDeletionStatus(
     args: GetNamespaceDeletionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: GetNamespaceDeletionStatusCommandOutput) => void
   ): void;
 
@@ -539,7 +551,7 @@ export interface IoTThingsGraph {
    */
   getSystemInstance(
     args: GetSystemInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<GetSystemInstanceCommandOutput>;
   getSystemInstance(
     args: GetSystemInstanceCommandInput,
@@ -547,7 +559,7 @@ export interface IoTThingsGraph {
   ): void;
   getSystemInstance(
     args: GetSystemInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: GetSystemInstanceCommandOutput) => void
   ): void;
 
@@ -556,7 +568,7 @@ export interface IoTThingsGraph {
    */
   getSystemTemplate(
     args: GetSystemTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<GetSystemTemplateCommandOutput>;
   getSystemTemplate(
     args: GetSystemTemplateCommandInput,
@@ -564,7 +576,7 @@ export interface IoTThingsGraph {
   ): void;
   getSystemTemplate(
     args: GetSystemTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: GetSystemTemplateCommandOutput) => void
   ): void;
 
@@ -573,7 +585,7 @@ export interface IoTThingsGraph {
    */
   getSystemTemplateRevisions(
     args: GetSystemTemplateRevisionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<GetSystemTemplateRevisionsCommandOutput>;
   getSystemTemplateRevisions(
     args: GetSystemTemplateRevisionsCommandInput,
@@ -581,7 +593,7 @@ export interface IoTThingsGraph {
   ): void;
   getSystemTemplateRevisions(
     args: GetSystemTemplateRevisionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: GetSystemTemplateRevisionsCommandOutput) => void
   ): void;
 
@@ -590,7 +602,7 @@ export interface IoTThingsGraph {
    */
   getUploadStatus(
     args: GetUploadStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<GetUploadStatusCommandOutput>;
   getUploadStatus(
     args: GetUploadStatusCommandInput,
@@ -598,7 +610,7 @@ export interface IoTThingsGraph {
   ): void;
   getUploadStatus(
     args: GetUploadStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: GetUploadStatusCommandOutput) => void
   ): void;
 
@@ -607,7 +619,7 @@ export interface IoTThingsGraph {
    */
   listFlowExecutionMessages(
     args: ListFlowExecutionMessagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<ListFlowExecutionMessagesCommandOutput>;
   listFlowExecutionMessages(
     args: ListFlowExecutionMessagesCommandInput,
@@ -615,7 +627,7 @@ export interface IoTThingsGraph {
   ): void;
   listFlowExecutionMessages(
     args: ListFlowExecutionMessagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: ListFlowExecutionMessagesCommandOutput) => void
   ): void;
 
@@ -624,7 +636,7 @@ export interface IoTThingsGraph {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -632,7 +644,7 @@ export interface IoTThingsGraph {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -641,7 +653,7 @@ export interface IoTThingsGraph {
    */
   searchEntities(
     args: SearchEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<SearchEntitiesCommandOutput>;
   searchEntities(
     args: SearchEntitiesCommandInput,
@@ -649,7 +661,7 @@ export interface IoTThingsGraph {
   ): void;
   searchEntities(
     args: SearchEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: SearchEntitiesCommandOutput) => void
   ): void;
 
@@ -658,7 +670,7 @@ export interface IoTThingsGraph {
    */
   searchFlowExecutions(
     args: SearchFlowExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<SearchFlowExecutionsCommandOutput>;
   searchFlowExecutions(
     args: SearchFlowExecutionsCommandInput,
@@ -666,7 +678,7 @@ export interface IoTThingsGraph {
   ): void;
   searchFlowExecutions(
     args: SearchFlowExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: SearchFlowExecutionsCommandOutput) => void
   ): void;
 
@@ -676,7 +688,7 @@ export interface IoTThingsGraph {
   searchFlowTemplates(): Promise<SearchFlowTemplatesCommandOutput>;
   searchFlowTemplates(
     args: SearchFlowTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<SearchFlowTemplatesCommandOutput>;
   searchFlowTemplates(
     args: SearchFlowTemplatesCommandInput,
@@ -684,7 +696,7 @@ export interface IoTThingsGraph {
   ): void;
   searchFlowTemplates(
     args: SearchFlowTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: SearchFlowTemplatesCommandOutput) => void
   ): void;
 
@@ -694,7 +706,7 @@ export interface IoTThingsGraph {
   searchSystemInstances(): Promise<SearchSystemInstancesCommandOutput>;
   searchSystemInstances(
     args: SearchSystemInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<SearchSystemInstancesCommandOutput>;
   searchSystemInstances(
     args: SearchSystemInstancesCommandInput,
@@ -702,7 +714,7 @@ export interface IoTThingsGraph {
   ): void;
   searchSystemInstances(
     args: SearchSystemInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: SearchSystemInstancesCommandOutput) => void
   ): void;
 
@@ -712,7 +724,7 @@ export interface IoTThingsGraph {
   searchSystemTemplates(): Promise<SearchSystemTemplatesCommandOutput>;
   searchSystemTemplates(
     args: SearchSystemTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<SearchSystemTemplatesCommandOutput>;
   searchSystemTemplates(
     args: SearchSystemTemplatesCommandInput,
@@ -720,7 +732,7 @@ export interface IoTThingsGraph {
   ): void;
   searchSystemTemplates(
     args: SearchSystemTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: SearchSystemTemplatesCommandOutput) => void
   ): void;
 
@@ -729,7 +741,7 @@ export interface IoTThingsGraph {
    */
   searchThings(
     args: SearchThingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<SearchThingsCommandOutput>;
   searchThings(
     args: SearchThingsCommandInput,
@@ -737,7 +749,7 @@ export interface IoTThingsGraph {
   ): void;
   searchThings(
     args: SearchThingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: SearchThingsCommandOutput) => void
   ): void;
 
@@ -746,7 +758,7 @@ export interface IoTThingsGraph {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -754,7 +766,7 @@ export interface IoTThingsGraph {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -764,7 +776,7 @@ export interface IoTThingsGraph {
   undeploySystemInstance(): Promise<UndeploySystemInstanceCommandOutput>;
   undeploySystemInstance(
     args: UndeploySystemInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<UndeploySystemInstanceCommandOutput>;
   undeploySystemInstance(
     args: UndeploySystemInstanceCommandInput,
@@ -772,7 +784,7 @@ export interface IoTThingsGraph {
   ): void;
   undeploySystemInstance(
     args: UndeploySystemInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: UndeploySystemInstanceCommandOutput) => void
   ): void;
 
@@ -781,7 +793,7 @@ export interface IoTThingsGraph {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -789,7 +801,7 @@ export interface IoTThingsGraph {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -798,7 +810,7 @@ export interface IoTThingsGraph {
    */
   updateFlowTemplate(
     args: UpdateFlowTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<UpdateFlowTemplateCommandOutput>;
   updateFlowTemplate(
     args: UpdateFlowTemplateCommandInput,
@@ -806,7 +818,7 @@ export interface IoTThingsGraph {
   ): void;
   updateFlowTemplate(
     args: UpdateFlowTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: UpdateFlowTemplateCommandOutput) => void
   ): void;
 
@@ -815,7 +827,7 @@ export interface IoTThingsGraph {
    */
   updateSystemTemplate(
     args: UpdateSystemTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<UpdateSystemTemplateCommandOutput>;
   updateSystemTemplate(
     args: UpdateSystemTemplateCommandInput,
@@ -823,7 +835,7 @@ export interface IoTThingsGraph {
   ): void;
   updateSystemTemplate(
     args: UpdateSystemTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: UpdateSystemTemplateCommandOutput) => void
   ): void;
 
@@ -833,7 +845,7 @@ export interface IoTThingsGraph {
   uploadEntityDefinitions(): Promise<UploadEntityDefinitionsCommandOutput>;
   uploadEntityDefinitions(
     args: UploadEntityDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTThingsGraphRequestOptions
   ): Promise<UploadEntityDefinitionsCommandOutput>;
   uploadEntityDefinitions(
     args: UploadEntityDefinitionsCommandInput,
@@ -841,7 +853,7 @@ export interface IoTThingsGraph {
   ): void;
   uploadEntityDefinitions(
     args: UploadEntityDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTThingsGraphRequestOptions,
     cb: (err: any, data?: UploadEntityDefinitionsCommandOutput) => void
   ): void;
 

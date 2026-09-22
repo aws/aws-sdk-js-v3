@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateChatTokenCommandInput,
@@ -103,13 +108,20 @@ const paginators = {
   paginateListRooms,
 };
 
+/**
+ * @public
+ */
+export interface IvschatRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Ivschat {
   /**
    * @see {@link CreateChatTokenCommand}
    */
   createChatToken(
     args: CreateChatTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<CreateChatTokenCommandOutput>;
   createChatToken(
     args: CreateChatTokenCommandInput,
@@ -117,7 +129,7 @@ export interface Ivschat {
   ): void;
   createChatToken(
     args: CreateChatTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: CreateChatTokenCommandOutput) => void
   ): void;
 
@@ -126,7 +138,7 @@ export interface Ivschat {
    */
   createLoggingConfiguration(
     args: CreateLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<CreateLoggingConfigurationCommandOutput>;
   createLoggingConfiguration(
     args: CreateLoggingConfigurationCommandInput,
@@ -134,7 +146,7 @@ export interface Ivschat {
   ): void;
   createLoggingConfiguration(
     args: CreateLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: CreateLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -144,7 +156,7 @@ export interface Ivschat {
   createRoom(): Promise<CreateRoomCommandOutput>;
   createRoom(
     args: CreateRoomCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<CreateRoomCommandOutput>;
   createRoom(
     args: CreateRoomCommandInput,
@@ -152,7 +164,7 @@ export interface Ivschat {
   ): void;
   createRoom(
     args: CreateRoomCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: CreateRoomCommandOutput) => void
   ): void;
 
@@ -161,7 +173,7 @@ export interface Ivschat {
    */
   deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<DeleteLoggingConfigurationCommandOutput>;
   deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
@@ -169,7 +181,7 @@ export interface Ivschat {
   ): void;
   deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -178,7 +190,7 @@ export interface Ivschat {
    */
   deleteMessage(
     args: DeleteMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<DeleteMessageCommandOutput>;
   deleteMessage(
     args: DeleteMessageCommandInput,
@@ -186,7 +198,7 @@ export interface Ivschat {
   ): void;
   deleteMessage(
     args: DeleteMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: DeleteMessageCommandOutput) => void
   ): void;
 
@@ -195,7 +207,7 @@ export interface Ivschat {
    */
   deleteRoom(
     args: DeleteRoomCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<DeleteRoomCommandOutput>;
   deleteRoom(
     args: DeleteRoomCommandInput,
@@ -203,7 +215,7 @@ export interface Ivschat {
   ): void;
   deleteRoom(
     args: DeleteRoomCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: DeleteRoomCommandOutput) => void
   ): void;
 
@@ -212,7 +224,7 @@ export interface Ivschat {
    */
   disconnectUser(
     args: DisconnectUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<DisconnectUserCommandOutput>;
   disconnectUser(
     args: DisconnectUserCommandInput,
@@ -220,7 +232,7 @@ export interface Ivschat {
   ): void;
   disconnectUser(
     args: DisconnectUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: DisconnectUserCommandOutput) => void
   ): void;
 
@@ -229,7 +241,7 @@ export interface Ivschat {
    */
   getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<GetLoggingConfigurationCommandOutput>;
   getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
@@ -237,7 +249,7 @@ export interface Ivschat {
   ): void;
   getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -246,7 +258,7 @@ export interface Ivschat {
    */
   getRoom(
     args: GetRoomCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<GetRoomCommandOutput>;
   getRoom(
     args: GetRoomCommandInput,
@@ -254,7 +266,7 @@ export interface Ivschat {
   ): void;
   getRoom(
     args: GetRoomCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: GetRoomCommandOutput) => void
   ): void;
 
@@ -264,7 +276,7 @@ export interface Ivschat {
   listLoggingConfigurations(): Promise<ListLoggingConfigurationsCommandOutput>;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<ListLoggingConfigurationsCommandOutput>;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
@@ -272,7 +284,7 @@ export interface Ivschat {
   ): void;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
   ): void;
 
@@ -282,7 +294,7 @@ export interface Ivschat {
   listRooms(): Promise<ListRoomsCommandOutput>;
   listRooms(
     args: ListRoomsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<ListRoomsCommandOutput>;
   listRooms(
     args: ListRoomsCommandInput,
@@ -290,7 +302,7 @@ export interface Ivschat {
   ): void;
   listRooms(
     args: ListRoomsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: ListRoomsCommandOutput) => void
   ): void;
 
@@ -299,7 +311,7 @@ export interface Ivschat {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -307,7 +319,7 @@ export interface Ivschat {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -316,7 +328,7 @@ export interface Ivschat {
    */
   sendEvent(
     args: SendEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<SendEventCommandOutput>;
   sendEvent(
     args: SendEventCommandInput,
@@ -324,7 +336,7 @@ export interface Ivschat {
   ): void;
   sendEvent(
     args: SendEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: SendEventCommandOutput) => void
   ): void;
 
@@ -333,7 +345,7 @@ export interface Ivschat {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -341,7 +353,7 @@ export interface Ivschat {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -350,7 +362,7 @@ export interface Ivschat {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -358,7 +370,7 @@ export interface Ivschat {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -367,7 +379,7 @@ export interface Ivschat {
    */
   updateLoggingConfiguration(
     args: UpdateLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<UpdateLoggingConfigurationCommandOutput>;
   updateLoggingConfiguration(
     args: UpdateLoggingConfigurationCommandInput,
@@ -375,7 +387,7 @@ export interface Ivschat {
   ): void;
   updateLoggingConfiguration(
     args: UpdateLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -384,7 +396,7 @@ export interface Ivschat {
    */
   updateRoom(
     args: UpdateRoomCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IvschatRequestOptions
   ): Promise<UpdateRoomCommandOutput>;
   updateRoom(
     args: UpdateRoomCommandInput,
@@ -392,7 +404,7 @@ export interface Ivschat {
   ): void;
   updateRoom(
     args: UpdateRoomCommandInput,
-    options: __HttpHandlerOptions,
+    options: IvschatRequestOptions,
     cb: (err: any, data?: UpdateRoomCommandOutput) => void
   ): void;
 

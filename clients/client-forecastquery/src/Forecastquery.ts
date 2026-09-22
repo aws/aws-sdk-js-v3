@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type QueryForecastCommandInput,
@@ -19,13 +19,20 @@ const commands = {
   QueryWhatIfForecastCommand,
 };
 
+/**
+ * @public
+ */
+export interface ForecastqueryRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Forecastquery {
   /**
    * @see {@link QueryForecastCommand}
    */
   queryForecast(
     args: QueryForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastqueryRequestOptions
   ): Promise<QueryForecastCommandOutput>;
   queryForecast(
     args: QueryForecastCommandInput,
@@ -33,7 +40,7 @@ export interface Forecastquery {
   ): void;
   queryForecast(
     args: QueryForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastqueryRequestOptions,
     cb: (err: any, data?: QueryForecastCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface Forecastquery {
    */
   queryWhatIfForecast(
     args: QueryWhatIfForecastCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ForecastqueryRequestOptions
   ): Promise<QueryWhatIfForecastCommandOutput>;
   queryWhatIfForecast(
     args: QueryWhatIfForecastCommandInput,
@@ -50,7 +57,7 @@ export interface Forecastquery {
   ): void;
   queryWhatIfForecast(
     args: QueryWhatIfForecastCommandInput,
-    options: __HttpHandlerOptions,
+    options: ForecastqueryRequestOptions,
     cb: (err: any, data?: QueryWhatIfForecastCommandOutput) => void
   ): void;
 }

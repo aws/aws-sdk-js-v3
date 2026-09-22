@@ -44,7 +44,7 @@ import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, Static
 import { SageMakerMetricsServiceException } from "../models/SageMakerMetricsServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var SageMakerMetricsServiceException$: StaticErrorSchema = [-3, _s, "SageMakerMetricsServiceException", 0, [], []];
 _s_registry.registerError(SageMakerMetricsServiceException$, SageMakerMetricsServiceException);
 /**

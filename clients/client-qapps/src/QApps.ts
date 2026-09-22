@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateLibraryItemReviewCommandInput,
@@ -215,13 +220,20 @@ const paginators = {
   paginateListQApps,
 };
 
+/**
+ * @public
+ */
+export interface QAppsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface QApps {
   /**
    * @see {@link AssociateLibraryItemReviewCommand}
    */
   associateLibraryItemReview(
     args: AssociateLibraryItemReviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<AssociateLibraryItemReviewCommandOutput>;
   associateLibraryItemReview(
     args: AssociateLibraryItemReviewCommandInput,
@@ -229,7 +241,7 @@ export interface QApps {
   ): void;
   associateLibraryItemReview(
     args: AssociateLibraryItemReviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: AssociateLibraryItemReviewCommandOutput) => void
   ): void;
 
@@ -238,7 +250,7 @@ export interface QApps {
    */
   associateQAppWithUser(
     args: AssociateQAppWithUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<AssociateQAppWithUserCommandOutput>;
   associateQAppWithUser(
     args: AssociateQAppWithUserCommandInput,
@@ -246,7 +258,7 @@ export interface QApps {
   ): void;
   associateQAppWithUser(
     args: AssociateQAppWithUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: AssociateQAppWithUserCommandOutput) => void
   ): void;
 
@@ -255,7 +267,7 @@ export interface QApps {
    */
   batchCreateCategory(
     args: BatchCreateCategoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<BatchCreateCategoryCommandOutput>;
   batchCreateCategory(
     args: BatchCreateCategoryCommandInput,
@@ -263,7 +275,7 @@ export interface QApps {
   ): void;
   batchCreateCategory(
     args: BatchCreateCategoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: BatchCreateCategoryCommandOutput) => void
   ): void;
 
@@ -272,7 +284,7 @@ export interface QApps {
    */
   batchDeleteCategory(
     args: BatchDeleteCategoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<BatchDeleteCategoryCommandOutput>;
   batchDeleteCategory(
     args: BatchDeleteCategoryCommandInput,
@@ -280,7 +292,7 @@ export interface QApps {
   ): void;
   batchDeleteCategory(
     args: BatchDeleteCategoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: BatchDeleteCategoryCommandOutput) => void
   ): void;
 
@@ -289,7 +301,7 @@ export interface QApps {
    */
   batchUpdateCategory(
     args: BatchUpdateCategoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<BatchUpdateCategoryCommandOutput>;
   batchUpdateCategory(
     args: BatchUpdateCategoryCommandInput,
@@ -297,7 +309,7 @@ export interface QApps {
   ): void;
   batchUpdateCategory(
     args: BatchUpdateCategoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: BatchUpdateCategoryCommandOutput) => void
   ): void;
 
@@ -306,7 +318,7 @@ export interface QApps {
    */
   createLibraryItem(
     args: CreateLibraryItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<CreateLibraryItemCommandOutput>;
   createLibraryItem(
     args: CreateLibraryItemCommandInput,
@@ -314,7 +326,7 @@ export interface QApps {
   ): void;
   createLibraryItem(
     args: CreateLibraryItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: CreateLibraryItemCommandOutput) => void
   ): void;
 
@@ -323,7 +335,7 @@ export interface QApps {
    */
   createPresignedUrl(
     args: CreatePresignedUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<CreatePresignedUrlCommandOutput>;
   createPresignedUrl(
     args: CreatePresignedUrlCommandInput,
@@ -331,7 +343,7 @@ export interface QApps {
   ): void;
   createPresignedUrl(
     args: CreatePresignedUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: CreatePresignedUrlCommandOutput) => void
   ): void;
 
@@ -340,7 +352,7 @@ export interface QApps {
    */
   createQApp(
     args: CreateQAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<CreateQAppCommandOutput>;
   createQApp(
     args: CreateQAppCommandInput,
@@ -348,7 +360,7 @@ export interface QApps {
   ): void;
   createQApp(
     args: CreateQAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: CreateQAppCommandOutput) => void
   ): void;
 
@@ -357,7 +369,7 @@ export interface QApps {
    */
   deleteLibraryItem(
     args: DeleteLibraryItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<DeleteLibraryItemCommandOutput>;
   deleteLibraryItem(
     args: DeleteLibraryItemCommandInput,
@@ -365,7 +377,7 @@ export interface QApps {
   ): void;
   deleteLibraryItem(
     args: DeleteLibraryItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: DeleteLibraryItemCommandOutput) => void
   ): void;
 
@@ -374,7 +386,7 @@ export interface QApps {
    */
   deleteQApp(
     args: DeleteQAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<DeleteQAppCommandOutput>;
   deleteQApp(
     args: DeleteQAppCommandInput,
@@ -382,7 +394,7 @@ export interface QApps {
   ): void;
   deleteQApp(
     args: DeleteQAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: DeleteQAppCommandOutput) => void
   ): void;
 
@@ -391,7 +403,7 @@ export interface QApps {
    */
   describeQAppPermissions(
     args: DescribeQAppPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<DescribeQAppPermissionsCommandOutput>;
   describeQAppPermissions(
     args: DescribeQAppPermissionsCommandInput,
@@ -399,7 +411,7 @@ export interface QApps {
   ): void;
   describeQAppPermissions(
     args: DescribeQAppPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: DescribeQAppPermissionsCommandOutput) => void
   ): void;
 
@@ -408,7 +420,7 @@ export interface QApps {
    */
   disassociateLibraryItemReview(
     args: DisassociateLibraryItemReviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<DisassociateLibraryItemReviewCommandOutput>;
   disassociateLibraryItemReview(
     args: DisassociateLibraryItemReviewCommandInput,
@@ -416,7 +428,7 @@ export interface QApps {
   ): void;
   disassociateLibraryItemReview(
     args: DisassociateLibraryItemReviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: DisassociateLibraryItemReviewCommandOutput) => void
   ): void;
 
@@ -425,7 +437,7 @@ export interface QApps {
    */
   disassociateQAppFromUser(
     args: DisassociateQAppFromUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<DisassociateQAppFromUserCommandOutput>;
   disassociateQAppFromUser(
     args: DisassociateQAppFromUserCommandInput,
@@ -433,7 +445,7 @@ export interface QApps {
   ): void;
   disassociateQAppFromUser(
     args: DisassociateQAppFromUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: DisassociateQAppFromUserCommandOutput) => void
   ): void;
 
@@ -442,7 +454,7 @@ export interface QApps {
    */
   exportQAppSessionData(
     args: ExportQAppSessionDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<ExportQAppSessionDataCommandOutput>;
   exportQAppSessionData(
     args: ExportQAppSessionDataCommandInput,
@@ -450,7 +462,7 @@ export interface QApps {
   ): void;
   exportQAppSessionData(
     args: ExportQAppSessionDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: ExportQAppSessionDataCommandOutput) => void
   ): void;
 
@@ -459,7 +471,7 @@ export interface QApps {
    */
   getLibraryItem(
     args: GetLibraryItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<GetLibraryItemCommandOutput>;
   getLibraryItem(
     args: GetLibraryItemCommandInput,
@@ -467,7 +479,7 @@ export interface QApps {
   ): void;
   getLibraryItem(
     args: GetLibraryItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: GetLibraryItemCommandOutput) => void
   ): void;
 
@@ -476,7 +488,7 @@ export interface QApps {
    */
   getQApp(
     args: GetQAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<GetQAppCommandOutput>;
   getQApp(
     args: GetQAppCommandInput,
@@ -484,7 +496,7 @@ export interface QApps {
   ): void;
   getQApp(
     args: GetQAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: GetQAppCommandOutput) => void
   ): void;
 
@@ -493,7 +505,7 @@ export interface QApps {
    */
   getQAppSession(
     args: GetQAppSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<GetQAppSessionCommandOutput>;
   getQAppSession(
     args: GetQAppSessionCommandInput,
@@ -501,7 +513,7 @@ export interface QApps {
   ): void;
   getQAppSession(
     args: GetQAppSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: GetQAppSessionCommandOutput) => void
   ): void;
 
@@ -510,7 +522,7 @@ export interface QApps {
    */
   getQAppSessionMetadata(
     args: GetQAppSessionMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<GetQAppSessionMetadataCommandOutput>;
   getQAppSessionMetadata(
     args: GetQAppSessionMetadataCommandInput,
@@ -518,7 +530,7 @@ export interface QApps {
   ): void;
   getQAppSessionMetadata(
     args: GetQAppSessionMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: GetQAppSessionMetadataCommandOutput) => void
   ): void;
 
@@ -527,7 +539,7 @@ export interface QApps {
    */
   importDocument(
     args: ImportDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<ImportDocumentCommandOutput>;
   importDocument(
     args: ImportDocumentCommandInput,
@@ -535,7 +547,7 @@ export interface QApps {
   ): void;
   importDocument(
     args: ImportDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: ImportDocumentCommandOutput) => void
   ): void;
 
@@ -544,7 +556,7 @@ export interface QApps {
    */
   listCategories(
     args: ListCategoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<ListCategoriesCommandOutput>;
   listCategories(
     args: ListCategoriesCommandInput,
@@ -552,7 +564,7 @@ export interface QApps {
   ): void;
   listCategories(
     args: ListCategoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: ListCategoriesCommandOutput) => void
   ): void;
 
@@ -561,7 +573,7 @@ export interface QApps {
    */
   listLibraryItems(
     args: ListLibraryItemsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<ListLibraryItemsCommandOutput>;
   listLibraryItems(
     args: ListLibraryItemsCommandInput,
@@ -569,7 +581,7 @@ export interface QApps {
   ): void;
   listLibraryItems(
     args: ListLibraryItemsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: ListLibraryItemsCommandOutput) => void
   ): void;
 
@@ -578,7 +590,7 @@ export interface QApps {
    */
   listQApps(
     args: ListQAppsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<ListQAppsCommandOutput>;
   listQApps(
     args: ListQAppsCommandInput,
@@ -586,7 +598,7 @@ export interface QApps {
   ): void;
   listQApps(
     args: ListQAppsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: ListQAppsCommandOutput) => void
   ): void;
 
@@ -595,7 +607,7 @@ export interface QApps {
    */
   listQAppSessionData(
     args: ListQAppSessionDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<ListQAppSessionDataCommandOutput>;
   listQAppSessionData(
     args: ListQAppSessionDataCommandInput,
@@ -603,7 +615,7 @@ export interface QApps {
   ): void;
   listQAppSessionData(
     args: ListQAppSessionDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: ListQAppSessionDataCommandOutput) => void
   ): void;
 
@@ -612,7 +624,7 @@ export interface QApps {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -620,7 +632,7 @@ export interface QApps {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -629,7 +641,7 @@ export interface QApps {
    */
   predictQApp(
     args: PredictQAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<PredictQAppCommandOutput>;
   predictQApp(
     args: PredictQAppCommandInput,
@@ -637,7 +649,7 @@ export interface QApps {
   ): void;
   predictQApp(
     args: PredictQAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: PredictQAppCommandOutput) => void
   ): void;
 
@@ -646,7 +658,7 @@ export interface QApps {
    */
   startQAppSession(
     args: StartQAppSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<StartQAppSessionCommandOutput>;
   startQAppSession(
     args: StartQAppSessionCommandInput,
@@ -654,7 +666,7 @@ export interface QApps {
   ): void;
   startQAppSession(
     args: StartQAppSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: StartQAppSessionCommandOutput) => void
   ): void;
 
@@ -663,7 +675,7 @@ export interface QApps {
    */
   stopQAppSession(
     args: StopQAppSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<StopQAppSessionCommandOutput>;
   stopQAppSession(
     args: StopQAppSessionCommandInput,
@@ -671,7 +683,7 @@ export interface QApps {
   ): void;
   stopQAppSession(
     args: StopQAppSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: StopQAppSessionCommandOutput) => void
   ): void;
 
@@ -680,7 +692,7 @@ export interface QApps {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -688,7 +700,7 @@ export interface QApps {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -697,7 +709,7 @@ export interface QApps {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -705,7 +717,7 @@ export interface QApps {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -714,7 +726,7 @@ export interface QApps {
    */
   updateLibraryItem(
     args: UpdateLibraryItemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<UpdateLibraryItemCommandOutput>;
   updateLibraryItem(
     args: UpdateLibraryItemCommandInput,
@@ -722,7 +734,7 @@ export interface QApps {
   ): void;
   updateLibraryItem(
     args: UpdateLibraryItemCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: UpdateLibraryItemCommandOutput) => void
   ): void;
 
@@ -731,7 +743,7 @@ export interface QApps {
    */
   updateLibraryItemMetadata(
     args: UpdateLibraryItemMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<UpdateLibraryItemMetadataCommandOutput>;
   updateLibraryItemMetadata(
     args: UpdateLibraryItemMetadataCommandInput,
@@ -739,7 +751,7 @@ export interface QApps {
   ): void;
   updateLibraryItemMetadata(
     args: UpdateLibraryItemMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: UpdateLibraryItemMetadataCommandOutput) => void
   ): void;
 
@@ -748,7 +760,7 @@ export interface QApps {
    */
   updateQApp(
     args: UpdateQAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<UpdateQAppCommandOutput>;
   updateQApp(
     args: UpdateQAppCommandInput,
@@ -756,7 +768,7 @@ export interface QApps {
   ): void;
   updateQApp(
     args: UpdateQAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: UpdateQAppCommandOutput) => void
   ): void;
 
@@ -765,7 +777,7 @@ export interface QApps {
    */
   updateQAppPermissions(
     args: UpdateQAppPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<UpdateQAppPermissionsCommandOutput>;
   updateQAppPermissions(
     args: UpdateQAppPermissionsCommandInput,
@@ -773,7 +785,7 @@ export interface QApps {
   ): void;
   updateQAppPermissions(
     args: UpdateQAppPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: UpdateQAppPermissionsCommandOutput) => void
   ): void;
 
@@ -782,7 +794,7 @@ export interface QApps {
    */
   updateQAppSession(
     args: UpdateQAppSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<UpdateQAppSessionCommandOutput>;
   updateQAppSession(
     args: UpdateQAppSessionCommandInput,
@@ -790,7 +802,7 @@ export interface QApps {
   ): void;
   updateQAppSession(
     args: UpdateQAppSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: UpdateQAppSessionCommandOutput) => void
   ): void;
 
@@ -799,7 +811,7 @@ export interface QApps {
    */
   updateQAppSessionMetadata(
     args: UpdateQAppSessionMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: QAppsRequestOptions
   ): Promise<UpdateQAppSessionMetadataCommandOutput>;
   updateQAppSessionMetadata(
     args: UpdateQAppSessionMetadataCommandInput,
@@ -807,7 +819,7 @@ export interface QApps {
   ): void;
   updateQAppSessionMetadata(
     args: UpdateQAppSessionMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: QAppsRequestOptions,
     cb: (err: any, data?: UpdateQAppSessionMetadataCommandOutput) => void
   ): void;
 

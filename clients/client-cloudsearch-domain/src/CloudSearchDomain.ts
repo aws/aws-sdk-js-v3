@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { CloudSearchDomainClient } from "./CloudSearchDomainClient";
 import { type SearchCommandInput, type SearchCommandOutput, SearchCommand } from "./commands/SearchCommand";
@@ -17,13 +17,20 @@ const commands = {
   UploadDocumentsCommand,
 };
 
+/**
+ * @public
+ */
+export interface CloudSearchDomainRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CloudSearchDomain {
   /**
    * @see {@link SearchCommand}
    */
   search(
     args: SearchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchDomainRequestOptions
   ): Promise<SearchCommandOutput>;
   search(
     args: SearchCommandInput,
@@ -31,7 +38,7 @@ export interface CloudSearchDomain {
   ): void;
   search(
     args: SearchCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchDomainRequestOptions,
     cb: (err: any, data?: SearchCommandOutput) => void
   ): void;
 
@@ -40,7 +47,7 @@ export interface CloudSearchDomain {
    */
   suggest(
     args: SuggestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchDomainRequestOptions
   ): Promise<SuggestCommandOutput>;
   suggest(
     args: SuggestCommandInput,
@@ -48,7 +55,7 @@ export interface CloudSearchDomain {
   ): void;
   suggest(
     args: SuggestCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchDomainRequestOptions,
     cb: (err: any, data?: SuggestCommandOutput) => void
   ): void;
 
@@ -57,7 +64,7 @@ export interface CloudSearchDomain {
    */
   uploadDocuments(
     args: UploadDocumentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudSearchDomainRequestOptions
   ): Promise<UploadDocumentsCommandOutput>;
   uploadDocuments(
     args: UploadDocumentsCommandInput,
@@ -65,7 +72,7 @@ export interface CloudSearchDomain {
   ): void;
   uploadDocuments(
     args: UploadDocumentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudSearchDomainRequestOptions,
     cb: (err: any, data?: UploadDocumentsCommandOutput) => void
   ): void;
 }

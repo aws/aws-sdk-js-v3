@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -447,13 +448,20 @@ const waiters = {
   waitUntilIdentityExists,
 };
 
+/**
+ * @public
+ */
+export interface SESRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SES {
   /**
    * @see {@link CloneReceiptRuleSetCommand}
    */
   cloneReceiptRuleSet(
     args: CloneReceiptRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<CloneReceiptRuleSetCommandOutput>;
   cloneReceiptRuleSet(
     args: CloneReceiptRuleSetCommandInput,
@@ -461,7 +469,7 @@ export interface SES {
   ): void;
   cloneReceiptRuleSet(
     args: CloneReceiptRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: CloneReceiptRuleSetCommandOutput) => void
   ): void;
 
@@ -470,7 +478,7 @@ export interface SES {
    */
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<CreateConfigurationSetCommandOutput>;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
@@ -478,7 +486,7 @@ export interface SES {
   ): void;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: CreateConfigurationSetCommandOutput) => void
   ): void;
 
@@ -487,7 +495,7 @@ export interface SES {
    */
   createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput>;
   createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
@@ -495,7 +503,7 @@ export interface SES {
   ): void;
   createConfigurationSetEventDestination(
     args: CreateConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
 
@@ -504,7 +512,7 @@ export interface SES {
    */
   createConfigurationSetTrackingOptions(
     args: CreateConfigurationSetTrackingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<CreateConfigurationSetTrackingOptionsCommandOutput>;
   createConfigurationSetTrackingOptions(
     args: CreateConfigurationSetTrackingOptionsCommandInput,
@@ -512,7 +520,7 @@ export interface SES {
   ): void;
   createConfigurationSetTrackingOptions(
     args: CreateConfigurationSetTrackingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: CreateConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
 
@@ -521,7 +529,7 @@ export interface SES {
    */
   createCustomVerificationEmailTemplate(
     args: CreateCustomVerificationEmailTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<CreateCustomVerificationEmailTemplateCommandOutput>;
   createCustomVerificationEmailTemplate(
     args: CreateCustomVerificationEmailTemplateCommandInput,
@@ -529,7 +537,7 @@ export interface SES {
   ): void;
   createCustomVerificationEmailTemplate(
     args: CreateCustomVerificationEmailTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: CreateCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
 
@@ -538,7 +546,7 @@ export interface SES {
    */
   createReceiptFilter(
     args: CreateReceiptFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<CreateReceiptFilterCommandOutput>;
   createReceiptFilter(
     args: CreateReceiptFilterCommandInput,
@@ -546,7 +554,7 @@ export interface SES {
   ): void;
   createReceiptFilter(
     args: CreateReceiptFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: CreateReceiptFilterCommandOutput) => void
   ): void;
 
@@ -555,7 +563,7 @@ export interface SES {
    */
   createReceiptRule(
     args: CreateReceiptRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<CreateReceiptRuleCommandOutput>;
   createReceiptRule(
     args: CreateReceiptRuleCommandInput,
@@ -563,7 +571,7 @@ export interface SES {
   ): void;
   createReceiptRule(
     args: CreateReceiptRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: CreateReceiptRuleCommandOutput) => void
   ): void;
 
@@ -572,7 +580,7 @@ export interface SES {
    */
   createReceiptRuleSet(
     args: CreateReceiptRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<CreateReceiptRuleSetCommandOutput>;
   createReceiptRuleSet(
     args: CreateReceiptRuleSetCommandInput,
@@ -580,7 +588,7 @@ export interface SES {
   ): void;
   createReceiptRuleSet(
     args: CreateReceiptRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: CreateReceiptRuleSetCommandOutput) => void
   ): void;
 
@@ -589,7 +597,7 @@ export interface SES {
    */
   createTemplate(
     args: CreateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<CreateTemplateCommandOutput>;
   createTemplate(
     args: CreateTemplateCommandInput,
@@ -597,7 +605,7 @@ export interface SES {
   ): void;
   createTemplate(
     args: CreateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: CreateTemplateCommandOutput) => void
   ): void;
 
@@ -606,7 +614,7 @@ export interface SES {
    */
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteConfigurationSetCommandOutput>;
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
@@ -614,7 +622,7 @@ export interface SES {
   ): void;
   deleteConfigurationSet(
     args: DeleteConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteConfigurationSetCommandOutput) => void
   ): void;
 
@@ -623,7 +631,7 @@ export interface SES {
    */
   deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput>;
   deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
@@ -631,7 +639,7 @@ export interface SES {
   ): void;
   deleteConfigurationSetEventDestination(
     args: DeleteConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): void;
 
@@ -640,7 +648,7 @@ export interface SES {
    */
   deleteConfigurationSetTrackingOptions(
     args: DeleteConfigurationSetTrackingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput>;
   deleteConfigurationSetTrackingOptions(
     args: DeleteConfigurationSetTrackingOptionsCommandInput,
@@ -648,7 +656,7 @@ export interface SES {
   ): void;
   deleteConfigurationSetTrackingOptions(
     args: DeleteConfigurationSetTrackingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
 
@@ -657,7 +665,7 @@ export interface SES {
    */
   deleteCustomVerificationEmailTemplate(
     args: DeleteCustomVerificationEmailTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput>;
   deleteCustomVerificationEmailTemplate(
     args: DeleteCustomVerificationEmailTemplateCommandInput,
@@ -665,7 +673,7 @@ export interface SES {
   ): void;
   deleteCustomVerificationEmailTemplate(
     args: DeleteCustomVerificationEmailTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
 
@@ -674,7 +682,7 @@ export interface SES {
    */
   deleteIdentity(
     args: DeleteIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteIdentityCommandOutput>;
   deleteIdentity(
     args: DeleteIdentityCommandInput,
@@ -682,7 +690,7 @@ export interface SES {
   ): void;
   deleteIdentity(
     args: DeleteIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteIdentityCommandOutput) => void
   ): void;
 
@@ -691,7 +699,7 @@ export interface SES {
    */
   deleteIdentityPolicy(
     args: DeleteIdentityPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteIdentityPolicyCommandOutput>;
   deleteIdentityPolicy(
     args: DeleteIdentityPolicyCommandInput,
@@ -699,7 +707,7 @@ export interface SES {
   ): void;
   deleteIdentityPolicy(
     args: DeleteIdentityPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteIdentityPolicyCommandOutput) => void
   ): void;
 
@@ -708,7 +716,7 @@ export interface SES {
    */
   deleteReceiptFilter(
     args: DeleteReceiptFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteReceiptFilterCommandOutput>;
   deleteReceiptFilter(
     args: DeleteReceiptFilterCommandInput,
@@ -716,7 +724,7 @@ export interface SES {
   ): void;
   deleteReceiptFilter(
     args: DeleteReceiptFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteReceiptFilterCommandOutput) => void
   ): void;
 
@@ -725,7 +733,7 @@ export interface SES {
    */
   deleteReceiptRule(
     args: DeleteReceiptRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteReceiptRuleCommandOutput>;
   deleteReceiptRule(
     args: DeleteReceiptRuleCommandInput,
@@ -733,7 +741,7 @@ export interface SES {
   ): void;
   deleteReceiptRule(
     args: DeleteReceiptRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteReceiptRuleCommandOutput) => void
   ): void;
 
@@ -742,7 +750,7 @@ export interface SES {
    */
   deleteReceiptRuleSet(
     args: DeleteReceiptRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteReceiptRuleSetCommandOutput>;
   deleteReceiptRuleSet(
     args: DeleteReceiptRuleSetCommandInput,
@@ -750,7 +758,7 @@ export interface SES {
   ): void;
   deleteReceiptRuleSet(
     args: DeleteReceiptRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteReceiptRuleSetCommandOutput) => void
   ): void;
 
@@ -759,7 +767,7 @@ export interface SES {
    */
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteTemplateCommandOutput>;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
@@ -767,7 +775,7 @@ export interface SES {
   ): void;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): void;
 
@@ -776,7 +784,7 @@ export interface SES {
    */
   deleteVerifiedEmailAddress(
     args: DeleteVerifiedEmailAddressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DeleteVerifiedEmailAddressCommandOutput>;
   deleteVerifiedEmailAddress(
     args: DeleteVerifiedEmailAddressCommandInput,
@@ -784,7 +792,7 @@ export interface SES {
   ): void;
   deleteVerifiedEmailAddress(
     args: DeleteVerifiedEmailAddressCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DeleteVerifiedEmailAddressCommandOutput) => void
   ): void;
 
@@ -794,7 +802,7 @@ export interface SES {
   describeActiveReceiptRuleSet(): Promise<DescribeActiveReceiptRuleSetCommandOutput>;
   describeActiveReceiptRuleSet(
     args: DescribeActiveReceiptRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DescribeActiveReceiptRuleSetCommandOutput>;
   describeActiveReceiptRuleSet(
     args: DescribeActiveReceiptRuleSetCommandInput,
@@ -802,7 +810,7 @@ export interface SES {
   ): void;
   describeActiveReceiptRuleSet(
     args: DescribeActiveReceiptRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DescribeActiveReceiptRuleSetCommandOutput) => void
   ): void;
 
@@ -811,7 +819,7 @@ export interface SES {
    */
   describeConfigurationSet(
     args: DescribeConfigurationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DescribeConfigurationSetCommandOutput>;
   describeConfigurationSet(
     args: DescribeConfigurationSetCommandInput,
@@ -819,7 +827,7 @@ export interface SES {
   ): void;
   describeConfigurationSet(
     args: DescribeConfigurationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DescribeConfigurationSetCommandOutput) => void
   ): void;
 
@@ -828,7 +836,7 @@ export interface SES {
    */
   describeReceiptRule(
     args: DescribeReceiptRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DescribeReceiptRuleCommandOutput>;
   describeReceiptRule(
     args: DescribeReceiptRuleCommandInput,
@@ -836,7 +844,7 @@ export interface SES {
   ): void;
   describeReceiptRule(
     args: DescribeReceiptRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DescribeReceiptRuleCommandOutput) => void
   ): void;
 
@@ -845,7 +853,7 @@ export interface SES {
    */
   describeReceiptRuleSet(
     args: DescribeReceiptRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<DescribeReceiptRuleSetCommandOutput>;
   describeReceiptRuleSet(
     args: DescribeReceiptRuleSetCommandInput,
@@ -853,7 +861,7 @@ export interface SES {
   ): void;
   describeReceiptRuleSet(
     args: DescribeReceiptRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: DescribeReceiptRuleSetCommandOutput) => void
   ): void;
 
@@ -863,7 +871,7 @@ export interface SES {
   getAccountSendingEnabled(): Promise<GetAccountSendingEnabledCommandOutput>;
   getAccountSendingEnabled(
     args: GetAccountSendingEnabledCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetAccountSendingEnabledCommandOutput>;
   getAccountSendingEnabled(
     args: GetAccountSendingEnabledCommandInput,
@@ -871,7 +879,7 @@ export interface SES {
   ): void;
   getAccountSendingEnabled(
     args: GetAccountSendingEnabledCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetAccountSendingEnabledCommandOutput) => void
   ): void;
 
@@ -880,7 +888,7 @@ export interface SES {
    */
   getCustomVerificationEmailTemplate(
     args: GetCustomVerificationEmailTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetCustomVerificationEmailTemplateCommandOutput>;
   getCustomVerificationEmailTemplate(
     args: GetCustomVerificationEmailTemplateCommandInput,
@@ -888,7 +896,7 @@ export interface SES {
   ): void;
   getCustomVerificationEmailTemplate(
     args: GetCustomVerificationEmailTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
 
@@ -897,7 +905,7 @@ export interface SES {
    */
   getIdentityDkimAttributes(
     args: GetIdentityDkimAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetIdentityDkimAttributesCommandOutput>;
   getIdentityDkimAttributes(
     args: GetIdentityDkimAttributesCommandInput,
@@ -905,7 +913,7 @@ export interface SES {
   ): void;
   getIdentityDkimAttributes(
     args: GetIdentityDkimAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetIdentityDkimAttributesCommandOutput) => void
   ): void;
 
@@ -914,7 +922,7 @@ export interface SES {
    */
   getIdentityMailFromDomainAttributes(
     args: GetIdentityMailFromDomainAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetIdentityMailFromDomainAttributesCommandOutput>;
   getIdentityMailFromDomainAttributes(
     args: GetIdentityMailFromDomainAttributesCommandInput,
@@ -922,7 +930,7 @@ export interface SES {
   ): void;
   getIdentityMailFromDomainAttributes(
     args: GetIdentityMailFromDomainAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetIdentityMailFromDomainAttributesCommandOutput) => void
   ): void;
 
@@ -931,7 +939,7 @@ export interface SES {
    */
   getIdentityNotificationAttributes(
     args: GetIdentityNotificationAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetIdentityNotificationAttributesCommandOutput>;
   getIdentityNotificationAttributes(
     args: GetIdentityNotificationAttributesCommandInput,
@@ -939,7 +947,7 @@ export interface SES {
   ): void;
   getIdentityNotificationAttributes(
     args: GetIdentityNotificationAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetIdentityNotificationAttributesCommandOutput) => void
   ): void;
 
@@ -948,7 +956,7 @@ export interface SES {
    */
   getIdentityPolicies(
     args: GetIdentityPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetIdentityPoliciesCommandOutput>;
   getIdentityPolicies(
     args: GetIdentityPoliciesCommandInput,
@@ -956,7 +964,7 @@ export interface SES {
   ): void;
   getIdentityPolicies(
     args: GetIdentityPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetIdentityPoliciesCommandOutput) => void
   ): void;
 
@@ -965,7 +973,7 @@ export interface SES {
    */
   getIdentityVerificationAttributes(
     args: GetIdentityVerificationAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetIdentityVerificationAttributesCommandOutput>;
   getIdentityVerificationAttributes(
     args: GetIdentityVerificationAttributesCommandInput,
@@ -973,7 +981,7 @@ export interface SES {
   ): void;
   getIdentityVerificationAttributes(
     args: GetIdentityVerificationAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetIdentityVerificationAttributesCommandOutput) => void
   ): void;
 
@@ -983,7 +991,7 @@ export interface SES {
   getSendQuota(): Promise<GetSendQuotaCommandOutput>;
   getSendQuota(
     args: GetSendQuotaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetSendQuotaCommandOutput>;
   getSendQuota(
     args: GetSendQuotaCommandInput,
@@ -991,7 +999,7 @@ export interface SES {
   ): void;
   getSendQuota(
     args: GetSendQuotaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetSendQuotaCommandOutput) => void
   ): void;
 
@@ -1001,7 +1009,7 @@ export interface SES {
   getSendStatistics(): Promise<GetSendStatisticsCommandOutput>;
   getSendStatistics(
     args: GetSendStatisticsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetSendStatisticsCommandOutput>;
   getSendStatistics(
     args: GetSendStatisticsCommandInput,
@@ -1009,7 +1017,7 @@ export interface SES {
   ): void;
   getSendStatistics(
     args: GetSendStatisticsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetSendStatisticsCommandOutput) => void
   ): void;
 
@@ -1018,7 +1026,7 @@ export interface SES {
    */
   getTemplate(
     args: GetTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<GetTemplateCommandOutput>;
   getTemplate(
     args: GetTemplateCommandInput,
@@ -1026,7 +1034,7 @@ export interface SES {
   ): void;
   getTemplate(
     args: GetTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: GetTemplateCommandOutput) => void
   ): void;
 
@@ -1036,7 +1044,7 @@ export interface SES {
   listConfigurationSets(): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
@@ -1044,7 +1052,7 @@ export interface SES {
   ): void;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: ListConfigurationSetsCommandOutput) => void
   ): void;
 
@@ -1054,7 +1062,7 @@ export interface SES {
   listCustomVerificationEmailTemplates(): Promise<ListCustomVerificationEmailTemplatesCommandOutput>;
   listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<ListCustomVerificationEmailTemplatesCommandOutput>;
   listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
@@ -1062,7 +1070,7 @@ export interface SES {
   ): void;
   listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: ListCustomVerificationEmailTemplatesCommandOutput) => void
   ): void;
 
@@ -1072,7 +1080,7 @@ export interface SES {
   listIdentities(): Promise<ListIdentitiesCommandOutput>;
   listIdentities(
     args: ListIdentitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<ListIdentitiesCommandOutput>;
   listIdentities(
     args: ListIdentitiesCommandInput,
@@ -1080,7 +1088,7 @@ export interface SES {
   ): void;
   listIdentities(
     args: ListIdentitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: ListIdentitiesCommandOutput) => void
   ): void;
 
@@ -1089,7 +1097,7 @@ export interface SES {
    */
   listIdentityPolicies(
     args: ListIdentityPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<ListIdentityPoliciesCommandOutput>;
   listIdentityPolicies(
     args: ListIdentityPoliciesCommandInput,
@@ -1097,7 +1105,7 @@ export interface SES {
   ): void;
   listIdentityPolicies(
     args: ListIdentityPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: ListIdentityPoliciesCommandOutput) => void
   ): void;
 
@@ -1107,7 +1115,7 @@ export interface SES {
   listReceiptFilters(): Promise<ListReceiptFiltersCommandOutput>;
   listReceiptFilters(
     args: ListReceiptFiltersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<ListReceiptFiltersCommandOutput>;
   listReceiptFilters(
     args: ListReceiptFiltersCommandInput,
@@ -1115,7 +1123,7 @@ export interface SES {
   ): void;
   listReceiptFilters(
     args: ListReceiptFiltersCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: ListReceiptFiltersCommandOutput) => void
   ): void;
 
@@ -1125,7 +1133,7 @@ export interface SES {
   listReceiptRuleSets(): Promise<ListReceiptRuleSetsCommandOutput>;
   listReceiptRuleSets(
     args: ListReceiptRuleSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<ListReceiptRuleSetsCommandOutput>;
   listReceiptRuleSets(
     args: ListReceiptRuleSetsCommandInput,
@@ -1133,7 +1141,7 @@ export interface SES {
   ): void;
   listReceiptRuleSets(
     args: ListReceiptRuleSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: ListReceiptRuleSetsCommandOutput) => void
   ): void;
 
@@ -1143,7 +1151,7 @@ export interface SES {
   listTemplates(): Promise<ListTemplatesCommandOutput>;
   listTemplates(
     args: ListTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<ListTemplatesCommandOutput>;
   listTemplates(
     args: ListTemplatesCommandInput,
@@ -1151,7 +1159,7 @@ export interface SES {
   ): void;
   listTemplates(
     args: ListTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: ListTemplatesCommandOutput) => void
   ): void;
 
@@ -1161,7 +1169,7 @@ export interface SES {
   listVerifiedEmailAddresses(): Promise<ListVerifiedEmailAddressesCommandOutput>;
   listVerifiedEmailAddresses(
     args: ListVerifiedEmailAddressesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<ListVerifiedEmailAddressesCommandOutput>;
   listVerifiedEmailAddresses(
     args: ListVerifiedEmailAddressesCommandInput,
@@ -1169,7 +1177,7 @@ export interface SES {
   ): void;
   listVerifiedEmailAddresses(
     args: ListVerifiedEmailAddressesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: ListVerifiedEmailAddressesCommandOutput) => void
   ): void;
 
@@ -1178,7 +1186,7 @@ export interface SES {
    */
   putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput>;
   putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
@@ -1186,7 +1194,7 @@ export interface SES {
   ): void;
   putConfigurationSetDeliveryOptions(
     args: PutConfigurationSetDeliveryOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: PutConfigurationSetDeliveryOptionsCommandOutput) => void
   ): void;
 
@@ -1195,7 +1203,7 @@ export interface SES {
    */
   putIdentityPolicy(
     args: PutIdentityPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<PutIdentityPolicyCommandOutput>;
   putIdentityPolicy(
     args: PutIdentityPolicyCommandInput,
@@ -1203,7 +1211,7 @@ export interface SES {
   ): void;
   putIdentityPolicy(
     args: PutIdentityPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: PutIdentityPolicyCommandOutput) => void
   ): void;
 
@@ -1212,7 +1220,7 @@ export interface SES {
    */
   reorderReceiptRuleSet(
     args: ReorderReceiptRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<ReorderReceiptRuleSetCommandOutput>;
   reorderReceiptRuleSet(
     args: ReorderReceiptRuleSetCommandInput,
@@ -1220,7 +1228,7 @@ export interface SES {
   ): void;
   reorderReceiptRuleSet(
     args: ReorderReceiptRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: ReorderReceiptRuleSetCommandOutput) => void
   ): void;
 
@@ -1229,7 +1237,7 @@ export interface SES {
    */
   sendBounce(
     args: SendBounceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SendBounceCommandOutput>;
   sendBounce(
     args: SendBounceCommandInput,
@@ -1237,7 +1245,7 @@ export interface SES {
   ): void;
   sendBounce(
     args: SendBounceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SendBounceCommandOutput) => void
   ): void;
 
@@ -1246,7 +1254,7 @@ export interface SES {
    */
   sendBulkTemplatedEmail(
     args: SendBulkTemplatedEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SendBulkTemplatedEmailCommandOutput>;
   sendBulkTemplatedEmail(
     args: SendBulkTemplatedEmailCommandInput,
@@ -1254,7 +1262,7 @@ export interface SES {
   ): void;
   sendBulkTemplatedEmail(
     args: SendBulkTemplatedEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SendBulkTemplatedEmailCommandOutput) => void
   ): void;
 
@@ -1263,7 +1271,7 @@ export interface SES {
    */
   sendCustomVerificationEmail(
     args: SendCustomVerificationEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SendCustomVerificationEmailCommandOutput>;
   sendCustomVerificationEmail(
     args: SendCustomVerificationEmailCommandInput,
@@ -1271,7 +1279,7 @@ export interface SES {
   ): void;
   sendCustomVerificationEmail(
     args: SendCustomVerificationEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SendCustomVerificationEmailCommandOutput) => void
   ): void;
 
@@ -1280,7 +1288,7 @@ export interface SES {
    */
   sendEmail(
     args: SendEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SendEmailCommandOutput>;
   sendEmail(
     args: SendEmailCommandInput,
@@ -1288,7 +1296,7 @@ export interface SES {
   ): void;
   sendEmail(
     args: SendEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SendEmailCommandOutput) => void
   ): void;
 
@@ -1297,7 +1305,7 @@ export interface SES {
    */
   sendRawEmail(
     args: SendRawEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SendRawEmailCommandOutput>;
   sendRawEmail(
     args: SendRawEmailCommandInput,
@@ -1305,7 +1313,7 @@ export interface SES {
   ): void;
   sendRawEmail(
     args: SendRawEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SendRawEmailCommandOutput) => void
   ): void;
 
@@ -1314,7 +1322,7 @@ export interface SES {
    */
   sendTemplatedEmail(
     args: SendTemplatedEmailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SendTemplatedEmailCommandOutput>;
   sendTemplatedEmail(
     args: SendTemplatedEmailCommandInput,
@@ -1322,7 +1330,7 @@ export interface SES {
   ): void;
   sendTemplatedEmail(
     args: SendTemplatedEmailCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SendTemplatedEmailCommandOutput) => void
   ): void;
 
@@ -1332,7 +1340,7 @@ export interface SES {
   setActiveReceiptRuleSet(): Promise<SetActiveReceiptRuleSetCommandOutput>;
   setActiveReceiptRuleSet(
     args: SetActiveReceiptRuleSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SetActiveReceiptRuleSetCommandOutput>;
   setActiveReceiptRuleSet(
     args: SetActiveReceiptRuleSetCommandInput,
@@ -1340,7 +1348,7 @@ export interface SES {
   ): void;
   setActiveReceiptRuleSet(
     args: SetActiveReceiptRuleSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SetActiveReceiptRuleSetCommandOutput) => void
   ): void;
 
@@ -1349,7 +1357,7 @@ export interface SES {
    */
   setIdentityDkimEnabled(
     args: SetIdentityDkimEnabledCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SetIdentityDkimEnabledCommandOutput>;
   setIdentityDkimEnabled(
     args: SetIdentityDkimEnabledCommandInput,
@@ -1357,7 +1365,7 @@ export interface SES {
   ): void;
   setIdentityDkimEnabled(
     args: SetIdentityDkimEnabledCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SetIdentityDkimEnabledCommandOutput) => void
   ): void;
 
@@ -1366,7 +1374,7 @@ export interface SES {
    */
   setIdentityFeedbackForwardingEnabled(
     args: SetIdentityFeedbackForwardingEnabledCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput>;
   setIdentityFeedbackForwardingEnabled(
     args: SetIdentityFeedbackForwardingEnabledCommandInput,
@@ -1374,7 +1382,7 @@ export interface SES {
   ): void;
   setIdentityFeedbackForwardingEnabled(
     args: SetIdentityFeedbackForwardingEnabledCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SetIdentityFeedbackForwardingEnabledCommandOutput) => void
   ): void;
 
@@ -1383,7 +1391,7 @@ export interface SES {
    */
   setIdentityHeadersInNotificationsEnabled(
     args: SetIdentityHeadersInNotificationsEnabledCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput>;
   setIdentityHeadersInNotificationsEnabled(
     args: SetIdentityHeadersInNotificationsEnabledCommandInput,
@@ -1391,7 +1399,7 @@ export interface SES {
   ): void;
   setIdentityHeadersInNotificationsEnabled(
     args: SetIdentityHeadersInNotificationsEnabledCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SetIdentityHeadersInNotificationsEnabledCommandOutput) => void
   ): void;
 
@@ -1400,7 +1408,7 @@ export interface SES {
    */
   setIdentityMailFromDomain(
     args: SetIdentityMailFromDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SetIdentityMailFromDomainCommandOutput>;
   setIdentityMailFromDomain(
     args: SetIdentityMailFromDomainCommandInput,
@@ -1408,7 +1416,7 @@ export interface SES {
   ): void;
   setIdentityMailFromDomain(
     args: SetIdentityMailFromDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SetIdentityMailFromDomainCommandOutput) => void
   ): void;
 
@@ -1417,7 +1425,7 @@ export interface SES {
    */
   setIdentityNotificationTopic(
     args: SetIdentityNotificationTopicCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SetIdentityNotificationTopicCommandOutput>;
   setIdentityNotificationTopic(
     args: SetIdentityNotificationTopicCommandInput,
@@ -1425,7 +1433,7 @@ export interface SES {
   ): void;
   setIdentityNotificationTopic(
     args: SetIdentityNotificationTopicCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SetIdentityNotificationTopicCommandOutput) => void
   ): void;
 
@@ -1434,7 +1442,7 @@ export interface SES {
    */
   setReceiptRulePosition(
     args: SetReceiptRulePositionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<SetReceiptRulePositionCommandOutput>;
   setReceiptRulePosition(
     args: SetReceiptRulePositionCommandInput,
@@ -1442,7 +1450,7 @@ export interface SES {
   ): void;
   setReceiptRulePosition(
     args: SetReceiptRulePositionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: SetReceiptRulePositionCommandOutput) => void
   ): void;
 
@@ -1451,7 +1459,7 @@ export interface SES {
    */
   testRenderTemplate(
     args: TestRenderTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<TestRenderTemplateCommandOutput>;
   testRenderTemplate(
     args: TestRenderTemplateCommandInput,
@@ -1459,7 +1467,7 @@ export interface SES {
   ): void;
   testRenderTemplate(
     args: TestRenderTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: TestRenderTemplateCommandOutput) => void
   ): void;
 
@@ -1469,7 +1477,7 @@ export interface SES {
   updateAccountSendingEnabled(): Promise<UpdateAccountSendingEnabledCommandOutput>;
   updateAccountSendingEnabled(
     args: UpdateAccountSendingEnabledCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<UpdateAccountSendingEnabledCommandOutput>;
   updateAccountSendingEnabled(
     args: UpdateAccountSendingEnabledCommandInput,
@@ -1477,7 +1485,7 @@ export interface SES {
   ): void;
   updateAccountSendingEnabled(
     args: UpdateAccountSendingEnabledCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: UpdateAccountSendingEnabledCommandOutput) => void
   ): void;
 
@@ -1486,7 +1494,7 @@ export interface SES {
    */
   updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput>;
   updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
@@ -1494,7 +1502,7 @@ export interface SES {
   ): void;
   updateConfigurationSetEventDestination(
     args: UpdateConfigurationSetEventDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): void;
 
@@ -1503,7 +1511,7 @@ export interface SES {
    */
   updateConfigurationSetReputationMetricsEnabled(
     args: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput>;
   updateConfigurationSetReputationMetricsEnabled(
     args: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
@@ -1511,7 +1519,7 @@ export interface SES {
   ): void;
   updateConfigurationSetReputationMetricsEnabled(
     args: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: UpdateConfigurationSetReputationMetricsEnabledCommandOutput) => void
   ): void;
 
@@ -1520,7 +1528,7 @@ export interface SES {
    */
   updateConfigurationSetSendingEnabled(
     args: UpdateConfigurationSetSendingEnabledCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput>;
   updateConfigurationSetSendingEnabled(
     args: UpdateConfigurationSetSendingEnabledCommandInput,
@@ -1528,7 +1536,7 @@ export interface SES {
   ): void;
   updateConfigurationSetSendingEnabled(
     args: UpdateConfigurationSetSendingEnabledCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: UpdateConfigurationSetSendingEnabledCommandOutput) => void
   ): void;
 
@@ -1537,7 +1545,7 @@ export interface SES {
    */
   updateConfigurationSetTrackingOptions(
     args: UpdateConfigurationSetTrackingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput>;
   updateConfigurationSetTrackingOptions(
     args: UpdateConfigurationSetTrackingOptionsCommandInput,
@@ -1545,7 +1553,7 @@ export interface SES {
   ): void;
   updateConfigurationSetTrackingOptions(
     args: UpdateConfigurationSetTrackingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: UpdateConfigurationSetTrackingOptionsCommandOutput) => void
   ): void;
 
@@ -1554,7 +1562,7 @@ export interface SES {
    */
   updateCustomVerificationEmailTemplate(
     args: UpdateCustomVerificationEmailTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput>;
   updateCustomVerificationEmailTemplate(
     args: UpdateCustomVerificationEmailTemplateCommandInput,
@@ -1562,7 +1570,7 @@ export interface SES {
   ): void;
   updateCustomVerificationEmailTemplate(
     args: UpdateCustomVerificationEmailTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: UpdateCustomVerificationEmailTemplateCommandOutput) => void
   ): void;
 
@@ -1571,7 +1579,7 @@ export interface SES {
    */
   updateReceiptRule(
     args: UpdateReceiptRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<UpdateReceiptRuleCommandOutput>;
   updateReceiptRule(
     args: UpdateReceiptRuleCommandInput,
@@ -1579,7 +1587,7 @@ export interface SES {
   ): void;
   updateReceiptRule(
     args: UpdateReceiptRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: UpdateReceiptRuleCommandOutput) => void
   ): void;
 
@@ -1588,7 +1596,7 @@ export interface SES {
    */
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<UpdateTemplateCommandOutput>;
   updateTemplate(
     args: UpdateTemplateCommandInput,
@@ -1596,7 +1604,7 @@ export interface SES {
   ): void;
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): void;
 
@@ -1605,7 +1613,7 @@ export interface SES {
    */
   verifyDomainDkim(
     args: VerifyDomainDkimCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<VerifyDomainDkimCommandOutput>;
   verifyDomainDkim(
     args: VerifyDomainDkimCommandInput,
@@ -1613,7 +1621,7 @@ export interface SES {
   ): void;
   verifyDomainDkim(
     args: VerifyDomainDkimCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: VerifyDomainDkimCommandOutput) => void
   ): void;
 
@@ -1622,7 +1630,7 @@ export interface SES {
    */
   verifyDomainIdentity(
     args: VerifyDomainIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<VerifyDomainIdentityCommandOutput>;
   verifyDomainIdentity(
     args: VerifyDomainIdentityCommandInput,
@@ -1630,7 +1638,7 @@ export interface SES {
   ): void;
   verifyDomainIdentity(
     args: VerifyDomainIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: VerifyDomainIdentityCommandOutput) => void
   ): void;
 
@@ -1639,7 +1647,7 @@ export interface SES {
    */
   verifyEmailAddress(
     args: VerifyEmailAddressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<VerifyEmailAddressCommandOutput>;
   verifyEmailAddress(
     args: VerifyEmailAddressCommandInput,
@@ -1647,7 +1655,7 @@ export interface SES {
   ): void;
   verifyEmailAddress(
     args: VerifyEmailAddressCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: VerifyEmailAddressCommandOutput) => void
   ): void;
 
@@ -1656,7 +1664,7 @@ export interface SES {
    */
   verifyEmailIdentity(
     args: VerifyEmailIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SESRequestOptions
   ): Promise<VerifyEmailIdentityCommandOutput>;
   verifyEmailIdentity(
     args: VerifyEmailIdentityCommandInput,
@@ -1664,7 +1672,7 @@ export interface SES {
   ): void;
   verifyEmailIdentity(
     args: VerifyEmailIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: SESRequestOptions,
     cb: (err: any, data?: VerifyEmailIdentityCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateHomeRegionControlCommandInput,
@@ -35,13 +40,20 @@ const paginators = {
   paginateDescribeHomeRegionControls,
 };
 
+/**
+ * @public
+ */
+export interface MigrationHubConfigRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MigrationHubConfig {
   /**
    * @see {@link CreateHomeRegionControlCommand}
    */
   createHomeRegionControl(
     args: CreateHomeRegionControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubConfigRequestOptions
   ): Promise<CreateHomeRegionControlCommandOutput>;
   createHomeRegionControl(
     args: CreateHomeRegionControlCommandInput,
@@ -49,7 +61,7 @@ export interface MigrationHubConfig {
   ): void;
   createHomeRegionControl(
     args: CreateHomeRegionControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubConfigRequestOptions,
     cb: (err: any, data?: CreateHomeRegionControlCommandOutput) => void
   ): void;
 
@@ -58,7 +70,7 @@ export interface MigrationHubConfig {
    */
   deleteHomeRegionControl(
     args: DeleteHomeRegionControlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubConfigRequestOptions
   ): Promise<DeleteHomeRegionControlCommandOutput>;
   deleteHomeRegionControl(
     args: DeleteHomeRegionControlCommandInput,
@@ -66,7 +78,7 @@ export interface MigrationHubConfig {
   ): void;
   deleteHomeRegionControl(
     args: DeleteHomeRegionControlCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubConfigRequestOptions,
     cb: (err: any, data?: DeleteHomeRegionControlCommandOutput) => void
   ): void;
 
@@ -76,7 +88,7 @@ export interface MigrationHubConfig {
   describeHomeRegionControls(): Promise<DescribeHomeRegionControlsCommandOutput>;
   describeHomeRegionControls(
     args: DescribeHomeRegionControlsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubConfigRequestOptions
   ): Promise<DescribeHomeRegionControlsCommandOutput>;
   describeHomeRegionControls(
     args: DescribeHomeRegionControlsCommandInput,
@@ -84,7 +96,7 @@ export interface MigrationHubConfig {
   ): void;
   describeHomeRegionControls(
     args: DescribeHomeRegionControlsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubConfigRequestOptions,
     cb: (err: any, data?: DescribeHomeRegionControlsCommandOutput) => void
   ): void;
 
@@ -94,7 +106,7 @@ export interface MigrationHubConfig {
   getHomeRegion(): Promise<GetHomeRegionCommandOutput>;
   getHomeRegion(
     args: GetHomeRegionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubConfigRequestOptions
   ): Promise<GetHomeRegionCommandOutput>;
   getHomeRegion(
     args: GetHomeRegionCommandInput,
@@ -102,7 +114,7 @@ export interface MigrationHubConfig {
   ): void;
   getHomeRegion(
     args: GetHomeRegionCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubConfigRequestOptions,
     cb: (err: any, data?: GetHomeRegionCommandOutput) => void
   ): void;
 

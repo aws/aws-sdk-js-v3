@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CompleteSnapshotCommandInput,
@@ -49,13 +54,20 @@ const paginators = {
   paginateListSnapshotBlocks,
 };
 
+/**
+ * @public
+ */
+export interface EBSRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface EBS {
   /**
    * @see {@link CompleteSnapshotCommand}
    */
   completeSnapshot(
     args: CompleteSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EBSRequestOptions
   ): Promise<CompleteSnapshotCommandOutput>;
   completeSnapshot(
     args: CompleteSnapshotCommandInput,
@@ -63,7 +75,7 @@ export interface EBS {
   ): void;
   completeSnapshot(
     args: CompleteSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: EBSRequestOptions,
     cb: (err: any, data?: CompleteSnapshotCommandOutput) => void
   ): void;
 
@@ -72,7 +84,7 @@ export interface EBS {
    */
   getSnapshotBlock(
     args: GetSnapshotBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EBSRequestOptions
   ): Promise<GetSnapshotBlockCommandOutput>;
   getSnapshotBlock(
     args: GetSnapshotBlockCommandInput,
@@ -80,7 +92,7 @@ export interface EBS {
   ): void;
   getSnapshotBlock(
     args: GetSnapshotBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: EBSRequestOptions,
     cb: (err: any, data?: GetSnapshotBlockCommandOutput) => void
   ): void;
 
@@ -89,7 +101,7 @@ export interface EBS {
    */
   listChangedBlocks(
     args: ListChangedBlocksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EBSRequestOptions
   ): Promise<ListChangedBlocksCommandOutput>;
   listChangedBlocks(
     args: ListChangedBlocksCommandInput,
@@ -97,7 +109,7 @@ export interface EBS {
   ): void;
   listChangedBlocks(
     args: ListChangedBlocksCommandInput,
-    options: __HttpHandlerOptions,
+    options: EBSRequestOptions,
     cb: (err: any, data?: ListChangedBlocksCommandOutput) => void
   ): void;
 
@@ -106,7 +118,7 @@ export interface EBS {
    */
   listSnapshotBlocks(
     args: ListSnapshotBlocksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EBSRequestOptions
   ): Promise<ListSnapshotBlocksCommandOutput>;
   listSnapshotBlocks(
     args: ListSnapshotBlocksCommandInput,
@@ -114,7 +126,7 @@ export interface EBS {
   ): void;
   listSnapshotBlocks(
     args: ListSnapshotBlocksCommandInput,
-    options: __HttpHandlerOptions,
+    options: EBSRequestOptions,
     cb: (err: any, data?: ListSnapshotBlocksCommandOutput) => void
   ): void;
 
@@ -123,7 +135,7 @@ export interface EBS {
    */
   putSnapshotBlock(
     args: PutSnapshotBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EBSRequestOptions
   ): Promise<PutSnapshotBlockCommandOutput>;
   putSnapshotBlock(
     args: PutSnapshotBlockCommandInput,
@@ -131,7 +143,7 @@ export interface EBS {
   ): void;
   putSnapshotBlock(
     args: PutSnapshotBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: EBSRequestOptions,
     cb: (err: any, data?: PutSnapshotBlockCommandOutput) => void
   ): void;
 
@@ -140,7 +152,7 @@ export interface EBS {
    */
   startSnapshot(
     args: StartSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: EBSRequestOptions
   ): Promise<StartSnapshotCommandOutput>;
   startSnapshot(
     args: StartSnapshotCommandInput,
@@ -148,7 +160,7 @@ export interface EBS {
   ): void;
   startSnapshot(
     args: StartSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: EBSRequestOptions,
     cb: (err: any, data?: StartSnapshotCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateLinkCommandInput,
@@ -89,13 +94,20 @@ const paginators = {
   paginateListSinks,
 };
 
+/**
+ * @public
+ */
+export interface OAMRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface OAM {
   /**
    * @see {@link CreateLinkCommand}
    */
   createLink(
     args: CreateLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<CreateLinkCommandOutput>;
   createLink(
     args: CreateLinkCommandInput,
@@ -103,7 +115,7 @@ export interface OAM {
   ): void;
   createLink(
     args: CreateLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: CreateLinkCommandOutput) => void
   ): void;
 
@@ -112,7 +124,7 @@ export interface OAM {
    */
   createSink(
     args: CreateSinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<CreateSinkCommandOutput>;
   createSink(
     args: CreateSinkCommandInput,
@@ -120,7 +132,7 @@ export interface OAM {
   ): void;
   createSink(
     args: CreateSinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: CreateSinkCommandOutput) => void
   ): void;
 
@@ -129,7 +141,7 @@ export interface OAM {
    */
   deleteLink(
     args: DeleteLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<DeleteLinkCommandOutput>;
   deleteLink(
     args: DeleteLinkCommandInput,
@@ -137,7 +149,7 @@ export interface OAM {
   ): void;
   deleteLink(
     args: DeleteLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: DeleteLinkCommandOutput) => void
   ): void;
 
@@ -146,7 +158,7 @@ export interface OAM {
    */
   deleteSink(
     args: DeleteSinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<DeleteSinkCommandOutput>;
   deleteSink(
     args: DeleteSinkCommandInput,
@@ -154,7 +166,7 @@ export interface OAM {
   ): void;
   deleteSink(
     args: DeleteSinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: DeleteSinkCommandOutput) => void
   ): void;
 
@@ -163,7 +175,7 @@ export interface OAM {
    */
   getLink(
     args: GetLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<GetLinkCommandOutput>;
   getLink(
     args: GetLinkCommandInput,
@@ -171,7 +183,7 @@ export interface OAM {
   ): void;
   getLink(
     args: GetLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: GetLinkCommandOutput) => void
   ): void;
 
@@ -180,7 +192,7 @@ export interface OAM {
    */
   getSink(
     args: GetSinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<GetSinkCommandOutput>;
   getSink(
     args: GetSinkCommandInput,
@@ -188,7 +200,7 @@ export interface OAM {
   ): void;
   getSink(
     args: GetSinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: GetSinkCommandOutput) => void
   ): void;
 
@@ -197,7 +209,7 @@ export interface OAM {
    */
   getSinkPolicy(
     args: GetSinkPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<GetSinkPolicyCommandOutput>;
   getSinkPolicy(
     args: GetSinkPolicyCommandInput,
@@ -205,7 +217,7 @@ export interface OAM {
   ): void;
   getSinkPolicy(
     args: GetSinkPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: GetSinkPolicyCommandOutput) => void
   ): void;
 
@@ -214,7 +226,7 @@ export interface OAM {
    */
   listAttachedLinks(
     args: ListAttachedLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<ListAttachedLinksCommandOutput>;
   listAttachedLinks(
     args: ListAttachedLinksCommandInput,
@@ -222,7 +234,7 @@ export interface OAM {
   ): void;
   listAttachedLinks(
     args: ListAttachedLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: ListAttachedLinksCommandOutput) => void
   ): void;
 
@@ -232,7 +244,7 @@ export interface OAM {
   listLinks(): Promise<ListLinksCommandOutput>;
   listLinks(
     args: ListLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<ListLinksCommandOutput>;
   listLinks(
     args: ListLinksCommandInput,
@@ -240,7 +252,7 @@ export interface OAM {
   ): void;
   listLinks(
     args: ListLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: ListLinksCommandOutput) => void
   ): void;
 
@@ -250,7 +262,7 @@ export interface OAM {
   listSinks(): Promise<ListSinksCommandOutput>;
   listSinks(
     args: ListSinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<ListSinksCommandOutput>;
   listSinks(
     args: ListSinksCommandInput,
@@ -258,7 +270,7 @@ export interface OAM {
   ): void;
   listSinks(
     args: ListSinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: ListSinksCommandOutput) => void
   ): void;
 
@@ -267,7 +279,7 @@ export interface OAM {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -275,7 +287,7 @@ export interface OAM {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -284,7 +296,7 @@ export interface OAM {
    */
   putSinkPolicy(
     args: PutSinkPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<PutSinkPolicyCommandOutput>;
   putSinkPolicy(
     args: PutSinkPolicyCommandInput,
@@ -292,7 +304,7 @@ export interface OAM {
   ): void;
   putSinkPolicy(
     args: PutSinkPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: PutSinkPolicyCommandOutput) => void
   ): void;
 
@@ -301,7 +313,7 @@ export interface OAM {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -309,7 +321,7 @@ export interface OAM {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -318,7 +330,7 @@ export interface OAM {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -326,7 +338,7 @@ export interface OAM {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -335,7 +347,7 @@ export interface OAM {
    */
   updateLink(
     args: UpdateLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: OAMRequestOptions
   ): Promise<UpdateLinkCommandOutput>;
   updateLink(
     args: UpdateLinkCommandInput,
@@ -343,7 +355,7 @@ export interface OAM {
   ): void;
   updateLink(
     args: UpdateLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: OAMRequestOptions,
     cb: (err: any, data?: UpdateLinkCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ConfigureLogsCommandInput,
@@ -117,13 +122,20 @@ const paginators = {
   paginateListPackagingGroups,
 };
 
+/**
+ * @public
+ */
+export interface MediaPackageVodRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MediaPackageVod {
   /**
    * @see {@link ConfigureLogsCommand}
    */
   configureLogs(
     args: ConfigureLogsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<ConfigureLogsCommandOutput>;
   configureLogs(
     args: ConfigureLogsCommandInput,
@@ -131,7 +143,7 @@ export interface MediaPackageVod {
   ): void;
   configureLogs(
     args: ConfigureLogsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: ConfigureLogsCommandOutput) => void
   ): void;
 
@@ -140,7 +152,7 @@ export interface MediaPackageVod {
    */
   createAsset(
     args: CreateAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<CreateAssetCommandOutput>;
   createAsset(
     args: CreateAssetCommandInput,
@@ -148,7 +160,7 @@ export interface MediaPackageVod {
   ): void;
   createAsset(
     args: CreateAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: CreateAssetCommandOutput) => void
   ): void;
 
@@ -157,7 +169,7 @@ export interface MediaPackageVod {
    */
   createPackagingConfiguration(
     args: CreatePackagingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<CreatePackagingConfigurationCommandOutput>;
   createPackagingConfiguration(
     args: CreatePackagingConfigurationCommandInput,
@@ -165,7 +177,7 @@ export interface MediaPackageVod {
   ): void;
   createPackagingConfiguration(
     args: CreatePackagingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: CreatePackagingConfigurationCommandOutput) => void
   ): void;
 
@@ -174,7 +186,7 @@ export interface MediaPackageVod {
    */
   createPackagingGroup(
     args: CreatePackagingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<CreatePackagingGroupCommandOutput>;
   createPackagingGroup(
     args: CreatePackagingGroupCommandInput,
@@ -182,7 +194,7 @@ export interface MediaPackageVod {
   ): void;
   createPackagingGroup(
     args: CreatePackagingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: CreatePackagingGroupCommandOutput) => void
   ): void;
 
@@ -191,7 +203,7 @@ export interface MediaPackageVod {
    */
   deleteAsset(
     args: DeleteAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<DeleteAssetCommandOutput>;
   deleteAsset(
     args: DeleteAssetCommandInput,
@@ -199,7 +211,7 @@ export interface MediaPackageVod {
   ): void;
   deleteAsset(
     args: DeleteAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: DeleteAssetCommandOutput) => void
   ): void;
 
@@ -208,7 +220,7 @@ export interface MediaPackageVod {
    */
   deletePackagingConfiguration(
     args: DeletePackagingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<DeletePackagingConfigurationCommandOutput>;
   deletePackagingConfiguration(
     args: DeletePackagingConfigurationCommandInput,
@@ -216,7 +228,7 @@ export interface MediaPackageVod {
   ): void;
   deletePackagingConfiguration(
     args: DeletePackagingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: DeletePackagingConfigurationCommandOutput) => void
   ): void;
 
@@ -225,7 +237,7 @@ export interface MediaPackageVod {
    */
   deletePackagingGroup(
     args: DeletePackagingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<DeletePackagingGroupCommandOutput>;
   deletePackagingGroup(
     args: DeletePackagingGroupCommandInput,
@@ -233,7 +245,7 @@ export interface MediaPackageVod {
   ): void;
   deletePackagingGroup(
     args: DeletePackagingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: DeletePackagingGroupCommandOutput) => void
   ): void;
 
@@ -242,7 +254,7 @@ export interface MediaPackageVod {
    */
   describeAsset(
     args: DescribeAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<DescribeAssetCommandOutput>;
   describeAsset(
     args: DescribeAssetCommandInput,
@@ -250,7 +262,7 @@ export interface MediaPackageVod {
   ): void;
   describeAsset(
     args: DescribeAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: DescribeAssetCommandOutput) => void
   ): void;
 
@@ -259,7 +271,7 @@ export interface MediaPackageVod {
    */
   describePackagingConfiguration(
     args: DescribePackagingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<DescribePackagingConfigurationCommandOutput>;
   describePackagingConfiguration(
     args: DescribePackagingConfigurationCommandInput,
@@ -267,7 +279,7 @@ export interface MediaPackageVod {
   ): void;
   describePackagingConfiguration(
     args: DescribePackagingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: DescribePackagingConfigurationCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface MediaPackageVod {
    */
   describePackagingGroup(
     args: DescribePackagingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<DescribePackagingGroupCommandOutput>;
   describePackagingGroup(
     args: DescribePackagingGroupCommandInput,
@@ -284,7 +296,7 @@ export interface MediaPackageVod {
   ): void;
   describePackagingGroup(
     args: DescribePackagingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: DescribePackagingGroupCommandOutput) => void
   ): void;
 
@@ -294,7 +306,7 @@ export interface MediaPackageVod {
   listAssets(): Promise<ListAssetsCommandOutput>;
   listAssets(
     args: ListAssetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<ListAssetsCommandOutput>;
   listAssets(
     args: ListAssetsCommandInput,
@@ -302,7 +314,7 @@ export interface MediaPackageVod {
   ): void;
   listAssets(
     args: ListAssetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: ListAssetsCommandOutput) => void
   ): void;
 
@@ -312,7 +324,7 @@ export interface MediaPackageVod {
   listPackagingConfigurations(): Promise<ListPackagingConfigurationsCommandOutput>;
   listPackagingConfigurations(
     args: ListPackagingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<ListPackagingConfigurationsCommandOutput>;
   listPackagingConfigurations(
     args: ListPackagingConfigurationsCommandInput,
@@ -320,7 +332,7 @@ export interface MediaPackageVod {
   ): void;
   listPackagingConfigurations(
     args: ListPackagingConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: ListPackagingConfigurationsCommandOutput) => void
   ): void;
 
@@ -330,7 +342,7 @@ export interface MediaPackageVod {
   listPackagingGroups(): Promise<ListPackagingGroupsCommandOutput>;
   listPackagingGroups(
     args: ListPackagingGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<ListPackagingGroupsCommandOutput>;
   listPackagingGroups(
     args: ListPackagingGroupsCommandInput,
@@ -338,7 +350,7 @@ export interface MediaPackageVod {
   ): void;
   listPackagingGroups(
     args: ListPackagingGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: ListPackagingGroupsCommandOutput) => void
   ): void;
 
@@ -347,7 +359,7 @@ export interface MediaPackageVod {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -355,7 +367,7 @@ export interface MediaPackageVod {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -364,7 +376,7 @@ export interface MediaPackageVod {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -372,7 +384,7 @@ export interface MediaPackageVod {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -381,7 +393,7 @@ export interface MediaPackageVod {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -389,7 +401,7 @@ export interface MediaPackageVod {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -398,7 +410,7 @@ export interface MediaPackageVod {
    */
   updatePackagingGroup(
     args: UpdatePackagingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MediaPackageVodRequestOptions
   ): Promise<UpdatePackagingGroupCommandOutput>;
   updatePackagingGroup(
     args: UpdatePackagingGroupCommandInput,
@@ -406,7 +418,7 @@ export interface MediaPackageVod {
   ): void;
   updatePackagingGroup(
     args: UpdatePackagingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MediaPackageVodRequestOptions,
     cb: (err: any, data?: UpdatePackagingGroupCommandOutput) => void
   ): void;
 

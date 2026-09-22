@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateChannelCommandInput,
@@ -275,13 +280,20 @@ const paginators = {
   paginateListOrganizationalUnits,
 };
 
+/**
+ * @public
+ */
+export interface NotificationsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Notifications {
   /**
    * @see {@link AssociateChannelCommand}
    */
   associateChannel(
     args: AssociateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<AssociateChannelCommandOutput>;
   associateChannel(
     args: AssociateChannelCommandInput,
@@ -289,7 +301,7 @@ export interface Notifications {
   ): void;
   associateChannel(
     args: AssociateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: AssociateChannelCommandOutput) => void
   ): void;
 
@@ -298,7 +310,7 @@ export interface Notifications {
    */
   associateManagedNotificationAccountContact(
     args: AssociateManagedNotificationAccountContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<AssociateManagedNotificationAccountContactCommandOutput>;
   associateManagedNotificationAccountContact(
     args: AssociateManagedNotificationAccountContactCommandInput,
@@ -306,7 +318,7 @@ export interface Notifications {
   ): void;
   associateManagedNotificationAccountContact(
     args: AssociateManagedNotificationAccountContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: AssociateManagedNotificationAccountContactCommandOutput) => void
   ): void;
 
@@ -315,7 +327,7 @@ export interface Notifications {
    */
   associateManagedNotificationAdditionalChannel(
     args: AssociateManagedNotificationAdditionalChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<AssociateManagedNotificationAdditionalChannelCommandOutput>;
   associateManagedNotificationAdditionalChannel(
     args: AssociateManagedNotificationAdditionalChannelCommandInput,
@@ -323,7 +335,7 @@ export interface Notifications {
   ): void;
   associateManagedNotificationAdditionalChannel(
     args: AssociateManagedNotificationAdditionalChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: AssociateManagedNotificationAdditionalChannelCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface Notifications {
    */
   associateOrganizationalUnit(
     args: AssociateOrganizationalUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<AssociateOrganizationalUnitCommandOutput>;
   associateOrganizationalUnit(
     args: AssociateOrganizationalUnitCommandInput,
@@ -340,7 +352,7 @@ export interface Notifications {
   ): void;
   associateOrganizationalUnit(
     args: AssociateOrganizationalUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: AssociateOrganizationalUnitCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface Notifications {
    */
   createEventRule(
     args: CreateEventRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<CreateEventRuleCommandOutput>;
   createEventRule(
     args: CreateEventRuleCommandInput,
@@ -357,7 +369,7 @@ export interface Notifications {
   ): void;
   createEventRule(
     args: CreateEventRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: CreateEventRuleCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface Notifications {
    */
   createNotificationConfiguration(
     args: CreateNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<CreateNotificationConfigurationCommandOutput>;
   createNotificationConfiguration(
     args: CreateNotificationConfigurationCommandInput,
@@ -374,7 +386,7 @@ export interface Notifications {
   ): void;
   createNotificationConfiguration(
     args: CreateNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: CreateNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface Notifications {
    */
   deleteEventRule(
     args: DeleteEventRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<DeleteEventRuleCommandOutput>;
   deleteEventRule(
     args: DeleteEventRuleCommandInput,
@@ -391,7 +403,7 @@ export interface Notifications {
   ): void;
   deleteEventRule(
     args: DeleteEventRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: DeleteEventRuleCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface Notifications {
    */
   deleteNotificationConfiguration(
     args: DeleteNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<DeleteNotificationConfigurationCommandOutput>;
   deleteNotificationConfiguration(
     args: DeleteNotificationConfigurationCommandInput,
@@ -408,7 +420,7 @@ export interface Notifications {
   ): void;
   deleteNotificationConfiguration(
     args: DeleteNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: DeleteNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface Notifications {
    */
   deregisterNotificationHub(
     args: DeregisterNotificationHubCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<DeregisterNotificationHubCommandOutput>;
   deregisterNotificationHub(
     args: DeregisterNotificationHubCommandInput,
@@ -425,7 +437,7 @@ export interface Notifications {
   ): void;
   deregisterNotificationHub(
     args: DeregisterNotificationHubCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: DeregisterNotificationHubCommandOutput) => void
   ): void;
 
@@ -435,7 +447,7 @@ export interface Notifications {
   disableNotificationsAccessForOrganization(): Promise<DisableNotificationsAccessForOrganizationCommandOutput>;
   disableNotificationsAccessForOrganization(
     args: DisableNotificationsAccessForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<DisableNotificationsAccessForOrganizationCommandOutput>;
   disableNotificationsAccessForOrganization(
     args: DisableNotificationsAccessForOrganizationCommandInput,
@@ -443,7 +455,7 @@ export interface Notifications {
   ): void;
   disableNotificationsAccessForOrganization(
     args: DisableNotificationsAccessForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: DisableNotificationsAccessForOrganizationCommandOutput) => void
   ): void;
 
@@ -452,7 +464,7 @@ export interface Notifications {
    */
   disassociateChannel(
     args: DisassociateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<DisassociateChannelCommandOutput>;
   disassociateChannel(
     args: DisassociateChannelCommandInput,
@@ -460,7 +472,7 @@ export interface Notifications {
   ): void;
   disassociateChannel(
     args: DisassociateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: DisassociateChannelCommandOutput) => void
   ): void;
 
@@ -469,7 +481,7 @@ export interface Notifications {
    */
   disassociateManagedNotificationAccountContact(
     args: DisassociateManagedNotificationAccountContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<DisassociateManagedNotificationAccountContactCommandOutput>;
   disassociateManagedNotificationAccountContact(
     args: DisassociateManagedNotificationAccountContactCommandInput,
@@ -477,7 +489,7 @@ export interface Notifications {
   ): void;
   disassociateManagedNotificationAccountContact(
     args: DisassociateManagedNotificationAccountContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: DisassociateManagedNotificationAccountContactCommandOutput) => void
   ): void;
 
@@ -486,7 +498,7 @@ export interface Notifications {
    */
   disassociateManagedNotificationAdditionalChannel(
     args: DisassociateManagedNotificationAdditionalChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<DisassociateManagedNotificationAdditionalChannelCommandOutput>;
   disassociateManagedNotificationAdditionalChannel(
     args: DisassociateManagedNotificationAdditionalChannelCommandInput,
@@ -494,7 +506,7 @@ export interface Notifications {
   ): void;
   disassociateManagedNotificationAdditionalChannel(
     args: DisassociateManagedNotificationAdditionalChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: DisassociateManagedNotificationAdditionalChannelCommandOutput) => void
   ): void;
 
@@ -503,7 +515,7 @@ export interface Notifications {
    */
   disassociateOrganizationalUnit(
     args: DisassociateOrganizationalUnitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<DisassociateOrganizationalUnitCommandOutput>;
   disassociateOrganizationalUnit(
     args: DisassociateOrganizationalUnitCommandInput,
@@ -511,7 +523,7 @@ export interface Notifications {
   ): void;
   disassociateOrganizationalUnit(
     args: DisassociateOrganizationalUnitCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: DisassociateOrganizationalUnitCommandOutput) => void
   ): void;
 
@@ -521,7 +533,7 @@ export interface Notifications {
   enableNotificationsAccessForOrganization(): Promise<EnableNotificationsAccessForOrganizationCommandOutput>;
   enableNotificationsAccessForOrganization(
     args: EnableNotificationsAccessForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<EnableNotificationsAccessForOrganizationCommandOutput>;
   enableNotificationsAccessForOrganization(
     args: EnableNotificationsAccessForOrganizationCommandInput,
@@ -529,7 +541,7 @@ export interface Notifications {
   ): void;
   enableNotificationsAccessForOrganization(
     args: EnableNotificationsAccessForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: EnableNotificationsAccessForOrganizationCommandOutput) => void
   ): void;
 
@@ -538,7 +550,7 @@ export interface Notifications {
    */
   getEventRule(
     args: GetEventRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<GetEventRuleCommandOutput>;
   getEventRule(
     args: GetEventRuleCommandInput,
@@ -546,7 +558,7 @@ export interface Notifications {
   ): void;
   getEventRule(
     args: GetEventRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: GetEventRuleCommandOutput) => void
   ): void;
 
@@ -555,7 +567,7 @@ export interface Notifications {
    */
   getManagedNotificationChildEvent(
     args: GetManagedNotificationChildEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<GetManagedNotificationChildEventCommandOutput>;
   getManagedNotificationChildEvent(
     args: GetManagedNotificationChildEventCommandInput,
@@ -563,7 +575,7 @@ export interface Notifications {
   ): void;
   getManagedNotificationChildEvent(
     args: GetManagedNotificationChildEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: GetManagedNotificationChildEventCommandOutput) => void
   ): void;
 
@@ -572,7 +584,7 @@ export interface Notifications {
    */
   getManagedNotificationConfiguration(
     args: GetManagedNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<GetManagedNotificationConfigurationCommandOutput>;
   getManagedNotificationConfiguration(
     args: GetManagedNotificationConfigurationCommandInput,
@@ -580,7 +592,7 @@ export interface Notifications {
   ): void;
   getManagedNotificationConfiguration(
     args: GetManagedNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: GetManagedNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -589,7 +601,7 @@ export interface Notifications {
    */
   getManagedNotificationEvent(
     args: GetManagedNotificationEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<GetManagedNotificationEventCommandOutput>;
   getManagedNotificationEvent(
     args: GetManagedNotificationEventCommandInput,
@@ -597,7 +609,7 @@ export interface Notifications {
   ): void;
   getManagedNotificationEvent(
     args: GetManagedNotificationEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: GetManagedNotificationEventCommandOutput) => void
   ): void;
 
@@ -606,7 +618,7 @@ export interface Notifications {
    */
   getNotificationConfiguration(
     args: GetNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<GetNotificationConfigurationCommandOutput>;
   getNotificationConfiguration(
     args: GetNotificationConfigurationCommandInput,
@@ -614,7 +626,7 @@ export interface Notifications {
   ): void;
   getNotificationConfiguration(
     args: GetNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: GetNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -623,7 +635,7 @@ export interface Notifications {
    */
   getNotificationEvent(
     args: GetNotificationEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<GetNotificationEventCommandOutput>;
   getNotificationEvent(
     args: GetNotificationEventCommandInput,
@@ -631,7 +643,7 @@ export interface Notifications {
   ): void;
   getNotificationEvent(
     args: GetNotificationEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: GetNotificationEventCommandOutput) => void
   ): void;
 
@@ -641,7 +653,7 @@ export interface Notifications {
   getNotificationsAccessForOrganization(): Promise<GetNotificationsAccessForOrganizationCommandOutput>;
   getNotificationsAccessForOrganization(
     args: GetNotificationsAccessForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<GetNotificationsAccessForOrganizationCommandOutput>;
   getNotificationsAccessForOrganization(
     args: GetNotificationsAccessForOrganizationCommandInput,
@@ -649,7 +661,7 @@ export interface Notifications {
   ): void;
   getNotificationsAccessForOrganization(
     args: GetNotificationsAccessForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: GetNotificationsAccessForOrganizationCommandOutput) => void
   ): void;
 
@@ -658,7 +670,7 @@ export interface Notifications {
    */
   listChannels(
     args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
@@ -666,7 +678,7 @@ export interface Notifications {
   ): void;
   listChannels(
     args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
@@ -675,7 +687,7 @@ export interface Notifications {
    */
   listEventRules(
     args: ListEventRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListEventRulesCommandOutput>;
   listEventRules(
     args: ListEventRulesCommandInput,
@@ -683,7 +695,7 @@ export interface Notifications {
   ): void;
   listEventRules(
     args: ListEventRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListEventRulesCommandOutput) => void
   ): void;
 
@@ -692,7 +704,7 @@ export interface Notifications {
    */
   listManagedNotificationChannelAssociations(
     args: ListManagedNotificationChannelAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListManagedNotificationChannelAssociationsCommandOutput>;
   listManagedNotificationChannelAssociations(
     args: ListManagedNotificationChannelAssociationsCommandInput,
@@ -700,7 +712,7 @@ export interface Notifications {
   ): void;
   listManagedNotificationChannelAssociations(
     args: ListManagedNotificationChannelAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListManagedNotificationChannelAssociationsCommandOutput) => void
   ): void;
 
@@ -709,7 +721,7 @@ export interface Notifications {
    */
   listManagedNotificationChildEvents(
     args: ListManagedNotificationChildEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListManagedNotificationChildEventsCommandOutput>;
   listManagedNotificationChildEvents(
     args: ListManagedNotificationChildEventsCommandInput,
@@ -717,7 +729,7 @@ export interface Notifications {
   ): void;
   listManagedNotificationChildEvents(
     args: ListManagedNotificationChildEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListManagedNotificationChildEventsCommandOutput) => void
   ): void;
 
@@ -727,7 +739,7 @@ export interface Notifications {
   listManagedNotificationConfigurations(): Promise<ListManagedNotificationConfigurationsCommandOutput>;
   listManagedNotificationConfigurations(
     args: ListManagedNotificationConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListManagedNotificationConfigurationsCommandOutput>;
   listManagedNotificationConfigurations(
     args: ListManagedNotificationConfigurationsCommandInput,
@@ -735,7 +747,7 @@ export interface Notifications {
   ): void;
   listManagedNotificationConfigurations(
     args: ListManagedNotificationConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListManagedNotificationConfigurationsCommandOutput) => void
   ): void;
 
@@ -745,7 +757,7 @@ export interface Notifications {
   listManagedNotificationEvents(): Promise<ListManagedNotificationEventsCommandOutput>;
   listManagedNotificationEvents(
     args: ListManagedNotificationEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListManagedNotificationEventsCommandOutput>;
   listManagedNotificationEvents(
     args: ListManagedNotificationEventsCommandInput,
@@ -753,7 +765,7 @@ export interface Notifications {
   ): void;
   listManagedNotificationEvents(
     args: ListManagedNotificationEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListManagedNotificationEventsCommandOutput) => void
   ): void;
 
@@ -762,7 +774,7 @@ export interface Notifications {
    */
   listMemberAccounts(
     args: ListMemberAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListMemberAccountsCommandOutput>;
   listMemberAccounts(
     args: ListMemberAccountsCommandInput,
@@ -770,7 +782,7 @@ export interface Notifications {
   ): void;
   listMemberAccounts(
     args: ListMemberAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListMemberAccountsCommandOutput) => void
   ): void;
 
@@ -780,7 +792,7 @@ export interface Notifications {
   listNotificationConfigurations(): Promise<ListNotificationConfigurationsCommandOutput>;
   listNotificationConfigurations(
     args: ListNotificationConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListNotificationConfigurationsCommandOutput>;
   listNotificationConfigurations(
     args: ListNotificationConfigurationsCommandInput,
@@ -788,7 +800,7 @@ export interface Notifications {
   ): void;
   listNotificationConfigurations(
     args: ListNotificationConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListNotificationConfigurationsCommandOutput) => void
   ): void;
 
@@ -798,7 +810,7 @@ export interface Notifications {
   listNotificationEvents(): Promise<ListNotificationEventsCommandOutput>;
   listNotificationEvents(
     args: ListNotificationEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListNotificationEventsCommandOutput>;
   listNotificationEvents(
     args: ListNotificationEventsCommandInput,
@@ -806,7 +818,7 @@ export interface Notifications {
   ): void;
   listNotificationEvents(
     args: ListNotificationEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListNotificationEventsCommandOutput) => void
   ): void;
 
@@ -816,7 +828,7 @@ export interface Notifications {
   listNotificationHubs(): Promise<ListNotificationHubsCommandOutput>;
   listNotificationHubs(
     args: ListNotificationHubsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListNotificationHubsCommandOutput>;
   listNotificationHubs(
     args: ListNotificationHubsCommandInput,
@@ -824,7 +836,7 @@ export interface Notifications {
   ): void;
   listNotificationHubs(
     args: ListNotificationHubsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListNotificationHubsCommandOutput) => void
   ): void;
 
@@ -833,7 +845,7 @@ export interface Notifications {
    */
   listOrganizationalUnits(
     args: ListOrganizationalUnitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListOrganizationalUnitsCommandOutput>;
   listOrganizationalUnits(
     args: ListOrganizationalUnitsCommandInput,
@@ -841,7 +853,7 @@ export interface Notifications {
   ): void;
   listOrganizationalUnits(
     args: ListOrganizationalUnitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListOrganizationalUnitsCommandOutput) => void
   ): void;
 
@@ -850,7 +862,7 @@ export interface Notifications {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -858,7 +870,7 @@ export interface Notifications {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -867,7 +879,7 @@ export interface Notifications {
    */
   registerNotificationHub(
     args: RegisterNotificationHubCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<RegisterNotificationHubCommandOutput>;
   registerNotificationHub(
     args: RegisterNotificationHubCommandInput,
@@ -875,7 +887,7 @@ export interface Notifications {
   ): void;
   registerNotificationHub(
     args: RegisterNotificationHubCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: RegisterNotificationHubCommandOutput) => void
   ): void;
 
@@ -884,7 +896,7 @@ export interface Notifications {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -892,7 +904,7 @@ export interface Notifications {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -901,7 +913,7 @@ export interface Notifications {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -909,7 +921,7 @@ export interface Notifications {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -918,7 +930,7 @@ export interface Notifications {
    */
   updateEventRule(
     args: UpdateEventRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<UpdateEventRuleCommandOutput>;
   updateEventRule(
     args: UpdateEventRuleCommandInput,
@@ -926,7 +938,7 @@ export interface Notifications {
   ): void;
   updateEventRule(
     args: UpdateEventRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: UpdateEventRuleCommandOutput) => void
   ): void;
 
@@ -935,7 +947,7 @@ export interface Notifications {
    */
   updateManagedNotificationChannelAssociation(
     args: UpdateManagedNotificationChannelAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<UpdateManagedNotificationChannelAssociationCommandOutput>;
   updateManagedNotificationChannelAssociation(
     args: UpdateManagedNotificationChannelAssociationCommandInput,
@@ -943,7 +955,7 @@ export interface Notifications {
   ): void;
   updateManagedNotificationChannelAssociation(
     args: UpdateManagedNotificationChannelAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: UpdateManagedNotificationChannelAssociationCommandOutput) => void
   ): void;
 
@@ -952,7 +964,7 @@ export interface Notifications {
    */
   updateNotificationConfiguration(
     args: UpdateNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsRequestOptions
   ): Promise<UpdateNotificationConfigurationCommandOutput>;
   updateNotificationConfiguration(
     args: UpdateNotificationConfigurationCommandInput,
@@ -960,7 +972,7 @@ export interface Notifications {
   ): void;
   updateNotificationConfiguration(
     args: UpdateNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsRequestOptions,
     cb: (err: any, data?: UpdateNotificationConfigurationCommandOutput) => void
   ): void;
 

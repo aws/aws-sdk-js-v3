@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateChallengeCommandInput,
@@ -85,13 +90,20 @@ const paginators = {
   paginateListConnectors,
 };
 
+/**
+ * @public
+ */
+export interface PcaConnectorScepRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PcaConnectorScep {
   /**
    * @see {@link CreateChallengeCommand}
    */
   createChallenge(
     args: CreateChallengeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<CreateChallengeCommandOutput>;
   createChallenge(
     args: CreateChallengeCommandInput,
@@ -99,7 +111,7 @@ export interface PcaConnectorScep {
   ): void;
   createChallenge(
     args: CreateChallengeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: CreateChallengeCommandOutput) => void
   ): void;
 
@@ -108,7 +120,7 @@ export interface PcaConnectorScep {
    */
   createConnector(
     args: CreateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<CreateConnectorCommandOutput>;
   createConnector(
     args: CreateConnectorCommandInput,
@@ -116,7 +128,7 @@ export interface PcaConnectorScep {
   ): void;
   createConnector(
     args: CreateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: CreateConnectorCommandOutput) => void
   ): void;
 
@@ -125,7 +137,7 @@ export interface PcaConnectorScep {
    */
   deleteChallenge(
     args: DeleteChallengeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<DeleteChallengeCommandOutput>;
   deleteChallenge(
     args: DeleteChallengeCommandInput,
@@ -133,7 +145,7 @@ export interface PcaConnectorScep {
   ): void;
   deleteChallenge(
     args: DeleteChallengeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: DeleteChallengeCommandOutput) => void
   ): void;
 
@@ -142,7 +154,7 @@ export interface PcaConnectorScep {
    */
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<DeleteConnectorCommandOutput>;
   deleteConnector(
     args: DeleteConnectorCommandInput,
@@ -150,7 +162,7 @@ export interface PcaConnectorScep {
   ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
@@ -159,7 +171,7 @@ export interface PcaConnectorScep {
    */
   getChallengeMetadata(
     args: GetChallengeMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<GetChallengeMetadataCommandOutput>;
   getChallengeMetadata(
     args: GetChallengeMetadataCommandInput,
@@ -167,7 +179,7 @@ export interface PcaConnectorScep {
   ): void;
   getChallengeMetadata(
     args: GetChallengeMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: GetChallengeMetadataCommandOutput) => void
   ): void;
 
@@ -176,7 +188,7 @@ export interface PcaConnectorScep {
    */
   getChallengePassword(
     args: GetChallengePasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<GetChallengePasswordCommandOutput>;
   getChallengePassword(
     args: GetChallengePasswordCommandInput,
@@ -184,7 +196,7 @@ export interface PcaConnectorScep {
   ): void;
   getChallengePassword(
     args: GetChallengePasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: GetChallengePasswordCommandOutput) => void
   ): void;
 
@@ -193,7 +205,7 @@ export interface PcaConnectorScep {
    */
   getConnector(
     args: GetConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<GetConnectorCommandOutput>;
   getConnector(
     args: GetConnectorCommandInput,
@@ -201,7 +213,7 @@ export interface PcaConnectorScep {
   ): void;
   getConnector(
     args: GetConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: GetConnectorCommandOutput) => void
   ): void;
 
@@ -210,7 +222,7 @@ export interface PcaConnectorScep {
    */
   listChallengeMetadata(
     args: ListChallengeMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<ListChallengeMetadataCommandOutput>;
   listChallengeMetadata(
     args: ListChallengeMetadataCommandInput,
@@ -218,7 +230,7 @@ export interface PcaConnectorScep {
   ): void;
   listChallengeMetadata(
     args: ListChallengeMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: ListChallengeMetadataCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface PcaConnectorScep {
   listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
@@ -236,7 +248,7 @@ export interface PcaConnectorScep {
   ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: ListConnectorsCommandOutput) => void
   ): void;
 
@@ -245,7 +257,7 @@ export interface PcaConnectorScep {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -253,7 +265,7 @@ export interface PcaConnectorScep {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -262,7 +274,7 @@ export interface PcaConnectorScep {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -270,7 +282,7 @@ export interface PcaConnectorScep {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -279,7 +291,7 @@ export interface PcaConnectorScep {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorScepRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -287,7 +299,7 @@ export interface PcaConnectorScep {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorScepRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

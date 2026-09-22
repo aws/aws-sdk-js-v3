@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { ApiGatewayManagementApiClient } from "./ApiGatewayManagementApiClient";
 import {
@@ -25,13 +25,20 @@ const commands = {
   PostToConnectionCommand,
 };
 
+/**
+ * @public
+ */
+export interface ApiGatewayManagementApiRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ApiGatewayManagementApi {
   /**
    * @see {@link DeleteConnectionCommand}
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApiGatewayManagementApiRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -39,7 +46,7 @@ export interface ApiGatewayManagementApi {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApiGatewayManagementApiRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -48,7 +55,7 @@ export interface ApiGatewayManagementApi {
    */
   getConnection(
     args: GetConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApiGatewayManagementApiRequestOptions
   ): Promise<GetConnectionCommandOutput>;
   getConnection(
     args: GetConnectionCommandInput,
@@ -56,7 +63,7 @@ export interface ApiGatewayManagementApi {
   ): void;
   getConnection(
     args: GetConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApiGatewayManagementApiRequestOptions,
     cb: (err: any, data?: GetConnectionCommandOutput) => void
   ): void;
 
@@ -65,7 +72,7 @@ export interface ApiGatewayManagementApi {
    */
   postToConnection(
     args: PostToConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ApiGatewayManagementApiRequestOptions
   ): Promise<PostToConnectionCommandOutput>;
   postToConnection(
     args: PostToConnectionCommandInput,
@@ -73,7 +80,7 @@ export interface ApiGatewayManagementApi {
   ): void;
   postToConnection(
     args: PostToConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ApiGatewayManagementApiRequestOptions,
     cb: (err: any, data?: PostToConnectionCommandOutput) => void
   ): void;
 }

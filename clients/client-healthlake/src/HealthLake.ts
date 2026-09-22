@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -197,13 +198,20 @@ const waiters = {
   waitUntilFHIRImportJobCompleted,
 };
 
+/**
+ * @public
+ */
+export interface HealthLakeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface HealthLake {
   /**
    * @see {@link CreateDataTransformationProfileCommand}
    */
   createDataTransformationProfile(
     args: CreateDataTransformationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<CreateDataTransformationProfileCommandOutput>;
   createDataTransformationProfile(
     args: CreateDataTransformationProfileCommandInput,
@@ -211,7 +219,7 @@ export interface HealthLake {
   ): void;
   createDataTransformationProfile(
     args: CreateDataTransformationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: CreateDataTransformationProfileCommandOutput) => void
   ): void;
 
@@ -220,7 +228,7 @@ export interface HealthLake {
    */
   createFHIRDatastore(
     args: CreateFHIRDatastoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<CreateFHIRDatastoreCommandOutput>;
   createFHIRDatastore(
     args: CreateFHIRDatastoreCommandInput,
@@ -228,7 +236,7 @@ export interface HealthLake {
   ): void;
   createFHIRDatastore(
     args: CreateFHIRDatastoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: CreateFHIRDatastoreCommandOutput) => void
   ): void;
 
@@ -237,7 +245,7 @@ export interface HealthLake {
    */
   deleteDataTransformationProfile(
     args: DeleteDataTransformationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<DeleteDataTransformationProfileCommandOutput>;
   deleteDataTransformationProfile(
     args: DeleteDataTransformationProfileCommandInput,
@@ -245,7 +253,7 @@ export interface HealthLake {
   ): void;
   deleteDataTransformationProfile(
     args: DeleteDataTransformationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: DeleteDataTransformationProfileCommandOutput) => void
   ): void;
 
@@ -254,7 +262,7 @@ export interface HealthLake {
    */
   deleteFHIRDatastore(
     args: DeleteFHIRDatastoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<DeleteFHIRDatastoreCommandOutput>;
   deleteFHIRDatastore(
     args: DeleteFHIRDatastoreCommandInput,
@@ -262,7 +270,7 @@ export interface HealthLake {
   ): void;
   deleteFHIRDatastore(
     args: DeleteFHIRDatastoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: DeleteFHIRDatastoreCommandOutput) => void
   ): void;
 
@@ -271,7 +279,7 @@ export interface HealthLake {
    */
   describeDataTransformationJob(
     args: DescribeDataTransformationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<DescribeDataTransformationJobCommandOutput>;
   describeDataTransformationJob(
     args: DescribeDataTransformationJobCommandInput,
@@ -279,7 +287,7 @@ export interface HealthLake {
   ): void;
   describeDataTransformationJob(
     args: DescribeDataTransformationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: DescribeDataTransformationJobCommandOutput) => void
   ): void;
 
@@ -288,7 +296,7 @@ export interface HealthLake {
    */
   describeFHIRDatastore(
     args: DescribeFHIRDatastoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<DescribeFHIRDatastoreCommandOutput>;
   describeFHIRDatastore(
     args: DescribeFHIRDatastoreCommandInput,
@@ -296,7 +304,7 @@ export interface HealthLake {
   ): void;
   describeFHIRDatastore(
     args: DescribeFHIRDatastoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: DescribeFHIRDatastoreCommandOutput) => void
   ): void;
 
@@ -305,7 +313,7 @@ export interface HealthLake {
    */
   describeFHIRExportJob(
     args: DescribeFHIRExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<DescribeFHIRExportJobCommandOutput>;
   describeFHIRExportJob(
     args: DescribeFHIRExportJobCommandInput,
@@ -313,7 +321,7 @@ export interface HealthLake {
   ): void;
   describeFHIRExportJob(
     args: DescribeFHIRExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: DescribeFHIRExportJobCommandOutput) => void
   ): void;
 
@@ -322,7 +330,7 @@ export interface HealthLake {
    */
   describeFHIRImportJob(
     args: DescribeFHIRImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<DescribeFHIRImportJobCommandOutput>;
   describeFHIRImportJob(
     args: DescribeFHIRImportJobCommandInput,
@@ -330,7 +338,7 @@ export interface HealthLake {
   ): void;
   describeFHIRImportJob(
     args: DescribeFHIRImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: DescribeFHIRImportJobCommandOutput) => void
   ): void;
 
@@ -339,7 +347,7 @@ export interface HealthLake {
    */
   getDataTransformationProfile(
     args: GetDataTransformationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<GetDataTransformationProfileCommandOutput>;
   getDataTransformationProfile(
     args: GetDataTransformationProfileCommandInput,
@@ -347,7 +355,7 @@ export interface HealthLake {
   ): void;
   getDataTransformationProfile(
     args: GetDataTransformationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: GetDataTransformationProfileCommandOutput) => void
   ): void;
 
@@ -357,7 +365,7 @@ export interface HealthLake {
   listDataTransformationJobs(): Promise<ListDataTransformationJobsCommandOutput>;
   listDataTransformationJobs(
     args: ListDataTransformationJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<ListDataTransformationJobsCommandOutput>;
   listDataTransformationJobs(
     args: ListDataTransformationJobsCommandInput,
@@ -365,7 +373,7 @@ export interface HealthLake {
   ): void;
   listDataTransformationJobs(
     args: ListDataTransformationJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: ListDataTransformationJobsCommandOutput) => void
   ): void;
 
@@ -374,7 +382,7 @@ export interface HealthLake {
    */
   listDataTransformationProfiles(
     args: ListDataTransformationProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<ListDataTransformationProfilesCommandOutput>;
   listDataTransformationProfiles(
     args: ListDataTransformationProfilesCommandInput,
@@ -382,7 +390,7 @@ export interface HealthLake {
   ): void;
   listDataTransformationProfiles(
     args: ListDataTransformationProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: ListDataTransformationProfilesCommandOutput) => void
   ): void;
 
@@ -391,7 +399,7 @@ export interface HealthLake {
    */
   listDataTransformationProfileVersions(
     args: ListDataTransformationProfileVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<ListDataTransformationProfileVersionsCommandOutput>;
   listDataTransformationProfileVersions(
     args: ListDataTransformationProfileVersionsCommandInput,
@@ -399,7 +407,7 @@ export interface HealthLake {
   ): void;
   listDataTransformationProfileVersions(
     args: ListDataTransformationProfileVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: ListDataTransformationProfileVersionsCommandOutput) => void
   ): void;
 
@@ -409,7 +417,7 @@ export interface HealthLake {
   listFHIRDatastores(): Promise<ListFHIRDatastoresCommandOutput>;
   listFHIRDatastores(
     args: ListFHIRDatastoresCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<ListFHIRDatastoresCommandOutput>;
   listFHIRDatastores(
     args: ListFHIRDatastoresCommandInput,
@@ -417,7 +425,7 @@ export interface HealthLake {
   ): void;
   listFHIRDatastores(
     args: ListFHIRDatastoresCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: ListFHIRDatastoresCommandOutput) => void
   ): void;
 
@@ -426,7 +434,7 @@ export interface HealthLake {
    */
   listFHIRExportJobs(
     args: ListFHIRExportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<ListFHIRExportJobsCommandOutput>;
   listFHIRExportJobs(
     args: ListFHIRExportJobsCommandInput,
@@ -434,7 +442,7 @@ export interface HealthLake {
   ): void;
   listFHIRExportJobs(
     args: ListFHIRExportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: ListFHIRExportJobsCommandOutput) => void
   ): void;
 
@@ -443,7 +451,7 @@ export interface HealthLake {
    */
   listFHIRImportJobs(
     args: ListFHIRImportJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<ListFHIRImportJobsCommandOutput>;
   listFHIRImportJobs(
     args: ListFHIRImportJobsCommandInput,
@@ -451,7 +459,7 @@ export interface HealthLake {
   ): void;
   listFHIRImportJobs(
     args: ListFHIRImportJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: ListFHIRImportJobsCommandOutput) => void
   ): void;
 
@@ -460,7 +468,7 @@ export interface HealthLake {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -468,7 +476,7 @@ export interface HealthLake {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -477,7 +485,7 @@ export interface HealthLake {
    */
   publishDataTransformationProfile(
     args: PublishDataTransformationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<PublishDataTransformationProfileCommandOutput>;
   publishDataTransformationProfile(
     args: PublishDataTransformationProfileCommandInput,
@@ -485,7 +493,7 @@ export interface HealthLake {
   ): void;
   publishDataTransformationProfile(
     args: PublishDataTransformationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: PublishDataTransformationProfileCommandOutput) => void
   ): void;
 
@@ -494,7 +502,7 @@ export interface HealthLake {
    */
   restoreFHIRDatastore(
     args: RestoreFHIRDatastoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<RestoreFHIRDatastoreCommandOutput>;
   restoreFHIRDatastore(
     args: RestoreFHIRDatastoreCommandInput,
@@ -502,7 +510,7 @@ export interface HealthLake {
   ): void;
   restoreFHIRDatastore(
     args: RestoreFHIRDatastoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: RestoreFHIRDatastoreCommandOutput) => void
   ): void;
 
@@ -511,7 +519,7 @@ export interface HealthLake {
    */
   startDataTransformationJob(
     args: StartDataTransformationJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<StartDataTransformationJobCommandOutput>;
   startDataTransformationJob(
     args: StartDataTransformationJobCommandInput,
@@ -519,7 +527,7 @@ export interface HealthLake {
   ): void;
   startDataTransformationJob(
     args: StartDataTransformationJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: StartDataTransformationJobCommandOutput) => void
   ): void;
 
@@ -528,7 +536,7 @@ export interface HealthLake {
    */
   startFHIRExportJob(
     args: StartFHIRExportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<StartFHIRExportJobCommandOutput>;
   startFHIRExportJob(
     args: StartFHIRExportJobCommandInput,
@@ -536,7 +544,7 @@ export interface HealthLake {
   ): void;
   startFHIRExportJob(
     args: StartFHIRExportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: StartFHIRExportJobCommandOutput) => void
   ): void;
 
@@ -545,7 +553,7 @@ export interface HealthLake {
    */
   startFHIRImportJob(
     args: StartFHIRImportJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<StartFHIRImportJobCommandOutput>;
   startFHIRImportJob(
     args: StartFHIRImportJobCommandInput,
@@ -553,7 +561,7 @@ export interface HealthLake {
   ): void;
   startFHIRImportJob(
     args: StartFHIRImportJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: StartFHIRImportJobCommandOutput) => void
   ): void;
 
@@ -562,7 +570,7 @@ export interface HealthLake {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -570,7 +578,7 @@ export interface HealthLake {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -579,7 +587,7 @@ export interface HealthLake {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -587,7 +595,7 @@ export interface HealthLake {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -596,7 +604,7 @@ export interface HealthLake {
    */
   updateDataTransformationProfile(
     args: UpdateDataTransformationProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<UpdateDataTransformationProfileCommandOutput>;
   updateDataTransformationProfile(
     args: UpdateDataTransformationProfileCommandInput,
@@ -604,7 +612,7 @@ export interface HealthLake {
   ): void;
   updateDataTransformationProfile(
     args: UpdateDataTransformationProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: UpdateDataTransformationProfileCommandOutput) => void
   ): void;
 
@@ -613,7 +621,7 @@ export interface HealthLake {
    */
   updateFHIRDatastore(
     args: UpdateFHIRDatastoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<UpdateFHIRDatastoreCommandOutput>;
   updateFHIRDatastore(
     args: UpdateFHIRDatastoreCommandInput,
@@ -621,7 +629,7 @@ export interface HealthLake {
   ): void;
   updateFHIRDatastore(
     args: UpdateFHIRDatastoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: UpdateFHIRDatastoreCommandOutput) => void
   ): void;
 
@@ -630,7 +638,7 @@ export interface HealthLake {
    */
   updateProfileWithAgent(
     args: UpdateProfileWithAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthLakeRequestOptions
   ): Promise<UpdateProfileWithAgentCommandOutput>;
   updateProfileWithAgent(
     args: UpdateProfileWithAgentCommandInput,
@@ -638,7 +646,7 @@ export interface HealthLake {
   ): void;
   updateProfileWithAgent(
     args: UpdateProfileWithAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthLakeRequestOptions,
     cb: (err: any, data?: UpdateProfileWithAgentCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchGetSecretValueCommandInput,
@@ -153,6 +158,13 @@ const paginators = {
   paginateListSecretVersionIds,
 };
 
+/**
+ * @public
+ */
+export interface SecretsManagerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SecretsManager {
   /**
    * @see {@link BatchGetSecretValueCommand}
@@ -160,7 +172,7 @@ export interface SecretsManager {
   batchGetSecretValue(): Promise<BatchGetSecretValueCommandOutput>;
   batchGetSecretValue(
     args: BatchGetSecretValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<BatchGetSecretValueCommandOutput>;
   batchGetSecretValue(
     args: BatchGetSecretValueCommandInput,
@@ -168,7 +180,7 @@ export interface SecretsManager {
   ): void;
   batchGetSecretValue(
     args: BatchGetSecretValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: BatchGetSecretValueCommandOutput) => void
   ): void;
 
@@ -177,7 +189,7 @@ export interface SecretsManager {
    */
   cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<CancelRotateSecretCommandOutput>;
   cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
@@ -185,7 +197,7 @@ export interface SecretsManager {
   ): void;
   cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: CancelRotateSecretCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface SecretsManager {
    */
   createSecret(
     args: CreateSecretCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<CreateSecretCommandOutput>;
   createSecret(
     args: CreateSecretCommandInput,
@@ -202,7 +214,7 @@ export interface SecretsManager {
   ): void;
   createSecret(
     args: CreateSecretCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: CreateSecretCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface SecretsManager {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -219,7 +231,7 @@ export interface SecretsManager {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface SecretsManager {
    */
   deleteSecret(
     args: DeleteSecretCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<DeleteSecretCommandOutput>;
   deleteSecret(
     args: DeleteSecretCommandInput,
@@ -236,7 +248,7 @@ export interface SecretsManager {
   ): void;
   deleteSecret(
     args: DeleteSecretCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: DeleteSecretCommandOutput) => void
   ): void;
 
@@ -245,7 +257,7 @@ export interface SecretsManager {
    */
   describeSecret(
     args: DescribeSecretCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<DescribeSecretCommandOutput>;
   describeSecret(
     args: DescribeSecretCommandInput,
@@ -253,7 +265,7 @@ export interface SecretsManager {
   ): void;
   describeSecret(
     args: DescribeSecretCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: DescribeSecretCommandOutput) => void
   ): void;
 
@@ -263,7 +275,7 @@ export interface SecretsManager {
   getRandomPassword(): Promise<GetRandomPasswordCommandOutput>;
   getRandomPassword(
     args: GetRandomPasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<GetRandomPasswordCommandOutput>;
   getRandomPassword(
     args: GetRandomPasswordCommandInput,
@@ -271,7 +283,7 @@ export interface SecretsManager {
   ): void;
   getRandomPassword(
     args: GetRandomPasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: GetRandomPasswordCommandOutput) => void
   ): void;
 
@@ -280,7 +292,7 @@ export interface SecretsManager {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -288,7 +300,7 @@ export interface SecretsManager {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -297,7 +309,7 @@ export interface SecretsManager {
    */
   getSecretValue(
     args: GetSecretValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<GetSecretValueCommandOutput>;
   getSecretValue(
     args: GetSecretValueCommandInput,
@@ -305,7 +317,7 @@ export interface SecretsManager {
   ): void;
   getSecretValue(
     args: GetSecretValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: GetSecretValueCommandOutput) => void
   ): void;
 
@@ -315,7 +327,7 @@ export interface SecretsManager {
   listSecrets(): Promise<ListSecretsCommandOutput>;
   listSecrets(
     args: ListSecretsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<ListSecretsCommandOutput>;
   listSecrets(
     args: ListSecretsCommandInput,
@@ -323,7 +335,7 @@ export interface SecretsManager {
   ): void;
   listSecrets(
     args: ListSecretsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: ListSecretsCommandOutput) => void
   ): void;
 
@@ -332,7 +344,7 @@ export interface SecretsManager {
    */
   listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<ListSecretVersionIdsCommandOutput>;
   listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
@@ -340,7 +352,7 @@ export interface SecretsManager {
   ): void;
   listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: ListSecretVersionIdsCommandOutput) => void
   ): void;
 
@@ -349,7 +361,7 @@ export interface SecretsManager {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -357,7 +369,7 @@ export interface SecretsManager {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -366,7 +378,7 @@ export interface SecretsManager {
    */
   putSecretValue(
     args: PutSecretValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<PutSecretValueCommandOutput>;
   putSecretValue(
     args: PutSecretValueCommandInput,
@@ -374,7 +386,7 @@ export interface SecretsManager {
   ): void;
   putSecretValue(
     args: PutSecretValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: PutSecretValueCommandOutput) => void
   ): void;
 
@@ -383,7 +395,7 @@ export interface SecretsManager {
    */
   removeRegionsFromReplication(
     args: RemoveRegionsFromReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<RemoveRegionsFromReplicationCommandOutput>;
   removeRegionsFromReplication(
     args: RemoveRegionsFromReplicationCommandInput,
@@ -391,7 +403,7 @@ export interface SecretsManager {
   ): void;
   removeRegionsFromReplication(
     args: RemoveRegionsFromReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: RemoveRegionsFromReplicationCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface SecretsManager {
    */
   replicateSecretToRegions(
     args: ReplicateSecretToRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<ReplicateSecretToRegionsCommandOutput>;
   replicateSecretToRegions(
     args: ReplicateSecretToRegionsCommandInput,
@@ -408,7 +420,7 @@ export interface SecretsManager {
   ): void;
   replicateSecretToRegions(
     args: ReplicateSecretToRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: ReplicateSecretToRegionsCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface SecretsManager {
    */
   restoreSecret(
     args: RestoreSecretCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<RestoreSecretCommandOutput>;
   restoreSecret(
     args: RestoreSecretCommandInput,
@@ -425,7 +437,7 @@ export interface SecretsManager {
   ): void;
   restoreSecret(
     args: RestoreSecretCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: RestoreSecretCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface SecretsManager {
    */
   rotateSecret(
     args: RotateSecretCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<RotateSecretCommandOutput>;
   rotateSecret(
     args: RotateSecretCommandInput,
@@ -442,7 +454,7 @@ export interface SecretsManager {
   ): void;
   rotateSecret(
     args: RotateSecretCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: RotateSecretCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface SecretsManager {
    */
   stopReplicationToReplica(
     args: StopReplicationToReplicaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<StopReplicationToReplicaCommandOutput>;
   stopReplicationToReplica(
     args: StopReplicationToReplicaCommandInput,
@@ -459,7 +471,7 @@ export interface SecretsManager {
   ): void;
   stopReplicationToReplica(
     args: StopReplicationToReplicaCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: StopReplicationToReplicaCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface SecretsManager {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -476,7 +488,7 @@ export interface SecretsManager {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface SecretsManager {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -493,7 +505,7 @@ export interface SecretsManager {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface SecretsManager {
    */
   updateSecret(
     args: UpdateSecretCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<UpdateSecretCommandOutput>;
   updateSecret(
     args: UpdateSecretCommandInput,
@@ -510,7 +522,7 @@ export interface SecretsManager {
   ): void;
   updateSecret(
     args: UpdateSecretCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: UpdateSecretCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface SecretsManager {
    */
   updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<UpdateSecretVersionStageCommandOutput>;
   updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,
@@ -527,7 +539,7 @@ export interface SecretsManager {
   ): void;
   updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: UpdateSecretVersionStageCommandOutput) => void
   ): void;
 
@@ -536,7 +548,7 @@ export interface SecretsManager {
    */
   validateResourcePolicy(
     args: ValidateResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SecretsManagerRequestOptions
   ): Promise<ValidateResourcePolicyCommandOutput>;
   validateResourcePolicy(
     args: ValidateResourcePolicyCommandInput,
@@ -544,7 +556,7 @@ export interface SecretsManager {
   ): void;
   validateResourcePolicy(
     args: ValidateResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: SecretsManagerRequestOptions,
     cb: (err: any, data?: ValidateResourcePolicyCommandOutput) => void
   ): void;
 

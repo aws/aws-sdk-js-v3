@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateTemplateCommandInput,
@@ -209,13 +214,20 @@ const paginators = {
   paginateListWorkflowSteps,
 };
 
+/**
+ * @public
+ */
+export interface MigrationHubOrchestratorRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MigrationHubOrchestrator {
   /**
    * @see {@link CreateTemplateCommand}
    */
   createTemplate(
     args: CreateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<CreateTemplateCommandOutput>;
   createTemplate(
     args: CreateTemplateCommandInput,
@@ -223,7 +235,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   createTemplate(
     args: CreateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: CreateTemplateCommandOutput) => void
   ): void;
 
@@ -232,7 +244,7 @@ export interface MigrationHubOrchestrator {
    */
   createWorkflow(
     args: CreateWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<CreateWorkflowCommandOutput>;
   createWorkflow(
     args: CreateWorkflowCommandInput,
@@ -240,7 +252,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   createWorkflow(
     args: CreateWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: CreateWorkflowCommandOutput) => void
   ): void;
 
@@ -249,7 +261,7 @@ export interface MigrationHubOrchestrator {
    */
   createWorkflowStep(
     args: CreateWorkflowStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<CreateWorkflowStepCommandOutput>;
   createWorkflowStep(
     args: CreateWorkflowStepCommandInput,
@@ -257,7 +269,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   createWorkflowStep(
     args: CreateWorkflowStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: CreateWorkflowStepCommandOutput) => void
   ): void;
 
@@ -266,7 +278,7 @@ export interface MigrationHubOrchestrator {
    */
   createWorkflowStepGroup(
     args: CreateWorkflowStepGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<CreateWorkflowStepGroupCommandOutput>;
   createWorkflowStepGroup(
     args: CreateWorkflowStepGroupCommandInput,
@@ -274,7 +286,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   createWorkflowStepGroup(
     args: CreateWorkflowStepGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: CreateWorkflowStepGroupCommandOutput) => void
   ): void;
 
@@ -283,7 +295,7 @@ export interface MigrationHubOrchestrator {
    */
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<DeleteTemplateCommandOutput>;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
@@ -291,7 +303,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): void;
 
@@ -300,7 +312,7 @@ export interface MigrationHubOrchestrator {
    */
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<DeleteWorkflowCommandOutput>;
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
@@ -308,7 +320,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   deleteWorkflow(
     args: DeleteWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
   ): void;
 
@@ -317,7 +329,7 @@ export interface MigrationHubOrchestrator {
    */
   deleteWorkflowStep(
     args: DeleteWorkflowStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<DeleteWorkflowStepCommandOutput>;
   deleteWorkflowStep(
     args: DeleteWorkflowStepCommandInput,
@@ -325,7 +337,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   deleteWorkflowStep(
     args: DeleteWorkflowStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: DeleteWorkflowStepCommandOutput) => void
   ): void;
 
@@ -334,7 +346,7 @@ export interface MigrationHubOrchestrator {
    */
   deleteWorkflowStepGroup(
     args: DeleteWorkflowStepGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<DeleteWorkflowStepGroupCommandOutput>;
   deleteWorkflowStepGroup(
     args: DeleteWorkflowStepGroupCommandInput,
@@ -342,7 +354,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   deleteWorkflowStepGroup(
     args: DeleteWorkflowStepGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: DeleteWorkflowStepGroupCommandOutput) => void
   ): void;
 
@@ -351,7 +363,7 @@ export interface MigrationHubOrchestrator {
    */
   getTemplate(
     args: GetTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<GetTemplateCommandOutput>;
   getTemplate(
     args: GetTemplateCommandInput,
@@ -359,7 +371,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   getTemplate(
     args: GetTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: GetTemplateCommandOutput) => void
   ): void;
 
@@ -368,7 +380,7 @@ export interface MigrationHubOrchestrator {
    */
   getTemplateStep(
     args: GetTemplateStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<GetTemplateStepCommandOutput>;
   getTemplateStep(
     args: GetTemplateStepCommandInput,
@@ -376,7 +388,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   getTemplateStep(
     args: GetTemplateStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: GetTemplateStepCommandOutput) => void
   ): void;
 
@@ -385,7 +397,7 @@ export interface MigrationHubOrchestrator {
    */
   getTemplateStepGroup(
     args: GetTemplateStepGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<GetTemplateStepGroupCommandOutput>;
   getTemplateStepGroup(
     args: GetTemplateStepGroupCommandInput,
@@ -393,7 +405,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   getTemplateStepGroup(
     args: GetTemplateStepGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: GetTemplateStepGroupCommandOutput) => void
   ): void;
 
@@ -402,7 +414,7 @@ export interface MigrationHubOrchestrator {
    */
   getWorkflow(
     args: GetWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<GetWorkflowCommandOutput>;
   getWorkflow(
     args: GetWorkflowCommandInput,
@@ -410,7 +422,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   getWorkflow(
     args: GetWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: GetWorkflowCommandOutput) => void
   ): void;
 
@@ -419,7 +431,7 @@ export interface MigrationHubOrchestrator {
    */
   getWorkflowStep(
     args: GetWorkflowStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<GetWorkflowStepCommandOutput>;
   getWorkflowStep(
     args: GetWorkflowStepCommandInput,
@@ -427,7 +439,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   getWorkflowStep(
     args: GetWorkflowStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: GetWorkflowStepCommandOutput) => void
   ): void;
 
@@ -436,7 +448,7 @@ export interface MigrationHubOrchestrator {
    */
   getWorkflowStepGroup(
     args: GetWorkflowStepGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<GetWorkflowStepGroupCommandOutput>;
   getWorkflowStepGroup(
     args: GetWorkflowStepGroupCommandInput,
@@ -444,7 +456,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   getWorkflowStepGroup(
     args: GetWorkflowStepGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: GetWorkflowStepGroupCommandOutput) => void
   ): void;
 
@@ -454,7 +466,7 @@ export interface MigrationHubOrchestrator {
   listPlugins(): Promise<ListPluginsCommandOutput>;
   listPlugins(
     args: ListPluginsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<ListPluginsCommandOutput>;
   listPlugins(
     args: ListPluginsCommandInput,
@@ -462,7 +474,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   listPlugins(
     args: ListPluginsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: ListPluginsCommandOutput) => void
   ): void;
 
@@ -471,7 +483,7 @@ export interface MigrationHubOrchestrator {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -479,7 +491,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -489,7 +501,7 @@ export interface MigrationHubOrchestrator {
   listTemplates(): Promise<ListTemplatesCommandOutput>;
   listTemplates(
     args: ListTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<ListTemplatesCommandOutput>;
   listTemplates(
     args: ListTemplatesCommandInput,
@@ -497,7 +509,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   listTemplates(
     args: ListTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: ListTemplatesCommandOutput) => void
   ): void;
 
@@ -506,7 +518,7 @@ export interface MigrationHubOrchestrator {
    */
   listTemplateStepGroups(
     args: ListTemplateStepGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<ListTemplateStepGroupsCommandOutput>;
   listTemplateStepGroups(
     args: ListTemplateStepGroupsCommandInput,
@@ -514,7 +526,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   listTemplateStepGroups(
     args: ListTemplateStepGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: ListTemplateStepGroupsCommandOutput) => void
   ): void;
 
@@ -523,7 +535,7 @@ export interface MigrationHubOrchestrator {
    */
   listTemplateSteps(
     args: ListTemplateStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<ListTemplateStepsCommandOutput>;
   listTemplateSteps(
     args: ListTemplateStepsCommandInput,
@@ -531,7 +543,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   listTemplateSteps(
     args: ListTemplateStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: ListTemplateStepsCommandOutput) => void
   ): void;
 
@@ -541,7 +553,7 @@ export interface MigrationHubOrchestrator {
   listWorkflows(): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(
     args: ListWorkflowsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(
     args: ListWorkflowsCommandInput,
@@ -549,7 +561,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   listWorkflows(
     args: ListWorkflowsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: ListWorkflowsCommandOutput) => void
   ): void;
 
@@ -558,7 +570,7 @@ export interface MigrationHubOrchestrator {
    */
   listWorkflowStepGroups(
     args: ListWorkflowStepGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<ListWorkflowStepGroupsCommandOutput>;
   listWorkflowStepGroups(
     args: ListWorkflowStepGroupsCommandInput,
@@ -566,7 +578,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   listWorkflowStepGroups(
     args: ListWorkflowStepGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: ListWorkflowStepGroupsCommandOutput) => void
   ): void;
 
@@ -575,7 +587,7 @@ export interface MigrationHubOrchestrator {
    */
   listWorkflowSteps(
     args: ListWorkflowStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<ListWorkflowStepsCommandOutput>;
   listWorkflowSteps(
     args: ListWorkflowStepsCommandInput,
@@ -583,7 +595,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   listWorkflowSteps(
     args: ListWorkflowStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: ListWorkflowStepsCommandOutput) => void
   ): void;
 
@@ -592,7 +604,7 @@ export interface MigrationHubOrchestrator {
    */
   retryWorkflowStep(
     args: RetryWorkflowStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<RetryWorkflowStepCommandOutput>;
   retryWorkflowStep(
     args: RetryWorkflowStepCommandInput,
@@ -600,7 +612,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   retryWorkflowStep(
     args: RetryWorkflowStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: RetryWorkflowStepCommandOutput) => void
   ): void;
 
@@ -609,7 +621,7 @@ export interface MigrationHubOrchestrator {
    */
   startWorkflow(
     args: StartWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<StartWorkflowCommandOutput>;
   startWorkflow(
     args: StartWorkflowCommandInput,
@@ -617,7 +629,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   startWorkflow(
     args: StartWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: StartWorkflowCommandOutput) => void
   ): void;
 
@@ -626,7 +638,7 @@ export interface MigrationHubOrchestrator {
    */
   stopWorkflow(
     args: StopWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<StopWorkflowCommandOutput>;
   stopWorkflow(
     args: StopWorkflowCommandInput,
@@ -634,7 +646,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   stopWorkflow(
     args: StopWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: StopWorkflowCommandOutput) => void
   ): void;
 
@@ -643,7 +655,7 @@ export interface MigrationHubOrchestrator {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -651,7 +663,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -660,7 +672,7 @@ export interface MigrationHubOrchestrator {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -668,7 +680,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -677,7 +689,7 @@ export interface MigrationHubOrchestrator {
    */
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<UpdateTemplateCommandOutput>;
   updateTemplate(
     args: UpdateTemplateCommandInput,
@@ -685,7 +697,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): void;
 
@@ -694,7 +706,7 @@ export interface MigrationHubOrchestrator {
    */
   updateWorkflow(
     args: UpdateWorkflowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<UpdateWorkflowCommandOutput>;
   updateWorkflow(
     args: UpdateWorkflowCommandInput,
@@ -702,7 +714,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   updateWorkflow(
     args: UpdateWorkflowCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: UpdateWorkflowCommandOutput) => void
   ): void;
 
@@ -711,7 +723,7 @@ export interface MigrationHubOrchestrator {
    */
   updateWorkflowStep(
     args: UpdateWorkflowStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<UpdateWorkflowStepCommandOutput>;
   updateWorkflowStep(
     args: UpdateWorkflowStepCommandInput,
@@ -719,7 +731,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   updateWorkflowStep(
     args: UpdateWorkflowStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: UpdateWorkflowStepCommandOutput) => void
   ): void;
 
@@ -728,7 +740,7 @@ export interface MigrationHubOrchestrator {
    */
   updateWorkflowStepGroup(
     args: UpdateWorkflowStepGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MigrationHubOrchestratorRequestOptions
   ): Promise<UpdateWorkflowStepGroupCommandOutput>;
   updateWorkflowStepGroup(
     args: UpdateWorkflowStepGroupCommandInput,
@@ -736,7 +748,7 @@ export interface MigrationHubOrchestrator {
   ): void;
   updateWorkflowStepGroup(
     args: UpdateWorkflowStepGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: MigrationHubOrchestratorRequestOptions,
     cb: (err: any, data?: UpdateWorkflowStepGroupCommandOutput) => void
   ): void;
 

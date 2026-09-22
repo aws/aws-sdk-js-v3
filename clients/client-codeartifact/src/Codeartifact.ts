@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CodeartifactClient } from "./CodeartifactClient";
 import {
@@ -317,13 +322,20 @@ const paginators = {
   paginateListSubPackageGroups,
 };
 
+/**
+ * @public
+ */
+export interface CodeartifactRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Codeartifact {
   /**
    * @see {@link AssociateExternalConnectionCommand}
    */
   associateExternalConnection(
     args: AssociateExternalConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<AssociateExternalConnectionCommandOutput>;
   associateExternalConnection(
     args: AssociateExternalConnectionCommandInput,
@@ -331,7 +343,7 @@ export interface Codeartifact {
   ): void;
   associateExternalConnection(
     args: AssociateExternalConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: AssociateExternalConnectionCommandOutput) => void
   ): void;
 
@@ -340,7 +352,7 @@ export interface Codeartifact {
    */
   copyPackageVersions(
     args: CopyPackageVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<CopyPackageVersionsCommandOutput>;
   copyPackageVersions(
     args: CopyPackageVersionsCommandInput,
@@ -348,7 +360,7 @@ export interface Codeartifact {
   ): void;
   copyPackageVersions(
     args: CopyPackageVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: CopyPackageVersionsCommandOutput) => void
   ): void;
 
@@ -357,7 +369,7 @@ export interface Codeartifact {
    */
   createDomain(
     args: CreateDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<CreateDomainCommandOutput>;
   createDomain(
     args: CreateDomainCommandInput,
@@ -365,7 +377,7 @@ export interface Codeartifact {
   ): void;
   createDomain(
     args: CreateDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: CreateDomainCommandOutput) => void
   ): void;
 
@@ -374,7 +386,7 @@ export interface Codeartifact {
    */
   createPackageGroup(
     args: CreatePackageGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<CreatePackageGroupCommandOutput>;
   createPackageGroup(
     args: CreatePackageGroupCommandInput,
@@ -382,7 +394,7 @@ export interface Codeartifact {
   ): void;
   createPackageGroup(
     args: CreatePackageGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: CreatePackageGroupCommandOutput) => void
   ): void;
 
@@ -391,7 +403,7 @@ export interface Codeartifact {
    */
   createRepository(
     args: CreateRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<CreateRepositoryCommandOutput>;
   createRepository(
     args: CreateRepositoryCommandInput,
@@ -399,7 +411,7 @@ export interface Codeartifact {
   ): void;
   createRepository(
     args: CreateRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: CreateRepositoryCommandOutput) => void
   ): void;
 
@@ -408,7 +420,7 @@ export interface Codeartifact {
    */
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DeleteDomainCommandOutput>;
   deleteDomain(
     args: DeleteDomainCommandInput,
@@ -416,7 +428,7 @@ export interface Codeartifact {
   ): void;
   deleteDomain(
     args: DeleteDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DeleteDomainCommandOutput) => void
   ): void;
 
@@ -425,7 +437,7 @@ export interface Codeartifact {
    */
   deleteDomainPermissionsPolicy(
     args: DeleteDomainPermissionsPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DeleteDomainPermissionsPolicyCommandOutput>;
   deleteDomainPermissionsPolicy(
     args: DeleteDomainPermissionsPolicyCommandInput,
@@ -433,7 +445,7 @@ export interface Codeartifact {
   ): void;
   deleteDomainPermissionsPolicy(
     args: DeleteDomainPermissionsPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DeleteDomainPermissionsPolicyCommandOutput) => void
   ): void;
 
@@ -442,7 +454,7 @@ export interface Codeartifact {
    */
   deletePackage(
     args: DeletePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DeletePackageCommandOutput>;
   deletePackage(
     args: DeletePackageCommandInput,
@@ -450,7 +462,7 @@ export interface Codeartifact {
   ): void;
   deletePackage(
     args: DeletePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DeletePackageCommandOutput) => void
   ): void;
 
@@ -459,7 +471,7 @@ export interface Codeartifact {
    */
   deletePackageGroup(
     args: DeletePackageGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DeletePackageGroupCommandOutput>;
   deletePackageGroup(
     args: DeletePackageGroupCommandInput,
@@ -467,7 +479,7 @@ export interface Codeartifact {
   ): void;
   deletePackageGroup(
     args: DeletePackageGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DeletePackageGroupCommandOutput) => void
   ): void;
 
@@ -476,7 +488,7 @@ export interface Codeartifact {
    */
   deletePackageVersions(
     args: DeletePackageVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DeletePackageVersionsCommandOutput>;
   deletePackageVersions(
     args: DeletePackageVersionsCommandInput,
@@ -484,7 +496,7 @@ export interface Codeartifact {
   ): void;
   deletePackageVersions(
     args: DeletePackageVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DeletePackageVersionsCommandOutput) => void
   ): void;
 
@@ -493,7 +505,7 @@ export interface Codeartifact {
    */
   deleteRepository(
     args: DeleteRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DeleteRepositoryCommandOutput>;
   deleteRepository(
     args: DeleteRepositoryCommandInput,
@@ -501,7 +513,7 @@ export interface Codeartifact {
   ): void;
   deleteRepository(
     args: DeleteRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DeleteRepositoryCommandOutput) => void
   ): void;
 
@@ -510,7 +522,7 @@ export interface Codeartifact {
    */
   deleteRepositoryPermissionsPolicy(
     args: DeleteRepositoryPermissionsPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DeleteRepositoryPermissionsPolicyCommandOutput>;
   deleteRepositoryPermissionsPolicy(
     args: DeleteRepositoryPermissionsPolicyCommandInput,
@@ -518,7 +530,7 @@ export interface Codeartifact {
   ): void;
   deleteRepositoryPermissionsPolicy(
     args: DeleteRepositoryPermissionsPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DeleteRepositoryPermissionsPolicyCommandOutput) => void
   ): void;
 
@@ -527,7 +539,7 @@ export interface Codeartifact {
    */
   describeDomain(
     args: DescribeDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DescribeDomainCommandOutput>;
   describeDomain(
     args: DescribeDomainCommandInput,
@@ -535,7 +547,7 @@ export interface Codeartifact {
   ): void;
   describeDomain(
     args: DescribeDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DescribeDomainCommandOutput) => void
   ): void;
 
@@ -544,7 +556,7 @@ export interface Codeartifact {
    */
   describePackage(
     args: DescribePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DescribePackageCommandOutput>;
   describePackage(
     args: DescribePackageCommandInput,
@@ -552,7 +564,7 @@ export interface Codeartifact {
   ): void;
   describePackage(
     args: DescribePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DescribePackageCommandOutput) => void
   ): void;
 
@@ -561,7 +573,7 @@ export interface Codeartifact {
    */
   describePackageGroup(
     args: DescribePackageGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DescribePackageGroupCommandOutput>;
   describePackageGroup(
     args: DescribePackageGroupCommandInput,
@@ -569,7 +581,7 @@ export interface Codeartifact {
   ): void;
   describePackageGroup(
     args: DescribePackageGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DescribePackageGroupCommandOutput) => void
   ): void;
 
@@ -578,7 +590,7 @@ export interface Codeartifact {
    */
   describePackageVersion(
     args: DescribePackageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DescribePackageVersionCommandOutput>;
   describePackageVersion(
     args: DescribePackageVersionCommandInput,
@@ -586,7 +598,7 @@ export interface Codeartifact {
   ): void;
   describePackageVersion(
     args: DescribePackageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DescribePackageVersionCommandOutput) => void
   ): void;
 
@@ -595,7 +607,7 @@ export interface Codeartifact {
    */
   describeRepository(
     args: DescribeRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DescribeRepositoryCommandOutput>;
   describeRepository(
     args: DescribeRepositoryCommandInput,
@@ -603,7 +615,7 @@ export interface Codeartifact {
   ): void;
   describeRepository(
     args: DescribeRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DescribeRepositoryCommandOutput) => void
   ): void;
 
@@ -612,7 +624,7 @@ export interface Codeartifact {
    */
   disassociateExternalConnection(
     args: DisassociateExternalConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DisassociateExternalConnectionCommandOutput>;
   disassociateExternalConnection(
     args: DisassociateExternalConnectionCommandInput,
@@ -620,7 +632,7 @@ export interface Codeartifact {
   ): void;
   disassociateExternalConnection(
     args: DisassociateExternalConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DisassociateExternalConnectionCommandOutput) => void
   ): void;
 
@@ -629,7 +641,7 @@ export interface Codeartifact {
    */
   disposePackageVersions(
     args: DisposePackageVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<DisposePackageVersionsCommandOutput>;
   disposePackageVersions(
     args: DisposePackageVersionsCommandInput,
@@ -637,7 +649,7 @@ export interface Codeartifact {
   ): void;
   disposePackageVersions(
     args: DisposePackageVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: DisposePackageVersionsCommandOutput) => void
   ): void;
 
@@ -646,7 +658,7 @@ export interface Codeartifact {
    */
   getAssociatedPackageGroup(
     args: GetAssociatedPackageGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<GetAssociatedPackageGroupCommandOutput>;
   getAssociatedPackageGroup(
     args: GetAssociatedPackageGroupCommandInput,
@@ -654,7 +666,7 @@ export interface Codeartifact {
   ): void;
   getAssociatedPackageGroup(
     args: GetAssociatedPackageGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: GetAssociatedPackageGroupCommandOutput) => void
   ): void;
 
@@ -663,7 +675,7 @@ export interface Codeartifact {
    */
   getAuthorizationToken(
     args: GetAuthorizationTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<GetAuthorizationTokenCommandOutput>;
   getAuthorizationToken(
     args: GetAuthorizationTokenCommandInput,
@@ -671,7 +683,7 @@ export interface Codeartifact {
   ): void;
   getAuthorizationToken(
     args: GetAuthorizationTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: GetAuthorizationTokenCommandOutput) => void
   ): void;
 
@@ -680,7 +692,7 @@ export interface Codeartifact {
    */
   getDomainPermissionsPolicy(
     args: GetDomainPermissionsPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<GetDomainPermissionsPolicyCommandOutput>;
   getDomainPermissionsPolicy(
     args: GetDomainPermissionsPolicyCommandInput,
@@ -688,7 +700,7 @@ export interface Codeartifact {
   ): void;
   getDomainPermissionsPolicy(
     args: GetDomainPermissionsPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: GetDomainPermissionsPolicyCommandOutput) => void
   ): void;
 
@@ -697,7 +709,7 @@ export interface Codeartifact {
    */
   getPackageVersionAsset(
     args: GetPackageVersionAssetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<GetPackageVersionAssetCommandOutput>;
   getPackageVersionAsset(
     args: GetPackageVersionAssetCommandInput,
@@ -705,7 +717,7 @@ export interface Codeartifact {
   ): void;
   getPackageVersionAsset(
     args: GetPackageVersionAssetCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: GetPackageVersionAssetCommandOutput) => void
   ): void;
 
@@ -714,7 +726,7 @@ export interface Codeartifact {
    */
   getPackageVersionReadme(
     args: GetPackageVersionReadmeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<GetPackageVersionReadmeCommandOutput>;
   getPackageVersionReadme(
     args: GetPackageVersionReadmeCommandInput,
@@ -722,7 +734,7 @@ export interface Codeartifact {
   ): void;
   getPackageVersionReadme(
     args: GetPackageVersionReadmeCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: GetPackageVersionReadmeCommandOutput) => void
   ): void;
 
@@ -731,7 +743,7 @@ export interface Codeartifact {
    */
   getRepositoryEndpoint(
     args: GetRepositoryEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<GetRepositoryEndpointCommandOutput>;
   getRepositoryEndpoint(
     args: GetRepositoryEndpointCommandInput,
@@ -739,7 +751,7 @@ export interface Codeartifact {
   ): void;
   getRepositoryEndpoint(
     args: GetRepositoryEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: GetRepositoryEndpointCommandOutput) => void
   ): void;
 
@@ -748,7 +760,7 @@ export interface Codeartifact {
    */
   getRepositoryPermissionsPolicy(
     args: GetRepositoryPermissionsPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<GetRepositoryPermissionsPolicyCommandOutput>;
   getRepositoryPermissionsPolicy(
     args: GetRepositoryPermissionsPolicyCommandInput,
@@ -756,7 +768,7 @@ export interface Codeartifact {
   ): void;
   getRepositoryPermissionsPolicy(
     args: GetRepositoryPermissionsPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: GetRepositoryPermissionsPolicyCommandOutput) => void
   ): void;
 
@@ -765,7 +777,7 @@ export interface Codeartifact {
    */
   listAllowedRepositoriesForGroup(
     args: ListAllowedRepositoriesForGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListAllowedRepositoriesForGroupCommandOutput>;
   listAllowedRepositoriesForGroup(
     args: ListAllowedRepositoriesForGroupCommandInput,
@@ -773,7 +785,7 @@ export interface Codeartifact {
   ): void;
   listAllowedRepositoriesForGroup(
     args: ListAllowedRepositoriesForGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListAllowedRepositoriesForGroupCommandOutput) => void
   ): void;
 
@@ -782,7 +794,7 @@ export interface Codeartifact {
    */
   listAssociatedPackages(
     args: ListAssociatedPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListAssociatedPackagesCommandOutput>;
   listAssociatedPackages(
     args: ListAssociatedPackagesCommandInput,
@@ -790,7 +802,7 @@ export interface Codeartifact {
   ): void;
   listAssociatedPackages(
     args: ListAssociatedPackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListAssociatedPackagesCommandOutput) => void
   ): void;
 
@@ -800,7 +812,7 @@ export interface Codeartifact {
   listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListDomainsCommandOutput>;
   listDomains(
     args: ListDomainsCommandInput,
@@ -808,7 +820,7 @@ export interface Codeartifact {
   ): void;
   listDomains(
     args: ListDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListDomainsCommandOutput) => void
   ): void;
 
@@ -817,7 +829,7 @@ export interface Codeartifact {
    */
   listPackageGroups(
     args: ListPackageGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListPackageGroupsCommandOutput>;
   listPackageGroups(
     args: ListPackageGroupsCommandInput,
@@ -825,7 +837,7 @@ export interface Codeartifact {
   ): void;
   listPackageGroups(
     args: ListPackageGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListPackageGroupsCommandOutput) => void
   ): void;
 
@@ -834,7 +846,7 @@ export interface Codeartifact {
    */
   listPackages(
     args: ListPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListPackagesCommandOutput>;
   listPackages(
     args: ListPackagesCommandInput,
@@ -842,7 +854,7 @@ export interface Codeartifact {
   ): void;
   listPackages(
     args: ListPackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListPackagesCommandOutput) => void
   ): void;
 
@@ -851,7 +863,7 @@ export interface Codeartifact {
    */
   listPackageVersionAssets(
     args: ListPackageVersionAssetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListPackageVersionAssetsCommandOutput>;
   listPackageVersionAssets(
     args: ListPackageVersionAssetsCommandInput,
@@ -859,7 +871,7 @@ export interface Codeartifact {
   ): void;
   listPackageVersionAssets(
     args: ListPackageVersionAssetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListPackageVersionAssetsCommandOutput) => void
   ): void;
 
@@ -868,7 +880,7 @@ export interface Codeartifact {
    */
   listPackageVersionDependencies(
     args: ListPackageVersionDependenciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListPackageVersionDependenciesCommandOutput>;
   listPackageVersionDependencies(
     args: ListPackageVersionDependenciesCommandInput,
@@ -876,7 +888,7 @@ export interface Codeartifact {
   ): void;
   listPackageVersionDependencies(
     args: ListPackageVersionDependenciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListPackageVersionDependenciesCommandOutput) => void
   ): void;
 
@@ -885,7 +897,7 @@ export interface Codeartifact {
    */
   listPackageVersions(
     args: ListPackageVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListPackageVersionsCommandOutput>;
   listPackageVersions(
     args: ListPackageVersionsCommandInput,
@@ -893,7 +905,7 @@ export interface Codeartifact {
   ): void;
   listPackageVersions(
     args: ListPackageVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListPackageVersionsCommandOutput) => void
   ): void;
 
@@ -903,7 +915,7 @@ export interface Codeartifact {
   listRepositories(): Promise<ListRepositoriesCommandOutput>;
   listRepositories(
     args: ListRepositoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListRepositoriesCommandOutput>;
   listRepositories(
     args: ListRepositoriesCommandInput,
@@ -911,7 +923,7 @@ export interface Codeartifact {
   ): void;
   listRepositories(
     args: ListRepositoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListRepositoriesCommandOutput) => void
   ): void;
 
@@ -920,7 +932,7 @@ export interface Codeartifact {
    */
   listRepositoriesInDomain(
     args: ListRepositoriesInDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListRepositoriesInDomainCommandOutput>;
   listRepositoriesInDomain(
     args: ListRepositoriesInDomainCommandInput,
@@ -928,7 +940,7 @@ export interface Codeartifact {
   ): void;
   listRepositoriesInDomain(
     args: ListRepositoriesInDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListRepositoriesInDomainCommandOutput) => void
   ): void;
 
@@ -937,7 +949,7 @@ export interface Codeartifact {
    */
   listSubPackageGroups(
     args: ListSubPackageGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListSubPackageGroupsCommandOutput>;
   listSubPackageGroups(
     args: ListSubPackageGroupsCommandInput,
@@ -945,7 +957,7 @@ export interface Codeartifact {
   ): void;
   listSubPackageGroups(
     args: ListSubPackageGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListSubPackageGroupsCommandOutput) => void
   ): void;
 
@@ -954,7 +966,7 @@ export interface Codeartifact {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -962,7 +974,7 @@ export interface Codeartifact {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -971,7 +983,7 @@ export interface Codeartifact {
    */
   publishPackageVersion(
     args: PublishPackageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<PublishPackageVersionCommandOutput>;
   publishPackageVersion(
     args: PublishPackageVersionCommandInput,
@@ -979,7 +991,7 @@ export interface Codeartifact {
   ): void;
   publishPackageVersion(
     args: PublishPackageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: PublishPackageVersionCommandOutput) => void
   ): void;
 
@@ -988,7 +1000,7 @@ export interface Codeartifact {
    */
   putDomainPermissionsPolicy(
     args: PutDomainPermissionsPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<PutDomainPermissionsPolicyCommandOutput>;
   putDomainPermissionsPolicy(
     args: PutDomainPermissionsPolicyCommandInput,
@@ -996,7 +1008,7 @@ export interface Codeartifact {
   ): void;
   putDomainPermissionsPolicy(
     args: PutDomainPermissionsPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: PutDomainPermissionsPolicyCommandOutput) => void
   ): void;
 
@@ -1005,7 +1017,7 @@ export interface Codeartifact {
    */
   putPackageOriginConfiguration(
     args: PutPackageOriginConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<PutPackageOriginConfigurationCommandOutput>;
   putPackageOriginConfiguration(
     args: PutPackageOriginConfigurationCommandInput,
@@ -1013,7 +1025,7 @@ export interface Codeartifact {
   ): void;
   putPackageOriginConfiguration(
     args: PutPackageOriginConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: PutPackageOriginConfigurationCommandOutput) => void
   ): void;
 
@@ -1022,7 +1034,7 @@ export interface Codeartifact {
    */
   putRepositoryPermissionsPolicy(
     args: PutRepositoryPermissionsPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<PutRepositoryPermissionsPolicyCommandOutput>;
   putRepositoryPermissionsPolicy(
     args: PutRepositoryPermissionsPolicyCommandInput,
@@ -1030,7 +1042,7 @@ export interface Codeartifact {
   ): void;
   putRepositoryPermissionsPolicy(
     args: PutRepositoryPermissionsPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: PutRepositoryPermissionsPolicyCommandOutput) => void
   ): void;
 
@@ -1039,7 +1051,7 @@ export interface Codeartifact {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1047,7 +1059,7 @@ export interface Codeartifact {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1056,7 +1068,7 @@ export interface Codeartifact {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1064,7 +1076,7 @@ export interface Codeartifact {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1073,7 +1085,7 @@ export interface Codeartifact {
    */
   updatePackageGroup(
     args: UpdatePackageGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<UpdatePackageGroupCommandOutput>;
   updatePackageGroup(
     args: UpdatePackageGroupCommandInput,
@@ -1081,7 +1093,7 @@ export interface Codeartifact {
   ): void;
   updatePackageGroup(
     args: UpdatePackageGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: UpdatePackageGroupCommandOutput) => void
   ): void;
 
@@ -1090,7 +1102,7 @@ export interface Codeartifact {
    */
   updatePackageGroupOriginConfiguration(
     args: UpdatePackageGroupOriginConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<UpdatePackageGroupOriginConfigurationCommandOutput>;
   updatePackageGroupOriginConfiguration(
     args: UpdatePackageGroupOriginConfigurationCommandInput,
@@ -1098,7 +1110,7 @@ export interface Codeartifact {
   ): void;
   updatePackageGroupOriginConfiguration(
     args: UpdatePackageGroupOriginConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: UpdatePackageGroupOriginConfigurationCommandOutput) => void
   ): void;
 
@@ -1107,7 +1119,7 @@ export interface Codeartifact {
    */
   updatePackageVersionsStatus(
     args: UpdatePackageVersionsStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<UpdatePackageVersionsStatusCommandOutput>;
   updatePackageVersionsStatus(
     args: UpdatePackageVersionsStatusCommandInput,
@@ -1115,7 +1127,7 @@ export interface Codeartifact {
   ): void;
   updatePackageVersionsStatus(
     args: UpdatePackageVersionsStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: UpdatePackageVersionsStatusCommandOutput) => void
   ): void;
 
@@ -1124,7 +1136,7 @@ export interface Codeartifact {
    */
   updateRepository(
     args: UpdateRepositoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeartifactRequestOptions
   ): Promise<UpdateRepositoryCommandOutput>;
   updateRepository(
     args: UpdateRepositoryCommandInput,
@@ -1132,7 +1144,7 @@ export interface Codeartifact {
   ): void;
   updateRepository(
     args: UpdateRepositoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeartifactRequestOptions,
     cb: (err: any, data?: UpdateRepositoryCommandOutput) => void
   ): void;
 

@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -575,13 +576,20 @@ const waiters = {
   waitUntilPublishedVersionActive,
 };
 
+/**
+ * @public
+ */
+export interface LambdaRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Lambda {
   /**
    * @see {@link AddLayerVersionPermissionCommand}
    */
   addLayerVersionPermission(
     args: AddLayerVersionPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<AddLayerVersionPermissionCommandOutput>;
   addLayerVersionPermission(
     args: AddLayerVersionPermissionCommandInput,
@@ -589,7 +597,7 @@ export interface Lambda {
   ): void;
   addLayerVersionPermission(
     args: AddLayerVersionPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: AddLayerVersionPermissionCommandOutput) => void
   ): void;
 
@@ -598,7 +606,7 @@ export interface Lambda {
    */
   addPermission(
     args: AddPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<AddPermissionCommandOutput>;
   addPermission(
     args: AddPermissionCommandInput,
@@ -606,7 +614,7 @@ export interface Lambda {
   ): void;
   addPermission(
     args: AddPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: AddPermissionCommandOutput) => void
   ): void;
 
@@ -615,7 +623,7 @@ export interface Lambda {
    */
   checkpointDurableExecution(
     args: CheckpointDurableExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<CheckpointDurableExecutionCommandOutput>;
   checkpointDurableExecution(
     args: CheckpointDurableExecutionCommandInput,
@@ -623,7 +631,7 @@ export interface Lambda {
   ): void;
   checkpointDurableExecution(
     args: CheckpointDurableExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: CheckpointDurableExecutionCommandOutput) => void
   ): void;
 
@@ -632,7 +640,7 @@ export interface Lambda {
    */
   createAlias(
     args: CreateAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<CreateAliasCommandOutput>;
   createAlias(
     args: CreateAliasCommandInput,
@@ -640,7 +648,7 @@ export interface Lambda {
   ): void;
   createAlias(
     args: CreateAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: CreateAliasCommandOutput) => void
   ): void;
 
@@ -649,7 +657,7 @@ export interface Lambda {
    */
   createCapacityProvider(
     args: CreateCapacityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<CreateCapacityProviderCommandOutput>;
   createCapacityProvider(
     args: CreateCapacityProviderCommandInput,
@@ -657,7 +665,7 @@ export interface Lambda {
   ): void;
   createCapacityProvider(
     args: CreateCapacityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: CreateCapacityProviderCommandOutput) => void
   ): void;
 
@@ -666,7 +674,7 @@ export interface Lambda {
    */
   createCodeSigningConfig(
     args: CreateCodeSigningConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<CreateCodeSigningConfigCommandOutput>;
   createCodeSigningConfig(
     args: CreateCodeSigningConfigCommandInput,
@@ -674,7 +682,7 @@ export interface Lambda {
   ): void;
   createCodeSigningConfig(
     args: CreateCodeSigningConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: CreateCodeSigningConfigCommandOutput) => void
   ): void;
 
@@ -683,7 +691,7 @@ export interface Lambda {
    */
   createEventSourceMapping(
     args: CreateEventSourceMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<CreateEventSourceMappingCommandOutput>;
   createEventSourceMapping(
     args: CreateEventSourceMappingCommandInput,
@@ -691,7 +699,7 @@ export interface Lambda {
   ): void;
   createEventSourceMapping(
     args: CreateEventSourceMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: CreateEventSourceMappingCommandOutput) => void
   ): void;
 
@@ -700,7 +708,7 @@ export interface Lambda {
    */
   createFunction(
     args: CreateFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<CreateFunctionCommandOutput>;
   createFunction(
     args: CreateFunctionCommandInput,
@@ -708,7 +716,7 @@ export interface Lambda {
   ): void;
   createFunction(
     args: CreateFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: CreateFunctionCommandOutput) => void
   ): void;
 
@@ -717,7 +725,7 @@ export interface Lambda {
    */
   createFunctionUrlConfig(
     args: CreateFunctionUrlConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<CreateFunctionUrlConfigCommandOutput>;
   createFunctionUrlConfig(
     args: CreateFunctionUrlConfigCommandInput,
@@ -725,7 +733,7 @@ export interface Lambda {
   ): void;
   createFunctionUrlConfig(
     args: CreateFunctionUrlConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: CreateFunctionUrlConfigCommandOutput) => void
   ): void;
 
@@ -734,7 +742,7 @@ export interface Lambda {
    */
   deleteAlias(
     args: DeleteAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteAliasCommandOutput>;
   deleteAlias(
     args: DeleteAliasCommandInput,
@@ -742,7 +750,7 @@ export interface Lambda {
   ): void;
   deleteAlias(
     args: DeleteAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteAliasCommandOutput) => void
   ): void;
 
@@ -751,7 +759,7 @@ export interface Lambda {
    */
   deleteCapacityProvider(
     args: DeleteCapacityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteCapacityProviderCommandOutput>;
   deleteCapacityProvider(
     args: DeleteCapacityProviderCommandInput,
@@ -759,7 +767,7 @@ export interface Lambda {
   ): void;
   deleteCapacityProvider(
     args: DeleteCapacityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteCapacityProviderCommandOutput) => void
   ): void;
 
@@ -768,7 +776,7 @@ export interface Lambda {
    */
   deleteCodeSigningConfig(
     args: DeleteCodeSigningConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteCodeSigningConfigCommandOutput>;
   deleteCodeSigningConfig(
     args: DeleteCodeSigningConfigCommandInput,
@@ -776,7 +784,7 @@ export interface Lambda {
   ): void;
   deleteCodeSigningConfig(
     args: DeleteCodeSigningConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteCodeSigningConfigCommandOutput) => void
   ): void;
 
@@ -785,7 +793,7 @@ export interface Lambda {
    */
   deleteEventSourceMapping(
     args: DeleteEventSourceMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteEventSourceMappingCommandOutput>;
   deleteEventSourceMapping(
     args: DeleteEventSourceMappingCommandInput,
@@ -793,7 +801,7 @@ export interface Lambda {
   ): void;
   deleteEventSourceMapping(
     args: DeleteEventSourceMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteEventSourceMappingCommandOutput) => void
   ): void;
 
@@ -802,7 +810,7 @@ export interface Lambda {
    */
   deleteFunction(
     args: DeleteFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteFunctionCommandOutput>;
   deleteFunction(
     args: DeleteFunctionCommandInput,
@@ -810,7 +818,7 @@ export interface Lambda {
   ): void;
   deleteFunction(
     args: DeleteFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteFunctionCommandOutput) => void
   ): void;
 
@@ -819,7 +827,7 @@ export interface Lambda {
    */
   deleteFunctionCodeSigningConfig(
     args: DeleteFunctionCodeSigningConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteFunctionCodeSigningConfigCommandOutput>;
   deleteFunctionCodeSigningConfig(
     args: DeleteFunctionCodeSigningConfigCommandInput,
@@ -827,7 +835,7 @@ export interface Lambda {
   ): void;
   deleteFunctionCodeSigningConfig(
     args: DeleteFunctionCodeSigningConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteFunctionCodeSigningConfigCommandOutput) => void
   ): void;
 
@@ -836,7 +844,7 @@ export interface Lambda {
    */
   deleteFunctionConcurrency(
     args: DeleteFunctionConcurrencyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteFunctionConcurrencyCommandOutput>;
   deleteFunctionConcurrency(
     args: DeleteFunctionConcurrencyCommandInput,
@@ -844,7 +852,7 @@ export interface Lambda {
   ): void;
   deleteFunctionConcurrency(
     args: DeleteFunctionConcurrencyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteFunctionConcurrencyCommandOutput) => void
   ): void;
 
@@ -853,7 +861,7 @@ export interface Lambda {
    */
   deleteFunctionEventInvokeConfig(
     args: DeleteFunctionEventInvokeConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteFunctionEventInvokeConfigCommandOutput>;
   deleteFunctionEventInvokeConfig(
     args: DeleteFunctionEventInvokeConfigCommandInput,
@@ -861,7 +869,7 @@ export interface Lambda {
   ): void;
   deleteFunctionEventInvokeConfig(
     args: DeleteFunctionEventInvokeConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteFunctionEventInvokeConfigCommandOutput) => void
   ): void;
 
@@ -870,7 +878,7 @@ export interface Lambda {
    */
   deleteFunctionUrlConfig(
     args: DeleteFunctionUrlConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteFunctionUrlConfigCommandOutput>;
   deleteFunctionUrlConfig(
     args: DeleteFunctionUrlConfigCommandInput,
@@ -878,7 +886,7 @@ export interface Lambda {
   ): void;
   deleteFunctionUrlConfig(
     args: DeleteFunctionUrlConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteFunctionUrlConfigCommandOutput) => void
   ): void;
 
@@ -887,7 +895,7 @@ export interface Lambda {
    */
   deleteLayerVersion(
     args: DeleteLayerVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteLayerVersionCommandOutput>;
   deleteLayerVersion(
     args: DeleteLayerVersionCommandInput,
@@ -895,7 +903,7 @@ export interface Lambda {
   ): void;
   deleteLayerVersion(
     args: DeleteLayerVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteLayerVersionCommandOutput) => void
   ): void;
 
@@ -904,7 +912,7 @@ export interface Lambda {
    */
   deleteProvisionedConcurrencyConfig(
     args: DeleteProvisionedConcurrencyConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput>;
   deleteProvisionedConcurrencyConfig(
     args: DeleteProvisionedConcurrencyConfigCommandInput,
@@ -912,7 +920,7 @@ export interface Lambda {
   ): void;
   deleteProvisionedConcurrencyConfig(
     args: DeleteProvisionedConcurrencyConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteProvisionedConcurrencyConfigCommandOutput) => void
   ): void;
 
@@ -921,7 +929,7 @@ export interface Lambda {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -929,7 +937,7 @@ export interface Lambda {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -939,7 +947,7 @@ export interface Lambda {
   getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
@@ -947,7 +955,7 @@ export interface Lambda {
   ): void;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
   ): void;
 
@@ -956,7 +964,7 @@ export interface Lambda {
    */
   getAlias(
     args: GetAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetAliasCommandOutput>;
   getAlias(
     args: GetAliasCommandInput,
@@ -964,7 +972,7 @@ export interface Lambda {
   ): void;
   getAlias(
     args: GetAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetAliasCommandOutput) => void
   ): void;
 
@@ -973,7 +981,7 @@ export interface Lambda {
    */
   getCapacityProvider(
     args: GetCapacityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetCapacityProviderCommandOutput>;
   getCapacityProvider(
     args: GetCapacityProviderCommandInput,
@@ -981,7 +989,7 @@ export interface Lambda {
   ): void;
   getCapacityProvider(
     args: GetCapacityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetCapacityProviderCommandOutput) => void
   ): void;
 
@@ -990,7 +998,7 @@ export interface Lambda {
    */
   getCodeSigningConfig(
     args: GetCodeSigningConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetCodeSigningConfigCommandOutput>;
   getCodeSigningConfig(
     args: GetCodeSigningConfigCommandInput,
@@ -998,7 +1006,7 @@ export interface Lambda {
   ): void;
   getCodeSigningConfig(
     args: GetCodeSigningConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetCodeSigningConfigCommandOutput) => void
   ): void;
 
@@ -1007,7 +1015,7 @@ export interface Lambda {
    */
   getDurableExecution(
     args: GetDurableExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetDurableExecutionCommandOutput>;
   getDurableExecution(
     args: GetDurableExecutionCommandInput,
@@ -1015,7 +1023,7 @@ export interface Lambda {
   ): void;
   getDurableExecution(
     args: GetDurableExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetDurableExecutionCommandOutput) => void
   ): void;
 
@@ -1024,7 +1032,7 @@ export interface Lambda {
    */
   getDurableExecutionHistory(
     args: GetDurableExecutionHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetDurableExecutionHistoryCommandOutput>;
   getDurableExecutionHistory(
     args: GetDurableExecutionHistoryCommandInput,
@@ -1032,7 +1040,7 @@ export interface Lambda {
   ): void;
   getDurableExecutionHistory(
     args: GetDurableExecutionHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetDurableExecutionHistoryCommandOutput) => void
   ): void;
 
@@ -1041,7 +1049,7 @@ export interface Lambda {
    */
   getDurableExecutionState(
     args: GetDurableExecutionStateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetDurableExecutionStateCommandOutput>;
   getDurableExecutionState(
     args: GetDurableExecutionStateCommandInput,
@@ -1049,7 +1057,7 @@ export interface Lambda {
   ): void;
   getDurableExecutionState(
     args: GetDurableExecutionStateCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetDurableExecutionStateCommandOutput) => void
   ): void;
 
@@ -1058,7 +1066,7 @@ export interface Lambda {
    */
   getEventSourceMapping(
     args: GetEventSourceMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetEventSourceMappingCommandOutput>;
   getEventSourceMapping(
     args: GetEventSourceMappingCommandInput,
@@ -1066,7 +1074,7 @@ export interface Lambda {
   ): void;
   getEventSourceMapping(
     args: GetEventSourceMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetEventSourceMappingCommandOutput) => void
   ): void;
 
@@ -1075,7 +1083,7 @@ export interface Lambda {
    */
   getFunction(
     args: GetFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetFunctionCommandOutput>;
   getFunction(
     args: GetFunctionCommandInput,
@@ -1083,7 +1091,7 @@ export interface Lambda {
   ): void;
   getFunction(
     args: GetFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetFunctionCommandOutput) => void
   ): void;
 
@@ -1092,7 +1100,7 @@ export interface Lambda {
    */
   getFunctionCodeSigningConfig(
     args: GetFunctionCodeSigningConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetFunctionCodeSigningConfigCommandOutput>;
   getFunctionCodeSigningConfig(
     args: GetFunctionCodeSigningConfigCommandInput,
@@ -1100,7 +1108,7 @@ export interface Lambda {
   ): void;
   getFunctionCodeSigningConfig(
     args: GetFunctionCodeSigningConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetFunctionCodeSigningConfigCommandOutput) => void
   ): void;
 
@@ -1109,7 +1117,7 @@ export interface Lambda {
    */
   getFunctionConcurrency(
     args: GetFunctionConcurrencyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetFunctionConcurrencyCommandOutput>;
   getFunctionConcurrency(
     args: GetFunctionConcurrencyCommandInput,
@@ -1117,7 +1125,7 @@ export interface Lambda {
   ): void;
   getFunctionConcurrency(
     args: GetFunctionConcurrencyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetFunctionConcurrencyCommandOutput) => void
   ): void;
 
@@ -1126,7 +1134,7 @@ export interface Lambda {
    */
   getFunctionConfiguration(
     args: GetFunctionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetFunctionConfigurationCommandOutput>;
   getFunctionConfiguration(
     args: GetFunctionConfigurationCommandInput,
@@ -1134,7 +1142,7 @@ export interface Lambda {
   ): void;
   getFunctionConfiguration(
     args: GetFunctionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetFunctionConfigurationCommandOutput) => void
   ): void;
 
@@ -1143,7 +1151,7 @@ export interface Lambda {
    */
   getFunctionEventInvokeConfig(
     args: GetFunctionEventInvokeConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetFunctionEventInvokeConfigCommandOutput>;
   getFunctionEventInvokeConfig(
     args: GetFunctionEventInvokeConfigCommandInput,
@@ -1151,7 +1159,7 @@ export interface Lambda {
   ): void;
   getFunctionEventInvokeConfig(
     args: GetFunctionEventInvokeConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetFunctionEventInvokeConfigCommandOutput) => void
   ): void;
 
@@ -1160,7 +1168,7 @@ export interface Lambda {
    */
   getFunctionRecursionConfig(
     args: GetFunctionRecursionConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetFunctionRecursionConfigCommandOutput>;
   getFunctionRecursionConfig(
     args: GetFunctionRecursionConfigCommandInput,
@@ -1168,7 +1176,7 @@ export interface Lambda {
   ): void;
   getFunctionRecursionConfig(
     args: GetFunctionRecursionConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetFunctionRecursionConfigCommandOutput) => void
   ): void;
 
@@ -1177,7 +1185,7 @@ export interface Lambda {
    */
   getFunctionScalingConfig(
     args: GetFunctionScalingConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetFunctionScalingConfigCommandOutput>;
   getFunctionScalingConfig(
     args: GetFunctionScalingConfigCommandInput,
@@ -1185,7 +1193,7 @@ export interface Lambda {
   ): void;
   getFunctionScalingConfig(
     args: GetFunctionScalingConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetFunctionScalingConfigCommandOutput) => void
   ): void;
 
@@ -1194,7 +1202,7 @@ export interface Lambda {
    */
   getFunctionUrlConfig(
     args: GetFunctionUrlConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetFunctionUrlConfigCommandOutput>;
   getFunctionUrlConfig(
     args: GetFunctionUrlConfigCommandInput,
@@ -1202,7 +1210,7 @@ export interface Lambda {
   ): void;
   getFunctionUrlConfig(
     args: GetFunctionUrlConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetFunctionUrlConfigCommandOutput) => void
   ): void;
 
@@ -1211,7 +1219,7 @@ export interface Lambda {
    */
   getLayerVersion(
     args: GetLayerVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetLayerVersionCommandOutput>;
   getLayerVersion(
     args: GetLayerVersionCommandInput,
@@ -1219,7 +1227,7 @@ export interface Lambda {
   ): void;
   getLayerVersion(
     args: GetLayerVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetLayerVersionCommandOutput) => void
   ): void;
 
@@ -1228,7 +1236,7 @@ export interface Lambda {
    */
   getLayerVersionByArn(
     args: GetLayerVersionByArnCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetLayerVersionByArnCommandOutput>;
   getLayerVersionByArn(
     args: GetLayerVersionByArnCommandInput,
@@ -1236,7 +1244,7 @@ export interface Lambda {
   ): void;
   getLayerVersionByArn(
     args: GetLayerVersionByArnCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetLayerVersionByArnCommandOutput) => void
   ): void;
 
@@ -1245,7 +1253,7 @@ export interface Lambda {
    */
   getLayerVersionPolicy(
     args: GetLayerVersionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetLayerVersionPolicyCommandOutput>;
   getLayerVersionPolicy(
     args: GetLayerVersionPolicyCommandInput,
@@ -1253,7 +1261,7 @@ export interface Lambda {
   ): void;
   getLayerVersionPolicy(
     args: GetLayerVersionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetLayerVersionPolicyCommandOutput) => void
   ): void;
 
@@ -1262,7 +1270,7 @@ export interface Lambda {
    */
   getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetPolicyCommandOutput>;
   getPolicy(
     args: GetPolicyCommandInput,
@@ -1270,7 +1278,7 @@ export interface Lambda {
   ): void;
   getPolicy(
     args: GetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
@@ -1279,7 +1287,7 @@ export interface Lambda {
    */
   getProvisionedConcurrencyConfig(
     args: GetProvisionedConcurrencyConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetProvisionedConcurrencyConfigCommandOutput>;
   getProvisionedConcurrencyConfig(
     args: GetProvisionedConcurrencyConfigCommandInput,
@@ -1287,7 +1295,7 @@ export interface Lambda {
   ): void;
   getProvisionedConcurrencyConfig(
     args: GetProvisionedConcurrencyConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetProvisionedConcurrencyConfigCommandOutput) => void
   ): void;
 
@@ -1296,7 +1304,7 @@ export interface Lambda {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -1304,7 +1312,7 @@ export interface Lambda {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1313,7 +1321,7 @@ export interface Lambda {
    */
   getRuntimeManagementConfig(
     args: GetRuntimeManagementConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<GetRuntimeManagementConfigCommandOutput>;
   getRuntimeManagementConfig(
     args: GetRuntimeManagementConfigCommandInput,
@@ -1321,7 +1329,7 @@ export interface Lambda {
   ): void;
   getRuntimeManagementConfig(
     args: GetRuntimeManagementConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: GetRuntimeManagementConfigCommandOutput) => void
   ): void;
 
@@ -1330,7 +1338,7 @@ export interface Lambda {
    */
   invoke(
     args: InvokeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<InvokeCommandOutput>;
   invoke(
     args: InvokeCommandInput,
@@ -1338,7 +1346,7 @@ export interface Lambda {
   ): void;
   invoke(
     args: InvokeCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: InvokeCommandOutput) => void
   ): void;
 
@@ -1347,7 +1355,7 @@ export interface Lambda {
    */
   invokeAsync(
     args: InvokeAsyncCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<InvokeAsyncCommandOutput>;
   invokeAsync(
     args: InvokeAsyncCommandInput,
@@ -1355,7 +1363,7 @@ export interface Lambda {
   ): void;
   invokeAsync(
     args: InvokeAsyncCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: InvokeAsyncCommandOutput) => void
   ): void;
 
@@ -1364,7 +1372,7 @@ export interface Lambda {
    */
   invokeWithResponseStream(
     args: InvokeWithResponseStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<InvokeWithResponseStreamCommandOutput>;
   invokeWithResponseStream(
     args: InvokeWithResponseStreamCommandInput,
@@ -1372,7 +1380,7 @@ export interface Lambda {
   ): void;
   invokeWithResponseStream(
     args: InvokeWithResponseStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: InvokeWithResponseStreamCommandOutput) => void
   ): void;
 
@@ -1381,7 +1389,7 @@ export interface Lambda {
    */
   listAliases(
     args: ListAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListAliasesCommandOutput>;
   listAliases(
     args: ListAliasesCommandInput,
@@ -1389,7 +1397,7 @@ export interface Lambda {
   ): void;
   listAliases(
     args: ListAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListAliasesCommandOutput) => void
   ): void;
 
@@ -1399,7 +1407,7 @@ export interface Lambda {
   listCapacityProviders(): Promise<ListCapacityProvidersCommandOutput>;
   listCapacityProviders(
     args: ListCapacityProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListCapacityProvidersCommandOutput>;
   listCapacityProviders(
     args: ListCapacityProvidersCommandInput,
@@ -1407,7 +1415,7 @@ export interface Lambda {
   ): void;
   listCapacityProviders(
     args: ListCapacityProvidersCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListCapacityProvidersCommandOutput) => void
   ): void;
 
@@ -1417,7 +1425,7 @@ export interface Lambda {
   listCodeSigningConfigs(): Promise<ListCodeSigningConfigsCommandOutput>;
   listCodeSigningConfigs(
     args: ListCodeSigningConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListCodeSigningConfigsCommandOutput>;
   listCodeSigningConfigs(
     args: ListCodeSigningConfigsCommandInput,
@@ -1425,7 +1433,7 @@ export interface Lambda {
   ): void;
   listCodeSigningConfigs(
     args: ListCodeSigningConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListCodeSigningConfigsCommandOutput) => void
   ): void;
 
@@ -1434,7 +1442,7 @@ export interface Lambda {
    */
   listDurableExecutionsByFunction(
     args: ListDurableExecutionsByFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListDurableExecutionsByFunctionCommandOutput>;
   listDurableExecutionsByFunction(
     args: ListDurableExecutionsByFunctionCommandInput,
@@ -1442,7 +1450,7 @@ export interface Lambda {
   ): void;
   listDurableExecutionsByFunction(
     args: ListDurableExecutionsByFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListDurableExecutionsByFunctionCommandOutput) => void
   ): void;
 
@@ -1452,7 +1460,7 @@ export interface Lambda {
   listEventSourceMappings(): Promise<ListEventSourceMappingsCommandOutput>;
   listEventSourceMappings(
     args: ListEventSourceMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListEventSourceMappingsCommandOutput>;
   listEventSourceMappings(
     args: ListEventSourceMappingsCommandInput,
@@ -1460,7 +1468,7 @@ export interface Lambda {
   ): void;
   listEventSourceMappings(
     args: ListEventSourceMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListEventSourceMappingsCommandOutput) => void
   ): void;
 
@@ -1469,7 +1477,7 @@ export interface Lambda {
    */
   listFunctionEventInvokeConfigs(
     args: ListFunctionEventInvokeConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListFunctionEventInvokeConfigsCommandOutput>;
   listFunctionEventInvokeConfigs(
     args: ListFunctionEventInvokeConfigsCommandInput,
@@ -1477,7 +1485,7 @@ export interface Lambda {
   ): void;
   listFunctionEventInvokeConfigs(
     args: ListFunctionEventInvokeConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListFunctionEventInvokeConfigsCommandOutput) => void
   ): void;
 
@@ -1487,7 +1495,7 @@ export interface Lambda {
   listFunctions(): Promise<ListFunctionsCommandOutput>;
   listFunctions(
     args: ListFunctionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListFunctionsCommandOutput>;
   listFunctions(
     args: ListFunctionsCommandInput,
@@ -1495,7 +1503,7 @@ export interface Lambda {
   ): void;
   listFunctions(
     args: ListFunctionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListFunctionsCommandOutput) => void
   ): void;
 
@@ -1504,7 +1512,7 @@ export interface Lambda {
    */
   listFunctionsByCodeSigningConfig(
     args: ListFunctionsByCodeSigningConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListFunctionsByCodeSigningConfigCommandOutput>;
   listFunctionsByCodeSigningConfig(
     args: ListFunctionsByCodeSigningConfigCommandInput,
@@ -1512,7 +1520,7 @@ export interface Lambda {
   ): void;
   listFunctionsByCodeSigningConfig(
     args: ListFunctionsByCodeSigningConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListFunctionsByCodeSigningConfigCommandOutput) => void
   ): void;
 
@@ -1521,7 +1529,7 @@ export interface Lambda {
    */
   listFunctionUrlConfigs(
     args: ListFunctionUrlConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListFunctionUrlConfigsCommandOutput>;
   listFunctionUrlConfigs(
     args: ListFunctionUrlConfigsCommandInput,
@@ -1529,7 +1537,7 @@ export interface Lambda {
   ): void;
   listFunctionUrlConfigs(
     args: ListFunctionUrlConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListFunctionUrlConfigsCommandOutput) => void
   ): void;
 
@@ -1538,7 +1546,7 @@ export interface Lambda {
    */
   listFunctionVersionsByCapacityProvider(
     args: ListFunctionVersionsByCapacityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListFunctionVersionsByCapacityProviderCommandOutput>;
   listFunctionVersionsByCapacityProvider(
     args: ListFunctionVersionsByCapacityProviderCommandInput,
@@ -1546,7 +1554,7 @@ export interface Lambda {
   ): void;
   listFunctionVersionsByCapacityProvider(
     args: ListFunctionVersionsByCapacityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListFunctionVersionsByCapacityProviderCommandOutput) => void
   ): void;
 
@@ -1556,7 +1564,7 @@ export interface Lambda {
   listLayers(): Promise<ListLayersCommandOutput>;
   listLayers(
     args: ListLayersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListLayersCommandOutput>;
   listLayers(
     args: ListLayersCommandInput,
@@ -1564,7 +1572,7 @@ export interface Lambda {
   ): void;
   listLayers(
     args: ListLayersCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListLayersCommandOutput) => void
   ): void;
 
@@ -1573,7 +1581,7 @@ export interface Lambda {
    */
   listLayerVersions(
     args: ListLayerVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListLayerVersionsCommandOutput>;
   listLayerVersions(
     args: ListLayerVersionsCommandInput,
@@ -1581,7 +1589,7 @@ export interface Lambda {
   ): void;
   listLayerVersions(
     args: ListLayerVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListLayerVersionsCommandOutput) => void
   ): void;
 
@@ -1590,7 +1598,7 @@ export interface Lambda {
    */
   listProvisionedConcurrencyConfigs(
     args: ListProvisionedConcurrencyConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListProvisionedConcurrencyConfigsCommandOutput>;
   listProvisionedConcurrencyConfigs(
     args: ListProvisionedConcurrencyConfigsCommandInput,
@@ -1598,7 +1606,7 @@ export interface Lambda {
   ): void;
   listProvisionedConcurrencyConfigs(
     args: ListProvisionedConcurrencyConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListProvisionedConcurrencyConfigsCommandOutput) => void
   ): void;
 
@@ -1607,7 +1615,7 @@ export interface Lambda {
    */
   listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListTagsCommandOutput>;
   listTags(
     args: ListTagsCommandInput,
@@ -1615,7 +1623,7 @@ export interface Lambda {
   ): void;
   listTags(
     args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
 
@@ -1624,7 +1632,7 @@ export interface Lambda {
    */
   listVersionsByFunction(
     args: ListVersionsByFunctionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<ListVersionsByFunctionCommandOutput>;
   listVersionsByFunction(
     args: ListVersionsByFunctionCommandInput,
@@ -1632,7 +1640,7 @@ export interface Lambda {
   ): void;
   listVersionsByFunction(
     args: ListVersionsByFunctionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: ListVersionsByFunctionCommandOutput) => void
   ): void;
 
@@ -1641,7 +1649,7 @@ export interface Lambda {
    */
   publishLayerVersion(
     args: PublishLayerVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PublishLayerVersionCommandOutput>;
   publishLayerVersion(
     args: PublishLayerVersionCommandInput,
@@ -1649,7 +1657,7 @@ export interface Lambda {
   ): void;
   publishLayerVersion(
     args: PublishLayerVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PublishLayerVersionCommandOutput) => void
   ): void;
 
@@ -1658,7 +1666,7 @@ export interface Lambda {
    */
   publishVersion(
     args: PublishVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PublishVersionCommandOutput>;
   publishVersion(
     args: PublishVersionCommandInput,
@@ -1666,7 +1674,7 @@ export interface Lambda {
   ): void;
   publishVersion(
     args: PublishVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PublishVersionCommandOutput) => void
   ): void;
 
@@ -1675,7 +1683,7 @@ export interface Lambda {
    */
   putFunctionCodeSigningConfig(
     args: PutFunctionCodeSigningConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PutFunctionCodeSigningConfigCommandOutput>;
   putFunctionCodeSigningConfig(
     args: PutFunctionCodeSigningConfigCommandInput,
@@ -1683,7 +1691,7 @@ export interface Lambda {
   ): void;
   putFunctionCodeSigningConfig(
     args: PutFunctionCodeSigningConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PutFunctionCodeSigningConfigCommandOutput) => void
   ): void;
 
@@ -1692,7 +1700,7 @@ export interface Lambda {
    */
   putFunctionConcurrency(
     args: PutFunctionConcurrencyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PutFunctionConcurrencyCommandOutput>;
   putFunctionConcurrency(
     args: PutFunctionConcurrencyCommandInput,
@@ -1700,7 +1708,7 @@ export interface Lambda {
   ): void;
   putFunctionConcurrency(
     args: PutFunctionConcurrencyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PutFunctionConcurrencyCommandOutput) => void
   ): void;
 
@@ -1709,7 +1717,7 @@ export interface Lambda {
    */
   putFunctionEventInvokeConfig(
     args: PutFunctionEventInvokeConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PutFunctionEventInvokeConfigCommandOutput>;
   putFunctionEventInvokeConfig(
     args: PutFunctionEventInvokeConfigCommandInput,
@@ -1717,7 +1725,7 @@ export interface Lambda {
   ): void;
   putFunctionEventInvokeConfig(
     args: PutFunctionEventInvokeConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PutFunctionEventInvokeConfigCommandOutput) => void
   ): void;
 
@@ -1726,7 +1734,7 @@ export interface Lambda {
    */
   putFunctionRecursionConfig(
     args: PutFunctionRecursionConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PutFunctionRecursionConfigCommandOutput>;
   putFunctionRecursionConfig(
     args: PutFunctionRecursionConfigCommandInput,
@@ -1734,7 +1742,7 @@ export interface Lambda {
   ): void;
   putFunctionRecursionConfig(
     args: PutFunctionRecursionConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PutFunctionRecursionConfigCommandOutput) => void
   ): void;
 
@@ -1743,7 +1751,7 @@ export interface Lambda {
    */
   putFunctionScalingConfig(
     args: PutFunctionScalingConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PutFunctionScalingConfigCommandOutput>;
   putFunctionScalingConfig(
     args: PutFunctionScalingConfigCommandInput,
@@ -1751,7 +1759,7 @@ export interface Lambda {
   ): void;
   putFunctionScalingConfig(
     args: PutFunctionScalingConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PutFunctionScalingConfigCommandOutput) => void
   ): void;
 
@@ -1760,7 +1768,7 @@ export interface Lambda {
    */
   putProvisionedConcurrencyConfig(
     args: PutProvisionedConcurrencyConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PutProvisionedConcurrencyConfigCommandOutput>;
   putProvisionedConcurrencyConfig(
     args: PutProvisionedConcurrencyConfigCommandInput,
@@ -1768,7 +1776,7 @@ export interface Lambda {
   ): void;
   putProvisionedConcurrencyConfig(
     args: PutProvisionedConcurrencyConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PutProvisionedConcurrencyConfigCommandOutput) => void
   ): void;
 
@@ -1777,7 +1785,7 @@ export interface Lambda {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -1785,7 +1793,7 @@ export interface Lambda {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1794,7 +1802,7 @@ export interface Lambda {
    */
   putRuntimeManagementConfig(
     args: PutRuntimeManagementConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<PutRuntimeManagementConfigCommandOutput>;
   putRuntimeManagementConfig(
     args: PutRuntimeManagementConfigCommandInput,
@@ -1802,7 +1810,7 @@ export interface Lambda {
   ): void;
   putRuntimeManagementConfig(
     args: PutRuntimeManagementConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: PutRuntimeManagementConfigCommandOutput) => void
   ): void;
 
@@ -1811,7 +1819,7 @@ export interface Lambda {
    */
   removeLayerVersionPermission(
     args: RemoveLayerVersionPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<RemoveLayerVersionPermissionCommandOutput>;
   removeLayerVersionPermission(
     args: RemoveLayerVersionPermissionCommandInput,
@@ -1819,7 +1827,7 @@ export interface Lambda {
   ): void;
   removeLayerVersionPermission(
     args: RemoveLayerVersionPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: RemoveLayerVersionPermissionCommandOutput) => void
   ): void;
 
@@ -1828,7 +1836,7 @@ export interface Lambda {
    */
   removePermission(
     args: RemovePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<RemovePermissionCommandOutput>;
   removePermission(
     args: RemovePermissionCommandInput,
@@ -1836,7 +1844,7 @@ export interface Lambda {
   ): void;
   removePermission(
     args: RemovePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: RemovePermissionCommandOutput) => void
   ): void;
 
@@ -1845,7 +1853,7 @@ export interface Lambda {
    */
   sendDurableExecutionCallbackFailure(
     args: SendDurableExecutionCallbackFailureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<SendDurableExecutionCallbackFailureCommandOutput>;
   sendDurableExecutionCallbackFailure(
     args: SendDurableExecutionCallbackFailureCommandInput,
@@ -1853,7 +1861,7 @@ export interface Lambda {
   ): void;
   sendDurableExecutionCallbackFailure(
     args: SendDurableExecutionCallbackFailureCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: SendDurableExecutionCallbackFailureCommandOutput) => void
   ): void;
 
@@ -1862,7 +1870,7 @@ export interface Lambda {
    */
   sendDurableExecutionCallbackHeartbeat(
     args: SendDurableExecutionCallbackHeartbeatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<SendDurableExecutionCallbackHeartbeatCommandOutput>;
   sendDurableExecutionCallbackHeartbeat(
     args: SendDurableExecutionCallbackHeartbeatCommandInput,
@@ -1870,7 +1878,7 @@ export interface Lambda {
   ): void;
   sendDurableExecutionCallbackHeartbeat(
     args: SendDurableExecutionCallbackHeartbeatCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: SendDurableExecutionCallbackHeartbeatCommandOutput) => void
   ): void;
 
@@ -1879,7 +1887,7 @@ export interface Lambda {
    */
   sendDurableExecutionCallbackSuccess(
     args: SendDurableExecutionCallbackSuccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<SendDurableExecutionCallbackSuccessCommandOutput>;
   sendDurableExecutionCallbackSuccess(
     args: SendDurableExecutionCallbackSuccessCommandInput,
@@ -1887,7 +1895,7 @@ export interface Lambda {
   ): void;
   sendDurableExecutionCallbackSuccess(
     args: SendDurableExecutionCallbackSuccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: SendDurableExecutionCallbackSuccessCommandOutput) => void
   ): void;
 
@@ -1896,7 +1904,7 @@ export interface Lambda {
    */
   stopDurableExecution(
     args: StopDurableExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<StopDurableExecutionCommandOutput>;
   stopDurableExecution(
     args: StopDurableExecutionCommandInput,
@@ -1904,7 +1912,7 @@ export interface Lambda {
   ): void;
   stopDurableExecution(
     args: StopDurableExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: StopDurableExecutionCommandOutput) => void
   ): void;
 
@@ -1913,7 +1921,7 @@ export interface Lambda {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1921,7 +1929,7 @@ export interface Lambda {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1930,7 +1938,7 @@ export interface Lambda {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1938,7 +1946,7 @@ export interface Lambda {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1947,7 +1955,7 @@ export interface Lambda {
    */
   updateAlias(
     args: UpdateAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<UpdateAliasCommandOutput>;
   updateAlias(
     args: UpdateAliasCommandInput,
@@ -1955,7 +1963,7 @@ export interface Lambda {
   ): void;
   updateAlias(
     args: UpdateAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: UpdateAliasCommandOutput) => void
   ): void;
 
@@ -1964,7 +1972,7 @@ export interface Lambda {
    */
   updateCapacityProvider(
     args: UpdateCapacityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<UpdateCapacityProviderCommandOutput>;
   updateCapacityProvider(
     args: UpdateCapacityProviderCommandInput,
@@ -1972,7 +1980,7 @@ export interface Lambda {
   ): void;
   updateCapacityProvider(
     args: UpdateCapacityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: UpdateCapacityProviderCommandOutput) => void
   ): void;
 
@@ -1981,7 +1989,7 @@ export interface Lambda {
    */
   updateCodeSigningConfig(
     args: UpdateCodeSigningConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<UpdateCodeSigningConfigCommandOutput>;
   updateCodeSigningConfig(
     args: UpdateCodeSigningConfigCommandInput,
@@ -1989,7 +1997,7 @@ export interface Lambda {
   ): void;
   updateCodeSigningConfig(
     args: UpdateCodeSigningConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: UpdateCodeSigningConfigCommandOutput) => void
   ): void;
 
@@ -1998,7 +2006,7 @@ export interface Lambda {
    */
   updateEventSourceMapping(
     args: UpdateEventSourceMappingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<UpdateEventSourceMappingCommandOutput>;
   updateEventSourceMapping(
     args: UpdateEventSourceMappingCommandInput,
@@ -2006,7 +2014,7 @@ export interface Lambda {
   ): void;
   updateEventSourceMapping(
     args: UpdateEventSourceMappingCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: UpdateEventSourceMappingCommandOutput) => void
   ): void;
 
@@ -2015,7 +2023,7 @@ export interface Lambda {
    */
   updateFunctionCode(
     args: UpdateFunctionCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<UpdateFunctionCodeCommandOutput>;
   updateFunctionCode(
     args: UpdateFunctionCodeCommandInput,
@@ -2023,7 +2031,7 @@ export interface Lambda {
   ): void;
   updateFunctionCode(
     args: UpdateFunctionCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: UpdateFunctionCodeCommandOutput) => void
   ): void;
 
@@ -2032,7 +2040,7 @@ export interface Lambda {
    */
   updateFunctionConfiguration(
     args: UpdateFunctionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<UpdateFunctionConfigurationCommandOutput>;
   updateFunctionConfiguration(
     args: UpdateFunctionConfigurationCommandInput,
@@ -2040,7 +2048,7 @@ export interface Lambda {
   ): void;
   updateFunctionConfiguration(
     args: UpdateFunctionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: UpdateFunctionConfigurationCommandOutput) => void
   ): void;
 
@@ -2049,7 +2057,7 @@ export interface Lambda {
    */
   updateFunctionEventInvokeConfig(
     args: UpdateFunctionEventInvokeConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<UpdateFunctionEventInvokeConfigCommandOutput>;
   updateFunctionEventInvokeConfig(
     args: UpdateFunctionEventInvokeConfigCommandInput,
@@ -2057,7 +2065,7 @@ export interface Lambda {
   ): void;
   updateFunctionEventInvokeConfig(
     args: UpdateFunctionEventInvokeConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: UpdateFunctionEventInvokeConfigCommandOutput) => void
   ): void;
 
@@ -2066,7 +2074,7 @@ export interface Lambda {
    */
   updateFunctionUrlConfig(
     args: UpdateFunctionUrlConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaRequestOptions
   ): Promise<UpdateFunctionUrlConfigCommandOutput>;
   updateFunctionUrlConfig(
     args: UpdateFunctionUrlConfigCommandInput,
@@ -2074,7 +2082,7 @@ export interface Lambda {
   ): void;
   updateFunctionUrlConfig(
     args: UpdateFunctionUrlConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaRequestOptions,
     cb: (err: any, data?: UpdateFunctionUrlConfigCommandOutput) => void
   ): void;
 

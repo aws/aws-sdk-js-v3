@@ -8589,7 +8589,7 @@ import type {
 import { EC2ServiceException } from "../models/EC2ServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var EC2ServiceException$: StaticErrorSchema = [-3, _s, "EC2ServiceException", 0, [], []];
 _s_registry.registerError(EC2ServiceException$, EC2ServiceException);
 /**

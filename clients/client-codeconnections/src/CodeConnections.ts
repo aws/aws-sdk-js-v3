@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CodeConnectionsClient } from "./CodeConnectionsClient";
 import {
@@ -171,13 +176,20 @@ const paginators = {
   paginateListSyncConfigurations,
 };
 
+/**
+ * @public
+ */
+export interface CodeConnectionsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CodeConnections {
   /**
    * @see {@link CreateConnectionCommand}
    */
   createConnection(
     args: CreateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<CreateConnectionCommandOutput>;
   createConnection(
     args: CreateConnectionCommandInput,
@@ -185,7 +197,7 @@ export interface CodeConnections {
   ): void;
   createConnection(
     args: CreateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: CreateConnectionCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface CodeConnections {
    */
   createHost(
     args: CreateHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<CreateHostCommandOutput>;
   createHost(
     args: CreateHostCommandInput,
@@ -202,7 +214,7 @@ export interface CodeConnections {
   ): void;
   createHost(
     args: CreateHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: CreateHostCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface CodeConnections {
    */
   createRepositoryLink(
     args: CreateRepositoryLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<CreateRepositoryLinkCommandOutput>;
   createRepositoryLink(
     args: CreateRepositoryLinkCommandInput,
@@ -219,7 +231,7 @@ export interface CodeConnections {
   ): void;
   createRepositoryLink(
     args: CreateRepositoryLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: CreateRepositoryLinkCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface CodeConnections {
    */
   createSyncConfiguration(
     args: CreateSyncConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<CreateSyncConfigurationCommandOutput>;
   createSyncConfiguration(
     args: CreateSyncConfigurationCommandInput,
@@ -236,7 +248,7 @@ export interface CodeConnections {
   ): void;
   createSyncConfiguration(
     args: CreateSyncConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: CreateSyncConfigurationCommandOutput) => void
   ): void;
 
@@ -245,7 +257,7 @@ export interface CodeConnections {
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -253,7 +265,7 @@ export interface CodeConnections {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -262,7 +274,7 @@ export interface CodeConnections {
    */
   deleteHost(
     args: DeleteHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<DeleteHostCommandOutput>;
   deleteHost(
     args: DeleteHostCommandInput,
@@ -270,7 +282,7 @@ export interface CodeConnections {
   ): void;
   deleteHost(
     args: DeleteHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: DeleteHostCommandOutput) => void
   ): void;
 
@@ -279,7 +291,7 @@ export interface CodeConnections {
    */
   deleteRepositoryLink(
     args: DeleteRepositoryLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<DeleteRepositoryLinkCommandOutput>;
   deleteRepositoryLink(
     args: DeleteRepositoryLinkCommandInput,
@@ -287,7 +299,7 @@ export interface CodeConnections {
   ): void;
   deleteRepositoryLink(
     args: DeleteRepositoryLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: DeleteRepositoryLinkCommandOutput) => void
   ): void;
 
@@ -296,7 +308,7 @@ export interface CodeConnections {
    */
   deleteSyncConfiguration(
     args: DeleteSyncConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<DeleteSyncConfigurationCommandOutput>;
   deleteSyncConfiguration(
     args: DeleteSyncConfigurationCommandInput,
@@ -304,7 +316,7 @@ export interface CodeConnections {
   ): void;
   deleteSyncConfiguration(
     args: DeleteSyncConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: DeleteSyncConfigurationCommandOutput) => void
   ): void;
 
@@ -313,7 +325,7 @@ export interface CodeConnections {
    */
   getConnection(
     args: GetConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<GetConnectionCommandOutput>;
   getConnection(
     args: GetConnectionCommandInput,
@@ -321,7 +333,7 @@ export interface CodeConnections {
   ): void;
   getConnection(
     args: GetConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: GetConnectionCommandOutput) => void
   ): void;
 
@@ -330,7 +342,7 @@ export interface CodeConnections {
    */
   getHost(
     args: GetHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<GetHostCommandOutput>;
   getHost(
     args: GetHostCommandInput,
@@ -338,7 +350,7 @@ export interface CodeConnections {
   ): void;
   getHost(
     args: GetHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: GetHostCommandOutput) => void
   ): void;
 
@@ -347,7 +359,7 @@ export interface CodeConnections {
    */
   getRepositoryLink(
     args: GetRepositoryLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<GetRepositoryLinkCommandOutput>;
   getRepositoryLink(
     args: GetRepositoryLinkCommandInput,
@@ -355,7 +367,7 @@ export interface CodeConnections {
   ): void;
   getRepositoryLink(
     args: GetRepositoryLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: GetRepositoryLinkCommandOutput) => void
   ): void;
 
@@ -364,7 +376,7 @@ export interface CodeConnections {
    */
   getRepositorySyncStatus(
     args: GetRepositorySyncStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<GetRepositorySyncStatusCommandOutput>;
   getRepositorySyncStatus(
     args: GetRepositorySyncStatusCommandInput,
@@ -372,7 +384,7 @@ export interface CodeConnections {
   ): void;
   getRepositorySyncStatus(
     args: GetRepositorySyncStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: GetRepositorySyncStatusCommandOutput) => void
   ): void;
 
@@ -381,7 +393,7 @@ export interface CodeConnections {
    */
   getResourceSyncStatus(
     args: GetResourceSyncStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<GetResourceSyncStatusCommandOutput>;
   getResourceSyncStatus(
     args: GetResourceSyncStatusCommandInput,
@@ -389,7 +401,7 @@ export interface CodeConnections {
   ): void;
   getResourceSyncStatus(
     args: GetResourceSyncStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: GetResourceSyncStatusCommandOutput) => void
   ): void;
 
@@ -398,7 +410,7 @@ export interface CodeConnections {
    */
   getSyncBlockerSummary(
     args: GetSyncBlockerSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<GetSyncBlockerSummaryCommandOutput>;
   getSyncBlockerSummary(
     args: GetSyncBlockerSummaryCommandInput,
@@ -406,7 +418,7 @@ export interface CodeConnections {
   ): void;
   getSyncBlockerSummary(
     args: GetSyncBlockerSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: GetSyncBlockerSummaryCommandOutput) => void
   ): void;
 
@@ -415,7 +427,7 @@ export interface CodeConnections {
    */
   getSyncConfiguration(
     args: GetSyncConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<GetSyncConfigurationCommandOutput>;
   getSyncConfiguration(
     args: GetSyncConfigurationCommandInput,
@@ -423,7 +435,7 @@ export interface CodeConnections {
   ): void;
   getSyncConfiguration(
     args: GetSyncConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: GetSyncConfigurationCommandOutput) => void
   ): void;
 
@@ -433,7 +445,7 @@ export interface CodeConnections {
   listConnections(): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
@@ -441,7 +453,7 @@ export interface CodeConnections {
   ): void;
   listConnections(
     args: ListConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: ListConnectionsCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface CodeConnections {
   listHosts(): Promise<ListHostsCommandOutput>;
   listHosts(
     args: ListHostsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<ListHostsCommandOutput>;
   listHosts(
     args: ListHostsCommandInput,
@@ -459,7 +471,7 @@ export interface CodeConnections {
   ): void;
   listHosts(
     args: ListHostsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: ListHostsCommandOutput) => void
   ): void;
 
@@ -469,7 +481,7 @@ export interface CodeConnections {
   listRepositoryLinks(): Promise<ListRepositoryLinksCommandOutput>;
   listRepositoryLinks(
     args: ListRepositoryLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<ListRepositoryLinksCommandOutput>;
   listRepositoryLinks(
     args: ListRepositoryLinksCommandInput,
@@ -477,7 +489,7 @@ export interface CodeConnections {
   ): void;
   listRepositoryLinks(
     args: ListRepositoryLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: ListRepositoryLinksCommandOutput) => void
   ): void;
 
@@ -486,7 +498,7 @@ export interface CodeConnections {
    */
   listRepositorySyncDefinitions(
     args: ListRepositorySyncDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<ListRepositorySyncDefinitionsCommandOutput>;
   listRepositorySyncDefinitions(
     args: ListRepositorySyncDefinitionsCommandInput,
@@ -494,7 +506,7 @@ export interface CodeConnections {
   ): void;
   listRepositorySyncDefinitions(
     args: ListRepositorySyncDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void
   ): void;
 
@@ -503,7 +515,7 @@ export interface CodeConnections {
    */
   listSyncConfigurations(
     args: ListSyncConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<ListSyncConfigurationsCommandOutput>;
   listSyncConfigurations(
     args: ListSyncConfigurationsCommandInput,
@@ -511,7 +523,7 @@ export interface CodeConnections {
   ): void;
   listSyncConfigurations(
     args: ListSyncConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: ListSyncConfigurationsCommandOutput) => void
   ): void;
 
@@ -520,7 +532,7 @@ export interface CodeConnections {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -528,7 +540,7 @@ export interface CodeConnections {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -537,7 +549,7 @@ export interface CodeConnections {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -545,7 +557,7 @@ export interface CodeConnections {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -554,7 +566,7 @@ export interface CodeConnections {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -562,7 +574,7 @@ export interface CodeConnections {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -571,7 +583,7 @@ export interface CodeConnections {
    */
   updateHost(
     args: UpdateHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<UpdateHostCommandOutput>;
   updateHost(
     args: UpdateHostCommandInput,
@@ -579,7 +591,7 @@ export interface CodeConnections {
   ): void;
   updateHost(
     args: UpdateHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: UpdateHostCommandOutput) => void
   ): void;
 
@@ -588,7 +600,7 @@ export interface CodeConnections {
    */
   updateRepositoryLink(
     args: UpdateRepositoryLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<UpdateRepositoryLinkCommandOutput>;
   updateRepositoryLink(
     args: UpdateRepositoryLinkCommandInput,
@@ -596,7 +608,7 @@ export interface CodeConnections {
   ): void;
   updateRepositoryLink(
     args: UpdateRepositoryLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: UpdateRepositoryLinkCommandOutput) => void
   ): void;
 
@@ -605,7 +617,7 @@ export interface CodeConnections {
    */
   updateSyncBlocker(
     args: UpdateSyncBlockerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<UpdateSyncBlockerCommandOutput>;
   updateSyncBlocker(
     args: UpdateSyncBlockerCommandInput,
@@ -613,7 +625,7 @@ export interface CodeConnections {
   ): void;
   updateSyncBlocker(
     args: UpdateSyncBlockerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: UpdateSyncBlockerCommandOutput) => void
   ): void;
 
@@ -622,7 +634,7 @@ export interface CodeConnections {
    */
   updateSyncConfiguration(
     args: UpdateSyncConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeConnectionsRequestOptions
   ): Promise<UpdateSyncConfigurationCommandOutput>;
   updateSyncConfiguration(
     args: UpdateSyncConfigurationCommandInput,
@@ -630,7 +642,7 @@ export interface CodeConnections {
   ): void;
   updateSyncConfiguration(
     args: UpdateSyncConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeConnectionsRequestOptions,
     cb: (err: any, data?: UpdateSyncConfigurationCommandOutput) => void
   ): void;
 

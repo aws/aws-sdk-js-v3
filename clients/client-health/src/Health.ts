@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DescribeAffectedAccountsForOrganizationCommandInput,
@@ -111,13 +116,20 @@ const paginators = {
   paginateDescribeEventTypes,
 };
 
+/**
+ * @public
+ */
+export interface HealthRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Health {
   /**
    * @see {@link DescribeAffectedAccountsForOrganizationCommand}
    */
   describeAffectedAccountsForOrganization(
     args: DescribeAffectedAccountsForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput>;
   describeAffectedAccountsForOrganization(
     args: DescribeAffectedAccountsForOrganizationCommandInput,
@@ -125,7 +137,7 @@ export interface Health {
   ): void;
   describeAffectedAccountsForOrganization(
     args: DescribeAffectedAccountsForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeAffectedAccountsForOrganizationCommandOutput) => void
   ): void;
 
@@ -134,7 +146,7 @@ export interface Health {
    */
   describeAffectedEntities(
     args: DescribeAffectedEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeAffectedEntitiesCommandOutput>;
   describeAffectedEntities(
     args: DescribeAffectedEntitiesCommandInput,
@@ -142,7 +154,7 @@ export interface Health {
   ): void;
   describeAffectedEntities(
     args: DescribeAffectedEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeAffectedEntitiesCommandOutput) => void
   ): void;
 
@@ -152,7 +164,7 @@ export interface Health {
   describeAffectedEntitiesForOrganization(): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput>;
   describeAffectedEntitiesForOrganization(
     args: DescribeAffectedEntitiesForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput>;
   describeAffectedEntitiesForOrganization(
     args: DescribeAffectedEntitiesForOrganizationCommandInput,
@@ -160,7 +172,7 @@ export interface Health {
   ): void;
   describeAffectedEntitiesForOrganization(
     args: DescribeAffectedEntitiesForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeAffectedEntitiesForOrganizationCommandOutput) => void
   ): void;
 
@@ -170,7 +182,7 @@ export interface Health {
   describeEntityAggregates(): Promise<DescribeEntityAggregatesCommandOutput>;
   describeEntityAggregates(
     args: DescribeEntityAggregatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeEntityAggregatesCommandOutput>;
   describeEntityAggregates(
     args: DescribeEntityAggregatesCommandInput,
@@ -178,7 +190,7 @@ export interface Health {
   ): void;
   describeEntityAggregates(
     args: DescribeEntityAggregatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeEntityAggregatesCommandOutput) => void
   ): void;
 
@@ -187,7 +199,7 @@ export interface Health {
    */
   describeEntityAggregatesForOrganization(
     args: DescribeEntityAggregatesForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeEntityAggregatesForOrganizationCommandOutput>;
   describeEntityAggregatesForOrganization(
     args: DescribeEntityAggregatesForOrganizationCommandInput,
@@ -195,7 +207,7 @@ export interface Health {
   ): void;
   describeEntityAggregatesForOrganization(
     args: DescribeEntityAggregatesForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeEntityAggregatesForOrganizationCommandOutput) => void
   ): void;
 
@@ -204,7 +216,7 @@ export interface Health {
    */
   describeEventAggregates(
     args: DescribeEventAggregatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeEventAggregatesCommandOutput>;
   describeEventAggregates(
     args: DescribeEventAggregatesCommandInput,
@@ -212,7 +224,7 @@ export interface Health {
   ): void;
   describeEventAggregates(
     args: DescribeEventAggregatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeEventAggregatesCommandOutput) => void
   ): void;
 
@@ -221,7 +233,7 @@ export interface Health {
    */
   describeEventDetails(
     args: DescribeEventDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeEventDetailsCommandOutput>;
   describeEventDetails(
     args: DescribeEventDetailsCommandInput,
@@ -229,7 +241,7 @@ export interface Health {
   ): void;
   describeEventDetails(
     args: DescribeEventDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeEventDetailsCommandOutput) => void
   ): void;
 
@@ -238,7 +250,7 @@ export interface Health {
    */
   describeEventDetailsForOrganization(
     args: DescribeEventDetailsForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeEventDetailsForOrganizationCommandOutput>;
   describeEventDetailsForOrganization(
     args: DescribeEventDetailsForOrganizationCommandInput,
@@ -246,7 +258,7 @@ export interface Health {
   ): void;
   describeEventDetailsForOrganization(
     args: DescribeEventDetailsForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeEventDetailsForOrganizationCommandOutput) => void
   ): void;
 
@@ -256,7 +268,7 @@ export interface Health {
   describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
@@ -264,7 +276,7 @@ export interface Health {
   ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeEventsCommandOutput) => void
   ): void;
 
@@ -274,7 +286,7 @@ export interface Health {
   describeEventsForOrganization(): Promise<DescribeEventsForOrganizationCommandOutput>;
   describeEventsForOrganization(
     args: DescribeEventsForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeEventsForOrganizationCommandOutput>;
   describeEventsForOrganization(
     args: DescribeEventsForOrganizationCommandInput,
@@ -282,7 +294,7 @@ export interface Health {
   ): void;
   describeEventsForOrganization(
     args: DescribeEventsForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeEventsForOrganizationCommandOutput) => void
   ): void;
 
@@ -292,7 +304,7 @@ export interface Health {
   describeEventTypes(): Promise<DescribeEventTypesCommandOutput>;
   describeEventTypes(
     args: DescribeEventTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeEventTypesCommandOutput>;
   describeEventTypes(
     args: DescribeEventTypesCommandInput,
@@ -300,7 +312,7 @@ export interface Health {
   ): void;
   describeEventTypes(
     args: DescribeEventTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeEventTypesCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface Health {
   describeHealthServiceStatusForOrganization(): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput>;
   describeHealthServiceStatusForOrganization(
     args: DescribeHealthServiceStatusForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput>;
   describeHealthServiceStatusForOrganization(
     args: DescribeHealthServiceStatusForOrganizationCommandInput,
@@ -318,7 +330,7 @@ export interface Health {
   ): void;
   describeHealthServiceStatusForOrganization(
     args: DescribeHealthServiceStatusForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DescribeHealthServiceStatusForOrganizationCommandOutput) => void
   ): void;
 
@@ -328,7 +340,7 @@ export interface Health {
   disableHealthServiceAccessForOrganization(): Promise<DisableHealthServiceAccessForOrganizationCommandOutput>;
   disableHealthServiceAccessForOrganization(
     args: DisableHealthServiceAccessForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput>;
   disableHealthServiceAccessForOrganization(
     args: DisableHealthServiceAccessForOrganizationCommandInput,
@@ -336,7 +348,7 @@ export interface Health {
   ): void;
   disableHealthServiceAccessForOrganization(
     args: DisableHealthServiceAccessForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: DisableHealthServiceAccessForOrganizationCommandOutput) => void
   ): void;
 
@@ -346,7 +358,7 @@ export interface Health {
   enableHealthServiceAccessForOrganization(): Promise<EnableHealthServiceAccessForOrganizationCommandOutput>;
   enableHealthServiceAccessForOrganization(
     args: EnableHealthServiceAccessForOrganizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: HealthRequestOptions
   ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput>;
   enableHealthServiceAccessForOrganization(
     args: EnableHealthServiceAccessForOrganizationCommandInput,
@@ -354,7 +366,7 @@ export interface Health {
   ): void;
   enableHealthServiceAccessForOrganization(
     args: EnableHealthServiceAccessForOrganizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: HealthRequestOptions,
     cb: (err: any, data?: EnableHealthServiceAccessForOrganizationCommandOutput) => void
   ): void;
 

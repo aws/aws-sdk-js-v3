@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CodeGuruProfilerClient } from "./CodeGuruProfilerClient";
 import {
@@ -151,13 +156,20 @@ const paginators = {
   paginateListProfilingGroups,
 };
 
+/**
+ * @public
+ */
+export interface CodeGuruProfilerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CodeGuruProfiler {
   /**
    * @see {@link AddNotificationChannelsCommand}
    */
   addNotificationChannels(
     args: AddNotificationChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<AddNotificationChannelsCommandOutput>;
   addNotificationChannels(
     args: AddNotificationChannelsCommandInput,
@@ -165,7 +177,7 @@ export interface CodeGuruProfiler {
   ): void;
   addNotificationChannels(
     args: AddNotificationChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: AddNotificationChannelsCommandOutput) => void
   ): void;
 
@@ -174,7 +186,7 @@ export interface CodeGuruProfiler {
    */
   batchGetFrameMetricData(
     args: BatchGetFrameMetricDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<BatchGetFrameMetricDataCommandOutput>;
   batchGetFrameMetricData(
     args: BatchGetFrameMetricDataCommandInput,
@@ -182,7 +194,7 @@ export interface CodeGuruProfiler {
   ): void;
   batchGetFrameMetricData(
     args: BatchGetFrameMetricDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: BatchGetFrameMetricDataCommandOutput) => void
   ): void;
 
@@ -191,7 +203,7 @@ export interface CodeGuruProfiler {
    */
   configureAgent(
     args: ConfigureAgentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<ConfigureAgentCommandOutput>;
   configureAgent(
     args: ConfigureAgentCommandInput,
@@ -199,7 +211,7 @@ export interface CodeGuruProfiler {
   ): void;
   configureAgent(
     args: ConfigureAgentCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: ConfigureAgentCommandOutput) => void
   ): void;
 
@@ -208,7 +220,7 @@ export interface CodeGuruProfiler {
    */
   createProfilingGroup(
     args: CreateProfilingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<CreateProfilingGroupCommandOutput>;
   createProfilingGroup(
     args: CreateProfilingGroupCommandInput,
@@ -216,7 +228,7 @@ export interface CodeGuruProfiler {
   ): void;
   createProfilingGroup(
     args: CreateProfilingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: CreateProfilingGroupCommandOutput) => void
   ): void;
 
@@ -225,7 +237,7 @@ export interface CodeGuruProfiler {
    */
   deleteProfilingGroup(
     args: DeleteProfilingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<DeleteProfilingGroupCommandOutput>;
   deleteProfilingGroup(
     args: DeleteProfilingGroupCommandInput,
@@ -233,7 +245,7 @@ export interface CodeGuruProfiler {
   ): void;
   deleteProfilingGroup(
     args: DeleteProfilingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: DeleteProfilingGroupCommandOutput) => void
   ): void;
 
@@ -242,7 +254,7 @@ export interface CodeGuruProfiler {
    */
   describeProfilingGroup(
     args: DescribeProfilingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<DescribeProfilingGroupCommandOutput>;
   describeProfilingGroup(
     args: DescribeProfilingGroupCommandInput,
@@ -250,7 +262,7 @@ export interface CodeGuruProfiler {
   ): void;
   describeProfilingGroup(
     args: DescribeProfilingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: DescribeProfilingGroupCommandOutput) => void
   ): void;
 
@@ -260,7 +272,7 @@ export interface CodeGuruProfiler {
   getFindingsReportAccountSummary(): Promise<GetFindingsReportAccountSummaryCommandOutput>;
   getFindingsReportAccountSummary(
     args: GetFindingsReportAccountSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<GetFindingsReportAccountSummaryCommandOutput>;
   getFindingsReportAccountSummary(
     args: GetFindingsReportAccountSummaryCommandInput,
@@ -268,7 +280,7 @@ export interface CodeGuruProfiler {
   ): void;
   getFindingsReportAccountSummary(
     args: GetFindingsReportAccountSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: GetFindingsReportAccountSummaryCommandOutput) => void
   ): void;
 
@@ -277,7 +289,7 @@ export interface CodeGuruProfiler {
    */
   getNotificationConfiguration(
     args: GetNotificationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<GetNotificationConfigurationCommandOutput>;
   getNotificationConfiguration(
     args: GetNotificationConfigurationCommandInput,
@@ -285,7 +297,7 @@ export interface CodeGuruProfiler {
   ): void;
   getNotificationConfiguration(
     args: GetNotificationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: GetNotificationConfigurationCommandOutput) => void
   ): void;
 
@@ -294,7 +306,7 @@ export interface CodeGuruProfiler {
    */
   getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<GetPolicyCommandOutput>;
   getPolicy(
     args: GetPolicyCommandInput,
@@ -302,7 +314,7 @@ export interface CodeGuruProfiler {
   ): void;
   getPolicy(
     args: GetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
@@ -311,7 +323,7 @@ export interface CodeGuruProfiler {
    */
   getProfile(
     args: GetProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<GetProfileCommandOutput>;
   getProfile(
     args: GetProfileCommandInput,
@@ -319,7 +331,7 @@ export interface CodeGuruProfiler {
   ): void;
   getProfile(
     args: GetProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: GetProfileCommandOutput) => void
   ): void;
 
@@ -328,7 +340,7 @@ export interface CodeGuruProfiler {
    */
   getRecommendations(
     args: GetRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<GetRecommendationsCommandOutput>;
   getRecommendations(
     args: GetRecommendationsCommandInput,
@@ -336,7 +348,7 @@ export interface CodeGuruProfiler {
   ): void;
   getRecommendations(
     args: GetRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: GetRecommendationsCommandOutput) => void
   ): void;
 
@@ -345,7 +357,7 @@ export interface CodeGuruProfiler {
    */
   listFindingsReports(
     args: ListFindingsReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<ListFindingsReportsCommandOutput>;
   listFindingsReports(
     args: ListFindingsReportsCommandInput,
@@ -353,7 +365,7 @@ export interface CodeGuruProfiler {
   ): void;
   listFindingsReports(
     args: ListFindingsReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: ListFindingsReportsCommandOutput) => void
   ): void;
 
@@ -362,7 +374,7 @@ export interface CodeGuruProfiler {
    */
   listProfileTimes(
     args: ListProfileTimesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<ListProfileTimesCommandOutput>;
   listProfileTimes(
     args: ListProfileTimesCommandInput,
@@ -370,7 +382,7 @@ export interface CodeGuruProfiler {
   ): void;
   listProfileTimes(
     args: ListProfileTimesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: ListProfileTimesCommandOutput) => void
   ): void;
 
@@ -380,7 +392,7 @@ export interface CodeGuruProfiler {
   listProfilingGroups(): Promise<ListProfilingGroupsCommandOutput>;
   listProfilingGroups(
     args: ListProfilingGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<ListProfilingGroupsCommandOutput>;
   listProfilingGroups(
     args: ListProfilingGroupsCommandInput,
@@ -388,7 +400,7 @@ export interface CodeGuruProfiler {
   ): void;
   listProfilingGroups(
     args: ListProfilingGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: ListProfilingGroupsCommandOutput) => void
   ): void;
 
@@ -397,7 +409,7 @@ export interface CodeGuruProfiler {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -405,7 +417,7 @@ export interface CodeGuruProfiler {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -414,7 +426,7 @@ export interface CodeGuruProfiler {
    */
   postAgentProfile(
     args: PostAgentProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<PostAgentProfileCommandOutput>;
   postAgentProfile(
     args: PostAgentProfileCommandInput,
@@ -422,7 +434,7 @@ export interface CodeGuruProfiler {
   ): void;
   postAgentProfile(
     args: PostAgentProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: PostAgentProfileCommandOutput) => void
   ): void;
 
@@ -431,7 +443,7 @@ export interface CodeGuruProfiler {
    */
   putPermission(
     args: PutPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<PutPermissionCommandOutput>;
   putPermission(
     args: PutPermissionCommandInput,
@@ -439,7 +451,7 @@ export interface CodeGuruProfiler {
   ): void;
   putPermission(
     args: PutPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: PutPermissionCommandOutput) => void
   ): void;
 
@@ -448,7 +460,7 @@ export interface CodeGuruProfiler {
    */
   removeNotificationChannel(
     args: RemoveNotificationChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<RemoveNotificationChannelCommandOutput>;
   removeNotificationChannel(
     args: RemoveNotificationChannelCommandInput,
@@ -456,7 +468,7 @@ export interface CodeGuruProfiler {
   ): void;
   removeNotificationChannel(
     args: RemoveNotificationChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: RemoveNotificationChannelCommandOutput) => void
   ): void;
 
@@ -465,7 +477,7 @@ export interface CodeGuruProfiler {
    */
   removePermission(
     args: RemovePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<RemovePermissionCommandOutput>;
   removePermission(
     args: RemovePermissionCommandInput,
@@ -473,7 +485,7 @@ export interface CodeGuruProfiler {
   ): void;
   removePermission(
     args: RemovePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: RemovePermissionCommandOutput) => void
   ): void;
 
@@ -482,7 +494,7 @@ export interface CodeGuruProfiler {
    */
   submitFeedback(
     args: SubmitFeedbackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<SubmitFeedbackCommandOutput>;
   submitFeedback(
     args: SubmitFeedbackCommandInput,
@@ -490,7 +502,7 @@ export interface CodeGuruProfiler {
   ): void;
   submitFeedback(
     args: SubmitFeedbackCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: SubmitFeedbackCommandOutput) => void
   ): void;
 
@@ -499,7 +511,7 @@ export interface CodeGuruProfiler {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -507,7 +519,7 @@ export interface CodeGuruProfiler {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -516,7 +528,7 @@ export interface CodeGuruProfiler {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -524,7 +536,7 @@ export interface CodeGuruProfiler {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -533,7 +545,7 @@ export interface CodeGuruProfiler {
    */
   updateProfilingGroup(
     args: UpdateProfilingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeGuruProfilerRequestOptions
   ): Promise<UpdateProfilingGroupCommandOutput>;
   updateProfilingGroup(
     args: UpdateProfilingGroupCommandInput,
@@ -541,7 +553,7 @@ export interface CodeGuruProfiler {
   ): void;
   updateProfilingGroup(
     args: UpdateProfilingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeGuruProfilerRequestOptions,
     cb: (err: any, data?: UpdateProfilingGroupCommandOutput) => void
   ): void;
 

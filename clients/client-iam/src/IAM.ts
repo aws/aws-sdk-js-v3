@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -1129,13 +1130,20 @@ const waiters = {
   waitUntilUserExists,
 };
 
+/**
+ * @public
+ */
+export interface IAMRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IAM {
   /**
    * @see {@link AcceptDelegationRequestCommand}
    */
   acceptDelegationRequest(
     args: AcceptDelegationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<AcceptDelegationRequestCommandOutput>;
   acceptDelegationRequest(
     args: AcceptDelegationRequestCommandInput,
@@ -1143,7 +1151,7 @@ export interface IAM {
   ): void;
   acceptDelegationRequest(
     args: AcceptDelegationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: AcceptDelegationRequestCommandOutput) => void
   ): void;
 
@@ -1152,7 +1160,7 @@ export interface IAM {
    */
   acquireRole(
     args: AcquireRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<AcquireRoleCommandOutput>;
   acquireRole(
     args: AcquireRoleCommandInput,
@@ -1160,7 +1168,7 @@ export interface IAM {
   ): void;
   acquireRole(
     args: AcquireRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: AcquireRoleCommandOutput) => void
   ): void;
 
@@ -1169,7 +1177,7 @@ export interface IAM {
    */
   addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput>;
   addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
@@ -1177,7 +1185,7 @@ export interface IAM {
   ): void;
   addClientIDToOpenIDConnectProvider(
     args: AddClientIDToOpenIDConnectProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: AddClientIDToOpenIDConnectProviderCommandOutput) => void
   ): void;
 
@@ -1186,7 +1194,7 @@ export interface IAM {
    */
   addRoleToInstanceProfile(
     args: AddRoleToInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<AddRoleToInstanceProfileCommandOutput>;
   addRoleToInstanceProfile(
     args: AddRoleToInstanceProfileCommandInput,
@@ -1194,7 +1202,7 @@ export interface IAM {
   ): void;
   addRoleToInstanceProfile(
     args: AddRoleToInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: AddRoleToInstanceProfileCommandOutput) => void
   ): void;
 
@@ -1203,7 +1211,7 @@ export interface IAM {
    */
   addUserToGroup(
     args: AddUserToGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<AddUserToGroupCommandOutput>;
   addUserToGroup(
     args: AddUserToGroupCommandInput,
@@ -1211,7 +1219,7 @@ export interface IAM {
   ): void;
   addUserToGroup(
     args: AddUserToGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: AddUserToGroupCommandOutput) => void
   ): void;
 
@@ -1220,7 +1228,7 @@ export interface IAM {
    */
   associateDelegationRequest(
     args: AssociateDelegationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<AssociateDelegationRequestCommandOutput>;
   associateDelegationRequest(
     args: AssociateDelegationRequestCommandInput,
@@ -1228,7 +1236,7 @@ export interface IAM {
   ): void;
   associateDelegationRequest(
     args: AssociateDelegationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: AssociateDelegationRequestCommandOutput) => void
   ): void;
 
@@ -1237,7 +1245,7 @@ export interface IAM {
    */
   attachGroupPolicy(
     args: AttachGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<AttachGroupPolicyCommandOutput>;
   attachGroupPolicy(
     args: AttachGroupPolicyCommandInput,
@@ -1245,7 +1253,7 @@ export interface IAM {
   ): void;
   attachGroupPolicy(
     args: AttachGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: AttachGroupPolicyCommandOutput) => void
   ): void;
 
@@ -1254,7 +1262,7 @@ export interface IAM {
    */
   attachRolePolicy(
     args: AttachRolePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<AttachRolePolicyCommandOutput>;
   attachRolePolicy(
     args: AttachRolePolicyCommandInput,
@@ -1262,7 +1270,7 @@ export interface IAM {
   ): void;
   attachRolePolicy(
     args: AttachRolePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: AttachRolePolicyCommandOutput) => void
   ): void;
 
@@ -1271,7 +1279,7 @@ export interface IAM {
    */
   attachUserPolicy(
     args: AttachUserPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<AttachUserPolicyCommandOutput>;
   attachUserPolicy(
     args: AttachUserPolicyCommandInput,
@@ -1279,7 +1287,7 @@ export interface IAM {
   ): void;
   attachUserPolicy(
     args: AttachUserPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: AttachUserPolicyCommandOutput) => void
   ): void;
 
@@ -1288,7 +1296,7 @@ export interface IAM {
    */
   changePassword(
     args: ChangePasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ChangePasswordCommandOutput>;
   changePassword(
     args: ChangePasswordCommandInput,
@@ -1296,7 +1304,7 @@ export interface IAM {
   ): void;
   changePassword(
     args: ChangePasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ChangePasswordCommandOutput) => void
   ): void;
 
@@ -1306,7 +1314,7 @@ export interface IAM {
   createAccessKey(): Promise<CreateAccessKeyCommandOutput>;
   createAccessKey(
     args: CreateAccessKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateAccessKeyCommandOutput>;
   createAccessKey(
     args: CreateAccessKeyCommandInput,
@@ -1314,7 +1322,7 @@ export interface IAM {
   ): void;
   createAccessKey(
     args: CreateAccessKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateAccessKeyCommandOutput) => void
   ): void;
 
@@ -1323,7 +1331,7 @@ export interface IAM {
    */
   createAccountAlias(
     args: CreateAccountAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateAccountAliasCommandOutput>;
   createAccountAlias(
     args: CreateAccountAliasCommandInput,
@@ -1331,7 +1339,7 @@ export interface IAM {
   ): void;
   createAccountAlias(
     args: CreateAccountAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateAccountAliasCommandOutput) => void
   ): void;
 
@@ -1340,7 +1348,7 @@ export interface IAM {
    */
   createDelegationRequest(
     args: CreateDelegationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateDelegationRequestCommandOutput>;
   createDelegationRequest(
     args: CreateDelegationRequestCommandInput,
@@ -1348,7 +1356,7 @@ export interface IAM {
   ): void;
   createDelegationRequest(
     args: CreateDelegationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateDelegationRequestCommandOutput) => void
   ): void;
 
@@ -1357,7 +1365,7 @@ export interface IAM {
    */
   createGroup(
     args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateGroupCommandOutput>;
   createGroup(
     args: CreateGroupCommandInput,
@@ -1365,7 +1373,7 @@ export interface IAM {
   ): void;
   createGroup(
     args: CreateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateGroupCommandOutput) => void
   ): void;
 
@@ -1374,7 +1382,7 @@ export interface IAM {
    */
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateInstanceProfileCommandOutput>;
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
@@ -1382,7 +1390,7 @@ export interface IAM {
   ): void;
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateInstanceProfileCommandOutput) => void
   ): void;
 
@@ -1392,7 +1400,7 @@ export interface IAM {
   createLoginProfile(): Promise<CreateLoginProfileCommandOutput>;
   createLoginProfile(
     args: CreateLoginProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateLoginProfileCommandOutput>;
   createLoginProfile(
     args: CreateLoginProfileCommandInput,
@@ -1400,7 +1408,7 @@ export interface IAM {
   ): void;
   createLoginProfile(
     args: CreateLoginProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateLoginProfileCommandOutput) => void
   ): void;
 
@@ -1409,7 +1417,7 @@ export interface IAM {
    */
   createOpenIDConnectProvider(
     args: CreateOpenIDConnectProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateOpenIDConnectProviderCommandOutput>;
   createOpenIDConnectProvider(
     args: CreateOpenIDConnectProviderCommandInput,
@@ -1417,7 +1425,7 @@ export interface IAM {
   ): void;
   createOpenIDConnectProvider(
     args: CreateOpenIDConnectProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateOpenIDConnectProviderCommandOutput) => void
   ): void;
 
@@ -1426,7 +1434,7 @@ export interface IAM {
    */
   createPolicy(
     args: CreatePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreatePolicyCommandOutput>;
   createPolicy(
     args: CreatePolicyCommandInput,
@@ -1434,7 +1442,7 @@ export interface IAM {
   ): void;
   createPolicy(
     args: CreatePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreatePolicyCommandOutput) => void
   ): void;
 
@@ -1443,7 +1451,7 @@ export interface IAM {
    */
   createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreatePolicyVersionCommandOutput>;
   createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
@@ -1451,7 +1459,7 @@ export interface IAM {
   ): void;
   createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreatePolicyVersionCommandOutput) => void
   ): void;
 
@@ -1460,7 +1468,7 @@ export interface IAM {
    */
   createRole(
     args: CreateRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateRoleCommandOutput>;
   createRole(
     args: CreateRoleCommandInput,
@@ -1468,7 +1476,7 @@ export interface IAM {
   ): void;
   createRole(
     args: CreateRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateRoleCommandOutput) => void
   ): void;
 
@@ -1477,7 +1485,7 @@ export interface IAM {
    */
   createSAMLProvider(
     args: CreateSAMLProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateSAMLProviderCommandOutput>;
   createSAMLProvider(
     args: CreateSAMLProviderCommandInput,
@@ -1485,7 +1493,7 @@ export interface IAM {
   ): void;
   createSAMLProvider(
     args: CreateSAMLProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateSAMLProviderCommandOutput) => void
   ): void;
 
@@ -1494,7 +1502,7 @@ export interface IAM {
    */
   createServiceLinkedRole(
     args: CreateServiceLinkedRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateServiceLinkedRoleCommandOutput>;
   createServiceLinkedRole(
     args: CreateServiceLinkedRoleCommandInput,
@@ -1502,7 +1510,7 @@ export interface IAM {
   ): void;
   createServiceLinkedRole(
     args: CreateServiceLinkedRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateServiceLinkedRoleCommandOutput) => void
   ): void;
 
@@ -1511,7 +1519,7 @@ export interface IAM {
    */
   createServiceSpecificCredential(
     args: CreateServiceSpecificCredentialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateServiceSpecificCredentialCommandOutput>;
   createServiceSpecificCredential(
     args: CreateServiceSpecificCredentialCommandInput,
@@ -1519,7 +1527,7 @@ export interface IAM {
   ): void;
   createServiceSpecificCredential(
     args: CreateServiceSpecificCredentialCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateServiceSpecificCredentialCommandOutput) => void
   ): void;
 
@@ -1528,7 +1536,7 @@ export interface IAM {
    */
   createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateUserCommandOutput>;
   createUser(
     args: CreateUserCommandInput,
@@ -1536,7 +1544,7 @@ export interface IAM {
   ): void;
   createUser(
     args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
 
@@ -1545,7 +1553,7 @@ export interface IAM {
    */
   createVirtualMFADevice(
     args: CreateVirtualMFADeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<CreateVirtualMFADeviceCommandOutput>;
   createVirtualMFADevice(
     args: CreateVirtualMFADeviceCommandInput,
@@ -1553,7 +1561,7 @@ export interface IAM {
   ): void;
   createVirtualMFADevice(
     args: CreateVirtualMFADeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: CreateVirtualMFADeviceCommandOutput) => void
   ): void;
 
@@ -1562,7 +1570,7 @@ export interface IAM {
    */
   deactivateMFADevice(
     args: DeactivateMFADeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeactivateMFADeviceCommandOutput>;
   deactivateMFADevice(
     args: DeactivateMFADeviceCommandInput,
@@ -1570,7 +1578,7 @@ export interface IAM {
   ): void;
   deactivateMFADevice(
     args: DeactivateMFADeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeactivateMFADeviceCommandOutput) => void
   ): void;
 
@@ -1579,7 +1587,7 @@ export interface IAM {
    */
   deleteAccessKey(
     args: DeleteAccessKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteAccessKeyCommandOutput>;
   deleteAccessKey(
     args: DeleteAccessKeyCommandInput,
@@ -1587,7 +1595,7 @@ export interface IAM {
   ): void;
   deleteAccessKey(
     args: DeleteAccessKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteAccessKeyCommandOutput) => void
   ): void;
 
@@ -1596,7 +1604,7 @@ export interface IAM {
    */
   deleteAccountAlias(
     args: DeleteAccountAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteAccountAliasCommandOutput>;
   deleteAccountAlias(
     args: DeleteAccountAliasCommandInput,
@@ -1604,7 +1612,7 @@ export interface IAM {
   ): void;
   deleteAccountAlias(
     args: DeleteAccountAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteAccountAliasCommandOutput) => void
   ): void;
 
@@ -1614,7 +1622,7 @@ export interface IAM {
   deleteAccountPasswordPolicy(): Promise<DeleteAccountPasswordPolicyCommandOutput>;
   deleteAccountPasswordPolicy(
     args: DeleteAccountPasswordPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteAccountPasswordPolicyCommandOutput>;
   deleteAccountPasswordPolicy(
     args: DeleteAccountPasswordPolicyCommandInput,
@@ -1622,7 +1630,7 @@ export interface IAM {
   ): void;
   deleteAccountPasswordPolicy(
     args: DeleteAccountPasswordPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteAccountPasswordPolicyCommandOutput) => void
   ): void;
 
@@ -1631,7 +1639,7 @@ export interface IAM {
    */
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteGroupCommandOutput>;
   deleteGroup(
     args: DeleteGroupCommandInput,
@@ -1639,7 +1647,7 @@ export interface IAM {
   ): void;
   deleteGroup(
     args: DeleteGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteGroupCommandOutput) => void
   ): void;
 
@@ -1648,7 +1656,7 @@ export interface IAM {
    */
   deleteGroupPolicy(
     args: DeleteGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteGroupPolicyCommandOutput>;
   deleteGroupPolicy(
     args: DeleteGroupPolicyCommandInput,
@@ -1656,7 +1664,7 @@ export interface IAM {
   ): void;
   deleteGroupPolicy(
     args: DeleteGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteGroupPolicyCommandOutput) => void
   ): void;
 
@@ -1665,7 +1673,7 @@ export interface IAM {
    */
   deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteInstanceProfileCommandOutput>;
   deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
@@ -1673,7 +1681,7 @@ export interface IAM {
   ): void;
   deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteInstanceProfileCommandOutput) => void
   ): void;
 
@@ -1683,7 +1691,7 @@ export interface IAM {
   deleteLoginProfile(): Promise<DeleteLoginProfileCommandOutput>;
   deleteLoginProfile(
     args: DeleteLoginProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteLoginProfileCommandOutput>;
   deleteLoginProfile(
     args: DeleteLoginProfileCommandInput,
@@ -1691,7 +1699,7 @@ export interface IAM {
   ): void;
   deleteLoginProfile(
     args: DeleteLoginProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteLoginProfileCommandOutput) => void
   ): void;
 
@@ -1700,7 +1708,7 @@ export interface IAM {
    */
   deleteOpenIDConnectProvider(
     args: DeleteOpenIDConnectProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteOpenIDConnectProviderCommandOutput>;
   deleteOpenIDConnectProvider(
     args: DeleteOpenIDConnectProviderCommandInput,
@@ -1708,7 +1716,7 @@ export interface IAM {
   ): void;
   deleteOpenIDConnectProvider(
     args: DeleteOpenIDConnectProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteOpenIDConnectProviderCommandOutput) => void
   ): void;
 
@@ -1717,7 +1725,7 @@ export interface IAM {
    */
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeletePolicyCommandOutput>;
   deletePolicy(
     args: DeletePolicyCommandInput,
@@ -1725,7 +1733,7 @@ export interface IAM {
   ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeletePolicyCommandOutput) => void
   ): void;
 
@@ -1734,7 +1742,7 @@ export interface IAM {
    */
   deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeletePolicyVersionCommandOutput>;
   deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
@@ -1742,7 +1750,7 @@ export interface IAM {
   ): void;
   deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeletePolicyVersionCommandOutput) => void
   ): void;
 
@@ -1751,7 +1759,7 @@ export interface IAM {
    */
   deleteRole(
     args: DeleteRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteRoleCommandOutput>;
   deleteRole(
     args: DeleteRoleCommandInput,
@@ -1759,7 +1767,7 @@ export interface IAM {
   ): void;
   deleteRole(
     args: DeleteRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteRoleCommandOutput) => void
   ): void;
 
@@ -1768,7 +1776,7 @@ export interface IAM {
    */
   deleteRolePermissionsBoundary(
     args: DeleteRolePermissionsBoundaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteRolePermissionsBoundaryCommandOutput>;
   deleteRolePermissionsBoundary(
     args: DeleteRolePermissionsBoundaryCommandInput,
@@ -1776,7 +1784,7 @@ export interface IAM {
   ): void;
   deleteRolePermissionsBoundary(
     args: DeleteRolePermissionsBoundaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteRolePermissionsBoundaryCommandOutput) => void
   ): void;
 
@@ -1785,7 +1793,7 @@ export interface IAM {
    */
   deleteRolePolicy(
     args: DeleteRolePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteRolePolicyCommandOutput>;
   deleteRolePolicy(
     args: DeleteRolePolicyCommandInput,
@@ -1793,7 +1801,7 @@ export interface IAM {
   ): void;
   deleteRolePolicy(
     args: DeleteRolePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteRolePolicyCommandOutput) => void
   ): void;
 
@@ -1802,7 +1810,7 @@ export interface IAM {
    */
   deleteSAMLProvider(
     args: DeleteSAMLProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteSAMLProviderCommandOutput>;
   deleteSAMLProvider(
     args: DeleteSAMLProviderCommandInput,
@@ -1810,7 +1818,7 @@ export interface IAM {
   ): void;
   deleteSAMLProvider(
     args: DeleteSAMLProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteSAMLProviderCommandOutput) => void
   ): void;
 
@@ -1819,7 +1827,7 @@ export interface IAM {
    */
   deleteServerCertificate(
     args: DeleteServerCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteServerCertificateCommandOutput>;
   deleteServerCertificate(
     args: DeleteServerCertificateCommandInput,
@@ -1827,7 +1835,7 @@ export interface IAM {
   ): void;
   deleteServerCertificate(
     args: DeleteServerCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteServerCertificateCommandOutput) => void
   ): void;
 
@@ -1836,7 +1844,7 @@ export interface IAM {
    */
   deleteServiceLinkedRole(
     args: DeleteServiceLinkedRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteServiceLinkedRoleCommandOutput>;
   deleteServiceLinkedRole(
     args: DeleteServiceLinkedRoleCommandInput,
@@ -1844,7 +1852,7 @@ export interface IAM {
   ): void;
   deleteServiceLinkedRole(
     args: DeleteServiceLinkedRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteServiceLinkedRoleCommandOutput) => void
   ): void;
 
@@ -1853,7 +1861,7 @@ export interface IAM {
    */
   deleteServiceSpecificCredential(
     args: DeleteServiceSpecificCredentialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteServiceSpecificCredentialCommandOutput>;
   deleteServiceSpecificCredential(
     args: DeleteServiceSpecificCredentialCommandInput,
@@ -1861,7 +1869,7 @@ export interface IAM {
   ): void;
   deleteServiceSpecificCredential(
     args: DeleteServiceSpecificCredentialCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteServiceSpecificCredentialCommandOutput) => void
   ): void;
 
@@ -1870,7 +1878,7 @@ export interface IAM {
    */
   deleteSigningCertificate(
     args: DeleteSigningCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteSigningCertificateCommandOutput>;
   deleteSigningCertificate(
     args: DeleteSigningCertificateCommandInput,
@@ -1878,7 +1886,7 @@ export interface IAM {
   ): void;
   deleteSigningCertificate(
     args: DeleteSigningCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteSigningCertificateCommandOutput) => void
   ): void;
 
@@ -1887,7 +1895,7 @@ export interface IAM {
    */
   deleteSSHPublicKey(
     args: DeleteSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteSSHPublicKeyCommandOutput>;
   deleteSSHPublicKey(
     args: DeleteSSHPublicKeyCommandInput,
@@ -1895,7 +1903,7 @@ export interface IAM {
   ): void;
   deleteSSHPublicKey(
     args: DeleteSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteSSHPublicKeyCommandOutput) => void
   ): void;
 
@@ -1904,7 +1912,7 @@ export interface IAM {
    */
   deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteUserCommandOutput>;
   deleteUser(
     args: DeleteUserCommandInput,
@@ -1912,7 +1920,7 @@ export interface IAM {
   ): void;
   deleteUser(
     args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
@@ -1921,7 +1929,7 @@ export interface IAM {
    */
   deleteUserPermissionsBoundary(
     args: DeleteUserPermissionsBoundaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteUserPermissionsBoundaryCommandOutput>;
   deleteUserPermissionsBoundary(
     args: DeleteUserPermissionsBoundaryCommandInput,
@@ -1929,7 +1937,7 @@ export interface IAM {
   ): void;
   deleteUserPermissionsBoundary(
     args: DeleteUserPermissionsBoundaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteUserPermissionsBoundaryCommandOutput) => void
   ): void;
 
@@ -1938,7 +1946,7 @@ export interface IAM {
    */
   deleteUserPolicy(
     args: DeleteUserPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteUserPolicyCommandOutput>;
   deleteUserPolicy(
     args: DeleteUserPolicyCommandInput,
@@ -1946,7 +1954,7 @@ export interface IAM {
   ): void;
   deleteUserPolicy(
     args: DeleteUserPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteUserPolicyCommandOutput) => void
   ): void;
 
@@ -1955,7 +1963,7 @@ export interface IAM {
    */
   deleteVirtualMFADevice(
     args: DeleteVirtualMFADeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DeleteVirtualMFADeviceCommandOutput>;
   deleteVirtualMFADevice(
     args: DeleteVirtualMFADeviceCommandInput,
@@ -1963,7 +1971,7 @@ export interface IAM {
   ): void;
   deleteVirtualMFADevice(
     args: DeleteVirtualMFADeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DeleteVirtualMFADeviceCommandOutput) => void
   ): void;
 
@@ -1972,7 +1980,7 @@ export interface IAM {
    */
   detachGroupPolicy(
     args: DetachGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DetachGroupPolicyCommandOutput>;
   detachGroupPolicy(
     args: DetachGroupPolicyCommandInput,
@@ -1980,7 +1988,7 @@ export interface IAM {
   ): void;
   detachGroupPolicy(
     args: DetachGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DetachGroupPolicyCommandOutput) => void
   ): void;
 
@@ -1989,7 +1997,7 @@ export interface IAM {
    */
   detachRolePolicy(
     args: DetachRolePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DetachRolePolicyCommandOutput>;
   detachRolePolicy(
     args: DetachRolePolicyCommandInput,
@@ -1997,7 +2005,7 @@ export interface IAM {
   ): void;
   detachRolePolicy(
     args: DetachRolePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DetachRolePolicyCommandOutput) => void
   ): void;
 
@@ -2006,7 +2014,7 @@ export interface IAM {
    */
   detachUserPolicy(
     args: DetachUserPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DetachUserPolicyCommandOutput>;
   detachUserPolicy(
     args: DetachUserPolicyCommandInput,
@@ -2014,7 +2022,7 @@ export interface IAM {
   ): void;
   detachUserPolicy(
     args: DetachUserPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DetachUserPolicyCommandOutput) => void
   ): void;
 
@@ -2024,7 +2032,7 @@ export interface IAM {
   disableOrganizationsRootCredentialsManagement(): Promise<DisableOrganizationsRootCredentialsManagementCommandOutput>;
   disableOrganizationsRootCredentialsManagement(
     args: DisableOrganizationsRootCredentialsManagementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DisableOrganizationsRootCredentialsManagementCommandOutput>;
   disableOrganizationsRootCredentialsManagement(
     args: DisableOrganizationsRootCredentialsManagementCommandInput,
@@ -2032,7 +2040,7 @@ export interface IAM {
   ): void;
   disableOrganizationsRootCredentialsManagement(
     args: DisableOrganizationsRootCredentialsManagementCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DisableOrganizationsRootCredentialsManagementCommandOutput) => void
   ): void;
 
@@ -2042,7 +2050,7 @@ export interface IAM {
   disableOrganizationsRootSessions(): Promise<DisableOrganizationsRootSessionsCommandOutput>;
   disableOrganizationsRootSessions(
     args: DisableOrganizationsRootSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DisableOrganizationsRootSessionsCommandOutput>;
   disableOrganizationsRootSessions(
     args: DisableOrganizationsRootSessionsCommandInput,
@@ -2050,7 +2058,7 @@ export interface IAM {
   ): void;
   disableOrganizationsRootSessions(
     args: DisableOrganizationsRootSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DisableOrganizationsRootSessionsCommandOutput) => void
   ): void;
 
@@ -2060,7 +2068,7 @@ export interface IAM {
   disableOutboundWebIdentityFederation(): Promise<DisableOutboundWebIdentityFederationCommandOutput>;
   disableOutboundWebIdentityFederation(
     args: DisableOutboundWebIdentityFederationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<DisableOutboundWebIdentityFederationCommandOutput>;
   disableOutboundWebIdentityFederation(
     args: DisableOutboundWebIdentityFederationCommandInput,
@@ -2068,7 +2076,7 @@ export interface IAM {
   ): void;
   disableOutboundWebIdentityFederation(
     args: DisableOutboundWebIdentityFederationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: DisableOutboundWebIdentityFederationCommandOutput) => void
   ): void;
 
@@ -2077,7 +2085,7 @@ export interface IAM {
    */
   enableMFADevice(
     args: EnableMFADeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<EnableMFADeviceCommandOutput>;
   enableMFADevice(
     args: EnableMFADeviceCommandInput,
@@ -2085,7 +2093,7 @@ export interface IAM {
   ): void;
   enableMFADevice(
     args: EnableMFADeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: EnableMFADeviceCommandOutput) => void
   ): void;
 
@@ -2095,7 +2103,7 @@ export interface IAM {
   enableOrganizationsRootCredentialsManagement(): Promise<EnableOrganizationsRootCredentialsManagementCommandOutput>;
   enableOrganizationsRootCredentialsManagement(
     args: EnableOrganizationsRootCredentialsManagementCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<EnableOrganizationsRootCredentialsManagementCommandOutput>;
   enableOrganizationsRootCredentialsManagement(
     args: EnableOrganizationsRootCredentialsManagementCommandInput,
@@ -2103,7 +2111,7 @@ export interface IAM {
   ): void;
   enableOrganizationsRootCredentialsManagement(
     args: EnableOrganizationsRootCredentialsManagementCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: EnableOrganizationsRootCredentialsManagementCommandOutput) => void
   ): void;
 
@@ -2113,7 +2121,7 @@ export interface IAM {
   enableOrganizationsRootSessions(): Promise<EnableOrganizationsRootSessionsCommandOutput>;
   enableOrganizationsRootSessions(
     args: EnableOrganizationsRootSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<EnableOrganizationsRootSessionsCommandOutput>;
   enableOrganizationsRootSessions(
     args: EnableOrganizationsRootSessionsCommandInput,
@@ -2121,7 +2129,7 @@ export interface IAM {
   ): void;
   enableOrganizationsRootSessions(
     args: EnableOrganizationsRootSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: EnableOrganizationsRootSessionsCommandOutput) => void
   ): void;
 
@@ -2131,7 +2139,7 @@ export interface IAM {
   enableOutboundWebIdentityFederation(): Promise<EnableOutboundWebIdentityFederationCommandOutput>;
   enableOutboundWebIdentityFederation(
     args: EnableOutboundWebIdentityFederationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<EnableOutboundWebIdentityFederationCommandOutput>;
   enableOutboundWebIdentityFederation(
     args: EnableOutboundWebIdentityFederationCommandInput,
@@ -2139,7 +2147,7 @@ export interface IAM {
   ): void;
   enableOutboundWebIdentityFederation(
     args: EnableOutboundWebIdentityFederationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: EnableOutboundWebIdentityFederationCommandOutput) => void
   ): void;
 
@@ -2149,7 +2157,7 @@ export interface IAM {
   generateCredentialReport(): Promise<GenerateCredentialReportCommandOutput>;
   generateCredentialReport(
     args: GenerateCredentialReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GenerateCredentialReportCommandOutput>;
   generateCredentialReport(
     args: GenerateCredentialReportCommandInput,
@@ -2157,7 +2165,7 @@ export interface IAM {
   ): void;
   generateCredentialReport(
     args: GenerateCredentialReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GenerateCredentialReportCommandOutput) => void
   ): void;
 
@@ -2166,7 +2174,7 @@ export interface IAM {
    */
   generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GenerateOrganizationsAccessReportCommandOutput>;
   generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
@@ -2174,7 +2182,7 @@ export interface IAM {
   ): void;
   generateOrganizationsAccessReport(
     args: GenerateOrganizationsAccessReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GenerateOrganizationsAccessReportCommandOutput) => void
   ): void;
 
@@ -2183,7 +2191,7 @@ export interface IAM {
    */
   generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GenerateServiceLastAccessedDetailsCommandOutput>;
   generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
@@ -2191,7 +2199,7 @@ export interface IAM {
   ): void;
   generateServiceLastAccessedDetails(
     args: GenerateServiceLastAccessedDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GenerateServiceLastAccessedDetailsCommandOutput) => void
   ): void;
 
@@ -2200,7 +2208,7 @@ export interface IAM {
    */
   getAccessKeyLastUsed(
     args: GetAccessKeyLastUsedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetAccessKeyLastUsedCommandOutput>;
   getAccessKeyLastUsed(
     args: GetAccessKeyLastUsedCommandInput,
@@ -2208,7 +2216,7 @@ export interface IAM {
   ): void;
   getAccessKeyLastUsed(
     args: GetAccessKeyLastUsedCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetAccessKeyLastUsedCommandOutput) => void
   ): void;
 
@@ -2218,7 +2226,7 @@ export interface IAM {
   getAccountAuthorizationDetails(): Promise<GetAccountAuthorizationDetailsCommandOutput>;
   getAccountAuthorizationDetails(
     args: GetAccountAuthorizationDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetAccountAuthorizationDetailsCommandOutput>;
   getAccountAuthorizationDetails(
     args: GetAccountAuthorizationDetailsCommandInput,
@@ -2226,7 +2234,7 @@ export interface IAM {
   ): void;
   getAccountAuthorizationDetails(
     args: GetAccountAuthorizationDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetAccountAuthorizationDetailsCommandOutput) => void
   ): void;
 
@@ -2236,7 +2244,7 @@ export interface IAM {
   getAccountPasswordPolicy(): Promise<GetAccountPasswordPolicyCommandOutput>;
   getAccountPasswordPolicy(
     args: GetAccountPasswordPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetAccountPasswordPolicyCommandOutput>;
   getAccountPasswordPolicy(
     args: GetAccountPasswordPolicyCommandInput,
@@ -2244,7 +2252,7 @@ export interface IAM {
   ): void;
   getAccountPasswordPolicy(
     args: GetAccountPasswordPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetAccountPasswordPolicyCommandOutput) => void
   ): void;
 
@@ -2254,7 +2262,7 @@ export interface IAM {
   getAccountProperties(): Promise<GetAccountPropertiesCommandOutput>;
   getAccountProperties(
     args: GetAccountPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetAccountPropertiesCommandOutput>;
   getAccountProperties(
     args: GetAccountPropertiesCommandInput,
@@ -2262,7 +2270,7 @@ export interface IAM {
   ): void;
   getAccountProperties(
     args: GetAccountPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetAccountPropertiesCommandOutput) => void
   ): void;
 
@@ -2272,7 +2280,7 @@ export interface IAM {
   getAccountSummary(): Promise<GetAccountSummaryCommandOutput>;
   getAccountSummary(
     args: GetAccountSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetAccountSummaryCommandOutput>;
   getAccountSummary(
     args: GetAccountSummaryCommandInput,
@@ -2280,7 +2288,7 @@ export interface IAM {
   ): void;
   getAccountSummary(
     args: GetAccountSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetAccountSummaryCommandOutput) => void
   ): void;
 
@@ -2289,7 +2297,7 @@ export interface IAM {
    */
   getContextKeysForCustomPolicy(
     args: GetContextKeysForCustomPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetContextKeysForCustomPolicyCommandOutput>;
   getContextKeysForCustomPolicy(
     args: GetContextKeysForCustomPolicyCommandInput,
@@ -2297,7 +2305,7 @@ export interface IAM {
   ): void;
   getContextKeysForCustomPolicy(
     args: GetContextKeysForCustomPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetContextKeysForCustomPolicyCommandOutput) => void
   ): void;
 
@@ -2306,7 +2314,7 @@ export interface IAM {
    */
   getContextKeysForPrincipalPolicy(
     args: GetContextKeysForPrincipalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetContextKeysForPrincipalPolicyCommandOutput>;
   getContextKeysForPrincipalPolicy(
     args: GetContextKeysForPrincipalPolicyCommandInput,
@@ -2314,7 +2322,7 @@ export interface IAM {
   ): void;
   getContextKeysForPrincipalPolicy(
     args: GetContextKeysForPrincipalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetContextKeysForPrincipalPolicyCommandOutput) => void
   ): void;
 
@@ -2324,7 +2332,7 @@ export interface IAM {
   getCredentialReport(): Promise<GetCredentialReportCommandOutput>;
   getCredentialReport(
     args: GetCredentialReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetCredentialReportCommandOutput>;
   getCredentialReport(
     args: GetCredentialReportCommandInput,
@@ -2332,7 +2340,7 @@ export interface IAM {
   ): void;
   getCredentialReport(
     args: GetCredentialReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetCredentialReportCommandOutput) => void
   ): void;
 
@@ -2341,7 +2349,7 @@ export interface IAM {
    */
   getDelegationRequest(
     args: GetDelegationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetDelegationRequestCommandOutput>;
   getDelegationRequest(
     args: GetDelegationRequestCommandInput,
@@ -2349,7 +2357,7 @@ export interface IAM {
   ): void;
   getDelegationRequest(
     args: GetDelegationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetDelegationRequestCommandOutput) => void
   ): void;
 
@@ -2358,7 +2366,7 @@ export interface IAM {
    */
   getGroup(
     args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetGroupCommandOutput>;
   getGroup(
     args: GetGroupCommandInput,
@@ -2366,7 +2374,7 @@ export interface IAM {
   ): void;
   getGroup(
     args: GetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetGroupCommandOutput) => void
   ): void;
 
@@ -2375,7 +2383,7 @@ export interface IAM {
    */
   getGroupPolicy(
     args: GetGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetGroupPolicyCommandOutput>;
   getGroupPolicy(
     args: GetGroupPolicyCommandInput,
@@ -2383,7 +2391,7 @@ export interface IAM {
   ): void;
   getGroupPolicy(
     args: GetGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetGroupPolicyCommandOutput) => void
   ): void;
 
@@ -2392,7 +2400,7 @@ export interface IAM {
    */
   getHumanReadableSummary(
     args: GetHumanReadableSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetHumanReadableSummaryCommandOutput>;
   getHumanReadableSummary(
     args: GetHumanReadableSummaryCommandInput,
@@ -2400,7 +2408,7 @@ export interface IAM {
   ): void;
   getHumanReadableSummary(
     args: GetHumanReadableSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetHumanReadableSummaryCommandOutput) => void
   ): void;
 
@@ -2409,7 +2417,7 @@ export interface IAM {
    */
   getInstanceProfile(
     args: GetInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetInstanceProfileCommandOutput>;
   getInstanceProfile(
     args: GetInstanceProfileCommandInput,
@@ -2417,7 +2425,7 @@ export interface IAM {
   ): void;
   getInstanceProfile(
     args: GetInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetInstanceProfileCommandOutput) => void
   ): void;
 
@@ -2427,7 +2435,7 @@ export interface IAM {
   getLoginProfile(): Promise<GetLoginProfileCommandOutput>;
   getLoginProfile(
     args: GetLoginProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetLoginProfileCommandOutput>;
   getLoginProfile(
     args: GetLoginProfileCommandInput,
@@ -2435,7 +2443,7 @@ export interface IAM {
   ): void;
   getLoginProfile(
     args: GetLoginProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetLoginProfileCommandOutput) => void
   ): void;
 
@@ -2444,7 +2452,7 @@ export interface IAM {
    */
   getMFADevice(
     args: GetMFADeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetMFADeviceCommandOutput>;
   getMFADevice(
     args: GetMFADeviceCommandInput,
@@ -2452,7 +2460,7 @@ export interface IAM {
   ): void;
   getMFADevice(
     args: GetMFADeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetMFADeviceCommandOutput) => void
   ): void;
 
@@ -2461,7 +2469,7 @@ export interface IAM {
    */
   getOpenIDConnectProvider(
     args: GetOpenIDConnectProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetOpenIDConnectProviderCommandOutput>;
   getOpenIDConnectProvider(
     args: GetOpenIDConnectProviderCommandInput,
@@ -2469,7 +2477,7 @@ export interface IAM {
   ): void;
   getOpenIDConnectProvider(
     args: GetOpenIDConnectProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetOpenIDConnectProviderCommandOutput) => void
   ): void;
 
@@ -2478,7 +2486,7 @@ export interface IAM {
    */
   getOrganizationsAccessReport(
     args: GetOrganizationsAccessReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetOrganizationsAccessReportCommandOutput>;
   getOrganizationsAccessReport(
     args: GetOrganizationsAccessReportCommandInput,
@@ -2486,7 +2494,7 @@ export interface IAM {
   ): void;
   getOrganizationsAccessReport(
     args: GetOrganizationsAccessReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetOrganizationsAccessReportCommandOutput) => void
   ): void;
 
@@ -2496,7 +2504,7 @@ export interface IAM {
   getOutboundWebIdentityFederationInfo(): Promise<GetOutboundWebIdentityFederationInfoCommandOutput>;
   getOutboundWebIdentityFederationInfo(
     args: GetOutboundWebIdentityFederationInfoCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetOutboundWebIdentityFederationInfoCommandOutput>;
   getOutboundWebIdentityFederationInfo(
     args: GetOutboundWebIdentityFederationInfoCommandInput,
@@ -2504,7 +2512,7 @@ export interface IAM {
   ): void;
   getOutboundWebIdentityFederationInfo(
     args: GetOutboundWebIdentityFederationInfoCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetOutboundWebIdentityFederationInfoCommandOutput) => void
   ): void;
 
@@ -2513,7 +2521,7 @@ export interface IAM {
    */
   getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetPolicyCommandOutput>;
   getPolicy(
     args: GetPolicyCommandInput,
@@ -2521,7 +2529,7 @@ export interface IAM {
   ): void;
   getPolicy(
     args: GetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
@@ -2530,7 +2538,7 @@ export interface IAM {
    */
   getPolicyVersion(
     args: GetPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetPolicyVersionCommandOutput>;
   getPolicyVersion(
     args: GetPolicyVersionCommandInput,
@@ -2538,7 +2546,7 @@ export interface IAM {
   ): void;
   getPolicyVersion(
     args: GetPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetPolicyVersionCommandOutput) => void
   ): void;
 
@@ -2547,7 +2555,7 @@ export interface IAM {
    */
   getRole(
     args: GetRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetRoleCommandOutput>;
   getRole(
     args: GetRoleCommandInput,
@@ -2555,7 +2563,7 @@ export interface IAM {
   ): void;
   getRole(
     args: GetRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetRoleCommandOutput) => void
   ): void;
 
@@ -2564,7 +2572,7 @@ export interface IAM {
    */
   getRolePolicy(
     args: GetRolePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetRolePolicyCommandOutput>;
   getRolePolicy(
     args: GetRolePolicyCommandInput,
@@ -2572,7 +2580,7 @@ export interface IAM {
   ): void;
   getRolePolicy(
     args: GetRolePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetRolePolicyCommandOutput) => void
   ): void;
 
@@ -2581,7 +2589,7 @@ export interface IAM {
    */
   getRoleTemplateVersion(
     args: GetRoleTemplateVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetRoleTemplateVersionCommandOutput>;
   getRoleTemplateVersion(
     args: GetRoleTemplateVersionCommandInput,
@@ -2589,7 +2597,7 @@ export interface IAM {
   ): void;
   getRoleTemplateVersion(
     args: GetRoleTemplateVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetRoleTemplateVersionCommandOutput) => void
   ): void;
 
@@ -2598,7 +2606,7 @@ export interface IAM {
    */
   getSAMLProvider(
     args: GetSAMLProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetSAMLProviderCommandOutput>;
   getSAMLProvider(
     args: GetSAMLProviderCommandInput,
@@ -2606,7 +2614,7 @@ export interface IAM {
   ): void;
   getSAMLProvider(
     args: GetSAMLProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetSAMLProviderCommandOutput) => void
   ): void;
 
@@ -2615,7 +2623,7 @@ export interface IAM {
    */
   getServerCertificate(
     args: GetServerCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetServerCertificateCommandOutput>;
   getServerCertificate(
     args: GetServerCertificateCommandInput,
@@ -2623,7 +2631,7 @@ export interface IAM {
   ): void;
   getServerCertificate(
     args: GetServerCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetServerCertificateCommandOutput) => void
   ): void;
 
@@ -2632,7 +2640,7 @@ export interface IAM {
    */
   getServiceLastAccessedDetails(
     args: GetServiceLastAccessedDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetServiceLastAccessedDetailsCommandOutput>;
   getServiceLastAccessedDetails(
     args: GetServiceLastAccessedDetailsCommandInput,
@@ -2640,7 +2648,7 @@ export interface IAM {
   ): void;
   getServiceLastAccessedDetails(
     args: GetServiceLastAccessedDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetServiceLastAccessedDetailsCommandOutput) => void
   ): void;
 
@@ -2649,7 +2657,7 @@ export interface IAM {
    */
   getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput>;
   getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
@@ -2657,7 +2665,7 @@ export interface IAM {
   ): void;
   getServiceLastAccessedDetailsWithEntities(
     args: GetServiceLastAccessedDetailsWithEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetServiceLastAccessedDetailsWithEntitiesCommandOutput) => void
   ): void;
 
@@ -2666,7 +2674,7 @@ export interface IAM {
    */
   getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput>;
   getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
@@ -2674,7 +2682,7 @@ export interface IAM {
   ): void;
   getServiceLinkedRoleDeletionStatus(
     args: GetServiceLinkedRoleDeletionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetServiceLinkedRoleDeletionStatusCommandOutput) => void
   ): void;
 
@@ -2683,7 +2691,7 @@ export interface IAM {
    */
   getSSHPublicKey(
     args: GetSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetSSHPublicKeyCommandOutput>;
   getSSHPublicKey(
     args: GetSSHPublicKeyCommandInput,
@@ -2691,7 +2699,7 @@ export interface IAM {
   ): void;
   getSSHPublicKey(
     args: GetSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetSSHPublicKeyCommandOutput) => void
   ): void;
 
@@ -2701,7 +2709,7 @@ export interface IAM {
   getUser(): Promise<GetUserCommandOutput>;
   getUser(
     args: GetUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetUserCommandOutput>;
   getUser(
     args: GetUserCommandInput,
@@ -2709,7 +2717,7 @@ export interface IAM {
   ): void;
   getUser(
     args: GetUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetUserCommandOutput) => void
   ): void;
 
@@ -2718,7 +2726,7 @@ export interface IAM {
    */
   getUserPolicy(
     args: GetUserPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<GetUserPolicyCommandOutput>;
   getUserPolicy(
     args: GetUserPolicyCommandInput,
@@ -2726,7 +2734,7 @@ export interface IAM {
   ): void;
   getUserPolicy(
     args: GetUserPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: GetUserPolicyCommandOutput) => void
   ): void;
 
@@ -2736,7 +2744,7 @@ export interface IAM {
   listAccessKeys(): Promise<ListAccessKeysCommandOutput>;
   listAccessKeys(
     args: ListAccessKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListAccessKeysCommandOutput>;
   listAccessKeys(
     args: ListAccessKeysCommandInput,
@@ -2744,7 +2752,7 @@ export interface IAM {
   ): void;
   listAccessKeys(
     args: ListAccessKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListAccessKeysCommandOutput) => void
   ): void;
 
@@ -2754,7 +2762,7 @@ export interface IAM {
   listAccountAliases(): Promise<ListAccountAliasesCommandOutput>;
   listAccountAliases(
     args: ListAccountAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListAccountAliasesCommandOutput>;
   listAccountAliases(
     args: ListAccountAliasesCommandInput,
@@ -2762,7 +2770,7 @@ export interface IAM {
   ): void;
   listAccountAliases(
     args: ListAccountAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListAccountAliasesCommandOutput) => void
   ): void;
 
@@ -2771,7 +2779,7 @@ export interface IAM {
    */
   listAttachedGroupPolicies(
     args: ListAttachedGroupPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListAttachedGroupPoliciesCommandOutput>;
   listAttachedGroupPolicies(
     args: ListAttachedGroupPoliciesCommandInput,
@@ -2779,7 +2787,7 @@ export interface IAM {
   ): void;
   listAttachedGroupPolicies(
     args: ListAttachedGroupPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListAttachedGroupPoliciesCommandOutput) => void
   ): void;
 
@@ -2788,7 +2796,7 @@ export interface IAM {
    */
   listAttachedRolePolicies(
     args: ListAttachedRolePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListAttachedRolePoliciesCommandOutput>;
   listAttachedRolePolicies(
     args: ListAttachedRolePoliciesCommandInput,
@@ -2796,7 +2804,7 @@ export interface IAM {
   ): void;
   listAttachedRolePolicies(
     args: ListAttachedRolePoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListAttachedRolePoliciesCommandOutput) => void
   ): void;
 
@@ -2805,7 +2813,7 @@ export interface IAM {
    */
   listAttachedUserPolicies(
     args: ListAttachedUserPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListAttachedUserPoliciesCommandOutput>;
   listAttachedUserPolicies(
     args: ListAttachedUserPoliciesCommandInput,
@@ -2813,7 +2821,7 @@ export interface IAM {
   ): void;
   listAttachedUserPolicies(
     args: ListAttachedUserPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListAttachedUserPoliciesCommandOutput) => void
   ): void;
 
@@ -2823,7 +2831,7 @@ export interface IAM {
   listDelegationRequests(): Promise<ListDelegationRequestsCommandOutput>;
   listDelegationRequests(
     args: ListDelegationRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListDelegationRequestsCommandOutput>;
   listDelegationRequests(
     args: ListDelegationRequestsCommandInput,
@@ -2831,7 +2839,7 @@ export interface IAM {
   ): void;
   listDelegationRequests(
     args: ListDelegationRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListDelegationRequestsCommandOutput) => void
   ): void;
 
@@ -2840,7 +2848,7 @@ export interface IAM {
    */
   listEntitiesForPolicy(
     args: ListEntitiesForPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListEntitiesForPolicyCommandOutput>;
   listEntitiesForPolicy(
     args: ListEntitiesForPolicyCommandInput,
@@ -2848,7 +2856,7 @@ export interface IAM {
   ): void;
   listEntitiesForPolicy(
     args: ListEntitiesForPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListEntitiesForPolicyCommandOutput) => void
   ): void;
 
@@ -2857,7 +2865,7 @@ export interface IAM {
    */
   listGroupPolicies(
     args: ListGroupPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListGroupPoliciesCommandOutput>;
   listGroupPolicies(
     args: ListGroupPoliciesCommandInput,
@@ -2865,7 +2873,7 @@ export interface IAM {
   ): void;
   listGroupPolicies(
     args: ListGroupPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListGroupPoliciesCommandOutput) => void
   ): void;
 
@@ -2875,7 +2883,7 @@ export interface IAM {
   listGroups(): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListGroupsCommandOutput>;
   listGroups(
     args: ListGroupsCommandInput,
@@ -2883,7 +2891,7 @@ export interface IAM {
   ): void;
   listGroups(
     args: ListGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListGroupsCommandOutput) => void
   ): void;
 
@@ -2892,7 +2900,7 @@ export interface IAM {
    */
   listGroupsForUser(
     args: ListGroupsForUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListGroupsForUserCommandOutput>;
   listGroupsForUser(
     args: ListGroupsForUserCommandInput,
@@ -2900,7 +2908,7 @@ export interface IAM {
   ): void;
   listGroupsForUser(
     args: ListGroupsForUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListGroupsForUserCommandOutput) => void
   ): void;
 
@@ -2910,7 +2918,7 @@ export interface IAM {
   listInstanceProfiles(): Promise<ListInstanceProfilesCommandOutput>;
   listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListInstanceProfilesCommandOutput>;
   listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
@@ -2918,7 +2926,7 @@ export interface IAM {
   ): void;
   listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListInstanceProfilesCommandOutput) => void
   ): void;
 
@@ -2927,7 +2935,7 @@ export interface IAM {
    */
   listInstanceProfilesForRole(
     args: ListInstanceProfilesForRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListInstanceProfilesForRoleCommandOutput>;
   listInstanceProfilesForRole(
     args: ListInstanceProfilesForRoleCommandInput,
@@ -2935,7 +2943,7 @@ export interface IAM {
   ): void;
   listInstanceProfilesForRole(
     args: ListInstanceProfilesForRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListInstanceProfilesForRoleCommandOutput) => void
   ): void;
 
@@ -2944,7 +2952,7 @@ export interface IAM {
    */
   listInstanceProfileTags(
     args: ListInstanceProfileTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListInstanceProfileTagsCommandOutput>;
   listInstanceProfileTags(
     args: ListInstanceProfileTagsCommandInput,
@@ -2952,7 +2960,7 @@ export interface IAM {
   ): void;
   listInstanceProfileTags(
     args: ListInstanceProfileTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListInstanceProfileTagsCommandOutput) => void
   ): void;
 
@@ -2962,7 +2970,7 @@ export interface IAM {
   listMFADevices(): Promise<ListMFADevicesCommandOutput>;
   listMFADevices(
     args: ListMFADevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListMFADevicesCommandOutput>;
   listMFADevices(
     args: ListMFADevicesCommandInput,
@@ -2970,7 +2978,7 @@ export interface IAM {
   ): void;
   listMFADevices(
     args: ListMFADevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListMFADevicesCommandOutput) => void
   ): void;
 
@@ -2979,7 +2987,7 @@ export interface IAM {
    */
   listMFADeviceTags(
     args: ListMFADeviceTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListMFADeviceTagsCommandOutput>;
   listMFADeviceTags(
     args: ListMFADeviceTagsCommandInput,
@@ -2987,7 +2995,7 @@ export interface IAM {
   ): void;
   listMFADeviceTags(
     args: ListMFADeviceTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListMFADeviceTagsCommandOutput) => void
   ): void;
 
@@ -2997,7 +3005,7 @@ export interface IAM {
   listOpenIDConnectProviders(): Promise<ListOpenIDConnectProvidersCommandOutput>;
   listOpenIDConnectProviders(
     args: ListOpenIDConnectProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListOpenIDConnectProvidersCommandOutput>;
   listOpenIDConnectProviders(
     args: ListOpenIDConnectProvidersCommandInput,
@@ -3005,7 +3013,7 @@ export interface IAM {
   ): void;
   listOpenIDConnectProviders(
     args: ListOpenIDConnectProvidersCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListOpenIDConnectProvidersCommandOutput) => void
   ): void;
 
@@ -3014,7 +3022,7 @@ export interface IAM {
    */
   listOpenIDConnectProviderTags(
     args: ListOpenIDConnectProviderTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListOpenIDConnectProviderTagsCommandOutput>;
   listOpenIDConnectProviderTags(
     args: ListOpenIDConnectProviderTagsCommandInput,
@@ -3022,7 +3030,7 @@ export interface IAM {
   ): void;
   listOpenIDConnectProviderTags(
     args: ListOpenIDConnectProviderTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListOpenIDConnectProviderTagsCommandOutput) => void
   ): void;
 
@@ -3032,7 +3040,7 @@ export interface IAM {
   listOrganizationsFeatures(): Promise<ListOrganizationsFeaturesCommandOutput>;
   listOrganizationsFeatures(
     args: ListOrganizationsFeaturesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListOrganizationsFeaturesCommandOutput>;
   listOrganizationsFeatures(
     args: ListOrganizationsFeaturesCommandInput,
@@ -3040,7 +3048,7 @@ export interface IAM {
   ): void;
   listOrganizationsFeatures(
     args: ListOrganizationsFeaturesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListOrganizationsFeaturesCommandOutput) => void
   ): void;
 
@@ -3050,7 +3058,7 @@ export interface IAM {
   listPolicies(): Promise<ListPoliciesCommandOutput>;
   listPolicies(
     args: ListPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListPoliciesCommandOutput>;
   listPolicies(
     args: ListPoliciesCommandInput,
@@ -3058,7 +3066,7 @@ export interface IAM {
   ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListPoliciesCommandOutput) => void
   ): void;
 
@@ -3067,7 +3075,7 @@ export interface IAM {
    */
   listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput>;
   listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
@@ -3075,7 +3083,7 @@ export interface IAM {
   ): void;
   listPoliciesGrantingServiceAccess(
     args: ListPoliciesGrantingServiceAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListPoliciesGrantingServiceAccessCommandOutput) => void
   ): void;
 
@@ -3084,7 +3092,7 @@ export interface IAM {
    */
   listPolicyTags(
     args: ListPolicyTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListPolicyTagsCommandOutput>;
   listPolicyTags(
     args: ListPolicyTagsCommandInput,
@@ -3092,7 +3100,7 @@ export interface IAM {
   ): void;
   listPolicyTags(
     args: ListPolicyTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListPolicyTagsCommandOutput) => void
   ): void;
 
@@ -3101,7 +3109,7 @@ export interface IAM {
    */
   listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListPolicyVersionsCommandOutput>;
   listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
@@ -3109,7 +3117,7 @@ export interface IAM {
   ): void;
   listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListPolicyVersionsCommandOutput) => void
   ): void;
 
@@ -3118,7 +3126,7 @@ export interface IAM {
    */
   listRolePolicies(
     args: ListRolePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListRolePoliciesCommandOutput>;
   listRolePolicies(
     args: ListRolePoliciesCommandInput,
@@ -3126,7 +3134,7 @@ export interface IAM {
   ): void;
   listRolePolicies(
     args: ListRolePoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListRolePoliciesCommandOutput) => void
   ): void;
 
@@ -3136,7 +3144,7 @@ export interface IAM {
   listRoles(): Promise<ListRolesCommandOutput>;
   listRoles(
     args: ListRolesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListRolesCommandOutput>;
   listRoles(
     args: ListRolesCommandInput,
@@ -3144,7 +3152,7 @@ export interface IAM {
   ): void;
   listRoles(
     args: ListRolesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListRolesCommandOutput) => void
   ): void;
 
@@ -3153,7 +3161,7 @@ export interface IAM {
    */
   listRoleTags(
     args: ListRoleTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListRoleTagsCommandOutput>;
   listRoleTags(
     args: ListRoleTagsCommandInput,
@@ -3161,7 +3169,7 @@ export interface IAM {
   ): void;
   listRoleTags(
     args: ListRoleTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListRoleTagsCommandOutput) => void
   ): void;
 
@@ -3171,7 +3179,7 @@ export interface IAM {
   listSAMLProviders(): Promise<ListSAMLProvidersCommandOutput>;
   listSAMLProviders(
     args: ListSAMLProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListSAMLProvidersCommandOutput>;
   listSAMLProviders(
     args: ListSAMLProvidersCommandInput,
@@ -3179,7 +3187,7 @@ export interface IAM {
   ): void;
   listSAMLProviders(
     args: ListSAMLProvidersCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListSAMLProvidersCommandOutput) => void
   ): void;
 
@@ -3188,7 +3196,7 @@ export interface IAM {
    */
   listSAMLProviderTags(
     args: ListSAMLProviderTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListSAMLProviderTagsCommandOutput>;
   listSAMLProviderTags(
     args: ListSAMLProviderTagsCommandInput,
@@ -3196,7 +3204,7 @@ export interface IAM {
   ): void;
   listSAMLProviderTags(
     args: ListSAMLProviderTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListSAMLProviderTagsCommandOutput) => void
   ): void;
 
@@ -3206,7 +3214,7 @@ export interface IAM {
   listServerCertificates(): Promise<ListServerCertificatesCommandOutput>;
   listServerCertificates(
     args: ListServerCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListServerCertificatesCommandOutput>;
   listServerCertificates(
     args: ListServerCertificatesCommandInput,
@@ -3214,7 +3222,7 @@ export interface IAM {
   ): void;
   listServerCertificates(
     args: ListServerCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListServerCertificatesCommandOutput) => void
   ): void;
 
@@ -3223,7 +3231,7 @@ export interface IAM {
    */
   listServerCertificateTags(
     args: ListServerCertificateTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListServerCertificateTagsCommandOutput>;
   listServerCertificateTags(
     args: ListServerCertificateTagsCommandInput,
@@ -3231,7 +3239,7 @@ export interface IAM {
   ): void;
   listServerCertificateTags(
     args: ListServerCertificateTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListServerCertificateTagsCommandOutput) => void
   ): void;
 
@@ -3241,7 +3249,7 @@ export interface IAM {
   listServiceSpecificCredentials(): Promise<ListServiceSpecificCredentialsCommandOutput>;
   listServiceSpecificCredentials(
     args: ListServiceSpecificCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListServiceSpecificCredentialsCommandOutput>;
   listServiceSpecificCredentials(
     args: ListServiceSpecificCredentialsCommandInput,
@@ -3249,7 +3257,7 @@ export interface IAM {
   ): void;
   listServiceSpecificCredentials(
     args: ListServiceSpecificCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListServiceSpecificCredentialsCommandOutput) => void
   ): void;
 
@@ -3259,7 +3267,7 @@ export interface IAM {
   listSigningCertificates(): Promise<ListSigningCertificatesCommandOutput>;
   listSigningCertificates(
     args: ListSigningCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListSigningCertificatesCommandOutput>;
   listSigningCertificates(
     args: ListSigningCertificatesCommandInput,
@@ -3267,7 +3275,7 @@ export interface IAM {
   ): void;
   listSigningCertificates(
     args: ListSigningCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListSigningCertificatesCommandOutput) => void
   ): void;
 
@@ -3277,7 +3285,7 @@ export interface IAM {
   listSSHPublicKeys(): Promise<ListSSHPublicKeysCommandOutput>;
   listSSHPublicKeys(
     args: ListSSHPublicKeysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListSSHPublicKeysCommandOutput>;
   listSSHPublicKeys(
     args: ListSSHPublicKeysCommandInput,
@@ -3285,7 +3293,7 @@ export interface IAM {
   ): void;
   listSSHPublicKeys(
     args: ListSSHPublicKeysCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListSSHPublicKeysCommandOutput) => void
   ): void;
 
@@ -3294,7 +3302,7 @@ export interface IAM {
    */
   listUserPolicies(
     args: ListUserPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListUserPoliciesCommandOutput>;
   listUserPolicies(
     args: ListUserPoliciesCommandInput,
@@ -3302,7 +3310,7 @@ export interface IAM {
   ): void;
   listUserPolicies(
     args: ListUserPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListUserPoliciesCommandOutput) => void
   ): void;
 
@@ -3312,7 +3320,7 @@ export interface IAM {
   listUsers(): Promise<ListUsersCommandOutput>;
   listUsers(
     args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListUsersCommandOutput>;
   listUsers(
     args: ListUsersCommandInput,
@@ -3320,7 +3328,7 @@ export interface IAM {
   ): void;
   listUsers(
     args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
   ): void;
 
@@ -3329,7 +3337,7 @@ export interface IAM {
    */
   listUserTags(
     args: ListUserTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListUserTagsCommandOutput>;
   listUserTags(
     args: ListUserTagsCommandInput,
@@ -3337,7 +3345,7 @@ export interface IAM {
   ): void;
   listUserTags(
     args: ListUserTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListUserTagsCommandOutput) => void
   ): void;
 
@@ -3347,7 +3355,7 @@ export interface IAM {
   listVirtualMFADevices(): Promise<ListVirtualMFADevicesCommandOutput>;
   listVirtualMFADevices(
     args: ListVirtualMFADevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ListVirtualMFADevicesCommandOutput>;
   listVirtualMFADevices(
     args: ListVirtualMFADevicesCommandInput,
@@ -3355,7 +3363,7 @@ export interface IAM {
   ): void;
   listVirtualMFADevices(
     args: ListVirtualMFADevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ListVirtualMFADevicesCommandOutput) => void
   ): void;
 
@@ -3364,7 +3372,7 @@ export interface IAM {
    */
   putAccountProperties(
     args: PutAccountPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<PutAccountPropertiesCommandOutput>;
   putAccountProperties(
     args: PutAccountPropertiesCommandInput,
@@ -3372,7 +3380,7 @@ export interface IAM {
   ): void;
   putAccountProperties(
     args: PutAccountPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: PutAccountPropertiesCommandOutput) => void
   ): void;
 
@@ -3381,7 +3389,7 @@ export interface IAM {
    */
   putGroupPolicy(
     args: PutGroupPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<PutGroupPolicyCommandOutput>;
   putGroupPolicy(
     args: PutGroupPolicyCommandInput,
@@ -3389,7 +3397,7 @@ export interface IAM {
   ): void;
   putGroupPolicy(
     args: PutGroupPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: PutGroupPolicyCommandOutput) => void
   ): void;
 
@@ -3398,7 +3406,7 @@ export interface IAM {
    */
   putRolePermissionsBoundary(
     args: PutRolePermissionsBoundaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<PutRolePermissionsBoundaryCommandOutput>;
   putRolePermissionsBoundary(
     args: PutRolePermissionsBoundaryCommandInput,
@@ -3406,7 +3414,7 @@ export interface IAM {
   ): void;
   putRolePermissionsBoundary(
     args: PutRolePermissionsBoundaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: PutRolePermissionsBoundaryCommandOutput) => void
   ): void;
 
@@ -3415,7 +3423,7 @@ export interface IAM {
    */
   putRolePolicy(
     args: PutRolePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<PutRolePolicyCommandOutput>;
   putRolePolicy(
     args: PutRolePolicyCommandInput,
@@ -3423,7 +3431,7 @@ export interface IAM {
   ): void;
   putRolePolicy(
     args: PutRolePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: PutRolePolicyCommandOutput) => void
   ): void;
 
@@ -3432,7 +3440,7 @@ export interface IAM {
    */
   putUserPermissionsBoundary(
     args: PutUserPermissionsBoundaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<PutUserPermissionsBoundaryCommandOutput>;
   putUserPermissionsBoundary(
     args: PutUserPermissionsBoundaryCommandInput,
@@ -3440,7 +3448,7 @@ export interface IAM {
   ): void;
   putUserPermissionsBoundary(
     args: PutUserPermissionsBoundaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: PutUserPermissionsBoundaryCommandOutput) => void
   ): void;
 
@@ -3449,7 +3457,7 @@ export interface IAM {
    */
   putUserPolicy(
     args: PutUserPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<PutUserPolicyCommandOutput>;
   putUserPolicy(
     args: PutUserPolicyCommandInput,
@@ -3457,7 +3465,7 @@ export interface IAM {
   ): void;
   putUserPolicy(
     args: PutUserPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: PutUserPolicyCommandOutput) => void
   ): void;
 
@@ -3466,7 +3474,7 @@ export interface IAM {
    */
   rejectDelegationRequest(
     args: RejectDelegationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<RejectDelegationRequestCommandOutput>;
   rejectDelegationRequest(
     args: RejectDelegationRequestCommandInput,
@@ -3474,7 +3482,7 @@ export interface IAM {
   ): void;
   rejectDelegationRequest(
     args: RejectDelegationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: RejectDelegationRequestCommandOutput) => void
   ): void;
 
@@ -3483,7 +3491,7 @@ export interface IAM {
    */
   removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput>;
   removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
@@ -3491,7 +3499,7 @@ export interface IAM {
   ): void;
   removeClientIDFromOpenIDConnectProvider(
     args: RemoveClientIDFromOpenIDConnectProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: RemoveClientIDFromOpenIDConnectProviderCommandOutput) => void
   ): void;
 
@@ -3500,7 +3508,7 @@ export interface IAM {
    */
   removeRoleFromInstanceProfile(
     args: RemoveRoleFromInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<RemoveRoleFromInstanceProfileCommandOutput>;
   removeRoleFromInstanceProfile(
     args: RemoveRoleFromInstanceProfileCommandInput,
@@ -3508,7 +3516,7 @@ export interface IAM {
   ): void;
   removeRoleFromInstanceProfile(
     args: RemoveRoleFromInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: RemoveRoleFromInstanceProfileCommandOutput) => void
   ): void;
 
@@ -3517,7 +3525,7 @@ export interface IAM {
    */
   removeUserFromGroup(
     args: RemoveUserFromGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<RemoveUserFromGroupCommandOutput>;
   removeUserFromGroup(
     args: RemoveUserFromGroupCommandInput,
@@ -3525,7 +3533,7 @@ export interface IAM {
   ): void;
   removeUserFromGroup(
     args: RemoveUserFromGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: RemoveUserFromGroupCommandOutput) => void
   ): void;
 
@@ -3534,7 +3542,7 @@ export interface IAM {
    */
   resetServiceSpecificCredential(
     args: ResetServiceSpecificCredentialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ResetServiceSpecificCredentialCommandOutput>;
   resetServiceSpecificCredential(
     args: ResetServiceSpecificCredentialCommandInput,
@@ -3542,7 +3550,7 @@ export interface IAM {
   ): void;
   resetServiceSpecificCredential(
     args: ResetServiceSpecificCredentialCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ResetServiceSpecificCredentialCommandOutput) => void
   ): void;
 
@@ -3551,7 +3559,7 @@ export interface IAM {
    */
   resyncMFADevice(
     args: ResyncMFADeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<ResyncMFADeviceCommandOutput>;
   resyncMFADevice(
     args: ResyncMFADeviceCommandInput,
@@ -3559,7 +3567,7 @@ export interface IAM {
   ): void;
   resyncMFADevice(
     args: ResyncMFADeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: ResyncMFADeviceCommandOutput) => void
   ): void;
 
@@ -3568,7 +3576,7 @@ export interface IAM {
    */
   sendDelegationToken(
     args: SendDelegationTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<SendDelegationTokenCommandOutput>;
   sendDelegationToken(
     args: SendDelegationTokenCommandInput,
@@ -3576,7 +3584,7 @@ export interface IAM {
   ): void;
   sendDelegationToken(
     args: SendDelegationTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: SendDelegationTokenCommandOutput) => void
   ): void;
 
@@ -3585,7 +3593,7 @@ export interface IAM {
    */
   setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<SetDefaultPolicyVersionCommandOutput>;
   setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
@@ -3593,7 +3601,7 @@ export interface IAM {
   ): void;
   setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: SetDefaultPolicyVersionCommandOutput) => void
   ): void;
 
@@ -3602,7 +3610,7 @@ export interface IAM {
    */
   setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput>;
   setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
@@ -3610,7 +3618,7 @@ export interface IAM {
   ): void;
   setSecurityTokenServicePreferences(
     args: SetSecurityTokenServicePreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: SetSecurityTokenServicePreferencesCommandOutput) => void
   ): void;
 
@@ -3619,7 +3627,7 @@ export interface IAM {
    */
   simulateCustomPolicy(
     args: SimulateCustomPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<SimulateCustomPolicyCommandOutput>;
   simulateCustomPolicy(
     args: SimulateCustomPolicyCommandInput,
@@ -3627,7 +3635,7 @@ export interface IAM {
   ): void;
   simulateCustomPolicy(
     args: SimulateCustomPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: SimulateCustomPolicyCommandOutput) => void
   ): void;
 
@@ -3636,7 +3644,7 @@ export interface IAM {
    */
   simulatePrincipalPolicy(
     args: SimulatePrincipalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<SimulatePrincipalPolicyCommandOutput>;
   simulatePrincipalPolicy(
     args: SimulatePrincipalPolicyCommandInput,
@@ -3644,7 +3652,7 @@ export interface IAM {
   ): void;
   simulatePrincipalPolicy(
     args: SimulatePrincipalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: SimulatePrincipalPolicyCommandOutput) => void
   ): void;
 
@@ -3653,7 +3661,7 @@ export interface IAM {
    */
   tagInstanceProfile(
     args: TagInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<TagInstanceProfileCommandOutput>;
   tagInstanceProfile(
     args: TagInstanceProfileCommandInput,
@@ -3661,7 +3669,7 @@ export interface IAM {
   ): void;
   tagInstanceProfile(
     args: TagInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: TagInstanceProfileCommandOutput) => void
   ): void;
 
@@ -3670,7 +3678,7 @@ export interface IAM {
    */
   tagMFADevice(
     args: TagMFADeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<TagMFADeviceCommandOutput>;
   tagMFADevice(
     args: TagMFADeviceCommandInput,
@@ -3678,7 +3686,7 @@ export interface IAM {
   ): void;
   tagMFADevice(
     args: TagMFADeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: TagMFADeviceCommandOutput) => void
   ): void;
 
@@ -3687,7 +3695,7 @@ export interface IAM {
    */
   tagOpenIDConnectProvider(
     args: TagOpenIDConnectProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<TagOpenIDConnectProviderCommandOutput>;
   tagOpenIDConnectProvider(
     args: TagOpenIDConnectProviderCommandInput,
@@ -3695,7 +3703,7 @@ export interface IAM {
   ): void;
   tagOpenIDConnectProvider(
     args: TagOpenIDConnectProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: TagOpenIDConnectProviderCommandOutput) => void
   ): void;
 
@@ -3704,7 +3712,7 @@ export interface IAM {
    */
   tagPolicy(
     args: TagPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<TagPolicyCommandOutput>;
   tagPolicy(
     args: TagPolicyCommandInput,
@@ -3712,7 +3720,7 @@ export interface IAM {
   ): void;
   tagPolicy(
     args: TagPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: TagPolicyCommandOutput) => void
   ): void;
 
@@ -3721,7 +3729,7 @@ export interface IAM {
    */
   tagRole(
     args: TagRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<TagRoleCommandOutput>;
   tagRole(
     args: TagRoleCommandInput,
@@ -3729,7 +3737,7 @@ export interface IAM {
   ): void;
   tagRole(
     args: TagRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: TagRoleCommandOutput) => void
   ): void;
 
@@ -3738,7 +3746,7 @@ export interface IAM {
    */
   tagSAMLProvider(
     args: TagSAMLProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<TagSAMLProviderCommandOutput>;
   tagSAMLProvider(
     args: TagSAMLProviderCommandInput,
@@ -3746,7 +3754,7 @@ export interface IAM {
   ): void;
   tagSAMLProvider(
     args: TagSAMLProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: TagSAMLProviderCommandOutput) => void
   ): void;
 
@@ -3755,7 +3763,7 @@ export interface IAM {
    */
   tagServerCertificate(
     args: TagServerCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<TagServerCertificateCommandOutput>;
   tagServerCertificate(
     args: TagServerCertificateCommandInput,
@@ -3763,7 +3771,7 @@ export interface IAM {
   ): void;
   tagServerCertificate(
     args: TagServerCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: TagServerCertificateCommandOutput) => void
   ): void;
 
@@ -3772,7 +3780,7 @@ export interface IAM {
    */
   tagUser(
     args: TagUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<TagUserCommandOutput>;
   tagUser(
     args: TagUserCommandInput,
@@ -3780,7 +3788,7 @@ export interface IAM {
   ): void;
   tagUser(
     args: TagUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: TagUserCommandOutput) => void
   ): void;
 
@@ -3789,7 +3797,7 @@ export interface IAM {
    */
   untagInstanceProfile(
     args: UntagInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UntagInstanceProfileCommandOutput>;
   untagInstanceProfile(
     args: UntagInstanceProfileCommandInput,
@@ -3797,7 +3805,7 @@ export interface IAM {
   ): void;
   untagInstanceProfile(
     args: UntagInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UntagInstanceProfileCommandOutput) => void
   ): void;
 
@@ -3806,7 +3814,7 @@ export interface IAM {
    */
   untagMFADevice(
     args: UntagMFADeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UntagMFADeviceCommandOutput>;
   untagMFADevice(
     args: UntagMFADeviceCommandInput,
@@ -3814,7 +3822,7 @@ export interface IAM {
   ): void;
   untagMFADevice(
     args: UntagMFADeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UntagMFADeviceCommandOutput) => void
   ): void;
 
@@ -3823,7 +3831,7 @@ export interface IAM {
    */
   untagOpenIDConnectProvider(
     args: UntagOpenIDConnectProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UntagOpenIDConnectProviderCommandOutput>;
   untagOpenIDConnectProvider(
     args: UntagOpenIDConnectProviderCommandInput,
@@ -3831,7 +3839,7 @@ export interface IAM {
   ): void;
   untagOpenIDConnectProvider(
     args: UntagOpenIDConnectProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UntagOpenIDConnectProviderCommandOutput) => void
   ): void;
 
@@ -3840,7 +3848,7 @@ export interface IAM {
    */
   untagPolicy(
     args: UntagPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UntagPolicyCommandOutput>;
   untagPolicy(
     args: UntagPolicyCommandInput,
@@ -3848,7 +3856,7 @@ export interface IAM {
   ): void;
   untagPolicy(
     args: UntagPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UntagPolicyCommandOutput) => void
   ): void;
 
@@ -3857,7 +3865,7 @@ export interface IAM {
    */
   untagRole(
     args: UntagRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UntagRoleCommandOutput>;
   untagRole(
     args: UntagRoleCommandInput,
@@ -3865,7 +3873,7 @@ export interface IAM {
   ): void;
   untagRole(
     args: UntagRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UntagRoleCommandOutput) => void
   ): void;
 
@@ -3874,7 +3882,7 @@ export interface IAM {
    */
   untagSAMLProvider(
     args: UntagSAMLProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UntagSAMLProviderCommandOutput>;
   untagSAMLProvider(
     args: UntagSAMLProviderCommandInput,
@@ -3882,7 +3890,7 @@ export interface IAM {
   ): void;
   untagSAMLProvider(
     args: UntagSAMLProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UntagSAMLProviderCommandOutput) => void
   ): void;
 
@@ -3891,7 +3899,7 @@ export interface IAM {
    */
   untagServerCertificate(
     args: UntagServerCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UntagServerCertificateCommandOutput>;
   untagServerCertificate(
     args: UntagServerCertificateCommandInput,
@@ -3899,7 +3907,7 @@ export interface IAM {
   ): void;
   untagServerCertificate(
     args: UntagServerCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UntagServerCertificateCommandOutput) => void
   ): void;
 
@@ -3908,7 +3916,7 @@ export interface IAM {
    */
   untagUser(
     args: UntagUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UntagUserCommandOutput>;
   untagUser(
     args: UntagUserCommandInput,
@@ -3916,7 +3924,7 @@ export interface IAM {
   ): void;
   untagUser(
     args: UntagUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UntagUserCommandOutput) => void
   ): void;
 
@@ -3925,7 +3933,7 @@ export interface IAM {
    */
   updateAccessKey(
     args: UpdateAccessKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateAccessKeyCommandOutput>;
   updateAccessKey(
     args: UpdateAccessKeyCommandInput,
@@ -3933,7 +3941,7 @@ export interface IAM {
   ): void;
   updateAccessKey(
     args: UpdateAccessKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateAccessKeyCommandOutput) => void
   ): void;
 
@@ -3943,7 +3951,7 @@ export interface IAM {
   updateAccountPasswordPolicy(): Promise<UpdateAccountPasswordPolicyCommandOutput>;
   updateAccountPasswordPolicy(
     args: UpdateAccountPasswordPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateAccountPasswordPolicyCommandOutput>;
   updateAccountPasswordPolicy(
     args: UpdateAccountPasswordPolicyCommandInput,
@@ -3951,7 +3959,7 @@ export interface IAM {
   ): void;
   updateAccountPasswordPolicy(
     args: UpdateAccountPasswordPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateAccountPasswordPolicyCommandOutput) => void
   ): void;
 
@@ -3960,7 +3968,7 @@ export interface IAM {
    */
   updateAssumeRolePolicy(
     args: UpdateAssumeRolePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateAssumeRolePolicyCommandOutput>;
   updateAssumeRolePolicy(
     args: UpdateAssumeRolePolicyCommandInput,
@@ -3968,7 +3976,7 @@ export interface IAM {
   ): void;
   updateAssumeRolePolicy(
     args: UpdateAssumeRolePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateAssumeRolePolicyCommandOutput) => void
   ): void;
 
@@ -3977,7 +3985,7 @@ export interface IAM {
    */
   updateDelegationRequest(
     args: UpdateDelegationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateDelegationRequestCommandOutput>;
   updateDelegationRequest(
     args: UpdateDelegationRequestCommandInput,
@@ -3985,7 +3993,7 @@ export interface IAM {
   ): void;
   updateDelegationRequest(
     args: UpdateDelegationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateDelegationRequestCommandOutput) => void
   ): void;
 
@@ -3994,7 +4002,7 @@ export interface IAM {
    */
   updateGroup(
     args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateGroupCommandOutput>;
   updateGroup(
     args: UpdateGroupCommandInput,
@@ -4002,7 +4010,7 @@ export interface IAM {
   ): void;
   updateGroup(
     args: UpdateGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateGroupCommandOutput) => void
   ): void;
 
@@ -4011,7 +4019,7 @@ export interface IAM {
    */
   updateLoginProfile(
     args: UpdateLoginProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateLoginProfileCommandOutput>;
   updateLoginProfile(
     args: UpdateLoginProfileCommandInput,
@@ -4019,7 +4027,7 @@ export interface IAM {
   ): void;
   updateLoginProfile(
     args: UpdateLoginProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateLoginProfileCommandOutput) => void
   ): void;
 
@@ -4028,7 +4036,7 @@ export interface IAM {
    */
   updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput>;
   updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
@@ -4036,7 +4044,7 @@ export interface IAM {
   ): void;
   updateOpenIDConnectProviderThumbprint(
     args: UpdateOpenIDConnectProviderThumbprintCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateOpenIDConnectProviderThumbprintCommandOutput) => void
   ): void;
 
@@ -4045,7 +4053,7 @@ export interface IAM {
    */
   updateRole(
     args: UpdateRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateRoleCommandOutput>;
   updateRole(
     args: UpdateRoleCommandInput,
@@ -4053,7 +4061,7 @@ export interface IAM {
   ): void;
   updateRole(
     args: UpdateRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateRoleCommandOutput) => void
   ): void;
 
@@ -4062,7 +4070,7 @@ export interface IAM {
    */
   updateRoleDescription(
     args: UpdateRoleDescriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateRoleDescriptionCommandOutput>;
   updateRoleDescription(
     args: UpdateRoleDescriptionCommandInput,
@@ -4070,7 +4078,7 @@ export interface IAM {
   ): void;
   updateRoleDescription(
     args: UpdateRoleDescriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateRoleDescriptionCommandOutput) => void
   ): void;
 
@@ -4079,7 +4087,7 @@ export interface IAM {
    */
   updateSAMLProvider(
     args: UpdateSAMLProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateSAMLProviderCommandOutput>;
   updateSAMLProvider(
     args: UpdateSAMLProviderCommandInput,
@@ -4087,7 +4095,7 @@ export interface IAM {
   ): void;
   updateSAMLProvider(
     args: UpdateSAMLProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateSAMLProviderCommandOutput) => void
   ): void;
 
@@ -4096,7 +4104,7 @@ export interface IAM {
    */
   updateServerCertificate(
     args: UpdateServerCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateServerCertificateCommandOutput>;
   updateServerCertificate(
     args: UpdateServerCertificateCommandInput,
@@ -4104,7 +4112,7 @@ export interface IAM {
   ): void;
   updateServerCertificate(
     args: UpdateServerCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateServerCertificateCommandOutput) => void
   ): void;
 
@@ -4113,7 +4121,7 @@ export interface IAM {
    */
   updateServiceSpecificCredential(
     args: UpdateServiceSpecificCredentialCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateServiceSpecificCredentialCommandOutput>;
   updateServiceSpecificCredential(
     args: UpdateServiceSpecificCredentialCommandInput,
@@ -4121,7 +4129,7 @@ export interface IAM {
   ): void;
   updateServiceSpecificCredential(
     args: UpdateServiceSpecificCredentialCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateServiceSpecificCredentialCommandOutput) => void
   ): void;
 
@@ -4130,7 +4138,7 @@ export interface IAM {
    */
   updateSigningCertificate(
     args: UpdateSigningCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateSigningCertificateCommandOutput>;
   updateSigningCertificate(
     args: UpdateSigningCertificateCommandInput,
@@ -4138,7 +4146,7 @@ export interface IAM {
   ): void;
   updateSigningCertificate(
     args: UpdateSigningCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateSigningCertificateCommandOutput) => void
   ): void;
 
@@ -4147,7 +4155,7 @@ export interface IAM {
    */
   updateSSHPublicKey(
     args: UpdateSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateSSHPublicKeyCommandOutput>;
   updateSSHPublicKey(
     args: UpdateSSHPublicKeyCommandInput,
@@ -4155,7 +4163,7 @@ export interface IAM {
   ): void;
   updateSSHPublicKey(
     args: UpdateSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateSSHPublicKeyCommandOutput) => void
   ): void;
 
@@ -4164,7 +4172,7 @@ export interface IAM {
    */
   updateUser(
     args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UpdateUserCommandOutput>;
   updateUser(
     args: UpdateUserCommandInput,
@@ -4172,7 +4180,7 @@ export interface IAM {
   ): void;
   updateUser(
     args: UpdateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
   ): void;
 
@@ -4181,7 +4189,7 @@ export interface IAM {
    */
   uploadServerCertificate(
     args: UploadServerCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UploadServerCertificateCommandOutput>;
   uploadServerCertificate(
     args: UploadServerCertificateCommandInput,
@@ -4189,7 +4197,7 @@ export interface IAM {
   ): void;
   uploadServerCertificate(
     args: UploadServerCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UploadServerCertificateCommandOutput) => void
   ): void;
 
@@ -4198,7 +4206,7 @@ export interface IAM {
    */
   uploadSigningCertificate(
     args: UploadSigningCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UploadSigningCertificateCommandOutput>;
   uploadSigningCertificate(
     args: UploadSigningCertificateCommandInput,
@@ -4206,7 +4214,7 @@ export interface IAM {
   ): void;
   uploadSigningCertificate(
     args: UploadSigningCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UploadSigningCertificateCommandOutput) => void
   ): void;
 
@@ -4215,7 +4223,7 @@ export interface IAM {
    */
   uploadSSHPublicKey(
     args: UploadSSHPublicKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IAMRequestOptions
   ): Promise<UploadSSHPublicKeyCommandOutput>;
   uploadSSHPublicKey(
     args: UploadSSHPublicKeyCommandInput,
@@ -4223,7 +4231,7 @@ export interface IAM {
   ): void;
   uploadSSHPublicKey(
     args: UploadSSHPublicKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IAMRequestOptions,
     cb: (err: any, data?: UploadSSHPublicKeyCommandOutput) => void
   ): void;
 

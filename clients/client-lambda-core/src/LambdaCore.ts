@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateNetworkConnectorCommandInput,
@@ -41,13 +46,20 @@ const paginators = {
   paginateListNetworkConnectors,
 };
 
+/**
+ * @public
+ */
+export interface LambdaCoreRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface LambdaCore {
   /**
    * @see {@link CreateNetworkConnectorCommand}
    */
   createNetworkConnector(
     args: CreateNetworkConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaCoreRequestOptions
   ): Promise<CreateNetworkConnectorCommandOutput>;
   createNetworkConnector(
     args: CreateNetworkConnectorCommandInput,
@@ -55,7 +67,7 @@ export interface LambdaCore {
   ): void;
   createNetworkConnector(
     args: CreateNetworkConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaCoreRequestOptions,
     cb: (err: any, data?: CreateNetworkConnectorCommandOutput) => void
   ): void;
 
@@ -64,7 +76,7 @@ export interface LambdaCore {
    */
   deleteNetworkConnector(
     args: DeleteNetworkConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaCoreRequestOptions
   ): Promise<DeleteNetworkConnectorCommandOutput>;
   deleteNetworkConnector(
     args: DeleteNetworkConnectorCommandInput,
@@ -72,7 +84,7 @@ export interface LambdaCore {
   ): void;
   deleteNetworkConnector(
     args: DeleteNetworkConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaCoreRequestOptions,
     cb: (err: any, data?: DeleteNetworkConnectorCommandOutput) => void
   ): void;
 
@@ -81,7 +93,7 @@ export interface LambdaCore {
    */
   getNetworkConnector(
     args: GetNetworkConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaCoreRequestOptions
   ): Promise<GetNetworkConnectorCommandOutput>;
   getNetworkConnector(
     args: GetNetworkConnectorCommandInput,
@@ -89,7 +101,7 @@ export interface LambdaCore {
   ): void;
   getNetworkConnector(
     args: GetNetworkConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaCoreRequestOptions,
     cb: (err: any, data?: GetNetworkConnectorCommandOutput) => void
   ): void;
 
@@ -99,7 +111,7 @@ export interface LambdaCore {
   listNetworkConnectors(): Promise<ListNetworkConnectorsCommandOutput>;
   listNetworkConnectors(
     args: ListNetworkConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaCoreRequestOptions
   ): Promise<ListNetworkConnectorsCommandOutput>;
   listNetworkConnectors(
     args: ListNetworkConnectorsCommandInput,
@@ -107,7 +119,7 @@ export interface LambdaCore {
   ): void;
   listNetworkConnectors(
     args: ListNetworkConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaCoreRequestOptions,
     cb: (err: any, data?: ListNetworkConnectorsCommandOutput) => void
   ): void;
 
@@ -116,7 +128,7 @@ export interface LambdaCore {
    */
   updateNetworkConnector(
     args: UpdateNetworkConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: LambdaCoreRequestOptions
   ): Promise<UpdateNetworkConnectorCommandOutput>;
   updateNetworkConnector(
     args: UpdateNetworkConnectorCommandInput,
@@ -124,7 +136,7 @@ export interface LambdaCore {
   ): void;
   updateNetworkConnector(
     args: UpdateNetworkConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: LambdaCoreRequestOptions,
     cb: (err: any, data?: UpdateNetworkConnectorCommandOutput) => void
   ): void;
 

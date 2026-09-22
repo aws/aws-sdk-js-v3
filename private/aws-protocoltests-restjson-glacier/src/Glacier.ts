@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type UploadArchiveCommandInput,
@@ -19,13 +19,20 @@ const commands = {
   UploadMultipartPartCommand,
 };
 
+/**
+ * @public
+ */
+export interface GlacierRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Glacier {
   /**
    * @see {@link UploadArchiveCommand}
    */
   uploadArchive(
     args: UploadArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<UploadArchiveCommandOutput>;
   uploadArchive(
     args: UploadArchiveCommandInput,
@@ -33,7 +40,7 @@ export interface Glacier {
   ): void;
   uploadArchive(
     args: UploadArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: UploadArchiveCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface Glacier {
    */
   uploadMultipartPart(
     args: UploadMultipartPartCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GlacierRequestOptions
   ): Promise<UploadMultipartPartCommandOutput>;
   uploadMultipartPart(
     args: UploadMultipartPartCommandInput,
@@ -50,7 +57,7 @@ export interface Glacier {
   ): void;
   uploadMultipartPart(
     args: UploadMultipartPartCommandInput,
-    options: __HttpHandlerOptions,
+    options: GlacierRequestOptions,
     cb: (err: any, data?: UploadMultipartPartCommandOutput) => void
   ): void;
 }

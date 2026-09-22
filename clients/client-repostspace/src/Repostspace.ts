@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -140,13 +141,20 @@ const waiters = {
   waitUntilSpaceDeleted,
 };
 
+/**
+ * @public
+ */
+export interface RepostspaceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Repostspace {
   /**
    * @see {@link BatchAddChannelRoleToAccessorsCommand}
    */
   batchAddChannelRoleToAccessors(
     args: BatchAddChannelRoleToAccessorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<BatchAddChannelRoleToAccessorsCommandOutput>;
   batchAddChannelRoleToAccessors(
     args: BatchAddChannelRoleToAccessorsCommandInput,
@@ -154,7 +162,7 @@ export interface Repostspace {
   ): void;
   batchAddChannelRoleToAccessors(
     args: BatchAddChannelRoleToAccessorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: BatchAddChannelRoleToAccessorsCommandOutput) => void
   ): void;
 
@@ -163,7 +171,7 @@ export interface Repostspace {
    */
   batchAddRole(
     args: BatchAddRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<BatchAddRoleCommandOutput>;
   batchAddRole(
     args: BatchAddRoleCommandInput,
@@ -171,7 +179,7 @@ export interface Repostspace {
   ): void;
   batchAddRole(
     args: BatchAddRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: BatchAddRoleCommandOutput) => void
   ): void;
 
@@ -180,7 +188,7 @@ export interface Repostspace {
    */
   batchRemoveChannelRoleFromAccessors(
     args: BatchRemoveChannelRoleFromAccessorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<BatchRemoveChannelRoleFromAccessorsCommandOutput>;
   batchRemoveChannelRoleFromAccessors(
     args: BatchRemoveChannelRoleFromAccessorsCommandInput,
@@ -188,7 +196,7 @@ export interface Repostspace {
   ): void;
   batchRemoveChannelRoleFromAccessors(
     args: BatchRemoveChannelRoleFromAccessorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: BatchRemoveChannelRoleFromAccessorsCommandOutput) => void
   ): void;
 
@@ -197,7 +205,7 @@ export interface Repostspace {
    */
   batchRemoveRole(
     args: BatchRemoveRoleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<BatchRemoveRoleCommandOutput>;
   batchRemoveRole(
     args: BatchRemoveRoleCommandInput,
@@ -205,7 +213,7 @@ export interface Repostspace {
   ): void;
   batchRemoveRole(
     args: BatchRemoveRoleCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: BatchRemoveRoleCommandOutput) => void
   ): void;
 
@@ -214,7 +222,7 @@ export interface Repostspace {
    */
   createChannel(
     args: CreateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<CreateChannelCommandOutput>;
   createChannel(
     args: CreateChannelCommandInput,
@@ -222,7 +230,7 @@ export interface Repostspace {
   ): void;
   createChannel(
     args: CreateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: CreateChannelCommandOutput) => void
   ): void;
 
@@ -231,7 +239,7 @@ export interface Repostspace {
    */
   createSpace(
     args: CreateSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<CreateSpaceCommandOutput>;
   createSpace(
     args: CreateSpaceCommandInput,
@@ -239,7 +247,7 @@ export interface Repostspace {
   ): void;
   createSpace(
     args: CreateSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: CreateSpaceCommandOutput) => void
   ): void;
 
@@ -248,7 +256,7 @@ export interface Repostspace {
    */
   deleteSpace(
     args: DeleteSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<DeleteSpaceCommandOutput>;
   deleteSpace(
     args: DeleteSpaceCommandInput,
@@ -256,7 +264,7 @@ export interface Repostspace {
   ): void;
   deleteSpace(
     args: DeleteSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: DeleteSpaceCommandOutput) => void
   ): void;
 
@@ -265,7 +273,7 @@ export interface Repostspace {
    */
   deregisterAdmin(
     args: DeregisterAdminCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<DeregisterAdminCommandOutput>;
   deregisterAdmin(
     args: DeregisterAdminCommandInput,
@@ -273,7 +281,7 @@ export interface Repostspace {
   ): void;
   deregisterAdmin(
     args: DeregisterAdminCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: DeregisterAdminCommandOutput) => void
   ): void;
 
@@ -282,7 +290,7 @@ export interface Repostspace {
    */
   getChannel(
     args: GetChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<GetChannelCommandOutput>;
   getChannel(
     args: GetChannelCommandInput,
@@ -290,7 +298,7 @@ export interface Repostspace {
   ): void;
   getChannel(
     args: GetChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: GetChannelCommandOutput) => void
   ): void;
 
@@ -299,7 +307,7 @@ export interface Repostspace {
    */
   getSpace(
     args: GetSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<GetSpaceCommandOutput>;
   getSpace(
     args: GetSpaceCommandInput,
@@ -307,7 +315,7 @@ export interface Repostspace {
   ): void;
   getSpace(
     args: GetSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: GetSpaceCommandOutput) => void
   ): void;
 
@@ -316,7 +324,7 @@ export interface Repostspace {
    */
   listChannels(
     args: ListChannelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<ListChannelsCommandOutput>;
   listChannels(
     args: ListChannelsCommandInput,
@@ -324,7 +332,7 @@ export interface Repostspace {
   ): void;
   listChannels(
     args: ListChannelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
@@ -334,7 +342,7 @@ export interface Repostspace {
   listSpaces(): Promise<ListSpacesCommandOutput>;
   listSpaces(
     args: ListSpacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<ListSpacesCommandOutput>;
   listSpaces(
     args: ListSpacesCommandInput,
@@ -342,7 +350,7 @@ export interface Repostspace {
   ): void;
   listSpaces(
     args: ListSpacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: ListSpacesCommandOutput) => void
   ): void;
 
@@ -351,7 +359,7 @@ export interface Repostspace {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -359,7 +367,7 @@ export interface Repostspace {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -368,7 +376,7 @@ export interface Repostspace {
    */
   registerAdmin(
     args: RegisterAdminCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<RegisterAdminCommandOutput>;
   registerAdmin(
     args: RegisterAdminCommandInput,
@@ -376,7 +384,7 @@ export interface Repostspace {
   ): void;
   registerAdmin(
     args: RegisterAdminCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: RegisterAdminCommandOutput) => void
   ): void;
 
@@ -385,7 +393,7 @@ export interface Repostspace {
    */
   sendInvites(
     args: SendInvitesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<SendInvitesCommandOutput>;
   sendInvites(
     args: SendInvitesCommandInput,
@@ -393,7 +401,7 @@ export interface Repostspace {
   ): void;
   sendInvites(
     args: SendInvitesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: SendInvitesCommandOutput) => void
   ): void;
 
@@ -402,7 +410,7 @@ export interface Repostspace {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -410,7 +418,7 @@ export interface Repostspace {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -419,7 +427,7 @@ export interface Repostspace {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -427,7 +435,7 @@ export interface Repostspace {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -436,7 +444,7 @@ export interface Repostspace {
    */
   updateChannel(
     args: UpdateChannelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<UpdateChannelCommandOutput>;
   updateChannel(
     args: UpdateChannelCommandInput,
@@ -444,7 +452,7 @@ export interface Repostspace {
   ): void;
   updateChannel(
     args: UpdateChannelCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
 
@@ -453,7 +461,7 @@ export interface Repostspace {
    */
   updateSpace(
     args: UpdateSpaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RepostspaceRequestOptions
   ): Promise<UpdateSpaceCommandOutput>;
   updateSpace(
     args: UpdateSpaceCommandInput,
@@ -461,7 +469,7 @@ export interface Repostspace {
   ): void;
   updateSpace(
     args: UpdateSpaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RepostspaceRequestOptions,
     cb: (err: any, data?: UpdateSpaceCommandOutput) => void
   ): void;
 

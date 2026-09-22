@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptQualificationRequestCommandInput,
@@ -243,13 +248,20 @@ const paginators = {
   paginateListWorkersWithQualificationType,
 };
 
+/**
+ * @public
+ */
+export interface MTurkRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MTurk {
   /**
    * @see {@link AcceptQualificationRequestCommand}
    */
   acceptQualificationRequest(
     args: AcceptQualificationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<AcceptQualificationRequestCommandOutput>;
   acceptQualificationRequest(
     args: AcceptQualificationRequestCommandInput,
@@ -257,7 +269,7 @@ export interface MTurk {
   ): void;
   acceptQualificationRequest(
     args: AcceptQualificationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: AcceptQualificationRequestCommandOutput) => void
   ): void;
 
@@ -266,7 +278,7 @@ export interface MTurk {
    */
   approveAssignment(
     args: ApproveAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ApproveAssignmentCommandOutput>;
   approveAssignment(
     args: ApproveAssignmentCommandInput,
@@ -274,7 +286,7 @@ export interface MTurk {
   ): void;
   approveAssignment(
     args: ApproveAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ApproveAssignmentCommandOutput) => void
   ): void;
 
@@ -283,7 +295,7 @@ export interface MTurk {
    */
   associateQualificationWithWorker(
     args: AssociateQualificationWithWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<AssociateQualificationWithWorkerCommandOutput>;
   associateQualificationWithWorker(
     args: AssociateQualificationWithWorkerCommandInput,
@@ -291,7 +303,7 @@ export interface MTurk {
   ): void;
   associateQualificationWithWorker(
     args: AssociateQualificationWithWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: AssociateQualificationWithWorkerCommandOutput) => void
   ): void;
 
@@ -300,7 +312,7 @@ export interface MTurk {
    */
   createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<CreateAdditionalAssignmentsForHITCommandOutput>;
   createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
@@ -308,7 +320,7 @@ export interface MTurk {
   ): void;
   createAdditionalAssignmentsForHIT(
     args: CreateAdditionalAssignmentsForHITCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: CreateAdditionalAssignmentsForHITCommandOutput) => void
   ): void;
 
@@ -317,7 +329,7 @@ export interface MTurk {
    */
   createHIT(
     args: CreateHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<CreateHITCommandOutput>;
   createHIT(
     args: CreateHITCommandInput,
@@ -325,7 +337,7 @@ export interface MTurk {
   ): void;
   createHIT(
     args: CreateHITCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: CreateHITCommandOutput) => void
   ): void;
 
@@ -334,7 +346,7 @@ export interface MTurk {
    */
   createHITType(
     args: CreateHITTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<CreateHITTypeCommandOutput>;
   createHITType(
     args: CreateHITTypeCommandInput,
@@ -342,7 +354,7 @@ export interface MTurk {
   ): void;
   createHITType(
     args: CreateHITTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: CreateHITTypeCommandOutput) => void
   ): void;
 
@@ -351,7 +363,7 @@ export interface MTurk {
    */
   createHITWithHITType(
     args: CreateHITWithHITTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<CreateHITWithHITTypeCommandOutput>;
   createHITWithHITType(
     args: CreateHITWithHITTypeCommandInput,
@@ -359,7 +371,7 @@ export interface MTurk {
   ): void;
   createHITWithHITType(
     args: CreateHITWithHITTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: CreateHITWithHITTypeCommandOutput) => void
   ): void;
 
@@ -368,7 +380,7 @@ export interface MTurk {
    */
   createQualificationType(
     args: CreateQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<CreateQualificationTypeCommandOutput>;
   createQualificationType(
     args: CreateQualificationTypeCommandInput,
@@ -376,7 +388,7 @@ export interface MTurk {
   ): void;
   createQualificationType(
     args: CreateQualificationTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: CreateQualificationTypeCommandOutput) => void
   ): void;
 
@@ -385,7 +397,7 @@ export interface MTurk {
    */
   createWorkerBlock(
     args: CreateWorkerBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<CreateWorkerBlockCommandOutput>;
   createWorkerBlock(
     args: CreateWorkerBlockCommandInput,
@@ -393,7 +405,7 @@ export interface MTurk {
   ): void;
   createWorkerBlock(
     args: CreateWorkerBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: CreateWorkerBlockCommandOutput) => void
   ): void;
 
@@ -402,7 +414,7 @@ export interface MTurk {
    */
   deleteHIT(
     args: DeleteHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<DeleteHITCommandOutput>;
   deleteHIT(
     args: DeleteHITCommandInput,
@@ -410,7 +422,7 @@ export interface MTurk {
   ): void;
   deleteHIT(
     args: DeleteHITCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: DeleteHITCommandOutput) => void
   ): void;
 
@@ -419,7 +431,7 @@ export interface MTurk {
    */
   deleteQualificationType(
     args: DeleteQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<DeleteQualificationTypeCommandOutput>;
   deleteQualificationType(
     args: DeleteQualificationTypeCommandInput,
@@ -427,7 +439,7 @@ export interface MTurk {
   ): void;
   deleteQualificationType(
     args: DeleteQualificationTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: DeleteQualificationTypeCommandOutput) => void
   ): void;
 
@@ -436,7 +448,7 @@ export interface MTurk {
    */
   deleteWorkerBlock(
     args: DeleteWorkerBlockCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<DeleteWorkerBlockCommandOutput>;
   deleteWorkerBlock(
     args: DeleteWorkerBlockCommandInput,
@@ -444,7 +456,7 @@ export interface MTurk {
   ): void;
   deleteWorkerBlock(
     args: DeleteWorkerBlockCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: DeleteWorkerBlockCommandOutput) => void
   ): void;
 
@@ -453,7 +465,7 @@ export interface MTurk {
    */
   disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<DisassociateQualificationFromWorkerCommandOutput>;
   disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
@@ -461,7 +473,7 @@ export interface MTurk {
   ): void;
   disassociateQualificationFromWorker(
     args: DisassociateQualificationFromWorkerCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: DisassociateQualificationFromWorkerCommandOutput) => void
   ): void;
 
@@ -471,7 +483,7 @@ export interface MTurk {
   getAccountBalance(): Promise<GetAccountBalanceCommandOutput>;
   getAccountBalance(
     args: GetAccountBalanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<GetAccountBalanceCommandOutput>;
   getAccountBalance(
     args: GetAccountBalanceCommandInput,
@@ -479,7 +491,7 @@ export interface MTurk {
   ): void;
   getAccountBalance(
     args: GetAccountBalanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: GetAccountBalanceCommandOutput) => void
   ): void;
 
@@ -488,7 +500,7 @@ export interface MTurk {
    */
   getAssignment(
     args: GetAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<GetAssignmentCommandOutput>;
   getAssignment(
     args: GetAssignmentCommandInput,
@@ -496,7 +508,7 @@ export interface MTurk {
   ): void;
   getAssignment(
     args: GetAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: GetAssignmentCommandOutput) => void
   ): void;
 
@@ -505,7 +517,7 @@ export interface MTurk {
    */
   getFileUploadURL(
     args: GetFileUploadURLCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<GetFileUploadURLCommandOutput>;
   getFileUploadURL(
     args: GetFileUploadURLCommandInput,
@@ -513,7 +525,7 @@ export interface MTurk {
   ): void;
   getFileUploadURL(
     args: GetFileUploadURLCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: GetFileUploadURLCommandOutput) => void
   ): void;
 
@@ -522,7 +534,7 @@ export interface MTurk {
    */
   getHIT(
     args: GetHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<GetHITCommandOutput>;
   getHIT(
     args: GetHITCommandInput,
@@ -530,7 +542,7 @@ export interface MTurk {
   ): void;
   getHIT(
     args: GetHITCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: GetHITCommandOutput) => void
   ): void;
 
@@ -539,7 +551,7 @@ export interface MTurk {
    */
   getQualificationScore(
     args: GetQualificationScoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<GetQualificationScoreCommandOutput>;
   getQualificationScore(
     args: GetQualificationScoreCommandInput,
@@ -547,7 +559,7 @@ export interface MTurk {
   ): void;
   getQualificationScore(
     args: GetQualificationScoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: GetQualificationScoreCommandOutput) => void
   ): void;
 
@@ -556,7 +568,7 @@ export interface MTurk {
    */
   getQualificationType(
     args: GetQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<GetQualificationTypeCommandOutput>;
   getQualificationType(
     args: GetQualificationTypeCommandInput,
@@ -564,7 +576,7 @@ export interface MTurk {
   ): void;
   getQualificationType(
     args: GetQualificationTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: GetQualificationTypeCommandOutput) => void
   ): void;
 
@@ -573,7 +585,7 @@ export interface MTurk {
    */
   listAssignmentsForHIT(
     args: ListAssignmentsForHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListAssignmentsForHITCommandOutput>;
   listAssignmentsForHIT(
     args: ListAssignmentsForHITCommandInput,
@@ -581,7 +593,7 @@ export interface MTurk {
   ): void;
   listAssignmentsForHIT(
     args: ListAssignmentsForHITCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListAssignmentsForHITCommandOutput) => void
   ): void;
 
@@ -591,7 +603,7 @@ export interface MTurk {
   listBonusPayments(): Promise<ListBonusPaymentsCommandOutput>;
   listBonusPayments(
     args: ListBonusPaymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListBonusPaymentsCommandOutput>;
   listBonusPayments(
     args: ListBonusPaymentsCommandInput,
@@ -599,7 +611,7 @@ export interface MTurk {
   ): void;
   listBonusPayments(
     args: ListBonusPaymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListBonusPaymentsCommandOutput) => void
   ): void;
 
@@ -609,7 +621,7 @@ export interface MTurk {
   listHITs(): Promise<ListHITsCommandOutput>;
   listHITs(
     args: ListHITsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListHITsCommandOutput>;
   listHITs(
     args: ListHITsCommandInput,
@@ -617,7 +629,7 @@ export interface MTurk {
   ): void;
   listHITs(
     args: ListHITsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListHITsCommandOutput) => void
   ): void;
 
@@ -626,7 +638,7 @@ export interface MTurk {
    */
   listHITsForQualificationType(
     args: ListHITsForQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListHITsForQualificationTypeCommandOutput>;
   listHITsForQualificationType(
     args: ListHITsForQualificationTypeCommandInput,
@@ -634,7 +646,7 @@ export interface MTurk {
   ): void;
   listHITsForQualificationType(
     args: ListHITsForQualificationTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListHITsForQualificationTypeCommandOutput) => void
   ): void;
 
@@ -644,7 +656,7 @@ export interface MTurk {
   listQualificationRequests(): Promise<ListQualificationRequestsCommandOutput>;
   listQualificationRequests(
     args: ListQualificationRequestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListQualificationRequestsCommandOutput>;
   listQualificationRequests(
     args: ListQualificationRequestsCommandInput,
@@ -652,7 +664,7 @@ export interface MTurk {
   ): void;
   listQualificationRequests(
     args: ListQualificationRequestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListQualificationRequestsCommandOutput) => void
   ): void;
 
@@ -661,7 +673,7 @@ export interface MTurk {
    */
   listQualificationTypes(
     args: ListQualificationTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListQualificationTypesCommandOutput>;
   listQualificationTypes(
     args: ListQualificationTypesCommandInput,
@@ -669,7 +681,7 @@ export interface MTurk {
   ): void;
   listQualificationTypes(
     args: ListQualificationTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListQualificationTypesCommandOutput) => void
   ): void;
 
@@ -679,7 +691,7 @@ export interface MTurk {
   listReviewableHITs(): Promise<ListReviewableHITsCommandOutput>;
   listReviewableHITs(
     args: ListReviewableHITsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListReviewableHITsCommandOutput>;
   listReviewableHITs(
     args: ListReviewableHITsCommandInput,
@@ -687,7 +699,7 @@ export interface MTurk {
   ): void;
   listReviewableHITs(
     args: ListReviewableHITsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListReviewableHITsCommandOutput) => void
   ): void;
 
@@ -696,7 +708,7 @@ export interface MTurk {
    */
   listReviewPolicyResultsForHIT(
     args: ListReviewPolicyResultsForHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListReviewPolicyResultsForHITCommandOutput>;
   listReviewPolicyResultsForHIT(
     args: ListReviewPolicyResultsForHITCommandInput,
@@ -704,7 +716,7 @@ export interface MTurk {
   ): void;
   listReviewPolicyResultsForHIT(
     args: ListReviewPolicyResultsForHITCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListReviewPolicyResultsForHITCommandOutput) => void
   ): void;
 
@@ -714,7 +726,7 @@ export interface MTurk {
   listWorkerBlocks(): Promise<ListWorkerBlocksCommandOutput>;
   listWorkerBlocks(
     args: ListWorkerBlocksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListWorkerBlocksCommandOutput>;
   listWorkerBlocks(
     args: ListWorkerBlocksCommandInput,
@@ -722,7 +734,7 @@ export interface MTurk {
   ): void;
   listWorkerBlocks(
     args: ListWorkerBlocksCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListWorkerBlocksCommandOutput) => void
   ): void;
 
@@ -731,7 +743,7 @@ export interface MTurk {
    */
   listWorkersWithQualificationType(
     args: ListWorkersWithQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<ListWorkersWithQualificationTypeCommandOutput>;
   listWorkersWithQualificationType(
     args: ListWorkersWithQualificationTypeCommandInput,
@@ -739,7 +751,7 @@ export interface MTurk {
   ): void;
   listWorkersWithQualificationType(
     args: ListWorkersWithQualificationTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: ListWorkersWithQualificationTypeCommandOutput) => void
   ): void;
 
@@ -748,7 +760,7 @@ export interface MTurk {
    */
   notifyWorkers(
     args: NotifyWorkersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<NotifyWorkersCommandOutput>;
   notifyWorkers(
     args: NotifyWorkersCommandInput,
@@ -756,7 +768,7 @@ export interface MTurk {
   ): void;
   notifyWorkers(
     args: NotifyWorkersCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: NotifyWorkersCommandOutput) => void
   ): void;
 
@@ -765,7 +777,7 @@ export interface MTurk {
    */
   rejectAssignment(
     args: RejectAssignmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<RejectAssignmentCommandOutput>;
   rejectAssignment(
     args: RejectAssignmentCommandInput,
@@ -773,7 +785,7 @@ export interface MTurk {
   ): void;
   rejectAssignment(
     args: RejectAssignmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: RejectAssignmentCommandOutput) => void
   ): void;
 
@@ -782,7 +794,7 @@ export interface MTurk {
    */
   rejectQualificationRequest(
     args: RejectQualificationRequestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<RejectQualificationRequestCommandOutput>;
   rejectQualificationRequest(
     args: RejectQualificationRequestCommandInput,
@@ -790,7 +802,7 @@ export interface MTurk {
   ): void;
   rejectQualificationRequest(
     args: RejectQualificationRequestCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: RejectQualificationRequestCommandOutput) => void
   ): void;
 
@@ -799,7 +811,7 @@ export interface MTurk {
    */
   sendBonus(
     args: SendBonusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<SendBonusCommandOutput>;
   sendBonus(
     args: SendBonusCommandInput,
@@ -807,7 +819,7 @@ export interface MTurk {
   ): void;
   sendBonus(
     args: SendBonusCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: SendBonusCommandOutput) => void
   ): void;
 
@@ -816,7 +828,7 @@ export interface MTurk {
    */
   sendTestEventNotification(
     args: SendTestEventNotificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<SendTestEventNotificationCommandOutput>;
   sendTestEventNotification(
     args: SendTestEventNotificationCommandInput,
@@ -824,7 +836,7 @@ export interface MTurk {
   ): void;
   sendTestEventNotification(
     args: SendTestEventNotificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: SendTestEventNotificationCommandOutput) => void
   ): void;
 
@@ -833,7 +845,7 @@ export interface MTurk {
    */
   updateExpirationForHIT(
     args: UpdateExpirationForHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<UpdateExpirationForHITCommandOutput>;
   updateExpirationForHIT(
     args: UpdateExpirationForHITCommandInput,
@@ -841,7 +853,7 @@ export interface MTurk {
   ): void;
   updateExpirationForHIT(
     args: UpdateExpirationForHITCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: UpdateExpirationForHITCommandOutput) => void
   ): void;
 
@@ -850,7 +862,7 @@ export interface MTurk {
    */
   updateHITReviewStatus(
     args: UpdateHITReviewStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<UpdateHITReviewStatusCommandOutput>;
   updateHITReviewStatus(
     args: UpdateHITReviewStatusCommandInput,
@@ -858,7 +870,7 @@ export interface MTurk {
   ): void;
   updateHITReviewStatus(
     args: UpdateHITReviewStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: UpdateHITReviewStatusCommandOutput) => void
   ): void;
 
@@ -867,7 +879,7 @@ export interface MTurk {
    */
   updateHITTypeOfHIT(
     args: UpdateHITTypeOfHITCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<UpdateHITTypeOfHITCommandOutput>;
   updateHITTypeOfHIT(
     args: UpdateHITTypeOfHITCommandInput,
@@ -875,7 +887,7 @@ export interface MTurk {
   ): void;
   updateHITTypeOfHIT(
     args: UpdateHITTypeOfHITCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: UpdateHITTypeOfHITCommandOutput) => void
   ): void;
 
@@ -884,7 +896,7 @@ export interface MTurk {
    */
   updateNotificationSettings(
     args: UpdateNotificationSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<UpdateNotificationSettingsCommandOutput>;
   updateNotificationSettings(
     args: UpdateNotificationSettingsCommandInput,
@@ -892,7 +904,7 @@ export interface MTurk {
   ): void;
   updateNotificationSettings(
     args: UpdateNotificationSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: UpdateNotificationSettingsCommandOutput) => void
   ): void;
 
@@ -901,7 +913,7 @@ export interface MTurk {
    */
   updateQualificationType(
     args: UpdateQualificationTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MTurkRequestOptions
   ): Promise<UpdateQualificationTypeCommandOutput>;
   updateQualificationType(
     args: UpdateQualificationTypeCommandInput,
@@ -909,7 +921,7 @@ export interface MTurk {
   ): void;
   updateQualificationType(
     args: UpdateQualificationTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: MTurkRequestOptions,
     cb: (err: any, data?: UpdateQualificationTypeCommandOutput) => void
   ): void;
 

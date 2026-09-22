@@ -184,10 +184,10 @@ import {
 import { PollyServiceException } from "../models/PollyServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var PollyServiceException$: StaticErrorSchema = [-3, _s, "PollyServiceException", 0, [], []];
 _s_registry.registerError(PollyServiceException$, PollyServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var EngineNotSupportedException$: StaticErrorSchema = [-3, n0, _ENSE,
   { [_e]: _c, [_hE]: 400 },
   [_m],

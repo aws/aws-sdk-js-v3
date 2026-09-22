@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ActivateEmailContactCommandInput,
@@ -65,13 +70,20 @@ const paginators = {
   paginateListEmailContacts,
 };
 
+/**
+ * @public
+ */
+export interface NotificationsContactsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface NotificationsContacts {
   /**
    * @see {@link ActivateEmailContactCommand}
    */
   activateEmailContact(
     args: ActivateEmailContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsContactsRequestOptions
   ): Promise<ActivateEmailContactCommandOutput>;
   activateEmailContact(
     args: ActivateEmailContactCommandInput,
@@ -79,7 +91,7 @@ export interface NotificationsContacts {
   ): void;
   activateEmailContact(
     args: ActivateEmailContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsContactsRequestOptions,
     cb: (err: any, data?: ActivateEmailContactCommandOutput) => void
   ): void;
 
@@ -88,7 +100,7 @@ export interface NotificationsContacts {
    */
   createEmailContact(
     args: CreateEmailContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsContactsRequestOptions
   ): Promise<CreateEmailContactCommandOutput>;
   createEmailContact(
     args: CreateEmailContactCommandInput,
@@ -96,7 +108,7 @@ export interface NotificationsContacts {
   ): void;
   createEmailContact(
     args: CreateEmailContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsContactsRequestOptions,
     cb: (err: any, data?: CreateEmailContactCommandOutput) => void
   ): void;
 
@@ -105,7 +117,7 @@ export interface NotificationsContacts {
    */
   deleteEmailContact(
     args: DeleteEmailContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsContactsRequestOptions
   ): Promise<DeleteEmailContactCommandOutput>;
   deleteEmailContact(
     args: DeleteEmailContactCommandInput,
@@ -113,7 +125,7 @@ export interface NotificationsContacts {
   ): void;
   deleteEmailContact(
     args: DeleteEmailContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsContactsRequestOptions,
     cb: (err: any, data?: DeleteEmailContactCommandOutput) => void
   ): void;
 
@@ -122,7 +134,7 @@ export interface NotificationsContacts {
    */
   getEmailContact(
     args: GetEmailContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsContactsRequestOptions
   ): Promise<GetEmailContactCommandOutput>;
   getEmailContact(
     args: GetEmailContactCommandInput,
@@ -130,7 +142,7 @@ export interface NotificationsContacts {
   ): void;
   getEmailContact(
     args: GetEmailContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsContactsRequestOptions,
     cb: (err: any, data?: GetEmailContactCommandOutput) => void
   ): void;
 
@@ -140,7 +152,7 @@ export interface NotificationsContacts {
   listEmailContacts(): Promise<ListEmailContactsCommandOutput>;
   listEmailContacts(
     args: ListEmailContactsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsContactsRequestOptions
   ): Promise<ListEmailContactsCommandOutput>;
   listEmailContacts(
     args: ListEmailContactsCommandInput,
@@ -148,7 +160,7 @@ export interface NotificationsContacts {
   ): void;
   listEmailContacts(
     args: ListEmailContactsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsContactsRequestOptions,
     cb: (err: any, data?: ListEmailContactsCommandOutput) => void
   ): void;
 
@@ -157,7 +169,7 @@ export interface NotificationsContacts {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsContactsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -165,7 +177,7 @@ export interface NotificationsContacts {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsContactsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -174,7 +186,7 @@ export interface NotificationsContacts {
    */
   sendActivationCode(
     args: SendActivationCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsContactsRequestOptions
   ): Promise<SendActivationCodeCommandOutput>;
   sendActivationCode(
     args: SendActivationCodeCommandInput,
@@ -182,7 +194,7 @@ export interface NotificationsContacts {
   ): void;
   sendActivationCode(
     args: SendActivationCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsContactsRequestOptions,
     cb: (err: any, data?: SendActivationCodeCommandOutput) => void
   ): void;
 
@@ -191,7 +203,7 @@ export interface NotificationsContacts {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsContactsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -199,7 +211,7 @@ export interface NotificationsContacts {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsContactsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -208,7 +220,7 @@ export interface NotificationsContacts {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NotificationsContactsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -216,7 +228,7 @@ export interface NotificationsContacts {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NotificationsContactsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -1117,13 +1118,20 @@ const waiters = {
   waitUntilTenantDatabaseDeleted,
 };
 
+/**
+ * @public
+ */
+export interface RDSRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RDS {
   /**
    * @see {@link AddRoleToDBClusterCommand}
    */
   addRoleToDBCluster(
     args: AddRoleToDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<AddRoleToDBClusterCommandOutput>;
   addRoleToDBCluster(
     args: AddRoleToDBClusterCommandInput,
@@ -1131,7 +1139,7 @@ export interface RDS {
   ): void;
   addRoleToDBCluster(
     args: AddRoleToDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: AddRoleToDBClusterCommandOutput) => void
   ): void;
 
@@ -1140,7 +1148,7 @@ export interface RDS {
    */
   addRoleToDBInstance(
     args: AddRoleToDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<AddRoleToDBInstanceCommandOutput>;
   addRoleToDBInstance(
     args: AddRoleToDBInstanceCommandInput,
@@ -1148,7 +1156,7 @@ export interface RDS {
   ): void;
   addRoleToDBInstance(
     args: AddRoleToDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: AddRoleToDBInstanceCommandOutput) => void
   ): void;
 
@@ -1157,7 +1165,7 @@ export interface RDS {
    */
   addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<AddSourceIdentifierToSubscriptionCommandOutput>;
   addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
@@ -1165,7 +1173,7 @@ export interface RDS {
   ): void;
   addSourceIdentifierToSubscription(
     args: AddSourceIdentifierToSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: AddSourceIdentifierToSubscriptionCommandOutput) => void
   ): void;
 
@@ -1174,7 +1182,7 @@ export interface RDS {
    */
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<AddTagsToResourceCommandOutput>;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -1182,7 +1190,7 @@ export interface RDS {
   ): void;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): void;
 
@@ -1191,7 +1199,7 @@ export interface RDS {
    */
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ApplyPendingMaintenanceActionCommandOutput>;
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
@@ -1199,7 +1207,7 @@ export interface RDS {
   ): void;
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
   ): void;
 
@@ -1208,7 +1216,7 @@ export interface RDS {
    */
   authorizeDBSecurityGroupIngress(
     args: AuthorizeDBSecurityGroupIngressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<AuthorizeDBSecurityGroupIngressCommandOutput>;
   authorizeDBSecurityGroupIngress(
     args: AuthorizeDBSecurityGroupIngressCommandInput,
@@ -1216,7 +1224,7 @@ export interface RDS {
   ): void;
   authorizeDBSecurityGroupIngress(
     args: AuthorizeDBSecurityGroupIngressCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: AuthorizeDBSecurityGroupIngressCommandOutput) => void
   ): void;
 
@@ -1225,7 +1233,7 @@ export interface RDS {
    */
   backtrackDBCluster(
     args: BacktrackDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<BacktrackDBClusterCommandOutput>;
   backtrackDBCluster(
     args: BacktrackDBClusterCommandInput,
@@ -1233,7 +1241,7 @@ export interface RDS {
   ): void;
   backtrackDBCluster(
     args: BacktrackDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: BacktrackDBClusterCommandOutput) => void
   ): void;
 
@@ -1242,7 +1250,7 @@ export interface RDS {
    */
   cancelExportTask(
     args: CancelExportTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CancelExportTaskCommandOutput>;
   cancelExportTask(
     args: CancelExportTaskCommandInput,
@@ -1250,7 +1258,7 @@ export interface RDS {
   ): void;
   cancelExportTask(
     args: CancelExportTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CancelExportTaskCommandOutput) => void
   ): void;
 
@@ -1259,7 +1267,7 @@ export interface RDS {
    */
   copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CopyDBClusterParameterGroupCommandOutput>;
   copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
@@ -1267,7 +1275,7 @@ export interface RDS {
   ): void;
   copyDBClusterParameterGroup(
     args: CopyDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CopyDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -1276,7 +1284,7 @@ export interface RDS {
    */
   copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CopyDBClusterSnapshotCommandOutput>;
   copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
@@ -1284,7 +1292,7 @@ export interface RDS {
   ): void;
   copyDBClusterSnapshot(
     args: CopyDBClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CopyDBClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -1293,7 +1301,7 @@ export interface RDS {
    */
   copyDBParameterGroup(
     args: CopyDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CopyDBParameterGroupCommandOutput>;
   copyDBParameterGroup(
     args: CopyDBParameterGroupCommandInput,
@@ -1301,7 +1309,7 @@ export interface RDS {
   ): void;
   copyDBParameterGroup(
     args: CopyDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CopyDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -1310,7 +1318,7 @@ export interface RDS {
    */
   copyDBSnapshot(
     args: CopyDBSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CopyDBSnapshotCommandOutput>;
   copyDBSnapshot(
     args: CopyDBSnapshotCommandInput,
@@ -1318,7 +1326,7 @@ export interface RDS {
   ): void;
   copyDBSnapshot(
     args: CopyDBSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CopyDBSnapshotCommandOutput) => void
   ): void;
 
@@ -1327,7 +1335,7 @@ export interface RDS {
    */
   copyOptionGroup(
     args: CopyOptionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CopyOptionGroupCommandOutput>;
   copyOptionGroup(
     args: CopyOptionGroupCommandInput,
@@ -1335,7 +1343,7 @@ export interface RDS {
   ): void;
   copyOptionGroup(
     args: CopyOptionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CopyOptionGroupCommandOutput) => void
   ): void;
 
@@ -1344,7 +1352,7 @@ export interface RDS {
    */
   createBlueGreenDeployment(
     args: CreateBlueGreenDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateBlueGreenDeploymentCommandOutput>;
   createBlueGreenDeployment(
     args: CreateBlueGreenDeploymentCommandInput,
@@ -1352,7 +1360,7 @@ export interface RDS {
   ): void;
   createBlueGreenDeployment(
     args: CreateBlueGreenDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateBlueGreenDeploymentCommandOutput) => void
   ): void;
 
@@ -1361,7 +1369,7 @@ export interface RDS {
    */
   createCustomDBEngineVersion(
     args: CreateCustomDBEngineVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateCustomDBEngineVersionCommandOutput>;
   createCustomDBEngineVersion(
     args: CreateCustomDBEngineVersionCommandInput,
@@ -1369,7 +1377,7 @@ export interface RDS {
   ): void;
   createCustomDBEngineVersion(
     args: CreateCustomDBEngineVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateCustomDBEngineVersionCommandOutput) => void
   ): void;
 
@@ -1378,7 +1386,7 @@ export interface RDS {
    */
   createDBCluster(
     args: CreateDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBClusterCommandOutput>;
   createDBCluster(
     args: CreateDBClusterCommandInput,
@@ -1386,7 +1394,7 @@ export interface RDS {
   ): void;
   createDBCluster(
     args: CreateDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBClusterCommandOutput) => void
   ): void;
 
@@ -1395,7 +1403,7 @@ export interface RDS {
    */
   createDBClusterEndpoint(
     args: CreateDBClusterEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBClusterEndpointCommandOutput>;
   createDBClusterEndpoint(
     args: CreateDBClusterEndpointCommandInput,
@@ -1403,7 +1411,7 @@ export interface RDS {
   ): void;
   createDBClusterEndpoint(
     args: CreateDBClusterEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBClusterEndpointCommandOutput) => void
   ): void;
 
@@ -1412,7 +1420,7 @@ export interface RDS {
    */
   createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBClusterParameterGroupCommandOutput>;
   createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
@@ -1420,7 +1428,7 @@ export interface RDS {
   ): void;
   createDBClusterParameterGroup(
     args: CreateDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -1429,7 +1437,7 @@ export interface RDS {
    */
   createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBClusterSnapshotCommandOutput>;
   createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
@@ -1437,7 +1445,7 @@ export interface RDS {
   ): void;
   createDBClusterSnapshot(
     args: CreateDBClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -1446,7 +1454,7 @@ export interface RDS {
    */
   createDBInstance(
     args: CreateDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBInstanceCommandOutput>;
   createDBInstance(
     args: CreateDBInstanceCommandInput,
@@ -1454,7 +1462,7 @@ export interface RDS {
   ): void;
   createDBInstance(
     args: CreateDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBInstanceCommandOutput) => void
   ): void;
 
@@ -1463,7 +1471,7 @@ export interface RDS {
    */
   createDBInstanceReadReplica(
     args: CreateDBInstanceReadReplicaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBInstanceReadReplicaCommandOutput>;
   createDBInstanceReadReplica(
     args: CreateDBInstanceReadReplicaCommandInput,
@@ -1471,7 +1479,7 @@ export interface RDS {
   ): void;
   createDBInstanceReadReplica(
     args: CreateDBInstanceReadReplicaCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBInstanceReadReplicaCommandOutput) => void
   ): void;
 
@@ -1480,7 +1488,7 @@ export interface RDS {
    */
   createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBParameterGroupCommandOutput>;
   createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
@@ -1488,7 +1496,7 @@ export interface RDS {
   ): void;
   createDBParameterGroup(
     args: CreateDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -1497,7 +1505,7 @@ export interface RDS {
    */
   createDBProxy(
     args: CreateDBProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBProxyCommandOutput>;
   createDBProxy(
     args: CreateDBProxyCommandInput,
@@ -1505,7 +1513,7 @@ export interface RDS {
   ): void;
   createDBProxy(
     args: CreateDBProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBProxyCommandOutput) => void
   ): void;
 
@@ -1514,7 +1522,7 @@ export interface RDS {
    */
   createDBProxyEndpoint(
     args: CreateDBProxyEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBProxyEndpointCommandOutput>;
   createDBProxyEndpoint(
     args: CreateDBProxyEndpointCommandInput,
@@ -1522,7 +1530,7 @@ export interface RDS {
   ): void;
   createDBProxyEndpoint(
     args: CreateDBProxyEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBProxyEndpointCommandOutput) => void
   ): void;
 
@@ -1531,7 +1539,7 @@ export interface RDS {
    */
   createDBSecurityGroup(
     args: CreateDBSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBSecurityGroupCommandOutput>;
   createDBSecurityGroup(
     args: CreateDBSecurityGroupCommandInput,
@@ -1539,7 +1547,7 @@ export interface RDS {
   ): void;
   createDBSecurityGroup(
     args: CreateDBSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBSecurityGroupCommandOutput) => void
   ): void;
 
@@ -1548,7 +1556,7 @@ export interface RDS {
    */
   createDBShardGroup(
     args: CreateDBShardGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBShardGroupCommandOutput>;
   createDBShardGroup(
     args: CreateDBShardGroupCommandInput,
@@ -1556,7 +1564,7 @@ export interface RDS {
   ): void;
   createDBShardGroup(
     args: CreateDBShardGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBShardGroupCommandOutput) => void
   ): void;
 
@@ -1565,7 +1573,7 @@ export interface RDS {
    */
   createDBSnapshot(
     args: CreateDBSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBSnapshotCommandOutput>;
   createDBSnapshot(
     args: CreateDBSnapshotCommandInput,
@@ -1573,7 +1581,7 @@ export interface RDS {
   ): void;
   createDBSnapshot(
     args: CreateDBSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBSnapshotCommandOutput) => void
   ): void;
 
@@ -1582,7 +1590,7 @@ export interface RDS {
    */
   createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateDBSubnetGroupCommandOutput>;
   createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
@@ -1590,7 +1598,7 @@ export interface RDS {
   ): void;
   createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateDBSubnetGroupCommandOutput) => void
   ): void;
 
@@ -1599,7 +1607,7 @@ export interface RDS {
    */
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateEventSubscriptionCommandOutput>;
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -1607,7 +1615,7 @@ export interface RDS {
   ): void;
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -1616,7 +1624,7 @@ export interface RDS {
    */
   createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateGlobalClusterCommandOutput>;
   createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
@@ -1624,7 +1632,7 @@ export interface RDS {
   ): void;
   createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateGlobalClusterCommandOutput) => void
   ): void;
 
@@ -1633,7 +1641,7 @@ export interface RDS {
    */
   createIntegration(
     args: CreateIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateIntegrationCommandOutput>;
   createIntegration(
     args: CreateIntegrationCommandInput,
@@ -1641,7 +1649,7 @@ export interface RDS {
   ): void;
   createIntegration(
     args: CreateIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateIntegrationCommandOutput) => void
   ): void;
 
@@ -1650,7 +1658,7 @@ export interface RDS {
    */
   createOptionGroup(
     args: CreateOptionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateOptionGroupCommandOutput>;
   createOptionGroup(
     args: CreateOptionGroupCommandInput,
@@ -1658,7 +1666,7 @@ export interface RDS {
   ): void;
   createOptionGroup(
     args: CreateOptionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateOptionGroupCommandOutput) => void
   ): void;
 
@@ -1667,7 +1675,7 @@ export interface RDS {
    */
   createTenantDatabase(
     args: CreateTenantDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<CreateTenantDatabaseCommandOutput>;
   createTenantDatabase(
     args: CreateTenantDatabaseCommandInput,
@@ -1675,7 +1683,7 @@ export interface RDS {
   ): void;
   createTenantDatabase(
     args: CreateTenantDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: CreateTenantDatabaseCommandOutput) => void
   ): void;
 
@@ -1684,7 +1692,7 @@ export interface RDS {
    */
   deleteBlueGreenDeployment(
     args: DeleteBlueGreenDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteBlueGreenDeploymentCommandOutput>;
   deleteBlueGreenDeployment(
     args: DeleteBlueGreenDeploymentCommandInput,
@@ -1692,7 +1700,7 @@ export interface RDS {
   ): void;
   deleteBlueGreenDeployment(
     args: DeleteBlueGreenDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteBlueGreenDeploymentCommandOutput) => void
   ): void;
 
@@ -1701,7 +1709,7 @@ export interface RDS {
    */
   deleteCustomDBEngineVersion(
     args: DeleteCustomDBEngineVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteCustomDBEngineVersionCommandOutput>;
   deleteCustomDBEngineVersion(
     args: DeleteCustomDBEngineVersionCommandInput,
@@ -1709,7 +1717,7 @@ export interface RDS {
   ): void;
   deleteCustomDBEngineVersion(
     args: DeleteCustomDBEngineVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteCustomDBEngineVersionCommandOutput) => void
   ): void;
 
@@ -1718,7 +1726,7 @@ export interface RDS {
    */
   deleteDBCluster(
     args: DeleteDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBClusterCommandOutput>;
   deleteDBCluster(
     args: DeleteDBClusterCommandInput,
@@ -1726,7 +1734,7 @@ export interface RDS {
   ): void;
   deleteDBCluster(
     args: DeleteDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBClusterCommandOutput) => void
   ): void;
 
@@ -1735,7 +1743,7 @@ export interface RDS {
    */
   deleteDBClusterAutomatedBackup(
     args: DeleteDBClusterAutomatedBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBClusterAutomatedBackupCommandOutput>;
   deleteDBClusterAutomatedBackup(
     args: DeleteDBClusterAutomatedBackupCommandInput,
@@ -1743,7 +1751,7 @@ export interface RDS {
   ): void;
   deleteDBClusterAutomatedBackup(
     args: DeleteDBClusterAutomatedBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBClusterAutomatedBackupCommandOutput) => void
   ): void;
 
@@ -1752,7 +1760,7 @@ export interface RDS {
    */
   deleteDBClusterEndpoint(
     args: DeleteDBClusterEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBClusterEndpointCommandOutput>;
   deleteDBClusterEndpoint(
     args: DeleteDBClusterEndpointCommandInput,
@@ -1760,7 +1768,7 @@ export interface RDS {
   ): void;
   deleteDBClusterEndpoint(
     args: DeleteDBClusterEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBClusterEndpointCommandOutput) => void
   ): void;
 
@@ -1769,7 +1777,7 @@ export interface RDS {
    */
   deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBClusterParameterGroupCommandOutput>;
   deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
@@ -1777,7 +1785,7 @@ export interface RDS {
   ): void;
   deleteDBClusterParameterGroup(
     args: DeleteDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -1786,7 +1794,7 @@ export interface RDS {
    */
   deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBClusterSnapshotCommandOutput>;
   deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
@@ -1794,7 +1802,7 @@ export interface RDS {
   ): void;
   deleteDBClusterSnapshot(
     args: DeleteDBClusterSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBClusterSnapshotCommandOutput) => void
   ): void;
 
@@ -1803,7 +1811,7 @@ export interface RDS {
    */
   deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBInstanceCommandOutput>;
   deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
@@ -1811,7 +1819,7 @@ export interface RDS {
   ): void;
   deleteDBInstance(
     args: DeleteDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBInstanceCommandOutput) => void
   ): void;
 
@@ -1821,7 +1829,7 @@ export interface RDS {
   deleteDBInstanceAutomatedBackup(): Promise<DeleteDBInstanceAutomatedBackupCommandOutput>;
   deleteDBInstanceAutomatedBackup(
     args: DeleteDBInstanceAutomatedBackupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBInstanceAutomatedBackupCommandOutput>;
   deleteDBInstanceAutomatedBackup(
     args: DeleteDBInstanceAutomatedBackupCommandInput,
@@ -1829,7 +1837,7 @@ export interface RDS {
   ): void;
   deleteDBInstanceAutomatedBackup(
     args: DeleteDBInstanceAutomatedBackupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBInstanceAutomatedBackupCommandOutput) => void
   ): void;
 
@@ -1838,7 +1846,7 @@ export interface RDS {
    */
   deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBParameterGroupCommandOutput>;
   deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
@@ -1846,7 +1854,7 @@ export interface RDS {
   ): void;
   deleteDBParameterGroup(
     args: DeleteDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -1855,7 +1863,7 @@ export interface RDS {
    */
   deleteDBProxy(
     args: DeleteDBProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBProxyCommandOutput>;
   deleteDBProxy(
     args: DeleteDBProxyCommandInput,
@@ -1863,7 +1871,7 @@ export interface RDS {
   ): void;
   deleteDBProxy(
     args: DeleteDBProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBProxyCommandOutput) => void
   ): void;
 
@@ -1872,7 +1880,7 @@ export interface RDS {
    */
   deleteDBProxyEndpoint(
     args: DeleteDBProxyEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBProxyEndpointCommandOutput>;
   deleteDBProxyEndpoint(
     args: DeleteDBProxyEndpointCommandInput,
@@ -1880,7 +1888,7 @@ export interface RDS {
   ): void;
   deleteDBProxyEndpoint(
     args: DeleteDBProxyEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBProxyEndpointCommandOutput) => void
   ): void;
 
@@ -1889,7 +1897,7 @@ export interface RDS {
    */
   deleteDBSecurityGroup(
     args: DeleteDBSecurityGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBSecurityGroupCommandOutput>;
   deleteDBSecurityGroup(
     args: DeleteDBSecurityGroupCommandInput,
@@ -1897,7 +1905,7 @@ export interface RDS {
   ): void;
   deleteDBSecurityGroup(
     args: DeleteDBSecurityGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBSecurityGroupCommandOutput) => void
   ): void;
 
@@ -1906,7 +1914,7 @@ export interface RDS {
    */
   deleteDBShardGroup(
     args: DeleteDBShardGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBShardGroupCommandOutput>;
   deleteDBShardGroup(
     args: DeleteDBShardGroupCommandInput,
@@ -1914,7 +1922,7 @@ export interface RDS {
   ): void;
   deleteDBShardGroup(
     args: DeleteDBShardGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBShardGroupCommandOutput) => void
   ): void;
 
@@ -1923,7 +1931,7 @@ export interface RDS {
    */
   deleteDBSnapshot(
     args: DeleteDBSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBSnapshotCommandOutput>;
   deleteDBSnapshot(
     args: DeleteDBSnapshotCommandInput,
@@ -1931,7 +1939,7 @@ export interface RDS {
   ): void;
   deleteDBSnapshot(
     args: DeleteDBSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBSnapshotCommandOutput) => void
   ): void;
 
@@ -1940,7 +1948,7 @@ export interface RDS {
    */
   deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteDBSubnetGroupCommandOutput>;
   deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
@@ -1948,7 +1956,7 @@ export interface RDS {
   ): void;
   deleteDBSubnetGroup(
     args: DeleteDBSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteDBSubnetGroupCommandOutput) => void
   ): void;
 
@@ -1957,7 +1965,7 @@ export interface RDS {
    */
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteEventSubscriptionCommandOutput>;
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
@@ -1965,7 +1973,7 @@ export interface RDS {
   ): void;
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -1974,7 +1982,7 @@ export interface RDS {
    */
   deleteGlobalCluster(
     args: DeleteGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteGlobalClusterCommandOutput>;
   deleteGlobalCluster(
     args: DeleteGlobalClusterCommandInput,
@@ -1982,7 +1990,7 @@ export interface RDS {
   ): void;
   deleteGlobalCluster(
     args: DeleteGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteGlobalClusterCommandOutput) => void
   ): void;
 
@@ -1991,7 +1999,7 @@ export interface RDS {
    */
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteIntegrationCommandOutput>;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
@@ -1999,7 +2007,7 @@ export interface RDS {
   ): void;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
 
@@ -2008,7 +2016,7 @@ export interface RDS {
    */
   deleteOptionGroup(
     args: DeleteOptionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteOptionGroupCommandOutput>;
   deleteOptionGroup(
     args: DeleteOptionGroupCommandInput,
@@ -2016,7 +2024,7 @@ export interface RDS {
   ): void;
   deleteOptionGroup(
     args: DeleteOptionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteOptionGroupCommandOutput) => void
   ): void;
 
@@ -2025,7 +2033,7 @@ export interface RDS {
    */
   deleteTenantDatabase(
     args: DeleteTenantDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeleteTenantDatabaseCommandOutput>;
   deleteTenantDatabase(
     args: DeleteTenantDatabaseCommandInput,
@@ -2033,7 +2041,7 @@ export interface RDS {
   ): void;
   deleteTenantDatabase(
     args: DeleteTenantDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeleteTenantDatabaseCommandOutput) => void
   ): void;
 
@@ -2042,7 +2050,7 @@ export interface RDS {
    */
   deregisterDBProxyTargets(
     args: DeregisterDBProxyTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DeregisterDBProxyTargetsCommandOutput>;
   deregisterDBProxyTargets(
     args: DeregisterDBProxyTargetsCommandInput,
@@ -2050,7 +2058,7 @@ export interface RDS {
   ): void;
   deregisterDBProxyTargets(
     args: DeregisterDBProxyTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DeregisterDBProxyTargetsCommandOutput) => void
   ): void;
 
@@ -2060,7 +2068,7 @@ export interface RDS {
   describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
@@ -2068,7 +2076,7 @@ export interface RDS {
   ): void;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): void;
 
@@ -2078,7 +2086,7 @@ export interface RDS {
   describeBlueGreenDeployments(): Promise<DescribeBlueGreenDeploymentsCommandOutput>;
   describeBlueGreenDeployments(
     args: DescribeBlueGreenDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeBlueGreenDeploymentsCommandOutput>;
   describeBlueGreenDeployments(
     args: DescribeBlueGreenDeploymentsCommandInput,
@@ -2086,7 +2094,7 @@ export interface RDS {
   ): void;
   describeBlueGreenDeployments(
     args: DescribeBlueGreenDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeBlueGreenDeploymentsCommandOutput) => void
   ): void;
 
@@ -2096,7 +2104,7 @@ export interface RDS {
   describeCertificates(): Promise<DescribeCertificatesCommandOutput>;
   describeCertificates(
     args: DescribeCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeCertificatesCommandOutput>;
   describeCertificates(
     args: DescribeCertificatesCommandInput,
@@ -2104,7 +2112,7 @@ export interface RDS {
   ): void;
   describeCertificates(
     args: DescribeCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeCertificatesCommandOutput) => void
   ): void;
 
@@ -2114,7 +2122,7 @@ export interface RDS {
   describeDBClusterAutomatedBackups(): Promise<DescribeDBClusterAutomatedBackupsCommandOutput>;
   describeDBClusterAutomatedBackups(
     args: DescribeDBClusterAutomatedBackupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBClusterAutomatedBackupsCommandOutput>;
   describeDBClusterAutomatedBackups(
     args: DescribeDBClusterAutomatedBackupsCommandInput,
@@ -2122,7 +2130,7 @@ export interface RDS {
   ): void;
   describeDBClusterAutomatedBackups(
     args: DescribeDBClusterAutomatedBackupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBClusterAutomatedBackupsCommandOutput) => void
   ): void;
 
@@ -2131,7 +2139,7 @@ export interface RDS {
    */
   describeDBClusterBacktracks(
     args: DescribeDBClusterBacktracksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBClusterBacktracksCommandOutput>;
   describeDBClusterBacktracks(
     args: DescribeDBClusterBacktracksCommandInput,
@@ -2139,7 +2147,7 @@ export interface RDS {
   ): void;
   describeDBClusterBacktracks(
     args: DescribeDBClusterBacktracksCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBClusterBacktracksCommandOutput) => void
   ): void;
 
@@ -2149,7 +2157,7 @@ export interface RDS {
   describeDBClusterEndpoints(): Promise<DescribeDBClusterEndpointsCommandOutput>;
   describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBClusterEndpointsCommandOutput>;
   describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
@@ -2157,7 +2165,7 @@ export interface RDS {
   ): void;
   describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBClusterEndpointsCommandOutput) => void
   ): void;
 
@@ -2167,7 +2175,7 @@ export interface RDS {
   describeDBClusterParameterGroups(): Promise<DescribeDBClusterParameterGroupsCommandOutput>;
   describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput>;
   describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
@@ -2175,7 +2183,7 @@ export interface RDS {
   ): void;
   describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBClusterParameterGroupsCommandOutput) => void
   ): void;
 
@@ -2184,7 +2192,7 @@ export interface RDS {
    */
   describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBClusterParametersCommandOutput>;
   describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
@@ -2192,7 +2200,7 @@ export interface RDS {
   ): void;
   describeDBClusterParameters(
     args: DescribeDBClusterParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBClusterParametersCommandOutput) => void
   ): void;
 
@@ -2202,7 +2210,7 @@ export interface RDS {
   describeDBClusters(): Promise<DescribeDBClustersCommandOutput>;
   describeDBClusters(
     args: DescribeDBClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBClustersCommandOutput>;
   describeDBClusters(
     args: DescribeDBClustersCommandInput,
@@ -2210,7 +2218,7 @@ export interface RDS {
   ): void;
   describeDBClusters(
     args: DescribeDBClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBClustersCommandOutput) => void
   ): void;
 
@@ -2219,7 +2227,7 @@ export interface RDS {
    */
   describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput>;
   describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
@@ -2227,7 +2235,7 @@ export interface RDS {
   ): void;
   describeDBClusterSnapshotAttributes(
     args: DescribeDBClusterSnapshotAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBClusterSnapshotAttributesCommandOutput) => void
   ): void;
 
@@ -2237,7 +2245,7 @@ export interface RDS {
   describeDBClusterSnapshots(): Promise<DescribeDBClusterSnapshotsCommandOutput>;
   describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBClusterSnapshotsCommandOutput>;
   describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
@@ -2245,7 +2253,7 @@ export interface RDS {
   ): void;
   describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBClusterSnapshotsCommandOutput) => void
   ): void;
 
@@ -2255,7 +2263,7 @@ export interface RDS {
   describeDBEngineVersions(): Promise<DescribeDBEngineVersionsCommandOutput>;
   describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBEngineVersionsCommandOutput>;
   describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
@@ -2263,7 +2271,7 @@ export interface RDS {
   ): void;
   describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBEngineVersionsCommandOutput) => void
   ): void;
 
@@ -2273,7 +2281,7 @@ export interface RDS {
   describeDBInstanceAutomatedBackups(): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput>;
   describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput>;
   describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
@@ -2281,7 +2289,7 @@ export interface RDS {
   ): void;
   describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBInstanceAutomatedBackupsCommandOutput) => void
   ): void;
 
@@ -2291,7 +2299,7 @@ export interface RDS {
   describeDBInstances(): Promise<DescribeDBInstancesCommandOutput>;
   describeDBInstances(
     args: DescribeDBInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBInstancesCommandOutput>;
   describeDBInstances(
     args: DescribeDBInstancesCommandInput,
@@ -2299,7 +2307,7 @@ export interface RDS {
   ): void;
   describeDBInstances(
     args: DescribeDBInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBInstancesCommandOutput) => void
   ): void;
 
@@ -2308,7 +2316,7 @@ export interface RDS {
    */
   describeDBLogFiles(
     args: DescribeDBLogFilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBLogFilesCommandOutput>;
   describeDBLogFiles(
     args: DescribeDBLogFilesCommandInput,
@@ -2316,7 +2324,7 @@ export interface RDS {
   ): void;
   describeDBLogFiles(
     args: DescribeDBLogFilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBLogFilesCommandOutput) => void
   ): void;
 
@@ -2326,7 +2334,7 @@ export interface RDS {
   describeDBMajorEngineVersions(): Promise<DescribeDBMajorEngineVersionsCommandOutput>;
   describeDBMajorEngineVersions(
     args: DescribeDBMajorEngineVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBMajorEngineVersionsCommandOutput>;
   describeDBMajorEngineVersions(
     args: DescribeDBMajorEngineVersionsCommandInput,
@@ -2334,7 +2342,7 @@ export interface RDS {
   ): void;
   describeDBMajorEngineVersions(
     args: DescribeDBMajorEngineVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBMajorEngineVersionsCommandOutput) => void
   ): void;
 
@@ -2344,7 +2352,7 @@ export interface RDS {
   describeDBParameterGroups(): Promise<DescribeDBParameterGroupsCommandOutput>;
   describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBParameterGroupsCommandOutput>;
   describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
@@ -2352,7 +2360,7 @@ export interface RDS {
   ): void;
   describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBParameterGroupsCommandOutput) => void
   ): void;
 
@@ -2361,7 +2369,7 @@ export interface RDS {
    */
   describeDBParameters(
     args: DescribeDBParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBParametersCommandOutput>;
   describeDBParameters(
     args: DescribeDBParametersCommandInput,
@@ -2369,7 +2377,7 @@ export interface RDS {
   ): void;
   describeDBParameters(
     args: DescribeDBParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBParametersCommandOutput) => void
   ): void;
 
@@ -2379,7 +2387,7 @@ export interface RDS {
   describeDBProxies(): Promise<DescribeDBProxiesCommandOutput>;
   describeDBProxies(
     args: DescribeDBProxiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBProxiesCommandOutput>;
   describeDBProxies(
     args: DescribeDBProxiesCommandInput,
@@ -2387,7 +2395,7 @@ export interface RDS {
   ): void;
   describeDBProxies(
     args: DescribeDBProxiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBProxiesCommandOutput) => void
   ): void;
 
@@ -2397,7 +2405,7 @@ export interface RDS {
   describeDBProxyEndpoints(): Promise<DescribeDBProxyEndpointsCommandOutput>;
   describeDBProxyEndpoints(
     args: DescribeDBProxyEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBProxyEndpointsCommandOutput>;
   describeDBProxyEndpoints(
     args: DescribeDBProxyEndpointsCommandInput,
@@ -2405,7 +2413,7 @@ export interface RDS {
   ): void;
   describeDBProxyEndpoints(
     args: DescribeDBProxyEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBProxyEndpointsCommandOutput) => void
   ): void;
 
@@ -2414,7 +2422,7 @@ export interface RDS {
    */
   describeDBProxyTargetGroups(
     args: DescribeDBProxyTargetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBProxyTargetGroupsCommandOutput>;
   describeDBProxyTargetGroups(
     args: DescribeDBProxyTargetGroupsCommandInput,
@@ -2422,7 +2430,7 @@ export interface RDS {
   ): void;
   describeDBProxyTargetGroups(
     args: DescribeDBProxyTargetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBProxyTargetGroupsCommandOutput) => void
   ): void;
 
@@ -2431,7 +2439,7 @@ export interface RDS {
    */
   describeDBProxyTargets(
     args: DescribeDBProxyTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBProxyTargetsCommandOutput>;
   describeDBProxyTargets(
     args: DescribeDBProxyTargetsCommandInput,
@@ -2439,7 +2447,7 @@ export interface RDS {
   ): void;
   describeDBProxyTargets(
     args: DescribeDBProxyTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBProxyTargetsCommandOutput) => void
   ): void;
 
@@ -2449,7 +2457,7 @@ export interface RDS {
   describeDBRecommendations(): Promise<DescribeDBRecommendationsCommandOutput>;
   describeDBRecommendations(
     args: DescribeDBRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBRecommendationsCommandOutput>;
   describeDBRecommendations(
     args: DescribeDBRecommendationsCommandInput,
@@ -2457,7 +2465,7 @@ export interface RDS {
   ): void;
   describeDBRecommendations(
     args: DescribeDBRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBRecommendationsCommandOutput) => void
   ): void;
 
@@ -2467,7 +2475,7 @@ export interface RDS {
   describeDBSecurityGroups(): Promise<DescribeDBSecurityGroupsCommandOutput>;
   describeDBSecurityGroups(
     args: DescribeDBSecurityGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBSecurityGroupsCommandOutput>;
   describeDBSecurityGroups(
     args: DescribeDBSecurityGroupsCommandInput,
@@ -2475,7 +2483,7 @@ export interface RDS {
   ): void;
   describeDBSecurityGroups(
     args: DescribeDBSecurityGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBSecurityGroupsCommandOutput) => void
   ): void;
 
@@ -2485,7 +2493,7 @@ export interface RDS {
   describeDBShardGroups(): Promise<DescribeDBShardGroupsCommandOutput>;
   describeDBShardGroups(
     args: DescribeDBShardGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBShardGroupsCommandOutput>;
   describeDBShardGroups(
     args: DescribeDBShardGroupsCommandInput,
@@ -2493,7 +2501,7 @@ export interface RDS {
   ): void;
   describeDBShardGroups(
     args: DescribeDBShardGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBShardGroupsCommandOutput) => void
   ): void;
 
@@ -2502,7 +2510,7 @@ export interface RDS {
    */
   describeDBSnapshotAttributes(
     args: DescribeDBSnapshotAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBSnapshotAttributesCommandOutput>;
   describeDBSnapshotAttributes(
     args: DescribeDBSnapshotAttributesCommandInput,
@@ -2510,7 +2518,7 @@ export interface RDS {
   ): void;
   describeDBSnapshotAttributes(
     args: DescribeDBSnapshotAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBSnapshotAttributesCommandOutput) => void
   ): void;
 
@@ -2520,7 +2528,7 @@ export interface RDS {
   describeDBSnapshots(): Promise<DescribeDBSnapshotsCommandOutput>;
   describeDBSnapshots(
     args: DescribeDBSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBSnapshotsCommandOutput>;
   describeDBSnapshots(
     args: DescribeDBSnapshotsCommandInput,
@@ -2528,7 +2536,7 @@ export interface RDS {
   ): void;
   describeDBSnapshots(
     args: DescribeDBSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBSnapshotsCommandOutput) => void
   ): void;
 
@@ -2538,7 +2546,7 @@ export interface RDS {
   describeDBSnapshotTenantDatabases(): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput>;
   describeDBSnapshotTenantDatabases(
     args: DescribeDBSnapshotTenantDatabasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput>;
   describeDBSnapshotTenantDatabases(
     args: DescribeDBSnapshotTenantDatabasesCommandInput,
@@ -2546,7 +2554,7 @@ export interface RDS {
   ): void;
   describeDBSnapshotTenantDatabases(
     args: DescribeDBSnapshotTenantDatabasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBSnapshotTenantDatabasesCommandOutput) => void
   ): void;
 
@@ -2556,7 +2564,7 @@ export interface RDS {
   describeDBSubnetGroups(): Promise<DescribeDBSubnetGroupsCommandOutput>;
   describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeDBSubnetGroupsCommandOutput>;
   describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
@@ -2564,7 +2572,7 @@ export interface RDS {
   ): void;
   describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeDBSubnetGroupsCommandOutput) => void
   ): void;
 
@@ -2573,7 +2581,7 @@ export interface RDS {
    */
   describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput>;
   describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
@@ -2581,7 +2589,7 @@ export interface RDS {
   ): void;
   describeEngineDefaultClusterParameters(
     args: DescribeEngineDefaultClusterParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeEngineDefaultClusterParametersCommandOutput) => void
   ): void;
 
@@ -2590,7 +2598,7 @@ export interface RDS {
    */
   describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeEngineDefaultParametersCommandOutput>;
   describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
@@ -2598,7 +2606,7 @@ export interface RDS {
   ): void;
   describeEngineDefaultParameters(
     args: DescribeEngineDefaultParametersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeEngineDefaultParametersCommandOutput) => void
   ): void;
 
@@ -2608,7 +2616,7 @@ export interface RDS {
   describeEventCategories(): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
@@ -2616,7 +2624,7 @@ export interface RDS {
   ): void;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeEventCategoriesCommandOutput) => void
   ): void;
 
@@ -2626,7 +2634,7 @@ export interface RDS {
   describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
@@ -2634,7 +2642,7 @@ export interface RDS {
   ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeEventsCommandOutput) => void
   ): void;
 
@@ -2644,7 +2652,7 @@ export interface RDS {
   describeEventSubscriptions(): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
@@ -2652,7 +2660,7 @@ export interface RDS {
   ): void;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): void;
 
@@ -2662,7 +2670,7 @@ export interface RDS {
   describeExportTasks(): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
@@ -2670,7 +2678,7 @@ export interface RDS {
   ): void;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeExportTasksCommandOutput) => void
   ): void;
 
@@ -2680,7 +2688,7 @@ export interface RDS {
   describeGlobalClusters(): Promise<DescribeGlobalClustersCommandOutput>;
   describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeGlobalClustersCommandOutput>;
   describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
@@ -2688,7 +2696,7 @@ export interface RDS {
   ): void;
   describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeGlobalClustersCommandOutput) => void
   ): void;
 
@@ -2698,7 +2706,7 @@ export interface RDS {
   describeIntegrations(): Promise<DescribeIntegrationsCommandOutput>;
   describeIntegrations(
     args: DescribeIntegrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeIntegrationsCommandOutput>;
   describeIntegrations(
     args: DescribeIntegrationsCommandInput,
@@ -2706,7 +2714,7 @@ export interface RDS {
   ): void;
   describeIntegrations(
     args: DescribeIntegrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
   ): void;
 
@@ -2715,7 +2723,7 @@ export interface RDS {
    */
   describeOptionGroupOptions(
     args: DescribeOptionGroupOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeOptionGroupOptionsCommandOutput>;
   describeOptionGroupOptions(
     args: DescribeOptionGroupOptionsCommandInput,
@@ -2723,7 +2731,7 @@ export interface RDS {
   ): void;
   describeOptionGroupOptions(
     args: DescribeOptionGroupOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeOptionGroupOptionsCommandOutput) => void
   ): void;
 
@@ -2733,7 +2741,7 @@ export interface RDS {
   describeOptionGroups(): Promise<DescribeOptionGroupsCommandOutput>;
   describeOptionGroups(
     args: DescribeOptionGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeOptionGroupsCommandOutput>;
   describeOptionGroups(
     args: DescribeOptionGroupsCommandInput,
@@ -2741,7 +2749,7 @@ export interface RDS {
   ): void;
   describeOptionGroups(
     args: DescribeOptionGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeOptionGroupsCommandOutput) => void
   ): void;
 
@@ -2750,7 +2758,7 @@ export interface RDS {
    */
   describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeOrderableDBInstanceOptionsCommandOutput>;
   describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
@@ -2758,7 +2766,7 @@ export interface RDS {
   ): void;
   describeOrderableDBInstanceOptions(
     args: DescribeOrderableDBInstanceOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeOrderableDBInstanceOptionsCommandOutput) => void
   ): void;
 
@@ -2768,7 +2776,7 @@ export interface RDS {
   describePendingMaintenanceActions(): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
@@ -2776,7 +2784,7 @@ export interface RDS {
   ): void;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
 
@@ -2786,7 +2794,7 @@ export interface RDS {
   describeReservedDBInstances(): Promise<DescribeReservedDBInstancesCommandOutput>;
   describeReservedDBInstances(
     args: DescribeReservedDBInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeReservedDBInstancesCommandOutput>;
   describeReservedDBInstances(
     args: DescribeReservedDBInstancesCommandInput,
@@ -2794,7 +2802,7 @@ export interface RDS {
   ): void;
   describeReservedDBInstances(
     args: DescribeReservedDBInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeReservedDBInstancesCommandOutput) => void
   ): void;
 
@@ -2804,7 +2812,7 @@ export interface RDS {
   describeReservedDBInstancesOfferings(): Promise<DescribeReservedDBInstancesOfferingsCommandOutput>;
   describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeReservedDBInstancesOfferingsCommandOutput>;
   describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
@@ -2812,7 +2820,7 @@ export interface RDS {
   ): void;
   describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeReservedDBInstancesOfferingsCommandOutput) => void
   ): void;
 
@@ -2822,7 +2830,7 @@ export interface RDS {
   describeServerlessV2PlatformVersions(): Promise<DescribeServerlessV2PlatformVersionsCommandOutput>;
   describeServerlessV2PlatformVersions(
     args: DescribeServerlessV2PlatformVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeServerlessV2PlatformVersionsCommandOutput>;
   describeServerlessV2PlatformVersions(
     args: DescribeServerlessV2PlatformVersionsCommandInput,
@@ -2830,7 +2838,7 @@ export interface RDS {
   ): void;
   describeServerlessV2PlatformVersions(
     args: DescribeServerlessV2PlatformVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeServerlessV2PlatformVersionsCommandOutput) => void
   ): void;
 
@@ -2840,7 +2848,7 @@ export interface RDS {
   describeSourceRegions(): Promise<DescribeSourceRegionsCommandOutput>;
   describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeSourceRegionsCommandOutput>;
   describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,
@@ -2848,7 +2856,7 @@ export interface RDS {
   ): void;
   describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeSourceRegionsCommandOutput) => void
   ): void;
 
@@ -2858,7 +2866,7 @@ export interface RDS {
   describeTenantDatabases(): Promise<DescribeTenantDatabasesCommandOutput>;
   describeTenantDatabases(
     args: DescribeTenantDatabasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeTenantDatabasesCommandOutput>;
   describeTenantDatabases(
     args: DescribeTenantDatabasesCommandInput,
@@ -2866,7 +2874,7 @@ export interface RDS {
   ): void;
   describeTenantDatabases(
     args: DescribeTenantDatabasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeTenantDatabasesCommandOutput) => void
   ): void;
 
@@ -2875,7 +2883,7 @@ export interface RDS {
    */
   describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput>;
   describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
@@ -2883,7 +2891,7 @@ export interface RDS {
   ): void;
   describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DescribeValidDBInstanceModificationsCommandOutput) => void
   ): void;
 
@@ -2892,7 +2900,7 @@ export interface RDS {
    */
   disableHttpEndpoint(
     args: DisableHttpEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DisableHttpEndpointCommandOutput>;
   disableHttpEndpoint(
     args: DisableHttpEndpointCommandInput,
@@ -2900,7 +2908,7 @@ export interface RDS {
   ): void;
   disableHttpEndpoint(
     args: DisableHttpEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DisableHttpEndpointCommandOutput) => void
   ): void;
 
@@ -2909,7 +2917,7 @@ export interface RDS {
    */
   downloadDBLogFilePortion(
     args: DownloadDBLogFilePortionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<DownloadDBLogFilePortionCommandOutput>;
   downloadDBLogFilePortion(
     args: DownloadDBLogFilePortionCommandInput,
@@ -2917,7 +2925,7 @@ export interface RDS {
   ): void;
   downloadDBLogFilePortion(
     args: DownloadDBLogFilePortionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: DownloadDBLogFilePortionCommandOutput) => void
   ): void;
 
@@ -2926,7 +2934,7 @@ export interface RDS {
    */
   enableHttpEndpoint(
     args: EnableHttpEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<EnableHttpEndpointCommandOutput>;
   enableHttpEndpoint(
     args: EnableHttpEndpointCommandInput,
@@ -2934,7 +2942,7 @@ export interface RDS {
   ): void;
   enableHttpEndpoint(
     args: EnableHttpEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: EnableHttpEndpointCommandOutput) => void
   ): void;
 
@@ -2943,7 +2951,7 @@ export interface RDS {
    */
   failoverDBCluster(
     args: FailoverDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<FailoverDBClusterCommandOutput>;
   failoverDBCluster(
     args: FailoverDBClusterCommandInput,
@@ -2951,7 +2959,7 @@ export interface RDS {
   ): void;
   failoverDBCluster(
     args: FailoverDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: FailoverDBClusterCommandOutput) => void
   ): void;
 
@@ -2960,7 +2968,7 @@ export interface RDS {
    */
   failoverGlobalCluster(
     args: FailoverGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<FailoverGlobalClusterCommandOutput>;
   failoverGlobalCluster(
     args: FailoverGlobalClusterCommandInput,
@@ -2968,7 +2976,7 @@ export interface RDS {
   ): void;
   failoverGlobalCluster(
     args: FailoverGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: FailoverGlobalClusterCommandOutput) => void
   ): void;
 
@@ -2977,7 +2985,7 @@ export interface RDS {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2985,7 +2993,7 @@ export interface RDS {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2995,7 +3003,7 @@ export interface RDS {
   modifyActivityStream(): Promise<ModifyActivityStreamCommandOutput>;
   modifyActivityStream(
     args: ModifyActivityStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyActivityStreamCommandOutput>;
   modifyActivityStream(
     args: ModifyActivityStreamCommandInput,
@@ -3003,7 +3011,7 @@ export interface RDS {
   ): void;
   modifyActivityStream(
     args: ModifyActivityStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyActivityStreamCommandOutput) => void
   ): void;
 
@@ -3013,7 +3021,7 @@ export interface RDS {
   modifyCertificates(): Promise<ModifyCertificatesCommandOutput>;
   modifyCertificates(
     args: ModifyCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyCertificatesCommandOutput>;
   modifyCertificates(
     args: ModifyCertificatesCommandInput,
@@ -3021,7 +3029,7 @@ export interface RDS {
   ): void;
   modifyCertificates(
     args: ModifyCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyCertificatesCommandOutput) => void
   ): void;
 
@@ -3030,7 +3038,7 @@ export interface RDS {
    */
   modifyCurrentDBClusterCapacity(
     args: ModifyCurrentDBClusterCapacityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyCurrentDBClusterCapacityCommandOutput>;
   modifyCurrentDBClusterCapacity(
     args: ModifyCurrentDBClusterCapacityCommandInput,
@@ -3038,7 +3046,7 @@ export interface RDS {
   ): void;
   modifyCurrentDBClusterCapacity(
     args: ModifyCurrentDBClusterCapacityCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyCurrentDBClusterCapacityCommandOutput) => void
   ): void;
 
@@ -3047,7 +3055,7 @@ export interface RDS {
    */
   modifyCustomDBEngineVersion(
     args: ModifyCustomDBEngineVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyCustomDBEngineVersionCommandOutput>;
   modifyCustomDBEngineVersion(
     args: ModifyCustomDBEngineVersionCommandInput,
@@ -3055,7 +3063,7 @@ export interface RDS {
   ): void;
   modifyCustomDBEngineVersion(
     args: ModifyCustomDBEngineVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyCustomDBEngineVersionCommandOutput) => void
   ): void;
 
@@ -3064,7 +3072,7 @@ export interface RDS {
    */
   modifyDBCluster(
     args: ModifyDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBClusterCommandOutput>;
   modifyDBCluster(
     args: ModifyDBClusterCommandInput,
@@ -3072,7 +3080,7 @@ export interface RDS {
   ): void;
   modifyDBCluster(
     args: ModifyDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBClusterCommandOutput) => void
   ): void;
 
@@ -3081,7 +3089,7 @@ export interface RDS {
    */
   modifyDBClusterEndpoint(
     args: ModifyDBClusterEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBClusterEndpointCommandOutput>;
   modifyDBClusterEndpoint(
     args: ModifyDBClusterEndpointCommandInput,
@@ -3089,7 +3097,7 @@ export interface RDS {
   ): void;
   modifyDBClusterEndpoint(
     args: ModifyDBClusterEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBClusterEndpointCommandOutput) => void
   ): void;
 
@@ -3098,7 +3106,7 @@ export interface RDS {
    */
   modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBClusterParameterGroupCommandOutput>;
   modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
@@ -3106,7 +3114,7 @@ export interface RDS {
   ): void;
   modifyDBClusterParameterGroup(
     args: ModifyDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -3115,7 +3123,7 @@ export interface RDS {
    */
   modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBClusterSnapshotAttributeCommandOutput>;
   modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
@@ -3123,7 +3131,7 @@ export interface RDS {
   ): void;
   modifyDBClusterSnapshotAttribute(
     args: ModifyDBClusterSnapshotAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBClusterSnapshotAttributeCommandOutput) => void
   ): void;
 
@@ -3132,7 +3140,7 @@ export interface RDS {
    */
   modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBInstanceCommandOutput>;
   modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
@@ -3140,7 +3148,7 @@ export interface RDS {
   ): void;
   modifyDBInstance(
     args: ModifyDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBInstanceCommandOutput) => void
   ): void;
 
@@ -3149,7 +3157,7 @@ export interface RDS {
    */
   modifyDBParameterGroup(
     args: ModifyDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBParameterGroupCommandOutput>;
   modifyDBParameterGroup(
     args: ModifyDBParameterGroupCommandInput,
@@ -3157,7 +3165,7 @@ export interface RDS {
   ): void;
   modifyDBParameterGroup(
     args: ModifyDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -3166,7 +3174,7 @@ export interface RDS {
    */
   modifyDBProxy(
     args: ModifyDBProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBProxyCommandOutput>;
   modifyDBProxy(
     args: ModifyDBProxyCommandInput,
@@ -3174,7 +3182,7 @@ export interface RDS {
   ): void;
   modifyDBProxy(
     args: ModifyDBProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBProxyCommandOutput) => void
   ): void;
 
@@ -3183,7 +3191,7 @@ export interface RDS {
    */
   modifyDBProxyEndpoint(
     args: ModifyDBProxyEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBProxyEndpointCommandOutput>;
   modifyDBProxyEndpoint(
     args: ModifyDBProxyEndpointCommandInput,
@@ -3191,7 +3199,7 @@ export interface RDS {
   ): void;
   modifyDBProxyEndpoint(
     args: ModifyDBProxyEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBProxyEndpointCommandOutput) => void
   ): void;
 
@@ -3200,7 +3208,7 @@ export interface RDS {
    */
   modifyDBProxyTargetGroup(
     args: ModifyDBProxyTargetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBProxyTargetGroupCommandOutput>;
   modifyDBProxyTargetGroup(
     args: ModifyDBProxyTargetGroupCommandInput,
@@ -3208,7 +3216,7 @@ export interface RDS {
   ): void;
   modifyDBProxyTargetGroup(
     args: ModifyDBProxyTargetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBProxyTargetGroupCommandOutput) => void
   ): void;
 
@@ -3217,7 +3225,7 @@ export interface RDS {
    */
   modifyDBRecommendation(
     args: ModifyDBRecommendationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBRecommendationCommandOutput>;
   modifyDBRecommendation(
     args: ModifyDBRecommendationCommandInput,
@@ -3225,7 +3233,7 @@ export interface RDS {
   ): void;
   modifyDBRecommendation(
     args: ModifyDBRecommendationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBRecommendationCommandOutput) => void
   ): void;
 
@@ -3234,7 +3242,7 @@ export interface RDS {
    */
   modifyDBShardGroup(
     args: ModifyDBShardGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBShardGroupCommandOutput>;
   modifyDBShardGroup(
     args: ModifyDBShardGroupCommandInput,
@@ -3242,7 +3250,7 @@ export interface RDS {
   ): void;
   modifyDBShardGroup(
     args: ModifyDBShardGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBShardGroupCommandOutput) => void
   ): void;
 
@@ -3251,7 +3259,7 @@ export interface RDS {
    */
   modifyDBSnapshot(
     args: ModifyDBSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBSnapshotCommandOutput>;
   modifyDBSnapshot(
     args: ModifyDBSnapshotCommandInput,
@@ -3259,7 +3267,7 @@ export interface RDS {
   ): void;
   modifyDBSnapshot(
     args: ModifyDBSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBSnapshotCommandOutput) => void
   ): void;
 
@@ -3268,7 +3276,7 @@ export interface RDS {
    */
   modifyDBSnapshotAttribute(
     args: ModifyDBSnapshotAttributeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBSnapshotAttributeCommandOutput>;
   modifyDBSnapshotAttribute(
     args: ModifyDBSnapshotAttributeCommandInput,
@@ -3276,7 +3284,7 @@ export interface RDS {
   ): void;
   modifyDBSnapshotAttribute(
     args: ModifyDBSnapshotAttributeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBSnapshotAttributeCommandOutput) => void
   ): void;
 
@@ -3285,7 +3293,7 @@ export interface RDS {
    */
   modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyDBSubnetGroupCommandOutput>;
   modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
@@ -3293,7 +3301,7 @@ export interface RDS {
   ): void;
   modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyDBSubnetGroupCommandOutput) => void
   ): void;
 
@@ -3302,7 +3310,7 @@ export interface RDS {
    */
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyEventSubscriptionCommandOutput>;
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
@@ -3310,7 +3318,7 @@ export interface RDS {
   ): void;
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -3319,7 +3327,7 @@ export interface RDS {
    */
   modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyGlobalClusterCommandOutput>;
   modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
@@ -3327,7 +3335,7 @@ export interface RDS {
   ): void;
   modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyGlobalClusterCommandOutput) => void
   ): void;
 
@@ -3336,7 +3344,7 @@ export interface RDS {
    */
   modifyIntegration(
     args: ModifyIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyIntegrationCommandOutput>;
   modifyIntegration(
     args: ModifyIntegrationCommandInput,
@@ -3344,7 +3352,7 @@ export interface RDS {
   ): void;
   modifyIntegration(
     args: ModifyIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyIntegrationCommandOutput) => void
   ): void;
 
@@ -3353,7 +3361,7 @@ export interface RDS {
    */
   modifyOptionGroup(
     args: ModifyOptionGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyOptionGroupCommandOutput>;
   modifyOptionGroup(
     args: ModifyOptionGroupCommandInput,
@@ -3361,7 +3369,7 @@ export interface RDS {
   ): void;
   modifyOptionGroup(
     args: ModifyOptionGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyOptionGroupCommandOutput) => void
   ): void;
 
@@ -3370,7 +3378,7 @@ export interface RDS {
    */
   modifyTenantDatabase(
     args: ModifyTenantDatabaseCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ModifyTenantDatabaseCommandOutput>;
   modifyTenantDatabase(
     args: ModifyTenantDatabaseCommandInput,
@@ -3378,7 +3386,7 @@ export interface RDS {
   ): void;
   modifyTenantDatabase(
     args: ModifyTenantDatabaseCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ModifyTenantDatabaseCommandOutput) => void
   ): void;
 
@@ -3387,7 +3395,7 @@ export interface RDS {
    */
   promoteReadReplica(
     args: PromoteReadReplicaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<PromoteReadReplicaCommandOutput>;
   promoteReadReplica(
     args: PromoteReadReplicaCommandInput,
@@ -3395,7 +3403,7 @@ export interface RDS {
   ): void;
   promoteReadReplica(
     args: PromoteReadReplicaCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: PromoteReadReplicaCommandOutput) => void
   ): void;
 
@@ -3404,7 +3412,7 @@ export interface RDS {
    */
   promoteReadReplicaDBCluster(
     args: PromoteReadReplicaDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<PromoteReadReplicaDBClusterCommandOutput>;
   promoteReadReplicaDBCluster(
     args: PromoteReadReplicaDBClusterCommandInput,
@@ -3412,7 +3420,7 @@ export interface RDS {
   ): void;
   promoteReadReplicaDBCluster(
     args: PromoteReadReplicaDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: PromoteReadReplicaDBClusterCommandOutput) => void
   ): void;
 
@@ -3421,7 +3429,7 @@ export interface RDS {
    */
   purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput>;
   purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
@@ -3429,7 +3437,7 @@ export interface RDS {
   ): void;
   purchaseReservedDBInstancesOffering(
     args: PurchaseReservedDBInstancesOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: PurchaseReservedDBInstancesOfferingCommandOutput) => void
   ): void;
 
@@ -3438,7 +3446,7 @@ export interface RDS {
    */
   rebootDBCluster(
     args: RebootDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RebootDBClusterCommandOutput>;
   rebootDBCluster(
     args: RebootDBClusterCommandInput,
@@ -3446,7 +3454,7 @@ export interface RDS {
   ): void;
   rebootDBCluster(
     args: RebootDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RebootDBClusterCommandOutput) => void
   ): void;
 
@@ -3455,7 +3463,7 @@ export interface RDS {
    */
   rebootDBInstance(
     args: RebootDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RebootDBInstanceCommandOutput>;
   rebootDBInstance(
     args: RebootDBInstanceCommandInput,
@@ -3463,7 +3471,7 @@ export interface RDS {
   ): void;
   rebootDBInstance(
     args: RebootDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RebootDBInstanceCommandOutput) => void
   ): void;
 
@@ -3472,7 +3480,7 @@ export interface RDS {
    */
   rebootDBShardGroup(
     args: RebootDBShardGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RebootDBShardGroupCommandOutput>;
   rebootDBShardGroup(
     args: RebootDBShardGroupCommandInput,
@@ -3480,7 +3488,7 @@ export interface RDS {
   ): void;
   rebootDBShardGroup(
     args: RebootDBShardGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RebootDBShardGroupCommandOutput) => void
   ): void;
 
@@ -3489,7 +3497,7 @@ export interface RDS {
    */
   registerDBProxyTargets(
     args: RegisterDBProxyTargetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RegisterDBProxyTargetsCommandOutput>;
   registerDBProxyTargets(
     args: RegisterDBProxyTargetsCommandInput,
@@ -3497,7 +3505,7 @@ export interface RDS {
   ): void;
   registerDBProxyTargets(
     args: RegisterDBProxyTargetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RegisterDBProxyTargetsCommandOutput) => void
   ): void;
 
@@ -3506,7 +3514,7 @@ export interface RDS {
    */
   removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RemoveFromGlobalClusterCommandOutput>;
   removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
@@ -3514,7 +3522,7 @@ export interface RDS {
   ): void;
   removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RemoveFromGlobalClusterCommandOutput) => void
   ): void;
 
@@ -3523,7 +3531,7 @@ export interface RDS {
    */
   removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RemoveRoleFromDBClusterCommandOutput>;
   removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
@@ -3531,7 +3539,7 @@ export interface RDS {
   ): void;
   removeRoleFromDBCluster(
     args: RemoveRoleFromDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RemoveRoleFromDBClusterCommandOutput) => void
   ): void;
 
@@ -3540,7 +3548,7 @@ export interface RDS {
    */
   removeRoleFromDBInstance(
     args: RemoveRoleFromDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RemoveRoleFromDBInstanceCommandOutput>;
   removeRoleFromDBInstance(
     args: RemoveRoleFromDBInstanceCommandInput,
@@ -3548,7 +3556,7 @@ export interface RDS {
   ): void;
   removeRoleFromDBInstance(
     args: RemoveRoleFromDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RemoveRoleFromDBInstanceCommandOutput) => void
   ): void;
 
@@ -3557,7 +3565,7 @@ export interface RDS {
    */
   removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput>;
   removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
@@ -3565,7 +3573,7 @@ export interface RDS {
   ): void;
   removeSourceIdentifierFromSubscription(
     args: RemoveSourceIdentifierFromSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RemoveSourceIdentifierFromSubscriptionCommandOutput) => void
   ): void;
 
@@ -3574,7 +3582,7 @@ export interface RDS {
    */
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RemoveTagsFromResourceCommandOutput>;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -3582,7 +3590,7 @@ export interface RDS {
   ): void;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): void;
 
@@ -3591,7 +3599,7 @@ export interface RDS {
    */
   resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ResetDBClusterParameterGroupCommandOutput>;
   resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
@@ -3599,7 +3607,7 @@ export interface RDS {
   ): void;
   resetDBClusterParameterGroup(
     args: ResetDBClusterParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ResetDBClusterParameterGroupCommandOutput) => void
   ): void;
 
@@ -3608,7 +3616,7 @@ export interface RDS {
    */
   resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<ResetDBParameterGroupCommandOutput>;
   resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
@@ -3616,7 +3624,7 @@ export interface RDS {
   ): void;
   resetDBParameterGroup(
     args: ResetDBParameterGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: ResetDBParameterGroupCommandOutput) => void
   ): void;
 
@@ -3625,7 +3633,7 @@ export interface RDS {
    */
   restoreDBClusterFromS3(
     args: RestoreDBClusterFromS3CommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RestoreDBClusterFromS3CommandOutput>;
   restoreDBClusterFromS3(
     args: RestoreDBClusterFromS3CommandInput,
@@ -3633,7 +3641,7 @@ export interface RDS {
   ): void;
   restoreDBClusterFromS3(
     args: RestoreDBClusterFromS3CommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RestoreDBClusterFromS3CommandOutput) => void
   ): void;
 
@@ -3642,7 +3650,7 @@ export interface RDS {
    */
   restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RestoreDBClusterFromSnapshotCommandOutput>;
   restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
@@ -3650,7 +3658,7 @@ export interface RDS {
   ): void;
   restoreDBClusterFromSnapshot(
     args: RestoreDBClusterFromSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RestoreDBClusterFromSnapshotCommandOutput) => void
   ): void;
 
@@ -3659,7 +3667,7 @@ export interface RDS {
    */
   restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput>;
   restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
@@ -3667,7 +3675,7 @@ export interface RDS {
   ): void;
   restoreDBClusterToPointInTime(
     args: RestoreDBClusterToPointInTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RestoreDBClusterToPointInTimeCommandOutput) => void
   ): void;
 
@@ -3676,7 +3684,7 @@ export interface RDS {
    */
   restoreDBInstanceFromDBSnapshot(
     args: RestoreDBInstanceFromDBSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput>;
   restoreDBInstanceFromDBSnapshot(
     args: RestoreDBInstanceFromDBSnapshotCommandInput,
@@ -3684,7 +3692,7 @@ export interface RDS {
   ): void;
   restoreDBInstanceFromDBSnapshot(
     args: RestoreDBInstanceFromDBSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RestoreDBInstanceFromDBSnapshotCommandOutput) => void
   ): void;
 
@@ -3693,7 +3701,7 @@ export interface RDS {
    */
   restoreDBInstanceFromS3(
     args: RestoreDBInstanceFromS3CommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RestoreDBInstanceFromS3CommandOutput>;
   restoreDBInstanceFromS3(
     args: RestoreDBInstanceFromS3CommandInput,
@@ -3701,7 +3709,7 @@ export interface RDS {
   ): void;
   restoreDBInstanceFromS3(
     args: RestoreDBInstanceFromS3CommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RestoreDBInstanceFromS3CommandOutput) => void
   ): void;
 
@@ -3710,7 +3718,7 @@ export interface RDS {
    */
   restoreDBInstanceToPointInTime(
     args: RestoreDBInstanceToPointInTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RestoreDBInstanceToPointInTimeCommandOutput>;
   restoreDBInstanceToPointInTime(
     args: RestoreDBInstanceToPointInTimeCommandInput,
@@ -3718,7 +3726,7 @@ export interface RDS {
   ): void;
   restoreDBInstanceToPointInTime(
     args: RestoreDBInstanceToPointInTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RestoreDBInstanceToPointInTimeCommandOutput) => void
   ): void;
 
@@ -3727,7 +3735,7 @@ export interface RDS {
    */
   revokeDBSecurityGroupIngress(
     args: RevokeDBSecurityGroupIngressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<RevokeDBSecurityGroupIngressCommandOutput>;
   revokeDBSecurityGroupIngress(
     args: RevokeDBSecurityGroupIngressCommandInput,
@@ -3735,7 +3743,7 @@ export interface RDS {
   ): void;
   revokeDBSecurityGroupIngress(
     args: RevokeDBSecurityGroupIngressCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: RevokeDBSecurityGroupIngressCommandOutput) => void
   ): void;
 
@@ -3744,7 +3752,7 @@ export interface RDS {
    */
   startActivityStream(
     args: StartActivityStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<StartActivityStreamCommandOutput>;
   startActivityStream(
     args: StartActivityStreamCommandInput,
@@ -3752,7 +3760,7 @@ export interface RDS {
   ): void;
   startActivityStream(
     args: StartActivityStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: StartActivityStreamCommandOutput) => void
   ): void;
 
@@ -3761,7 +3769,7 @@ export interface RDS {
    */
   startDBCluster(
     args: StartDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<StartDBClusterCommandOutput>;
   startDBCluster(
     args: StartDBClusterCommandInput,
@@ -3769,7 +3777,7 @@ export interface RDS {
   ): void;
   startDBCluster(
     args: StartDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: StartDBClusterCommandOutput) => void
   ): void;
 
@@ -3778,7 +3786,7 @@ export interface RDS {
    */
   startDBInstance(
     args: StartDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<StartDBInstanceCommandOutput>;
   startDBInstance(
     args: StartDBInstanceCommandInput,
@@ -3786,7 +3794,7 @@ export interface RDS {
   ): void;
   startDBInstance(
     args: StartDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: StartDBInstanceCommandOutput) => void
   ): void;
 
@@ -3795,7 +3803,7 @@ export interface RDS {
    */
   startDBInstanceAutomatedBackupsReplication(
     args: StartDBInstanceAutomatedBackupsReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput>;
   startDBInstanceAutomatedBackupsReplication(
     args: StartDBInstanceAutomatedBackupsReplicationCommandInput,
@@ -3803,7 +3811,7 @@ export interface RDS {
   ): void;
   startDBInstanceAutomatedBackupsReplication(
     args: StartDBInstanceAutomatedBackupsReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: StartDBInstanceAutomatedBackupsReplicationCommandOutput) => void
   ): void;
 
@@ -3812,7 +3820,7 @@ export interface RDS {
    */
   startExportTask(
     args: StartExportTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<StartExportTaskCommandOutput>;
   startExportTask(
     args: StartExportTaskCommandInput,
@@ -3820,7 +3828,7 @@ export interface RDS {
   ): void;
   startExportTask(
     args: StartExportTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: StartExportTaskCommandOutput) => void
   ): void;
 
@@ -3829,7 +3837,7 @@ export interface RDS {
    */
   stopActivityStream(
     args: StopActivityStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<StopActivityStreamCommandOutput>;
   stopActivityStream(
     args: StopActivityStreamCommandInput,
@@ -3837,7 +3845,7 @@ export interface RDS {
   ): void;
   stopActivityStream(
     args: StopActivityStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: StopActivityStreamCommandOutput) => void
   ): void;
 
@@ -3846,7 +3854,7 @@ export interface RDS {
    */
   stopDBCluster(
     args: StopDBClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<StopDBClusterCommandOutput>;
   stopDBCluster(
     args: StopDBClusterCommandInput,
@@ -3854,7 +3862,7 @@ export interface RDS {
   ): void;
   stopDBCluster(
     args: StopDBClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: StopDBClusterCommandOutput) => void
   ): void;
 
@@ -3863,7 +3871,7 @@ export interface RDS {
    */
   stopDBInstance(
     args: StopDBInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<StopDBInstanceCommandOutput>;
   stopDBInstance(
     args: StopDBInstanceCommandInput,
@@ -3871,7 +3879,7 @@ export interface RDS {
   ): void;
   stopDBInstance(
     args: StopDBInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: StopDBInstanceCommandOutput) => void
   ): void;
 
@@ -3880,7 +3888,7 @@ export interface RDS {
    */
   stopDBInstanceAutomatedBackupsReplication(
     args: StopDBInstanceAutomatedBackupsReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput>;
   stopDBInstanceAutomatedBackupsReplication(
     args: StopDBInstanceAutomatedBackupsReplicationCommandInput,
@@ -3888,7 +3896,7 @@ export interface RDS {
   ): void;
   stopDBInstanceAutomatedBackupsReplication(
     args: StopDBInstanceAutomatedBackupsReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: StopDBInstanceAutomatedBackupsReplicationCommandOutput) => void
   ): void;
 
@@ -3897,7 +3905,7 @@ export interface RDS {
    */
   switchoverBlueGreenDeployment(
     args: SwitchoverBlueGreenDeploymentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<SwitchoverBlueGreenDeploymentCommandOutput>;
   switchoverBlueGreenDeployment(
     args: SwitchoverBlueGreenDeploymentCommandInput,
@@ -3905,7 +3913,7 @@ export interface RDS {
   ): void;
   switchoverBlueGreenDeployment(
     args: SwitchoverBlueGreenDeploymentCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: SwitchoverBlueGreenDeploymentCommandOutput) => void
   ): void;
 
@@ -3914,7 +3922,7 @@ export interface RDS {
    */
   switchoverGlobalCluster(
     args: SwitchoverGlobalClusterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<SwitchoverGlobalClusterCommandOutput>;
   switchoverGlobalCluster(
     args: SwitchoverGlobalClusterCommandInput,
@@ -3922,7 +3930,7 @@ export interface RDS {
   ): void;
   switchoverGlobalCluster(
     args: SwitchoverGlobalClusterCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: SwitchoverGlobalClusterCommandOutput) => void
   ): void;
 
@@ -3931,7 +3939,7 @@ export interface RDS {
    */
   switchoverReadReplica(
     args: SwitchoverReadReplicaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RDSRequestOptions
   ): Promise<SwitchoverReadReplicaCommandOutput>;
   switchoverReadReplica(
     args: SwitchoverReadReplicaCommandInput,
@@ -3939,7 +3947,7 @@ export interface RDS {
   ): void;
   switchoverReadReplica(
     args: SwitchoverReadReplicaCommandInput,
-    options: __HttpHandlerOptions,
+    options: RDSRequestOptions,
     cb: (err: any, data?: SwitchoverReadReplicaCommandOutput) => void
   ): void;
 

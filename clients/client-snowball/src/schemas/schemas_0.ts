@@ -282,10 +282,10 @@ import {
 import { SnowballServiceException } from "../models/SnowballServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var SnowballServiceException$: StaticErrorSchema = [-3, _s, "SnowballServiceException", 0, [], []];
 _s_registry.registerError(SnowballServiceException$, SnowballServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var ClusterLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
   { [_e]: _c },
   [_M],

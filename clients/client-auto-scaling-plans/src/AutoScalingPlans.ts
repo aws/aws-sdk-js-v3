@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import { AutoScalingPlansClient } from "./AutoScalingPlansClient";
 import {
@@ -43,13 +43,20 @@ const commands = {
   UpdateScalingPlanCommand,
 };
 
+/**
+ * @public
+ */
+export interface AutoScalingPlansRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AutoScalingPlans {
   /**
    * @see {@link CreateScalingPlanCommand}
    */
   createScalingPlan(
     args: CreateScalingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AutoScalingPlansRequestOptions
   ): Promise<CreateScalingPlanCommandOutput>;
   createScalingPlan(
     args: CreateScalingPlanCommandInput,
@@ -57,7 +64,7 @@ export interface AutoScalingPlans {
   ): void;
   createScalingPlan(
     args: CreateScalingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: AutoScalingPlansRequestOptions,
     cb: (err: any, data?: CreateScalingPlanCommandOutput) => void
   ): void;
 
@@ -66,7 +73,7 @@ export interface AutoScalingPlans {
    */
   deleteScalingPlan(
     args: DeleteScalingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AutoScalingPlansRequestOptions
   ): Promise<DeleteScalingPlanCommandOutput>;
   deleteScalingPlan(
     args: DeleteScalingPlanCommandInput,
@@ -74,7 +81,7 @@ export interface AutoScalingPlans {
   ): void;
   deleteScalingPlan(
     args: DeleteScalingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: AutoScalingPlansRequestOptions,
     cb: (err: any, data?: DeleteScalingPlanCommandOutput) => void
   ): void;
 
@@ -83,7 +90,7 @@ export interface AutoScalingPlans {
    */
   describeScalingPlanResources(
     args: DescribeScalingPlanResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AutoScalingPlansRequestOptions
   ): Promise<DescribeScalingPlanResourcesCommandOutput>;
   describeScalingPlanResources(
     args: DescribeScalingPlanResourcesCommandInput,
@@ -91,7 +98,7 @@ export interface AutoScalingPlans {
   ): void;
   describeScalingPlanResources(
     args: DescribeScalingPlanResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AutoScalingPlansRequestOptions,
     cb: (err: any, data?: DescribeScalingPlanResourcesCommandOutput) => void
   ): void;
 
@@ -101,7 +108,7 @@ export interface AutoScalingPlans {
   describeScalingPlans(): Promise<DescribeScalingPlansCommandOutput>;
   describeScalingPlans(
     args: DescribeScalingPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AutoScalingPlansRequestOptions
   ): Promise<DescribeScalingPlansCommandOutput>;
   describeScalingPlans(
     args: DescribeScalingPlansCommandInput,
@@ -109,7 +116,7 @@ export interface AutoScalingPlans {
   ): void;
   describeScalingPlans(
     args: DescribeScalingPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: AutoScalingPlansRequestOptions,
     cb: (err: any, data?: DescribeScalingPlansCommandOutput) => void
   ): void;
 
@@ -118,7 +125,7 @@ export interface AutoScalingPlans {
    */
   getScalingPlanResourceForecastData(
     args: GetScalingPlanResourceForecastDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AutoScalingPlansRequestOptions
   ): Promise<GetScalingPlanResourceForecastDataCommandOutput>;
   getScalingPlanResourceForecastData(
     args: GetScalingPlanResourceForecastDataCommandInput,
@@ -126,7 +133,7 @@ export interface AutoScalingPlans {
   ): void;
   getScalingPlanResourceForecastData(
     args: GetScalingPlanResourceForecastDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: AutoScalingPlansRequestOptions,
     cb: (err: any, data?: GetScalingPlanResourceForecastDataCommandOutput) => void
   ): void;
 
@@ -135,7 +142,7 @@ export interface AutoScalingPlans {
    */
   updateScalingPlan(
     args: UpdateScalingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AutoScalingPlansRequestOptions
   ): Promise<UpdateScalingPlanCommandOutput>;
   updateScalingPlan(
     args: UpdateScalingPlanCommandInput,
@@ -143,7 +150,7 @@ export interface AutoScalingPlans {
   ): void;
   updateScalingPlan(
     args: UpdateScalingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: AutoScalingPlansRequestOptions,
     cb: (err: any, data?: UpdateScalingPlanCommandOutput) => void
   ): void;
 }

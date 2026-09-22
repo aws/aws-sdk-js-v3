@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
@@ -547,13 +552,20 @@ const paginators = {
   paginateListVpcEndpointAssociations,
 };
 
+/**
+ * @public
+ */
+export interface NetworkFirewallRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface NetworkFirewall {
   /**
    * @see {@link AcceptNetworkFirewallTransitGatewayAttachmentCommand}
    */
   acceptNetworkFirewallTransitGatewayAttachment(
     args: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput>;
   acceptNetworkFirewallTransitGatewayAttachment(
     args: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
@@ -561,7 +573,7 @@ export interface NetworkFirewall {
   ): void;
   acceptNetworkFirewallTransitGatewayAttachment(
     args: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
   ): void;
 
@@ -570,7 +582,7 @@ export interface NetworkFirewall {
    */
   associateAvailabilityZones(
     args: AssociateAvailabilityZonesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<AssociateAvailabilityZonesCommandOutput>;
   associateAvailabilityZones(
     args: AssociateAvailabilityZonesCommandInput,
@@ -578,7 +590,7 @@ export interface NetworkFirewall {
   ): void;
   associateAvailabilityZones(
     args: AssociateAvailabilityZonesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: AssociateAvailabilityZonesCommandOutput) => void
   ): void;
 
@@ -587,7 +599,7 @@ export interface NetworkFirewall {
    */
   associateFirewallPolicy(
     args: AssociateFirewallPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<AssociateFirewallPolicyCommandOutput>;
   associateFirewallPolicy(
     args: AssociateFirewallPolicyCommandInput,
@@ -595,7 +607,7 @@ export interface NetworkFirewall {
   ): void;
   associateFirewallPolicy(
     args: AssociateFirewallPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: AssociateFirewallPolicyCommandOutput) => void
   ): void;
 
@@ -604,7 +616,7 @@ export interface NetworkFirewall {
    */
   associateSubnets(
     args: AssociateSubnetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<AssociateSubnetsCommandOutput>;
   associateSubnets(
     args: AssociateSubnetsCommandInput,
@@ -612,7 +624,7 @@ export interface NetworkFirewall {
   ): void;
   associateSubnets(
     args: AssociateSubnetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: AssociateSubnetsCommandOutput) => void
   ): void;
 
@@ -621,7 +633,7 @@ export interface NetworkFirewall {
    */
   attachRuleGroupsToProxyConfiguration(
     args: AttachRuleGroupsToProxyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<AttachRuleGroupsToProxyConfigurationCommandOutput>;
   attachRuleGroupsToProxyConfiguration(
     args: AttachRuleGroupsToProxyConfigurationCommandInput,
@@ -629,7 +641,7 @@ export interface NetworkFirewall {
   ): void;
   attachRuleGroupsToProxyConfiguration(
     args: AttachRuleGroupsToProxyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: AttachRuleGroupsToProxyConfigurationCommandOutput) => void
   ): void;
 
@@ -638,7 +650,7 @@ export interface NetworkFirewall {
    */
   createContainerAssociation(
     args: CreateContainerAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateContainerAssociationCommandOutput>;
   createContainerAssociation(
     args: CreateContainerAssociationCommandInput,
@@ -646,7 +658,7 @@ export interface NetworkFirewall {
   ): void;
   createContainerAssociation(
     args: CreateContainerAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateContainerAssociationCommandOutput) => void
   ): void;
 
@@ -655,7 +667,7 @@ export interface NetworkFirewall {
    */
   createFirewall(
     args: CreateFirewallCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateFirewallCommandOutput>;
   createFirewall(
     args: CreateFirewallCommandInput,
@@ -663,7 +675,7 @@ export interface NetworkFirewall {
   ): void;
   createFirewall(
     args: CreateFirewallCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateFirewallCommandOutput) => void
   ): void;
 
@@ -672,7 +684,7 @@ export interface NetworkFirewall {
    */
   createFirewallPolicy(
     args: CreateFirewallPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateFirewallPolicyCommandOutput>;
   createFirewallPolicy(
     args: CreateFirewallPolicyCommandInput,
@@ -680,7 +692,7 @@ export interface NetworkFirewall {
   ): void;
   createFirewallPolicy(
     args: CreateFirewallPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateFirewallPolicyCommandOutput) => void
   ): void;
 
@@ -689,7 +701,7 @@ export interface NetworkFirewall {
    */
   createProxy(
     args: CreateProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateProxyCommandOutput>;
   createProxy(
     args: CreateProxyCommandInput,
@@ -697,7 +709,7 @@ export interface NetworkFirewall {
   ): void;
   createProxy(
     args: CreateProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateProxyCommandOutput) => void
   ): void;
 
@@ -706,7 +718,7 @@ export interface NetworkFirewall {
    */
   createProxyConfiguration(
     args: CreateProxyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateProxyConfigurationCommandOutput>;
   createProxyConfiguration(
     args: CreateProxyConfigurationCommandInput,
@@ -714,7 +726,7 @@ export interface NetworkFirewall {
   ): void;
   createProxyConfiguration(
     args: CreateProxyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateProxyConfigurationCommandOutput) => void
   ): void;
 
@@ -723,7 +735,7 @@ export interface NetworkFirewall {
    */
   createProxyRuleGroup(
     args: CreateProxyRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateProxyRuleGroupCommandOutput>;
   createProxyRuleGroup(
     args: CreateProxyRuleGroupCommandInput,
@@ -731,7 +743,7 @@ export interface NetworkFirewall {
   ): void;
   createProxyRuleGroup(
     args: CreateProxyRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateProxyRuleGroupCommandOutput) => void
   ): void;
 
@@ -740,7 +752,7 @@ export interface NetworkFirewall {
    */
   createProxyRules(
     args: CreateProxyRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateProxyRulesCommandOutput>;
   createProxyRules(
     args: CreateProxyRulesCommandInput,
@@ -748,7 +760,7 @@ export interface NetworkFirewall {
   ): void;
   createProxyRules(
     args: CreateProxyRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateProxyRulesCommandOutput) => void
   ): void;
 
@@ -757,7 +769,7 @@ export interface NetworkFirewall {
    */
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateRuleGroupCommandOutput>;
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
@@ -765,7 +777,7 @@ export interface NetworkFirewall {
   ): void;
   createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateRuleGroupCommandOutput) => void
   ): void;
 
@@ -774,7 +786,7 @@ export interface NetworkFirewall {
    */
   createTLSInspectionConfiguration(
     args: CreateTLSInspectionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateTLSInspectionConfigurationCommandOutput>;
   createTLSInspectionConfiguration(
     args: CreateTLSInspectionConfigurationCommandInput,
@@ -782,7 +794,7 @@ export interface NetworkFirewall {
   ): void;
   createTLSInspectionConfiguration(
     args: CreateTLSInspectionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateTLSInspectionConfigurationCommandOutput) => void
   ): void;
 
@@ -791,7 +803,7 @@ export interface NetworkFirewall {
    */
   createVpcEndpointAssociation(
     args: CreateVpcEndpointAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<CreateVpcEndpointAssociationCommandOutput>;
   createVpcEndpointAssociation(
     args: CreateVpcEndpointAssociationCommandInput,
@@ -799,7 +811,7 @@ export interface NetworkFirewall {
   ): void;
   createVpcEndpointAssociation(
     args: CreateVpcEndpointAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: CreateVpcEndpointAssociationCommandOutput) => void
   ): void;
 
@@ -809,7 +821,7 @@ export interface NetworkFirewall {
   deleteContainerAssociation(): Promise<DeleteContainerAssociationCommandOutput>;
   deleteContainerAssociation(
     args: DeleteContainerAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteContainerAssociationCommandOutput>;
   deleteContainerAssociation(
     args: DeleteContainerAssociationCommandInput,
@@ -817,7 +829,7 @@ export interface NetworkFirewall {
   ): void;
   deleteContainerAssociation(
     args: DeleteContainerAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteContainerAssociationCommandOutput) => void
   ): void;
 
@@ -827,7 +839,7 @@ export interface NetworkFirewall {
   deleteFirewall(): Promise<DeleteFirewallCommandOutput>;
   deleteFirewall(
     args: DeleteFirewallCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteFirewallCommandOutput>;
   deleteFirewall(
     args: DeleteFirewallCommandInput,
@@ -835,7 +847,7 @@ export interface NetworkFirewall {
   ): void;
   deleteFirewall(
     args: DeleteFirewallCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteFirewallCommandOutput) => void
   ): void;
 
@@ -845,7 +857,7 @@ export interface NetworkFirewall {
   deleteFirewallPolicy(): Promise<DeleteFirewallPolicyCommandOutput>;
   deleteFirewallPolicy(
     args: DeleteFirewallPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteFirewallPolicyCommandOutput>;
   deleteFirewallPolicy(
     args: DeleteFirewallPolicyCommandInput,
@@ -853,7 +865,7 @@ export interface NetworkFirewall {
   ): void;
   deleteFirewallPolicy(
     args: DeleteFirewallPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteFirewallPolicyCommandOutput) => void
   ): void;
 
@@ -862,7 +874,7 @@ export interface NetworkFirewall {
    */
   deleteNetworkFirewallTransitGatewayAttachment(
     args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput>;
   deleteNetworkFirewallTransitGatewayAttachment(
     args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
@@ -870,7 +882,7 @@ export interface NetworkFirewall {
   ): void;
   deleteNetworkFirewallTransitGatewayAttachment(
     args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
   ): void;
 
@@ -879,7 +891,7 @@ export interface NetworkFirewall {
    */
   deleteProxy(
     args: DeleteProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteProxyCommandOutput>;
   deleteProxy(
     args: DeleteProxyCommandInput,
@@ -887,7 +899,7 @@ export interface NetworkFirewall {
   ): void;
   deleteProxy(
     args: DeleteProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteProxyCommandOutput) => void
   ): void;
 
@@ -897,7 +909,7 @@ export interface NetworkFirewall {
   deleteProxyConfiguration(): Promise<DeleteProxyConfigurationCommandOutput>;
   deleteProxyConfiguration(
     args: DeleteProxyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteProxyConfigurationCommandOutput>;
   deleteProxyConfiguration(
     args: DeleteProxyConfigurationCommandInput,
@@ -905,7 +917,7 @@ export interface NetworkFirewall {
   ): void;
   deleteProxyConfiguration(
     args: DeleteProxyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteProxyConfigurationCommandOutput) => void
   ): void;
 
@@ -915,7 +927,7 @@ export interface NetworkFirewall {
   deleteProxyRuleGroup(): Promise<DeleteProxyRuleGroupCommandOutput>;
   deleteProxyRuleGroup(
     args: DeleteProxyRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteProxyRuleGroupCommandOutput>;
   deleteProxyRuleGroup(
     args: DeleteProxyRuleGroupCommandInput,
@@ -923,7 +935,7 @@ export interface NetworkFirewall {
   ): void;
   deleteProxyRuleGroup(
     args: DeleteProxyRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteProxyRuleGroupCommandOutput) => void
   ): void;
 
@@ -932,7 +944,7 @@ export interface NetworkFirewall {
    */
   deleteProxyRules(
     args: DeleteProxyRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteProxyRulesCommandOutput>;
   deleteProxyRules(
     args: DeleteProxyRulesCommandInput,
@@ -940,7 +952,7 @@ export interface NetworkFirewall {
   ): void;
   deleteProxyRules(
     args: DeleteProxyRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteProxyRulesCommandOutput) => void
   ): void;
 
@@ -949,7 +961,7 @@ export interface NetworkFirewall {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -957,7 +969,7 @@ export interface NetworkFirewall {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -967,7 +979,7 @@ export interface NetworkFirewall {
   deleteRuleGroup(): Promise<DeleteRuleGroupCommandOutput>;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteRuleGroupCommandOutput>;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
@@ -975,7 +987,7 @@ export interface NetworkFirewall {
   ): void;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteRuleGroupCommandOutput) => void
   ): void;
 
@@ -985,7 +997,7 @@ export interface NetworkFirewall {
   deleteTLSInspectionConfiguration(): Promise<DeleteTLSInspectionConfigurationCommandOutput>;
   deleteTLSInspectionConfiguration(
     args: DeleteTLSInspectionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteTLSInspectionConfigurationCommandOutput>;
   deleteTLSInspectionConfiguration(
     args: DeleteTLSInspectionConfigurationCommandInput,
@@ -993,7 +1005,7 @@ export interface NetworkFirewall {
   ): void;
   deleteTLSInspectionConfiguration(
     args: DeleteTLSInspectionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteTLSInspectionConfigurationCommandOutput) => void
   ): void;
 
@@ -1002,7 +1014,7 @@ export interface NetworkFirewall {
    */
   deleteVpcEndpointAssociation(
     args: DeleteVpcEndpointAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DeleteVpcEndpointAssociationCommandOutput>;
   deleteVpcEndpointAssociation(
     args: DeleteVpcEndpointAssociationCommandInput,
@@ -1010,7 +1022,7 @@ export interface NetworkFirewall {
   ): void;
   deleteVpcEndpointAssociation(
     args: DeleteVpcEndpointAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DeleteVpcEndpointAssociationCommandOutput) => void
   ): void;
 
@@ -1020,7 +1032,7 @@ export interface NetworkFirewall {
   describeContainerAssociation(): Promise<DescribeContainerAssociationCommandOutput>;
   describeContainerAssociation(
     args: DescribeContainerAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeContainerAssociationCommandOutput>;
   describeContainerAssociation(
     args: DescribeContainerAssociationCommandInput,
@@ -1028,7 +1040,7 @@ export interface NetworkFirewall {
   ): void;
   describeContainerAssociation(
     args: DescribeContainerAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeContainerAssociationCommandOutput) => void
   ): void;
 
@@ -1038,7 +1050,7 @@ export interface NetworkFirewall {
   describeFirewall(): Promise<DescribeFirewallCommandOutput>;
   describeFirewall(
     args: DescribeFirewallCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeFirewallCommandOutput>;
   describeFirewall(
     args: DescribeFirewallCommandInput,
@@ -1046,7 +1058,7 @@ export interface NetworkFirewall {
   ): void;
   describeFirewall(
     args: DescribeFirewallCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeFirewallCommandOutput) => void
   ): void;
 
@@ -1056,7 +1068,7 @@ export interface NetworkFirewall {
   describeFirewallMetadata(): Promise<DescribeFirewallMetadataCommandOutput>;
   describeFirewallMetadata(
     args: DescribeFirewallMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeFirewallMetadataCommandOutput>;
   describeFirewallMetadata(
     args: DescribeFirewallMetadataCommandInput,
@@ -1064,7 +1076,7 @@ export interface NetworkFirewall {
   ): void;
   describeFirewallMetadata(
     args: DescribeFirewallMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeFirewallMetadataCommandOutput) => void
   ): void;
 
@@ -1074,7 +1086,7 @@ export interface NetworkFirewall {
   describeFirewallPolicy(): Promise<DescribeFirewallPolicyCommandOutput>;
   describeFirewallPolicy(
     args: DescribeFirewallPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeFirewallPolicyCommandOutput>;
   describeFirewallPolicy(
     args: DescribeFirewallPolicyCommandInput,
@@ -1082,7 +1094,7 @@ export interface NetworkFirewall {
   ): void;
   describeFirewallPolicy(
     args: DescribeFirewallPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeFirewallPolicyCommandOutput) => void
   ): void;
 
@@ -1091,7 +1103,7 @@ export interface NetworkFirewall {
    */
   describeFlowOperation(
     args: DescribeFlowOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeFlowOperationCommandOutput>;
   describeFlowOperation(
     args: DescribeFlowOperationCommandInput,
@@ -1099,7 +1111,7 @@ export interface NetworkFirewall {
   ): void;
   describeFlowOperation(
     args: DescribeFlowOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeFlowOperationCommandOutput) => void
   ): void;
 
@@ -1109,7 +1121,7 @@ export interface NetworkFirewall {
   describeLoggingConfiguration(): Promise<DescribeLoggingConfigurationCommandOutput>;
   describeLoggingConfiguration(
     args: DescribeLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeLoggingConfigurationCommandOutput>;
   describeLoggingConfiguration(
     args: DescribeLoggingConfigurationCommandInput,
@@ -1117,7 +1129,7 @@ export interface NetworkFirewall {
   ): void;
   describeLoggingConfiguration(
     args: DescribeLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1127,7 +1139,7 @@ export interface NetworkFirewall {
   describeProxy(): Promise<DescribeProxyCommandOutput>;
   describeProxy(
     args: DescribeProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeProxyCommandOutput>;
   describeProxy(
     args: DescribeProxyCommandInput,
@@ -1135,7 +1147,7 @@ export interface NetworkFirewall {
   ): void;
   describeProxy(
     args: DescribeProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeProxyCommandOutput) => void
   ): void;
 
@@ -1145,7 +1157,7 @@ export interface NetworkFirewall {
   describeProxyConfiguration(): Promise<DescribeProxyConfigurationCommandOutput>;
   describeProxyConfiguration(
     args: DescribeProxyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeProxyConfigurationCommandOutput>;
   describeProxyConfiguration(
     args: DescribeProxyConfigurationCommandInput,
@@ -1153,7 +1165,7 @@ export interface NetworkFirewall {
   ): void;
   describeProxyConfiguration(
     args: DescribeProxyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeProxyConfigurationCommandOutput) => void
   ): void;
 
@@ -1162,7 +1174,7 @@ export interface NetworkFirewall {
    */
   describeProxyRule(
     args: DescribeProxyRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeProxyRuleCommandOutput>;
   describeProxyRule(
     args: DescribeProxyRuleCommandInput,
@@ -1170,7 +1182,7 @@ export interface NetworkFirewall {
   ): void;
   describeProxyRule(
     args: DescribeProxyRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeProxyRuleCommandOutput) => void
   ): void;
 
@@ -1180,7 +1192,7 @@ export interface NetworkFirewall {
   describeProxyRuleGroup(): Promise<DescribeProxyRuleGroupCommandOutput>;
   describeProxyRuleGroup(
     args: DescribeProxyRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeProxyRuleGroupCommandOutput>;
   describeProxyRuleGroup(
     args: DescribeProxyRuleGroupCommandInput,
@@ -1188,7 +1200,7 @@ export interface NetworkFirewall {
   ): void;
   describeProxyRuleGroup(
     args: DescribeProxyRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeProxyRuleGroupCommandOutput) => void
   ): void;
 
@@ -1197,7 +1209,7 @@ export interface NetworkFirewall {
    */
   describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeResourcePolicyCommandOutput>;
   describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
@@ -1205,7 +1217,7 @@ export interface NetworkFirewall {
   ): void;
   describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1215,7 +1227,7 @@ export interface NetworkFirewall {
   describeRuleGroup(): Promise<DescribeRuleGroupCommandOutput>;
   describeRuleGroup(
     args: DescribeRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeRuleGroupCommandOutput>;
   describeRuleGroup(
     args: DescribeRuleGroupCommandInput,
@@ -1223,7 +1235,7 @@ export interface NetworkFirewall {
   ): void;
   describeRuleGroup(
     args: DescribeRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeRuleGroupCommandOutput) => void
   ): void;
 
@@ -1233,7 +1245,7 @@ export interface NetworkFirewall {
   describeRuleGroupMetadata(): Promise<DescribeRuleGroupMetadataCommandOutput>;
   describeRuleGroupMetadata(
     args: DescribeRuleGroupMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeRuleGroupMetadataCommandOutput>;
   describeRuleGroupMetadata(
     args: DescribeRuleGroupMetadataCommandInput,
@@ -1241,7 +1253,7 @@ export interface NetworkFirewall {
   ): void;
   describeRuleGroupMetadata(
     args: DescribeRuleGroupMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeRuleGroupMetadataCommandOutput) => void
   ): void;
 
@@ -1251,7 +1263,7 @@ export interface NetworkFirewall {
   describeRuleGroupSummary(): Promise<DescribeRuleGroupSummaryCommandOutput>;
   describeRuleGroupSummary(
     args: DescribeRuleGroupSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeRuleGroupSummaryCommandOutput>;
   describeRuleGroupSummary(
     args: DescribeRuleGroupSummaryCommandInput,
@@ -1259,7 +1271,7 @@ export interface NetworkFirewall {
   ): void;
   describeRuleGroupSummary(
     args: DescribeRuleGroupSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeRuleGroupSummaryCommandOutput) => void
   ): void;
 
@@ -1269,7 +1281,7 @@ export interface NetworkFirewall {
   describeTLSInspectionConfiguration(): Promise<DescribeTLSInspectionConfigurationCommandOutput>;
   describeTLSInspectionConfiguration(
     args: DescribeTLSInspectionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeTLSInspectionConfigurationCommandOutput>;
   describeTLSInspectionConfiguration(
     args: DescribeTLSInspectionConfigurationCommandInput,
@@ -1277,7 +1289,7 @@ export interface NetworkFirewall {
   ): void;
   describeTLSInspectionConfiguration(
     args: DescribeTLSInspectionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeTLSInspectionConfigurationCommandOutput) => void
   ): void;
 
@@ -1286,7 +1298,7 @@ export interface NetworkFirewall {
    */
   describeVpcEndpointAssociation(
     args: DescribeVpcEndpointAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DescribeVpcEndpointAssociationCommandOutput>;
   describeVpcEndpointAssociation(
     args: DescribeVpcEndpointAssociationCommandInput,
@@ -1294,7 +1306,7 @@ export interface NetworkFirewall {
   ): void;
   describeVpcEndpointAssociation(
     args: DescribeVpcEndpointAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DescribeVpcEndpointAssociationCommandOutput) => void
   ): void;
 
@@ -1303,7 +1315,7 @@ export interface NetworkFirewall {
    */
   detachRuleGroupsFromProxyConfiguration(
     args: DetachRuleGroupsFromProxyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DetachRuleGroupsFromProxyConfigurationCommandOutput>;
   detachRuleGroupsFromProxyConfiguration(
     args: DetachRuleGroupsFromProxyConfigurationCommandInput,
@@ -1311,7 +1323,7 @@ export interface NetworkFirewall {
   ): void;
   detachRuleGroupsFromProxyConfiguration(
     args: DetachRuleGroupsFromProxyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DetachRuleGroupsFromProxyConfigurationCommandOutput) => void
   ): void;
 
@@ -1320,7 +1332,7 @@ export interface NetworkFirewall {
    */
   disassociateAvailabilityZones(
     args: DisassociateAvailabilityZonesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DisassociateAvailabilityZonesCommandOutput>;
   disassociateAvailabilityZones(
     args: DisassociateAvailabilityZonesCommandInput,
@@ -1328,7 +1340,7 @@ export interface NetworkFirewall {
   ): void;
   disassociateAvailabilityZones(
     args: DisassociateAvailabilityZonesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DisassociateAvailabilityZonesCommandOutput) => void
   ): void;
 
@@ -1337,7 +1349,7 @@ export interface NetworkFirewall {
    */
   disassociateSubnets(
     args: DisassociateSubnetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<DisassociateSubnetsCommandOutput>;
   disassociateSubnets(
     args: DisassociateSubnetsCommandInput,
@@ -1345,7 +1357,7 @@ export interface NetworkFirewall {
   ): void;
   disassociateSubnets(
     args: DisassociateSubnetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: DisassociateSubnetsCommandOutput) => void
   ): void;
 
@@ -1354,7 +1366,7 @@ export interface NetworkFirewall {
    */
   getAnalysisReportResults(
     args: GetAnalysisReportResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<GetAnalysisReportResultsCommandOutput>;
   getAnalysisReportResults(
     args: GetAnalysisReportResultsCommandInput,
@@ -1362,7 +1374,7 @@ export interface NetworkFirewall {
   ): void;
   getAnalysisReportResults(
     args: GetAnalysisReportResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: GetAnalysisReportResultsCommandOutput) => void
   ): void;
 
@@ -1372,7 +1384,7 @@ export interface NetworkFirewall {
   listAnalysisReports(): Promise<ListAnalysisReportsCommandOutput>;
   listAnalysisReports(
     args: ListAnalysisReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListAnalysisReportsCommandOutput>;
   listAnalysisReports(
     args: ListAnalysisReportsCommandInput,
@@ -1380,7 +1392,7 @@ export interface NetworkFirewall {
   ): void;
   listAnalysisReports(
     args: ListAnalysisReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListAnalysisReportsCommandOutput) => void
   ): void;
 
@@ -1390,7 +1402,7 @@ export interface NetworkFirewall {
   listContainerAssociations(): Promise<ListContainerAssociationsCommandOutput>;
   listContainerAssociations(
     args: ListContainerAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListContainerAssociationsCommandOutput>;
   listContainerAssociations(
     args: ListContainerAssociationsCommandInput,
@@ -1398,7 +1410,7 @@ export interface NetworkFirewall {
   ): void;
   listContainerAssociations(
     args: ListContainerAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListContainerAssociationsCommandOutput) => void
   ): void;
 
@@ -1408,7 +1420,7 @@ export interface NetworkFirewall {
   listFirewallPolicies(): Promise<ListFirewallPoliciesCommandOutput>;
   listFirewallPolicies(
     args: ListFirewallPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListFirewallPoliciesCommandOutput>;
   listFirewallPolicies(
     args: ListFirewallPoliciesCommandInput,
@@ -1416,7 +1428,7 @@ export interface NetworkFirewall {
   ): void;
   listFirewallPolicies(
     args: ListFirewallPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListFirewallPoliciesCommandOutput) => void
   ): void;
 
@@ -1426,7 +1438,7 @@ export interface NetworkFirewall {
   listFirewalls(): Promise<ListFirewallsCommandOutput>;
   listFirewalls(
     args: ListFirewallsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListFirewallsCommandOutput>;
   listFirewalls(
     args: ListFirewallsCommandInput,
@@ -1434,7 +1446,7 @@ export interface NetworkFirewall {
   ): void;
   listFirewalls(
     args: ListFirewallsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListFirewallsCommandOutput) => void
   ): void;
 
@@ -1443,7 +1455,7 @@ export interface NetworkFirewall {
    */
   listFlowOperationResults(
     args: ListFlowOperationResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListFlowOperationResultsCommandOutput>;
   listFlowOperationResults(
     args: ListFlowOperationResultsCommandInput,
@@ -1451,7 +1463,7 @@ export interface NetworkFirewall {
   ): void;
   listFlowOperationResults(
     args: ListFlowOperationResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListFlowOperationResultsCommandOutput) => void
   ): void;
 
@@ -1460,7 +1472,7 @@ export interface NetworkFirewall {
    */
   listFlowOperations(
     args: ListFlowOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListFlowOperationsCommandOutput>;
   listFlowOperations(
     args: ListFlowOperationsCommandInput,
@@ -1468,7 +1480,7 @@ export interface NetworkFirewall {
   ): void;
   listFlowOperations(
     args: ListFlowOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
   ): void;
 
@@ -1478,7 +1490,7 @@ export interface NetworkFirewall {
   listProxies(): Promise<ListProxiesCommandOutput>;
   listProxies(
     args: ListProxiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListProxiesCommandOutput>;
   listProxies(
     args: ListProxiesCommandInput,
@@ -1486,7 +1498,7 @@ export interface NetworkFirewall {
   ): void;
   listProxies(
     args: ListProxiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListProxiesCommandOutput) => void
   ): void;
 
@@ -1496,7 +1508,7 @@ export interface NetworkFirewall {
   listProxyConfigurations(): Promise<ListProxyConfigurationsCommandOutput>;
   listProxyConfigurations(
     args: ListProxyConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListProxyConfigurationsCommandOutput>;
   listProxyConfigurations(
     args: ListProxyConfigurationsCommandInput,
@@ -1504,7 +1516,7 @@ export interface NetworkFirewall {
   ): void;
   listProxyConfigurations(
     args: ListProxyConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListProxyConfigurationsCommandOutput) => void
   ): void;
 
@@ -1514,7 +1526,7 @@ export interface NetworkFirewall {
   listProxyRuleGroups(): Promise<ListProxyRuleGroupsCommandOutput>;
   listProxyRuleGroups(
     args: ListProxyRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListProxyRuleGroupsCommandOutput>;
   listProxyRuleGroups(
     args: ListProxyRuleGroupsCommandInput,
@@ -1522,7 +1534,7 @@ export interface NetworkFirewall {
   ): void;
   listProxyRuleGroups(
     args: ListProxyRuleGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListProxyRuleGroupsCommandOutput) => void
   ): void;
 
@@ -1532,7 +1544,7 @@ export interface NetworkFirewall {
   listRuleGroups(): Promise<ListRuleGroupsCommandOutput>;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListRuleGroupsCommandOutput>;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
@@ -1540,7 +1552,7 @@ export interface NetworkFirewall {
   ): void;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListRuleGroupsCommandOutput) => void
   ): void;
 
@@ -1549,7 +1561,7 @@ export interface NetworkFirewall {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1557,7 +1569,7 @@ export interface NetworkFirewall {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1567,7 +1579,7 @@ export interface NetworkFirewall {
   listTLSInspectionConfigurations(): Promise<ListTLSInspectionConfigurationsCommandOutput>;
   listTLSInspectionConfigurations(
     args: ListTLSInspectionConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListTLSInspectionConfigurationsCommandOutput>;
   listTLSInspectionConfigurations(
     args: ListTLSInspectionConfigurationsCommandInput,
@@ -1575,7 +1587,7 @@ export interface NetworkFirewall {
   ): void;
   listTLSInspectionConfigurations(
     args: ListTLSInspectionConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListTLSInspectionConfigurationsCommandOutput) => void
   ): void;
 
@@ -1585,7 +1597,7 @@ export interface NetworkFirewall {
   listVpcEndpointAssociations(): Promise<ListVpcEndpointAssociationsCommandOutput>;
   listVpcEndpointAssociations(
     args: ListVpcEndpointAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<ListVpcEndpointAssociationsCommandOutput>;
   listVpcEndpointAssociations(
     args: ListVpcEndpointAssociationsCommandInput,
@@ -1593,7 +1605,7 @@ export interface NetworkFirewall {
   ): void;
   listVpcEndpointAssociations(
     args: ListVpcEndpointAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: ListVpcEndpointAssociationsCommandOutput) => void
   ): void;
 
@@ -1602,7 +1614,7 @@ export interface NetworkFirewall {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -1610,7 +1622,7 @@ export interface NetworkFirewall {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1619,7 +1631,7 @@ export interface NetworkFirewall {
    */
   rejectNetworkFirewallTransitGatewayAttachment(
     args: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<RejectNetworkFirewallTransitGatewayAttachmentCommandOutput>;
   rejectNetworkFirewallTransitGatewayAttachment(
     args: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
@@ -1627,7 +1639,7 @@ export interface NetworkFirewall {
   ): void;
   rejectNetworkFirewallTransitGatewayAttachment(
     args: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: RejectNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
   ): void;
 
@@ -1636,7 +1648,7 @@ export interface NetworkFirewall {
    */
   startAnalysisReport(
     args: StartAnalysisReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<StartAnalysisReportCommandOutput>;
   startAnalysisReport(
     args: StartAnalysisReportCommandInput,
@@ -1644,7 +1656,7 @@ export interface NetworkFirewall {
   ): void;
   startAnalysisReport(
     args: StartAnalysisReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: StartAnalysisReportCommandOutput) => void
   ): void;
 
@@ -1653,7 +1665,7 @@ export interface NetworkFirewall {
    */
   startFlowCapture(
     args: StartFlowCaptureCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<StartFlowCaptureCommandOutput>;
   startFlowCapture(
     args: StartFlowCaptureCommandInput,
@@ -1661,7 +1673,7 @@ export interface NetworkFirewall {
   ): void;
   startFlowCapture(
     args: StartFlowCaptureCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: StartFlowCaptureCommandOutput) => void
   ): void;
 
@@ -1670,7 +1682,7 @@ export interface NetworkFirewall {
    */
   startFlowFlush(
     args: StartFlowFlushCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<StartFlowFlushCommandOutput>;
   startFlowFlush(
     args: StartFlowFlushCommandInput,
@@ -1678,7 +1690,7 @@ export interface NetworkFirewall {
   ): void;
   startFlowFlush(
     args: StartFlowFlushCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: StartFlowFlushCommandOutput) => void
   ): void;
 
@@ -1687,7 +1699,7 @@ export interface NetworkFirewall {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1695,7 +1707,7 @@ export interface NetworkFirewall {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1704,7 +1716,7 @@ export interface NetworkFirewall {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1712,7 +1724,7 @@ export interface NetworkFirewall {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1721,7 +1733,7 @@ export interface NetworkFirewall {
    */
   updateAvailabilityZoneChangeProtection(
     args: UpdateAvailabilityZoneChangeProtectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateAvailabilityZoneChangeProtectionCommandOutput>;
   updateAvailabilityZoneChangeProtection(
     args: UpdateAvailabilityZoneChangeProtectionCommandInput,
@@ -1729,7 +1741,7 @@ export interface NetworkFirewall {
   ): void;
   updateAvailabilityZoneChangeProtection(
     args: UpdateAvailabilityZoneChangeProtectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateAvailabilityZoneChangeProtectionCommandOutput) => void
   ): void;
 
@@ -1738,7 +1750,7 @@ export interface NetworkFirewall {
    */
   updateContainerAssociation(
     args: UpdateContainerAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateContainerAssociationCommandOutput>;
   updateContainerAssociation(
     args: UpdateContainerAssociationCommandInput,
@@ -1746,7 +1758,7 @@ export interface NetworkFirewall {
   ): void;
   updateContainerAssociation(
     args: UpdateContainerAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateContainerAssociationCommandOutput) => void
   ): void;
 
@@ -1756,7 +1768,7 @@ export interface NetworkFirewall {
   updateFirewallAnalysisSettings(): Promise<UpdateFirewallAnalysisSettingsCommandOutput>;
   updateFirewallAnalysisSettings(
     args: UpdateFirewallAnalysisSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateFirewallAnalysisSettingsCommandOutput>;
   updateFirewallAnalysisSettings(
     args: UpdateFirewallAnalysisSettingsCommandInput,
@@ -1764,7 +1776,7 @@ export interface NetworkFirewall {
   ): void;
   updateFirewallAnalysisSettings(
     args: UpdateFirewallAnalysisSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateFirewallAnalysisSettingsCommandOutput) => void
   ): void;
 
@@ -1773,7 +1785,7 @@ export interface NetworkFirewall {
    */
   updateFirewallDeleteProtection(
     args: UpdateFirewallDeleteProtectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateFirewallDeleteProtectionCommandOutput>;
   updateFirewallDeleteProtection(
     args: UpdateFirewallDeleteProtectionCommandInput,
@@ -1781,7 +1793,7 @@ export interface NetworkFirewall {
   ): void;
   updateFirewallDeleteProtection(
     args: UpdateFirewallDeleteProtectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateFirewallDeleteProtectionCommandOutput) => void
   ): void;
 
@@ -1791,7 +1803,7 @@ export interface NetworkFirewall {
   updateFirewallDescription(): Promise<UpdateFirewallDescriptionCommandOutput>;
   updateFirewallDescription(
     args: UpdateFirewallDescriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateFirewallDescriptionCommandOutput>;
   updateFirewallDescription(
     args: UpdateFirewallDescriptionCommandInput,
@@ -1799,7 +1811,7 @@ export interface NetworkFirewall {
   ): void;
   updateFirewallDescription(
     args: UpdateFirewallDescriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateFirewallDescriptionCommandOutput) => void
   ): void;
 
@@ -1809,7 +1821,7 @@ export interface NetworkFirewall {
   updateFirewallEncryptionConfiguration(): Promise<UpdateFirewallEncryptionConfigurationCommandOutput>;
   updateFirewallEncryptionConfiguration(
     args: UpdateFirewallEncryptionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateFirewallEncryptionConfigurationCommandOutput>;
   updateFirewallEncryptionConfiguration(
     args: UpdateFirewallEncryptionConfigurationCommandInput,
@@ -1817,7 +1829,7 @@ export interface NetworkFirewall {
   ): void;
   updateFirewallEncryptionConfiguration(
     args: UpdateFirewallEncryptionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateFirewallEncryptionConfigurationCommandOutput) => void
   ): void;
 
@@ -1826,7 +1838,7 @@ export interface NetworkFirewall {
    */
   updateFirewallPolicy(
     args: UpdateFirewallPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateFirewallPolicyCommandOutput>;
   updateFirewallPolicy(
     args: UpdateFirewallPolicyCommandInput,
@@ -1834,7 +1846,7 @@ export interface NetworkFirewall {
   ): void;
   updateFirewallPolicy(
     args: UpdateFirewallPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateFirewallPolicyCommandOutput) => void
   ): void;
 
@@ -1843,7 +1855,7 @@ export interface NetworkFirewall {
    */
   updateFirewallPolicyChangeProtection(
     args: UpdateFirewallPolicyChangeProtectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateFirewallPolicyChangeProtectionCommandOutput>;
   updateFirewallPolicyChangeProtection(
     args: UpdateFirewallPolicyChangeProtectionCommandInput,
@@ -1851,7 +1863,7 @@ export interface NetworkFirewall {
   ): void;
   updateFirewallPolicyChangeProtection(
     args: UpdateFirewallPolicyChangeProtectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateFirewallPolicyChangeProtectionCommandOutput) => void
   ): void;
 
@@ -1861,7 +1873,7 @@ export interface NetworkFirewall {
   updateLoggingConfiguration(): Promise<UpdateLoggingConfigurationCommandOutput>;
   updateLoggingConfiguration(
     args: UpdateLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateLoggingConfigurationCommandOutput>;
   updateLoggingConfiguration(
     args: UpdateLoggingConfigurationCommandInput,
@@ -1869,7 +1881,7 @@ export interface NetworkFirewall {
   ): void;
   updateLoggingConfiguration(
     args: UpdateLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1878,7 +1890,7 @@ export interface NetworkFirewall {
    */
   updateProxy(
     args: UpdateProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateProxyCommandOutput>;
   updateProxy(
     args: UpdateProxyCommandInput,
@@ -1886,7 +1898,7 @@ export interface NetworkFirewall {
   ): void;
   updateProxy(
     args: UpdateProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateProxyCommandOutput) => void
   ): void;
 
@@ -1895,7 +1907,7 @@ export interface NetworkFirewall {
    */
   updateProxyConfiguration(
     args: UpdateProxyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateProxyConfigurationCommandOutput>;
   updateProxyConfiguration(
     args: UpdateProxyConfigurationCommandInput,
@@ -1903,7 +1915,7 @@ export interface NetworkFirewall {
   ): void;
   updateProxyConfiguration(
     args: UpdateProxyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateProxyConfigurationCommandOutput) => void
   ): void;
 
@@ -1912,7 +1924,7 @@ export interface NetworkFirewall {
    */
   updateProxyRule(
     args: UpdateProxyRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateProxyRuleCommandOutput>;
   updateProxyRule(
     args: UpdateProxyRuleCommandInput,
@@ -1920,7 +1932,7 @@ export interface NetworkFirewall {
   ): void;
   updateProxyRule(
     args: UpdateProxyRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateProxyRuleCommandOutput) => void
   ): void;
 
@@ -1929,7 +1941,7 @@ export interface NetworkFirewall {
    */
   updateProxyRuleGroupPriorities(
     args: UpdateProxyRuleGroupPrioritiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateProxyRuleGroupPrioritiesCommandOutput>;
   updateProxyRuleGroupPriorities(
     args: UpdateProxyRuleGroupPrioritiesCommandInput,
@@ -1937,7 +1949,7 @@ export interface NetworkFirewall {
   ): void;
   updateProxyRuleGroupPriorities(
     args: UpdateProxyRuleGroupPrioritiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateProxyRuleGroupPrioritiesCommandOutput) => void
   ): void;
 
@@ -1946,7 +1958,7 @@ export interface NetworkFirewall {
    */
   updateProxyRulePriorities(
     args: UpdateProxyRulePrioritiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateProxyRulePrioritiesCommandOutput>;
   updateProxyRulePriorities(
     args: UpdateProxyRulePrioritiesCommandInput,
@@ -1954,7 +1966,7 @@ export interface NetworkFirewall {
   ): void;
   updateProxyRulePriorities(
     args: UpdateProxyRulePrioritiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateProxyRulePrioritiesCommandOutput) => void
   ): void;
 
@@ -1964,7 +1976,7 @@ export interface NetworkFirewall {
   updateProxySettings(): Promise<UpdateProxySettingsCommandOutput>;
   updateProxySettings(
     args: UpdateProxySettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateProxySettingsCommandOutput>;
   updateProxySettings(
     args: UpdateProxySettingsCommandInput,
@@ -1972,7 +1984,7 @@ export interface NetworkFirewall {
   ): void;
   updateProxySettings(
     args: UpdateProxySettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateProxySettingsCommandOutput) => void
   ): void;
 
@@ -1981,7 +1993,7 @@ export interface NetworkFirewall {
    */
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateRuleGroupCommandOutput>;
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
@@ -1989,7 +2001,7 @@ export interface NetworkFirewall {
   ): void;
   updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateRuleGroupCommandOutput) => void
   ): void;
 
@@ -1998,7 +2010,7 @@ export interface NetworkFirewall {
    */
   updateSubnetChangeProtection(
     args: UpdateSubnetChangeProtectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateSubnetChangeProtectionCommandOutput>;
   updateSubnetChangeProtection(
     args: UpdateSubnetChangeProtectionCommandInput,
@@ -2006,7 +2018,7 @@ export interface NetworkFirewall {
   ): void;
   updateSubnetChangeProtection(
     args: UpdateSubnetChangeProtectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateSubnetChangeProtectionCommandOutput) => void
   ): void;
 
@@ -2015,7 +2027,7 @@ export interface NetworkFirewall {
    */
   updateTLSInspectionConfiguration(
     args: UpdateTLSInspectionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: NetworkFirewallRequestOptions
   ): Promise<UpdateTLSInspectionConfigurationCommandOutput>;
   updateTLSInspectionConfiguration(
     args: UpdateTLSInspectionConfigurationCommandInput,
@@ -2023,7 +2035,7 @@ export interface NetworkFirewall {
   ): void;
   updateTLSInspectionConfiguration(
     args: UpdateTLSInspectionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: NetworkFirewallRequestOptions,
     cb: (err: any, data?: UpdateTLSInspectionConfigurationCommandOutput) => void
   ): void;
 

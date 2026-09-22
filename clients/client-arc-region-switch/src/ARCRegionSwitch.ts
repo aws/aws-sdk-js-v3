@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -155,13 +156,20 @@ const waiters = {
   waitUntilPlanExecutionCompleted,
 };
 
+/**
+ * @public
+ */
+export interface ARCRegionSwitchRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ARCRegionSwitch {
   /**
    * @see {@link ApprovePlanExecutionStepCommand}
    */
   approvePlanExecutionStep(
     args: ApprovePlanExecutionStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<ApprovePlanExecutionStepCommandOutput>;
   approvePlanExecutionStep(
     args: ApprovePlanExecutionStepCommandInput,
@@ -169,7 +177,7 @@ export interface ARCRegionSwitch {
   ): void;
   approvePlanExecutionStep(
     args: ApprovePlanExecutionStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: ApprovePlanExecutionStepCommandOutput) => void
   ): void;
 
@@ -178,7 +186,7 @@ export interface ARCRegionSwitch {
    */
   cancelPlanExecution(
     args: CancelPlanExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<CancelPlanExecutionCommandOutput>;
   cancelPlanExecution(
     args: CancelPlanExecutionCommandInput,
@@ -186,7 +194,7 @@ export interface ARCRegionSwitch {
   ): void;
   cancelPlanExecution(
     args: CancelPlanExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: CancelPlanExecutionCommandOutput) => void
   ): void;
 
@@ -195,7 +203,7 @@ export interface ARCRegionSwitch {
    */
   createPlan(
     args: CreatePlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<CreatePlanCommandOutput>;
   createPlan(
     args: CreatePlanCommandInput,
@@ -203,7 +211,7 @@ export interface ARCRegionSwitch {
   ): void;
   createPlan(
     args: CreatePlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: CreatePlanCommandOutput) => void
   ): void;
 
@@ -212,7 +220,7 @@ export interface ARCRegionSwitch {
    */
   deletePlan(
     args: DeletePlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<DeletePlanCommandOutput>;
   deletePlan(
     args: DeletePlanCommandInput,
@@ -220,7 +228,7 @@ export interface ARCRegionSwitch {
   ): void;
   deletePlan(
     args: DeletePlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: DeletePlanCommandOutput) => void
   ): void;
 
@@ -229,7 +237,7 @@ export interface ARCRegionSwitch {
    */
   getPlan(
     args: GetPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<GetPlanCommandOutput>;
   getPlan(
     args: GetPlanCommandInput,
@@ -237,7 +245,7 @@ export interface ARCRegionSwitch {
   ): void;
   getPlan(
     args: GetPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: GetPlanCommandOutput) => void
   ): void;
 
@@ -246,7 +254,7 @@ export interface ARCRegionSwitch {
    */
   getPlanEvaluationStatus(
     args: GetPlanEvaluationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<GetPlanEvaluationStatusCommandOutput>;
   getPlanEvaluationStatus(
     args: GetPlanEvaluationStatusCommandInput,
@@ -254,7 +262,7 @@ export interface ARCRegionSwitch {
   ): void;
   getPlanEvaluationStatus(
     args: GetPlanEvaluationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: GetPlanEvaluationStatusCommandOutput) => void
   ): void;
 
@@ -263,7 +271,7 @@ export interface ARCRegionSwitch {
    */
   getPlanExecution(
     args: GetPlanExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<GetPlanExecutionCommandOutput>;
   getPlanExecution(
     args: GetPlanExecutionCommandInput,
@@ -271,7 +279,7 @@ export interface ARCRegionSwitch {
   ): void;
   getPlanExecution(
     args: GetPlanExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: GetPlanExecutionCommandOutput) => void
   ): void;
 
@@ -280,7 +288,7 @@ export interface ARCRegionSwitch {
    */
   getPlanInRegion(
     args: GetPlanInRegionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<GetPlanInRegionCommandOutput>;
   getPlanInRegion(
     args: GetPlanInRegionCommandInput,
@@ -288,7 +296,7 @@ export interface ARCRegionSwitch {
   ): void;
   getPlanInRegion(
     args: GetPlanInRegionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: GetPlanInRegionCommandOutput) => void
   ): void;
 
@@ -297,7 +305,7 @@ export interface ARCRegionSwitch {
    */
   listPlanExecutionEvents(
     args: ListPlanExecutionEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<ListPlanExecutionEventsCommandOutput>;
   listPlanExecutionEvents(
     args: ListPlanExecutionEventsCommandInput,
@@ -305,7 +313,7 @@ export interface ARCRegionSwitch {
   ): void;
   listPlanExecutionEvents(
     args: ListPlanExecutionEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: ListPlanExecutionEventsCommandOutput) => void
   ): void;
 
@@ -314,7 +322,7 @@ export interface ARCRegionSwitch {
    */
   listPlanExecutions(
     args: ListPlanExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<ListPlanExecutionsCommandOutput>;
   listPlanExecutions(
     args: ListPlanExecutionsCommandInput,
@@ -322,7 +330,7 @@ export interface ARCRegionSwitch {
   ): void;
   listPlanExecutions(
     args: ListPlanExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: ListPlanExecutionsCommandOutput) => void
   ): void;
 
@@ -332,7 +340,7 @@ export interface ARCRegionSwitch {
   listPlans(): Promise<ListPlansCommandOutput>;
   listPlans(
     args: ListPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<ListPlansCommandOutput>;
   listPlans(
     args: ListPlansCommandInput,
@@ -340,7 +348,7 @@ export interface ARCRegionSwitch {
   ): void;
   listPlans(
     args: ListPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: ListPlansCommandOutput) => void
   ): void;
 
@@ -350,7 +358,7 @@ export interface ARCRegionSwitch {
   listPlansInRegion(): Promise<ListPlansInRegionCommandOutput>;
   listPlansInRegion(
     args: ListPlansInRegionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<ListPlansInRegionCommandOutput>;
   listPlansInRegion(
     args: ListPlansInRegionCommandInput,
@@ -358,7 +366,7 @@ export interface ARCRegionSwitch {
   ): void;
   listPlansInRegion(
     args: ListPlansInRegionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: ListPlansInRegionCommandOutput) => void
   ): void;
 
@@ -367,7 +375,7 @@ export interface ARCRegionSwitch {
    */
   listRoute53HealthChecks(
     args: ListRoute53HealthChecksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<ListRoute53HealthChecksCommandOutput>;
   listRoute53HealthChecks(
     args: ListRoute53HealthChecksCommandInput,
@@ -375,7 +383,7 @@ export interface ARCRegionSwitch {
   ): void;
   listRoute53HealthChecks(
     args: ListRoute53HealthChecksCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: ListRoute53HealthChecksCommandOutput) => void
   ): void;
 
@@ -384,7 +392,7 @@ export interface ARCRegionSwitch {
    */
   listRoute53HealthChecksInRegion(
     args: ListRoute53HealthChecksInRegionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<ListRoute53HealthChecksInRegionCommandOutput>;
   listRoute53HealthChecksInRegion(
     args: ListRoute53HealthChecksInRegionCommandInput,
@@ -392,7 +400,7 @@ export interface ARCRegionSwitch {
   ): void;
   listRoute53HealthChecksInRegion(
     args: ListRoute53HealthChecksInRegionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: ListRoute53HealthChecksInRegionCommandOutput) => void
   ): void;
 
@@ -401,7 +409,7 @@ export interface ARCRegionSwitch {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -409,7 +417,7 @@ export interface ARCRegionSwitch {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -418,7 +426,7 @@ export interface ARCRegionSwitch {
    */
   startPlanExecution(
     args: StartPlanExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<StartPlanExecutionCommandOutput>;
   startPlanExecution(
     args: StartPlanExecutionCommandInput,
@@ -426,7 +434,7 @@ export interface ARCRegionSwitch {
   ): void;
   startPlanExecution(
     args: StartPlanExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: StartPlanExecutionCommandOutput) => void
   ): void;
 
@@ -435,7 +443,7 @@ export interface ARCRegionSwitch {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -443,7 +451,7 @@ export interface ARCRegionSwitch {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -452,7 +460,7 @@ export interface ARCRegionSwitch {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -460,7 +468,7 @@ export interface ARCRegionSwitch {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -469,7 +477,7 @@ export interface ARCRegionSwitch {
    */
   updatePlan(
     args: UpdatePlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<UpdatePlanCommandOutput>;
   updatePlan(
     args: UpdatePlanCommandInput,
@@ -477,7 +485,7 @@ export interface ARCRegionSwitch {
   ): void;
   updatePlan(
     args: UpdatePlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: UpdatePlanCommandOutput) => void
   ): void;
 
@@ -486,7 +494,7 @@ export interface ARCRegionSwitch {
    */
   updatePlanExecution(
     args: UpdatePlanExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<UpdatePlanExecutionCommandOutput>;
   updatePlanExecution(
     args: UpdatePlanExecutionCommandInput,
@@ -494,7 +502,7 @@ export interface ARCRegionSwitch {
   ): void;
   updatePlanExecution(
     args: UpdatePlanExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: UpdatePlanExecutionCommandOutput) => void
   ): void;
 
@@ -503,7 +511,7 @@ export interface ARCRegionSwitch {
    */
   updatePlanExecutionStep(
     args: UpdatePlanExecutionStepCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ARCRegionSwitchRequestOptions
   ): Promise<UpdatePlanExecutionStepCommandOutput>;
   updatePlanExecutionStep(
     args: UpdatePlanExecutionStepCommandInput,
@@ -511,7 +519,7 @@ export interface ARCRegionSwitch {
   ): void;
   updatePlanExecutionStep(
     args: UpdatePlanExecutionStepCommandInput,
-    options: __HttpHandlerOptions,
+    options: ARCRegionSwitchRequestOptions,
     cb: (err: any, data?: UpdatePlanExecutionStepCommandOutput) => void
   ): void;
 

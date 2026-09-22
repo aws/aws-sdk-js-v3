@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CreateSavingsPlanCommandInput,
@@ -67,13 +67,20 @@ const commands = {
   UntagResourceCommand,
 };
 
+/**
+ * @public
+ */
+export interface SavingsplansRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Savingsplans {
   /**
    * @see {@link CreateSavingsPlanCommand}
    */
   createSavingsPlan(
     args: CreateSavingsPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<CreateSavingsPlanCommandOutput>;
   createSavingsPlan(
     args: CreateSavingsPlanCommandInput,
@@ -81,7 +88,7 @@ export interface Savingsplans {
   ): void;
   createSavingsPlan(
     args: CreateSavingsPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: CreateSavingsPlanCommandOutput) => void
   ): void;
 
@@ -90,7 +97,7 @@ export interface Savingsplans {
    */
   deleteQueuedSavingsPlan(
     args: DeleteQueuedSavingsPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<DeleteQueuedSavingsPlanCommandOutput>;
   deleteQueuedSavingsPlan(
     args: DeleteQueuedSavingsPlanCommandInput,
@@ -98,7 +105,7 @@ export interface Savingsplans {
   ): void;
   deleteQueuedSavingsPlan(
     args: DeleteQueuedSavingsPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: DeleteQueuedSavingsPlanCommandOutput) => void
   ): void;
 
@@ -107,7 +114,7 @@ export interface Savingsplans {
    */
   describeSavingsPlanRates(
     args: DescribeSavingsPlanRatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<DescribeSavingsPlanRatesCommandOutput>;
   describeSavingsPlanRates(
     args: DescribeSavingsPlanRatesCommandInput,
@@ -115,7 +122,7 @@ export interface Savingsplans {
   ): void;
   describeSavingsPlanRates(
     args: DescribeSavingsPlanRatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: DescribeSavingsPlanRatesCommandOutput) => void
   ): void;
 
@@ -125,7 +132,7 @@ export interface Savingsplans {
   describeSavingsPlans(): Promise<DescribeSavingsPlansCommandOutput>;
   describeSavingsPlans(
     args: DescribeSavingsPlansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<DescribeSavingsPlansCommandOutput>;
   describeSavingsPlans(
     args: DescribeSavingsPlansCommandInput,
@@ -133,7 +140,7 @@ export interface Savingsplans {
   ): void;
   describeSavingsPlans(
     args: DescribeSavingsPlansCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: DescribeSavingsPlansCommandOutput) => void
   ): void;
 
@@ -143,7 +150,7 @@ export interface Savingsplans {
   describeSavingsPlansOfferingRates(): Promise<DescribeSavingsPlansOfferingRatesCommandOutput>;
   describeSavingsPlansOfferingRates(
     args: DescribeSavingsPlansOfferingRatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<DescribeSavingsPlansOfferingRatesCommandOutput>;
   describeSavingsPlansOfferingRates(
     args: DescribeSavingsPlansOfferingRatesCommandInput,
@@ -151,7 +158,7 @@ export interface Savingsplans {
   ): void;
   describeSavingsPlansOfferingRates(
     args: DescribeSavingsPlansOfferingRatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: DescribeSavingsPlansOfferingRatesCommandOutput) => void
   ): void;
 
@@ -161,7 +168,7 @@ export interface Savingsplans {
   describeSavingsPlansOfferings(): Promise<DescribeSavingsPlansOfferingsCommandOutput>;
   describeSavingsPlansOfferings(
     args: DescribeSavingsPlansOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<DescribeSavingsPlansOfferingsCommandOutput>;
   describeSavingsPlansOfferings(
     args: DescribeSavingsPlansOfferingsCommandInput,
@@ -169,7 +176,7 @@ export interface Savingsplans {
   ): void;
   describeSavingsPlansOfferings(
     args: DescribeSavingsPlansOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: DescribeSavingsPlansOfferingsCommandOutput) => void
   ): void;
 
@@ -178,7 +185,7 @@ export interface Savingsplans {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -186,7 +193,7 @@ export interface Savingsplans {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -195,7 +202,7 @@ export interface Savingsplans {
    */
   returnSavingsPlan(
     args: ReturnSavingsPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<ReturnSavingsPlanCommandOutput>;
   returnSavingsPlan(
     args: ReturnSavingsPlanCommandInput,
@@ -203,7 +210,7 @@ export interface Savingsplans {
   ): void;
   returnSavingsPlan(
     args: ReturnSavingsPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: ReturnSavingsPlanCommandOutput) => void
   ): void;
 
@@ -212,7 +219,7 @@ export interface Savingsplans {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -220,7 +227,7 @@ export interface Savingsplans {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -229,7 +236,7 @@ export interface Savingsplans {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SavingsplansRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -237,7 +244,7 @@ export interface Savingsplans {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: SavingsplansRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 }

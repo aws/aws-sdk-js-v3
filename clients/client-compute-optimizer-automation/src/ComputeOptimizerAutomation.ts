@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateAccountsCommandInput,
@@ -165,13 +170,20 @@ const paginators = {
   paginateListRecommendedActionSummaries,
 };
 
+/**
+ * @public
+ */
+export interface ComputeOptimizerAutomationRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ComputeOptimizerAutomation {
   /**
    * @see {@link AssociateAccountsCommand}
    */
   associateAccounts(
     args: AssociateAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<AssociateAccountsCommandOutput>;
   associateAccounts(
     args: AssociateAccountsCommandInput,
@@ -179,7 +191,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   associateAccounts(
     args: AssociateAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: AssociateAccountsCommandOutput) => void
   ): void;
 
@@ -188,7 +200,7 @@ export interface ComputeOptimizerAutomation {
    */
   createAutomationRule(
     args: CreateAutomationRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<CreateAutomationRuleCommandOutput>;
   createAutomationRule(
     args: CreateAutomationRuleCommandInput,
@@ -196,7 +208,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   createAutomationRule(
     args: CreateAutomationRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: CreateAutomationRuleCommandOutput) => void
   ): void;
 
@@ -205,7 +217,7 @@ export interface ComputeOptimizerAutomation {
    */
   deleteAutomationRule(
     args: DeleteAutomationRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<DeleteAutomationRuleCommandOutput>;
   deleteAutomationRule(
     args: DeleteAutomationRuleCommandInput,
@@ -213,7 +225,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   deleteAutomationRule(
     args: DeleteAutomationRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: DeleteAutomationRuleCommandOutput) => void
   ): void;
 
@@ -222,7 +234,7 @@ export interface ComputeOptimizerAutomation {
    */
   disassociateAccounts(
     args: DisassociateAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<DisassociateAccountsCommandOutput>;
   disassociateAccounts(
     args: DisassociateAccountsCommandInput,
@@ -230,7 +242,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   disassociateAccounts(
     args: DisassociateAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: DisassociateAccountsCommandOutput) => void
   ): void;
 
@@ -239,7 +251,7 @@ export interface ComputeOptimizerAutomation {
    */
   getAutomationEvent(
     args: GetAutomationEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<GetAutomationEventCommandOutput>;
   getAutomationEvent(
     args: GetAutomationEventCommandInput,
@@ -247,7 +259,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   getAutomationEvent(
     args: GetAutomationEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: GetAutomationEventCommandOutput) => void
   ): void;
 
@@ -256,7 +268,7 @@ export interface ComputeOptimizerAutomation {
    */
   getAutomationRule(
     args: GetAutomationRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<GetAutomationRuleCommandOutput>;
   getAutomationRule(
     args: GetAutomationRuleCommandInput,
@@ -264,7 +276,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   getAutomationRule(
     args: GetAutomationRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: GetAutomationRuleCommandOutput) => void
   ): void;
 
@@ -274,7 +286,7 @@ export interface ComputeOptimizerAutomation {
   getEnrollmentConfiguration(): Promise<GetEnrollmentConfigurationCommandOutput>;
   getEnrollmentConfiguration(
     args: GetEnrollmentConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<GetEnrollmentConfigurationCommandOutput>;
   getEnrollmentConfiguration(
     args: GetEnrollmentConfigurationCommandInput,
@@ -282,7 +294,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   getEnrollmentConfiguration(
     args: GetEnrollmentConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: GetEnrollmentConfigurationCommandOutput) => void
   ): void;
 
@@ -292,7 +304,7 @@ export interface ComputeOptimizerAutomation {
   listAccounts(): Promise<ListAccountsCommandOutput>;
   listAccounts(
     args: ListAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListAccountsCommandOutput>;
   listAccounts(
     args: ListAccountsCommandInput,
@@ -300,7 +312,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listAccounts(
     args: ListAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListAccountsCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface ComputeOptimizerAutomation {
   listAutomationEvents(): Promise<ListAutomationEventsCommandOutput>;
   listAutomationEvents(
     args: ListAutomationEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListAutomationEventsCommandOutput>;
   listAutomationEvents(
     args: ListAutomationEventsCommandInput,
@@ -318,7 +330,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listAutomationEvents(
     args: ListAutomationEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListAutomationEventsCommandOutput) => void
   ): void;
 
@@ -327,7 +339,7 @@ export interface ComputeOptimizerAutomation {
    */
   listAutomationEventSteps(
     args: ListAutomationEventStepsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListAutomationEventStepsCommandOutput>;
   listAutomationEventSteps(
     args: ListAutomationEventStepsCommandInput,
@@ -335,7 +347,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listAutomationEventSteps(
     args: ListAutomationEventStepsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListAutomationEventStepsCommandOutput) => void
   ): void;
 
@@ -345,7 +357,7 @@ export interface ComputeOptimizerAutomation {
   listAutomationEventSummaries(): Promise<ListAutomationEventSummariesCommandOutput>;
   listAutomationEventSummaries(
     args: ListAutomationEventSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListAutomationEventSummariesCommandOutput>;
   listAutomationEventSummaries(
     args: ListAutomationEventSummariesCommandInput,
@@ -353,7 +365,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listAutomationEventSummaries(
     args: ListAutomationEventSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListAutomationEventSummariesCommandOutput) => void
   ): void;
 
@@ -362,7 +374,7 @@ export interface ComputeOptimizerAutomation {
    */
   listAutomationRulePreview(
     args: ListAutomationRulePreviewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListAutomationRulePreviewCommandOutput>;
   listAutomationRulePreview(
     args: ListAutomationRulePreviewCommandInput,
@@ -370,7 +382,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listAutomationRulePreview(
     args: ListAutomationRulePreviewCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListAutomationRulePreviewCommandOutput) => void
   ): void;
 
@@ -379,7 +391,7 @@ export interface ComputeOptimizerAutomation {
    */
   listAutomationRulePreviewSummaries(
     args: ListAutomationRulePreviewSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListAutomationRulePreviewSummariesCommandOutput>;
   listAutomationRulePreviewSummaries(
     args: ListAutomationRulePreviewSummariesCommandInput,
@@ -387,7 +399,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listAutomationRulePreviewSummaries(
     args: ListAutomationRulePreviewSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListAutomationRulePreviewSummariesCommandOutput) => void
   ): void;
 
@@ -397,7 +409,7 @@ export interface ComputeOptimizerAutomation {
   listAutomationRules(): Promise<ListAutomationRulesCommandOutput>;
   listAutomationRules(
     args: ListAutomationRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListAutomationRulesCommandOutput>;
   listAutomationRules(
     args: ListAutomationRulesCommandInput,
@@ -405,7 +417,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listAutomationRules(
     args: ListAutomationRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListAutomationRulesCommandOutput) => void
   ): void;
 
@@ -415,7 +427,7 @@ export interface ComputeOptimizerAutomation {
   listRecommendedActions(): Promise<ListRecommendedActionsCommandOutput>;
   listRecommendedActions(
     args: ListRecommendedActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListRecommendedActionsCommandOutput>;
   listRecommendedActions(
     args: ListRecommendedActionsCommandInput,
@@ -423,7 +435,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listRecommendedActions(
     args: ListRecommendedActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListRecommendedActionsCommandOutput) => void
   ): void;
 
@@ -433,7 +445,7 @@ export interface ComputeOptimizerAutomation {
   listRecommendedActionSummaries(): Promise<ListRecommendedActionSummariesCommandOutput>;
   listRecommendedActionSummaries(
     args: ListRecommendedActionSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListRecommendedActionSummariesCommandOutput>;
   listRecommendedActionSummaries(
     args: ListRecommendedActionSummariesCommandInput,
@@ -441,7 +453,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listRecommendedActionSummaries(
     args: ListRecommendedActionSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListRecommendedActionSummariesCommandOutput) => void
   ): void;
 
@@ -450,7 +462,7 @@ export interface ComputeOptimizerAutomation {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -458,7 +470,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -467,7 +479,7 @@ export interface ComputeOptimizerAutomation {
    */
   rollbackAutomationEvent(
     args: RollbackAutomationEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<RollbackAutomationEventCommandOutput>;
   rollbackAutomationEvent(
     args: RollbackAutomationEventCommandInput,
@@ -475,7 +487,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   rollbackAutomationEvent(
     args: RollbackAutomationEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: RollbackAutomationEventCommandOutput) => void
   ): void;
 
@@ -484,7 +496,7 @@ export interface ComputeOptimizerAutomation {
    */
   startAutomationEvent(
     args: StartAutomationEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<StartAutomationEventCommandOutput>;
   startAutomationEvent(
     args: StartAutomationEventCommandInput,
@@ -492,7 +504,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   startAutomationEvent(
     args: StartAutomationEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: StartAutomationEventCommandOutput) => void
   ): void;
 
@@ -501,7 +513,7 @@ export interface ComputeOptimizerAutomation {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -509,7 +521,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -518,7 +530,7 @@ export interface ComputeOptimizerAutomation {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -526,7 +538,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -535,7 +547,7 @@ export interface ComputeOptimizerAutomation {
    */
   updateAutomationRule(
     args: UpdateAutomationRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<UpdateAutomationRuleCommandOutput>;
   updateAutomationRule(
     args: UpdateAutomationRuleCommandInput,
@@ -543,7 +555,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   updateAutomationRule(
     args: UpdateAutomationRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: UpdateAutomationRuleCommandOutput) => void
   ): void;
 
@@ -552,7 +564,7 @@ export interface ComputeOptimizerAutomation {
    */
   updateEnrollmentConfiguration(
     args: UpdateEnrollmentConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ComputeOptimizerAutomationRequestOptions
   ): Promise<UpdateEnrollmentConfigurationCommandOutput>;
   updateEnrollmentConfiguration(
     args: UpdateEnrollmentConfigurationCommandInput,
@@ -560,7 +572,7 @@ export interface ComputeOptimizerAutomation {
   ): void;
   updateEnrollmentConfiguration(
     args: UpdateEnrollmentConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: UpdateEnrollmentConfigurationCommandOutput) => void
   ): void;
 

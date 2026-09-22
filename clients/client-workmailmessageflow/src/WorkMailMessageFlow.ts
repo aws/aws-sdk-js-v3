@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type GetRawMessageContentCommandInput,
@@ -19,13 +19,20 @@ const commands = {
   PutRawMessageContentCommand,
 };
 
+/**
+ * @public
+ */
+export interface WorkMailMessageFlowRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface WorkMailMessageFlow {
   /**
    * @see {@link GetRawMessageContentCommand}
    */
   getRawMessageContent(
     args: GetRawMessageContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkMailMessageFlowRequestOptions
   ): Promise<GetRawMessageContentCommandOutput>;
   getRawMessageContent(
     args: GetRawMessageContentCommandInput,
@@ -33,7 +40,7 @@ export interface WorkMailMessageFlow {
   ): void;
   getRawMessageContent(
     args: GetRawMessageContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkMailMessageFlowRequestOptions,
     cb: (err: any, data?: GetRawMessageContentCommandOutput) => void
   ): void;
 
@@ -42,7 +49,7 @@ export interface WorkMailMessageFlow {
    */
   putRawMessageContent(
     args: PutRawMessageContentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkMailMessageFlowRequestOptions
   ): Promise<PutRawMessageContentCommandOutput>;
   putRawMessageContent(
     args: PutRawMessageContentCommandInput,
@@ -50,7 +57,7 @@ export interface WorkMailMessageFlow {
   ): void;
   putRawMessageContent(
     args: PutRawMessageContentCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkMailMessageFlowRequestOptions,
     cb: (err: any, data?: PutRawMessageContentCommandOutput) => void
   ): void;
 }

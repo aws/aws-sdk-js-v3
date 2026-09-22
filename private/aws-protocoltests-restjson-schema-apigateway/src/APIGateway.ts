@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { APIGatewayClient } from "./APIGatewayClient";
 import {
@@ -17,6 +22,13 @@ const paginators = {
   paginateGetRestApis,
 };
 
+/**
+ * @public
+ */
+export interface APIGatewayRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface APIGateway {
   /**
    * @see {@link GetRestApisCommand}
@@ -24,7 +36,7 @@ export interface APIGateway {
   getRestApis(): Promise<GetRestApisCommandOutput>;
   getRestApis(
     args: GetRestApisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: APIGatewayRequestOptions
   ): Promise<GetRestApisCommandOutput>;
   getRestApis(
     args: GetRestApisCommandInput,
@@ -32,7 +44,7 @@ export interface APIGateway {
   ): void;
   getRestApis(
     args: GetRestApisCommandInput,
-    options: __HttpHandlerOptions,
+    options: APIGatewayRequestOptions,
     cb: (err: any, data?: GetRestApisCommandOutput) => void
   ): void;
 

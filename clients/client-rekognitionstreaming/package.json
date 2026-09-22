@@ -52,10 +52,10 @@
     "@aws-sdk/middleware-eventstream": "workspace:^3.972.29",
     "@aws-sdk/middleware-websocket": "workspace:^3.972.53",
     "@aws-sdk/types": "workspace:^3.974.5",
-    "@smithy/core": "^3.33.3",
-    "@smithy/fetch-http-handler": "^5.7.2",
-    "@smithy/node-http-handler": "^4.11.3",
-    "@smithy/types": "^4.17.2",
+    "@smithy/core": "^3.35.0",
+    "@smithy/fetch-http-handler": "^5.8.0",
+    "@smithy/node-http-handler": "^4.12.1",
+    "@smithy/types": "^4.19.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

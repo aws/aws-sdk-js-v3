@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type GetRecordsCommandInput,
@@ -33,13 +38,20 @@ const paginators = {
   paginateListStreams,
 };
 
+/**
+ * @public
+ */
+export interface KeyspacesStreamsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface KeyspacesStreams {
   /**
    * @see {@link GetRecordsCommand}
    */
   getRecords(
     args: GetRecordsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KeyspacesStreamsRequestOptions
   ): Promise<GetRecordsCommandOutput>;
   getRecords(
     args: GetRecordsCommandInput,
@@ -47,7 +59,7 @@ export interface KeyspacesStreams {
   ): void;
   getRecords(
     args: GetRecordsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KeyspacesStreamsRequestOptions,
     cb: (err: any, data?: GetRecordsCommandOutput) => void
   ): void;
 
@@ -56,7 +68,7 @@ export interface KeyspacesStreams {
    */
   getShardIterator(
     args: GetShardIteratorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KeyspacesStreamsRequestOptions
   ): Promise<GetShardIteratorCommandOutput>;
   getShardIterator(
     args: GetShardIteratorCommandInput,
@@ -64,7 +76,7 @@ export interface KeyspacesStreams {
   ): void;
   getShardIterator(
     args: GetShardIteratorCommandInput,
-    options: __HttpHandlerOptions,
+    options: KeyspacesStreamsRequestOptions,
     cb: (err: any, data?: GetShardIteratorCommandOutput) => void
   ): void;
 
@@ -73,7 +85,7 @@ export interface KeyspacesStreams {
    */
   getStream(
     args: GetStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KeyspacesStreamsRequestOptions
   ): Promise<GetStreamCommandOutput>;
   getStream(
     args: GetStreamCommandInput,
@@ -81,7 +93,7 @@ export interface KeyspacesStreams {
   ): void;
   getStream(
     args: GetStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: KeyspacesStreamsRequestOptions,
     cb: (err: any, data?: GetStreamCommandOutput) => void
   ): void;
 
@@ -91,7 +103,7 @@ export interface KeyspacesStreams {
   listStreams(): Promise<ListStreamsCommandOutput>;
   listStreams(
     args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KeyspacesStreamsRequestOptions
   ): Promise<ListStreamsCommandOutput>;
   listStreams(
     args: ListStreamsCommandInput,
@@ -99,7 +111,7 @@ export interface KeyspacesStreams {
   ): void;
   listStreams(
     args: ListStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KeyspacesStreamsRequestOptions,
     cb: (err: any, data?: ListStreamsCommandOutput) => void
   ): void;
 

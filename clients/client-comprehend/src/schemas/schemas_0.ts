@@ -637,10 +637,10 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var ComprehendServiceException$: StaticErrorSchema = [-3, _s, "ComprehendServiceException", 0, [], []];
 _s_registry.registerError(ComprehendServiceException$, ComprehendServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var BatchSizeLimitExceededException$: StaticErrorSchema = [-3, n0, _BSLEE,
   { [_e]: _c, [_hE]: 400 },
   [_M],

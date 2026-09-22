@@ -22,7 +22,7 @@ import type { StaticErrorSchema, StaticOperationSchema, StaticStructureSchema } 
 import { WeatherServiceException } from "../models/WeatherServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var WeatherServiceException$: StaticErrorSchema = [-3, _s, "WeatherServiceException", 0, [], []];
 _s_registry.registerError(WeatherServiceException$, WeatherServiceException);
 /**

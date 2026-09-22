@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CodeStarConnectionsClient } from "./CodeStarConnectionsClient";
 import {
@@ -171,13 +176,20 @@ const paginators = {
   paginateListSyncConfigurations,
 };
 
+/**
+ * @public
+ */
+export interface CodeStarConnectionsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CodeStarConnections {
   /**
    * @see {@link CreateConnectionCommand}
    */
   createConnection(
     args: CreateConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<CreateConnectionCommandOutput>;
   createConnection(
     args: CreateConnectionCommandInput,
@@ -185,7 +197,7 @@ export interface CodeStarConnections {
   ): void;
   createConnection(
     args: CreateConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: CreateConnectionCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface CodeStarConnections {
    */
   createHost(
     args: CreateHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<CreateHostCommandOutput>;
   createHost(
     args: CreateHostCommandInput,
@@ -202,7 +214,7 @@ export interface CodeStarConnections {
   ): void;
   createHost(
     args: CreateHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: CreateHostCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface CodeStarConnections {
    */
   createRepositoryLink(
     args: CreateRepositoryLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<CreateRepositoryLinkCommandOutput>;
   createRepositoryLink(
     args: CreateRepositoryLinkCommandInput,
@@ -219,7 +231,7 @@ export interface CodeStarConnections {
   ): void;
   createRepositoryLink(
     args: CreateRepositoryLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: CreateRepositoryLinkCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface CodeStarConnections {
    */
   createSyncConfiguration(
     args: CreateSyncConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<CreateSyncConfigurationCommandOutput>;
   createSyncConfiguration(
     args: CreateSyncConfigurationCommandInput,
@@ -236,7 +248,7 @@ export interface CodeStarConnections {
   ): void;
   createSyncConfiguration(
     args: CreateSyncConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: CreateSyncConfigurationCommandOutput) => void
   ): void;
 
@@ -245,7 +257,7 @@ export interface CodeStarConnections {
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -253,7 +265,7 @@ export interface CodeStarConnections {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -262,7 +274,7 @@ export interface CodeStarConnections {
    */
   deleteHost(
     args: DeleteHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<DeleteHostCommandOutput>;
   deleteHost(
     args: DeleteHostCommandInput,
@@ -270,7 +282,7 @@ export interface CodeStarConnections {
   ): void;
   deleteHost(
     args: DeleteHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: DeleteHostCommandOutput) => void
   ): void;
 
@@ -279,7 +291,7 @@ export interface CodeStarConnections {
    */
   deleteRepositoryLink(
     args: DeleteRepositoryLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<DeleteRepositoryLinkCommandOutput>;
   deleteRepositoryLink(
     args: DeleteRepositoryLinkCommandInput,
@@ -287,7 +299,7 @@ export interface CodeStarConnections {
   ): void;
   deleteRepositoryLink(
     args: DeleteRepositoryLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: DeleteRepositoryLinkCommandOutput) => void
   ): void;
 
@@ -296,7 +308,7 @@ export interface CodeStarConnections {
    */
   deleteSyncConfiguration(
     args: DeleteSyncConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<DeleteSyncConfigurationCommandOutput>;
   deleteSyncConfiguration(
     args: DeleteSyncConfigurationCommandInput,
@@ -304,7 +316,7 @@ export interface CodeStarConnections {
   ): void;
   deleteSyncConfiguration(
     args: DeleteSyncConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: DeleteSyncConfigurationCommandOutput) => void
   ): void;
 
@@ -313,7 +325,7 @@ export interface CodeStarConnections {
    */
   getConnection(
     args: GetConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<GetConnectionCommandOutput>;
   getConnection(
     args: GetConnectionCommandInput,
@@ -321,7 +333,7 @@ export interface CodeStarConnections {
   ): void;
   getConnection(
     args: GetConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: GetConnectionCommandOutput) => void
   ): void;
 
@@ -330,7 +342,7 @@ export interface CodeStarConnections {
    */
   getHost(
     args: GetHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<GetHostCommandOutput>;
   getHost(
     args: GetHostCommandInput,
@@ -338,7 +350,7 @@ export interface CodeStarConnections {
   ): void;
   getHost(
     args: GetHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: GetHostCommandOutput) => void
   ): void;
 
@@ -347,7 +359,7 @@ export interface CodeStarConnections {
    */
   getRepositoryLink(
     args: GetRepositoryLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<GetRepositoryLinkCommandOutput>;
   getRepositoryLink(
     args: GetRepositoryLinkCommandInput,
@@ -355,7 +367,7 @@ export interface CodeStarConnections {
   ): void;
   getRepositoryLink(
     args: GetRepositoryLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: GetRepositoryLinkCommandOutput) => void
   ): void;
 
@@ -364,7 +376,7 @@ export interface CodeStarConnections {
    */
   getRepositorySyncStatus(
     args: GetRepositorySyncStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<GetRepositorySyncStatusCommandOutput>;
   getRepositorySyncStatus(
     args: GetRepositorySyncStatusCommandInput,
@@ -372,7 +384,7 @@ export interface CodeStarConnections {
   ): void;
   getRepositorySyncStatus(
     args: GetRepositorySyncStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: GetRepositorySyncStatusCommandOutput) => void
   ): void;
 
@@ -381,7 +393,7 @@ export interface CodeStarConnections {
    */
   getResourceSyncStatus(
     args: GetResourceSyncStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<GetResourceSyncStatusCommandOutput>;
   getResourceSyncStatus(
     args: GetResourceSyncStatusCommandInput,
@@ -389,7 +401,7 @@ export interface CodeStarConnections {
   ): void;
   getResourceSyncStatus(
     args: GetResourceSyncStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: GetResourceSyncStatusCommandOutput) => void
   ): void;
 
@@ -398,7 +410,7 @@ export interface CodeStarConnections {
    */
   getSyncBlockerSummary(
     args: GetSyncBlockerSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<GetSyncBlockerSummaryCommandOutput>;
   getSyncBlockerSummary(
     args: GetSyncBlockerSummaryCommandInput,
@@ -406,7 +418,7 @@ export interface CodeStarConnections {
   ): void;
   getSyncBlockerSummary(
     args: GetSyncBlockerSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: GetSyncBlockerSummaryCommandOutput) => void
   ): void;
 
@@ -415,7 +427,7 @@ export interface CodeStarConnections {
    */
   getSyncConfiguration(
     args: GetSyncConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<GetSyncConfigurationCommandOutput>;
   getSyncConfiguration(
     args: GetSyncConfigurationCommandInput,
@@ -423,7 +435,7 @@ export interface CodeStarConnections {
   ): void;
   getSyncConfiguration(
     args: GetSyncConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: GetSyncConfigurationCommandOutput) => void
   ): void;
 
@@ -433,7 +445,7 @@ export interface CodeStarConnections {
   listConnections(): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
@@ -441,7 +453,7 @@ export interface CodeStarConnections {
   ): void;
   listConnections(
     args: ListConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: ListConnectionsCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface CodeStarConnections {
   listHosts(): Promise<ListHostsCommandOutput>;
   listHosts(
     args: ListHostsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<ListHostsCommandOutput>;
   listHosts(
     args: ListHostsCommandInput,
@@ -459,7 +471,7 @@ export interface CodeStarConnections {
   ): void;
   listHosts(
     args: ListHostsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: ListHostsCommandOutput) => void
   ): void;
 
@@ -469,7 +481,7 @@ export interface CodeStarConnections {
   listRepositoryLinks(): Promise<ListRepositoryLinksCommandOutput>;
   listRepositoryLinks(
     args: ListRepositoryLinksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<ListRepositoryLinksCommandOutput>;
   listRepositoryLinks(
     args: ListRepositoryLinksCommandInput,
@@ -477,7 +489,7 @@ export interface CodeStarConnections {
   ): void;
   listRepositoryLinks(
     args: ListRepositoryLinksCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: ListRepositoryLinksCommandOutput) => void
   ): void;
 
@@ -486,7 +498,7 @@ export interface CodeStarConnections {
    */
   listRepositorySyncDefinitions(
     args: ListRepositorySyncDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<ListRepositorySyncDefinitionsCommandOutput>;
   listRepositorySyncDefinitions(
     args: ListRepositorySyncDefinitionsCommandInput,
@@ -494,7 +506,7 @@ export interface CodeStarConnections {
   ): void;
   listRepositorySyncDefinitions(
     args: ListRepositorySyncDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: ListRepositorySyncDefinitionsCommandOutput) => void
   ): void;
 
@@ -503,7 +515,7 @@ export interface CodeStarConnections {
    */
   listSyncConfigurations(
     args: ListSyncConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<ListSyncConfigurationsCommandOutput>;
   listSyncConfigurations(
     args: ListSyncConfigurationsCommandInput,
@@ -511,7 +523,7 @@ export interface CodeStarConnections {
   ): void;
   listSyncConfigurations(
     args: ListSyncConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: ListSyncConfigurationsCommandOutput) => void
   ): void;
 
@@ -520,7 +532,7 @@ export interface CodeStarConnections {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -528,7 +540,7 @@ export interface CodeStarConnections {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -537,7 +549,7 @@ export interface CodeStarConnections {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -545,7 +557,7 @@ export interface CodeStarConnections {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -554,7 +566,7 @@ export interface CodeStarConnections {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -562,7 +574,7 @@ export interface CodeStarConnections {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -571,7 +583,7 @@ export interface CodeStarConnections {
    */
   updateHost(
     args: UpdateHostCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<UpdateHostCommandOutput>;
   updateHost(
     args: UpdateHostCommandInput,
@@ -579,7 +591,7 @@ export interface CodeStarConnections {
   ): void;
   updateHost(
     args: UpdateHostCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: UpdateHostCommandOutput) => void
   ): void;
 
@@ -588,7 +600,7 @@ export interface CodeStarConnections {
    */
   updateRepositoryLink(
     args: UpdateRepositoryLinkCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<UpdateRepositoryLinkCommandOutput>;
   updateRepositoryLink(
     args: UpdateRepositoryLinkCommandInput,
@@ -596,7 +608,7 @@ export interface CodeStarConnections {
   ): void;
   updateRepositoryLink(
     args: UpdateRepositoryLinkCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: UpdateRepositoryLinkCommandOutput) => void
   ): void;
 
@@ -605,7 +617,7 @@ export interface CodeStarConnections {
    */
   updateSyncBlocker(
     args: UpdateSyncBlockerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<UpdateSyncBlockerCommandOutput>;
   updateSyncBlocker(
     args: UpdateSyncBlockerCommandInput,
@@ -613,7 +625,7 @@ export interface CodeStarConnections {
   ): void;
   updateSyncBlocker(
     args: UpdateSyncBlockerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: UpdateSyncBlockerCommandOutput) => void
   ): void;
 
@@ -622,7 +634,7 @@ export interface CodeStarConnections {
    */
   updateSyncConfiguration(
     args: UpdateSyncConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CodeStarConnectionsRequestOptions
   ): Promise<UpdateSyncConfigurationCommandOutput>;
   updateSyncConfiguration(
     args: UpdateSyncConfigurationCommandInput,
@@ -630,7 +642,7 @@ export interface CodeStarConnections {
   ): void;
   updateSyncConfiguration(
     args: UpdateSyncConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CodeStarConnectionsRequestOptions,
     cb: (err: any, data?: UpdateSyncConfigurationCommandOutput) => void
   ): void;
 

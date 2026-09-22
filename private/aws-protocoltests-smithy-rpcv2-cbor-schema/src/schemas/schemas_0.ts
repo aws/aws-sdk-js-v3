@@ -152,11 +152,11 @@ import { ComplexError, InvalidGreeting, ValidationException } from "../models/er
 import { RpcV2ProtocolServiceException } from "../models/RpcV2ProtocolServiceException";
 
 /* eslint no-var: 0 */
-const _sC_registry = TypeRegistry.for(_sC);
+const _sC_registry = new TypeRegistry(_sC);
 export var RpcV2ProtocolServiceException$: StaticErrorSchema = [-3, _sC, "RpcV2ProtocolServiceException", 0, [], []];
 _sC_registry.registerError(RpcV2ProtocolServiceException$, RpcV2ProtocolServiceException);
-const n0_registry = TypeRegistry.for(n0);
-const n1_registry = TypeRegistry.for(n1);
+const n0_registry = new TypeRegistry(n0);
+const n1_registry = new TypeRegistry(n1);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },
   [_m, _fL],

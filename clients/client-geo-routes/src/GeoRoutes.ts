@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type CalculateIsolinesCommandInput,
@@ -37,13 +37,20 @@ const commands = {
   SnapToRoadsCommand,
 };
 
+/**
+ * @public
+ */
+export interface GeoRoutesRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface GeoRoutes {
   /**
    * @see {@link CalculateIsolinesCommand}
    */
   calculateIsolines(
     args: CalculateIsolinesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoRoutesRequestOptions
   ): Promise<CalculateIsolinesCommandOutput>;
   calculateIsolines(
     args: CalculateIsolinesCommandInput,
@@ -51,7 +58,7 @@ export interface GeoRoutes {
   ): void;
   calculateIsolines(
     args: CalculateIsolinesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoRoutesRequestOptions,
     cb: (err: any, data?: CalculateIsolinesCommandOutput) => void
   ): void;
 
@@ -60,7 +67,7 @@ export interface GeoRoutes {
    */
   calculateRouteMatrix(
     args: CalculateRouteMatrixCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoRoutesRequestOptions
   ): Promise<CalculateRouteMatrixCommandOutput>;
   calculateRouteMatrix(
     args: CalculateRouteMatrixCommandInput,
@@ -68,7 +75,7 @@ export interface GeoRoutes {
   ): void;
   calculateRouteMatrix(
     args: CalculateRouteMatrixCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoRoutesRequestOptions,
     cb: (err: any, data?: CalculateRouteMatrixCommandOutput) => void
   ): void;
 
@@ -77,7 +84,7 @@ export interface GeoRoutes {
    */
   calculateRoutes(
     args: CalculateRoutesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoRoutesRequestOptions
   ): Promise<CalculateRoutesCommandOutput>;
   calculateRoutes(
     args: CalculateRoutesCommandInput,
@@ -85,7 +92,7 @@ export interface GeoRoutes {
   ): void;
   calculateRoutes(
     args: CalculateRoutesCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoRoutesRequestOptions,
     cb: (err: any, data?: CalculateRoutesCommandOutput) => void
   ): void;
 
@@ -94,7 +101,7 @@ export interface GeoRoutes {
    */
   optimizeWaypoints(
     args: OptimizeWaypointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoRoutesRequestOptions
   ): Promise<OptimizeWaypointsCommandOutput>;
   optimizeWaypoints(
     args: OptimizeWaypointsCommandInput,
@@ -102,7 +109,7 @@ export interface GeoRoutes {
   ): void;
   optimizeWaypoints(
     args: OptimizeWaypointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoRoutesRequestOptions,
     cb: (err: any, data?: OptimizeWaypointsCommandOutput) => void
   ): void;
 
@@ -111,7 +118,7 @@ export interface GeoRoutes {
    */
   snapToRoads(
     args: SnapToRoadsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: GeoRoutesRequestOptions
   ): Promise<SnapToRoadsCommandOutput>;
   snapToRoads(
     args: SnapToRoadsCommandInput,
@@ -119,7 +126,7 @@ export interface GeoRoutes {
   ): void;
   snapToRoads(
     args: SnapToRoadsCommandInput,
-    options: __HttpHandlerOptions,
+    options: GeoRoutesRequestOptions,
     cb: (err: any, data?: SnapToRoadsCommandOutput) => void
   ): void;
 }

@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -155,13 +156,20 @@ const waiters = {
   waitUntilCertificateAuthorityCSRCreated,
 };
 
+/**
+ * @public
+ */
+export interface ACMPCARequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ACMPCA {
   /**
    * @see {@link CreateCertificateAuthorityCommand}
    */
   createCertificateAuthority(
     args: CreateCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<CreateCertificateAuthorityCommandOutput>;
   createCertificateAuthority(
     args: CreateCertificateAuthorityCommandInput,
@@ -169,7 +177,7 @@ export interface ACMPCA {
   ): void;
   createCertificateAuthority(
     args: CreateCertificateAuthorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: CreateCertificateAuthorityCommandOutput) => void
   ): void;
 
@@ -178,7 +186,7 @@ export interface ACMPCA {
    */
   createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<CreateCertificateAuthorityAuditReportCommandOutput>;
   createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
@@ -186,7 +194,7 @@ export interface ACMPCA {
   ): void;
   createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: CreateCertificateAuthorityAuditReportCommandOutput) => void
   ): void;
 
@@ -195,7 +203,7 @@ export interface ACMPCA {
    */
   createPermission(
     args: CreatePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<CreatePermissionCommandOutput>;
   createPermission(
     args: CreatePermissionCommandInput,
@@ -203,7 +211,7 @@ export interface ACMPCA {
   ): void;
   createPermission(
     args: CreatePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: CreatePermissionCommandOutput) => void
   ): void;
 
@@ -212,7 +220,7 @@ export interface ACMPCA {
    */
   deleteCertificateAuthority(
     args: DeleteCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<DeleteCertificateAuthorityCommandOutput>;
   deleteCertificateAuthority(
     args: DeleteCertificateAuthorityCommandInput,
@@ -220,7 +228,7 @@ export interface ACMPCA {
   ): void;
   deleteCertificateAuthority(
     args: DeleteCertificateAuthorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: DeleteCertificateAuthorityCommandOutput) => void
   ): void;
 
@@ -229,7 +237,7 @@ export interface ACMPCA {
    */
   deletePermission(
     args: DeletePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<DeletePermissionCommandOutput>;
   deletePermission(
     args: DeletePermissionCommandInput,
@@ -237,7 +245,7 @@ export interface ACMPCA {
   ): void;
   deletePermission(
     args: DeletePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: DeletePermissionCommandOutput) => void
   ): void;
 
@@ -246,7 +254,7 @@ export interface ACMPCA {
    */
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<DeletePolicyCommandOutput>;
   deletePolicy(
     args: DeletePolicyCommandInput,
@@ -254,7 +262,7 @@ export interface ACMPCA {
   ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: DeletePolicyCommandOutput) => void
   ): void;
 
@@ -263,7 +271,7 @@ export interface ACMPCA {
    */
   describeCertificateAuthority(
     args: DescribeCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<DescribeCertificateAuthorityCommandOutput>;
   describeCertificateAuthority(
     args: DescribeCertificateAuthorityCommandInput,
@@ -271,7 +279,7 @@ export interface ACMPCA {
   ): void;
   describeCertificateAuthority(
     args: DescribeCertificateAuthorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: DescribeCertificateAuthorityCommandOutput) => void
   ): void;
 
@@ -280,7 +288,7 @@ export interface ACMPCA {
    */
   describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput>;
   describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
@@ -288,7 +296,7 @@ export interface ACMPCA {
   ): void;
   describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: DescribeCertificateAuthorityAuditReportCommandOutput) => void
   ): void;
 
@@ -297,7 +305,7 @@ export interface ACMPCA {
    */
   getCertificate(
     args: GetCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<GetCertificateCommandOutput>;
   getCertificate(
     args: GetCertificateCommandInput,
@@ -305,7 +313,7 @@ export interface ACMPCA {
   ): void;
   getCertificate(
     args: GetCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: GetCertificateCommandOutput) => void
   ): void;
 
@@ -314,7 +322,7 @@ export interface ACMPCA {
    */
   getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<GetCertificateAuthorityCertificateCommandOutput>;
   getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
@@ -322,7 +330,7 @@ export interface ACMPCA {
   ): void;
   getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: GetCertificateAuthorityCertificateCommandOutput) => void
   ): void;
 
@@ -331,7 +339,7 @@ export interface ACMPCA {
    */
   getCertificateAuthorityCsr(
     args: GetCertificateAuthorityCsrCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<GetCertificateAuthorityCsrCommandOutput>;
   getCertificateAuthorityCsr(
     args: GetCertificateAuthorityCsrCommandInput,
@@ -339,7 +347,7 @@ export interface ACMPCA {
   ): void;
   getCertificateAuthorityCsr(
     args: GetCertificateAuthorityCsrCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: GetCertificateAuthorityCsrCommandOutput) => void
   ): void;
 
@@ -348,7 +356,7 @@ export interface ACMPCA {
    */
   getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<GetPolicyCommandOutput>;
   getPolicy(
     args: GetPolicyCommandInput,
@@ -356,7 +364,7 @@ export interface ACMPCA {
   ): void;
   getPolicy(
     args: GetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
@@ -365,7 +373,7 @@ export interface ACMPCA {
    */
   importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<ImportCertificateAuthorityCertificateCommandOutput>;
   importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
@@ -373,7 +381,7 @@ export interface ACMPCA {
   ): void;
   importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: ImportCertificateAuthorityCertificateCommandOutput) => void
   ): void;
 
@@ -382,7 +390,7 @@ export interface ACMPCA {
    */
   issueCertificate(
     args: IssueCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<IssueCertificateCommandOutput>;
   issueCertificate(
     args: IssueCertificateCommandInput,
@@ -390,7 +398,7 @@ export interface ACMPCA {
   ): void;
   issueCertificate(
     args: IssueCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: IssueCertificateCommandOutput) => void
   ): void;
 
@@ -400,7 +408,7 @@ export interface ACMPCA {
   listCertificateAuthorities(): Promise<ListCertificateAuthoritiesCommandOutput>;
   listCertificateAuthorities(
     args: ListCertificateAuthoritiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<ListCertificateAuthoritiesCommandOutput>;
   listCertificateAuthorities(
     args: ListCertificateAuthoritiesCommandInput,
@@ -408,7 +416,7 @@ export interface ACMPCA {
   ): void;
   listCertificateAuthorities(
     args: ListCertificateAuthoritiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: ListCertificateAuthoritiesCommandOutput) => void
   ): void;
 
@@ -417,7 +425,7 @@ export interface ACMPCA {
    */
   listPermissions(
     args: ListPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<ListPermissionsCommandOutput>;
   listPermissions(
     args: ListPermissionsCommandInput,
@@ -425,7 +433,7 @@ export interface ACMPCA {
   ): void;
   listPermissions(
     args: ListPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: ListPermissionsCommandOutput) => void
   ): void;
 
@@ -434,7 +442,7 @@ export interface ACMPCA {
    */
   listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<ListTagsCommandOutput>;
   listTags(
     args: ListTagsCommandInput,
@@ -442,7 +450,7 @@ export interface ACMPCA {
   ): void;
   listTags(
     args: ListTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: ListTagsCommandOutput) => void
   ): void;
 
@@ -451,7 +459,7 @@ export interface ACMPCA {
    */
   putPolicy(
     args: PutPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<PutPolicyCommandOutput>;
   putPolicy(
     args: PutPolicyCommandInput,
@@ -459,7 +467,7 @@ export interface ACMPCA {
   ): void;
   putPolicy(
     args: PutPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: PutPolicyCommandOutput) => void
   ): void;
 
@@ -468,7 +476,7 @@ export interface ACMPCA {
    */
   restoreCertificateAuthority(
     args: RestoreCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<RestoreCertificateAuthorityCommandOutput>;
   restoreCertificateAuthority(
     args: RestoreCertificateAuthorityCommandInput,
@@ -476,7 +484,7 @@ export interface ACMPCA {
   ): void;
   restoreCertificateAuthority(
     args: RestoreCertificateAuthorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: RestoreCertificateAuthorityCommandOutput) => void
   ): void;
 
@@ -485,7 +493,7 @@ export interface ACMPCA {
    */
   revokeCertificate(
     args: RevokeCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<RevokeCertificateCommandOutput>;
   revokeCertificate(
     args: RevokeCertificateCommandInput,
@@ -493,7 +501,7 @@ export interface ACMPCA {
   ): void;
   revokeCertificate(
     args: RevokeCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: RevokeCertificateCommandOutput) => void
   ): void;
 
@@ -502,7 +510,7 @@ export interface ACMPCA {
    */
   tagCertificateAuthority(
     args: TagCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<TagCertificateAuthorityCommandOutput>;
   tagCertificateAuthority(
     args: TagCertificateAuthorityCommandInput,
@@ -510,7 +518,7 @@ export interface ACMPCA {
   ): void;
   tagCertificateAuthority(
     args: TagCertificateAuthorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: TagCertificateAuthorityCommandOutput) => void
   ): void;
 
@@ -519,7 +527,7 @@ export interface ACMPCA {
    */
   untagCertificateAuthority(
     args: UntagCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<UntagCertificateAuthorityCommandOutput>;
   untagCertificateAuthority(
     args: UntagCertificateAuthorityCommandInput,
@@ -527,7 +535,7 @@ export interface ACMPCA {
   ): void;
   untagCertificateAuthority(
     args: UntagCertificateAuthorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: UntagCertificateAuthorityCommandOutput) => void
   ): void;
 
@@ -536,7 +544,7 @@ export interface ACMPCA {
    */
   updateCertificateAuthority(
     args: UpdateCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ACMPCARequestOptions
   ): Promise<UpdateCertificateAuthorityCommandOutput>;
   updateCertificateAuthority(
     args: UpdateCertificateAuthorityCommandInput,
@@ -544,7 +552,7 @@ export interface ACMPCA {
   ): void;
   updateCertificateAuthority(
     args: UpdateCertificateAuthorityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ACMPCARequestOptions,
     cb: (err: any, data?: UpdateCertificateAuthorityCommandOutput) => void
   ): void;
 

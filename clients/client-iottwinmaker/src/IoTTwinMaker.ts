@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchPutPropertyValuesCommandInput,
@@ -265,13 +270,20 @@ const paginators = {
   paginateListWorkspaces,
 };
 
+/**
+ * @public
+ */
+export interface IoTTwinMakerRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IoTTwinMaker {
   /**
    * @see {@link BatchPutPropertyValuesCommand}
    */
   batchPutPropertyValues(
     args: BatchPutPropertyValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<BatchPutPropertyValuesCommandOutput>;
   batchPutPropertyValues(
     args: BatchPutPropertyValuesCommandInput,
@@ -279,7 +291,7 @@ export interface IoTTwinMaker {
   ): void;
   batchPutPropertyValues(
     args: BatchPutPropertyValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: BatchPutPropertyValuesCommandOutput) => void
   ): void;
 
@@ -288,7 +300,7 @@ export interface IoTTwinMaker {
    */
   cancelMetadataTransferJob(
     args: CancelMetadataTransferJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<CancelMetadataTransferJobCommandOutput>;
   cancelMetadataTransferJob(
     args: CancelMetadataTransferJobCommandInput,
@@ -296,7 +308,7 @@ export interface IoTTwinMaker {
   ): void;
   cancelMetadataTransferJob(
     args: CancelMetadataTransferJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: CancelMetadataTransferJobCommandOutput) => void
   ): void;
 
@@ -305,7 +317,7 @@ export interface IoTTwinMaker {
    */
   createComponentType(
     args: CreateComponentTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<CreateComponentTypeCommandOutput>;
   createComponentType(
     args: CreateComponentTypeCommandInput,
@@ -313,7 +325,7 @@ export interface IoTTwinMaker {
   ): void;
   createComponentType(
     args: CreateComponentTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: CreateComponentTypeCommandOutput) => void
   ): void;
 
@@ -322,7 +334,7 @@ export interface IoTTwinMaker {
    */
   createEntity(
     args: CreateEntityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<CreateEntityCommandOutput>;
   createEntity(
     args: CreateEntityCommandInput,
@@ -330,7 +342,7 @@ export interface IoTTwinMaker {
   ): void;
   createEntity(
     args: CreateEntityCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: CreateEntityCommandOutput) => void
   ): void;
 
@@ -339,7 +351,7 @@ export interface IoTTwinMaker {
    */
   createMetadataTransferJob(
     args: CreateMetadataTransferJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<CreateMetadataTransferJobCommandOutput>;
   createMetadataTransferJob(
     args: CreateMetadataTransferJobCommandInput,
@@ -347,7 +359,7 @@ export interface IoTTwinMaker {
   ): void;
   createMetadataTransferJob(
     args: CreateMetadataTransferJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: CreateMetadataTransferJobCommandOutput) => void
   ): void;
 
@@ -356,7 +368,7 @@ export interface IoTTwinMaker {
    */
   createScene(
     args: CreateSceneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<CreateSceneCommandOutput>;
   createScene(
     args: CreateSceneCommandInput,
@@ -364,7 +376,7 @@ export interface IoTTwinMaker {
   ): void;
   createScene(
     args: CreateSceneCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: CreateSceneCommandOutput) => void
   ): void;
 
@@ -373,7 +385,7 @@ export interface IoTTwinMaker {
    */
   createSyncJob(
     args: CreateSyncJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<CreateSyncJobCommandOutput>;
   createSyncJob(
     args: CreateSyncJobCommandInput,
@@ -381,7 +393,7 @@ export interface IoTTwinMaker {
   ): void;
   createSyncJob(
     args: CreateSyncJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: CreateSyncJobCommandOutput) => void
   ): void;
 
@@ -390,7 +402,7 @@ export interface IoTTwinMaker {
    */
   createWorkspace(
     args: CreateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<CreateWorkspaceCommandOutput>;
   createWorkspace(
     args: CreateWorkspaceCommandInput,
@@ -398,7 +410,7 @@ export interface IoTTwinMaker {
   ): void;
   createWorkspace(
     args: CreateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
   ): void;
 
@@ -407,7 +419,7 @@ export interface IoTTwinMaker {
    */
   deleteComponentType(
     args: DeleteComponentTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<DeleteComponentTypeCommandOutput>;
   deleteComponentType(
     args: DeleteComponentTypeCommandInput,
@@ -415,7 +427,7 @@ export interface IoTTwinMaker {
   ): void;
   deleteComponentType(
     args: DeleteComponentTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: DeleteComponentTypeCommandOutput) => void
   ): void;
 
@@ -424,7 +436,7 @@ export interface IoTTwinMaker {
    */
   deleteEntity(
     args: DeleteEntityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<DeleteEntityCommandOutput>;
   deleteEntity(
     args: DeleteEntityCommandInput,
@@ -432,7 +444,7 @@ export interface IoTTwinMaker {
   ): void;
   deleteEntity(
     args: DeleteEntityCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: DeleteEntityCommandOutput) => void
   ): void;
 
@@ -441,7 +453,7 @@ export interface IoTTwinMaker {
    */
   deleteScene(
     args: DeleteSceneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<DeleteSceneCommandOutput>;
   deleteScene(
     args: DeleteSceneCommandInput,
@@ -449,7 +461,7 @@ export interface IoTTwinMaker {
   ): void;
   deleteScene(
     args: DeleteSceneCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: DeleteSceneCommandOutput) => void
   ): void;
 
@@ -458,7 +470,7 @@ export interface IoTTwinMaker {
    */
   deleteSyncJob(
     args: DeleteSyncJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<DeleteSyncJobCommandOutput>;
   deleteSyncJob(
     args: DeleteSyncJobCommandInput,
@@ -466,7 +478,7 @@ export interface IoTTwinMaker {
   ): void;
   deleteSyncJob(
     args: DeleteSyncJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: DeleteSyncJobCommandOutput) => void
   ): void;
 
@@ -475,7 +487,7 @@ export interface IoTTwinMaker {
    */
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<DeleteWorkspaceCommandOutput>;
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
@@ -483,7 +495,7 @@ export interface IoTTwinMaker {
   ): void;
   deleteWorkspace(
     args: DeleteWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
   ): void;
 
@@ -492,7 +504,7 @@ export interface IoTTwinMaker {
    */
   executeQuery(
     args: ExecuteQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ExecuteQueryCommandOutput>;
   executeQuery(
     args: ExecuteQueryCommandInput,
@@ -500,7 +512,7 @@ export interface IoTTwinMaker {
   ): void;
   executeQuery(
     args: ExecuteQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ExecuteQueryCommandOutput) => void
   ): void;
 
@@ -509,7 +521,7 @@ export interface IoTTwinMaker {
    */
   getComponentType(
     args: GetComponentTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<GetComponentTypeCommandOutput>;
   getComponentType(
     args: GetComponentTypeCommandInput,
@@ -517,7 +529,7 @@ export interface IoTTwinMaker {
   ): void;
   getComponentType(
     args: GetComponentTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: GetComponentTypeCommandOutput) => void
   ): void;
 
@@ -526,7 +538,7 @@ export interface IoTTwinMaker {
    */
   getEntity(
     args: GetEntityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<GetEntityCommandOutput>;
   getEntity(
     args: GetEntityCommandInput,
@@ -534,7 +546,7 @@ export interface IoTTwinMaker {
   ): void;
   getEntity(
     args: GetEntityCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: GetEntityCommandOutput) => void
   ): void;
 
@@ -543,7 +555,7 @@ export interface IoTTwinMaker {
    */
   getMetadataTransferJob(
     args: GetMetadataTransferJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<GetMetadataTransferJobCommandOutput>;
   getMetadataTransferJob(
     args: GetMetadataTransferJobCommandInput,
@@ -551,7 +563,7 @@ export interface IoTTwinMaker {
   ): void;
   getMetadataTransferJob(
     args: GetMetadataTransferJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: GetMetadataTransferJobCommandOutput) => void
   ): void;
 
@@ -561,7 +573,7 @@ export interface IoTTwinMaker {
   getPricingPlan(): Promise<GetPricingPlanCommandOutput>;
   getPricingPlan(
     args: GetPricingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<GetPricingPlanCommandOutput>;
   getPricingPlan(
     args: GetPricingPlanCommandInput,
@@ -569,7 +581,7 @@ export interface IoTTwinMaker {
   ): void;
   getPricingPlan(
     args: GetPricingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: GetPricingPlanCommandOutput) => void
   ): void;
 
@@ -578,7 +590,7 @@ export interface IoTTwinMaker {
    */
   getPropertyValue(
     args: GetPropertyValueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<GetPropertyValueCommandOutput>;
   getPropertyValue(
     args: GetPropertyValueCommandInput,
@@ -586,7 +598,7 @@ export interface IoTTwinMaker {
   ): void;
   getPropertyValue(
     args: GetPropertyValueCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: GetPropertyValueCommandOutput) => void
   ): void;
 
@@ -595,7 +607,7 @@ export interface IoTTwinMaker {
    */
   getPropertyValueHistory(
     args: GetPropertyValueHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<GetPropertyValueHistoryCommandOutput>;
   getPropertyValueHistory(
     args: GetPropertyValueHistoryCommandInput,
@@ -603,7 +615,7 @@ export interface IoTTwinMaker {
   ): void;
   getPropertyValueHistory(
     args: GetPropertyValueHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: GetPropertyValueHistoryCommandOutput) => void
   ): void;
 
@@ -612,7 +624,7 @@ export interface IoTTwinMaker {
    */
   getScene(
     args: GetSceneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<GetSceneCommandOutput>;
   getScene(
     args: GetSceneCommandInput,
@@ -620,7 +632,7 @@ export interface IoTTwinMaker {
   ): void;
   getScene(
     args: GetSceneCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: GetSceneCommandOutput) => void
   ): void;
 
@@ -629,7 +641,7 @@ export interface IoTTwinMaker {
    */
   getSyncJob(
     args: GetSyncJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<GetSyncJobCommandOutput>;
   getSyncJob(
     args: GetSyncJobCommandInput,
@@ -637,7 +649,7 @@ export interface IoTTwinMaker {
   ): void;
   getSyncJob(
     args: GetSyncJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: GetSyncJobCommandOutput) => void
   ): void;
 
@@ -646,7 +658,7 @@ export interface IoTTwinMaker {
    */
   getWorkspace(
     args: GetWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<GetWorkspaceCommandOutput>;
   getWorkspace(
     args: GetWorkspaceCommandInput,
@@ -654,7 +666,7 @@ export interface IoTTwinMaker {
   ): void;
   getWorkspace(
     args: GetWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: GetWorkspaceCommandOutput) => void
   ): void;
 
@@ -663,7 +675,7 @@ export interface IoTTwinMaker {
    */
   listComponents(
     args: ListComponentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListComponentsCommandOutput>;
   listComponents(
     args: ListComponentsCommandInput,
@@ -671,7 +683,7 @@ export interface IoTTwinMaker {
   ): void;
   listComponents(
     args: ListComponentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListComponentsCommandOutput) => void
   ): void;
 
@@ -680,7 +692,7 @@ export interface IoTTwinMaker {
    */
   listComponentTypes(
     args: ListComponentTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListComponentTypesCommandOutput>;
   listComponentTypes(
     args: ListComponentTypesCommandInput,
@@ -688,7 +700,7 @@ export interface IoTTwinMaker {
   ): void;
   listComponentTypes(
     args: ListComponentTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListComponentTypesCommandOutput) => void
   ): void;
 
@@ -697,7 +709,7 @@ export interface IoTTwinMaker {
    */
   listEntities(
     args: ListEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListEntitiesCommandOutput>;
   listEntities(
     args: ListEntitiesCommandInput,
@@ -705,7 +717,7 @@ export interface IoTTwinMaker {
   ): void;
   listEntities(
     args: ListEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListEntitiesCommandOutput) => void
   ): void;
 
@@ -714,7 +726,7 @@ export interface IoTTwinMaker {
    */
   listMetadataTransferJobs(
     args: ListMetadataTransferJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListMetadataTransferJobsCommandOutput>;
   listMetadataTransferJobs(
     args: ListMetadataTransferJobsCommandInput,
@@ -722,7 +734,7 @@ export interface IoTTwinMaker {
   ): void;
   listMetadataTransferJobs(
     args: ListMetadataTransferJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListMetadataTransferJobsCommandOutput) => void
   ): void;
 
@@ -731,7 +743,7 @@ export interface IoTTwinMaker {
    */
   listProperties(
     args: ListPropertiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListPropertiesCommandOutput>;
   listProperties(
     args: ListPropertiesCommandInput,
@@ -739,7 +751,7 @@ export interface IoTTwinMaker {
   ): void;
   listProperties(
     args: ListPropertiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListPropertiesCommandOutput) => void
   ): void;
 
@@ -748,7 +760,7 @@ export interface IoTTwinMaker {
    */
   listScenes(
     args: ListScenesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListScenesCommandOutput>;
   listScenes(
     args: ListScenesCommandInput,
@@ -756,7 +768,7 @@ export interface IoTTwinMaker {
   ): void;
   listScenes(
     args: ListScenesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListScenesCommandOutput) => void
   ): void;
 
@@ -765,7 +777,7 @@ export interface IoTTwinMaker {
    */
   listSyncJobs(
     args: ListSyncJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListSyncJobsCommandOutput>;
   listSyncJobs(
     args: ListSyncJobsCommandInput,
@@ -773,7 +785,7 @@ export interface IoTTwinMaker {
   ): void;
   listSyncJobs(
     args: ListSyncJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListSyncJobsCommandOutput) => void
   ): void;
 
@@ -782,7 +794,7 @@ export interface IoTTwinMaker {
    */
   listSyncResources(
     args: ListSyncResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListSyncResourcesCommandOutput>;
   listSyncResources(
     args: ListSyncResourcesCommandInput,
@@ -790,7 +802,7 @@ export interface IoTTwinMaker {
   ): void;
   listSyncResources(
     args: ListSyncResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListSyncResourcesCommandOutput) => void
   ): void;
 
@@ -799,7 +811,7 @@ export interface IoTTwinMaker {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -807,7 +819,7 @@ export interface IoTTwinMaker {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -817,7 +829,7 @@ export interface IoTTwinMaker {
   listWorkspaces(): Promise<ListWorkspacesCommandOutput>;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<ListWorkspacesCommandOutput>;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
@@ -825,7 +837,7 @@ export interface IoTTwinMaker {
   ): void;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: ListWorkspacesCommandOutput) => void
   ): void;
 
@@ -834,7 +846,7 @@ export interface IoTTwinMaker {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -842,7 +854,7 @@ export interface IoTTwinMaker {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -851,7 +863,7 @@ export interface IoTTwinMaker {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -859,7 +871,7 @@ export interface IoTTwinMaker {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -868,7 +880,7 @@ export interface IoTTwinMaker {
    */
   updateComponentType(
     args: UpdateComponentTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<UpdateComponentTypeCommandOutput>;
   updateComponentType(
     args: UpdateComponentTypeCommandInput,
@@ -876,7 +888,7 @@ export interface IoTTwinMaker {
   ): void;
   updateComponentType(
     args: UpdateComponentTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: UpdateComponentTypeCommandOutput) => void
   ): void;
 
@@ -885,7 +897,7 @@ export interface IoTTwinMaker {
    */
   updateEntity(
     args: UpdateEntityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<UpdateEntityCommandOutput>;
   updateEntity(
     args: UpdateEntityCommandInput,
@@ -893,7 +905,7 @@ export interface IoTTwinMaker {
   ): void;
   updateEntity(
     args: UpdateEntityCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: UpdateEntityCommandOutput) => void
   ): void;
 
@@ -902,7 +914,7 @@ export interface IoTTwinMaker {
    */
   updatePricingPlan(
     args: UpdatePricingPlanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<UpdatePricingPlanCommandOutput>;
   updatePricingPlan(
     args: UpdatePricingPlanCommandInput,
@@ -910,7 +922,7 @@ export interface IoTTwinMaker {
   ): void;
   updatePricingPlan(
     args: UpdatePricingPlanCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: UpdatePricingPlanCommandOutput) => void
   ): void;
 
@@ -919,7 +931,7 @@ export interface IoTTwinMaker {
    */
   updateScene(
     args: UpdateSceneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<UpdateSceneCommandOutput>;
   updateScene(
     args: UpdateSceneCommandInput,
@@ -927,7 +939,7 @@ export interface IoTTwinMaker {
   ): void;
   updateScene(
     args: UpdateSceneCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: UpdateSceneCommandOutput) => void
   ): void;
 
@@ -936,7 +948,7 @@ export interface IoTTwinMaker {
    */
   updateWorkspace(
     args: UpdateWorkspaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTTwinMakerRequestOptions
   ): Promise<UpdateWorkspaceCommandOutput>;
   updateWorkspace(
     args: UpdateWorkspaceCommandInput,
@@ -944,7 +956,7 @@ export interface IoTTwinMaker {
   ): void;
   updateWorkspace(
     args: UpdateWorkspaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTTwinMakerRequestOptions,
     cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void
   ): void;
 

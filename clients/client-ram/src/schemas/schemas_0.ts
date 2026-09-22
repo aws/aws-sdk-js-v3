@@ -294,10 +294,10 @@ import {
 import { RAMServiceException } from "../models/RAMServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var RAMServiceException$: StaticErrorSchema = [-3, _s, "RAMServiceException", 0, [], []];
 _s_registry.registerError(RAMServiceException$, RAMServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
   { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
   [_m],

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { CloudWatchLogsClient } from "./CloudWatchLogsClient";
 import {
@@ -749,13 +754,20 @@ const paginators = {
   paginateListSourcesForS3TableIntegration,
 };
 
+/**
+ * @public
+ */
+export interface CloudWatchLogsRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CloudWatchLogs {
   /**
    * @see {@link AssociateKmsKeyCommand}
    */
   associateKmsKey(
     args: AssociateKmsKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<AssociateKmsKeyCommandOutput>;
   associateKmsKey(
     args: AssociateKmsKeyCommandInput,
@@ -763,7 +775,7 @@ export interface CloudWatchLogs {
   ): void;
   associateKmsKey(
     args: AssociateKmsKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: AssociateKmsKeyCommandOutput) => void
   ): void;
 
@@ -772,7 +784,7 @@ export interface CloudWatchLogs {
    */
   associateSourceToS3TableIntegration(
     args: AssociateSourceToS3TableIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<AssociateSourceToS3TableIntegrationCommandOutput>;
   associateSourceToS3TableIntegration(
     args: AssociateSourceToS3TableIntegrationCommandInput,
@@ -780,7 +792,7 @@ export interface CloudWatchLogs {
   ): void;
   associateSourceToS3TableIntegration(
     args: AssociateSourceToS3TableIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: AssociateSourceToS3TableIntegrationCommandOutput) => void
   ): void;
 
@@ -789,7 +801,7 @@ export interface CloudWatchLogs {
    */
   cancelExportTask(
     args: CancelExportTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CancelExportTaskCommandOutput>;
   cancelExportTask(
     args: CancelExportTaskCommandInput,
@@ -797,7 +809,7 @@ export interface CloudWatchLogs {
   ): void;
   cancelExportTask(
     args: CancelExportTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CancelExportTaskCommandOutput) => void
   ): void;
 
@@ -806,7 +818,7 @@ export interface CloudWatchLogs {
    */
   cancelImportTask(
     args: CancelImportTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CancelImportTaskCommandOutput>;
   cancelImportTask(
     args: CancelImportTaskCommandInput,
@@ -814,7 +826,7 @@ export interface CloudWatchLogs {
   ): void;
   cancelImportTask(
     args: CancelImportTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CancelImportTaskCommandOutput) => void
   ): void;
 
@@ -823,7 +835,7 @@ export interface CloudWatchLogs {
    */
   createDelivery(
     args: CreateDeliveryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CreateDeliveryCommandOutput>;
   createDelivery(
     args: CreateDeliveryCommandInput,
@@ -831,7 +843,7 @@ export interface CloudWatchLogs {
   ): void;
   createDelivery(
     args: CreateDeliveryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CreateDeliveryCommandOutput) => void
   ): void;
 
@@ -840,7 +852,7 @@ export interface CloudWatchLogs {
    */
   createExportTask(
     args: CreateExportTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CreateExportTaskCommandOutput>;
   createExportTask(
     args: CreateExportTaskCommandInput,
@@ -848,7 +860,7 @@ export interface CloudWatchLogs {
   ): void;
   createExportTask(
     args: CreateExportTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CreateExportTaskCommandOutput) => void
   ): void;
 
@@ -857,7 +869,7 @@ export interface CloudWatchLogs {
    */
   createImportTask(
     args: CreateImportTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CreateImportTaskCommandOutput>;
   createImportTask(
     args: CreateImportTaskCommandInput,
@@ -865,7 +877,7 @@ export interface CloudWatchLogs {
   ): void;
   createImportTask(
     args: CreateImportTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CreateImportTaskCommandOutput) => void
   ): void;
 
@@ -874,7 +886,7 @@ export interface CloudWatchLogs {
    */
   createLogAnomalyDetector(
     args: CreateLogAnomalyDetectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CreateLogAnomalyDetectorCommandOutput>;
   createLogAnomalyDetector(
     args: CreateLogAnomalyDetectorCommandInput,
@@ -882,7 +894,7 @@ export interface CloudWatchLogs {
   ): void;
   createLogAnomalyDetector(
     args: CreateLogAnomalyDetectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CreateLogAnomalyDetectorCommandOutput) => void
   ): void;
 
@@ -891,7 +903,7 @@ export interface CloudWatchLogs {
    */
   createLogGroup(
     args: CreateLogGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CreateLogGroupCommandOutput>;
   createLogGroup(
     args: CreateLogGroupCommandInput,
@@ -899,7 +911,7 @@ export interface CloudWatchLogs {
   ): void;
   createLogGroup(
     args: CreateLogGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CreateLogGroupCommandOutput) => void
   ): void;
 
@@ -908,7 +920,7 @@ export interface CloudWatchLogs {
    */
   createLogStream(
     args: CreateLogStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CreateLogStreamCommandOutput>;
   createLogStream(
     args: CreateLogStreamCommandInput,
@@ -916,7 +928,7 @@ export interface CloudWatchLogs {
   ): void;
   createLogStream(
     args: CreateLogStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CreateLogStreamCommandOutput) => void
   ): void;
 
@@ -925,7 +937,7 @@ export interface CloudWatchLogs {
    */
   createLookupTable(
     args: CreateLookupTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CreateLookupTableCommandOutput>;
   createLookupTable(
     args: CreateLookupTableCommandInput,
@@ -933,7 +945,7 @@ export interface CloudWatchLogs {
   ): void;
   createLookupTable(
     args: CreateLookupTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CreateLookupTableCommandOutput) => void
   ): void;
 
@@ -942,7 +954,7 @@ export interface CloudWatchLogs {
    */
   createScheduledQuery(
     args: CreateScheduledQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<CreateScheduledQueryCommandOutput>;
   createScheduledQuery(
     args: CreateScheduledQueryCommandInput,
@@ -950,7 +962,7 @@ export interface CloudWatchLogs {
   ): void;
   createScheduledQuery(
     args: CreateScheduledQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: CreateScheduledQueryCommandOutput) => void
   ): void;
 
@@ -959,7 +971,7 @@ export interface CloudWatchLogs {
    */
   deleteAccountPolicy(
     args: DeleteAccountPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteAccountPolicyCommandOutput>;
   deleteAccountPolicy(
     args: DeleteAccountPolicyCommandInput,
@@ -967,7 +979,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteAccountPolicy(
     args: DeleteAccountPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteAccountPolicyCommandOutput) => void
   ): void;
 
@@ -976,7 +988,7 @@ export interface CloudWatchLogs {
    */
   deleteDataProtectionPolicy(
     args: DeleteDataProtectionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteDataProtectionPolicyCommandOutput>;
   deleteDataProtectionPolicy(
     args: DeleteDataProtectionPolicyCommandInput,
@@ -984,7 +996,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteDataProtectionPolicy(
     args: DeleteDataProtectionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteDataProtectionPolicyCommandOutput) => void
   ): void;
 
@@ -993,7 +1005,7 @@ export interface CloudWatchLogs {
    */
   deleteDelivery(
     args: DeleteDeliveryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteDeliveryCommandOutput>;
   deleteDelivery(
     args: DeleteDeliveryCommandInput,
@@ -1001,7 +1013,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteDelivery(
     args: DeleteDeliveryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteDeliveryCommandOutput) => void
   ): void;
 
@@ -1010,7 +1022,7 @@ export interface CloudWatchLogs {
    */
   deleteDeliveryDestination(
     args: DeleteDeliveryDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteDeliveryDestinationCommandOutput>;
   deleteDeliveryDestination(
     args: DeleteDeliveryDestinationCommandInput,
@@ -1018,7 +1030,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteDeliveryDestination(
     args: DeleteDeliveryDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteDeliveryDestinationCommandOutput) => void
   ): void;
 
@@ -1027,7 +1039,7 @@ export interface CloudWatchLogs {
    */
   deleteDeliveryDestinationPolicy(
     args: DeleteDeliveryDestinationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteDeliveryDestinationPolicyCommandOutput>;
   deleteDeliveryDestinationPolicy(
     args: DeleteDeliveryDestinationPolicyCommandInput,
@@ -1035,7 +1047,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteDeliveryDestinationPolicy(
     args: DeleteDeliveryDestinationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteDeliveryDestinationPolicyCommandOutput) => void
   ): void;
 
@@ -1044,7 +1056,7 @@ export interface CloudWatchLogs {
    */
   deleteDeliverySource(
     args: DeleteDeliverySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteDeliverySourceCommandOutput>;
   deleteDeliverySource(
     args: DeleteDeliverySourceCommandInput,
@@ -1052,7 +1064,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteDeliverySource(
     args: DeleteDeliverySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteDeliverySourceCommandOutput) => void
   ): void;
 
@@ -1061,7 +1073,7 @@ export interface CloudWatchLogs {
    */
   deleteDestination(
     args: DeleteDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteDestinationCommandOutput>;
   deleteDestination(
     args: DeleteDestinationCommandInput,
@@ -1069,7 +1081,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteDestination(
     args: DeleteDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteDestinationCommandOutput) => void
   ): void;
 
@@ -1078,7 +1090,7 @@ export interface CloudWatchLogs {
    */
   deleteIndexPolicy(
     args: DeleteIndexPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteIndexPolicyCommandOutput>;
   deleteIndexPolicy(
     args: DeleteIndexPolicyCommandInput,
@@ -1086,7 +1098,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteIndexPolicy(
     args: DeleteIndexPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteIndexPolicyCommandOutput) => void
   ): void;
 
@@ -1095,7 +1107,7 @@ export interface CloudWatchLogs {
    */
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteIntegrationCommandOutput>;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
@@ -1103,7 +1115,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): void;
 
@@ -1112,7 +1124,7 @@ export interface CloudWatchLogs {
    */
   deleteLogAnomalyDetector(
     args: DeleteLogAnomalyDetectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteLogAnomalyDetectorCommandOutput>;
   deleteLogAnomalyDetector(
     args: DeleteLogAnomalyDetectorCommandInput,
@@ -1120,7 +1132,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteLogAnomalyDetector(
     args: DeleteLogAnomalyDetectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteLogAnomalyDetectorCommandOutput) => void
   ): void;
 
@@ -1129,7 +1141,7 @@ export interface CloudWatchLogs {
    */
   deleteLogGroup(
     args: DeleteLogGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteLogGroupCommandOutput>;
   deleteLogGroup(
     args: DeleteLogGroupCommandInput,
@@ -1137,7 +1149,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteLogGroup(
     args: DeleteLogGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteLogGroupCommandOutput) => void
   ): void;
 
@@ -1146,7 +1158,7 @@ export interface CloudWatchLogs {
    */
   deleteLogStream(
     args: DeleteLogStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteLogStreamCommandOutput>;
   deleteLogStream(
     args: DeleteLogStreamCommandInput,
@@ -1154,7 +1166,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteLogStream(
     args: DeleteLogStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteLogStreamCommandOutput) => void
   ): void;
 
@@ -1163,7 +1175,7 @@ export interface CloudWatchLogs {
    */
   deleteLookupTable(
     args: DeleteLookupTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteLookupTableCommandOutput>;
   deleteLookupTable(
     args: DeleteLookupTableCommandInput,
@@ -1171,7 +1183,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteLookupTable(
     args: DeleteLookupTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteLookupTableCommandOutput) => void
   ): void;
 
@@ -1180,7 +1192,7 @@ export interface CloudWatchLogs {
    */
   deleteMetricFilter(
     args: DeleteMetricFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteMetricFilterCommandOutput>;
   deleteMetricFilter(
     args: DeleteMetricFilterCommandInput,
@@ -1188,7 +1200,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteMetricFilter(
     args: DeleteMetricFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteMetricFilterCommandOutput) => void
   ): void;
 
@@ -1197,7 +1209,7 @@ export interface CloudWatchLogs {
    */
   deleteQueryDefinition(
     args: DeleteQueryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteQueryDefinitionCommandOutput>;
   deleteQueryDefinition(
     args: DeleteQueryDefinitionCommandInput,
@@ -1205,7 +1217,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteQueryDefinition(
     args: DeleteQueryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteQueryDefinitionCommandOutput) => void
   ): void;
 
@@ -1215,7 +1227,7 @@ export interface CloudWatchLogs {
   deleteResourcePolicy(): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -1223,7 +1235,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1232,7 +1244,7 @@ export interface CloudWatchLogs {
    */
   deleteRetentionPolicy(
     args: DeleteRetentionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteRetentionPolicyCommandOutput>;
   deleteRetentionPolicy(
     args: DeleteRetentionPolicyCommandInput,
@@ -1240,7 +1252,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteRetentionPolicy(
     args: DeleteRetentionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteRetentionPolicyCommandOutput) => void
   ): void;
 
@@ -1249,7 +1261,7 @@ export interface CloudWatchLogs {
    */
   deleteScheduledQuery(
     args: DeleteScheduledQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteScheduledQueryCommandOutput>;
   deleteScheduledQuery(
     args: DeleteScheduledQueryCommandInput,
@@ -1257,7 +1269,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteScheduledQuery(
     args: DeleteScheduledQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteScheduledQueryCommandOutput) => void
   ): void;
 
@@ -1266,7 +1278,7 @@ export interface CloudWatchLogs {
    */
   deleteSubscriptionFilter(
     args: DeleteSubscriptionFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteSubscriptionFilterCommandOutput>;
   deleteSubscriptionFilter(
     args: DeleteSubscriptionFilterCommandInput,
@@ -1274,7 +1286,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteSubscriptionFilter(
     args: DeleteSubscriptionFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteSubscriptionFilterCommandOutput) => void
   ): void;
 
@@ -1283,7 +1295,7 @@ export interface CloudWatchLogs {
    */
   deleteSyslogConfiguration(
     args: DeleteSyslogConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteSyslogConfigurationCommandOutput>;
   deleteSyslogConfiguration(
     args: DeleteSyslogConfigurationCommandInput,
@@ -1291,7 +1303,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteSyslogConfiguration(
     args: DeleteSyslogConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteSyslogConfigurationCommandOutput) => void
   ): void;
 
@@ -1300,7 +1312,7 @@ export interface CloudWatchLogs {
    */
   deleteTransformer(
     args: DeleteTransformerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DeleteTransformerCommandOutput>;
   deleteTransformer(
     args: DeleteTransformerCommandInput,
@@ -1308,7 +1320,7 @@ export interface CloudWatchLogs {
   ): void;
   deleteTransformer(
     args: DeleteTransformerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DeleteTransformerCommandOutput) => void
   ): void;
 
@@ -1317,7 +1329,7 @@ export interface CloudWatchLogs {
    */
   describeAccountPolicies(
     args: DescribeAccountPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeAccountPoliciesCommandOutput>;
   describeAccountPolicies(
     args: DescribeAccountPoliciesCommandInput,
@@ -1325,7 +1337,7 @@ export interface CloudWatchLogs {
   ): void;
   describeAccountPolicies(
     args: DescribeAccountPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeAccountPoliciesCommandOutput) => void
   ): void;
 
@@ -1335,7 +1347,7 @@ export interface CloudWatchLogs {
   describeConfigurationTemplates(): Promise<DescribeConfigurationTemplatesCommandOutput>;
   describeConfigurationTemplates(
     args: DescribeConfigurationTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeConfigurationTemplatesCommandOutput>;
   describeConfigurationTemplates(
     args: DescribeConfigurationTemplatesCommandInput,
@@ -1343,7 +1355,7 @@ export interface CloudWatchLogs {
   ): void;
   describeConfigurationTemplates(
     args: DescribeConfigurationTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeConfigurationTemplatesCommandOutput) => void
   ): void;
 
@@ -1353,7 +1365,7 @@ export interface CloudWatchLogs {
   describeDeliveries(): Promise<DescribeDeliveriesCommandOutput>;
   describeDeliveries(
     args: DescribeDeliveriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeDeliveriesCommandOutput>;
   describeDeliveries(
     args: DescribeDeliveriesCommandInput,
@@ -1361,7 +1373,7 @@ export interface CloudWatchLogs {
   ): void;
   describeDeliveries(
     args: DescribeDeliveriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeDeliveriesCommandOutput) => void
   ): void;
 
@@ -1371,7 +1383,7 @@ export interface CloudWatchLogs {
   describeDeliveryDestinations(): Promise<DescribeDeliveryDestinationsCommandOutput>;
   describeDeliveryDestinations(
     args: DescribeDeliveryDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeDeliveryDestinationsCommandOutput>;
   describeDeliveryDestinations(
     args: DescribeDeliveryDestinationsCommandInput,
@@ -1379,7 +1391,7 @@ export interface CloudWatchLogs {
   ): void;
   describeDeliveryDestinations(
     args: DescribeDeliveryDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeDeliveryDestinationsCommandOutput) => void
   ): void;
 
@@ -1389,7 +1401,7 @@ export interface CloudWatchLogs {
   describeDeliverySources(): Promise<DescribeDeliverySourcesCommandOutput>;
   describeDeliverySources(
     args: DescribeDeliverySourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeDeliverySourcesCommandOutput>;
   describeDeliverySources(
     args: DescribeDeliverySourcesCommandInput,
@@ -1397,7 +1409,7 @@ export interface CloudWatchLogs {
   ): void;
   describeDeliverySources(
     args: DescribeDeliverySourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeDeliverySourcesCommandOutput) => void
   ): void;
 
@@ -1407,7 +1419,7 @@ export interface CloudWatchLogs {
   describeDestinations(): Promise<DescribeDestinationsCommandOutput>;
   describeDestinations(
     args: DescribeDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeDestinationsCommandOutput>;
   describeDestinations(
     args: DescribeDestinationsCommandInput,
@@ -1415,7 +1427,7 @@ export interface CloudWatchLogs {
   ): void;
   describeDestinations(
     args: DescribeDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeDestinationsCommandOutput) => void
   ): void;
 
@@ -1425,7 +1437,7 @@ export interface CloudWatchLogs {
   describeExportTasks(): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
@@ -1433,7 +1445,7 @@ export interface CloudWatchLogs {
   ): void;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeExportTasksCommandOutput) => void
   ): void;
 
@@ -1442,7 +1454,7 @@ export interface CloudWatchLogs {
    */
   describeFieldIndexes(
     args: DescribeFieldIndexesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeFieldIndexesCommandOutput>;
   describeFieldIndexes(
     args: DescribeFieldIndexesCommandInput,
@@ -1450,7 +1462,7 @@ export interface CloudWatchLogs {
   ): void;
   describeFieldIndexes(
     args: DescribeFieldIndexesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeFieldIndexesCommandOutput) => void
   ): void;
 
@@ -1459,7 +1471,7 @@ export interface CloudWatchLogs {
    */
   describeImportTaskBatches(
     args: DescribeImportTaskBatchesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeImportTaskBatchesCommandOutput>;
   describeImportTaskBatches(
     args: DescribeImportTaskBatchesCommandInput,
@@ -1467,7 +1479,7 @@ export interface CloudWatchLogs {
   ): void;
   describeImportTaskBatches(
     args: DescribeImportTaskBatchesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeImportTaskBatchesCommandOutput) => void
   ): void;
 
@@ -1477,7 +1489,7 @@ export interface CloudWatchLogs {
   describeImportTasks(): Promise<DescribeImportTasksCommandOutput>;
   describeImportTasks(
     args: DescribeImportTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeImportTasksCommandOutput>;
   describeImportTasks(
     args: DescribeImportTasksCommandInput,
@@ -1485,7 +1497,7 @@ export interface CloudWatchLogs {
   ): void;
   describeImportTasks(
     args: DescribeImportTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeImportTasksCommandOutput) => void
   ): void;
 
@@ -1494,7 +1506,7 @@ export interface CloudWatchLogs {
    */
   describeIndexPolicies(
     args: DescribeIndexPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeIndexPoliciesCommandOutput>;
   describeIndexPolicies(
     args: DescribeIndexPoliciesCommandInput,
@@ -1502,7 +1514,7 @@ export interface CloudWatchLogs {
   ): void;
   describeIndexPolicies(
     args: DescribeIndexPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeIndexPoliciesCommandOutput) => void
   ): void;
 
@@ -1512,7 +1524,7 @@ export interface CloudWatchLogs {
   describeLogGroups(): Promise<DescribeLogGroupsCommandOutput>;
   describeLogGroups(
     args: DescribeLogGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeLogGroupsCommandOutput>;
   describeLogGroups(
     args: DescribeLogGroupsCommandInput,
@@ -1520,7 +1532,7 @@ export interface CloudWatchLogs {
   ): void;
   describeLogGroups(
     args: DescribeLogGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeLogGroupsCommandOutput) => void
   ): void;
 
@@ -1530,7 +1542,7 @@ export interface CloudWatchLogs {
   describeLogStreams(): Promise<DescribeLogStreamsCommandOutput>;
   describeLogStreams(
     args: DescribeLogStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeLogStreamsCommandOutput>;
   describeLogStreams(
     args: DescribeLogStreamsCommandInput,
@@ -1538,7 +1550,7 @@ export interface CloudWatchLogs {
   ): void;
   describeLogStreams(
     args: DescribeLogStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeLogStreamsCommandOutput) => void
   ): void;
 
@@ -1548,7 +1560,7 @@ export interface CloudWatchLogs {
   describeLookupTables(): Promise<DescribeLookupTablesCommandOutput>;
   describeLookupTables(
     args: DescribeLookupTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeLookupTablesCommandOutput>;
   describeLookupTables(
     args: DescribeLookupTablesCommandInput,
@@ -1556,7 +1568,7 @@ export interface CloudWatchLogs {
   ): void;
   describeLookupTables(
     args: DescribeLookupTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeLookupTablesCommandOutput) => void
   ): void;
 
@@ -1566,7 +1578,7 @@ export interface CloudWatchLogs {
   describeMetricFilters(): Promise<DescribeMetricFiltersCommandOutput>;
   describeMetricFilters(
     args: DescribeMetricFiltersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeMetricFiltersCommandOutput>;
   describeMetricFilters(
     args: DescribeMetricFiltersCommandInput,
@@ -1574,7 +1586,7 @@ export interface CloudWatchLogs {
   ): void;
   describeMetricFilters(
     args: DescribeMetricFiltersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeMetricFiltersCommandOutput) => void
   ): void;
 
@@ -1584,7 +1596,7 @@ export interface CloudWatchLogs {
   describeQueries(): Promise<DescribeQueriesCommandOutput>;
   describeQueries(
     args: DescribeQueriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeQueriesCommandOutput>;
   describeQueries(
     args: DescribeQueriesCommandInput,
@@ -1592,7 +1604,7 @@ export interface CloudWatchLogs {
   ): void;
   describeQueries(
     args: DescribeQueriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeQueriesCommandOutput) => void
   ): void;
 
@@ -1602,7 +1614,7 @@ export interface CloudWatchLogs {
   describeQueryDefinitions(): Promise<DescribeQueryDefinitionsCommandOutput>;
   describeQueryDefinitions(
     args: DescribeQueryDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeQueryDefinitionsCommandOutput>;
   describeQueryDefinitions(
     args: DescribeQueryDefinitionsCommandInput,
@@ -1610,7 +1622,7 @@ export interface CloudWatchLogs {
   ): void;
   describeQueryDefinitions(
     args: DescribeQueryDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeQueryDefinitionsCommandOutput) => void
   ): void;
 
@@ -1620,7 +1632,7 @@ export interface CloudWatchLogs {
   describeResourcePolicies(): Promise<DescribeResourcePoliciesCommandOutput>;
   describeResourcePolicies(
     args: DescribeResourcePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeResourcePoliciesCommandOutput>;
   describeResourcePolicies(
     args: DescribeResourcePoliciesCommandInput,
@@ -1628,7 +1640,7 @@ export interface CloudWatchLogs {
   ): void;
   describeResourcePolicies(
     args: DescribeResourcePoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeResourcePoliciesCommandOutput) => void
   ): void;
 
@@ -1637,7 +1649,7 @@ export interface CloudWatchLogs {
    */
   describeSubscriptionFilters(
     args: DescribeSubscriptionFiltersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DescribeSubscriptionFiltersCommandOutput>;
   describeSubscriptionFilters(
     args: DescribeSubscriptionFiltersCommandInput,
@@ -1645,7 +1657,7 @@ export interface CloudWatchLogs {
   ): void;
   describeSubscriptionFilters(
     args: DescribeSubscriptionFiltersCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DescribeSubscriptionFiltersCommandOutput) => void
   ): void;
 
@@ -1655,7 +1667,7 @@ export interface CloudWatchLogs {
   disassociateKmsKey(): Promise<DisassociateKmsKeyCommandOutput>;
   disassociateKmsKey(
     args: DisassociateKmsKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DisassociateKmsKeyCommandOutput>;
   disassociateKmsKey(
     args: DisassociateKmsKeyCommandInput,
@@ -1663,7 +1675,7 @@ export interface CloudWatchLogs {
   ): void;
   disassociateKmsKey(
     args: DisassociateKmsKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DisassociateKmsKeyCommandOutput) => void
   ): void;
 
@@ -1672,7 +1684,7 @@ export interface CloudWatchLogs {
    */
   disassociateSourceFromS3TableIntegration(
     args: DisassociateSourceFromS3TableIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<DisassociateSourceFromS3TableIntegrationCommandOutput>;
   disassociateSourceFromS3TableIntegration(
     args: DisassociateSourceFromS3TableIntegrationCommandInput,
@@ -1680,7 +1692,7 @@ export interface CloudWatchLogs {
   ): void;
   disassociateSourceFromS3TableIntegration(
     args: DisassociateSourceFromS3TableIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: DisassociateSourceFromS3TableIntegrationCommandOutput) => void
   ): void;
 
@@ -1690,7 +1702,7 @@ export interface CloudWatchLogs {
   filterLogEvents(): Promise<FilterLogEventsCommandOutput>;
   filterLogEvents(
     args: FilterLogEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<FilterLogEventsCommandOutput>;
   filterLogEvents(
     args: FilterLogEventsCommandInput,
@@ -1698,7 +1710,7 @@ export interface CloudWatchLogs {
   ): void;
   filterLogEvents(
     args: FilterLogEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: FilterLogEventsCommandOutput) => void
   ): void;
 
@@ -1707,7 +1719,7 @@ export interface CloudWatchLogs {
    */
   getDataProtectionPolicy(
     args: GetDataProtectionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetDataProtectionPolicyCommandOutput>;
   getDataProtectionPolicy(
     args: GetDataProtectionPolicyCommandInput,
@@ -1715,7 +1727,7 @@ export interface CloudWatchLogs {
   ): void;
   getDataProtectionPolicy(
     args: GetDataProtectionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetDataProtectionPolicyCommandOutput) => void
   ): void;
 
@@ -1724,7 +1736,7 @@ export interface CloudWatchLogs {
    */
   getDelivery(
     args: GetDeliveryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetDeliveryCommandOutput>;
   getDelivery(
     args: GetDeliveryCommandInput,
@@ -1732,7 +1744,7 @@ export interface CloudWatchLogs {
   ): void;
   getDelivery(
     args: GetDeliveryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetDeliveryCommandOutput) => void
   ): void;
 
@@ -1741,7 +1753,7 @@ export interface CloudWatchLogs {
    */
   getDeliveryDestination(
     args: GetDeliveryDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetDeliveryDestinationCommandOutput>;
   getDeliveryDestination(
     args: GetDeliveryDestinationCommandInput,
@@ -1749,7 +1761,7 @@ export interface CloudWatchLogs {
   ): void;
   getDeliveryDestination(
     args: GetDeliveryDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetDeliveryDestinationCommandOutput) => void
   ): void;
 
@@ -1758,7 +1770,7 @@ export interface CloudWatchLogs {
    */
   getDeliveryDestinationPolicy(
     args: GetDeliveryDestinationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetDeliveryDestinationPolicyCommandOutput>;
   getDeliveryDestinationPolicy(
     args: GetDeliveryDestinationPolicyCommandInput,
@@ -1766,7 +1778,7 @@ export interface CloudWatchLogs {
   ): void;
   getDeliveryDestinationPolicy(
     args: GetDeliveryDestinationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetDeliveryDestinationPolicyCommandOutput) => void
   ): void;
 
@@ -1775,7 +1787,7 @@ export interface CloudWatchLogs {
    */
   getDeliverySource(
     args: GetDeliverySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetDeliverySourceCommandOutput>;
   getDeliverySource(
     args: GetDeliverySourceCommandInput,
@@ -1783,7 +1795,7 @@ export interface CloudWatchLogs {
   ): void;
   getDeliverySource(
     args: GetDeliverySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetDeliverySourceCommandOutput) => void
   ): void;
 
@@ -1792,7 +1804,7 @@ export interface CloudWatchLogs {
    */
   getIntegration(
     args: GetIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetIntegrationCommandOutput>;
   getIntegration(
     args: GetIntegrationCommandInput,
@@ -1800,7 +1812,7 @@ export interface CloudWatchLogs {
   ): void;
   getIntegration(
     args: GetIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetIntegrationCommandOutput) => void
   ): void;
 
@@ -1809,7 +1821,7 @@ export interface CloudWatchLogs {
    */
   getLogAnomalyDetector(
     args: GetLogAnomalyDetectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetLogAnomalyDetectorCommandOutput>;
   getLogAnomalyDetector(
     args: GetLogAnomalyDetectorCommandInput,
@@ -1817,7 +1829,7 @@ export interface CloudWatchLogs {
   ): void;
   getLogAnomalyDetector(
     args: GetLogAnomalyDetectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetLogAnomalyDetectorCommandOutput) => void
   ): void;
 
@@ -1826,7 +1838,7 @@ export interface CloudWatchLogs {
    */
   getLogEvents(
     args: GetLogEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetLogEventsCommandOutput>;
   getLogEvents(
     args: GetLogEventsCommandInput,
@@ -1834,7 +1846,7 @@ export interface CloudWatchLogs {
   ): void;
   getLogEvents(
     args: GetLogEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetLogEventsCommandOutput) => void
   ): void;
 
@@ -1843,7 +1855,7 @@ export interface CloudWatchLogs {
    */
   getLogFields(
     args: GetLogFieldsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetLogFieldsCommandOutput>;
   getLogFields(
     args: GetLogFieldsCommandInput,
@@ -1851,7 +1863,7 @@ export interface CloudWatchLogs {
   ): void;
   getLogFields(
     args: GetLogFieldsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetLogFieldsCommandOutput) => void
   ): void;
 
@@ -1861,7 +1873,7 @@ export interface CloudWatchLogs {
   getLogGroupFields(): Promise<GetLogGroupFieldsCommandOutput>;
   getLogGroupFields(
     args: GetLogGroupFieldsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetLogGroupFieldsCommandOutput>;
   getLogGroupFields(
     args: GetLogGroupFieldsCommandInput,
@@ -1869,7 +1881,7 @@ export interface CloudWatchLogs {
   ): void;
   getLogGroupFields(
     args: GetLogGroupFieldsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetLogGroupFieldsCommandOutput) => void
   ): void;
 
@@ -1878,7 +1890,7 @@ export interface CloudWatchLogs {
    */
   getLogObject(
     args: GetLogObjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetLogObjectCommandOutput>;
   getLogObject(
     args: GetLogObjectCommandInput,
@@ -1886,7 +1898,7 @@ export interface CloudWatchLogs {
   ): void;
   getLogObject(
     args: GetLogObjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetLogObjectCommandOutput) => void
   ): void;
 
@@ -1895,7 +1907,7 @@ export interface CloudWatchLogs {
    */
   getLogRecord(
     args: GetLogRecordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetLogRecordCommandOutput>;
   getLogRecord(
     args: GetLogRecordCommandInput,
@@ -1903,7 +1915,7 @@ export interface CloudWatchLogs {
   ): void;
   getLogRecord(
     args: GetLogRecordCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetLogRecordCommandOutput) => void
   ): void;
 
@@ -1912,7 +1924,7 @@ export interface CloudWatchLogs {
    */
   getLookupTable(
     args: GetLookupTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetLookupTableCommandOutput>;
   getLookupTable(
     args: GetLookupTableCommandInput,
@@ -1920,7 +1932,7 @@ export interface CloudWatchLogs {
   ): void;
   getLookupTable(
     args: GetLookupTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetLookupTableCommandOutput) => void
   ): void;
 
@@ -1929,7 +1941,7 @@ export interface CloudWatchLogs {
    */
   getQueryResults(
     args: GetQueryResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetQueryResultsCommandOutput>;
   getQueryResults(
     args: GetQueryResultsCommandInput,
@@ -1937,7 +1949,7 @@ export interface CloudWatchLogs {
   ): void;
   getQueryResults(
     args: GetQueryResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): void;
 
@@ -1946,7 +1958,7 @@ export interface CloudWatchLogs {
    */
   getScheduledQuery(
     args: GetScheduledQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetScheduledQueryCommandOutput>;
   getScheduledQuery(
     args: GetScheduledQueryCommandInput,
@@ -1954,7 +1966,7 @@ export interface CloudWatchLogs {
   ): void;
   getScheduledQuery(
     args: GetScheduledQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetScheduledQueryCommandOutput) => void
   ): void;
 
@@ -1963,7 +1975,7 @@ export interface CloudWatchLogs {
    */
   getScheduledQueryHistory(
     args: GetScheduledQueryHistoryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetScheduledQueryHistoryCommandOutput>;
   getScheduledQueryHistory(
     args: GetScheduledQueryHistoryCommandInput,
@@ -1971,7 +1983,7 @@ export interface CloudWatchLogs {
   ): void;
   getScheduledQueryHistory(
     args: GetScheduledQueryHistoryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetScheduledQueryHistoryCommandOutput) => void
   ): void;
 
@@ -1981,7 +1993,7 @@ export interface CloudWatchLogs {
   getStorageTierPolicy(): Promise<GetStorageTierPolicyCommandOutput>;
   getStorageTierPolicy(
     args: GetStorageTierPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetStorageTierPolicyCommandOutput>;
   getStorageTierPolicy(
     args: GetStorageTierPolicyCommandInput,
@@ -1989,7 +2001,7 @@ export interface CloudWatchLogs {
   ): void;
   getStorageTierPolicy(
     args: GetStorageTierPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetStorageTierPolicyCommandOutput) => void
   ): void;
 
@@ -1998,7 +2010,7 @@ export interface CloudWatchLogs {
    */
   getTransformer(
     args: GetTransformerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<GetTransformerCommandOutput>;
   getTransformer(
     args: GetTransformerCommandInput,
@@ -2006,7 +2018,7 @@ export interface CloudWatchLogs {
   ): void;
   getTransformer(
     args: GetTransformerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: GetTransformerCommandOutput) => void
   ): void;
 
@@ -2015,7 +2027,7 @@ export interface CloudWatchLogs {
    */
   listAggregateLogGroupSummaries(
     args: ListAggregateLogGroupSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListAggregateLogGroupSummariesCommandOutput>;
   listAggregateLogGroupSummaries(
     args: ListAggregateLogGroupSummariesCommandInput,
@@ -2023,7 +2035,7 @@ export interface CloudWatchLogs {
   ): void;
   listAggregateLogGroupSummaries(
     args: ListAggregateLogGroupSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListAggregateLogGroupSummariesCommandOutput) => void
   ): void;
 
@@ -2033,7 +2045,7 @@ export interface CloudWatchLogs {
   listAnomalies(): Promise<ListAnomaliesCommandOutput>;
   listAnomalies(
     args: ListAnomaliesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListAnomaliesCommandOutput>;
   listAnomalies(
     args: ListAnomaliesCommandInput,
@@ -2041,7 +2053,7 @@ export interface CloudWatchLogs {
   ): void;
   listAnomalies(
     args: ListAnomaliesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListAnomaliesCommandOutput) => void
   ): void;
 
@@ -2051,7 +2063,7 @@ export interface CloudWatchLogs {
   listIntegrations(): Promise<ListIntegrationsCommandOutput>;
   listIntegrations(
     args: ListIntegrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListIntegrationsCommandOutput>;
   listIntegrations(
     args: ListIntegrationsCommandInput,
@@ -2059,7 +2071,7 @@ export interface CloudWatchLogs {
   ): void;
   listIntegrations(
     args: ListIntegrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListIntegrationsCommandOutput) => void
   ): void;
 
@@ -2069,7 +2081,7 @@ export interface CloudWatchLogs {
   listLogAnomalyDetectors(): Promise<ListLogAnomalyDetectorsCommandOutput>;
   listLogAnomalyDetectors(
     args: ListLogAnomalyDetectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListLogAnomalyDetectorsCommandOutput>;
   listLogAnomalyDetectors(
     args: ListLogAnomalyDetectorsCommandInput,
@@ -2077,7 +2089,7 @@ export interface CloudWatchLogs {
   ): void;
   listLogAnomalyDetectors(
     args: ListLogAnomalyDetectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListLogAnomalyDetectorsCommandOutput) => void
   ): void;
 
@@ -2087,7 +2099,7 @@ export interface CloudWatchLogs {
   listLogGroups(): Promise<ListLogGroupsCommandOutput>;
   listLogGroups(
     args: ListLogGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListLogGroupsCommandOutput>;
   listLogGroups(
     args: ListLogGroupsCommandInput,
@@ -2095,7 +2107,7 @@ export interface CloudWatchLogs {
   ): void;
   listLogGroups(
     args: ListLogGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListLogGroupsCommandOutput) => void
   ): void;
 
@@ -2104,7 +2116,7 @@ export interface CloudWatchLogs {
    */
   listLogGroupsForQuery(
     args: ListLogGroupsForQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListLogGroupsForQueryCommandOutput>;
   listLogGroupsForQuery(
     args: ListLogGroupsForQueryCommandInput,
@@ -2112,7 +2124,7 @@ export interface CloudWatchLogs {
   ): void;
   listLogGroupsForQuery(
     args: ListLogGroupsForQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListLogGroupsForQueryCommandOutput) => void
   ): void;
 
@@ -2122,7 +2134,7 @@ export interface CloudWatchLogs {
   listScheduledQueries(): Promise<ListScheduledQueriesCommandOutput>;
   listScheduledQueries(
     args: ListScheduledQueriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListScheduledQueriesCommandOutput>;
   listScheduledQueries(
     args: ListScheduledQueriesCommandInput,
@@ -2130,7 +2142,7 @@ export interface CloudWatchLogs {
   ): void;
   listScheduledQueries(
     args: ListScheduledQueriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListScheduledQueriesCommandOutput) => void
   ): void;
 
@@ -2139,7 +2151,7 @@ export interface CloudWatchLogs {
    */
   listSourcesForS3TableIntegration(
     args: ListSourcesForS3TableIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListSourcesForS3TableIntegrationCommandOutput>;
   listSourcesForS3TableIntegration(
     args: ListSourcesForS3TableIntegrationCommandInput,
@@ -2147,7 +2159,7 @@ export interface CloudWatchLogs {
   ): void;
   listSourcesForS3TableIntegration(
     args: ListSourcesForS3TableIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListSourcesForS3TableIntegrationCommandOutput) => void
   ): void;
 
@@ -2157,7 +2169,7 @@ export interface CloudWatchLogs {
   listSyslogConfigurations(): Promise<ListSyslogConfigurationsCommandOutput>;
   listSyslogConfigurations(
     args: ListSyslogConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListSyslogConfigurationsCommandOutput>;
   listSyslogConfigurations(
     args: ListSyslogConfigurationsCommandInput,
@@ -2165,7 +2177,7 @@ export interface CloudWatchLogs {
   ): void;
   listSyslogConfigurations(
     args: ListSyslogConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListSyslogConfigurationsCommandOutput) => void
   ): void;
 
@@ -2174,7 +2186,7 @@ export interface CloudWatchLogs {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2182,7 +2194,7 @@ export interface CloudWatchLogs {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2191,7 +2203,7 @@ export interface CloudWatchLogs {
    */
   listTagsLogGroup(
     args: ListTagsLogGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<ListTagsLogGroupCommandOutput>;
   listTagsLogGroup(
     args: ListTagsLogGroupCommandInput,
@@ -2199,7 +2211,7 @@ export interface CloudWatchLogs {
   ): void;
   listTagsLogGroup(
     args: ListTagsLogGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: ListTagsLogGroupCommandOutput) => void
   ): void;
 
@@ -2208,7 +2220,7 @@ export interface CloudWatchLogs {
    */
   putAccountPolicy(
     args: PutAccountPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutAccountPolicyCommandOutput>;
   putAccountPolicy(
     args: PutAccountPolicyCommandInput,
@@ -2216,7 +2228,7 @@ export interface CloudWatchLogs {
   ): void;
   putAccountPolicy(
     args: PutAccountPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutAccountPolicyCommandOutput) => void
   ): void;
 
@@ -2225,7 +2237,7 @@ export interface CloudWatchLogs {
    */
   putBearerTokenAuthentication(
     args: PutBearerTokenAuthenticationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutBearerTokenAuthenticationCommandOutput>;
   putBearerTokenAuthentication(
     args: PutBearerTokenAuthenticationCommandInput,
@@ -2233,7 +2245,7 @@ export interface CloudWatchLogs {
   ): void;
   putBearerTokenAuthentication(
     args: PutBearerTokenAuthenticationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutBearerTokenAuthenticationCommandOutput) => void
   ): void;
 
@@ -2242,7 +2254,7 @@ export interface CloudWatchLogs {
    */
   putDataProtectionPolicy(
     args: PutDataProtectionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutDataProtectionPolicyCommandOutput>;
   putDataProtectionPolicy(
     args: PutDataProtectionPolicyCommandInput,
@@ -2250,7 +2262,7 @@ export interface CloudWatchLogs {
   ): void;
   putDataProtectionPolicy(
     args: PutDataProtectionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutDataProtectionPolicyCommandOutput) => void
   ): void;
 
@@ -2259,7 +2271,7 @@ export interface CloudWatchLogs {
    */
   putDeliveryDestination(
     args: PutDeliveryDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutDeliveryDestinationCommandOutput>;
   putDeliveryDestination(
     args: PutDeliveryDestinationCommandInput,
@@ -2267,7 +2279,7 @@ export interface CloudWatchLogs {
   ): void;
   putDeliveryDestination(
     args: PutDeliveryDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutDeliveryDestinationCommandOutput) => void
   ): void;
 
@@ -2276,7 +2288,7 @@ export interface CloudWatchLogs {
    */
   putDeliveryDestinationPolicy(
     args: PutDeliveryDestinationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutDeliveryDestinationPolicyCommandOutput>;
   putDeliveryDestinationPolicy(
     args: PutDeliveryDestinationPolicyCommandInput,
@@ -2284,7 +2296,7 @@ export interface CloudWatchLogs {
   ): void;
   putDeliveryDestinationPolicy(
     args: PutDeliveryDestinationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutDeliveryDestinationPolicyCommandOutput) => void
   ): void;
 
@@ -2293,7 +2305,7 @@ export interface CloudWatchLogs {
    */
   putDeliverySource(
     args: PutDeliverySourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutDeliverySourceCommandOutput>;
   putDeliverySource(
     args: PutDeliverySourceCommandInput,
@@ -2301,7 +2313,7 @@ export interface CloudWatchLogs {
   ): void;
   putDeliverySource(
     args: PutDeliverySourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutDeliverySourceCommandOutput) => void
   ): void;
 
@@ -2310,7 +2322,7 @@ export interface CloudWatchLogs {
    */
   putDestination(
     args: PutDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutDestinationCommandOutput>;
   putDestination(
     args: PutDestinationCommandInput,
@@ -2318,7 +2330,7 @@ export interface CloudWatchLogs {
   ): void;
   putDestination(
     args: PutDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutDestinationCommandOutput) => void
   ): void;
 
@@ -2327,7 +2339,7 @@ export interface CloudWatchLogs {
    */
   putDestinationPolicy(
     args: PutDestinationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutDestinationPolicyCommandOutput>;
   putDestinationPolicy(
     args: PutDestinationPolicyCommandInput,
@@ -2335,7 +2347,7 @@ export interface CloudWatchLogs {
   ): void;
   putDestinationPolicy(
     args: PutDestinationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutDestinationPolicyCommandOutput) => void
   ): void;
 
@@ -2344,7 +2356,7 @@ export interface CloudWatchLogs {
    */
   putIndexPolicy(
     args: PutIndexPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutIndexPolicyCommandOutput>;
   putIndexPolicy(
     args: PutIndexPolicyCommandInput,
@@ -2352,7 +2364,7 @@ export interface CloudWatchLogs {
   ): void;
   putIndexPolicy(
     args: PutIndexPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutIndexPolicyCommandOutput) => void
   ): void;
 
@@ -2361,7 +2373,7 @@ export interface CloudWatchLogs {
    */
   putIntegration(
     args: PutIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutIntegrationCommandOutput>;
   putIntegration(
     args: PutIntegrationCommandInput,
@@ -2369,7 +2381,7 @@ export interface CloudWatchLogs {
   ): void;
   putIntegration(
     args: PutIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutIntegrationCommandOutput) => void
   ): void;
 
@@ -2378,7 +2390,7 @@ export interface CloudWatchLogs {
    */
   putLogEvents(
     args: PutLogEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutLogEventsCommandOutput>;
   putLogEvents(
     args: PutLogEventsCommandInput,
@@ -2386,7 +2398,7 @@ export interface CloudWatchLogs {
   ): void;
   putLogEvents(
     args: PutLogEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutLogEventsCommandOutput) => void
   ): void;
 
@@ -2395,7 +2407,7 @@ export interface CloudWatchLogs {
    */
   putLogGroupDeletionProtection(
     args: PutLogGroupDeletionProtectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutLogGroupDeletionProtectionCommandOutput>;
   putLogGroupDeletionProtection(
     args: PutLogGroupDeletionProtectionCommandInput,
@@ -2403,7 +2415,7 @@ export interface CloudWatchLogs {
   ): void;
   putLogGroupDeletionProtection(
     args: PutLogGroupDeletionProtectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutLogGroupDeletionProtectionCommandOutput) => void
   ): void;
 
@@ -2412,7 +2424,7 @@ export interface CloudWatchLogs {
    */
   putMetricFilter(
     args: PutMetricFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutMetricFilterCommandOutput>;
   putMetricFilter(
     args: PutMetricFilterCommandInput,
@@ -2420,7 +2432,7 @@ export interface CloudWatchLogs {
   ): void;
   putMetricFilter(
     args: PutMetricFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutMetricFilterCommandOutput) => void
   ): void;
 
@@ -2429,7 +2441,7 @@ export interface CloudWatchLogs {
    */
   putQueryDefinition(
     args: PutQueryDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutQueryDefinitionCommandOutput>;
   putQueryDefinition(
     args: PutQueryDefinitionCommandInput,
@@ -2437,7 +2449,7 @@ export interface CloudWatchLogs {
   ): void;
   putQueryDefinition(
     args: PutQueryDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutQueryDefinitionCommandOutput) => void
   ): void;
 
@@ -2447,7 +2459,7 @@ export interface CloudWatchLogs {
   putResourcePolicy(): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -2455,7 +2467,7 @@ export interface CloudWatchLogs {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -2464,7 +2476,7 @@ export interface CloudWatchLogs {
    */
   putRetentionPolicy(
     args: PutRetentionPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutRetentionPolicyCommandOutput>;
   putRetentionPolicy(
     args: PutRetentionPolicyCommandInput,
@@ -2472,7 +2484,7 @@ export interface CloudWatchLogs {
   ): void;
   putRetentionPolicy(
     args: PutRetentionPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutRetentionPolicyCommandOutput) => void
   ): void;
 
@@ -2481,7 +2493,7 @@ export interface CloudWatchLogs {
    */
   putStorageTierPolicy(
     args: PutStorageTierPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutStorageTierPolicyCommandOutput>;
   putStorageTierPolicy(
     args: PutStorageTierPolicyCommandInput,
@@ -2489,7 +2501,7 @@ export interface CloudWatchLogs {
   ): void;
   putStorageTierPolicy(
     args: PutStorageTierPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutStorageTierPolicyCommandOutput) => void
   ): void;
 
@@ -2498,7 +2510,7 @@ export interface CloudWatchLogs {
    */
   putSubscriptionFilter(
     args: PutSubscriptionFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutSubscriptionFilterCommandOutput>;
   putSubscriptionFilter(
     args: PutSubscriptionFilterCommandInput,
@@ -2506,7 +2518,7 @@ export interface CloudWatchLogs {
   ): void;
   putSubscriptionFilter(
     args: PutSubscriptionFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutSubscriptionFilterCommandOutput) => void
   ): void;
 
@@ -2515,7 +2527,7 @@ export interface CloudWatchLogs {
    */
   putSyslogConfiguration(
     args: PutSyslogConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutSyslogConfigurationCommandOutput>;
   putSyslogConfiguration(
     args: PutSyslogConfigurationCommandInput,
@@ -2523,7 +2535,7 @@ export interface CloudWatchLogs {
   ): void;
   putSyslogConfiguration(
     args: PutSyslogConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutSyslogConfigurationCommandOutput) => void
   ): void;
 
@@ -2532,7 +2544,7 @@ export interface CloudWatchLogs {
    */
   putTransformer(
     args: PutTransformerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<PutTransformerCommandOutput>;
   putTransformer(
     args: PutTransformerCommandInput,
@@ -2540,7 +2552,7 @@ export interface CloudWatchLogs {
   ): void;
   putTransformer(
     args: PutTransformerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: PutTransformerCommandOutput) => void
   ): void;
 
@@ -2549,7 +2561,7 @@ export interface CloudWatchLogs {
    */
   startLiveTail(
     args: StartLiveTailCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<StartLiveTailCommandOutput>;
   startLiveTail(
     args: StartLiveTailCommandInput,
@@ -2557,7 +2569,7 @@ export interface CloudWatchLogs {
   ): void;
   startLiveTail(
     args: StartLiveTailCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: StartLiveTailCommandOutput) => void
   ): void;
 
@@ -2566,7 +2578,7 @@ export interface CloudWatchLogs {
    */
   startQuery(
     args: StartQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<StartQueryCommandOutput>;
   startQuery(
     args: StartQueryCommandInput,
@@ -2574,7 +2586,7 @@ export interface CloudWatchLogs {
   ): void;
   startQuery(
     args: StartQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: StartQueryCommandOutput) => void
   ): void;
 
@@ -2583,7 +2595,7 @@ export interface CloudWatchLogs {
    */
   stopQuery(
     args: StopQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<StopQueryCommandOutput>;
   stopQuery(
     args: StopQueryCommandInput,
@@ -2591,7 +2603,7 @@ export interface CloudWatchLogs {
   ): void;
   stopQuery(
     args: StopQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: StopQueryCommandOutput) => void
   ): void;
 
@@ -2600,7 +2612,7 @@ export interface CloudWatchLogs {
    */
   tagLogGroup(
     args: TagLogGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<TagLogGroupCommandOutput>;
   tagLogGroup(
     args: TagLogGroupCommandInput,
@@ -2608,7 +2620,7 @@ export interface CloudWatchLogs {
   ): void;
   tagLogGroup(
     args: TagLogGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: TagLogGroupCommandOutput) => void
   ): void;
 
@@ -2617,7 +2629,7 @@ export interface CloudWatchLogs {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2625,7 +2637,7 @@ export interface CloudWatchLogs {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2634,7 +2646,7 @@ export interface CloudWatchLogs {
    */
   testMetricFilter(
     args: TestMetricFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<TestMetricFilterCommandOutput>;
   testMetricFilter(
     args: TestMetricFilterCommandInput,
@@ -2642,7 +2654,7 @@ export interface CloudWatchLogs {
   ): void;
   testMetricFilter(
     args: TestMetricFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: TestMetricFilterCommandOutput) => void
   ): void;
 
@@ -2651,7 +2663,7 @@ export interface CloudWatchLogs {
    */
   testTransformer(
     args: TestTransformerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<TestTransformerCommandOutput>;
   testTransformer(
     args: TestTransformerCommandInput,
@@ -2659,7 +2671,7 @@ export interface CloudWatchLogs {
   ): void;
   testTransformer(
     args: TestTransformerCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: TestTransformerCommandOutput) => void
   ): void;
 
@@ -2668,7 +2680,7 @@ export interface CloudWatchLogs {
    */
   untagLogGroup(
     args: UntagLogGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<UntagLogGroupCommandOutput>;
   untagLogGroup(
     args: UntagLogGroupCommandInput,
@@ -2676,7 +2688,7 @@ export interface CloudWatchLogs {
   ): void;
   untagLogGroup(
     args: UntagLogGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: UntagLogGroupCommandOutput) => void
   ): void;
 
@@ -2685,7 +2697,7 @@ export interface CloudWatchLogs {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2693,7 +2705,7 @@ export interface CloudWatchLogs {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2702,7 +2714,7 @@ export interface CloudWatchLogs {
    */
   updateAnomaly(
     args: UpdateAnomalyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<UpdateAnomalyCommandOutput>;
   updateAnomaly(
     args: UpdateAnomalyCommandInput,
@@ -2710,7 +2722,7 @@ export interface CloudWatchLogs {
   ): void;
   updateAnomaly(
     args: UpdateAnomalyCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: UpdateAnomalyCommandOutput) => void
   ): void;
 
@@ -2719,7 +2731,7 @@ export interface CloudWatchLogs {
    */
   updateDeliveryConfiguration(
     args: UpdateDeliveryConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<UpdateDeliveryConfigurationCommandOutput>;
   updateDeliveryConfiguration(
     args: UpdateDeliveryConfigurationCommandInput,
@@ -2727,7 +2739,7 @@ export interface CloudWatchLogs {
   ): void;
   updateDeliveryConfiguration(
     args: UpdateDeliveryConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: UpdateDeliveryConfigurationCommandOutput) => void
   ): void;
 
@@ -2736,7 +2748,7 @@ export interface CloudWatchLogs {
    */
   updateLogAnomalyDetector(
     args: UpdateLogAnomalyDetectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<UpdateLogAnomalyDetectorCommandOutput>;
   updateLogAnomalyDetector(
     args: UpdateLogAnomalyDetectorCommandInput,
@@ -2744,7 +2756,7 @@ export interface CloudWatchLogs {
   ): void;
   updateLogAnomalyDetector(
     args: UpdateLogAnomalyDetectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: UpdateLogAnomalyDetectorCommandOutput) => void
   ): void;
 
@@ -2753,7 +2765,7 @@ export interface CloudWatchLogs {
    */
   updateLookupTable(
     args: UpdateLookupTableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<UpdateLookupTableCommandOutput>;
   updateLookupTable(
     args: UpdateLookupTableCommandInput,
@@ -2761,7 +2773,7 @@ export interface CloudWatchLogs {
   ): void;
   updateLookupTable(
     args: UpdateLookupTableCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: UpdateLookupTableCommandOutput) => void
   ): void;
 
@@ -2770,7 +2782,7 @@ export interface CloudWatchLogs {
    */
   updateScheduledQuery(
     args: UpdateScheduledQueryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CloudWatchLogsRequestOptions
   ): Promise<UpdateScheduledQueryCommandOutput>;
   updateScheduledQuery(
     args: UpdateScheduledQueryCommandInput,
@@ -2778,7 +2790,7 @@ export interface CloudWatchLogs {
   ): void;
   updateScheduledQuery(
     args: UpdateScheduledQueryCommandInput,
-    options: __HttpHandlerOptions,
+    options: CloudWatchLogsRequestOptions,
     cb: (err: any, data?: UpdateScheduledQueryCommandOutput) => void
   ): void;
 

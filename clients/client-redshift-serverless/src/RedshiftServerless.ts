@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ConvertRecoveryPointToSnapshotCommandInput,
@@ -423,13 +428,20 @@ const paginators = {
   paginateListWorkgroups,
 };
 
+/**
+ * @public
+ */
+export interface RedshiftServerlessRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface RedshiftServerless {
   /**
    * @see {@link ConvertRecoveryPointToSnapshotCommand}
    */
   convertRecoveryPointToSnapshot(
     args: ConvertRecoveryPointToSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ConvertRecoveryPointToSnapshotCommandOutput>;
   convertRecoveryPointToSnapshot(
     args: ConvertRecoveryPointToSnapshotCommandInput,
@@ -437,7 +449,7 @@ export interface RedshiftServerless {
   ): void;
   convertRecoveryPointToSnapshot(
     args: ConvertRecoveryPointToSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ConvertRecoveryPointToSnapshotCommandOutput) => void
   ): void;
 
@@ -446,7 +458,7 @@ export interface RedshiftServerless {
    */
   createCustomDomainAssociation(
     args: CreateCustomDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<CreateCustomDomainAssociationCommandOutput>;
   createCustomDomainAssociation(
     args: CreateCustomDomainAssociationCommandInput,
@@ -454,7 +466,7 @@ export interface RedshiftServerless {
   ): void;
   createCustomDomainAssociation(
     args: CreateCustomDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: CreateCustomDomainAssociationCommandOutput) => void
   ): void;
 
@@ -463,7 +475,7 @@ export interface RedshiftServerless {
    */
   createEndpointAccess(
     args: CreateEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<CreateEndpointAccessCommandOutput>;
   createEndpointAccess(
     args: CreateEndpointAccessCommandInput,
@@ -471,7 +483,7 @@ export interface RedshiftServerless {
   ): void;
   createEndpointAccess(
     args: CreateEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: CreateEndpointAccessCommandOutput) => void
   ): void;
 
@@ -480,7 +492,7 @@ export interface RedshiftServerless {
    */
   createNamespace(
     args: CreateNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<CreateNamespaceCommandOutput>;
   createNamespace(
     args: CreateNamespaceCommandInput,
@@ -488,7 +500,7 @@ export interface RedshiftServerless {
   ): void;
   createNamespace(
     args: CreateNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: CreateNamespaceCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface RedshiftServerless {
    */
   createReservation(
     args: CreateReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<CreateReservationCommandOutput>;
   createReservation(
     args: CreateReservationCommandInput,
@@ -505,7 +517,7 @@ export interface RedshiftServerless {
   ): void;
   createReservation(
     args: CreateReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: CreateReservationCommandOutput) => void
   ): void;
 
@@ -514,7 +526,7 @@ export interface RedshiftServerless {
    */
   createScheduledAction(
     args: CreateScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<CreateScheduledActionCommandOutput>;
   createScheduledAction(
     args: CreateScheduledActionCommandInput,
@@ -522,7 +534,7 @@ export interface RedshiftServerless {
   ): void;
   createScheduledAction(
     args: CreateScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: CreateScheduledActionCommandOutput) => void
   ): void;
 
@@ -531,7 +543,7 @@ export interface RedshiftServerless {
    */
   createSnapshot(
     args: CreateSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<CreateSnapshotCommandOutput>;
   createSnapshot(
     args: CreateSnapshotCommandInput,
@@ -539,7 +551,7 @@ export interface RedshiftServerless {
   ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): void;
 
@@ -548,7 +560,7 @@ export interface RedshiftServerless {
    */
   createSnapshotCopyConfiguration(
     args: CreateSnapshotCopyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<CreateSnapshotCopyConfigurationCommandOutput>;
   createSnapshotCopyConfiguration(
     args: CreateSnapshotCopyConfigurationCommandInput,
@@ -556,7 +568,7 @@ export interface RedshiftServerless {
   ): void;
   createSnapshotCopyConfiguration(
     args: CreateSnapshotCopyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: CreateSnapshotCopyConfigurationCommandOutput) => void
   ): void;
 
@@ -565,7 +577,7 @@ export interface RedshiftServerless {
    */
   createUsageLimit(
     args: CreateUsageLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<CreateUsageLimitCommandOutput>;
   createUsageLimit(
     args: CreateUsageLimitCommandInput,
@@ -573,7 +585,7 @@ export interface RedshiftServerless {
   ): void;
   createUsageLimit(
     args: CreateUsageLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: CreateUsageLimitCommandOutput) => void
   ): void;
 
@@ -582,7 +594,7 @@ export interface RedshiftServerless {
    */
   createWorkgroup(
     args: CreateWorkgroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<CreateWorkgroupCommandOutput>;
   createWorkgroup(
     args: CreateWorkgroupCommandInput,
@@ -590,7 +602,7 @@ export interface RedshiftServerless {
   ): void;
   createWorkgroup(
     args: CreateWorkgroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: CreateWorkgroupCommandOutput) => void
   ): void;
 
@@ -599,7 +611,7 @@ export interface RedshiftServerless {
    */
   deleteCustomDomainAssociation(
     args: DeleteCustomDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<DeleteCustomDomainAssociationCommandOutput>;
   deleteCustomDomainAssociation(
     args: DeleteCustomDomainAssociationCommandInput,
@@ -607,7 +619,7 @@ export interface RedshiftServerless {
   ): void;
   deleteCustomDomainAssociation(
     args: DeleteCustomDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: DeleteCustomDomainAssociationCommandOutput) => void
   ): void;
 
@@ -616,7 +628,7 @@ export interface RedshiftServerless {
    */
   deleteEndpointAccess(
     args: DeleteEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<DeleteEndpointAccessCommandOutput>;
   deleteEndpointAccess(
     args: DeleteEndpointAccessCommandInput,
@@ -624,7 +636,7 @@ export interface RedshiftServerless {
   ): void;
   deleteEndpointAccess(
     args: DeleteEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: DeleteEndpointAccessCommandOutput) => void
   ): void;
 
@@ -633,7 +645,7 @@ export interface RedshiftServerless {
    */
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<DeleteNamespaceCommandOutput>;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
@@ -641,7 +653,7 @@ export interface RedshiftServerless {
   ): void;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: DeleteNamespaceCommandOutput) => void
   ): void;
 
@@ -650,7 +662,7 @@ export interface RedshiftServerless {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -658,7 +670,7 @@ export interface RedshiftServerless {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -667,7 +679,7 @@ export interface RedshiftServerless {
    */
   deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<DeleteScheduledActionCommandOutput>;
   deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
@@ -675,7 +687,7 @@ export interface RedshiftServerless {
   ): void;
   deleteScheduledAction(
     args: DeleteScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: DeleteScheduledActionCommandOutput) => void
   ): void;
 
@@ -684,7 +696,7 @@ export interface RedshiftServerless {
    */
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<DeleteSnapshotCommandOutput>;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
@@ -692,7 +704,7 @@ export interface RedshiftServerless {
   ): void;
   deleteSnapshot(
     args: DeleteSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): void;
 
@@ -701,7 +713,7 @@ export interface RedshiftServerless {
    */
   deleteSnapshotCopyConfiguration(
     args: DeleteSnapshotCopyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<DeleteSnapshotCopyConfigurationCommandOutput>;
   deleteSnapshotCopyConfiguration(
     args: DeleteSnapshotCopyConfigurationCommandInput,
@@ -709,7 +721,7 @@ export interface RedshiftServerless {
   ): void;
   deleteSnapshotCopyConfiguration(
     args: DeleteSnapshotCopyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: DeleteSnapshotCopyConfigurationCommandOutput) => void
   ): void;
 
@@ -718,7 +730,7 @@ export interface RedshiftServerless {
    */
   deleteUsageLimit(
     args: DeleteUsageLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<DeleteUsageLimitCommandOutput>;
   deleteUsageLimit(
     args: DeleteUsageLimitCommandInput,
@@ -726,7 +738,7 @@ export interface RedshiftServerless {
   ): void;
   deleteUsageLimit(
     args: DeleteUsageLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: DeleteUsageLimitCommandOutput) => void
   ): void;
 
@@ -735,7 +747,7 @@ export interface RedshiftServerless {
    */
   deleteWorkgroup(
     args: DeleteWorkgroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<DeleteWorkgroupCommandOutput>;
   deleteWorkgroup(
     args: DeleteWorkgroupCommandInput,
@@ -743,7 +755,7 @@ export interface RedshiftServerless {
   ): void;
   deleteWorkgroup(
     args: DeleteWorkgroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: DeleteWorkgroupCommandOutput) => void
   ): void;
 
@@ -753,7 +765,7 @@ export interface RedshiftServerless {
   getCredentials(): Promise<GetCredentialsCommandOutput>;
   getCredentials(
     args: GetCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetCredentialsCommandOutput>;
   getCredentials(
     args: GetCredentialsCommandInput,
@@ -761,7 +773,7 @@ export interface RedshiftServerless {
   ): void;
   getCredentials(
     args: GetCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetCredentialsCommandOutput) => void
   ): void;
 
@@ -770,7 +782,7 @@ export interface RedshiftServerless {
    */
   getCustomDomainAssociation(
     args: GetCustomDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetCustomDomainAssociationCommandOutput>;
   getCustomDomainAssociation(
     args: GetCustomDomainAssociationCommandInput,
@@ -778,7 +790,7 @@ export interface RedshiftServerless {
   ): void;
   getCustomDomainAssociation(
     args: GetCustomDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetCustomDomainAssociationCommandOutput) => void
   ): void;
 
@@ -787,7 +799,7 @@ export interface RedshiftServerless {
    */
   getEndpointAccess(
     args: GetEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetEndpointAccessCommandOutput>;
   getEndpointAccess(
     args: GetEndpointAccessCommandInput,
@@ -795,7 +807,7 @@ export interface RedshiftServerless {
   ): void;
   getEndpointAccess(
     args: GetEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetEndpointAccessCommandOutput) => void
   ): void;
 
@@ -804,7 +816,7 @@ export interface RedshiftServerless {
    */
   getIdentityCenterAuthToken(
     args: GetIdentityCenterAuthTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetIdentityCenterAuthTokenCommandOutput>;
   getIdentityCenterAuthToken(
     args: GetIdentityCenterAuthTokenCommandInput,
@@ -812,7 +824,7 @@ export interface RedshiftServerless {
   ): void;
   getIdentityCenterAuthToken(
     args: GetIdentityCenterAuthTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetIdentityCenterAuthTokenCommandOutput) => void
   ): void;
 
@@ -821,7 +833,7 @@ export interface RedshiftServerless {
    */
   getNamespace(
     args: GetNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetNamespaceCommandOutput>;
   getNamespace(
     args: GetNamespaceCommandInput,
@@ -829,7 +841,7 @@ export interface RedshiftServerless {
   ): void;
   getNamespace(
     args: GetNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetNamespaceCommandOutput) => void
   ): void;
 
@@ -838,7 +850,7 @@ export interface RedshiftServerless {
    */
   getRecoveryPoint(
     args: GetRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetRecoveryPointCommandOutput>;
   getRecoveryPoint(
     args: GetRecoveryPointCommandInput,
@@ -846,7 +858,7 @@ export interface RedshiftServerless {
   ): void;
   getRecoveryPoint(
     args: GetRecoveryPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetRecoveryPointCommandOutput) => void
   ): void;
 
@@ -855,7 +867,7 @@ export interface RedshiftServerless {
    */
   getReservation(
     args: GetReservationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetReservationCommandOutput>;
   getReservation(
     args: GetReservationCommandInput,
@@ -863,7 +875,7 @@ export interface RedshiftServerless {
   ): void;
   getReservation(
     args: GetReservationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetReservationCommandOutput) => void
   ): void;
 
@@ -872,7 +884,7 @@ export interface RedshiftServerless {
    */
   getReservationOffering(
     args: GetReservationOfferingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetReservationOfferingCommandOutput>;
   getReservationOffering(
     args: GetReservationOfferingCommandInput,
@@ -880,7 +892,7 @@ export interface RedshiftServerless {
   ): void;
   getReservationOffering(
     args: GetReservationOfferingCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetReservationOfferingCommandOutput) => void
   ): void;
 
@@ -889,7 +901,7 @@ export interface RedshiftServerless {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -897,7 +909,7 @@ export interface RedshiftServerless {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -906,7 +918,7 @@ export interface RedshiftServerless {
    */
   getScheduledAction(
     args: GetScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetScheduledActionCommandOutput>;
   getScheduledAction(
     args: GetScheduledActionCommandInput,
@@ -914,7 +926,7 @@ export interface RedshiftServerless {
   ): void;
   getScheduledAction(
     args: GetScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetScheduledActionCommandOutput) => void
   ): void;
 
@@ -924,7 +936,7 @@ export interface RedshiftServerless {
   getSnapshot(): Promise<GetSnapshotCommandOutput>;
   getSnapshot(
     args: GetSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetSnapshotCommandOutput>;
   getSnapshot(
     args: GetSnapshotCommandInput,
@@ -932,7 +944,7 @@ export interface RedshiftServerless {
   ): void;
   getSnapshot(
     args: GetSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetSnapshotCommandOutput) => void
   ): void;
 
@@ -941,7 +953,7 @@ export interface RedshiftServerless {
    */
   getTableRestoreStatus(
     args: GetTableRestoreStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetTableRestoreStatusCommandOutput>;
   getTableRestoreStatus(
     args: GetTableRestoreStatusCommandInput,
@@ -949,7 +961,7 @@ export interface RedshiftServerless {
   ): void;
   getTableRestoreStatus(
     args: GetTableRestoreStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetTableRestoreStatusCommandOutput) => void
   ): void;
 
@@ -958,7 +970,7 @@ export interface RedshiftServerless {
    */
   getTrack(
     args: GetTrackCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetTrackCommandOutput>;
   getTrack(
     args: GetTrackCommandInput,
@@ -966,7 +978,7 @@ export interface RedshiftServerless {
   ): void;
   getTrack(
     args: GetTrackCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetTrackCommandOutput) => void
   ): void;
 
@@ -975,7 +987,7 @@ export interface RedshiftServerless {
    */
   getUsageLimit(
     args: GetUsageLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetUsageLimitCommandOutput>;
   getUsageLimit(
     args: GetUsageLimitCommandInput,
@@ -983,7 +995,7 @@ export interface RedshiftServerless {
   ): void;
   getUsageLimit(
     args: GetUsageLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetUsageLimitCommandOutput) => void
   ): void;
 
@@ -992,7 +1004,7 @@ export interface RedshiftServerless {
    */
   getWorkgroup(
     args: GetWorkgroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<GetWorkgroupCommandOutput>;
   getWorkgroup(
     args: GetWorkgroupCommandInput,
@@ -1000,7 +1012,7 @@ export interface RedshiftServerless {
   ): void;
   getWorkgroup(
     args: GetWorkgroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: GetWorkgroupCommandOutput) => void
   ): void;
 
@@ -1010,7 +1022,7 @@ export interface RedshiftServerless {
   listCustomDomainAssociations(): Promise<ListCustomDomainAssociationsCommandOutput>;
   listCustomDomainAssociations(
     args: ListCustomDomainAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListCustomDomainAssociationsCommandOutput>;
   listCustomDomainAssociations(
     args: ListCustomDomainAssociationsCommandInput,
@@ -1018,7 +1030,7 @@ export interface RedshiftServerless {
   ): void;
   listCustomDomainAssociations(
     args: ListCustomDomainAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListCustomDomainAssociationsCommandOutput) => void
   ): void;
 
@@ -1028,7 +1040,7 @@ export interface RedshiftServerless {
   listEndpointAccess(): Promise<ListEndpointAccessCommandOutput>;
   listEndpointAccess(
     args: ListEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListEndpointAccessCommandOutput>;
   listEndpointAccess(
     args: ListEndpointAccessCommandInput,
@@ -1036,7 +1048,7 @@ export interface RedshiftServerless {
   ): void;
   listEndpointAccess(
     args: ListEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListEndpointAccessCommandOutput) => void
   ): void;
 
@@ -1046,7 +1058,7 @@ export interface RedshiftServerless {
   listManagedWorkgroups(): Promise<ListManagedWorkgroupsCommandOutput>;
   listManagedWorkgroups(
     args: ListManagedWorkgroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListManagedWorkgroupsCommandOutput>;
   listManagedWorkgroups(
     args: ListManagedWorkgroupsCommandInput,
@@ -1054,7 +1066,7 @@ export interface RedshiftServerless {
   ): void;
   listManagedWorkgroups(
     args: ListManagedWorkgroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListManagedWorkgroupsCommandOutput) => void
   ): void;
 
@@ -1064,7 +1076,7 @@ export interface RedshiftServerless {
   listNamespaces(): Promise<ListNamespacesCommandOutput>;
   listNamespaces(
     args: ListNamespacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListNamespacesCommandOutput>;
   listNamespaces(
     args: ListNamespacesCommandInput,
@@ -1072,7 +1084,7 @@ export interface RedshiftServerless {
   ): void;
   listNamespaces(
     args: ListNamespacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListNamespacesCommandOutput) => void
   ): void;
 
@@ -1082,7 +1094,7 @@ export interface RedshiftServerless {
   listRecoveryPoints(): Promise<ListRecoveryPointsCommandOutput>;
   listRecoveryPoints(
     args: ListRecoveryPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListRecoveryPointsCommandOutput>;
   listRecoveryPoints(
     args: ListRecoveryPointsCommandInput,
@@ -1090,7 +1102,7 @@ export interface RedshiftServerless {
   ): void;
   listRecoveryPoints(
     args: ListRecoveryPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListRecoveryPointsCommandOutput) => void
   ): void;
 
@@ -1100,7 +1112,7 @@ export interface RedshiftServerless {
   listReservationOfferings(): Promise<ListReservationOfferingsCommandOutput>;
   listReservationOfferings(
     args: ListReservationOfferingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListReservationOfferingsCommandOutput>;
   listReservationOfferings(
     args: ListReservationOfferingsCommandInput,
@@ -1108,7 +1120,7 @@ export interface RedshiftServerless {
   ): void;
   listReservationOfferings(
     args: ListReservationOfferingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListReservationOfferingsCommandOutput) => void
   ): void;
 
@@ -1118,7 +1130,7 @@ export interface RedshiftServerless {
   listReservations(): Promise<ListReservationsCommandOutput>;
   listReservations(
     args: ListReservationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListReservationsCommandOutput>;
   listReservations(
     args: ListReservationsCommandInput,
@@ -1126,7 +1138,7 @@ export interface RedshiftServerless {
   ): void;
   listReservations(
     args: ListReservationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListReservationsCommandOutput) => void
   ): void;
 
@@ -1136,7 +1148,7 @@ export interface RedshiftServerless {
   listScheduledActions(): Promise<ListScheduledActionsCommandOutput>;
   listScheduledActions(
     args: ListScheduledActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListScheduledActionsCommandOutput>;
   listScheduledActions(
     args: ListScheduledActionsCommandInput,
@@ -1144,7 +1156,7 @@ export interface RedshiftServerless {
   ): void;
   listScheduledActions(
     args: ListScheduledActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListScheduledActionsCommandOutput) => void
   ): void;
 
@@ -1154,7 +1166,7 @@ export interface RedshiftServerless {
   listSnapshotCopyConfigurations(): Promise<ListSnapshotCopyConfigurationsCommandOutput>;
   listSnapshotCopyConfigurations(
     args: ListSnapshotCopyConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListSnapshotCopyConfigurationsCommandOutput>;
   listSnapshotCopyConfigurations(
     args: ListSnapshotCopyConfigurationsCommandInput,
@@ -1162,7 +1174,7 @@ export interface RedshiftServerless {
   ): void;
   listSnapshotCopyConfigurations(
     args: ListSnapshotCopyConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListSnapshotCopyConfigurationsCommandOutput) => void
   ): void;
 
@@ -1172,7 +1184,7 @@ export interface RedshiftServerless {
   listSnapshots(): Promise<ListSnapshotsCommandOutput>;
   listSnapshots(
     args: ListSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListSnapshotsCommandOutput>;
   listSnapshots(
     args: ListSnapshotsCommandInput,
@@ -1180,7 +1192,7 @@ export interface RedshiftServerless {
   ): void;
   listSnapshots(
     args: ListSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListSnapshotsCommandOutput) => void
   ): void;
 
@@ -1190,7 +1202,7 @@ export interface RedshiftServerless {
   listTableRestoreStatus(): Promise<ListTableRestoreStatusCommandOutput>;
   listTableRestoreStatus(
     args: ListTableRestoreStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListTableRestoreStatusCommandOutput>;
   listTableRestoreStatus(
     args: ListTableRestoreStatusCommandInput,
@@ -1198,7 +1210,7 @@ export interface RedshiftServerless {
   ): void;
   listTableRestoreStatus(
     args: ListTableRestoreStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListTableRestoreStatusCommandOutput) => void
   ): void;
 
@@ -1207,7 +1219,7 @@ export interface RedshiftServerless {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1215,7 +1227,7 @@ export interface RedshiftServerless {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1225,7 +1237,7 @@ export interface RedshiftServerless {
   listTracks(): Promise<ListTracksCommandOutput>;
   listTracks(
     args: ListTracksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListTracksCommandOutput>;
   listTracks(
     args: ListTracksCommandInput,
@@ -1233,7 +1245,7 @@ export interface RedshiftServerless {
   ): void;
   listTracks(
     args: ListTracksCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListTracksCommandOutput) => void
   ): void;
 
@@ -1243,7 +1255,7 @@ export interface RedshiftServerless {
   listUsageLimits(): Promise<ListUsageLimitsCommandOutput>;
   listUsageLimits(
     args: ListUsageLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListUsageLimitsCommandOutput>;
   listUsageLimits(
     args: ListUsageLimitsCommandInput,
@@ -1251,7 +1263,7 @@ export interface RedshiftServerless {
   ): void;
   listUsageLimits(
     args: ListUsageLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListUsageLimitsCommandOutput) => void
   ): void;
 
@@ -1261,7 +1273,7 @@ export interface RedshiftServerless {
   listWorkgroups(): Promise<ListWorkgroupsCommandOutput>;
   listWorkgroups(
     args: ListWorkgroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<ListWorkgroupsCommandOutput>;
   listWorkgroups(
     args: ListWorkgroupsCommandInput,
@@ -1269,7 +1281,7 @@ export interface RedshiftServerless {
   ): void;
   listWorkgroups(
     args: ListWorkgroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: ListWorkgroupsCommandOutput) => void
   ): void;
 
@@ -1278,7 +1290,7 @@ export interface RedshiftServerless {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -1286,7 +1298,7 @@ export interface RedshiftServerless {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -1295,7 +1307,7 @@ export interface RedshiftServerless {
    */
   restoreFromRecoveryPoint(
     args: RestoreFromRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<RestoreFromRecoveryPointCommandOutput>;
   restoreFromRecoveryPoint(
     args: RestoreFromRecoveryPointCommandInput,
@@ -1303,7 +1315,7 @@ export interface RedshiftServerless {
   ): void;
   restoreFromRecoveryPoint(
     args: RestoreFromRecoveryPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: RestoreFromRecoveryPointCommandOutput) => void
   ): void;
 
@@ -1312,7 +1324,7 @@ export interface RedshiftServerless {
    */
   restoreFromSnapshot(
     args: RestoreFromSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<RestoreFromSnapshotCommandOutput>;
   restoreFromSnapshot(
     args: RestoreFromSnapshotCommandInput,
@@ -1320,7 +1332,7 @@ export interface RedshiftServerless {
   ): void;
   restoreFromSnapshot(
     args: RestoreFromSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: RestoreFromSnapshotCommandOutput) => void
   ): void;
 
@@ -1329,7 +1341,7 @@ export interface RedshiftServerless {
    */
   restoreTableFromRecoveryPoint(
     args: RestoreTableFromRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<RestoreTableFromRecoveryPointCommandOutput>;
   restoreTableFromRecoveryPoint(
     args: RestoreTableFromRecoveryPointCommandInput,
@@ -1337,7 +1349,7 @@ export interface RedshiftServerless {
   ): void;
   restoreTableFromRecoveryPoint(
     args: RestoreTableFromRecoveryPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: RestoreTableFromRecoveryPointCommandOutput) => void
   ): void;
 
@@ -1346,7 +1358,7 @@ export interface RedshiftServerless {
    */
   restoreTableFromSnapshot(
     args: RestoreTableFromSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<RestoreTableFromSnapshotCommandOutput>;
   restoreTableFromSnapshot(
     args: RestoreTableFromSnapshotCommandInput,
@@ -1354,7 +1366,7 @@ export interface RedshiftServerless {
   ): void;
   restoreTableFromSnapshot(
     args: RestoreTableFromSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: RestoreTableFromSnapshotCommandOutput) => void
   ): void;
 
@@ -1363,7 +1375,7 @@ export interface RedshiftServerless {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1371,7 +1383,7 @@ export interface RedshiftServerless {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1380,7 +1392,7 @@ export interface RedshiftServerless {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1388,7 +1400,7 @@ export interface RedshiftServerless {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1397,7 +1409,7 @@ export interface RedshiftServerless {
    */
   updateCustomDomainAssociation(
     args: UpdateCustomDomainAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UpdateCustomDomainAssociationCommandOutput>;
   updateCustomDomainAssociation(
     args: UpdateCustomDomainAssociationCommandInput,
@@ -1405,7 +1417,7 @@ export interface RedshiftServerless {
   ): void;
   updateCustomDomainAssociation(
     args: UpdateCustomDomainAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UpdateCustomDomainAssociationCommandOutput) => void
   ): void;
 
@@ -1414,7 +1426,7 @@ export interface RedshiftServerless {
    */
   updateEndpointAccess(
     args: UpdateEndpointAccessCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UpdateEndpointAccessCommandOutput>;
   updateEndpointAccess(
     args: UpdateEndpointAccessCommandInput,
@@ -1422,7 +1434,7 @@ export interface RedshiftServerless {
   ): void;
   updateEndpointAccess(
     args: UpdateEndpointAccessCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UpdateEndpointAccessCommandOutput) => void
   ): void;
 
@@ -1431,7 +1443,7 @@ export interface RedshiftServerless {
    */
   updateLakehouseConfiguration(
     args: UpdateLakehouseConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UpdateLakehouseConfigurationCommandOutput>;
   updateLakehouseConfiguration(
     args: UpdateLakehouseConfigurationCommandInput,
@@ -1439,7 +1451,7 @@ export interface RedshiftServerless {
   ): void;
   updateLakehouseConfiguration(
     args: UpdateLakehouseConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UpdateLakehouseConfigurationCommandOutput) => void
   ): void;
 
@@ -1448,7 +1460,7 @@ export interface RedshiftServerless {
    */
   updateNamespace(
     args: UpdateNamespaceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UpdateNamespaceCommandOutput>;
   updateNamespace(
     args: UpdateNamespaceCommandInput,
@@ -1456,7 +1468,7 @@ export interface RedshiftServerless {
   ): void;
   updateNamespace(
     args: UpdateNamespaceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UpdateNamespaceCommandOutput) => void
   ): void;
 
@@ -1465,7 +1477,7 @@ export interface RedshiftServerless {
    */
   updateScheduledAction(
     args: UpdateScheduledActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UpdateScheduledActionCommandOutput>;
   updateScheduledAction(
     args: UpdateScheduledActionCommandInput,
@@ -1473,7 +1485,7 @@ export interface RedshiftServerless {
   ): void;
   updateScheduledAction(
     args: UpdateScheduledActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UpdateScheduledActionCommandOutput) => void
   ): void;
 
@@ -1482,7 +1494,7 @@ export interface RedshiftServerless {
    */
   updateSnapshot(
     args: UpdateSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UpdateSnapshotCommandOutput>;
   updateSnapshot(
     args: UpdateSnapshotCommandInput,
@@ -1490,7 +1502,7 @@ export interface RedshiftServerless {
   ): void;
   updateSnapshot(
     args: UpdateSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UpdateSnapshotCommandOutput) => void
   ): void;
 
@@ -1499,7 +1511,7 @@ export interface RedshiftServerless {
    */
   updateSnapshotCopyConfiguration(
     args: UpdateSnapshotCopyConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UpdateSnapshotCopyConfigurationCommandOutput>;
   updateSnapshotCopyConfiguration(
     args: UpdateSnapshotCopyConfigurationCommandInput,
@@ -1507,7 +1519,7 @@ export interface RedshiftServerless {
   ): void;
   updateSnapshotCopyConfiguration(
     args: UpdateSnapshotCopyConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UpdateSnapshotCopyConfigurationCommandOutput) => void
   ): void;
 
@@ -1516,7 +1528,7 @@ export interface RedshiftServerless {
    */
   updateUsageLimit(
     args: UpdateUsageLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UpdateUsageLimitCommandOutput>;
   updateUsageLimit(
     args: UpdateUsageLimitCommandInput,
@@ -1524,7 +1536,7 @@ export interface RedshiftServerless {
   ): void;
   updateUsageLimit(
     args: UpdateUsageLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UpdateUsageLimitCommandOutput) => void
   ): void;
 
@@ -1533,7 +1545,7 @@ export interface RedshiftServerless {
    */
   updateWorkgroup(
     args: UpdateWorkgroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RedshiftServerlessRequestOptions
   ): Promise<UpdateWorkgroupCommandOutput>;
   updateWorkgroup(
     args: UpdateWorkgroupCommandInput,
@@ -1541,7 +1553,7 @@ export interface RedshiftServerless {
   ): void;
   updateWorkgroup(
     args: UpdateWorkgroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: RedshiftServerlessRequestOptions,
     cb: (err: any, data?: UpdateWorkgroupCommandOutput) => void
   ): void;
 

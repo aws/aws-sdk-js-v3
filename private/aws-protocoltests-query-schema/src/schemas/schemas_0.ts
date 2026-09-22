@@ -228,10 +228,10 @@ import { ComplexError, CustomCodeError, InvalidGreeting } from "../models/errors
 import { QueryProtocolServiceException } from "../models/QueryProtocolServiceException";
 
 /* eslint no-var: 0 */
-const _s_registry = TypeRegistry.for(_s);
+const _s_registry = new TypeRegistry(_s);
 export var QueryProtocolServiceException$: StaticErrorSchema = [-3, _s, "QueryProtocolServiceException", 0, [], []];
 _s_registry.registerError(QueryProtocolServiceException$, QueryProtocolServiceException);
-const n0_registry = TypeRegistry.for(n0);
+const n0_registry = new TypeRegistry(n0);
 export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c },
   [_TL, _N],

@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -449,13 +450,20 @@ const waiters = {
   waitUntilResourceRecordSetsChanged,
 };
 
+/**
+ * @public
+ */
+export interface Route53RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Route53 {
   /**
    * @see {@link ActivateKeySigningKeyCommand}
    */
   activateKeySigningKey(
     args: ActivateKeySigningKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ActivateKeySigningKeyCommandOutput>;
   activateKeySigningKey(
     args: ActivateKeySigningKeyCommandInput,
@@ -463,7 +471,7 @@ export interface Route53 {
   ): void;
   activateKeySigningKey(
     args: ActivateKeySigningKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ActivateKeySigningKeyCommandOutput) => void
   ): void;
 
@@ -472,7 +480,7 @@ export interface Route53 {
    */
   associateVPCWithHostedZone(
     args: AssociateVPCWithHostedZoneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<AssociateVPCWithHostedZoneCommandOutput>;
   associateVPCWithHostedZone(
     args: AssociateVPCWithHostedZoneCommandInput,
@@ -480,7 +488,7 @@ export interface Route53 {
   ): void;
   associateVPCWithHostedZone(
     args: AssociateVPCWithHostedZoneCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: AssociateVPCWithHostedZoneCommandOutput) => void
   ): void;
 
@@ -489,7 +497,7 @@ export interface Route53 {
    */
   changeCidrCollection(
     args: ChangeCidrCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ChangeCidrCollectionCommandOutput>;
   changeCidrCollection(
     args: ChangeCidrCollectionCommandInput,
@@ -497,7 +505,7 @@ export interface Route53 {
   ): void;
   changeCidrCollection(
     args: ChangeCidrCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ChangeCidrCollectionCommandOutput) => void
   ): void;
 
@@ -506,7 +514,7 @@ export interface Route53 {
    */
   changeResourceRecordSets(
     args: ChangeResourceRecordSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ChangeResourceRecordSetsCommandOutput>;
   changeResourceRecordSets(
     args: ChangeResourceRecordSetsCommandInput,
@@ -514,7 +522,7 @@ export interface Route53 {
   ): void;
   changeResourceRecordSets(
     args: ChangeResourceRecordSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ChangeResourceRecordSetsCommandOutput) => void
   ): void;
 
@@ -523,7 +531,7 @@ export interface Route53 {
    */
   changeTagsForResource(
     args: ChangeTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ChangeTagsForResourceCommandOutput>;
   changeTagsForResource(
     args: ChangeTagsForResourceCommandInput,
@@ -531,7 +539,7 @@ export interface Route53 {
   ): void;
   changeTagsForResource(
     args: ChangeTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ChangeTagsForResourceCommandOutput) => void
   ): void;
 
@@ -540,7 +548,7 @@ export interface Route53 {
    */
   createCidrCollection(
     args: CreateCidrCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateCidrCollectionCommandOutput>;
   createCidrCollection(
     args: CreateCidrCollectionCommandInput,
@@ -548,7 +556,7 @@ export interface Route53 {
   ): void;
   createCidrCollection(
     args: CreateCidrCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateCidrCollectionCommandOutput) => void
   ): void;
 
@@ -557,7 +565,7 @@ export interface Route53 {
    */
   createHealthCheck(
     args: CreateHealthCheckCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateHealthCheckCommandOutput>;
   createHealthCheck(
     args: CreateHealthCheckCommandInput,
@@ -565,7 +573,7 @@ export interface Route53 {
   ): void;
   createHealthCheck(
     args: CreateHealthCheckCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateHealthCheckCommandOutput) => void
   ): void;
 
@@ -574,7 +582,7 @@ export interface Route53 {
    */
   createHostedZone(
     args: CreateHostedZoneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateHostedZoneCommandOutput>;
   createHostedZone(
     args: CreateHostedZoneCommandInput,
@@ -582,7 +590,7 @@ export interface Route53 {
   ): void;
   createHostedZone(
     args: CreateHostedZoneCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateHostedZoneCommandOutput) => void
   ): void;
 
@@ -591,7 +599,7 @@ export interface Route53 {
    */
   createKeySigningKey(
     args: CreateKeySigningKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateKeySigningKeyCommandOutput>;
   createKeySigningKey(
     args: CreateKeySigningKeyCommandInput,
@@ -599,7 +607,7 @@ export interface Route53 {
   ): void;
   createKeySigningKey(
     args: CreateKeySigningKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateKeySigningKeyCommandOutput) => void
   ): void;
 
@@ -608,7 +616,7 @@ export interface Route53 {
    */
   createQueryLoggingConfig(
     args: CreateQueryLoggingConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateQueryLoggingConfigCommandOutput>;
   createQueryLoggingConfig(
     args: CreateQueryLoggingConfigCommandInput,
@@ -616,7 +624,7 @@ export interface Route53 {
   ): void;
   createQueryLoggingConfig(
     args: CreateQueryLoggingConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateQueryLoggingConfigCommandOutput) => void
   ): void;
 
@@ -625,7 +633,7 @@ export interface Route53 {
    */
   createReusableDelegationSet(
     args: CreateReusableDelegationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateReusableDelegationSetCommandOutput>;
   createReusableDelegationSet(
     args: CreateReusableDelegationSetCommandInput,
@@ -633,7 +641,7 @@ export interface Route53 {
   ): void;
   createReusableDelegationSet(
     args: CreateReusableDelegationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateReusableDelegationSetCommandOutput) => void
   ): void;
 
@@ -642,7 +650,7 @@ export interface Route53 {
    */
   createTrafficPolicy(
     args: CreateTrafficPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateTrafficPolicyCommandOutput>;
   createTrafficPolicy(
     args: CreateTrafficPolicyCommandInput,
@@ -650,7 +658,7 @@ export interface Route53 {
   ): void;
   createTrafficPolicy(
     args: CreateTrafficPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateTrafficPolicyCommandOutput) => void
   ): void;
 
@@ -659,7 +667,7 @@ export interface Route53 {
    */
   createTrafficPolicyInstance(
     args: CreateTrafficPolicyInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateTrafficPolicyInstanceCommandOutput>;
   createTrafficPolicyInstance(
     args: CreateTrafficPolicyInstanceCommandInput,
@@ -667,7 +675,7 @@ export interface Route53 {
   ): void;
   createTrafficPolicyInstance(
     args: CreateTrafficPolicyInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateTrafficPolicyInstanceCommandOutput) => void
   ): void;
 
@@ -676,7 +684,7 @@ export interface Route53 {
    */
   createTrafficPolicyVersion(
     args: CreateTrafficPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateTrafficPolicyVersionCommandOutput>;
   createTrafficPolicyVersion(
     args: CreateTrafficPolicyVersionCommandInput,
@@ -684,7 +692,7 @@ export interface Route53 {
   ): void;
   createTrafficPolicyVersion(
     args: CreateTrafficPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateTrafficPolicyVersionCommandOutput) => void
   ): void;
 
@@ -693,7 +701,7 @@ export interface Route53 {
    */
   createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<CreateVPCAssociationAuthorizationCommandOutput>;
   createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
@@ -701,7 +709,7 @@ export interface Route53 {
   ): void;
   createVPCAssociationAuthorization(
     args: CreateVPCAssociationAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: CreateVPCAssociationAuthorizationCommandOutput) => void
   ): void;
 
@@ -710,7 +718,7 @@ export interface Route53 {
    */
   deactivateKeySigningKey(
     args: DeactivateKeySigningKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeactivateKeySigningKeyCommandOutput>;
   deactivateKeySigningKey(
     args: DeactivateKeySigningKeyCommandInput,
@@ -718,7 +726,7 @@ export interface Route53 {
   ): void;
   deactivateKeySigningKey(
     args: DeactivateKeySigningKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeactivateKeySigningKeyCommandOutput) => void
   ): void;
 
@@ -727,7 +735,7 @@ export interface Route53 {
    */
   deleteCidrCollection(
     args: DeleteCidrCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeleteCidrCollectionCommandOutput>;
   deleteCidrCollection(
     args: DeleteCidrCollectionCommandInput,
@@ -735,7 +743,7 @@ export interface Route53 {
   ): void;
   deleteCidrCollection(
     args: DeleteCidrCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeleteCidrCollectionCommandOutput) => void
   ): void;
 
@@ -744,7 +752,7 @@ export interface Route53 {
    */
   deleteHealthCheck(
     args: DeleteHealthCheckCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeleteHealthCheckCommandOutput>;
   deleteHealthCheck(
     args: DeleteHealthCheckCommandInput,
@@ -752,7 +760,7 @@ export interface Route53 {
   ): void;
   deleteHealthCheck(
     args: DeleteHealthCheckCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeleteHealthCheckCommandOutput) => void
   ): void;
 
@@ -761,7 +769,7 @@ export interface Route53 {
    */
   deleteHostedZone(
     args: DeleteHostedZoneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeleteHostedZoneCommandOutput>;
   deleteHostedZone(
     args: DeleteHostedZoneCommandInput,
@@ -769,7 +777,7 @@ export interface Route53 {
   ): void;
   deleteHostedZone(
     args: DeleteHostedZoneCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeleteHostedZoneCommandOutput) => void
   ): void;
 
@@ -778,7 +786,7 @@ export interface Route53 {
    */
   deleteKeySigningKey(
     args: DeleteKeySigningKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeleteKeySigningKeyCommandOutput>;
   deleteKeySigningKey(
     args: DeleteKeySigningKeyCommandInput,
@@ -786,7 +794,7 @@ export interface Route53 {
   ): void;
   deleteKeySigningKey(
     args: DeleteKeySigningKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeleteKeySigningKeyCommandOutput) => void
   ): void;
 
@@ -795,7 +803,7 @@ export interface Route53 {
    */
   deleteQueryLoggingConfig(
     args: DeleteQueryLoggingConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeleteQueryLoggingConfigCommandOutput>;
   deleteQueryLoggingConfig(
     args: DeleteQueryLoggingConfigCommandInput,
@@ -803,7 +811,7 @@ export interface Route53 {
   ): void;
   deleteQueryLoggingConfig(
     args: DeleteQueryLoggingConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeleteQueryLoggingConfigCommandOutput) => void
   ): void;
 
@@ -812,7 +820,7 @@ export interface Route53 {
    */
   deleteReusableDelegationSet(
     args: DeleteReusableDelegationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeleteReusableDelegationSetCommandOutput>;
   deleteReusableDelegationSet(
     args: DeleteReusableDelegationSetCommandInput,
@@ -820,7 +828,7 @@ export interface Route53 {
   ): void;
   deleteReusableDelegationSet(
     args: DeleteReusableDelegationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeleteReusableDelegationSetCommandOutput) => void
   ): void;
 
@@ -829,7 +837,7 @@ export interface Route53 {
    */
   deleteTrafficPolicy(
     args: DeleteTrafficPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeleteTrafficPolicyCommandOutput>;
   deleteTrafficPolicy(
     args: DeleteTrafficPolicyCommandInput,
@@ -837,7 +845,7 @@ export interface Route53 {
   ): void;
   deleteTrafficPolicy(
     args: DeleteTrafficPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeleteTrafficPolicyCommandOutput) => void
   ): void;
 
@@ -846,7 +854,7 @@ export interface Route53 {
    */
   deleteTrafficPolicyInstance(
     args: DeleteTrafficPolicyInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeleteTrafficPolicyInstanceCommandOutput>;
   deleteTrafficPolicyInstance(
     args: DeleteTrafficPolicyInstanceCommandInput,
@@ -854,7 +862,7 @@ export interface Route53 {
   ): void;
   deleteTrafficPolicyInstance(
     args: DeleteTrafficPolicyInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeleteTrafficPolicyInstanceCommandOutput) => void
   ): void;
 
@@ -863,7 +871,7 @@ export interface Route53 {
    */
   deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput>;
   deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
@@ -871,7 +879,7 @@ export interface Route53 {
   ): void;
   deleteVPCAssociationAuthorization(
     args: DeleteVPCAssociationAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DeleteVPCAssociationAuthorizationCommandOutput) => void
   ): void;
 
@@ -880,7 +888,7 @@ export interface Route53 {
    */
   disableHostedZoneDNSSEC(
     args: DisableHostedZoneDNSSECCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DisableHostedZoneDNSSECCommandOutput>;
   disableHostedZoneDNSSEC(
     args: DisableHostedZoneDNSSECCommandInput,
@@ -888,7 +896,7 @@ export interface Route53 {
   ): void;
   disableHostedZoneDNSSEC(
     args: DisableHostedZoneDNSSECCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DisableHostedZoneDNSSECCommandOutput) => void
   ): void;
 
@@ -897,7 +905,7 @@ export interface Route53 {
    */
   disassociateVPCFromHostedZone(
     args: DisassociateVPCFromHostedZoneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<DisassociateVPCFromHostedZoneCommandOutput>;
   disassociateVPCFromHostedZone(
     args: DisassociateVPCFromHostedZoneCommandInput,
@@ -905,7 +913,7 @@ export interface Route53 {
   ): void;
   disassociateVPCFromHostedZone(
     args: DisassociateVPCFromHostedZoneCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: DisassociateVPCFromHostedZoneCommandOutput) => void
   ): void;
 
@@ -914,7 +922,7 @@ export interface Route53 {
    */
   enableHostedZoneDNSSEC(
     args: EnableHostedZoneDNSSECCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<EnableHostedZoneDNSSECCommandOutput>;
   enableHostedZoneDNSSEC(
     args: EnableHostedZoneDNSSECCommandInput,
@@ -922,7 +930,7 @@ export interface Route53 {
   ): void;
   enableHostedZoneDNSSEC(
     args: EnableHostedZoneDNSSECCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: EnableHostedZoneDNSSECCommandOutput) => void
   ): void;
 
@@ -931,7 +939,7 @@ export interface Route53 {
    */
   getAccountLimit(
     args: GetAccountLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetAccountLimitCommandOutput>;
   getAccountLimit(
     args: GetAccountLimitCommandInput,
@@ -939,7 +947,7 @@ export interface Route53 {
   ): void;
   getAccountLimit(
     args: GetAccountLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetAccountLimitCommandOutput) => void
   ): void;
 
@@ -948,7 +956,7 @@ export interface Route53 {
    */
   getChange(
     args: GetChangeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetChangeCommandOutput>;
   getChange(
     args: GetChangeCommandInput,
@@ -956,7 +964,7 @@ export interface Route53 {
   ): void;
   getChange(
     args: GetChangeCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetChangeCommandOutput) => void
   ): void;
 
@@ -966,7 +974,7 @@ export interface Route53 {
   getCheckerIpRanges(): Promise<GetCheckerIpRangesCommandOutput>;
   getCheckerIpRanges(
     args: GetCheckerIpRangesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetCheckerIpRangesCommandOutput>;
   getCheckerIpRanges(
     args: GetCheckerIpRangesCommandInput,
@@ -974,7 +982,7 @@ export interface Route53 {
   ): void;
   getCheckerIpRanges(
     args: GetCheckerIpRangesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetCheckerIpRangesCommandOutput) => void
   ): void;
 
@@ -983,7 +991,7 @@ export interface Route53 {
    */
   getDNSSEC(
     args: GetDNSSECCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetDNSSECCommandOutput>;
   getDNSSEC(
     args: GetDNSSECCommandInput,
@@ -991,7 +999,7 @@ export interface Route53 {
   ): void;
   getDNSSEC(
     args: GetDNSSECCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetDNSSECCommandOutput) => void
   ): void;
 
@@ -1001,7 +1009,7 @@ export interface Route53 {
   getGeoLocation(): Promise<GetGeoLocationCommandOutput>;
   getGeoLocation(
     args: GetGeoLocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetGeoLocationCommandOutput>;
   getGeoLocation(
     args: GetGeoLocationCommandInput,
@@ -1009,7 +1017,7 @@ export interface Route53 {
   ): void;
   getGeoLocation(
     args: GetGeoLocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetGeoLocationCommandOutput) => void
   ): void;
 
@@ -1018,7 +1026,7 @@ export interface Route53 {
    */
   getHealthCheck(
     args: GetHealthCheckCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetHealthCheckCommandOutput>;
   getHealthCheck(
     args: GetHealthCheckCommandInput,
@@ -1026,7 +1034,7 @@ export interface Route53 {
   ): void;
   getHealthCheck(
     args: GetHealthCheckCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetHealthCheckCommandOutput) => void
   ): void;
 
@@ -1036,7 +1044,7 @@ export interface Route53 {
   getHealthCheckCount(): Promise<GetHealthCheckCountCommandOutput>;
   getHealthCheckCount(
     args: GetHealthCheckCountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetHealthCheckCountCommandOutput>;
   getHealthCheckCount(
     args: GetHealthCheckCountCommandInput,
@@ -1044,7 +1052,7 @@ export interface Route53 {
   ): void;
   getHealthCheckCount(
     args: GetHealthCheckCountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetHealthCheckCountCommandOutput) => void
   ): void;
 
@@ -1053,7 +1061,7 @@ export interface Route53 {
    */
   getHealthCheckLastFailureReason(
     args: GetHealthCheckLastFailureReasonCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetHealthCheckLastFailureReasonCommandOutput>;
   getHealthCheckLastFailureReason(
     args: GetHealthCheckLastFailureReasonCommandInput,
@@ -1061,7 +1069,7 @@ export interface Route53 {
   ): void;
   getHealthCheckLastFailureReason(
     args: GetHealthCheckLastFailureReasonCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetHealthCheckLastFailureReasonCommandOutput) => void
   ): void;
 
@@ -1070,7 +1078,7 @@ export interface Route53 {
    */
   getHealthCheckStatus(
     args: GetHealthCheckStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetHealthCheckStatusCommandOutput>;
   getHealthCheckStatus(
     args: GetHealthCheckStatusCommandInput,
@@ -1078,7 +1086,7 @@ export interface Route53 {
   ): void;
   getHealthCheckStatus(
     args: GetHealthCheckStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetHealthCheckStatusCommandOutput) => void
   ): void;
 
@@ -1087,7 +1095,7 @@ export interface Route53 {
    */
   getHostedZone(
     args: GetHostedZoneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetHostedZoneCommandOutput>;
   getHostedZone(
     args: GetHostedZoneCommandInput,
@@ -1095,7 +1103,7 @@ export interface Route53 {
   ): void;
   getHostedZone(
     args: GetHostedZoneCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetHostedZoneCommandOutput) => void
   ): void;
 
@@ -1105,7 +1113,7 @@ export interface Route53 {
   getHostedZoneCount(): Promise<GetHostedZoneCountCommandOutput>;
   getHostedZoneCount(
     args: GetHostedZoneCountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetHostedZoneCountCommandOutput>;
   getHostedZoneCount(
     args: GetHostedZoneCountCommandInput,
@@ -1113,7 +1121,7 @@ export interface Route53 {
   ): void;
   getHostedZoneCount(
     args: GetHostedZoneCountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetHostedZoneCountCommandOutput) => void
   ): void;
 
@@ -1122,7 +1130,7 @@ export interface Route53 {
    */
   getHostedZoneLimit(
     args: GetHostedZoneLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetHostedZoneLimitCommandOutput>;
   getHostedZoneLimit(
     args: GetHostedZoneLimitCommandInput,
@@ -1130,7 +1138,7 @@ export interface Route53 {
   ): void;
   getHostedZoneLimit(
     args: GetHostedZoneLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetHostedZoneLimitCommandOutput) => void
   ): void;
 
@@ -1139,7 +1147,7 @@ export interface Route53 {
    */
   getQueryLoggingConfig(
     args: GetQueryLoggingConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetQueryLoggingConfigCommandOutput>;
   getQueryLoggingConfig(
     args: GetQueryLoggingConfigCommandInput,
@@ -1147,7 +1155,7 @@ export interface Route53 {
   ): void;
   getQueryLoggingConfig(
     args: GetQueryLoggingConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetQueryLoggingConfigCommandOutput) => void
   ): void;
 
@@ -1156,7 +1164,7 @@ export interface Route53 {
    */
   getReusableDelegationSet(
     args: GetReusableDelegationSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetReusableDelegationSetCommandOutput>;
   getReusableDelegationSet(
     args: GetReusableDelegationSetCommandInput,
@@ -1164,7 +1172,7 @@ export interface Route53 {
   ): void;
   getReusableDelegationSet(
     args: GetReusableDelegationSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetReusableDelegationSetCommandOutput) => void
   ): void;
 
@@ -1173,7 +1181,7 @@ export interface Route53 {
    */
   getReusableDelegationSetLimit(
     args: GetReusableDelegationSetLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetReusableDelegationSetLimitCommandOutput>;
   getReusableDelegationSetLimit(
     args: GetReusableDelegationSetLimitCommandInput,
@@ -1181,7 +1189,7 @@ export interface Route53 {
   ): void;
   getReusableDelegationSetLimit(
     args: GetReusableDelegationSetLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetReusableDelegationSetLimitCommandOutput) => void
   ): void;
 
@@ -1190,7 +1198,7 @@ export interface Route53 {
    */
   getTrafficPolicy(
     args: GetTrafficPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetTrafficPolicyCommandOutput>;
   getTrafficPolicy(
     args: GetTrafficPolicyCommandInput,
@@ -1198,7 +1206,7 @@ export interface Route53 {
   ): void;
   getTrafficPolicy(
     args: GetTrafficPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetTrafficPolicyCommandOutput) => void
   ): void;
 
@@ -1207,7 +1215,7 @@ export interface Route53 {
    */
   getTrafficPolicyInstance(
     args: GetTrafficPolicyInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetTrafficPolicyInstanceCommandOutput>;
   getTrafficPolicyInstance(
     args: GetTrafficPolicyInstanceCommandInput,
@@ -1215,7 +1223,7 @@ export interface Route53 {
   ): void;
   getTrafficPolicyInstance(
     args: GetTrafficPolicyInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetTrafficPolicyInstanceCommandOutput) => void
   ): void;
 
@@ -1225,7 +1233,7 @@ export interface Route53 {
   getTrafficPolicyInstanceCount(): Promise<GetTrafficPolicyInstanceCountCommandOutput>;
   getTrafficPolicyInstanceCount(
     args: GetTrafficPolicyInstanceCountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<GetTrafficPolicyInstanceCountCommandOutput>;
   getTrafficPolicyInstanceCount(
     args: GetTrafficPolicyInstanceCountCommandInput,
@@ -1233,7 +1241,7 @@ export interface Route53 {
   ): void;
   getTrafficPolicyInstanceCount(
     args: GetTrafficPolicyInstanceCountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: GetTrafficPolicyInstanceCountCommandOutput) => void
   ): void;
 
@@ -1242,7 +1250,7 @@ export interface Route53 {
    */
   listCidrBlocks(
     args: ListCidrBlocksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListCidrBlocksCommandOutput>;
   listCidrBlocks(
     args: ListCidrBlocksCommandInput,
@@ -1250,7 +1258,7 @@ export interface Route53 {
   ): void;
   listCidrBlocks(
     args: ListCidrBlocksCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListCidrBlocksCommandOutput) => void
   ): void;
 
@@ -1260,7 +1268,7 @@ export interface Route53 {
   listCidrCollections(): Promise<ListCidrCollectionsCommandOutput>;
   listCidrCollections(
     args: ListCidrCollectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListCidrCollectionsCommandOutput>;
   listCidrCollections(
     args: ListCidrCollectionsCommandInput,
@@ -1268,7 +1276,7 @@ export interface Route53 {
   ): void;
   listCidrCollections(
     args: ListCidrCollectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListCidrCollectionsCommandOutput) => void
   ): void;
 
@@ -1277,7 +1285,7 @@ export interface Route53 {
    */
   listCidrLocations(
     args: ListCidrLocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListCidrLocationsCommandOutput>;
   listCidrLocations(
     args: ListCidrLocationsCommandInput,
@@ -1285,7 +1293,7 @@ export interface Route53 {
   ): void;
   listCidrLocations(
     args: ListCidrLocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListCidrLocationsCommandOutput) => void
   ): void;
 
@@ -1295,7 +1303,7 @@ export interface Route53 {
   listGeoLocations(): Promise<ListGeoLocationsCommandOutput>;
   listGeoLocations(
     args: ListGeoLocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListGeoLocationsCommandOutput>;
   listGeoLocations(
     args: ListGeoLocationsCommandInput,
@@ -1303,7 +1311,7 @@ export interface Route53 {
   ): void;
   listGeoLocations(
     args: ListGeoLocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListGeoLocationsCommandOutput) => void
   ): void;
 
@@ -1313,7 +1321,7 @@ export interface Route53 {
   listHealthChecks(): Promise<ListHealthChecksCommandOutput>;
   listHealthChecks(
     args: ListHealthChecksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListHealthChecksCommandOutput>;
   listHealthChecks(
     args: ListHealthChecksCommandInput,
@@ -1321,7 +1329,7 @@ export interface Route53 {
   ): void;
   listHealthChecks(
     args: ListHealthChecksCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListHealthChecksCommandOutput) => void
   ): void;
 
@@ -1331,7 +1339,7 @@ export interface Route53 {
   listHostedZones(): Promise<ListHostedZonesCommandOutput>;
   listHostedZones(
     args: ListHostedZonesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListHostedZonesCommandOutput>;
   listHostedZones(
     args: ListHostedZonesCommandInput,
@@ -1339,7 +1347,7 @@ export interface Route53 {
   ): void;
   listHostedZones(
     args: ListHostedZonesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListHostedZonesCommandOutput) => void
   ): void;
 
@@ -1349,7 +1357,7 @@ export interface Route53 {
   listHostedZonesByName(): Promise<ListHostedZonesByNameCommandOutput>;
   listHostedZonesByName(
     args: ListHostedZonesByNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListHostedZonesByNameCommandOutput>;
   listHostedZonesByName(
     args: ListHostedZonesByNameCommandInput,
@@ -1357,7 +1365,7 @@ export interface Route53 {
   ): void;
   listHostedZonesByName(
     args: ListHostedZonesByNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListHostedZonesByNameCommandOutput) => void
   ): void;
 
@@ -1366,7 +1374,7 @@ export interface Route53 {
    */
   listHostedZonesByVPC(
     args: ListHostedZonesByVPCCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListHostedZonesByVPCCommandOutput>;
   listHostedZonesByVPC(
     args: ListHostedZonesByVPCCommandInput,
@@ -1374,7 +1382,7 @@ export interface Route53 {
   ): void;
   listHostedZonesByVPC(
     args: ListHostedZonesByVPCCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListHostedZonesByVPCCommandOutput) => void
   ): void;
 
@@ -1384,7 +1392,7 @@ export interface Route53 {
   listQueryLoggingConfigs(): Promise<ListQueryLoggingConfigsCommandOutput>;
   listQueryLoggingConfigs(
     args: ListQueryLoggingConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListQueryLoggingConfigsCommandOutput>;
   listQueryLoggingConfigs(
     args: ListQueryLoggingConfigsCommandInput,
@@ -1392,7 +1400,7 @@ export interface Route53 {
   ): void;
   listQueryLoggingConfigs(
     args: ListQueryLoggingConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListQueryLoggingConfigsCommandOutput) => void
   ): void;
 
@@ -1401,7 +1409,7 @@ export interface Route53 {
    */
   listResourceRecordSets(
     args: ListResourceRecordSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListResourceRecordSetsCommandOutput>;
   listResourceRecordSets(
     args: ListResourceRecordSetsCommandInput,
@@ -1409,7 +1417,7 @@ export interface Route53 {
   ): void;
   listResourceRecordSets(
     args: ListResourceRecordSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListResourceRecordSetsCommandOutput) => void
   ): void;
 
@@ -1419,7 +1427,7 @@ export interface Route53 {
   listReusableDelegationSets(): Promise<ListReusableDelegationSetsCommandOutput>;
   listReusableDelegationSets(
     args: ListReusableDelegationSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListReusableDelegationSetsCommandOutput>;
   listReusableDelegationSets(
     args: ListReusableDelegationSetsCommandInput,
@@ -1427,7 +1435,7 @@ export interface Route53 {
   ): void;
   listReusableDelegationSets(
     args: ListReusableDelegationSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListReusableDelegationSetsCommandOutput) => void
   ): void;
 
@@ -1436,7 +1444,7 @@ export interface Route53 {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1444,7 +1452,7 @@ export interface Route53 {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1453,7 +1461,7 @@ export interface Route53 {
    */
   listTagsForResources(
     args: ListTagsForResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListTagsForResourcesCommandOutput>;
   listTagsForResources(
     args: ListTagsForResourcesCommandInput,
@@ -1461,7 +1469,7 @@ export interface Route53 {
   ): void;
   listTagsForResources(
     args: ListTagsForResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListTagsForResourcesCommandOutput) => void
   ): void;
 
@@ -1471,7 +1479,7 @@ export interface Route53 {
   listTrafficPolicies(): Promise<ListTrafficPoliciesCommandOutput>;
   listTrafficPolicies(
     args: ListTrafficPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListTrafficPoliciesCommandOutput>;
   listTrafficPolicies(
     args: ListTrafficPoliciesCommandInput,
@@ -1479,7 +1487,7 @@ export interface Route53 {
   ): void;
   listTrafficPolicies(
     args: ListTrafficPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListTrafficPoliciesCommandOutput) => void
   ): void;
 
@@ -1489,7 +1497,7 @@ export interface Route53 {
   listTrafficPolicyInstances(): Promise<ListTrafficPolicyInstancesCommandOutput>;
   listTrafficPolicyInstances(
     args: ListTrafficPolicyInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListTrafficPolicyInstancesCommandOutput>;
   listTrafficPolicyInstances(
     args: ListTrafficPolicyInstancesCommandInput,
@@ -1497,7 +1505,7 @@ export interface Route53 {
   ): void;
   listTrafficPolicyInstances(
     args: ListTrafficPolicyInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListTrafficPolicyInstancesCommandOutput) => void
   ): void;
 
@@ -1506,7 +1514,7 @@ export interface Route53 {
    */
   listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput>;
   listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
@@ -1514,7 +1522,7 @@ export interface Route53 {
   ): void;
   listTrafficPolicyInstancesByHostedZone(
     args: ListTrafficPolicyInstancesByHostedZoneCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListTrafficPolicyInstancesByHostedZoneCommandOutput) => void
   ): void;
 
@@ -1523,7 +1531,7 @@ export interface Route53 {
    */
   listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput>;
   listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
@@ -1531,7 +1539,7 @@ export interface Route53 {
   ): void;
   listTrafficPolicyInstancesByPolicy(
     args: ListTrafficPolicyInstancesByPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListTrafficPolicyInstancesByPolicyCommandOutput) => void
   ): void;
 
@@ -1540,7 +1548,7 @@ export interface Route53 {
    */
   listTrafficPolicyVersions(
     args: ListTrafficPolicyVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListTrafficPolicyVersionsCommandOutput>;
   listTrafficPolicyVersions(
     args: ListTrafficPolicyVersionsCommandInput,
@@ -1548,7 +1556,7 @@ export interface Route53 {
   ): void;
   listTrafficPolicyVersions(
     args: ListTrafficPolicyVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListTrafficPolicyVersionsCommandOutput) => void
   ): void;
 
@@ -1557,7 +1565,7 @@ export interface Route53 {
    */
   listVPCAssociationAuthorizations(
     args: ListVPCAssociationAuthorizationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<ListVPCAssociationAuthorizationsCommandOutput>;
   listVPCAssociationAuthorizations(
     args: ListVPCAssociationAuthorizationsCommandInput,
@@ -1565,7 +1573,7 @@ export interface Route53 {
   ): void;
   listVPCAssociationAuthorizations(
     args: ListVPCAssociationAuthorizationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: ListVPCAssociationAuthorizationsCommandOutput) => void
   ): void;
 
@@ -1574,7 +1582,7 @@ export interface Route53 {
    */
   testDNSAnswer(
     args: TestDNSAnswerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<TestDNSAnswerCommandOutput>;
   testDNSAnswer(
     args: TestDNSAnswerCommandInput,
@@ -1582,7 +1590,7 @@ export interface Route53 {
   ): void;
   testDNSAnswer(
     args: TestDNSAnswerCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: TestDNSAnswerCommandOutput) => void
   ): void;
 
@@ -1591,7 +1599,7 @@ export interface Route53 {
    */
   updateHealthCheck(
     args: UpdateHealthCheckCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<UpdateHealthCheckCommandOutput>;
   updateHealthCheck(
     args: UpdateHealthCheckCommandInput,
@@ -1599,7 +1607,7 @@ export interface Route53 {
   ): void;
   updateHealthCheck(
     args: UpdateHealthCheckCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: UpdateHealthCheckCommandOutput) => void
   ): void;
 
@@ -1608,7 +1616,7 @@ export interface Route53 {
    */
   updateHostedZoneComment(
     args: UpdateHostedZoneCommentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<UpdateHostedZoneCommentCommandOutput>;
   updateHostedZoneComment(
     args: UpdateHostedZoneCommentCommandInput,
@@ -1616,7 +1624,7 @@ export interface Route53 {
   ): void;
   updateHostedZoneComment(
     args: UpdateHostedZoneCommentCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: UpdateHostedZoneCommentCommandOutput) => void
   ): void;
 
@@ -1625,7 +1633,7 @@ export interface Route53 {
    */
   updateHostedZoneFeatures(
     args: UpdateHostedZoneFeaturesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<UpdateHostedZoneFeaturesCommandOutput>;
   updateHostedZoneFeatures(
     args: UpdateHostedZoneFeaturesCommandInput,
@@ -1633,7 +1641,7 @@ export interface Route53 {
   ): void;
   updateHostedZoneFeatures(
     args: UpdateHostedZoneFeaturesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: UpdateHostedZoneFeaturesCommandOutput) => void
   ): void;
 
@@ -1642,7 +1650,7 @@ export interface Route53 {
    */
   updateTrafficPolicyComment(
     args: UpdateTrafficPolicyCommentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<UpdateTrafficPolicyCommentCommandOutput>;
   updateTrafficPolicyComment(
     args: UpdateTrafficPolicyCommentCommandInput,
@@ -1650,7 +1658,7 @@ export interface Route53 {
   ): void;
   updateTrafficPolicyComment(
     args: UpdateTrafficPolicyCommentCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: UpdateTrafficPolicyCommentCommandOutput) => void
   ): void;
 
@@ -1659,7 +1667,7 @@ export interface Route53 {
    */
   updateTrafficPolicyInstance(
     args: UpdateTrafficPolicyInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Route53RequestOptions
   ): Promise<UpdateTrafficPolicyInstanceCommandOutput>;
   updateTrafficPolicyInstance(
     args: UpdateTrafficPolicyInstanceCommandInput,
@@ -1667,7 +1675,7 @@ export interface Route53 {
   ): void;
   updateTrafficPolicyInstance(
     args: UpdateTrafficPolicyInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Route53RequestOptions,
     cb: (err: any, data?: UpdateTrafficPolicyInstanceCommandOutput) => void
   ): void;
 

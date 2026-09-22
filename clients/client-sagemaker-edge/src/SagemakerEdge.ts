@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type GetDeploymentsCommandInput,
@@ -25,13 +25,20 @@ const commands = {
   SendHeartbeatCommand,
 };
 
+/**
+ * @public
+ */
+export interface SagemakerEdgeRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SagemakerEdge {
   /**
    * @see {@link GetDeploymentsCommand}
    */
   getDeployments(
     args: GetDeploymentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SagemakerEdgeRequestOptions
   ): Promise<GetDeploymentsCommandOutput>;
   getDeployments(
     args: GetDeploymentsCommandInput,
@@ -39,7 +46,7 @@ export interface SagemakerEdge {
   ): void;
   getDeployments(
     args: GetDeploymentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SagemakerEdgeRequestOptions,
     cb: (err: any, data?: GetDeploymentsCommandOutput) => void
   ): void;
 
@@ -48,7 +55,7 @@ export interface SagemakerEdge {
    */
   getDeviceRegistration(
     args: GetDeviceRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SagemakerEdgeRequestOptions
   ): Promise<GetDeviceRegistrationCommandOutput>;
   getDeviceRegistration(
     args: GetDeviceRegistrationCommandInput,
@@ -56,7 +63,7 @@ export interface SagemakerEdge {
   ): void;
   getDeviceRegistration(
     args: GetDeviceRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: SagemakerEdgeRequestOptions,
     cb: (err: any, data?: GetDeviceRegistrationCommandOutput) => void
   ): void;
 
@@ -65,7 +72,7 @@ export interface SagemakerEdge {
    */
   sendHeartbeat(
     args: SendHeartbeatCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SagemakerEdgeRequestOptions
   ): Promise<SendHeartbeatCommandOutput>;
   sendHeartbeat(
     args: SendHeartbeatCommandInput,
@@ -73,7 +80,7 @@ export interface SagemakerEdge {
   ): void;
   sendHeartbeat(
     args: SendHeartbeatCommandInput,
-    options: __HttpHandlerOptions,
+    options: SagemakerEdgeRequestOptions,
     cb: (err: any, data?: SendHeartbeatCommandOutput) => void
   ): void;
 }

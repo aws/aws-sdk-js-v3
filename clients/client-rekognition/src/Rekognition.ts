@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -499,13 +500,20 @@ const waiters = {
   waitUntilProjectVersionTrainingCompleted,
 };
 
+/**
+ * @public
+ */
+export interface RekognitionRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Rekognition {
   /**
    * @see {@link AssociateFacesCommand}
    */
   associateFaces(
     args: AssociateFacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<AssociateFacesCommandOutput>;
   associateFaces(
     args: AssociateFacesCommandInput,
@@ -513,7 +521,7 @@ export interface Rekognition {
   ): void;
   associateFaces(
     args: AssociateFacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: AssociateFacesCommandOutput) => void
   ): void;
 
@@ -522,7 +530,7 @@ export interface Rekognition {
    */
   compareFaces(
     args: CompareFacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<CompareFacesCommandOutput>;
   compareFaces(
     args: CompareFacesCommandInput,
@@ -530,7 +538,7 @@ export interface Rekognition {
   ): void;
   compareFaces(
     args: CompareFacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: CompareFacesCommandOutput) => void
   ): void;
 
@@ -539,7 +547,7 @@ export interface Rekognition {
    */
   copyProjectVersion(
     args: CopyProjectVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<CopyProjectVersionCommandOutput>;
   copyProjectVersion(
     args: CopyProjectVersionCommandInput,
@@ -547,7 +555,7 @@ export interface Rekognition {
   ): void;
   copyProjectVersion(
     args: CopyProjectVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: CopyProjectVersionCommandOutput) => void
   ): void;
 
@@ -556,7 +564,7 @@ export interface Rekognition {
    */
   createCollection(
     args: CreateCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<CreateCollectionCommandOutput>;
   createCollection(
     args: CreateCollectionCommandInput,
@@ -564,7 +572,7 @@ export interface Rekognition {
   ): void;
   createCollection(
     args: CreateCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: CreateCollectionCommandOutput) => void
   ): void;
 
@@ -573,7 +581,7 @@ export interface Rekognition {
    */
   createDataset(
     args: CreateDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<CreateDatasetCommandOutput>;
   createDataset(
     args: CreateDatasetCommandInput,
@@ -581,7 +589,7 @@ export interface Rekognition {
   ): void;
   createDataset(
     args: CreateDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: CreateDatasetCommandOutput) => void
   ): void;
 
@@ -591,7 +599,7 @@ export interface Rekognition {
   createFaceLivenessSession(): Promise<CreateFaceLivenessSessionCommandOutput>;
   createFaceLivenessSession(
     args: CreateFaceLivenessSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<CreateFaceLivenessSessionCommandOutput>;
   createFaceLivenessSession(
     args: CreateFaceLivenessSessionCommandInput,
@@ -599,7 +607,7 @@ export interface Rekognition {
   ): void;
   createFaceLivenessSession(
     args: CreateFaceLivenessSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: CreateFaceLivenessSessionCommandOutput) => void
   ): void;
 
@@ -608,7 +616,7 @@ export interface Rekognition {
    */
   createProject(
     args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<CreateProjectCommandOutput>;
   createProject(
     args: CreateProjectCommandInput,
@@ -616,7 +624,7 @@ export interface Rekognition {
   ): void;
   createProject(
     args: CreateProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: CreateProjectCommandOutput) => void
   ): void;
 
@@ -625,7 +633,7 @@ export interface Rekognition {
    */
   createProjectVersion(
     args: CreateProjectVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<CreateProjectVersionCommandOutput>;
   createProjectVersion(
     args: CreateProjectVersionCommandInput,
@@ -633,7 +641,7 @@ export interface Rekognition {
   ): void;
   createProjectVersion(
     args: CreateProjectVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: CreateProjectVersionCommandOutput) => void
   ): void;
 
@@ -642,7 +650,7 @@ export interface Rekognition {
    */
   createStreamProcessor(
     args: CreateStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<CreateStreamProcessorCommandOutput>;
   createStreamProcessor(
     args: CreateStreamProcessorCommandInput,
@@ -650,7 +658,7 @@ export interface Rekognition {
   ): void;
   createStreamProcessor(
     args: CreateStreamProcessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: CreateStreamProcessorCommandOutput) => void
   ): void;
 
@@ -659,7 +667,7 @@ export interface Rekognition {
    */
   createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<CreateUserCommandOutput>;
   createUser(
     args: CreateUserCommandInput,
@@ -667,7 +675,7 @@ export interface Rekognition {
   ): void;
   createUser(
     args: CreateUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: CreateUserCommandOutput) => void
   ): void;
 
@@ -676,7 +684,7 @@ export interface Rekognition {
    */
   deleteCollection(
     args: DeleteCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DeleteCollectionCommandOutput>;
   deleteCollection(
     args: DeleteCollectionCommandInput,
@@ -684,7 +692,7 @@ export interface Rekognition {
   ): void;
   deleteCollection(
     args: DeleteCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DeleteCollectionCommandOutput) => void
   ): void;
 
@@ -693,7 +701,7 @@ export interface Rekognition {
    */
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DeleteDatasetCommandOutput>;
   deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -701,7 +709,7 @@ export interface Rekognition {
   ): void;
   deleteDataset(
     args: DeleteDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): void;
 
@@ -710,7 +718,7 @@ export interface Rekognition {
    */
   deleteFaces(
     args: DeleteFacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DeleteFacesCommandOutput>;
   deleteFaces(
     args: DeleteFacesCommandInput,
@@ -718,7 +726,7 @@ export interface Rekognition {
   ): void;
   deleteFaces(
     args: DeleteFacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DeleteFacesCommandOutput) => void
   ): void;
 
@@ -727,7 +735,7 @@ export interface Rekognition {
    */
   deleteProject(
     args: DeleteProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DeleteProjectCommandOutput>;
   deleteProject(
     args: DeleteProjectCommandInput,
@@ -735,7 +743,7 @@ export interface Rekognition {
   ): void;
   deleteProject(
     args: DeleteProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DeleteProjectCommandOutput) => void
   ): void;
 
@@ -744,7 +752,7 @@ export interface Rekognition {
    */
   deleteProjectPolicy(
     args: DeleteProjectPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DeleteProjectPolicyCommandOutput>;
   deleteProjectPolicy(
     args: DeleteProjectPolicyCommandInput,
@@ -752,7 +760,7 @@ export interface Rekognition {
   ): void;
   deleteProjectPolicy(
     args: DeleteProjectPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DeleteProjectPolicyCommandOutput) => void
   ): void;
 
@@ -761,7 +769,7 @@ export interface Rekognition {
    */
   deleteProjectVersion(
     args: DeleteProjectVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DeleteProjectVersionCommandOutput>;
   deleteProjectVersion(
     args: DeleteProjectVersionCommandInput,
@@ -769,7 +777,7 @@ export interface Rekognition {
   ): void;
   deleteProjectVersion(
     args: DeleteProjectVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DeleteProjectVersionCommandOutput) => void
   ): void;
 
@@ -778,7 +786,7 @@ export interface Rekognition {
    */
   deleteStreamProcessor(
     args: DeleteStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DeleteStreamProcessorCommandOutput>;
   deleteStreamProcessor(
     args: DeleteStreamProcessorCommandInput,
@@ -786,7 +794,7 @@ export interface Rekognition {
   ): void;
   deleteStreamProcessor(
     args: DeleteStreamProcessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DeleteStreamProcessorCommandOutput) => void
   ): void;
 
@@ -795,7 +803,7 @@ export interface Rekognition {
    */
   deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DeleteUserCommandOutput>;
   deleteUser(
     args: DeleteUserCommandInput,
@@ -803,7 +811,7 @@ export interface Rekognition {
   ): void;
   deleteUser(
     args: DeleteUserCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DeleteUserCommandOutput) => void
   ): void;
 
@@ -812,7 +820,7 @@ export interface Rekognition {
    */
   describeCollection(
     args: DescribeCollectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DescribeCollectionCommandOutput>;
   describeCollection(
     args: DescribeCollectionCommandInput,
@@ -820,7 +828,7 @@ export interface Rekognition {
   ): void;
   describeCollection(
     args: DescribeCollectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DescribeCollectionCommandOutput) => void
   ): void;
 
@@ -829,7 +837,7 @@ export interface Rekognition {
    */
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DescribeDatasetCommandOutput>;
   describeDataset(
     args: DescribeDatasetCommandInput,
@@ -837,7 +845,7 @@ export interface Rekognition {
   ): void;
   describeDataset(
     args: DescribeDatasetCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): void;
 
@@ -847,7 +855,7 @@ export interface Rekognition {
   describeProjects(): Promise<DescribeProjectsCommandOutput>;
   describeProjects(
     args: DescribeProjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DescribeProjectsCommandOutput>;
   describeProjects(
     args: DescribeProjectsCommandInput,
@@ -855,7 +863,7 @@ export interface Rekognition {
   ): void;
   describeProjects(
     args: DescribeProjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DescribeProjectsCommandOutput) => void
   ): void;
 
@@ -864,7 +872,7 @@ export interface Rekognition {
    */
   describeProjectVersions(
     args: DescribeProjectVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DescribeProjectVersionsCommandOutput>;
   describeProjectVersions(
     args: DescribeProjectVersionsCommandInput,
@@ -872,7 +880,7 @@ export interface Rekognition {
   ): void;
   describeProjectVersions(
     args: DescribeProjectVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DescribeProjectVersionsCommandOutput) => void
   ): void;
 
@@ -881,7 +889,7 @@ export interface Rekognition {
    */
   describeStreamProcessor(
     args: DescribeStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DescribeStreamProcessorCommandOutput>;
   describeStreamProcessor(
     args: DescribeStreamProcessorCommandInput,
@@ -889,7 +897,7 @@ export interface Rekognition {
   ): void;
   describeStreamProcessor(
     args: DescribeStreamProcessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DescribeStreamProcessorCommandOutput) => void
   ): void;
 
@@ -898,7 +906,7 @@ export interface Rekognition {
    */
   detectCustomLabels(
     args: DetectCustomLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DetectCustomLabelsCommandOutput>;
   detectCustomLabels(
     args: DetectCustomLabelsCommandInput,
@@ -906,7 +914,7 @@ export interface Rekognition {
   ): void;
   detectCustomLabels(
     args: DetectCustomLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DetectCustomLabelsCommandOutput) => void
   ): void;
 
@@ -915,7 +923,7 @@ export interface Rekognition {
    */
   detectFaces(
     args: DetectFacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DetectFacesCommandOutput>;
   detectFaces(
     args: DetectFacesCommandInput,
@@ -923,7 +931,7 @@ export interface Rekognition {
   ): void;
   detectFaces(
     args: DetectFacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DetectFacesCommandOutput) => void
   ): void;
 
@@ -932,7 +940,7 @@ export interface Rekognition {
    */
   detectLabels(
     args: DetectLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DetectLabelsCommandOutput>;
   detectLabels(
     args: DetectLabelsCommandInput,
@@ -940,7 +948,7 @@ export interface Rekognition {
   ): void;
   detectLabels(
     args: DetectLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DetectLabelsCommandOutput) => void
   ): void;
 
@@ -949,7 +957,7 @@ export interface Rekognition {
    */
   detectModerationLabels(
     args: DetectModerationLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DetectModerationLabelsCommandOutput>;
   detectModerationLabels(
     args: DetectModerationLabelsCommandInput,
@@ -957,7 +965,7 @@ export interface Rekognition {
   ): void;
   detectModerationLabels(
     args: DetectModerationLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DetectModerationLabelsCommandOutput) => void
   ): void;
 
@@ -966,7 +974,7 @@ export interface Rekognition {
    */
   detectProtectiveEquipment(
     args: DetectProtectiveEquipmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DetectProtectiveEquipmentCommandOutput>;
   detectProtectiveEquipment(
     args: DetectProtectiveEquipmentCommandInput,
@@ -974,7 +982,7 @@ export interface Rekognition {
   ): void;
   detectProtectiveEquipment(
     args: DetectProtectiveEquipmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DetectProtectiveEquipmentCommandOutput) => void
   ): void;
 
@@ -983,7 +991,7 @@ export interface Rekognition {
    */
   detectText(
     args: DetectTextCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DetectTextCommandOutput>;
   detectText(
     args: DetectTextCommandInput,
@@ -991,7 +999,7 @@ export interface Rekognition {
   ): void;
   detectText(
     args: DetectTextCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DetectTextCommandOutput) => void
   ): void;
 
@@ -1000,7 +1008,7 @@ export interface Rekognition {
    */
   disassociateFaces(
     args: DisassociateFacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DisassociateFacesCommandOutput>;
   disassociateFaces(
     args: DisassociateFacesCommandInput,
@@ -1008,7 +1016,7 @@ export interface Rekognition {
   ): void;
   disassociateFaces(
     args: DisassociateFacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DisassociateFacesCommandOutput) => void
   ): void;
 
@@ -1017,7 +1025,7 @@ export interface Rekognition {
    */
   distributeDatasetEntries(
     args: DistributeDatasetEntriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<DistributeDatasetEntriesCommandOutput>;
   distributeDatasetEntries(
     args: DistributeDatasetEntriesCommandInput,
@@ -1025,7 +1033,7 @@ export interface Rekognition {
   ): void;
   distributeDatasetEntries(
     args: DistributeDatasetEntriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: DistributeDatasetEntriesCommandOutput) => void
   ): void;
 
@@ -1034,7 +1042,7 @@ export interface Rekognition {
    */
   getCelebrityInfo(
     args: GetCelebrityInfoCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetCelebrityInfoCommandOutput>;
   getCelebrityInfo(
     args: GetCelebrityInfoCommandInput,
@@ -1042,7 +1050,7 @@ export interface Rekognition {
   ): void;
   getCelebrityInfo(
     args: GetCelebrityInfoCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetCelebrityInfoCommandOutput) => void
   ): void;
 
@@ -1051,7 +1059,7 @@ export interface Rekognition {
    */
   getCelebrityRecognition(
     args: GetCelebrityRecognitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetCelebrityRecognitionCommandOutput>;
   getCelebrityRecognition(
     args: GetCelebrityRecognitionCommandInput,
@@ -1059,7 +1067,7 @@ export interface Rekognition {
   ): void;
   getCelebrityRecognition(
     args: GetCelebrityRecognitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetCelebrityRecognitionCommandOutput) => void
   ): void;
 
@@ -1068,7 +1076,7 @@ export interface Rekognition {
    */
   getContentModeration(
     args: GetContentModerationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetContentModerationCommandOutput>;
   getContentModeration(
     args: GetContentModerationCommandInput,
@@ -1076,7 +1084,7 @@ export interface Rekognition {
   ): void;
   getContentModeration(
     args: GetContentModerationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetContentModerationCommandOutput) => void
   ): void;
 
@@ -1085,7 +1093,7 @@ export interface Rekognition {
    */
   getFaceDetection(
     args: GetFaceDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetFaceDetectionCommandOutput>;
   getFaceDetection(
     args: GetFaceDetectionCommandInput,
@@ -1093,7 +1101,7 @@ export interface Rekognition {
   ): void;
   getFaceDetection(
     args: GetFaceDetectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetFaceDetectionCommandOutput) => void
   ): void;
 
@@ -1102,7 +1110,7 @@ export interface Rekognition {
    */
   getFaceLivenessSessionResults(
     args: GetFaceLivenessSessionResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetFaceLivenessSessionResultsCommandOutput>;
   getFaceLivenessSessionResults(
     args: GetFaceLivenessSessionResultsCommandInput,
@@ -1110,7 +1118,7 @@ export interface Rekognition {
   ): void;
   getFaceLivenessSessionResults(
     args: GetFaceLivenessSessionResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetFaceLivenessSessionResultsCommandOutput) => void
   ): void;
 
@@ -1119,7 +1127,7 @@ export interface Rekognition {
    */
   getFaceSearch(
     args: GetFaceSearchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetFaceSearchCommandOutput>;
   getFaceSearch(
     args: GetFaceSearchCommandInput,
@@ -1127,7 +1135,7 @@ export interface Rekognition {
   ): void;
   getFaceSearch(
     args: GetFaceSearchCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetFaceSearchCommandOutput) => void
   ): void;
 
@@ -1136,7 +1144,7 @@ export interface Rekognition {
    */
   getLabelDetection(
     args: GetLabelDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetLabelDetectionCommandOutput>;
   getLabelDetection(
     args: GetLabelDetectionCommandInput,
@@ -1144,7 +1152,7 @@ export interface Rekognition {
   ): void;
   getLabelDetection(
     args: GetLabelDetectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetLabelDetectionCommandOutput) => void
   ): void;
 
@@ -1153,7 +1161,7 @@ export interface Rekognition {
    */
   getMediaAnalysisJob(
     args: GetMediaAnalysisJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetMediaAnalysisJobCommandOutput>;
   getMediaAnalysisJob(
     args: GetMediaAnalysisJobCommandInput,
@@ -1161,7 +1169,7 @@ export interface Rekognition {
   ): void;
   getMediaAnalysisJob(
     args: GetMediaAnalysisJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetMediaAnalysisJobCommandOutput) => void
   ): void;
 
@@ -1170,7 +1178,7 @@ export interface Rekognition {
    */
   getPersonTracking(
     args: GetPersonTrackingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetPersonTrackingCommandOutput>;
   getPersonTracking(
     args: GetPersonTrackingCommandInput,
@@ -1178,7 +1186,7 @@ export interface Rekognition {
   ): void;
   getPersonTracking(
     args: GetPersonTrackingCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetPersonTrackingCommandOutput) => void
   ): void;
 
@@ -1187,7 +1195,7 @@ export interface Rekognition {
    */
   getSegmentDetection(
     args: GetSegmentDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetSegmentDetectionCommandOutput>;
   getSegmentDetection(
     args: GetSegmentDetectionCommandInput,
@@ -1195,7 +1203,7 @@ export interface Rekognition {
   ): void;
   getSegmentDetection(
     args: GetSegmentDetectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetSegmentDetectionCommandOutput) => void
   ): void;
 
@@ -1204,7 +1212,7 @@ export interface Rekognition {
    */
   getTextDetection(
     args: GetTextDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<GetTextDetectionCommandOutput>;
   getTextDetection(
     args: GetTextDetectionCommandInput,
@@ -1212,7 +1220,7 @@ export interface Rekognition {
   ): void;
   getTextDetection(
     args: GetTextDetectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: GetTextDetectionCommandOutput) => void
   ): void;
 
@@ -1221,7 +1229,7 @@ export interface Rekognition {
    */
   indexFaces(
     args: IndexFacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<IndexFacesCommandOutput>;
   indexFaces(
     args: IndexFacesCommandInput,
@@ -1229,7 +1237,7 @@ export interface Rekognition {
   ): void;
   indexFaces(
     args: IndexFacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: IndexFacesCommandOutput) => void
   ): void;
 
@@ -1239,7 +1247,7 @@ export interface Rekognition {
   listCollections(): Promise<ListCollectionsCommandOutput>;
   listCollections(
     args: ListCollectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<ListCollectionsCommandOutput>;
   listCollections(
     args: ListCollectionsCommandInput,
@@ -1247,7 +1255,7 @@ export interface Rekognition {
   ): void;
   listCollections(
     args: ListCollectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: ListCollectionsCommandOutput) => void
   ): void;
 
@@ -1256,7 +1264,7 @@ export interface Rekognition {
    */
   listDatasetEntries(
     args: ListDatasetEntriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<ListDatasetEntriesCommandOutput>;
   listDatasetEntries(
     args: ListDatasetEntriesCommandInput,
@@ -1264,7 +1272,7 @@ export interface Rekognition {
   ): void;
   listDatasetEntries(
     args: ListDatasetEntriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: ListDatasetEntriesCommandOutput) => void
   ): void;
 
@@ -1273,7 +1281,7 @@ export interface Rekognition {
    */
   listDatasetLabels(
     args: ListDatasetLabelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<ListDatasetLabelsCommandOutput>;
   listDatasetLabels(
     args: ListDatasetLabelsCommandInput,
@@ -1281,7 +1289,7 @@ export interface Rekognition {
   ): void;
   listDatasetLabels(
     args: ListDatasetLabelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: ListDatasetLabelsCommandOutput) => void
   ): void;
 
@@ -1290,7 +1298,7 @@ export interface Rekognition {
    */
   listFaces(
     args: ListFacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<ListFacesCommandOutput>;
   listFaces(
     args: ListFacesCommandInput,
@@ -1298,7 +1306,7 @@ export interface Rekognition {
   ): void;
   listFaces(
     args: ListFacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: ListFacesCommandOutput) => void
   ): void;
 
@@ -1308,7 +1316,7 @@ export interface Rekognition {
   listMediaAnalysisJobs(): Promise<ListMediaAnalysisJobsCommandOutput>;
   listMediaAnalysisJobs(
     args: ListMediaAnalysisJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<ListMediaAnalysisJobsCommandOutput>;
   listMediaAnalysisJobs(
     args: ListMediaAnalysisJobsCommandInput,
@@ -1316,7 +1324,7 @@ export interface Rekognition {
   ): void;
   listMediaAnalysisJobs(
     args: ListMediaAnalysisJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: ListMediaAnalysisJobsCommandOutput) => void
   ): void;
 
@@ -1325,7 +1333,7 @@ export interface Rekognition {
    */
   listProjectPolicies(
     args: ListProjectPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<ListProjectPoliciesCommandOutput>;
   listProjectPolicies(
     args: ListProjectPoliciesCommandInput,
@@ -1333,7 +1341,7 @@ export interface Rekognition {
   ): void;
   listProjectPolicies(
     args: ListProjectPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: ListProjectPoliciesCommandOutput) => void
   ): void;
 
@@ -1343,7 +1351,7 @@ export interface Rekognition {
   listStreamProcessors(): Promise<ListStreamProcessorsCommandOutput>;
   listStreamProcessors(
     args: ListStreamProcessorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<ListStreamProcessorsCommandOutput>;
   listStreamProcessors(
     args: ListStreamProcessorsCommandInput,
@@ -1351,7 +1359,7 @@ export interface Rekognition {
   ): void;
   listStreamProcessors(
     args: ListStreamProcessorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: ListStreamProcessorsCommandOutput) => void
   ): void;
 
@@ -1360,7 +1368,7 @@ export interface Rekognition {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1368,7 +1376,7 @@ export interface Rekognition {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1377,7 +1385,7 @@ export interface Rekognition {
    */
   listUsers(
     args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<ListUsersCommandOutput>;
   listUsers(
     args: ListUsersCommandInput,
@@ -1385,7 +1393,7 @@ export interface Rekognition {
   ): void;
   listUsers(
     args: ListUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: ListUsersCommandOutput) => void
   ): void;
 
@@ -1394,7 +1402,7 @@ export interface Rekognition {
    */
   putProjectPolicy(
     args: PutProjectPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<PutProjectPolicyCommandOutput>;
   putProjectPolicy(
     args: PutProjectPolicyCommandInput,
@@ -1402,7 +1410,7 @@ export interface Rekognition {
   ): void;
   putProjectPolicy(
     args: PutProjectPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: PutProjectPolicyCommandOutput) => void
   ): void;
 
@@ -1411,7 +1419,7 @@ export interface Rekognition {
    */
   recognizeCelebrities(
     args: RecognizeCelebritiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<RecognizeCelebritiesCommandOutput>;
   recognizeCelebrities(
     args: RecognizeCelebritiesCommandInput,
@@ -1419,7 +1427,7 @@ export interface Rekognition {
   ): void;
   recognizeCelebrities(
     args: RecognizeCelebritiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: RecognizeCelebritiesCommandOutput) => void
   ): void;
 
@@ -1428,7 +1436,7 @@ export interface Rekognition {
    */
   searchFaces(
     args: SearchFacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<SearchFacesCommandOutput>;
   searchFaces(
     args: SearchFacesCommandInput,
@@ -1436,7 +1444,7 @@ export interface Rekognition {
   ): void;
   searchFaces(
     args: SearchFacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: SearchFacesCommandOutput) => void
   ): void;
 
@@ -1445,7 +1453,7 @@ export interface Rekognition {
    */
   searchFacesByImage(
     args: SearchFacesByImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<SearchFacesByImageCommandOutput>;
   searchFacesByImage(
     args: SearchFacesByImageCommandInput,
@@ -1453,7 +1461,7 @@ export interface Rekognition {
   ): void;
   searchFacesByImage(
     args: SearchFacesByImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: SearchFacesByImageCommandOutput) => void
   ): void;
 
@@ -1462,7 +1470,7 @@ export interface Rekognition {
    */
   searchUsers(
     args: SearchUsersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<SearchUsersCommandOutput>;
   searchUsers(
     args: SearchUsersCommandInput,
@@ -1470,7 +1478,7 @@ export interface Rekognition {
   ): void;
   searchUsers(
     args: SearchUsersCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: SearchUsersCommandOutput) => void
   ): void;
 
@@ -1479,7 +1487,7 @@ export interface Rekognition {
    */
   searchUsersByImage(
     args: SearchUsersByImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<SearchUsersByImageCommandOutput>;
   searchUsersByImage(
     args: SearchUsersByImageCommandInput,
@@ -1487,7 +1495,7 @@ export interface Rekognition {
   ): void;
   searchUsersByImage(
     args: SearchUsersByImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: SearchUsersByImageCommandOutput) => void
   ): void;
 
@@ -1496,7 +1504,7 @@ export interface Rekognition {
    */
   startCelebrityRecognition(
     args: StartCelebrityRecognitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartCelebrityRecognitionCommandOutput>;
   startCelebrityRecognition(
     args: StartCelebrityRecognitionCommandInput,
@@ -1504,7 +1512,7 @@ export interface Rekognition {
   ): void;
   startCelebrityRecognition(
     args: StartCelebrityRecognitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartCelebrityRecognitionCommandOutput) => void
   ): void;
 
@@ -1513,7 +1521,7 @@ export interface Rekognition {
    */
   startContentModeration(
     args: StartContentModerationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartContentModerationCommandOutput>;
   startContentModeration(
     args: StartContentModerationCommandInput,
@@ -1521,7 +1529,7 @@ export interface Rekognition {
   ): void;
   startContentModeration(
     args: StartContentModerationCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartContentModerationCommandOutput) => void
   ): void;
 
@@ -1530,7 +1538,7 @@ export interface Rekognition {
    */
   startFaceDetection(
     args: StartFaceDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartFaceDetectionCommandOutput>;
   startFaceDetection(
     args: StartFaceDetectionCommandInput,
@@ -1538,7 +1546,7 @@ export interface Rekognition {
   ): void;
   startFaceDetection(
     args: StartFaceDetectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartFaceDetectionCommandOutput) => void
   ): void;
 
@@ -1547,7 +1555,7 @@ export interface Rekognition {
    */
   startFaceSearch(
     args: StartFaceSearchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartFaceSearchCommandOutput>;
   startFaceSearch(
     args: StartFaceSearchCommandInput,
@@ -1555,7 +1563,7 @@ export interface Rekognition {
   ): void;
   startFaceSearch(
     args: StartFaceSearchCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartFaceSearchCommandOutput) => void
   ): void;
 
@@ -1564,7 +1572,7 @@ export interface Rekognition {
    */
   startLabelDetection(
     args: StartLabelDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartLabelDetectionCommandOutput>;
   startLabelDetection(
     args: StartLabelDetectionCommandInput,
@@ -1572,7 +1580,7 @@ export interface Rekognition {
   ): void;
   startLabelDetection(
     args: StartLabelDetectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartLabelDetectionCommandOutput) => void
   ): void;
 
@@ -1581,7 +1589,7 @@ export interface Rekognition {
    */
   startMediaAnalysisJob(
     args: StartMediaAnalysisJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartMediaAnalysisJobCommandOutput>;
   startMediaAnalysisJob(
     args: StartMediaAnalysisJobCommandInput,
@@ -1589,7 +1597,7 @@ export interface Rekognition {
   ): void;
   startMediaAnalysisJob(
     args: StartMediaAnalysisJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartMediaAnalysisJobCommandOutput) => void
   ): void;
 
@@ -1598,7 +1606,7 @@ export interface Rekognition {
    */
   startPersonTracking(
     args: StartPersonTrackingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartPersonTrackingCommandOutput>;
   startPersonTracking(
     args: StartPersonTrackingCommandInput,
@@ -1606,7 +1614,7 @@ export interface Rekognition {
   ): void;
   startPersonTracking(
     args: StartPersonTrackingCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartPersonTrackingCommandOutput) => void
   ): void;
 
@@ -1615,7 +1623,7 @@ export interface Rekognition {
    */
   startProjectVersion(
     args: StartProjectVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartProjectVersionCommandOutput>;
   startProjectVersion(
     args: StartProjectVersionCommandInput,
@@ -1623,7 +1631,7 @@ export interface Rekognition {
   ): void;
   startProjectVersion(
     args: StartProjectVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartProjectVersionCommandOutput) => void
   ): void;
 
@@ -1632,7 +1640,7 @@ export interface Rekognition {
    */
   startSegmentDetection(
     args: StartSegmentDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartSegmentDetectionCommandOutput>;
   startSegmentDetection(
     args: StartSegmentDetectionCommandInput,
@@ -1640,7 +1648,7 @@ export interface Rekognition {
   ): void;
   startSegmentDetection(
     args: StartSegmentDetectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartSegmentDetectionCommandOutput) => void
   ): void;
 
@@ -1649,7 +1657,7 @@ export interface Rekognition {
    */
   startStreamProcessor(
     args: StartStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartStreamProcessorCommandOutput>;
   startStreamProcessor(
     args: StartStreamProcessorCommandInput,
@@ -1657,7 +1665,7 @@ export interface Rekognition {
   ): void;
   startStreamProcessor(
     args: StartStreamProcessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartStreamProcessorCommandOutput) => void
   ): void;
 
@@ -1666,7 +1674,7 @@ export interface Rekognition {
    */
   startTextDetection(
     args: StartTextDetectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StartTextDetectionCommandOutput>;
   startTextDetection(
     args: StartTextDetectionCommandInput,
@@ -1674,7 +1682,7 @@ export interface Rekognition {
   ): void;
   startTextDetection(
     args: StartTextDetectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StartTextDetectionCommandOutput) => void
   ): void;
 
@@ -1683,7 +1691,7 @@ export interface Rekognition {
    */
   stopProjectVersion(
     args: StopProjectVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StopProjectVersionCommandOutput>;
   stopProjectVersion(
     args: StopProjectVersionCommandInput,
@@ -1691,7 +1699,7 @@ export interface Rekognition {
   ): void;
   stopProjectVersion(
     args: StopProjectVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StopProjectVersionCommandOutput) => void
   ): void;
 
@@ -1700,7 +1708,7 @@ export interface Rekognition {
    */
   stopStreamProcessor(
     args: StopStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<StopStreamProcessorCommandOutput>;
   stopStreamProcessor(
     args: StopStreamProcessorCommandInput,
@@ -1708,7 +1716,7 @@ export interface Rekognition {
   ): void;
   stopStreamProcessor(
     args: StopStreamProcessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: StopStreamProcessorCommandOutput) => void
   ): void;
 
@@ -1717,7 +1725,7 @@ export interface Rekognition {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1725,7 +1733,7 @@ export interface Rekognition {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1734,7 +1742,7 @@ export interface Rekognition {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1742,7 +1750,7 @@ export interface Rekognition {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1751,7 +1759,7 @@ export interface Rekognition {
    */
   updateDatasetEntries(
     args: UpdateDatasetEntriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<UpdateDatasetEntriesCommandOutput>;
   updateDatasetEntries(
     args: UpdateDatasetEntriesCommandInput,
@@ -1759,7 +1767,7 @@ export interface Rekognition {
   ): void;
   updateDatasetEntries(
     args: UpdateDatasetEntriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: UpdateDatasetEntriesCommandOutput) => void
   ): void;
 
@@ -1768,7 +1776,7 @@ export interface Rekognition {
    */
   updateStreamProcessor(
     args: UpdateStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: RekognitionRequestOptions
   ): Promise<UpdateStreamProcessorCommandOutput>;
   updateStreamProcessor(
     args: UpdateStreamProcessorCommandInput,
@@ -1776,7 +1784,7 @@ export interface Rekognition {
   ): void;
   updateStreamProcessor(
     args: UpdateStreamProcessorCommandInput,
-    options: __HttpHandlerOptions,
+    options: RekognitionRequestOptions,
     cb: (err: any, data?: UpdateStreamProcessorCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ChatbotClient } from "./ChatbotClient";
 import {
@@ -233,13 +238,20 @@ const paginators = {
   paginateListMicrosoftTeamsUserIdentities,
 };
 
+/**
+ * @public
+ */
+export interface ChatbotRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Chatbot {
   /**
    * @see {@link AssociateToConfigurationCommand}
    */
   associateToConfiguration(
     args: AssociateToConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<AssociateToConfigurationCommandOutput>;
   associateToConfiguration(
     args: AssociateToConfigurationCommandInput,
@@ -247,7 +259,7 @@ export interface Chatbot {
   ): void;
   associateToConfiguration(
     args: AssociateToConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: AssociateToConfigurationCommandOutput) => void
   ): void;
 
@@ -256,7 +268,7 @@ export interface Chatbot {
    */
   createChimeWebhookConfiguration(
     args: CreateChimeWebhookConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<CreateChimeWebhookConfigurationCommandOutput>;
   createChimeWebhookConfiguration(
     args: CreateChimeWebhookConfigurationCommandInput,
@@ -264,7 +276,7 @@ export interface Chatbot {
   ): void;
   createChimeWebhookConfiguration(
     args: CreateChimeWebhookConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: CreateChimeWebhookConfigurationCommandOutput) => void
   ): void;
 
@@ -273,7 +285,7 @@ export interface Chatbot {
    */
   createCustomAction(
     args: CreateCustomActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<CreateCustomActionCommandOutput>;
   createCustomAction(
     args: CreateCustomActionCommandInput,
@@ -281,7 +293,7 @@ export interface Chatbot {
   ): void;
   createCustomAction(
     args: CreateCustomActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: CreateCustomActionCommandOutput) => void
   ): void;
 
@@ -290,7 +302,7 @@ export interface Chatbot {
    */
   createMicrosoftTeamsChannelConfiguration(
     args: CreateMicrosoftTeamsChannelConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<CreateMicrosoftTeamsChannelConfigurationCommandOutput>;
   createMicrosoftTeamsChannelConfiguration(
     args: CreateMicrosoftTeamsChannelConfigurationCommandInput,
@@ -298,7 +310,7 @@ export interface Chatbot {
   ): void;
   createMicrosoftTeamsChannelConfiguration(
     args: CreateMicrosoftTeamsChannelConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: CreateMicrosoftTeamsChannelConfigurationCommandOutput) => void
   ): void;
 
@@ -307,7 +319,7 @@ export interface Chatbot {
    */
   createSlackChannelConfiguration(
     args: CreateSlackChannelConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<CreateSlackChannelConfigurationCommandOutput>;
   createSlackChannelConfiguration(
     args: CreateSlackChannelConfigurationCommandInput,
@@ -315,7 +327,7 @@ export interface Chatbot {
   ): void;
   createSlackChannelConfiguration(
     args: CreateSlackChannelConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: CreateSlackChannelConfigurationCommandOutput) => void
   ): void;
 
@@ -324,7 +336,7 @@ export interface Chatbot {
    */
   deleteChimeWebhookConfiguration(
     args: DeleteChimeWebhookConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DeleteChimeWebhookConfigurationCommandOutput>;
   deleteChimeWebhookConfiguration(
     args: DeleteChimeWebhookConfigurationCommandInput,
@@ -332,7 +344,7 @@ export interface Chatbot {
   ): void;
   deleteChimeWebhookConfiguration(
     args: DeleteChimeWebhookConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DeleteChimeWebhookConfigurationCommandOutput) => void
   ): void;
 
@@ -341,7 +353,7 @@ export interface Chatbot {
    */
   deleteCustomAction(
     args: DeleteCustomActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DeleteCustomActionCommandOutput>;
   deleteCustomAction(
     args: DeleteCustomActionCommandInput,
@@ -349,7 +361,7 @@ export interface Chatbot {
   ): void;
   deleteCustomAction(
     args: DeleteCustomActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DeleteCustomActionCommandOutput) => void
   ): void;
 
@@ -358,7 +370,7 @@ export interface Chatbot {
    */
   deleteMicrosoftTeamsChannelConfiguration(
     args: DeleteMicrosoftTeamsChannelConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DeleteMicrosoftTeamsChannelConfigurationCommandOutput>;
   deleteMicrosoftTeamsChannelConfiguration(
     args: DeleteMicrosoftTeamsChannelConfigurationCommandInput,
@@ -366,7 +378,7 @@ export interface Chatbot {
   ): void;
   deleteMicrosoftTeamsChannelConfiguration(
     args: DeleteMicrosoftTeamsChannelConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DeleteMicrosoftTeamsChannelConfigurationCommandOutput) => void
   ): void;
 
@@ -375,7 +387,7 @@ export interface Chatbot {
    */
   deleteMicrosoftTeamsConfiguredTeam(
     args: DeleteMicrosoftTeamsConfiguredTeamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DeleteMicrosoftTeamsConfiguredTeamCommandOutput>;
   deleteMicrosoftTeamsConfiguredTeam(
     args: DeleteMicrosoftTeamsConfiguredTeamCommandInput,
@@ -383,7 +395,7 @@ export interface Chatbot {
   ): void;
   deleteMicrosoftTeamsConfiguredTeam(
     args: DeleteMicrosoftTeamsConfiguredTeamCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DeleteMicrosoftTeamsConfiguredTeamCommandOutput) => void
   ): void;
 
@@ -392,7 +404,7 @@ export interface Chatbot {
    */
   deleteMicrosoftTeamsUserIdentity(
     args: DeleteMicrosoftTeamsUserIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DeleteMicrosoftTeamsUserIdentityCommandOutput>;
   deleteMicrosoftTeamsUserIdentity(
     args: DeleteMicrosoftTeamsUserIdentityCommandInput,
@@ -400,7 +412,7 @@ export interface Chatbot {
   ): void;
   deleteMicrosoftTeamsUserIdentity(
     args: DeleteMicrosoftTeamsUserIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DeleteMicrosoftTeamsUserIdentityCommandOutput) => void
   ): void;
 
@@ -409,7 +421,7 @@ export interface Chatbot {
    */
   deleteSlackChannelConfiguration(
     args: DeleteSlackChannelConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DeleteSlackChannelConfigurationCommandOutput>;
   deleteSlackChannelConfiguration(
     args: DeleteSlackChannelConfigurationCommandInput,
@@ -417,7 +429,7 @@ export interface Chatbot {
   ): void;
   deleteSlackChannelConfiguration(
     args: DeleteSlackChannelConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DeleteSlackChannelConfigurationCommandOutput) => void
   ): void;
 
@@ -426,7 +438,7 @@ export interface Chatbot {
    */
   deleteSlackUserIdentity(
     args: DeleteSlackUserIdentityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DeleteSlackUserIdentityCommandOutput>;
   deleteSlackUserIdentity(
     args: DeleteSlackUserIdentityCommandInput,
@@ -434,7 +446,7 @@ export interface Chatbot {
   ): void;
   deleteSlackUserIdentity(
     args: DeleteSlackUserIdentityCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DeleteSlackUserIdentityCommandOutput) => void
   ): void;
 
@@ -443,7 +455,7 @@ export interface Chatbot {
    */
   deleteSlackWorkspaceAuthorization(
     args: DeleteSlackWorkspaceAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DeleteSlackWorkspaceAuthorizationCommandOutput>;
   deleteSlackWorkspaceAuthorization(
     args: DeleteSlackWorkspaceAuthorizationCommandInput,
@@ -451,7 +463,7 @@ export interface Chatbot {
   ): void;
   deleteSlackWorkspaceAuthorization(
     args: DeleteSlackWorkspaceAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DeleteSlackWorkspaceAuthorizationCommandOutput) => void
   ): void;
 
@@ -461,7 +473,7 @@ export interface Chatbot {
   describeChimeWebhookConfigurations(): Promise<DescribeChimeWebhookConfigurationsCommandOutput>;
   describeChimeWebhookConfigurations(
     args: DescribeChimeWebhookConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DescribeChimeWebhookConfigurationsCommandOutput>;
   describeChimeWebhookConfigurations(
     args: DescribeChimeWebhookConfigurationsCommandInput,
@@ -469,7 +481,7 @@ export interface Chatbot {
   ): void;
   describeChimeWebhookConfigurations(
     args: DescribeChimeWebhookConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DescribeChimeWebhookConfigurationsCommandOutput) => void
   ): void;
 
@@ -479,7 +491,7 @@ export interface Chatbot {
   describeSlackChannelConfigurations(): Promise<DescribeSlackChannelConfigurationsCommandOutput>;
   describeSlackChannelConfigurations(
     args: DescribeSlackChannelConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DescribeSlackChannelConfigurationsCommandOutput>;
   describeSlackChannelConfigurations(
     args: DescribeSlackChannelConfigurationsCommandInput,
@@ -487,7 +499,7 @@ export interface Chatbot {
   ): void;
   describeSlackChannelConfigurations(
     args: DescribeSlackChannelConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DescribeSlackChannelConfigurationsCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface Chatbot {
   describeSlackUserIdentities(): Promise<DescribeSlackUserIdentitiesCommandOutput>;
   describeSlackUserIdentities(
     args: DescribeSlackUserIdentitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DescribeSlackUserIdentitiesCommandOutput>;
   describeSlackUserIdentities(
     args: DescribeSlackUserIdentitiesCommandInput,
@@ -505,7 +517,7 @@ export interface Chatbot {
   ): void;
   describeSlackUserIdentities(
     args: DescribeSlackUserIdentitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DescribeSlackUserIdentitiesCommandOutput) => void
   ): void;
 
@@ -515,7 +527,7 @@ export interface Chatbot {
   describeSlackWorkspaces(): Promise<DescribeSlackWorkspacesCommandOutput>;
   describeSlackWorkspaces(
     args: DescribeSlackWorkspacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DescribeSlackWorkspacesCommandOutput>;
   describeSlackWorkspaces(
     args: DescribeSlackWorkspacesCommandInput,
@@ -523,7 +535,7 @@ export interface Chatbot {
   ): void;
   describeSlackWorkspaces(
     args: DescribeSlackWorkspacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DescribeSlackWorkspacesCommandOutput) => void
   ): void;
 
@@ -532,7 +544,7 @@ export interface Chatbot {
    */
   disassociateFromConfiguration(
     args: DisassociateFromConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<DisassociateFromConfigurationCommandOutput>;
   disassociateFromConfiguration(
     args: DisassociateFromConfigurationCommandInput,
@@ -540,7 +552,7 @@ export interface Chatbot {
   ): void;
   disassociateFromConfiguration(
     args: DisassociateFromConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: DisassociateFromConfigurationCommandOutput) => void
   ): void;
 
@@ -550,7 +562,7 @@ export interface Chatbot {
   getAccountPreferences(): Promise<GetAccountPreferencesCommandOutput>;
   getAccountPreferences(
     args: GetAccountPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<GetAccountPreferencesCommandOutput>;
   getAccountPreferences(
     args: GetAccountPreferencesCommandInput,
@@ -558,7 +570,7 @@ export interface Chatbot {
   ): void;
   getAccountPreferences(
     args: GetAccountPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: GetAccountPreferencesCommandOutput) => void
   ): void;
 
@@ -567,7 +579,7 @@ export interface Chatbot {
    */
   getCustomAction(
     args: GetCustomActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<GetCustomActionCommandOutput>;
   getCustomAction(
     args: GetCustomActionCommandInput,
@@ -575,7 +587,7 @@ export interface Chatbot {
   ): void;
   getCustomAction(
     args: GetCustomActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: GetCustomActionCommandOutput) => void
   ): void;
 
@@ -584,7 +596,7 @@ export interface Chatbot {
    */
   getMicrosoftTeamsChannelConfiguration(
     args: GetMicrosoftTeamsChannelConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<GetMicrosoftTeamsChannelConfigurationCommandOutput>;
   getMicrosoftTeamsChannelConfiguration(
     args: GetMicrosoftTeamsChannelConfigurationCommandInput,
@@ -592,7 +604,7 @@ export interface Chatbot {
   ): void;
   getMicrosoftTeamsChannelConfiguration(
     args: GetMicrosoftTeamsChannelConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: GetMicrosoftTeamsChannelConfigurationCommandOutput) => void
   ): void;
 
@@ -601,7 +613,7 @@ export interface Chatbot {
    */
   listAssociations(
     args: ListAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<ListAssociationsCommandOutput>;
   listAssociations(
     args: ListAssociationsCommandInput,
@@ -609,7 +621,7 @@ export interface Chatbot {
   ): void;
   listAssociations(
     args: ListAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: ListAssociationsCommandOutput) => void
   ): void;
 
@@ -619,7 +631,7 @@ export interface Chatbot {
   listCustomActions(): Promise<ListCustomActionsCommandOutput>;
   listCustomActions(
     args: ListCustomActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<ListCustomActionsCommandOutput>;
   listCustomActions(
     args: ListCustomActionsCommandInput,
@@ -627,7 +639,7 @@ export interface Chatbot {
   ): void;
   listCustomActions(
     args: ListCustomActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: ListCustomActionsCommandOutput) => void
   ): void;
 
@@ -637,7 +649,7 @@ export interface Chatbot {
   listMicrosoftTeamsChannelConfigurations(): Promise<ListMicrosoftTeamsChannelConfigurationsCommandOutput>;
   listMicrosoftTeamsChannelConfigurations(
     args: ListMicrosoftTeamsChannelConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<ListMicrosoftTeamsChannelConfigurationsCommandOutput>;
   listMicrosoftTeamsChannelConfigurations(
     args: ListMicrosoftTeamsChannelConfigurationsCommandInput,
@@ -645,7 +657,7 @@ export interface Chatbot {
   ): void;
   listMicrosoftTeamsChannelConfigurations(
     args: ListMicrosoftTeamsChannelConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: ListMicrosoftTeamsChannelConfigurationsCommandOutput) => void
   ): void;
 
@@ -655,7 +667,7 @@ export interface Chatbot {
   listMicrosoftTeamsConfiguredTeams(): Promise<ListMicrosoftTeamsConfiguredTeamsCommandOutput>;
   listMicrosoftTeamsConfiguredTeams(
     args: ListMicrosoftTeamsConfiguredTeamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<ListMicrosoftTeamsConfiguredTeamsCommandOutput>;
   listMicrosoftTeamsConfiguredTeams(
     args: ListMicrosoftTeamsConfiguredTeamsCommandInput,
@@ -663,7 +675,7 @@ export interface Chatbot {
   ): void;
   listMicrosoftTeamsConfiguredTeams(
     args: ListMicrosoftTeamsConfiguredTeamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: ListMicrosoftTeamsConfiguredTeamsCommandOutput) => void
   ): void;
 
@@ -673,7 +685,7 @@ export interface Chatbot {
   listMicrosoftTeamsUserIdentities(): Promise<ListMicrosoftTeamsUserIdentitiesCommandOutput>;
   listMicrosoftTeamsUserIdentities(
     args: ListMicrosoftTeamsUserIdentitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<ListMicrosoftTeamsUserIdentitiesCommandOutput>;
   listMicrosoftTeamsUserIdentities(
     args: ListMicrosoftTeamsUserIdentitiesCommandInput,
@@ -681,7 +693,7 @@ export interface Chatbot {
   ): void;
   listMicrosoftTeamsUserIdentities(
     args: ListMicrosoftTeamsUserIdentitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: ListMicrosoftTeamsUserIdentitiesCommandOutput) => void
   ): void;
 
@@ -690,7 +702,7 @@ export interface Chatbot {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -698,7 +710,7 @@ export interface Chatbot {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -707,7 +719,7 @@ export interface Chatbot {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -715,7 +727,7 @@ export interface Chatbot {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -724,7 +736,7 @@ export interface Chatbot {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -732,7 +744,7 @@ export interface Chatbot {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -742,7 +754,7 @@ export interface Chatbot {
   updateAccountPreferences(): Promise<UpdateAccountPreferencesCommandOutput>;
   updateAccountPreferences(
     args: UpdateAccountPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<UpdateAccountPreferencesCommandOutput>;
   updateAccountPreferences(
     args: UpdateAccountPreferencesCommandInput,
@@ -750,7 +762,7 @@ export interface Chatbot {
   ): void;
   updateAccountPreferences(
     args: UpdateAccountPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: UpdateAccountPreferencesCommandOutput) => void
   ): void;
 
@@ -759,7 +771,7 @@ export interface Chatbot {
    */
   updateChimeWebhookConfiguration(
     args: UpdateChimeWebhookConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<UpdateChimeWebhookConfigurationCommandOutput>;
   updateChimeWebhookConfiguration(
     args: UpdateChimeWebhookConfigurationCommandInput,
@@ -767,7 +779,7 @@ export interface Chatbot {
   ): void;
   updateChimeWebhookConfiguration(
     args: UpdateChimeWebhookConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: UpdateChimeWebhookConfigurationCommandOutput) => void
   ): void;
 
@@ -776,7 +788,7 @@ export interface Chatbot {
    */
   updateCustomAction(
     args: UpdateCustomActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<UpdateCustomActionCommandOutput>;
   updateCustomAction(
     args: UpdateCustomActionCommandInput,
@@ -784,7 +796,7 @@ export interface Chatbot {
   ): void;
   updateCustomAction(
     args: UpdateCustomActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: UpdateCustomActionCommandOutput) => void
   ): void;
 
@@ -793,7 +805,7 @@ export interface Chatbot {
    */
   updateMicrosoftTeamsChannelConfiguration(
     args: UpdateMicrosoftTeamsChannelConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<UpdateMicrosoftTeamsChannelConfigurationCommandOutput>;
   updateMicrosoftTeamsChannelConfiguration(
     args: UpdateMicrosoftTeamsChannelConfigurationCommandInput,
@@ -801,7 +813,7 @@ export interface Chatbot {
   ): void;
   updateMicrosoftTeamsChannelConfiguration(
     args: UpdateMicrosoftTeamsChannelConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: UpdateMicrosoftTeamsChannelConfigurationCommandOutput) => void
   ): void;
 
@@ -810,7 +822,7 @@ export interface Chatbot {
    */
   updateSlackChannelConfiguration(
     args: UpdateSlackChannelConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChatbotRequestOptions
   ): Promise<UpdateSlackChannelConfigurationCommandOutput>;
   updateSlackChannelConfiguration(
     args: UpdateSlackChannelConfigurationCommandInput,
@@ -818,7 +830,7 @@ export interface Chatbot {
   ): void;
   updateSlackChannelConfiguration(
     args: UpdateSlackChannelConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChatbotRequestOptions,
     cb: (err: any, data?: UpdateSlackChannelConfigurationCommandOutput) => void
   ): void;
 

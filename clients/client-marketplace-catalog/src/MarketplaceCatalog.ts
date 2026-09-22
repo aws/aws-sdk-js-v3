@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type BatchDescribeEntitiesCommandInput,
@@ -107,13 +112,20 @@ const paginators = {
   paginateListEntities,
 };
 
+/**
+ * @public
+ */
+export interface MarketplaceCatalogRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MarketplaceCatalog {
   /**
    * @see {@link BatchDescribeEntitiesCommand}
    */
   batchDescribeEntities(
     args: BatchDescribeEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<BatchDescribeEntitiesCommandOutput>;
   batchDescribeEntities(
     args: BatchDescribeEntitiesCommandInput,
@@ -121,7 +133,7 @@ export interface MarketplaceCatalog {
   ): void;
   batchDescribeEntities(
     args: BatchDescribeEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: BatchDescribeEntitiesCommandOutput) => void
   ): void;
 
@@ -130,7 +142,7 @@ export interface MarketplaceCatalog {
    */
   cancelChangeSet(
     args: CancelChangeSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<CancelChangeSetCommandOutput>;
   cancelChangeSet(
     args: CancelChangeSetCommandInput,
@@ -138,7 +150,7 @@ export interface MarketplaceCatalog {
   ): void;
   cancelChangeSet(
     args: CancelChangeSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: CancelChangeSetCommandOutput) => void
   ): void;
 
@@ -147,7 +159,7 @@ export interface MarketplaceCatalog {
    */
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -155,7 +167,7 @@ export interface MarketplaceCatalog {
   ): void;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
@@ -164,7 +176,7 @@ export interface MarketplaceCatalog {
    */
   describeAssessment(
     args: DescribeAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<DescribeAssessmentCommandOutput>;
   describeAssessment(
     args: DescribeAssessmentCommandInput,
@@ -172,7 +184,7 @@ export interface MarketplaceCatalog {
   ): void;
   describeAssessment(
     args: DescribeAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: DescribeAssessmentCommandOutput) => void
   ): void;
 
@@ -181,7 +193,7 @@ export interface MarketplaceCatalog {
    */
   describeChangeSet(
     args: DescribeChangeSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<DescribeChangeSetCommandOutput>;
   describeChangeSet(
     args: DescribeChangeSetCommandInput,
@@ -189,7 +201,7 @@ export interface MarketplaceCatalog {
   ): void;
   describeChangeSet(
     args: DescribeChangeSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: DescribeChangeSetCommandOutput) => void
   ): void;
 
@@ -198,7 +210,7 @@ export interface MarketplaceCatalog {
    */
   describeEntity(
     args: DescribeEntityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<DescribeEntityCommandOutput>;
   describeEntity(
     args: DescribeEntityCommandInput,
@@ -206,7 +218,7 @@ export interface MarketplaceCatalog {
   ): void;
   describeEntity(
     args: DescribeEntityCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: DescribeEntityCommandOutput) => void
   ): void;
 
@@ -215,7 +227,7 @@ export interface MarketplaceCatalog {
    */
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -223,7 +235,7 @@ export interface MarketplaceCatalog {
   ): void;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
@@ -232,7 +244,7 @@ export interface MarketplaceCatalog {
    */
   listAssessments(
     args: ListAssessmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<ListAssessmentsCommandOutput>;
   listAssessments(
     args: ListAssessmentsCommandInput,
@@ -240,7 +252,7 @@ export interface MarketplaceCatalog {
   ): void;
   listAssessments(
     args: ListAssessmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: ListAssessmentsCommandOutput) => void
   ): void;
 
@@ -249,7 +261,7 @@ export interface MarketplaceCatalog {
    */
   listChangeSets(
     args: ListChangeSetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<ListChangeSetsCommandOutput>;
   listChangeSets(
     args: ListChangeSetsCommandInput,
@@ -257,7 +269,7 @@ export interface MarketplaceCatalog {
   ): void;
   listChangeSets(
     args: ListChangeSetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: ListChangeSetsCommandOutput) => void
   ): void;
 
@@ -266,7 +278,7 @@ export interface MarketplaceCatalog {
    */
   listEntities(
     args: ListEntitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<ListEntitiesCommandOutput>;
   listEntities(
     args: ListEntitiesCommandInput,
@@ -274,7 +286,7 @@ export interface MarketplaceCatalog {
   ): void;
   listEntities(
     args: ListEntitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: ListEntitiesCommandOutput) => void
   ): void;
 
@@ -283,7 +295,7 @@ export interface MarketplaceCatalog {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -291,7 +303,7 @@ export interface MarketplaceCatalog {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -300,7 +312,7 @@ export interface MarketplaceCatalog {
    */
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -308,7 +320,7 @@ export interface MarketplaceCatalog {
   ): void;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
@@ -317,7 +329,7 @@ export interface MarketplaceCatalog {
    */
   startChangeSet(
     args: StartChangeSetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<StartChangeSetCommandOutput>;
   startChangeSet(
     args: StartChangeSetCommandInput,
@@ -325,7 +337,7 @@ export interface MarketplaceCatalog {
   ): void;
   startChangeSet(
     args: StartChangeSetCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: StartChangeSetCommandOutput) => void
   ): void;
 
@@ -334,7 +346,7 @@ export interface MarketplaceCatalog {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -342,7 +354,7 @@ export interface MarketplaceCatalog {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -351,7 +363,7 @@ export interface MarketplaceCatalog {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceCatalogRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -359,7 +371,7 @@ export interface MarketplaceCatalog {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceCatalogRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 

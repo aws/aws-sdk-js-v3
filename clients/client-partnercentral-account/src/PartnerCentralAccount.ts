@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptConnectionInvitationCommandInput,
@@ -219,13 +224,20 @@ const paginators = {
   paginateListPartners,
 };
 
+/**
+ * @public
+ */
+export interface PartnerCentralAccountRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PartnerCentralAccount {
   /**
    * @see {@link AcceptConnectionInvitationCommand}
    */
   acceptConnectionInvitation(
     args: AcceptConnectionInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<AcceptConnectionInvitationCommandOutput>;
   acceptConnectionInvitation(
     args: AcceptConnectionInvitationCommandInput,
@@ -233,7 +245,7 @@ export interface PartnerCentralAccount {
   ): void;
   acceptConnectionInvitation(
     args: AcceptConnectionInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: AcceptConnectionInvitationCommandOutput) => void
   ): void;
 
@@ -242,7 +254,7 @@ export interface PartnerCentralAccount {
    */
   associateAwsTrainingCertificationEmailDomain(
     args: AssociateAwsTrainingCertificationEmailDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<AssociateAwsTrainingCertificationEmailDomainCommandOutput>;
   associateAwsTrainingCertificationEmailDomain(
     args: AssociateAwsTrainingCertificationEmailDomainCommandInput,
@@ -250,7 +262,7 @@ export interface PartnerCentralAccount {
   ): void;
   associateAwsTrainingCertificationEmailDomain(
     args: AssociateAwsTrainingCertificationEmailDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: AssociateAwsTrainingCertificationEmailDomainCommandOutput) => void
   ): void;
 
@@ -259,7 +271,7 @@ export interface PartnerCentralAccount {
    */
   cancelConnection(
     args: CancelConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<CancelConnectionCommandOutput>;
   cancelConnection(
     args: CancelConnectionCommandInput,
@@ -267,7 +279,7 @@ export interface PartnerCentralAccount {
   ): void;
   cancelConnection(
     args: CancelConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: CancelConnectionCommandOutput) => void
   ): void;
 
@@ -276,7 +288,7 @@ export interface PartnerCentralAccount {
    */
   cancelConnectionInvitation(
     args: CancelConnectionInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<CancelConnectionInvitationCommandOutput>;
   cancelConnectionInvitation(
     args: CancelConnectionInvitationCommandInput,
@@ -284,7 +296,7 @@ export interface PartnerCentralAccount {
   ): void;
   cancelConnectionInvitation(
     args: CancelConnectionInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: CancelConnectionInvitationCommandOutput) => void
   ): void;
 
@@ -293,7 +305,7 @@ export interface PartnerCentralAccount {
    */
   cancelProfileUpdateTask(
     args: CancelProfileUpdateTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<CancelProfileUpdateTaskCommandOutput>;
   cancelProfileUpdateTask(
     args: CancelProfileUpdateTaskCommandInput,
@@ -301,7 +313,7 @@ export interface PartnerCentralAccount {
   ): void;
   cancelProfileUpdateTask(
     args: CancelProfileUpdateTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: CancelProfileUpdateTaskCommandOutput) => void
   ): void;
 
@@ -310,7 +322,7 @@ export interface PartnerCentralAccount {
    */
   createConnectionInvitation(
     args: CreateConnectionInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<CreateConnectionInvitationCommandOutput>;
   createConnectionInvitation(
     args: CreateConnectionInvitationCommandInput,
@@ -318,7 +330,7 @@ export interface PartnerCentralAccount {
   ): void;
   createConnectionInvitation(
     args: CreateConnectionInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: CreateConnectionInvitationCommandOutput) => void
   ): void;
 
@@ -327,7 +339,7 @@ export interface PartnerCentralAccount {
    */
   createPartner(
     args: CreatePartnerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<CreatePartnerCommandOutput>;
   createPartner(
     args: CreatePartnerCommandInput,
@@ -335,7 +347,7 @@ export interface PartnerCentralAccount {
   ): void;
   createPartner(
     args: CreatePartnerCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: CreatePartnerCommandOutput) => void
   ): void;
 
@@ -344,7 +356,7 @@ export interface PartnerCentralAccount {
    */
   disassociateAwsTrainingCertificationEmailDomain(
     args: DisassociateAwsTrainingCertificationEmailDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<DisassociateAwsTrainingCertificationEmailDomainCommandOutput>;
   disassociateAwsTrainingCertificationEmailDomain(
     args: DisassociateAwsTrainingCertificationEmailDomainCommandInput,
@@ -352,7 +364,7 @@ export interface PartnerCentralAccount {
   ): void;
   disassociateAwsTrainingCertificationEmailDomain(
     args: DisassociateAwsTrainingCertificationEmailDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: DisassociateAwsTrainingCertificationEmailDomainCommandOutput) => void
   ): void;
 
@@ -361,7 +373,7 @@ export interface PartnerCentralAccount {
    */
   getAllianceLeadContact(
     args: GetAllianceLeadContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetAllianceLeadContactCommandOutput>;
   getAllianceLeadContact(
     args: GetAllianceLeadContactCommandInput,
@@ -369,7 +381,7 @@ export interface PartnerCentralAccount {
   ): void;
   getAllianceLeadContact(
     args: GetAllianceLeadContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetAllianceLeadContactCommandOutput) => void
   ): void;
 
@@ -378,7 +390,7 @@ export interface PartnerCentralAccount {
    */
   getConnection(
     args: GetConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetConnectionCommandOutput>;
   getConnection(
     args: GetConnectionCommandInput,
@@ -386,7 +398,7 @@ export interface PartnerCentralAccount {
   ): void;
   getConnection(
     args: GetConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetConnectionCommandOutput) => void
   ): void;
 
@@ -395,7 +407,7 @@ export interface PartnerCentralAccount {
    */
   getConnectionInvitation(
     args: GetConnectionInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetConnectionInvitationCommandOutput>;
   getConnectionInvitation(
     args: GetConnectionInvitationCommandInput,
@@ -403,7 +415,7 @@ export interface PartnerCentralAccount {
   ): void;
   getConnectionInvitation(
     args: GetConnectionInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetConnectionInvitationCommandOutput) => void
   ): void;
 
@@ -412,7 +424,7 @@ export interface PartnerCentralAccount {
    */
   getConnectionPreferences(
     args: GetConnectionPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetConnectionPreferencesCommandOutput>;
   getConnectionPreferences(
     args: GetConnectionPreferencesCommandInput,
@@ -420,7 +432,7 @@ export interface PartnerCentralAccount {
   ): void;
   getConnectionPreferences(
     args: GetConnectionPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetConnectionPreferencesCommandOutput) => void
   ): void;
 
@@ -429,7 +441,7 @@ export interface PartnerCentralAccount {
    */
   getPartner(
     args: GetPartnerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetPartnerCommandOutput>;
   getPartner(
     args: GetPartnerCommandInput,
@@ -437,7 +449,7 @@ export interface PartnerCentralAccount {
   ): void;
   getPartner(
     args: GetPartnerCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetPartnerCommandOutput) => void
   ): void;
 
@@ -446,7 +458,7 @@ export interface PartnerCentralAccount {
    */
   getProfileUpdateTask(
     args: GetProfileUpdateTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetProfileUpdateTaskCommandOutput>;
   getProfileUpdateTask(
     args: GetProfileUpdateTaskCommandInput,
@@ -454,7 +466,7 @@ export interface PartnerCentralAccount {
   ): void;
   getProfileUpdateTask(
     args: GetProfileUpdateTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetProfileUpdateTaskCommandOutput) => void
   ): void;
 
@@ -463,7 +475,7 @@ export interface PartnerCentralAccount {
    */
   getProfileVisibility(
     args: GetProfileVisibilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetProfileVisibilityCommandOutput>;
   getProfileVisibility(
     args: GetProfileVisibilityCommandInput,
@@ -471,7 +483,7 @@ export interface PartnerCentralAccount {
   ): void;
   getProfileVisibility(
     args: GetProfileVisibilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetProfileVisibilityCommandOutput) => void
   ): void;
 
@@ -480,7 +492,7 @@ export interface PartnerCentralAccount {
    */
   getQualificationsAssociationDetails(
     args: GetQualificationsAssociationDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetQualificationsAssociationDetailsCommandOutput>;
   getQualificationsAssociationDetails(
     args: GetQualificationsAssociationDetailsCommandInput,
@@ -488,7 +500,7 @@ export interface PartnerCentralAccount {
   ): void;
   getQualificationsAssociationDetails(
     args: GetQualificationsAssociationDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetQualificationsAssociationDetailsCommandOutput) => void
   ): void;
 
@@ -497,7 +509,7 @@ export interface PartnerCentralAccount {
    */
   getQualificationsAssociationTask(
     args: GetQualificationsAssociationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetQualificationsAssociationTaskCommandOutput>;
   getQualificationsAssociationTask(
     args: GetQualificationsAssociationTaskCommandInput,
@@ -505,7 +517,7 @@ export interface PartnerCentralAccount {
   ): void;
   getQualificationsAssociationTask(
     args: GetQualificationsAssociationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetQualificationsAssociationTaskCommandOutput) => void
   ): void;
 
@@ -514,7 +526,7 @@ export interface PartnerCentralAccount {
    */
   getQualificationsDisassociationTask(
     args: GetQualificationsDisassociationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetQualificationsDisassociationTaskCommandOutput>;
   getQualificationsDisassociationTask(
     args: GetQualificationsDisassociationTaskCommandInput,
@@ -522,7 +534,7 @@ export interface PartnerCentralAccount {
   ): void;
   getQualificationsDisassociationTask(
     args: GetQualificationsDisassociationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetQualificationsDisassociationTaskCommandOutput) => void
   ): void;
 
@@ -531,7 +543,7 @@ export interface PartnerCentralAccount {
    */
   getVerification(
     args: GetVerificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<GetVerificationCommandOutput>;
   getVerification(
     args: GetVerificationCommandInput,
@@ -539,7 +551,7 @@ export interface PartnerCentralAccount {
   ): void;
   getVerification(
     args: GetVerificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: GetVerificationCommandOutput) => void
   ): void;
 
@@ -548,7 +560,7 @@ export interface PartnerCentralAccount {
    */
   listConnectionInvitations(
     args: ListConnectionInvitationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<ListConnectionInvitationsCommandOutput>;
   listConnectionInvitations(
     args: ListConnectionInvitationsCommandInput,
@@ -556,7 +568,7 @@ export interface PartnerCentralAccount {
   ): void;
   listConnectionInvitations(
     args: ListConnectionInvitationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: ListConnectionInvitationsCommandOutput) => void
   ): void;
 
@@ -565,7 +577,7 @@ export interface PartnerCentralAccount {
    */
   listConnections(
     args: ListConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
@@ -573,7 +585,7 @@ export interface PartnerCentralAccount {
   ): void;
   listConnections(
     args: ListConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: ListConnectionsCommandOutput) => void
   ): void;
 
@@ -582,7 +594,7 @@ export interface PartnerCentralAccount {
    */
   listPartners(
     args: ListPartnersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<ListPartnersCommandOutput>;
   listPartners(
     args: ListPartnersCommandInput,
@@ -590,7 +602,7 @@ export interface PartnerCentralAccount {
   ): void;
   listPartners(
     args: ListPartnersCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: ListPartnersCommandOutput) => void
   ): void;
 
@@ -599,7 +611,7 @@ export interface PartnerCentralAccount {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -607,7 +619,7 @@ export interface PartnerCentralAccount {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -616,7 +628,7 @@ export interface PartnerCentralAccount {
    */
   putAllianceLeadContact(
     args: PutAllianceLeadContactCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<PutAllianceLeadContactCommandOutput>;
   putAllianceLeadContact(
     args: PutAllianceLeadContactCommandInput,
@@ -624,7 +636,7 @@ export interface PartnerCentralAccount {
   ): void;
   putAllianceLeadContact(
     args: PutAllianceLeadContactCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: PutAllianceLeadContactCommandOutput) => void
   ): void;
 
@@ -633,7 +645,7 @@ export interface PartnerCentralAccount {
    */
   putProfileVisibility(
     args: PutProfileVisibilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<PutProfileVisibilityCommandOutput>;
   putProfileVisibility(
     args: PutProfileVisibilityCommandInput,
@@ -641,7 +653,7 @@ export interface PartnerCentralAccount {
   ): void;
   putProfileVisibility(
     args: PutProfileVisibilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: PutProfileVisibilityCommandOutput) => void
   ): void;
 
@@ -650,7 +662,7 @@ export interface PartnerCentralAccount {
    */
   rejectConnectionInvitation(
     args: RejectConnectionInvitationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<RejectConnectionInvitationCommandOutput>;
   rejectConnectionInvitation(
     args: RejectConnectionInvitationCommandInput,
@@ -658,7 +670,7 @@ export interface PartnerCentralAccount {
   ): void;
   rejectConnectionInvitation(
     args: RejectConnectionInvitationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: RejectConnectionInvitationCommandOutput) => void
   ): void;
 
@@ -667,7 +679,7 @@ export interface PartnerCentralAccount {
    */
   sendEmailVerificationCode(
     args: SendEmailVerificationCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<SendEmailVerificationCodeCommandOutput>;
   sendEmailVerificationCode(
     args: SendEmailVerificationCodeCommandInput,
@@ -675,7 +687,7 @@ export interface PartnerCentralAccount {
   ): void;
   sendEmailVerificationCode(
     args: SendEmailVerificationCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: SendEmailVerificationCodeCommandOutput) => void
   ): void;
 
@@ -684,7 +696,7 @@ export interface PartnerCentralAccount {
    */
   startProfileUpdateTask(
     args: StartProfileUpdateTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<StartProfileUpdateTaskCommandOutput>;
   startProfileUpdateTask(
     args: StartProfileUpdateTaskCommandInput,
@@ -692,7 +704,7 @@ export interface PartnerCentralAccount {
   ): void;
   startProfileUpdateTask(
     args: StartProfileUpdateTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: StartProfileUpdateTaskCommandOutput) => void
   ): void;
 
@@ -701,7 +713,7 @@ export interface PartnerCentralAccount {
    */
   startQualificationsAssociationTask(
     args: StartQualificationsAssociationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<StartQualificationsAssociationTaskCommandOutput>;
   startQualificationsAssociationTask(
     args: StartQualificationsAssociationTaskCommandInput,
@@ -709,7 +721,7 @@ export interface PartnerCentralAccount {
   ): void;
   startQualificationsAssociationTask(
     args: StartQualificationsAssociationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: StartQualificationsAssociationTaskCommandOutput) => void
   ): void;
 
@@ -718,7 +730,7 @@ export interface PartnerCentralAccount {
    */
   startQualificationsDisassociationTask(
     args: StartQualificationsDisassociationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<StartQualificationsDisassociationTaskCommandOutput>;
   startQualificationsDisassociationTask(
     args: StartQualificationsDisassociationTaskCommandInput,
@@ -726,7 +738,7 @@ export interface PartnerCentralAccount {
   ): void;
   startQualificationsDisassociationTask(
     args: StartQualificationsDisassociationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: StartQualificationsDisassociationTaskCommandOutput) => void
   ): void;
 
@@ -736,7 +748,7 @@ export interface PartnerCentralAccount {
   startVerification(): Promise<StartVerificationCommandOutput>;
   startVerification(
     args: StartVerificationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<StartVerificationCommandOutput>;
   startVerification(
     args: StartVerificationCommandInput,
@@ -744,7 +756,7 @@ export interface PartnerCentralAccount {
   ): void;
   startVerification(
     args: StartVerificationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: StartVerificationCommandOutput) => void
   ): void;
 
@@ -753,7 +765,7 @@ export interface PartnerCentralAccount {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -761,7 +773,7 @@ export interface PartnerCentralAccount {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -770,7 +782,7 @@ export interface PartnerCentralAccount {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -778,7 +790,7 @@ export interface PartnerCentralAccount {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -787,7 +799,7 @@ export interface PartnerCentralAccount {
    */
   updateConnectionPreferences(
     args: UpdateConnectionPreferencesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralAccountRequestOptions
   ): Promise<UpdateConnectionPreferencesCommandOutput>;
   updateConnectionPreferences(
     args: UpdateConnectionPreferencesCommandInput,
@@ -795,7 +807,7 @@ export interface PartnerCentralAccount {
   ): void;
   updateConnectionPreferences(
     args: UpdateConnectionPreferencesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralAccountRequestOptions,
     cb: (err: any, data?: UpdateConnectionPreferencesCommandOutput) => void
   ): void;
 

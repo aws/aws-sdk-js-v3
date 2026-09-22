@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateConnectorCommandInput,
@@ -171,13 +176,20 @@ const paginators = {
   paginateListTemplates,
 };
 
+/**
+ * @public
+ */
+export interface PcaConnectorAdRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PcaConnectorAd {
   /**
    * @see {@link CreateConnectorCommand}
    */
   createConnector(
     args: CreateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<CreateConnectorCommandOutput>;
   createConnector(
     args: CreateConnectorCommandInput,
@@ -185,7 +197,7 @@ export interface PcaConnectorAd {
   ): void;
   createConnector(
     args: CreateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: CreateConnectorCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface PcaConnectorAd {
    */
   createDirectoryRegistration(
     args: CreateDirectoryRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<CreateDirectoryRegistrationCommandOutput>;
   createDirectoryRegistration(
     args: CreateDirectoryRegistrationCommandInput,
@@ -202,7 +214,7 @@ export interface PcaConnectorAd {
   ): void;
   createDirectoryRegistration(
     args: CreateDirectoryRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: CreateDirectoryRegistrationCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface PcaConnectorAd {
    */
   createServicePrincipalName(
     args: CreateServicePrincipalNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<CreateServicePrincipalNameCommandOutput>;
   createServicePrincipalName(
     args: CreateServicePrincipalNameCommandInput,
@@ -219,7 +231,7 @@ export interface PcaConnectorAd {
   ): void;
   createServicePrincipalName(
     args: CreateServicePrincipalNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: CreateServicePrincipalNameCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface PcaConnectorAd {
    */
   createTemplate(
     args: CreateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<CreateTemplateCommandOutput>;
   createTemplate(
     args: CreateTemplateCommandInput,
@@ -236,7 +248,7 @@ export interface PcaConnectorAd {
   ): void;
   createTemplate(
     args: CreateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: CreateTemplateCommandOutput) => void
   ): void;
 
@@ -245,7 +257,7 @@ export interface PcaConnectorAd {
    */
   createTemplateGroupAccessControlEntry(
     args: CreateTemplateGroupAccessControlEntryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<CreateTemplateGroupAccessControlEntryCommandOutput>;
   createTemplateGroupAccessControlEntry(
     args: CreateTemplateGroupAccessControlEntryCommandInput,
@@ -253,7 +265,7 @@ export interface PcaConnectorAd {
   ): void;
   createTemplateGroupAccessControlEntry(
     args: CreateTemplateGroupAccessControlEntryCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: CreateTemplateGroupAccessControlEntryCommandOutput) => void
   ): void;
 
@@ -262,7 +274,7 @@ export interface PcaConnectorAd {
    */
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<DeleteConnectorCommandOutput>;
   deleteConnector(
     args: DeleteConnectorCommandInput,
@@ -270,7 +282,7 @@ export interface PcaConnectorAd {
   ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
@@ -279,7 +291,7 @@ export interface PcaConnectorAd {
    */
   deleteDirectoryRegistration(
     args: DeleteDirectoryRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<DeleteDirectoryRegistrationCommandOutput>;
   deleteDirectoryRegistration(
     args: DeleteDirectoryRegistrationCommandInput,
@@ -287,7 +299,7 @@ export interface PcaConnectorAd {
   ): void;
   deleteDirectoryRegistration(
     args: DeleteDirectoryRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: DeleteDirectoryRegistrationCommandOutput) => void
   ): void;
 
@@ -296,7 +308,7 @@ export interface PcaConnectorAd {
    */
   deleteServicePrincipalName(
     args: DeleteServicePrincipalNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<DeleteServicePrincipalNameCommandOutput>;
   deleteServicePrincipalName(
     args: DeleteServicePrincipalNameCommandInput,
@@ -304,7 +316,7 @@ export interface PcaConnectorAd {
   ): void;
   deleteServicePrincipalName(
     args: DeleteServicePrincipalNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: DeleteServicePrincipalNameCommandOutput) => void
   ): void;
 
@@ -313,7 +325,7 @@ export interface PcaConnectorAd {
    */
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<DeleteTemplateCommandOutput>;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
@@ -321,7 +333,7 @@ export interface PcaConnectorAd {
   ): void;
   deleteTemplate(
     args: DeleteTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): void;
 
@@ -330,7 +342,7 @@ export interface PcaConnectorAd {
    */
   deleteTemplateGroupAccessControlEntry(
     args: DeleteTemplateGroupAccessControlEntryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<DeleteTemplateGroupAccessControlEntryCommandOutput>;
   deleteTemplateGroupAccessControlEntry(
     args: DeleteTemplateGroupAccessControlEntryCommandInput,
@@ -338,7 +350,7 @@ export interface PcaConnectorAd {
   ): void;
   deleteTemplateGroupAccessControlEntry(
     args: DeleteTemplateGroupAccessControlEntryCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: DeleteTemplateGroupAccessControlEntryCommandOutput) => void
   ): void;
 
@@ -347,7 +359,7 @@ export interface PcaConnectorAd {
    */
   getConnector(
     args: GetConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<GetConnectorCommandOutput>;
   getConnector(
     args: GetConnectorCommandInput,
@@ -355,7 +367,7 @@ export interface PcaConnectorAd {
   ): void;
   getConnector(
     args: GetConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: GetConnectorCommandOutput) => void
   ): void;
 
@@ -364,7 +376,7 @@ export interface PcaConnectorAd {
    */
   getDirectoryRegistration(
     args: GetDirectoryRegistrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<GetDirectoryRegistrationCommandOutput>;
   getDirectoryRegistration(
     args: GetDirectoryRegistrationCommandInput,
@@ -372,7 +384,7 @@ export interface PcaConnectorAd {
   ): void;
   getDirectoryRegistration(
     args: GetDirectoryRegistrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: GetDirectoryRegistrationCommandOutput) => void
   ): void;
 
@@ -381,7 +393,7 @@ export interface PcaConnectorAd {
    */
   getServicePrincipalName(
     args: GetServicePrincipalNameCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<GetServicePrincipalNameCommandOutput>;
   getServicePrincipalName(
     args: GetServicePrincipalNameCommandInput,
@@ -389,7 +401,7 @@ export interface PcaConnectorAd {
   ): void;
   getServicePrincipalName(
     args: GetServicePrincipalNameCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: GetServicePrincipalNameCommandOutput) => void
   ): void;
 
@@ -398,7 +410,7 @@ export interface PcaConnectorAd {
    */
   getTemplate(
     args: GetTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<GetTemplateCommandOutput>;
   getTemplate(
     args: GetTemplateCommandInput,
@@ -406,7 +418,7 @@ export interface PcaConnectorAd {
   ): void;
   getTemplate(
     args: GetTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: GetTemplateCommandOutput) => void
   ): void;
 
@@ -415,7 +427,7 @@ export interface PcaConnectorAd {
    */
   getTemplateGroupAccessControlEntry(
     args: GetTemplateGroupAccessControlEntryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<GetTemplateGroupAccessControlEntryCommandOutput>;
   getTemplateGroupAccessControlEntry(
     args: GetTemplateGroupAccessControlEntryCommandInput,
@@ -423,7 +435,7 @@ export interface PcaConnectorAd {
   ): void;
   getTemplateGroupAccessControlEntry(
     args: GetTemplateGroupAccessControlEntryCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: GetTemplateGroupAccessControlEntryCommandOutput) => void
   ): void;
 
@@ -433,7 +445,7 @@ export interface PcaConnectorAd {
   listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
@@ -441,7 +453,7 @@ export interface PcaConnectorAd {
   ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: ListConnectorsCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface PcaConnectorAd {
   listDirectoryRegistrations(): Promise<ListDirectoryRegistrationsCommandOutput>;
   listDirectoryRegistrations(
     args: ListDirectoryRegistrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<ListDirectoryRegistrationsCommandOutput>;
   listDirectoryRegistrations(
     args: ListDirectoryRegistrationsCommandInput,
@@ -459,7 +471,7 @@ export interface PcaConnectorAd {
   ): void;
   listDirectoryRegistrations(
     args: ListDirectoryRegistrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: ListDirectoryRegistrationsCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface PcaConnectorAd {
    */
   listServicePrincipalNames(
     args: ListServicePrincipalNamesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<ListServicePrincipalNamesCommandOutput>;
   listServicePrincipalNames(
     args: ListServicePrincipalNamesCommandInput,
@@ -476,7 +488,7 @@ export interface PcaConnectorAd {
   ): void;
   listServicePrincipalNames(
     args: ListServicePrincipalNamesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: ListServicePrincipalNamesCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface PcaConnectorAd {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -493,7 +505,7 @@ export interface PcaConnectorAd {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface PcaConnectorAd {
    */
   listTemplateGroupAccessControlEntries(
     args: ListTemplateGroupAccessControlEntriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<ListTemplateGroupAccessControlEntriesCommandOutput>;
   listTemplateGroupAccessControlEntries(
     args: ListTemplateGroupAccessControlEntriesCommandInput,
@@ -510,7 +522,7 @@ export interface PcaConnectorAd {
   ): void;
   listTemplateGroupAccessControlEntries(
     args: ListTemplateGroupAccessControlEntriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: ListTemplateGroupAccessControlEntriesCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface PcaConnectorAd {
    */
   listTemplates(
     args: ListTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<ListTemplatesCommandOutput>;
   listTemplates(
     args: ListTemplatesCommandInput,
@@ -527,7 +539,7 @@ export interface PcaConnectorAd {
   ): void;
   listTemplates(
     args: ListTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: ListTemplatesCommandOutput) => void
   ): void;
 
@@ -536,7 +548,7 @@ export interface PcaConnectorAd {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -544,7 +556,7 @@ export interface PcaConnectorAd {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -553,7 +565,7 @@ export interface PcaConnectorAd {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -561,7 +573,7 @@ export interface PcaConnectorAd {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -570,7 +582,7 @@ export interface PcaConnectorAd {
    */
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<UpdateTemplateCommandOutput>;
   updateTemplate(
     args: UpdateTemplateCommandInput,
@@ -578,7 +590,7 @@ export interface PcaConnectorAd {
   ): void;
   updateTemplate(
     args: UpdateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: UpdateTemplateCommandOutput) => void
   ): void;
 
@@ -587,7 +599,7 @@ export interface PcaConnectorAd {
    */
   updateTemplateGroupAccessControlEntry(
     args: UpdateTemplateGroupAccessControlEntryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PcaConnectorAdRequestOptions
   ): Promise<UpdateTemplateGroupAccessControlEntryCommandOutput>;
   updateTemplateGroupAccessControlEntry(
     args: UpdateTemplateGroupAccessControlEntryCommandInput,
@@ -595,7 +607,7 @@ export interface PcaConnectorAd {
   ): void;
   updateTemplateGroupAccessControlEntry(
     args: UpdateTemplateGroupAccessControlEntryCommandInput,
-    options: __HttpHandlerOptions,
+    options: PcaConnectorAdRequestOptions,
     cb: (err: any, data?: UpdateTemplateGroupAccessControlEntryCommandOutput) => void
   ): void;
 

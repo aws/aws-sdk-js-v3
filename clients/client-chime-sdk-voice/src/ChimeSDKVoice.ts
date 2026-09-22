@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { ChimeSDKVoiceClient } from "./ChimeSDKVoiceClient";
 import {
@@ -605,13 +610,20 @@ const paginators = {
   paginateSearchAvailablePhoneNumbers,
 };
 
+/**
+ * @public
+ */
+export interface ChimeSDKVoiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ChimeSDKVoice {
   /**
    * @see {@link AssociatePhoneNumbersWithVoiceConnectorCommand}
    */
   associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorCommandOutput>;
   associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
@@ -619,7 +631,7 @@ export interface ChimeSDKVoice {
   ): void;
   associatePhoneNumbersWithVoiceConnector(
     args: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorCommandOutput) => void
   ): void;
 
@@ -628,7 +640,7 @@ export interface ChimeSDKVoice {
    */
   associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput>;
   associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
@@ -636,7 +648,7 @@ export interface ChimeSDKVoice {
   ): void;
   associatePhoneNumbersWithVoiceConnectorGroup(
     args: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput) => void
   ): void;
 
@@ -645,7 +657,7 @@ export interface ChimeSDKVoice {
    */
   batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<BatchDeletePhoneNumberCommandOutput>;
   batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
@@ -653,7 +665,7 @@ export interface ChimeSDKVoice {
   ): void;
   batchDeletePhoneNumber(
     args: BatchDeletePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: BatchDeletePhoneNumberCommandOutput) => void
   ): void;
 
@@ -662,7 +674,7 @@ export interface ChimeSDKVoice {
    */
   batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<BatchUpdatePhoneNumberCommandOutput>;
   batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
@@ -670,7 +682,7 @@ export interface ChimeSDKVoice {
   ): void;
   batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: BatchUpdatePhoneNumberCommandOutput) => void
   ): void;
 
@@ -679,7 +691,7 @@ export interface ChimeSDKVoice {
    */
   createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<CreatePhoneNumberOrderCommandOutput>;
   createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
@@ -687,7 +699,7 @@ export interface ChimeSDKVoice {
   ): void;
   createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: CreatePhoneNumberOrderCommandOutput) => void
   ): void;
 
@@ -696,7 +708,7 @@ export interface ChimeSDKVoice {
    */
   createProxySession(
     args: CreateProxySessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<CreateProxySessionCommandOutput>;
   createProxySession(
     args: CreateProxySessionCommandInput,
@@ -704,7 +716,7 @@ export interface ChimeSDKVoice {
   ): void;
   createProxySession(
     args: CreateProxySessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: CreateProxySessionCommandOutput) => void
   ): void;
 
@@ -713,7 +725,7 @@ export interface ChimeSDKVoice {
    */
   createSipMediaApplication(
     args: CreateSipMediaApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<CreateSipMediaApplicationCommandOutput>;
   createSipMediaApplication(
     args: CreateSipMediaApplicationCommandInput,
@@ -721,7 +733,7 @@ export interface ChimeSDKVoice {
   ): void;
   createSipMediaApplication(
     args: CreateSipMediaApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: CreateSipMediaApplicationCommandOutput) => void
   ): void;
 
@@ -730,7 +742,7 @@ export interface ChimeSDKVoice {
    */
   createSipMediaApplicationCall(
     args: CreateSipMediaApplicationCallCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<CreateSipMediaApplicationCallCommandOutput>;
   createSipMediaApplicationCall(
     args: CreateSipMediaApplicationCallCommandInput,
@@ -738,7 +750,7 @@ export interface ChimeSDKVoice {
   ): void;
   createSipMediaApplicationCall(
     args: CreateSipMediaApplicationCallCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: CreateSipMediaApplicationCallCommandOutput) => void
   ): void;
 
@@ -747,7 +759,7 @@ export interface ChimeSDKVoice {
    */
   createSipRule(
     args: CreateSipRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<CreateSipRuleCommandOutput>;
   createSipRule(
     args: CreateSipRuleCommandInput,
@@ -755,7 +767,7 @@ export interface ChimeSDKVoice {
   ): void;
   createSipRule(
     args: CreateSipRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: CreateSipRuleCommandOutput) => void
   ): void;
 
@@ -764,7 +776,7 @@ export interface ChimeSDKVoice {
    */
   createVoiceConnector(
     args: CreateVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<CreateVoiceConnectorCommandOutput>;
   createVoiceConnector(
     args: CreateVoiceConnectorCommandInput,
@@ -772,7 +784,7 @@ export interface ChimeSDKVoice {
   ): void;
   createVoiceConnector(
     args: CreateVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: CreateVoiceConnectorCommandOutput) => void
   ): void;
 
@@ -781,7 +793,7 @@ export interface ChimeSDKVoice {
    */
   createVoiceConnectorGroup(
     args: CreateVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<CreateVoiceConnectorGroupCommandOutput>;
   createVoiceConnectorGroup(
     args: CreateVoiceConnectorGroupCommandInput,
@@ -789,7 +801,7 @@ export interface ChimeSDKVoice {
   ): void;
   createVoiceConnectorGroup(
     args: CreateVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: CreateVoiceConnectorGroupCommandOutput) => void
   ): void;
 
@@ -798,7 +810,7 @@ export interface ChimeSDKVoice {
    */
   createVoiceProfile(
     args: CreateVoiceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<CreateVoiceProfileCommandOutput>;
   createVoiceProfile(
     args: CreateVoiceProfileCommandInput,
@@ -806,7 +818,7 @@ export interface ChimeSDKVoice {
   ): void;
   createVoiceProfile(
     args: CreateVoiceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: CreateVoiceProfileCommandOutput) => void
   ): void;
 
@@ -815,7 +827,7 @@ export interface ChimeSDKVoice {
    */
   createVoiceProfileDomain(
     args: CreateVoiceProfileDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<CreateVoiceProfileDomainCommandOutput>;
   createVoiceProfileDomain(
     args: CreateVoiceProfileDomainCommandInput,
@@ -823,7 +835,7 @@ export interface ChimeSDKVoice {
   ): void;
   createVoiceProfileDomain(
     args: CreateVoiceProfileDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: CreateVoiceProfileDomainCommandOutput) => void
   ): void;
 
@@ -832,7 +844,7 @@ export interface ChimeSDKVoice {
    */
   deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeletePhoneNumberCommandOutput>;
   deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
@@ -840,7 +852,7 @@ export interface ChimeSDKVoice {
   ): void;
   deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeletePhoneNumberCommandOutput) => void
   ): void;
 
@@ -849,7 +861,7 @@ export interface ChimeSDKVoice {
    */
   deleteProxySession(
     args: DeleteProxySessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteProxySessionCommandOutput>;
   deleteProxySession(
     args: DeleteProxySessionCommandInput,
@@ -857,7 +869,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteProxySession(
     args: DeleteProxySessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteProxySessionCommandOutput) => void
   ): void;
 
@@ -866,7 +878,7 @@ export interface ChimeSDKVoice {
    */
   deleteSipMediaApplication(
     args: DeleteSipMediaApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteSipMediaApplicationCommandOutput>;
   deleteSipMediaApplication(
     args: DeleteSipMediaApplicationCommandInput,
@@ -874,7 +886,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteSipMediaApplication(
     args: DeleteSipMediaApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteSipMediaApplicationCommandOutput) => void
   ): void;
 
@@ -883,7 +895,7 @@ export interface ChimeSDKVoice {
    */
   deleteSipRule(
     args: DeleteSipRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteSipRuleCommandOutput>;
   deleteSipRule(
     args: DeleteSipRuleCommandInput,
@@ -891,7 +903,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteSipRule(
     args: DeleteSipRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteSipRuleCommandOutput) => void
   ): void;
 
@@ -900,7 +912,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceConnector(
     args: DeleteVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceConnectorCommandOutput>;
   deleteVoiceConnector(
     args: DeleteVoiceConnectorCommandInput,
@@ -908,7 +920,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceConnector(
     args: DeleteVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceConnectorCommandOutput) => void
   ): void;
 
@@ -917,7 +929,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceConnectorEmergencyCallingConfiguration(
     args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
   deleteVoiceConnectorEmergencyCallingConfiguration(
     args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -925,7 +937,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceConnectorEmergencyCallingConfiguration(
     args: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
   ): void;
 
@@ -934,7 +946,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceConnectorExternalSystemsConfiguration(
     args: DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput>;
   deleteVoiceConnectorExternalSystemsConfiguration(
     args: DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
@@ -942,7 +954,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceConnectorExternalSystemsConfiguration(
     args: DeleteVoiceConnectorExternalSystemsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput) => void
   ): void;
 
@@ -951,7 +963,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceConnectorGroupCommandOutput>;
   deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
@@ -959,7 +971,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceConnectorGroupCommandOutput) => void
   ): void;
 
@@ -968,7 +980,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceConnectorOriginationCommandOutput>;
   deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
@@ -976,7 +988,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceConnectorOrigination(
     args: DeleteVoiceConnectorOriginationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceConnectorOriginationCommandOutput) => void
   ): void;
 
@@ -985,7 +997,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceConnectorProxy(
     args: DeleteVoiceConnectorProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceConnectorProxyCommandOutput>;
   deleteVoiceConnectorProxy(
     args: DeleteVoiceConnectorProxyCommandInput,
@@ -993,7 +1005,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceConnectorProxy(
     args: DeleteVoiceConnectorProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceConnectorProxyCommandOutput) => void
   ): void;
 
@@ -1002,7 +1014,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceConnectorStreamingConfigurationCommandOutput>;
   deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
@@ -1010,7 +1022,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceConnectorStreamingConfiguration(
     args: DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
 
@@ -1019,7 +1031,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceConnectorTerminationCommandOutput>;
   deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
@@ -1027,7 +1039,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceConnectorTermination(
     args: DeleteVoiceConnectorTerminationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceConnectorTerminationCommandOutput) => void
   ): void;
 
@@ -1036,7 +1048,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput>;
   deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
@@ -1044,7 +1056,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceConnectorTerminationCredentials(
     args: DeleteVoiceConnectorTerminationCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
 
@@ -1053,7 +1065,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceProfile(
     args: DeleteVoiceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceProfileCommandOutput>;
   deleteVoiceProfile(
     args: DeleteVoiceProfileCommandInput,
@@ -1061,7 +1073,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceProfile(
     args: DeleteVoiceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceProfileCommandOutput) => void
   ): void;
 
@@ -1070,7 +1082,7 @@ export interface ChimeSDKVoice {
    */
   deleteVoiceProfileDomain(
     args: DeleteVoiceProfileDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DeleteVoiceProfileDomainCommandOutput>;
   deleteVoiceProfileDomain(
     args: DeleteVoiceProfileDomainCommandInput,
@@ -1078,7 +1090,7 @@ export interface ChimeSDKVoice {
   ): void;
   deleteVoiceProfileDomain(
     args: DeleteVoiceProfileDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DeleteVoiceProfileDomainCommandOutput) => void
   ): void;
 
@@ -1087,7 +1099,7 @@ export interface ChimeSDKVoice {
    */
   disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorCommandOutput>;
   disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
@@ -1095,7 +1107,7 @@ export interface ChimeSDKVoice {
   ): void;
   disassociatePhoneNumbersFromVoiceConnector(
     args: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput) => void
   ): void;
 
@@ -1104,7 +1116,7 @@ export interface ChimeSDKVoice {
    */
   disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput>;
   disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
@@ -1112,7 +1124,7 @@ export interface ChimeSDKVoice {
   ): void;
   disassociatePhoneNumbersFromVoiceConnectorGroup(
     args: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput) => void
   ): void;
 
@@ -1122,7 +1134,7 @@ export interface ChimeSDKVoice {
   getGlobalSettings(): Promise<GetGlobalSettingsCommandOutput>;
   getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetGlobalSettingsCommandOutput>;
   getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
@@ -1130,7 +1142,7 @@ export interface ChimeSDKVoice {
   ): void;
   getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetGlobalSettingsCommandOutput) => void
   ): void;
 
@@ -1139,7 +1151,7 @@ export interface ChimeSDKVoice {
    */
   getPhoneNumber(
     args: GetPhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetPhoneNumberCommandOutput>;
   getPhoneNumber(
     args: GetPhoneNumberCommandInput,
@@ -1147,7 +1159,7 @@ export interface ChimeSDKVoice {
   ): void;
   getPhoneNumber(
     args: GetPhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetPhoneNumberCommandOutput) => void
   ): void;
 
@@ -1156,7 +1168,7 @@ export interface ChimeSDKVoice {
    */
   getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetPhoneNumberOrderCommandOutput>;
   getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
@@ -1164,7 +1176,7 @@ export interface ChimeSDKVoice {
   ): void;
   getPhoneNumberOrder(
     args: GetPhoneNumberOrderCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetPhoneNumberOrderCommandOutput) => void
   ): void;
 
@@ -1174,7 +1186,7 @@ export interface ChimeSDKVoice {
   getPhoneNumberSettings(): Promise<GetPhoneNumberSettingsCommandOutput>;
   getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetPhoneNumberSettingsCommandOutput>;
   getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
@@ -1182,7 +1194,7 @@ export interface ChimeSDKVoice {
   ): void;
   getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetPhoneNumberSettingsCommandOutput) => void
   ): void;
 
@@ -1191,7 +1203,7 @@ export interface ChimeSDKVoice {
    */
   getProxySession(
     args: GetProxySessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetProxySessionCommandOutput>;
   getProxySession(
     args: GetProxySessionCommandInput,
@@ -1199,7 +1211,7 @@ export interface ChimeSDKVoice {
   ): void;
   getProxySession(
     args: GetProxySessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetProxySessionCommandOutput) => void
   ): void;
 
@@ -1208,7 +1220,7 @@ export interface ChimeSDKVoice {
    */
   getSipMediaApplication(
     args: GetSipMediaApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetSipMediaApplicationCommandOutput>;
   getSipMediaApplication(
     args: GetSipMediaApplicationCommandInput,
@@ -1216,7 +1228,7 @@ export interface ChimeSDKVoice {
   ): void;
   getSipMediaApplication(
     args: GetSipMediaApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetSipMediaApplicationCommandOutput) => void
   ): void;
 
@@ -1225,7 +1237,7 @@ export interface ChimeSDKVoice {
    */
   getSipMediaApplicationAlexaSkillConfiguration(
     args: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetSipMediaApplicationAlexaSkillConfigurationCommandOutput>;
   getSipMediaApplicationAlexaSkillConfiguration(
     args: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
@@ -1233,7 +1245,7 @@ export interface ChimeSDKVoice {
   ): void;
   getSipMediaApplicationAlexaSkillConfiguration(
     args: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void
   ): void;
 
@@ -1242,7 +1254,7 @@ export interface ChimeSDKVoice {
    */
   getSipMediaApplicationLoggingConfiguration(
     args: GetSipMediaApplicationLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetSipMediaApplicationLoggingConfigurationCommandOutput>;
   getSipMediaApplicationLoggingConfiguration(
     args: GetSipMediaApplicationLoggingConfigurationCommandInput,
@@ -1250,7 +1262,7 @@ export interface ChimeSDKVoice {
   ): void;
   getSipMediaApplicationLoggingConfiguration(
     args: GetSipMediaApplicationLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetSipMediaApplicationLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1259,7 +1271,7 @@ export interface ChimeSDKVoice {
    */
   getSipRule(
     args: GetSipRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetSipRuleCommandOutput>;
   getSipRule(
     args: GetSipRuleCommandInput,
@@ -1267,7 +1279,7 @@ export interface ChimeSDKVoice {
   ): void;
   getSipRule(
     args: GetSipRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetSipRuleCommandOutput) => void
   ): void;
 
@@ -1276,7 +1288,7 @@ export interface ChimeSDKVoice {
    */
   getSpeakerSearchTask(
     args: GetSpeakerSearchTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetSpeakerSearchTaskCommandOutput>;
   getSpeakerSearchTask(
     args: GetSpeakerSearchTaskCommandInput,
@@ -1284,7 +1296,7 @@ export interface ChimeSDKVoice {
   ): void;
   getSpeakerSearchTask(
     args: GetSpeakerSearchTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
   ): void;
 
@@ -1293,7 +1305,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorCommandOutput>;
   getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
@@ -1301,7 +1313,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnector(
     args: GetVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorCommandOutput) => void
   ): void;
 
@@ -1310,7 +1322,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnectorEmergencyCallingConfiguration(
     args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
   getVoiceConnectorEmergencyCallingConfiguration(
     args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -1318,7 +1330,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnectorEmergencyCallingConfiguration(
     args: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
   ): void;
 
@@ -1327,7 +1339,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnectorExternalSystemsConfiguration(
     args: GetVoiceConnectorExternalSystemsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorExternalSystemsConfigurationCommandOutput>;
   getVoiceConnectorExternalSystemsConfiguration(
     args: GetVoiceConnectorExternalSystemsConfigurationCommandInput,
@@ -1335,7 +1347,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnectorExternalSystemsConfiguration(
     args: GetVoiceConnectorExternalSystemsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorExternalSystemsConfigurationCommandOutput) => void
   ): void;
 
@@ -1344,7 +1356,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorGroupCommandOutput>;
   getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
@@ -1352,7 +1364,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorGroupCommandOutput) => void
   ): void;
 
@@ -1361,7 +1373,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput>;
   getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
@@ -1369,7 +1381,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnectorLoggingConfiguration(
     args: GetVoiceConnectorLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1378,7 +1390,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnectorOrigination(
     args: GetVoiceConnectorOriginationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorOriginationCommandOutput>;
   getVoiceConnectorOrigination(
     args: GetVoiceConnectorOriginationCommandInput,
@@ -1386,7 +1398,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnectorOrigination(
     args: GetVoiceConnectorOriginationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorOriginationCommandOutput) => void
   ): void;
 
@@ -1395,7 +1407,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnectorProxy(
     args: GetVoiceConnectorProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorProxyCommandOutput>;
   getVoiceConnectorProxy(
     args: GetVoiceConnectorProxyCommandInput,
@@ -1403,7 +1415,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnectorProxy(
     args: GetVoiceConnectorProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorProxyCommandOutput) => void
   ): void;
 
@@ -1412,7 +1424,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorStreamingConfigurationCommandOutput>;
   getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
@@ -1420,7 +1432,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnectorStreamingConfiguration(
     args: GetVoiceConnectorStreamingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
 
@@ -1429,7 +1441,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnectorTermination(
     args: GetVoiceConnectorTerminationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorTerminationCommandOutput>;
   getVoiceConnectorTermination(
     args: GetVoiceConnectorTerminationCommandInput,
@@ -1437,7 +1449,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnectorTermination(
     args: GetVoiceConnectorTerminationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorTerminationCommandOutput) => void
   ): void;
 
@@ -1446,7 +1458,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceConnectorTerminationHealthCommandOutput>;
   getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
@@ -1454,7 +1466,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceConnectorTerminationHealth(
     args: GetVoiceConnectorTerminationHealthCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceConnectorTerminationHealthCommandOutput) => void
   ): void;
 
@@ -1463,7 +1475,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceProfile(
     args: GetVoiceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceProfileCommandOutput>;
   getVoiceProfile(
     args: GetVoiceProfileCommandInput,
@@ -1471,7 +1483,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceProfile(
     args: GetVoiceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceProfileCommandOutput) => void
   ): void;
 
@@ -1480,7 +1492,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceProfileDomain(
     args: GetVoiceProfileDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceProfileDomainCommandOutput>;
   getVoiceProfileDomain(
     args: GetVoiceProfileDomainCommandInput,
@@ -1488,7 +1500,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceProfileDomain(
     args: GetVoiceProfileDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceProfileDomainCommandOutput) => void
   ): void;
 
@@ -1497,7 +1509,7 @@ export interface ChimeSDKVoice {
    */
   getVoiceToneAnalysisTask(
     args: GetVoiceToneAnalysisTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<GetVoiceToneAnalysisTaskCommandOutput>;
   getVoiceToneAnalysisTask(
     args: GetVoiceToneAnalysisTaskCommandInput,
@@ -1505,7 +1517,7 @@ export interface ChimeSDKVoice {
   ): void;
   getVoiceToneAnalysisTask(
     args: GetVoiceToneAnalysisTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
   ): void;
 
@@ -1515,7 +1527,7 @@ export interface ChimeSDKVoice {
   listAvailableVoiceConnectorRegions(): Promise<ListAvailableVoiceConnectorRegionsCommandOutput>;
   listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListAvailableVoiceConnectorRegionsCommandOutput>;
   listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
@@ -1523,7 +1535,7 @@ export interface ChimeSDKVoice {
   ): void;
   listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListAvailableVoiceConnectorRegionsCommandOutput) => void
   ): void;
 
@@ -1533,7 +1545,7 @@ export interface ChimeSDKVoice {
   listPhoneNumberOrders(): Promise<ListPhoneNumberOrdersCommandOutput>;
   listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListPhoneNumberOrdersCommandOutput>;
   listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
@@ -1541,7 +1553,7 @@ export interface ChimeSDKVoice {
   ): void;
   listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListPhoneNumberOrdersCommandOutput) => void
   ): void;
 
@@ -1551,7 +1563,7 @@ export interface ChimeSDKVoice {
   listPhoneNumbers(): Promise<ListPhoneNumbersCommandOutput>;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListPhoneNumbersCommandOutput>;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
@@ -1559,7 +1571,7 @@ export interface ChimeSDKVoice {
   ): void;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListPhoneNumbersCommandOutput) => void
   ): void;
 
@@ -1568,7 +1580,7 @@ export interface ChimeSDKVoice {
    */
   listProxySessions(
     args: ListProxySessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListProxySessionsCommandOutput>;
   listProxySessions(
     args: ListProxySessionsCommandInput,
@@ -1576,7 +1588,7 @@ export interface ChimeSDKVoice {
   ): void;
   listProxySessions(
     args: ListProxySessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListProxySessionsCommandOutput) => void
   ): void;
 
@@ -1586,7 +1598,7 @@ export interface ChimeSDKVoice {
   listSipMediaApplications(): Promise<ListSipMediaApplicationsCommandOutput>;
   listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListSipMediaApplicationsCommandOutput>;
   listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
@@ -1594,7 +1606,7 @@ export interface ChimeSDKVoice {
   ): void;
   listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListSipMediaApplicationsCommandOutput) => void
   ): void;
 
@@ -1604,7 +1616,7 @@ export interface ChimeSDKVoice {
   listSipRules(): Promise<ListSipRulesCommandOutput>;
   listSipRules(
     args: ListSipRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListSipRulesCommandOutput>;
   listSipRules(
     args: ListSipRulesCommandInput,
@@ -1612,7 +1624,7 @@ export interface ChimeSDKVoice {
   ): void;
   listSipRules(
     args: ListSipRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListSipRulesCommandOutput) => void
   ): void;
 
@@ -1621,7 +1633,7 @@ export interface ChimeSDKVoice {
    */
   listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListSupportedPhoneNumberCountriesCommandOutput>;
   listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
@@ -1629,7 +1641,7 @@ export interface ChimeSDKVoice {
   ): void;
   listSupportedPhoneNumberCountries(
     args: ListSupportedPhoneNumberCountriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
   ): void;
 
@@ -1638,7 +1650,7 @@ export interface ChimeSDKVoice {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1646,7 +1658,7 @@ export interface ChimeSDKVoice {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1656,7 +1668,7 @@ export interface ChimeSDKVoice {
   listVoiceConnectorGroups(): Promise<ListVoiceConnectorGroupsCommandOutput>;
   listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListVoiceConnectorGroupsCommandOutput>;
   listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
@@ -1664,7 +1676,7 @@ export interface ChimeSDKVoice {
   ): void;
   listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListVoiceConnectorGroupsCommandOutput) => void
   ): void;
 
@@ -1674,7 +1686,7 @@ export interface ChimeSDKVoice {
   listVoiceConnectors(): Promise<ListVoiceConnectorsCommandOutput>;
   listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListVoiceConnectorsCommandOutput>;
   listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
@@ -1682,7 +1694,7 @@ export interface ChimeSDKVoice {
   ): void;
   listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListVoiceConnectorsCommandOutput) => void
   ): void;
 
@@ -1691,7 +1703,7 @@ export interface ChimeSDKVoice {
    */
   listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListVoiceConnectorTerminationCredentialsCommandOutput>;
   listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
@@ -1699,7 +1711,7 @@ export interface ChimeSDKVoice {
   ): void;
   listVoiceConnectorTerminationCredentials(
     args: ListVoiceConnectorTerminationCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
 
@@ -1709,7 +1721,7 @@ export interface ChimeSDKVoice {
   listVoiceProfileDomains(): Promise<ListVoiceProfileDomainsCommandOutput>;
   listVoiceProfileDomains(
     args: ListVoiceProfileDomainsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListVoiceProfileDomainsCommandOutput>;
   listVoiceProfileDomains(
     args: ListVoiceProfileDomainsCommandInput,
@@ -1717,7 +1729,7 @@ export interface ChimeSDKVoice {
   ): void;
   listVoiceProfileDomains(
     args: ListVoiceProfileDomainsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListVoiceProfileDomainsCommandOutput) => void
   ): void;
 
@@ -1726,7 +1738,7 @@ export interface ChimeSDKVoice {
    */
   listVoiceProfiles(
     args: ListVoiceProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ListVoiceProfilesCommandOutput>;
   listVoiceProfiles(
     args: ListVoiceProfilesCommandInput,
@@ -1734,7 +1746,7 @@ export interface ChimeSDKVoice {
   ): void;
   listVoiceProfiles(
     args: ListVoiceProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ListVoiceProfilesCommandOutput) => void
   ): void;
 
@@ -1743,7 +1755,7 @@ export interface ChimeSDKVoice {
    */
   putSipMediaApplicationAlexaSkillConfiguration(
     args: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutSipMediaApplicationAlexaSkillConfigurationCommandOutput>;
   putSipMediaApplicationAlexaSkillConfiguration(
     args: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
@@ -1751,7 +1763,7 @@ export interface ChimeSDKVoice {
   ): void;
   putSipMediaApplicationAlexaSkillConfiguration(
     args: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutSipMediaApplicationAlexaSkillConfigurationCommandOutput) => void
   ): void;
 
@@ -1760,7 +1772,7 @@ export interface ChimeSDKVoice {
    */
   putSipMediaApplicationLoggingConfiguration(
     args: PutSipMediaApplicationLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutSipMediaApplicationLoggingConfigurationCommandOutput>;
   putSipMediaApplicationLoggingConfiguration(
     args: PutSipMediaApplicationLoggingConfigurationCommandInput,
@@ -1768,7 +1780,7 @@ export interface ChimeSDKVoice {
   ): void;
   putSipMediaApplicationLoggingConfiguration(
     args: PutSipMediaApplicationLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutSipMediaApplicationLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1777,7 +1789,7 @@ export interface ChimeSDKVoice {
    */
   putVoiceConnectorEmergencyCallingConfiguration(
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutVoiceConnectorEmergencyCallingConfigurationCommandOutput>;
   putVoiceConnectorEmergencyCallingConfiguration(
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
@@ -1785,7 +1797,7 @@ export interface ChimeSDKVoice {
   ): void;
   putVoiceConnectorEmergencyCallingConfiguration(
     args: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput) => void
   ): void;
 
@@ -1794,7 +1806,7 @@ export interface ChimeSDKVoice {
    */
   putVoiceConnectorExternalSystemsConfiguration(
     args: PutVoiceConnectorExternalSystemsConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutVoiceConnectorExternalSystemsConfigurationCommandOutput>;
   putVoiceConnectorExternalSystemsConfiguration(
     args: PutVoiceConnectorExternalSystemsConfigurationCommandInput,
@@ -1802,7 +1814,7 @@ export interface ChimeSDKVoice {
   ): void;
   putVoiceConnectorExternalSystemsConfiguration(
     args: PutVoiceConnectorExternalSystemsConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutVoiceConnectorExternalSystemsConfigurationCommandOutput) => void
   ): void;
 
@@ -1811,7 +1823,7 @@ export interface ChimeSDKVoice {
    */
   putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutVoiceConnectorLoggingConfigurationCommandOutput>;
   putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
@@ -1819,7 +1831,7 @@ export interface ChimeSDKVoice {
   ): void;
   putVoiceConnectorLoggingConfiguration(
     args: PutVoiceConnectorLoggingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutVoiceConnectorLoggingConfigurationCommandOutput) => void
   ): void;
 
@@ -1828,7 +1840,7 @@ export interface ChimeSDKVoice {
    */
   putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutVoiceConnectorOriginationCommandOutput>;
   putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
@@ -1836,7 +1848,7 @@ export interface ChimeSDKVoice {
   ): void;
   putVoiceConnectorOrigination(
     args: PutVoiceConnectorOriginationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutVoiceConnectorOriginationCommandOutput) => void
   ): void;
 
@@ -1845,7 +1857,7 @@ export interface ChimeSDKVoice {
    */
   putVoiceConnectorProxy(
     args: PutVoiceConnectorProxyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutVoiceConnectorProxyCommandOutput>;
   putVoiceConnectorProxy(
     args: PutVoiceConnectorProxyCommandInput,
@@ -1853,7 +1865,7 @@ export interface ChimeSDKVoice {
   ): void;
   putVoiceConnectorProxy(
     args: PutVoiceConnectorProxyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutVoiceConnectorProxyCommandOutput) => void
   ): void;
 
@@ -1862,7 +1874,7 @@ export interface ChimeSDKVoice {
    */
   putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput>;
   putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
@@ -1870,7 +1882,7 @@ export interface ChimeSDKVoice {
   ): void;
   putVoiceConnectorStreamingConfiguration(
     args: PutVoiceConnectorStreamingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutVoiceConnectorStreamingConfigurationCommandOutput) => void
   ): void;
 
@@ -1879,7 +1891,7 @@ export interface ChimeSDKVoice {
    */
   putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutVoiceConnectorTerminationCommandOutput>;
   putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
@@ -1887,7 +1899,7 @@ export interface ChimeSDKVoice {
   ): void;
   putVoiceConnectorTermination(
     args: PutVoiceConnectorTerminationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutVoiceConnectorTerminationCommandOutput) => void
   ): void;
 
@@ -1896,7 +1908,7 @@ export interface ChimeSDKVoice {
    */
   putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<PutVoiceConnectorTerminationCredentialsCommandOutput>;
   putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
@@ -1904,7 +1916,7 @@ export interface ChimeSDKVoice {
   ): void;
   putVoiceConnectorTerminationCredentials(
     args: PutVoiceConnectorTerminationCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: PutVoiceConnectorTerminationCredentialsCommandOutput) => void
   ): void;
 
@@ -1913,7 +1925,7 @@ export interface ChimeSDKVoice {
    */
   restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<RestorePhoneNumberCommandOutput>;
   restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
@@ -1921,7 +1933,7 @@ export interface ChimeSDKVoice {
   ): void;
   restorePhoneNumber(
     args: RestorePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: RestorePhoneNumberCommandOutput) => void
   ): void;
 
@@ -1931,7 +1943,7 @@ export interface ChimeSDKVoice {
   searchAvailablePhoneNumbers(): Promise<SearchAvailablePhoneNumbersCommandOutput>;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<SearchAvailablePhoneNumbersCommandOutput>;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
@@ -1939,7 +1951,7 @@ export interface ChimeSDKVoice {
   ): void;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: SearchAvailablePhoneNumbersCommandOutput) => void
   ): void;
 
@@ -1948,7 +1960,7 @@ export interface ChimeSDKVoice {
    */
   startSpeakerSearchTask(
     args: StartSpeakerSearchTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<StartSpeakerSearchTaskCommandOutput>;
   startSpeakerSearchTask(
     args: StartSpeakerSearchTaskCommandInput,
@@ -1956,7 +1968,7 @@ export interface ChimeSDKVoice {
   ): void;
   startSpeakerSearchTask(
     args: StartSpeakerSearchTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
   ): void;
 
@@ -1965,7 +1977,7 @@ export interface ChimeSDKVoice {
    */
   startVoiceToneAnalysisTask(
     args: StartVoiceToneAnalysisTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<StartVoiceToneAnalysisTaskCommandOutput>;
   startVoiceToneAnalysisTask(
     args: StartVoiceToneAnalysisTaskCommandInput,
@@ -1973,7 +1985,7 @@ export interface ChimeSDKVoice {
   ): void;
   startVoiceToneAnalysisTask(
     args: StartVoiceToneAnalysisTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
   ): void;
 
@@ -1982,7 +1994,7 @@ export interface ChimeSDKVoice {
    */
   stopSpeakerSearchTask(
     args: StopSpeakerSearchTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<StopSpeakerSearchTaskCommandOutput>;
   stopSpeakerSearchTask(
     args: StopSpeakerSearchTaskCommandInput,
@@ -1990,7 +2002,7 @@ export interface ChimeSDKVoice {
   ): void;
   stopSpeakerSearchTask(
     args: StopSpeakerSearchTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
   ): void;
 
@@ -1999,7 +2011,7 @@ export interface ChimeSDKVoice {
    */
   stopVoiceToneAnalysisTask(
     args: StopVoiceToneAnalysisTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<StopVoiceToneAnalysisTaskCommandOutput>;
   stopVoiceToneAnalysisTask(
     args: StopVoiceToneAnalysisTaskCommandInput,
@@ -2007,7 +2019,7 @@ export interface ChimeSDKVoice {
   ): void;
   stopVoiceToneAnalysisTask(
     args: StopVoiceToneAnalysisTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
   ): void;
 
@@ -2016,7 +2028,7 @@ export interface ChimeSDKVoice {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -2024,7 +2036,7 @@ export interface ChimeSDKVoice {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -2033,7 +2045,7 @@ export interface ChimeSDKVoice {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -2041,7 +2053,7 @@ export interface ChimeSDKVoice {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -2050,7 +2062,7 @@ export interface ChimeSDKVoice {
    */
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
@@ -2058,7 +2070,7 @@ export interface ChimeSDKVoice {
   ): void;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
   ): void;
 
@@ -2067,7 +2079,7 @@ export interface ChimeSDKVoice {
    */
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdatePhoneNumberCommandOutput>;
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
@@ -2075,7 +2087,7 @@ export interface ChimeSDKVoice {
   ): void;
   updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdatePhoneNumberCommandOutput) => void
   ): void;
 
@@ -2084,7 +2096,7 @@ export interface ChimeSDKVoice {
    */
   updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdatePhoneNumberSettingsCommandOutput>;
   updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
@@ -2092,7 +2104,7 @@ export interface ChimeSDKVoice {
   ): void;
   updatePhoneNumberSettings(
     args: UpdatePhoneNumberSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdatePhoneNumberSettingsCommandOutput) => void
   ): void;
 
@@ -2101,7 +2113,7 @@ export interface ChimeSDKVoice {
    */
   updateProxySession(
     args: UpdateProxySessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdateProxySessionCommandOutput>;
   updateProxySession(
     args: UpdateProxySessionCommandInput,
@@ -2109,7 +2121,7 @@ export interface ChimeSDKVoice {
   ): void;
   updateProxySession(
     args: UpdateProxySessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdateProxySessionCommandOutput) => void
   ): void;
 
@@ -2118,7 +2130,7 @@ export interface ChimeSDKVoice {
    */
   updateSipMediaApplication(
     args: UpdateSipMediaApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdateSipMediaApplicationCommandOutput>;
   updateSipMediaApplication(
     args: UpdateSipMediaApplicationCommandInput,
@@ -2126,7 +2138,7 @@ export interface ChimeSDKVoice {
   ): void;
   updateSipMediaApplication(
     args: UpdateSipMediaApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
   ): void;
 
@@ -2135,7 +2147,7 @@ export interface ChimeSDKVoice {
    */
   updateSipMediaApplicationCall(
     args: UpdateSipMediaApplicationCallCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdateSipMediaApplicationCallCommandOutput>;
   updateSipMediaApplicationCall(
     args: UpdateSipMediaApplicationCallCommandInput,
@@ -2143,7 +2155,7 @@ export interface ChimeSDKVoice {
   ): void;
   updateSipMediaApplicationCall(
     args: UpdateSipMediaApplicationCallCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
   ): void;
 
@@ -2152,7 +2164,7 @@ export interface ChimeSDKVoice {
    */
   updateSipRule(
     args: UpdateSipRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdateSipRuleCommandOutput>;
   updateSipRule(
     args: UpdateSipRuleCommandInput,
@@ -2160,7 +2172,7 @@ export interface ChimeSDKVoice {
   ): void;
   updateSipRule(
     args: UpdateSipRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdateSipRuleCommandOutput) => void
   ): void;
 
@@ -2169,7 +2181,7 @@ export interface ChimeSDKVoice {
    */
   updateVoiceConnector(
     args: UpdateVoiceConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdateVoiceConnectorCommandOutput>;
   updateVoiceConnector(
     args: UpdateVoiceConnectorCommandInput,
@@ -2177,7 +2189,7 @@ export interface ChimeSDKVoice {
   ): void;
   updateVoiceConnector(
     args: UpdateVoiceConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdateVoiceConnectorCommandOutput) => void
   ): void;
 
@@ -2186,7 +2198,7 @@ export interface ChimeSDKVoice {
    */
   updateVoiceConnectorGroup(
     args: UpdateVoiceConnectorGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdateVoiceConnectorGroupCommandOutput>;
   updateVoiceConnectorGroup(
     args: UpdateVoiceConnectorGroupCommandInput,
@@ -2194,7 +2206,7 @@ export interface ChimeSDKVoice {
   ): void;
   updateVoiceConnectorGroup(
     args: UpdateVoiceConnectorGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
   ): void;
 
@@ -2203,7 +2215,7 @@ export interface ChimeSDKVoice {
    */
   updateVoiceProfile(
     args: UpdateVoiceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdateVoiceProfileCommandOutput>;
   updateVoiceProfile(
     args: UpdateVoiceProfileCommandInput,
@@ -2211,7 +2223,7 @@ export interface ChimeSDKVoice {
   ): void;
   updateVoiceProfile(
     args: UpdateVoiceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdateVoiceProfileCommandOutput) => void
   ): void;
 
@@ -2220,7 +2232,7 @@ export interface ChimeSDKVoice {
    */
   updateVoiceProfileDomain(
     args: UpdateVoiceProfileDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<UpdateVoiceProfileDomainCommandOutput>;
   updateVoiceProfileDomain(
     args: UpdateVoiceProfileDomainCommandInput,
@@ -2228,7 +2240,7 @@ export interface ChimeSDKVoice {
   ): void;
   updateVoiceProfileDomain(
     args: UpdateVoiceProfileDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: UpdateVoiceProfileDomainCommandOutput) => void
   ): void;
 
@@ -2237,7 +2249,7 @@ export interface ChimeSDKVoice {
    */
   validateE911Address(
     args: ValidateE911AddressCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ChimeSDKVoiceRequestOptions
   ): Promise<ValidateE911AddressCommandOutput>;
   validateE911Address(
     args: ValidateE911AddressCommandInput,
@@ -2245,7 +2257,7 @@ export interface ChimeSDKVoice {
   ): void;
   validateE911Address(
     args: ValidateE911AddressCommandInput,
-    options: __HttpHandlerOptions,
+    options: ChimeSDKVoiceRequestOptions,
     cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
   ): void;
 

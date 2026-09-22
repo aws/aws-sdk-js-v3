@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateMarketplaceRevenueShareAllocationCommandInput,
@@ -127,13 +132,20 @@ const paginators = {
   paginateListRevenueAttributions,
 };
 
+/**
+ * @public
+ */
+export interface PartnerCentralRevenueMeasurementRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface PartnerCentralRevenueMeasurement {
   /**
    * @see {@link CreateMarketplaceRevenueShareCommand}
    */
   createMarketplaceRevenueShare(
     args: CreateMarketplaceRevenueShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<CreateMarketplaceRevenueShareCommandOutput>;
   createMarketplaceRevenueShare(
     args: CreateMarketplaceRevenueShareCommandInput,
@@ -141,7 +153,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   createMarketplaceRevenueShare(
     args: CreateMarketplaceRevenueShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: CreateMarketplaceRevenueShareCommandOutput) => void
   ): void;
 
@@ -150,7 +162,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   createMarketplaceRevenueShareAllocation(
     args: CreateMarketplaceRevenueShareAllocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<CreateMarketplaceRevenueShareAllocationCommandOutput>;
   createMarketplaceRevenueShareAllocation(
     args: CreateMarketplaceRevenueShareAllocationCommandInput,
@@ -158,7 +170,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   createMarketplaceRevenueShareAllocation(
     args: CreateMarketplaceRevenueShareAllocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: CreateMarketplaceRevenueShareAllocationCommandOutput) => void
   ): void;
 
@@ -167,7 +179,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   createRevenueAttribution(
     args: CreateRevenueAttributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<CreateRevenueAttributionCommandOutput>;
   createRevenueAttribution(
     args: CreateRevenueAttributionCommandInput,
@@ -175,7 +187,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   createRevenueAttribution(
     args: CreateRevenueAttributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: CreateRevenueAttributionCommandOutput) => void
   ): void;
 
@@ -184,7 +196,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   getMarketplaceRevenueShare(
     args: GetMarketplaceRevenueShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<GetMarketplaceRevenueShareCommandOutput>;
   getMarketplaceRevenueShare(
     args: GetMarketplaceRevenueShareCommandInput,
@@ -192,7 +204,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   getMarketplaceRevenueShare(
     args: GetMarketplaceRevenueShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: GetMarketplaceRevenueShareCommandOutput) => void
   ): void;
 
@@ -201,7 +213,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   getMarketplaceRevenueShareAllocation(
     args: GetMarketplaceRevenueShareAllocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<GetMarketplaceRevenueShareAllocationCommandOutput>;
   getMarketplaceRevenueShareAllocation(
     args: GetMarketplaceRevenueShareAllocationCommandInput,
@@ -209,7 +221,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   getMarketplaceRevenueShareAllocation(
     args: GetMarketplaceRevenueShareAllocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: GetMarketplaceRevenueShareAllocationCommandOutput) => void
   ): void;
 
@@ -218,7 +230,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   getRevenueAttribution(
     args: GetRevenueAttributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<GetRevenueAttributionCommandOutput>;
   getRevenueAttribution(
     args: GetRevenueAttributionCommandInput,
@@ -226,7 +238,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   getRevenueAttribution(
     args: GetRevenueAttributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: GetRevenueAttributionCommandOutput) => void
   ): void;
 
@@ -235,7 +247,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   getRevenueAttributionAllocation(
     args: GetRevenueAttributionAllocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<GetRevenueAttributionAllocationCommandOutput>;
   getRevenueAttributionAllocation(
     args: GetRevenueAttributionAllocationCommandInput,
@@ -243,7 +255,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   getRevenueAttributionAllocation(
     args: GetRevenueAttributionAllocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: GetRevenueAttributionAllocationCommandOutput) => void
   ): void;
 
@@ -252,7 +264,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   getRevenueAttributionAllocationsTask(
     args: GetRevenueAttributionAllocationsTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<GetRevenueAttributionAllocationsTaskCommandOutput>;
   getRevenueAttributionAllocationsTask(
     args: GetRevenueAttributionAllocationsTaskCommandInput,
@@ -260,7 +272,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   getRevenueAttributionAllocationsTask(
     args: GetRevenueAttributionAllocationsTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: GetRevenueAttributionAllocationsTaskCommandOutput) => void
   ): void;
 
@@ -269,7 +281,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   listMarketplaceRevenueShareAllocations(
     args: ListMarketplaceRevenueShareAllocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<ListMarketplaceRevenueShareAllocationsCommandOutput>;
   listMarketplaceRevenueShareAllocations(
     args: ListMarketplaceRevenueShareAllocationsCommandInput,
@@ -277,7 +289,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   listMarketplaceRevenueShareAllocations(
     args: ListMarketplaceRevenueShareAllocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: ListMarketplaceRevenueShareAllocationsCommandOutput) => void
   ): void;
 
@@ -286,7 +298,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   listMarketplaceRevenueShares(
     args: ListMarketplaceRevenueSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<ListMarketplaceRevenueSharesCommandOutput>;
   listMarketplaceRevenueShares(
     args: ListMarketplaceRevenueSharesCommandInput,
@@ -294,7 +306,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   listMarketplaceRevenueShares(
     args: ListMarketplaceRevenueSharesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: ListMarketplaceRevenueSharesCommandOutput) => void
   ): void;
 
@@ -303,7 +315,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   listRevenueAttributionAllocations(
     args: ListRevenueAttributionAllocationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<ListRevenueAttributionAllocationsCommandOutput>;
   listRevenueAttributionAllocations(
     args: ListRevenueAttributionAllocationsCommandInput,
@@ -311,7 +323,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   listRevenueAttributionAllocations(
     args: ListRevenueAttributionAllocationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: ListRevenueAttributionAllocationsCommandOutput) => void
   ): void;
 
@@ -320,7 +332,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   listRevenueAttributions(
     args: ListRevenueAttributionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<ListRevenueAttributionsCommandOutput>;
   listRevenueAttributions(
     args: ListRevenueAttributionsCommandInput,
@@ -328,7 +340,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   listRevenueAttributions(
     args: ListRevenueAttributionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: ListRevenueAttributionsCommandOutput) => void
   ): void;
 
@@ -337,7 +349,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -345,7 +357,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -354,7 +366,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   startRevenueAttributionAllocationsTask(
     args: StartRevenueAttributionAllocationsTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<StartRevenueAttributionAllocationsTaskCommandOutput>;
   startRevenueAttributionAllocationsTask(
     args: StartRevenueAttributionAllocationsTaskCommandInput,
@@ -362,7 +374,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   startRevenueAttributionAllocationsTask(
     args: StartRevenueAttributionAllocationsTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: StartRevenueAttributionAllocationsTaskCommandOutput) => void
   ): void;
 
@@ -371,7 +383,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -379,7 +391,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -388,7 +400,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -396,7 +408,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -405,7 +417,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   updateMarketplaceRevenueShareAllocation(
     args: UpdateMarketplaceRevenueShareAllocationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<UpdateMarketplaceRevenueShareAllocationCommandOutput>;
   updateMarketplaceRevenueShareAllocation(
     args: UpdateMarketplaceRevenueShareAllocationCommandInput,
@@ -413,7 +425,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   updateMarketplaceRevenueShareAllocation(
     args: UpdateMarketplaceRevenueShareAllocationCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: UpdateMarketplaceRevenueShareAllocationCommandOutput) => void
   ): void;
 
@@ -422,7 +434,7 @@ export interface PartnerCentralRevenueMeasurement {
    */
   updateRevenueAttribution(
     args: UpdateRevenueAttributionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PartnerCentralRevenueMeasurementRequestOptions
   ): Promise<UpdateRevenueAttributionCommandOutput>;
   updateRevenueAttribution(
     args: UpdateRevenueAttributionCommandInput,
@@ -430,7 +442,7 @@ export interface PartnerCentralRevenueMeasurement {
   ): void;
   updateRevenueAttribution(
     args: UpdateRevenueAttributionCommandInput,
-    options: __HttpHandlerOptions,
+    options: PartnerCentralRevenueMeasurementRequestOptions,
     cb: (err: any, data?: UpdateRevenueAttributionCommandOutput) => void
   ): void;
 

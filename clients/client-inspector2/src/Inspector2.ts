@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -537,13 +538,20 @@ const waiters = {
   waitUntilConnectorConnected,
 };
 
+/**
+ * @public
+ */
+export interface Inspector2RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Inspector2 {
   /**
    * @see {@link AssociateMemberCommand}
    */
   associateMember(
     args: AssociateMemberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<AssociateMemberCommandOutput>;
   associateMember(
     args: AssociateMemberCommandInput,
@@ -551,7 +559,7 @@ export interface Inspector2 {
   ): void;
   associateMember(
     args: AssociateMemberCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: AssociateMemberCommandOutput) => void
   ): void;
 
@@ -560,7 +568,7 @@ export interface Inspector2 {
    */
   batchAssociateCodeSecurityScanConfiguration(
     args: BatchAssociateCodeSecurityScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<BatchAssociateCodeSecurityScanConfigurationCommandOutput>;
   batchAssociateCodeSecurityScanConfiguration(
     args: BatchAssociateCodeSecurityScanConfigurationCommandInput,
@@ -568,7 +576,7 @@ export interface Inspector2 {
   ): void;
   batchAssociateCodeSecurityScanConfiguration(
     args: BatchAssociateCodeSecurityScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: BatchAssociateCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
@@ -577,7 +585,7 @@ export interface Inspector2 {
    */
   batchDisassociateCodeSecurityScanConfiguration(
     args: BatchDisassociateCodeSecurityScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<BatchDisassociateCodeSecurityScanConfigurationCommandOutput>;
   batchDisassociateCodeSecurityScanConfiguration(
     args: BatchDisassociateCodeSecurityScanConfigurationCommandInput,
@@ -585,7 +593,7 @@ export interface Inspector2 {
   ): void;
   batchDisassociateCodeSecurityScanConfiguration(
     args: BatchDisassociateCodeSecurityScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: BatchDisassociateCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
@@ -595,7 +603,7 @@ export interface Inspector2 {
   batchGetAccountStatus(): Promise<BatchGetAccountStatusCommandOutput>;
   batchGetAccountStatus(
     args: BatchGetAccountStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<BatchGetAccountStatusCommandOutput>;
   batchGetAccountStatus(
     args: BatchGetAccountStatusCommandInput,
@@ -603,7 +611,7 @@ export interface Inspector2 {
   ): void;
   batchGetAccountStatus(
     args: BatchGetAccountStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: BatchGetAccountStatusCommandOutput) => void
   ): void;
 
@@ -612,7 +620,7 @@ export interface Inspector2 {
    */
   batchGetCodeSnippet(
     args: BatchGetCodeSnippetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<BatchGetCodeSnippetCommandOutput>;
   batchGetCodeSnippet(
     args: BatchGetCodeSnippetCommandInput,
@@ -620,7 +628,7 @@ export interface Inspector2 {
   ): void;
   batchGetCodeSnippet(
     args: BatchGetCodeSnippetCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: BatchGetCodeSnippetCommandOutput) => void
   ): void;
 
@@ -629,7 +637,7 @@ export interface Inspector2 {
    */
   batchGetFindingDetails(
     args: BatchGetFindingDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<BatchGetFindingDetailsCommandOutput>;
   batchGetFindingDetails(
     args: BatchGetFindingDetailsCommandInput,
@@ -637,7 +645,7 @@ export interface Inspector2 {
   ): void;
   batchGetFindingDetails(
     args: BatchGetFindingDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: BatchGetFindingDetailsCommandOutput) => void
   ): void;
 
@@ -646,7 +654,7 @@ export interface Inspector2 {
    */
   batchGetFreeTrialInfo(
     args: BatchGetFreeTrialInfoCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<BatchGetFreeTrialInfoCommandOutput>;
   batchGetFreeTrialInfo(
     args: BatchGetFreeTrialInfoCommandInput,
@@ -654,7 +662,7 @@ export interface Inspector2 {
   ): void;
   batchGetFreeTrialInfo(
     args: BatchGetFreeTrialInfoCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: BatchGetFreeTrialInfoCommandOutput) => void
   ): void;
 
@@ -664,7 +672,7 @@ export interface Inspector2 {
   batchGetMemberEc2DeepInspectionStatus(): Promise<BatchGetMemberEc2DeepInspectionStatusCommandOutput>;
   batchGetMemberEc2DeepInspectionStatus(
     args: BatchGetMemberEc2DeepInspectionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<BatchGetMemberEc2DeepInspectionStatusCommandOutput>;
   batchGetMemberEc2DeepInspectionStatus(
     args: BatchGetMemberEc2DeepInspectionStatusCommandInput,
@@ -672,7 +680,7 @@ export interface Inspector2 {
   ): void;
   batchGetMemberEc2DeepInspectionStatus(
     args: BatchGetMemberEc2DeepInspectionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: BatchGetMemberEc2DeepInspectionStatusCommandOutput) => void
   ): void;
 
@@ -681,7 +689,7 @@ export interface Inspector2 {
    */
   batchUpdateMemberEc2DeepInspectionStatus(
     args: BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<BatchUpdateMemberEc2DeepInspectionStatusCommandOutput>;
   batchUpdateMemberEc2DeepInspectionStatus(
     args: BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
@@ -689,7 +697,7 @@ export interface Inspector2 {
   ): void;
   batchUpdateMemberEc2DeepInspectionStatus(
     args: BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: BatchUpdateMemberEc2DeepInspectionStatusCommandOutput) => void
   ): void;
 
@@ -698,7 +706,7 @@ export interface Inspector2 {
    */
   cancelFindingsReport(
     args: CancelFindingsReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<CancelFindingsReportCommandOutput>;
   cancelFindingsReport(
     args: CancelFindingsReportCommandInput,
@@ -706,7 +714,7 @@ export interface Inspector2 {
   ): void;
   cancelFindingsReport(
     args: CancelFindingsReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: CancelFindingsReportCommandOutput) => void
   ): void;
 
@@ -715,7 +723,7 @@ export interface Inspector2 {
    */
   cancelSbomExport(
     args: CancelSbomExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<CancelSbomExportCommandOutput>;
   cancelSbomExport(
     args: CancelSbomExportCommandInput,
@@ -723,7 +731,7 @@ export interface Inspector2 {
   ): void;
   cancelSbomExport(
     args: CancelSbomExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: CancelSbomExportCommandOutput) => void
   ): void;
 
@@ -732,7 +740,7 @@ export interface Inspector2 {
    */
   createCisScanConfiguration(
     args: CreateCisScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<CreateCisScanConfigurationCommandOutput>;
   createCisScanConfiguration(
     args: CreateCisScanConfigurationCommandInput,
@@ -740,7 +748,7 @@ export interface Inspector2 {
   ): void;
   createCisScanConfiguration(
     args: CreateCisScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: CreateCisScanConfigurationCommandOutput) => void
   ): void;
 
@@ -749,7 +757,7 @@ export interface Inspector2 {
    */
   createCodeSecurityIntegration(
     args: CreateCodeSecurityIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<CreateCodeSecurityIntegrationCommandOutput>;
   createCodeSecurityIntegration(
     args: CreateCodeSecurityIntegrationCommandInput,
@@ -757,7 +765,7 @@ export interface Inspector2 {
   ): void;
   createCodeSecurityIntegration(
     args: CreateCodeSecurityIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: CreateCodeSecurityIntegrationCommandOutput) => void
   ): void;
 
@@ -766,7 +774,7 @@ export interface Inspector2 {
    */
   createCodeSecurityScanConfiguration(
     args: CreateCodeSecurityScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<CreateCodeSecurityScanConfigurationCommandOutput>;
   createCodeSecurityScanConfiguration(
     args: CreateCodeSecurityScanConfigurationCommandInput,
@@ -774,7 +782,7 @@ export interface Inspector2 {
   ): void;
   createCodeSecurityScanConfiguration(
     args: CreateCodeSecurityScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: CreateCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
@@ -783,7 +791,7 @@ export interface Inspector2 {
    */
   createConnector(
     args: CreateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<CreateConnectorCommandOutput>;
   createConnector(
     args: CreateConnectorCommandInput,
@@ -791,7 +799,7 @@ export interface Inspector2 {
   ): void;
   createConnector(
     args: CreateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: CreateConnectorCommandOutput) => void
   ): void;
 
@@ -800,7 +808,7 @@ export interface Inspector2 {
    */
   createFilter(
     args: CreateFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<CreateFilterCommandOutput>;
   createFilter(
     args: CreateFilterCommandInput,
@@ -808,7 +816,7 @@ export interface Inspector2 {
   ): void;
   createFilter(
     args: CreateFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: CreateFilterCommandOutput) => void
   ): void;
 
@@ -817,7 +825,7 @@ export interface Inspector2 {
    */
   createFindingsReport(
     args: CreateFindingsReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<CreateFindingsReportCommandOutput>;
   createFindingsReport(
     args: CreateFindingsReportCommandInput,
@@ -825,7 +833,7 @@ export interface Inspector2 {
   ): void;
   createFindingsReport(
     args: CreateFindingsReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: CreateFindingsReportCommandOutput) => void
   ): void;
 
@@ -834,7 +842,7 @@ export interface Inspector2 {
    */
   createSbomExport(
     args: CreateSbomExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<CreateSbomExportCommandOutput>;
   createSbomExport(
     args: CreateSbomExportCommandInput,
@@ -842,7 +850,7 @@ export interface Inspector2 {
   ): void;
   createSbomExport(
     args: CreateSbomExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: CreateSbomExportCommandOutput) => void
   ): void;
 
@@ -851,7 +859,7 @@ export interface Inspector2 {
    */
   deleteCisScanConfiguration(
     args: DeleteCisScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<DeleteCisScanConfigurationCommandOutput>;
   deleteCisScanConfiguration(
     args: DeleteCisScanConfigurationCommandInput,
@@ -859,7 +867,7 @@ export interface Inspector2 {
   ): void;
   deleteCisScanConfiguration(
     args: DeleteCisScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: DeleteCisScanConfigurationCommandOutput) => void
   ): void;
 
@@ -868,7 +876,7 @@ export interface Inspector2 {
    */
   deleteCodeSecurityIntegration(
     args: DeleteCodeSecurityIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<DeleteCodeSecurityIntegrationCommandOutput>;
   deleteCodeSecurityIntegration(
     args: DeleteCodeSecurityIntegrationCommandInput,
@@ -876,7 +884,7 @@ export interface Inspector2 {
   ): void;
   deleteCodeSecurityIntegration(
     args: DeleteCodeSecurityIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: DeleteCodeSecurityIntegrationCommandOutput) => void
   ): void;
 
@@ -885,7 +893,7 @@ export interface Inspector2 {
    */
   deleteCodeSecurityScanConfiguration(
     args: DeleteCodeSecurityScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<DeleteCodeSecurityScanConfigurationCommandOutput>;
   deleteCodeSecurityScanConfiguration(
     args: DeleteCodeSecurityScanConfigurationCommandInput,
@@ -893,7 +901,7 @@ export interface Inspector2 {
   ): void;
   deleteCodeSecurityScanConfiguration(
     args: DeleteCodeSecurityScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: DeleteCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
@@ -902,7 +910,7 @@ export interface Inspector2 {
    */
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<DeleteConnectorCommandOutput>;
   deleteConnector(
     args: DeleteConnectorCommandInput,
@@ -910,7 +918,7 @@ export interface Inspector2 {
   ): void;
   deleteConnector(
     args: DeleteConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
@@ -919,7 +927,7 @@ export interface Inspector2 {
    */
   deleteFilter(
     args: DeleteFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<DeleteFilterCommandOutput>;
   deleteFilter(
     args: DeleteFilterCommandInput,
@@ -927,7 +935,7 @@ export interface Inspector2 {
   ): void;
   deleteFilter(
     args: DeleteFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: DeleteFilterCommandOutput) => void
   ): void;
 
@@ -937,7 +945,7 @@ export interface Inspector2 {
   describeOrganizationConfiguration(): Promise<DescribeOrganizationConfigurationCommandOutput>;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<DescribeOrganizationConfigurationCommandOutput>;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
@@ -945,7 +953,7 @@ export interface Inspector2 {
   ): void;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: DescribeOrganizationConfigurationCommandOutput) => void
   ): void;
 
@@ -955,7 +963,7 @@ export interface Inspector2 {
   disable(): Promise<DisableCommandOutput>;
   disable(
     args: DisableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<DisableCommandOutput>;
   disable(
     args: DisableCommandInput,
@@ -963,7 +971,7 @@ export interface Inspector2 {
   ): void;
   disable(
     args: DisableCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: DisableCommandOutput) => void
   ): void;
 
@@ -972,7 +980,7 @@ export interface Inspector2 {
    */
   disableDelegatedAdminAccount(
     args: DisableDelegatedAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<DisableDelegatedAdminAccountCommandOutput>;
   disableDelegatedAdminAccount(
     args: DisableDelegatedAdminAccountCommandInput,
@@ -980,7 +988,7 @@ export interface Inspector2 {
   ): void;
   disableDelegatedAdminAccount(
     args: DisableDelegatedAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: DisableDelegatedAdminAccountCommandOutput) => void
   ): void;
 
@@ -989,7 +997,7 @@ export interface Inspector2 {
    */
   disassociateMember(
     args: DisassociateMemberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<DisassociateMemberCommandOutput>;
   disassociateMember(
     args: DisassociateMemberCommandInput,
@@ -997,7 +1005,7 @@ export interface Inspector2 {
   ): void;
   disassociateMember(
     args: DisassociateMemberCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: DisassociateMemberCommandOutput) => void
   ): void;
 
@@ -1006,7 +1014,7 @@ export interface Inspector2 {
    */
   enable(
     args: EnableCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<EnableCommandOutput>;
   enable(
     args: EnableCommandInput,
@@ -1014,7 +1022,7 @@ export interface Inspector2 {
   ): void;
   enable(
     args: EnableCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: EnableCommandOutput) => void
   ): void;
 
@@ -1023,7 +1031,7 @@ export interface Inspector2 {
    */
   enableDelegatedAdminAccount(
     args: EnableDelegatedAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<EnableDelegatedAdminAccountCommandOutput>;
   enableDelegatedAdminAccount(
     args: EnableDelegatedAdminAccountCommandInput,
@@ -1031,7 +1039,7 @@ export interface Inspector2 {
   ): void;
   enableDelegatedAdminAccount(
     args: EnableDelegatedAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: EnableDelegatedAdminAccountCommandOutput) => void
   ): void;
 
@@ -1040,7 +1048,7 @@ export interface Inspector2 {
    */
   getCisScanReport(
     args: GetCisScanReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetCisScanReportCommandOutput>;
   getCisScanReport(
     args: GetCisScanReportCommandInput,
@@ -1048,7 +1056,7 @@ export interface Inspector2 {
   ): void;
   getCisScanReport(
     args: GetCisScanReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetCisScanReportCommandOutput) => void
   ): void;
 
@@ -1057,7 +1065,7 @@ export interface Inspector2 {
    */
   getCisScanResultDetails(
     args: GetCisScanResultDetailsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetCisScanResultDetailsCommandOutput>;
   getCisScanResultDetails(
     args: GetCisScanResultDetailsCommandInput,
@@ -1065,7 +1073,7 @@ export interface Inspector2 {
   ): void;
   getCisScanResultDetails(
     args: GetCisScanResultDetailsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetCisScanResultDetailsCommandOutput) => void
   ): void;
 
@@ -1074,7 +1082,7 @@ export interface Inspector2 {
    */
   getClustersForImage(
     args: GetClustersForImageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetClustersForImageCommandOutput>;
   getClustersForImage(
     args: GetClustersForImageCommandInput,
@@ -1082,7 +1090,7 @@ export interface Inspector2 {
   ): void;
   getClustersForImage(
     args: GetClustersForImageCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetClustersForImageCommandOutput) => void
   ): void;
 
@@ -1091,7 +1099,7 @@ export interface Inspector2 {
    */
   getCodeSecurityIntegration(
     args: GetCodeSecurityIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetCodeSecurityIntegrationCommandOutput>;
   getCodeSecurityIntegration(
     args: GetCodeSecurityIntegrationCommandInput,
@@ -1099,7 +1107,7 @@ export interface Inspector2 {
   ): void;
   getCodeSecurityIntegration(
     args: GetCodeSecurityIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetCodeSecurityIntegrationCommandOutput) => void
   ): void;
 
@@ -1108,7 +1116,7 @@ export interface Inspector2 {
    */
   getCodeSecurityScan(
     args: GetCodeSecurityScanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetCodeSecurityScanCommandOutput>;
   getCodeSecurityScan(
     args: GetCodeSecurityScanCommandInput,
@@ -1116,7 +1124,7 @@ export interface Inspector2 {
   ): void;
   getCodeSecurityScan(
     args: GetCodeSecurityScanCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetCodeSecurityScanCommandOutput) => void
   ): void;
 
@@ -1125,7 +1133,7 @@ export interface Inspector2 {
    */
   getCodeSecurityScanConfiguration(
     args: GetCodeSecurityScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetCodeSecurityScanConfigurationCommandOutput>;
   getCodeSecurityScanConfiguration(
     args: GetCodeSecurityScanConfigurationCommandInput,
@@ -1133,7 +1141,7 @@ export interface Inspector2 {
   ): void;
   getCodeSecurityScanConfiguration(
     args: GetCodeSecurityScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
@@ -1143,7 +1151,7 @@ export interface Inspector2 {
   getConfiguration(): Promise<GetConfigurationCommandOutput>;
   getConfiguration(
     args: GetConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetConfigurationCommandOutput>;
   getConfiguration(
     args: GetConfigurationCommandInput,
@@ -1151,7 +1159,7 @@ export interface Inspector2 {
   ): void;
   getConfiguration(
     args: GetConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetConfigurationCommandOutput) => void
   ): void;
 
@@ -1161,7 +1169,7 @@ export interface Inspector2 {
   getDelegatedAdminAccount(): Promise<GetDelegatedAdminAccountCommandOutput>;
   getDelegatedAdminAccount(
     args: GetDelegatedAdminAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetDelegatedAdminAccountCommandOutput>;
   getDelegatedAdminAccount(
     args: GetDelegatedAdminAccountCommandInput,
@@ -1169,7 +1177,7 @@ export interface Inspector2 {
   ): void;
   getDelegatedAdminAccount(
     args: GetDelegatedAdminAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetDelegatedAdminAccountCommandOutput) => void
   ): void;
 
@@ -1179,7 +1187,7 @@ export interface Inspector2 {
   getEc2DeepInspectionConfiguration(): Promise<GetEc2DeepInspectionConfigurationCommandOutput>;
   getEc2DeepInspectionConfiguration(
     args: GetEc2DeepInspectionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetEc2DeepInspectionConfigurationCommandOutput>;
   getEc2DeepInspectionConfiguration(
     args: GetEc2DeepInspectionConfigurationCommandInput,
@@ -1187,7 +1195,7 @@ export interface Inspector2 {
   ): void;
   getEc2DeepInspectionConfiguration(
     args: GetEc2DeepInspectionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetEc2DeepInspectionConfigurationCommandOutput) => void
   ): void;
 
@@ -1196,7 +1204,7 @@ export interface Inspector2 {
    */
   getEncryptionKey(
     args: GetEncryptionKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetEncryptionKeyCommandOutput>;
   getEncryptionKey(
     args: GetEncryptionKeyCommandInput,
@@ -1204,7 +1212,7 @@ export interface Inspector2 {
   ): void;
   getEncryptionKey(
     args: GetEncryptionKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetEncryptionKeyCommandOutput) => void
   ): void;
 
@@ -1214,7 +1222,7 @@ export interface Inspector2 {
   getFindingsReportStatus(): Promise<GetFindingsReportStatusCommandOutput>;
   getFindingsReportStatus(
     args: GetFindingsReportStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetFindingsReportStatusCommandOutput>;
   getFindingsReportStatus(
     args: GetFindingsReportStatusCommandInput,
@@ -1222,7 +1230,7 @@ export interface Inspector2 {
   ): void;
   getFindingsReportStatus(
     args: GetFindingsReportStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetFindingsReportStatusCommandOutput) => void
   ): void;
 
@@ -1231,7 +1239,7 @@ export interface Inspector2 {
    */
   getMember(
     args: GetMemberCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetMemberCommandOutput>;
   getMember(
     args: GetMemberCommandInput,
@@ -1239,7 +1247,7 @@ export interface Inspector2 {
   ): void;
   getMember(
     args: GetMemberCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetMemberCommandOutput) => void
   ): void;
 
@@ -1248,7 +1256,7 @@ export interface Inspector2 {
    */
   getSbomExport(
     args: GetSbomExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<GetSbomExportCommandOutput>;
   getSbomExport(
     args: GetSbomExportCommandInput,
@@ -1256,7 +1264,7 @@ export interface Inspector2 {
   ): void;
   getSbomExport(
     args: GetSbomExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: GetSbomExportCommandOutput) => void
   ): void;
 
@@ -1266,7 +1274,7 @@ export interface Inspector2 {
   listAccountPermissions(): Promise<ListAccountPermissionsCommandOutput>;
   listAccountPermissions(
     args: ListAccountPermissionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListAccountPermissionsCommandOutput>;
   listAccountPermissions(
     args: ListAccountPermissionsCommandInput,
@@ -1274,7 +1282,7 @@ export interface Inspector2 {
   ): void;
   listAccountPermissions(
     args: ListAccountPermissionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListAccountPermissionsCommandOutput) => void
   ): void;
 
@@ -1284,7 +1292,7 @@ export interface Inspector2 {
   listCisScanConfigurations(): Promise<ListCisScanConfigurationsCommandOutput>;
   listCisScanConfigurations(
     args: ListCisScanConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListCisScanConfigurationsCommandOutput>;
   listCisScanConfigurations(
     args: ListCisScanConfigurationsCommandInput,
@@ -1292,7 +1300,7 @@ export interface Inspector2 {
   ): void;
   listCisScanConfigurations(
     args: ListCisScanConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListCisScanConfigurationsCommandOutput) => void
   ): void;
 
@@ -1301,7 +1309,7 @@ export interface Inspector2 {
    */
   listCisScanResultsAggregatedByChecks(
     args: ListCisScanResultsAggregatedByChecksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListCisScanResultsAggregatedByChecksCommandOutput>;
   listCisScanResultsAggregatedByChecks(
     args: ListCisScanResultsAggregatedByChecksCommandInput,
@@ -1309,7 +1317,7 @@ export interface Inspector2 {
   ): void;
   listCisScanResultsAggregatedByChecks(
     args: ListCisScanResultsAggregatedByChecksCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListCisScanResultsAggregatedByChecksCommandOutput) => void
   ): void;
 
@@ -1318,7 +1326,7 @@ export interface Inspector2 {
    */
   listCisScanResultsAggregatedByTargetResource(
     args: ListCisScanResultsAggregatedByTargetResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListCisScanResultsAggregatedByTargetResourceCommandOutput>;
   listCisScanResultsAggregatedByTargetResource(
     args: ListCisScanResultsAggregatedByTargetResourceCommandInput,
@@ -1326,7 +1334,7 @@ export interface Inspector2 {
   ): void;
   listCisScanResultsAggregatedByTargetResource(
     args: ListCisScanResultsAggregatedByTargetResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListCisScanResultsAggregatedByTargetResourceCommandOutput) => void
   ): void;
 
@@ -1336,7 +1344,7 @@ export interface Inspector2 {
   listCisScans(): Promise<ListCisScansCommandOutput>;
   listCisScans(
     args: ListCisScansCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListCisScansCommandOutput>;
   listCisScans(
     args: ListCisScansCommandInput,
@@ -1344,7 +1352,7 @@ export interface Inspector2 {
   ): void;
   listCisScans(
     args: ListCisScansCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListCisScansCommandOutput) => void
   ): void;
 
@@ -1354,7 +1362,7 @@ export interface Inspector2 {
   listCodeSecurityIntegrations(): Promise<ListCodeSecurityIntegrationsCommandOutput>;
   listCodeSecurityIntegrations(
     args: ListCodeSecurityIntegrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListCodeSecurityIntegrationsCommandOutput>;
   listCodeSecurityIntegrations(
     args: ListCodeSecurityIntegrationsCommandInput,
@@ -1362,7 +1370,7 @@ export interface Inspector2 {
   ): void;
   listCodeSecurityIntegrations(
     args: ListCodeSecurityIntegrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListCodeSecurityIntegrationsCommandOutput) => void
   ): void;
 
@@ -1371,7 +1379,7 @@ export interface Inspector2 {
    */
   listCodeSecurityScanConfigurationAssociations(
     args: ListCodeSecurityScanConfigurationAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListCodeSecurityScanConfigurationAssociationsCommandOutput>;
   listCodeSecurityScanConfigurationAssociations(
     args: ListCodeSecurityScanConfigurationAssociationsCommandInput,
@@ -1379,7 +1387,7 @@ export interface Inspector2 {
   ): void;
   listCodeSecurityScanConfigurationAssociations(
     args: ListCodeSecurityScanConfigurationAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListCodeSecurityScanConfigurationAssociationsCommandOutput) => void
   ): void;
 
@@ -1389,7 +1397,7 @@ export interface Inspector2 {
   listCodeSecurityScanConfigurations(): Promise<ListCodeSecurityScanConfigurationsCommandOutput>;
   listCodeSecurityScanConfigurations(
     args: ListCodeSecurityScanConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListCodeSecurityScanConfigurationsCommandOutput>;
   listCodeSecurityScanConfigurations(
     args: ListCodeSecurityScanConfigurationsCommandInput,
@@ -1397,7 +1405,7 @@ export interface Inspector2 {
   ): void;
   listCodeSecurityScanConfigurations(
     args: ListCodeSecurityScanConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListCodeSecurityScanConfigurationsCommandOutput) => void
   ): void;
 
@@ -1407,7 +1415,7 @@ export interface Inspector2 {
   listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
@@ -1415,7 +1423,7 @@ export interface Inspector2 {
   ): void;
   listConnectors(
     args: ListConnectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListConnectorsCommandOutput) => void
   ): void;
 
@@ -1425,7 +1433,7 @@ export interface Inspector2 {
   listConnectorScanConfigurations(): Promise<ListConnectorScanConfigurationsCommandOutput>;
   listConnectorScanConfigurations(
     args: ListConnectorScanConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListConnectorScanConfigurationsCommandOutput>;
   listConnectorScanConfigurations(
     args: ListConnectorScanConfigurationsCommandInput,
@@ -1433,7 +1441,7 @@ export interface Inspector2 {
   ): void;
   listConnectorScanConfigurations(
     args: ListConnectorScanConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListConnectorScanConfigurationsCommandOutput) => void
   ): void;
 
@@ -1443,7 +1451,7 @@ export interface Inspector2 {
   listCoverage(): Promise<ListCoverageCommandOutput>;
   listCoverage(
     args: ListCoverageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListCoverageCommandOutput>;
   listCoverage(
     args: ListCoverageCommandInput,
@@ -1451,7 +1459,7 @@ export interface Inspector2 {
   ): void;
   listCoverage(
     args: ListCoverageCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListCoverageCommandOutput) => void
   ): void;
 
@@ -1461,7 +1469,7 @@ export interface Inspector2 {
   listCoverageStatistics(): Promise<ListCoverageStatisticsCommandOutput>;
   listCoverageStatistics(
     args: ListCoverageStatisticsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListCoverageStatisticsCommandOutput>;
   listCoverageStatistics(
     args: ListCoverageStatisticsCommandInput,
@@ -1469,7 +1477,7 @@ export interface Inspector2 {
   ): void;
   listCoverageStatistics(
     args: ListCoverageStatisticsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListCoverageStatisticsCommandOutput) => void
   ): void;
 
@@ -1479,7 +1487,7 @@ export interface Inspector2 {
   listDelegatedAdminAccounts(): Promise<ListDelegatedAdminAccountsCommandOutput>;
   listDelegatedAdminAccounts(
     args: ListDelegatedAdminAccountsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListDelegatedAdminAccountsCommandOutput>;
   listDelegatedAdminAccounts(
     args: ListDelegatedAdminAccountsCommandInput,
@@ -1487,7 +1495,7 @@ export interface Inspector2 {
   ): void;
   listDelegatedAdminAccounts(
     args: ListDelegatedAdminAccountsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListDelegatedAdminAccountsCommandOutput) => void
   ): void;
 
@@ -1497,7 +1505,7 @@ export interface Inspector2 {
   listFilters(): Promise<ListFiltersCommandOutput>;
   listFilters(
     args: ListFiltersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListFiltersCommandOutput>;
   listFilters(
     args: ListFiltersCommandInput,
@@ -1505,7 +1513,7 @@ export interface Inspector2 {
   ): void;
   listFilters(
     args: ListFiltersCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListFiltersCommandOutput) => void
   ): void;
 
@@ -1514,7 +1522,7 @@ export interface Inspector2 {
    */
   listFindingAggregations(
     args: ListFindingAggregationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListFindingAggregationsCommandOutput>;
   listFindingAggregations(
     args: ListFindingAggregationsCommandInput,
@@ -1522,7 +1530,7 @@ export interface Inspector2 {
   ): void;
   listFindingAggregations(
     args: ListFindingAggregationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListFindingAggregationsCommandOutput) => void
   ): void;
 
@@ -1532,7 +1540,7 @@ export interface Inspector2 {
   listFindings(): Promise<ListFindingsCommandOutput>;
   listFindings(
     args: ListFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListFindingsCommandOutput>;
   listFindings(
     args: ListFindingsCommandInput,
@@ -1540,7 +1548,7 @@ export interface Inspector2 {
   ): void;
   listFindings(
     args: ListFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListFindingsCommandOutput) => void
   ): void;
 
@@ -1550,7 +1558,7 @@ export interface Inspector2 {
   listMembers(): Promise<ListMembersCommandOutput>;
   listMembers(
     args: ListMembersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListMembersCommandOutput>;
   listMembers(
     args: ListMembersCommandInput,
@@ -1558,7 +1566,7 @@ export interface Inspector2 {
   ): void;
   listMembers(
     args: ListMembersCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListMembersCommandOutput) => void
   ): void;
 
@@ -1567,7 +1575,7 @@ export interface Inspector2 {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1575,7 +1583,7 @@ export interface Inspector2 {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1585,7 +1593,7 @@ export interface Inspector2 {
   listUsageTotals(): Promise<ListUsageTotalsCommandOutput>;
   listUsageTotals(
     args: ListUsageTotalsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ListUsageTotalsCommandOutput>;
   listUsageTotals(
     args: ListUsageTotalsCommandInput,
@@ -1593,7 +1601,7 @@ export interface Inspector2 {
   ): void;
   listUsageTotals(
     args: ListUsageTotalsCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ListUsageTotalsCommandOutput) => void
   ): void;
 
@@ -1602,7 +1610,7 @@ export interface Inspector2 {
    */
   resetEncryptionKey(
     args: ResetEncryptionKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<ResetEncryptionKeyCommandOutput>;
   resetEncryptionKey(
     args: ResetEncryptionKeyCommandInput,
@@ -1610,7 +1618,7 @@ export interface Inspector2 {
   ): void;
   resetEncryptionKey(
     args: ResetEncryptionKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: ResetEncryptionKeyCommandOutput) => void
   ): void;
 
@@ -1619,7 +1627,7 @@ export interface Inspector2 {
    */
   searchVulnerabilities(
     args: SearchVulnerabilitiesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<SearchVulnerabilitiesCommandOutput>;
   searchVulnerabilities(
     args: SearchVulnerabilitiesCommandInput,
@@ -1627,7 +1635,7 @@ export interface Inspector2 {
   ): void;
   searchVulnerabilities(
     args: SearchVulnerabilitiesCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: SearchVulnerabilitiesCommandOutput) => void
   ): void;
 
@@ -1636,7 +1644,7 @@ export interface Inspector2 {
    */
   sendCisSessionHealth(
     args: SendCisSessionHealthCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<SendCisSessionHealthCommandOutput>;
   sendCisSessionHealth(
     args: SendCisSessionHealthCommandInput,
@@ -1644,7 +1652,7 @@ export interface Inspector2 {
   ): void;
   sendCisSessionHealth(
     args: SendCisSessionHealthCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: SendCisSessionHealthCommandOutput) => void
   ): void;
 
@@ -1653,7 +1661,7 @@ export interface Inspector2 {
    */
   sendCisSessionTelemetry(
     args: SendCisSessionTelemetryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<SendCisSessionTelemetryCommandOutput>;
   sendCisSessionTelemetry(
     args: SendCisSessionTelemetryCommandInput,
@@ -1661,7 +1669,7 @@ export interface Inspector2 {
   ): void;
   sendCisSessionTelemetry(
     args: SendCisSessionTelemetryCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: SendCisSessionTelemetryCommandOutput) => void
   ): void;
 
@@ -1670,7 +1678,7 @@ export interface Inspector2 {
    */
   startCisSession(
     args: StartCisSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<StartCisSessionCommandOutput>;
   startCisSession(
     args: StartCisSessionCommandInput,
@@ -1678,7 +1686,7 @@ export interface Inspector2 {
   ): void;
   startCisSession(
     args: StartCisSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: StartCisSessionCommandOutput) => void
   ): void;
 
@@ -1687,7 +1695,7 @@ export interface Inspector2 {
    */
   startCodeSecurityScan(
     args: StartCodeSecurityScanCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<StartCodeSecurityScanCommandOutput>;
   startCodeSecurityScan(
     args: StartCodeSecurityScanCommandInput,
@@ -1695,7 +1703,7 @@ export interface Inspector2 {
   ): void;
   startCodeSecurityScan(
     args: StartCodeSecurityScanCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: StartCodeSecurityScanCommandOutput) => void
   ): void;
 
@@ -1704,7 +1712,7 @@ export interface Inspector2 {
    */
   stopCisSession(
     args: StopCisSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<StopCisSessionCommandOutput>;
   stopCisSession(
     args: StopCisSessionCommandInput,
@@ -1712,7 +1720,7 @@ export interface Inspector2 {
   ): void;
   stopCisSession(
     args: StopCisSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: StopCisSessionCommandOutput) => void
   ): void;
 
@@ -1721,7 +1729,7 @@ export interface Inspector2 {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1729,7 +1737,7 @@ export interface Inspector2 {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1738,7 +1746,7 @@ export interface Inspector2 {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1746,7 +1754,7 @@ export interface Inspector2 {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1755,7 +1763,7 @@ export interface Inspector2 {
    */
   updateCisScanConfiguration(
     args: UpdateCisScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateCisScanConfigurationCommandOutput>;
   updateCisScanConfiguration(
     args: UpdateCisScanConfigurationCommandInput,
@@ -1763,7 +1771,7 @@ export interface Inspector2 {
   ): void;
   updateCisScanConfiguration(
     args: UpdateCisScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateCisScanConfigurationCommandOutput) => void
   ): void;
 
@@ -1772,7 +1780,7 @@ export interface Inspector2 {
    */
   updateCodeSecurityIntegration(
     args: UpdateCodeSecurityIntegrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateCodeSecurityIntegrationCommandOutput>;
   updateCodeSecurityIntegration(
     args: UpdateCodeSecurityIntegrationCommandInput,
@@ -1780,7 +1788,7 @@ export interface Inspector2 {
   ): void;
   updateCodeSecurityIntegration(
     args: UpdateCodeSecurityIntegrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateCodeSecurityIntegrationCommandOutput) => void
   ): void;
 
@@ -1789,7 +1797,7 @@ export interface Inspector2 {
    */
   updateCodeSecurityScanConfiguration(
     args: UpdateCodeSecurityScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateCodeSecurityScanConfigurationCommandOutput>;
   updateCodeSecurityScanConfiguration(
     args: UpdateCodeSecurityScanConfigurationCommandInput,
@@ -1797,7 +1805,7 @@ export interface Inspector2 {
   ): void;
   updateCodeSecurityScanConfiguration(
     args: UpdateCodeSecurityScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
@@ -1807,7 +1815,7 @@ export interface Inspector2 {
   updateConfiguration(): Promise<UpdateConfigurationCommandOutput>;
   updateConfiguration(
     args: UpdateConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateConfigurationCommandOutput>;
   updateConfiguration(
     args: UpdateConfigurationCommandInput,
@@ -1815,7 +1823,7 @@ export interface Inspector2 {
   ): void;
   updateConfiguration(
     args: UpdateConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateConfigurationCommandOutput) => void
   ): void;
 
@@ -1824,7 +1832,7 @@ export interface Inspector2 {
    */
   updateConnector(
     args: UpdateConnectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateConnectorCommandOutput>;
   updateConnector(
     args: UpdateConnectorCommandInput,
@@ -1832,7 +1840,7 @@ export interface Inspector2 {
   ): void;
   updateConnector(
     args: UpdateConnectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateConnectorCommandOutput) => void
   ): void;
 
@@ -1841,7 +1849,7 @@ export interface Inspector2 {
    */
   updateConnectorScanConfiguration(
     args: UpdateConnectorScanConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateConnectorScanConfigurationCommandOutput>;
   updateConnectorScanConfiguration(
     args: UpdateConnectorScanConfigurationCommandInput,
@@ -1849,7 +1857,7 @@ export interface Inspector2 {
   ): void;
   updateConnectorScanConfiguration(
     args: UpdateConnectorScanConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateConnectorScanConfigurationCommandOutput) => void
   ): void;
 
@@ -1859,7 +1867,7 @@ export interface Inspector2 {
   updateEc2DeepInspectionConfiguration(): Promise<UpdateEc2DeepInspectionConfigurationCommandOutput>;
   updateEc2DeepInspectionConfiguration(
     args: UpdateEc2DeepInspectionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateEc2DeepInspectionConfigurationCommandOutput>;
   updateEc2DeepInspectionConfiguration(
     args: UpdateEc2DeepInspectionConfigurationCommandInput,
@@ -1867,7 +1875,7 @@ export interface Inspector2 {
   ): void;
   updateEc2DeepInspectionConfiguration(
     args: UpdateEc2DeepInspectionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateEc2DeepInspectionConfigurationCommandOutput) => void
   ): void;
 
@@ -1876,7 +1884,7 @@ export interface Inspector2 {
    */
   updateEncryptionKey(
     args: UpdateEncryptionKeyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateEncryptionKeyCommandOutput>;
   updateEncryptionKey(
     args: UpdateEncryptionKeyCommandInput,
@@ -1884,7 +1892,7 @@ export interface Inspector2 {
   ): void;
   updateEncryptionKey(
     args: UpdateEncryptionKeyCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateEncryptionKeyCommandOutput) => void
   ): void;
 
@@ -1893,7 +1901,7 @@ export interface Inspector2 {
    */
   updateFilter(
     args: UpdateFilterCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateFilterCommandOutput>;
   updateFilter(
     args: UpdateFilterCommandInput,
@@ -1901,7 +1909,7 @@ export interface Inspector2 {
   ): void;
   updateFilter(
     args: UpdateFilterCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateFilterCommandOutput) => void
   ): void;
 
@@ -1910,7 +1918,7 @@ export interface Inspector2 {
    */
   updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateOrganizationConfigurationCommandOutput>;
   updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,
@@ -1918,7 +1926,7 @@ export interface Inspector2 {
   ): void;
   updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateOrganizationConfigurationCommandOutput) => void
   ): void;
 
@@ -1927,7 +1935,7 @@ export interface Inspector2 {
    */
   updateOrgEc2DeepInspectionConfiguration(
     args: UpdateOrgEc2DeepInspectionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: Inspector2RequestOptions
   ): Promise<UpdateOrgEc2DeepInspectionConfigurationCommandOutput>;
   updateOrgEc2DeepInspectionConfiguration(
     args: UpdateOrgEc2DeepInspectionConfigurationCommandInput,
@@ -1935,7 +1943,7 @@ export interface Inspector2 {
   ): void;
   updateOrgEc2DeepInspectionConfiguration(
     args: UpdateOrgEc2DeepInspectionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: Inspector2RequestOptions,
     cb: (err: any, data?: UpdateOrgEc2DeepInspectionConfigurationCommandOutput) => void
   ): void;
 

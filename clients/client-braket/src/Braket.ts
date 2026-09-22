@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { BraketClient } from "./BraketClient";
 import { type CancelJobCommandInput, type CancelJobCommandOutput, CancelJobCommand } from "./commands/CancelJobCommand";
@@ -103,13 +108,20 @@ const paginators = {
   paginateSearchSpendingLimits,
 };
 
+/**
+ * @public
+ */
+export interface BraketRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Braket {
   /**
    * @see {@link CancelJobCommand}
    */
   cancelJob(
     args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<CancelJobCommandOutput>;
   cancelJob(
     args: CancelJobCommandInput,
@@ -117,7 +129,7 @@ export interface Braket {
   ): void;
   cancelJob(
     args: CancelJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: CancelJobCommandOutput) => void
   ): void;
 
@@ -126,7 +138,7 @@ export interface Braket {
    */
   cancelQuantumTask(
     args: CancelQuantumTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<CancelQuantumTaskCommandOutput>;
   cancelQuantumTask(
     args: CancelQuantumTaskCommandInput,
@@ -134,7 +146,7 @@ export interface Braket {
   ): void;
   cancelQuantumTask(
     args: CancelQuantumTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: CancelQuantumTaskCommandOutput) => void
   ): void;
 
@@ -143,7 +155,7 @@ export interface Braket {
    */
   createJob(
     args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<CreateJobCommandOutput>;
   createJob(
     args: CreateJobCommandInput,
@@ -151,7 +163,7 @@ export interface Braket {
   ): void;
   createJob(
     args: CreateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: CreateJobCommandOutput) => void
   ): void;
 
@@ -160,7 +172,7 @@ export interface Braket {
    */
   createQuantumTask(
     args: CreateQuantumTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<CreateQuantumTaskCommandOutput>;
   createQuantumTask(
     args: CreateQuantumTaskCommandInput,
@@ -168,7 +180,7 @@ export interface Braket {
   ): void;
   createQuantumTask(
     args: CreateQuantumTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: CreateQuantumTaskCommandOutput) => void
   ): void;
 
@@ -177,7 +189,7 @@ export interface Braket {
    */
   createSpendingLimit(
     args: CreateSpendingLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<CreateSpendingLimitCommandOutput>;
   createSpendingLimit(
     args: CreateSpendingLimitCommandInput,
@@ -185,7 +197,7 @@ export interface Braket {
   ): void;
   createSpendingLimit(
     args: CreateSpendingLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: CreateSpendingLimitCommandOutput) => void
   ): void;
 
@@ -194,7 +206,7 @@ export interface Braket {
    */
   deleteSpendingLimit(
     args: DeleteSpendingLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<DeleteSpendingLimitCommandOutput>;
   deleteSpendingLimit(
     args: DeleteSpendingLimitCommandInput,
@@ -202,7 +214,7 @@ export interface Braket {
   ): void;
   deleteSpendingLimit(
     args: DeleteSpendingLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: DeleteSpendingLimitCommandOutput) => void
   ): void;
 
@@ -211,7 +223,7 @@ export interface Braket {
    */
   getDevice(
     args: GetDeviceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<GetDeviceCommandOutput>;
   getDevice(
     args: GetDeviceCommandInput,
@@ -219,7 +231,7 @@ export interface Braket {
   ): void;
   getDevice(
     args: GetDeviceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: GetDeviceCommandOutput) => void
   ): void;
 
@@ -228,7 +240,7 @@ export interface Braket {
    */
   getJob(
     args: GetJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<GetJobCommandOutput>;
   getJob(
     args: GetJobCommandInput,
@@ -236,7 +248,7 @@ export interface Braket {
   ): void;
   getJob(
     args: GetJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: GetJobCommandOutput) => void
   ): void;
 
@@ -245,7 +257,7 @@ export interface Braket {
    */
   getQuantumTask(
     args: GetQuantumTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<GetQuantumTaskCommandOutput>;
   getQuantumTask(
     args: GetQuantumTaskCommandInput,
@@ -253,7 +265,7 @@ export interface Braket {
   ): void;
   getQuantumTask(
     args: GetQuantumTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: GetQuantumTaskCommandOutput) => void
   ): void;
 
@@ -262,7 +274,7 @@ export interface Braket {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -270,7 +282,7 @@ export interface Braket {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -279,7 +291,7 @@ export interface Braket {
    */
   searchDevices(
     args: SearchDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<SearchDevicesCommandOutput>;
   searchDevices(
     args: SearchDevicesCommandInput,
@@ -287,7 +299,7 @@ export interface Braket {
   ): void;
   searchDevices(
     args: SearchDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: SearchDevicesCommandOutput) => void
   ): void;
 
@@ -296,7 +308,7 @@ export interface Braket {
    */
   searchJobs(
     args: SearchJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<SearchJobsCommandOutput>;
   searchJobs(
     args: SearchJobsCommandInput,
@@ -304,7 +316,7 @@ export interface Braket {
   ): void;
   searchJobs(
     args: SearchJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: SearchJobsCommandOutput) => void
   ): void;
 
@@ -313,7 +325,7 @@ export interface Braket {
    */
   searchQuantumTasks(
     args: SearchQuantumTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<SearchQuantumTasksCommandOutput>;
   searchQuantumTasks(
     args: SearchQuantumTasksCommandInput,
@@ -321,7 +333,7 @@ export interface Braket {
   ): void;
   searchQuantumTasks(
     args: SearchQuantumTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: SearchQuantumTasksCommandOutput) => void
   ): void;
 
@@ -331,7 +343,7 @@ export interface Braket {
   searchSpendingLimits(): Promise<SearchSpendingLimitsCommandOutput>;
   searchSpendingLimits(
     args: SearchSpendingLimitsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<SearchSpendingLimitsCommandOutput>;
   searchSpendingLimits(
     args: SearchSpendingLimitsCommandInput,
@@ -339,7 +351,7 @@ export interface Braket {
   ): void;
   searchSpendingLimits(
     args: SearchSpendingLimitsCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: SearchSpendingLimitsCommandOutput) => void
   ): void;
 
@@ -348,7 +360,7 @@ export interface Braket {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -356,7 +368,7 @@ export interface Braket {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -365,7 +377,7 @@ export interface Braket {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -373,7 +385,7 @@ export interface Braket {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -382,7 +394,7 @@ export interface Braket {
    */
   updateSpendingLimit(
     args: UpdateSpendingLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: BraketRequestOptions
   ): Promise<UpdateSpendingLimitCommandOutput>;
   updateSpendingLimit(
     args: UpdateSpendingLimitCommandInput,
@@ -390,7 +402,7 @@ export interface Braket {
   ): void;
   updateSpendingLimit(
     args: UpdateSpendingLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: BraketRequestOptions,
     cb: (err: any, data?: UpdateSpendingLimitCommandOutput) => void
   ): void;
 

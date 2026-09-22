@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import { AppFabricClient } from "./AppFabricClient";
 import {
@@ -173,13 +178,20 @@ const paginators = {
   paginateListIngestions,
 };
 
+/**
+ * @public
+ */
+export interface AppFabricRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface AppFabric {
   /**
    * @see {@link BatchGetUserAccessTasksCommand}
    */
   batchGetUserAccessTasks(
     args: BatchGetUserAccessTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<BatchGetUserAccessTasksCommandOutput>;
   batchGetUserAccessTasks(
     args: BatchGetUserAccessTasksCommandInput,
@@ -187,7 +199,7 @@ export interface AppFabric {
   ): void;
   batchGetUserAccessTasks(
     args: BatchGetUserAccessTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: BatchGetUserAccessTasksCommandOutput) => void
   ): void;
 
@@ -196,7 +208,7 @@ export interface AppFabric {
    */
   connectAppAuthorization(
     args: ConnectAppAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<ConnectAppAuthorizationCommandOutput>;
   connectAppAuthorization(
     args: ConnectAppAuthorizationCommandInput,
@@ -204,7 +216,7 @@ export interface AppFabric {
   ): void;
   connectAppAuthorization(
     args: ConnectAppAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: ConnectAppAuthorizationCommandOutput) => void
   ): void;
 
@@ -213,7 +225,7 @@ export interface AppFabric {
    */
   createAppAuthorization(
     args: CreateAppAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<CreateAppAuthorizationCommandOutput>;
   createAppAuthorization(
     args: CreateAppAuthorizationCommandInput,
@@ -221,7 +233,7 @@ export interface AppFabric {
   ): void;
   createAppAuthorization(
     args: CreateAppAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: CreateAppAuthorizationCommandOutput) => void
   ): void;
 
@@ -231,7 +243,7 @@ export interface AppFabric {
   createAppBundle(): Promise<CreateAppBundleCommandOutput>;
   createAppBundle(
     args: CreateAppBundleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<CreateAppBundleCommandOutput>;
   createAppBundle(
     args: CreateAppBundleCommandInput,
@@ -239,7 +251,7 @@ export interface AppFabric {
   ): void;
   createAppBundle(
     args: CreateAppBundleCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: CreateAppBundleCommandOutput) => void
   ): void;
 
@@ -248,7 +260,7 @@ export interface AppFabric {
    */
   createIngestion(
     args: CreateIngestionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<CreateIngestionCommandOutput>;
   createIngestion(
     args: CreateIngestionCommandInput,
@@ -256,7 +268,7 @@ export interface AppFabric {
   ): void;
   createIngestion(
     args: CreateIngestionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: CreateIngestionCommandOutput) => void
   ): void;
 
@@ -265,7 +277,7 @@ export interface AppFabric {
    */
   createIngestionDestination(
     args: CreateIngestionDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<CreateIngestionDestinationCommandOutput>;
   createIngestionDestination(
     args: CreateIngestionDestinationCommandInput,
@@ -273,7 +285,7 @@ export interface AppFabric {
   ): void;
   createIngestionDestination(
     args: CreateIngestionDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: CreateIngestionDestinationCommandOutput) => void
   ): void;
 
@@ -282,7 +294,7 @@ export interface AppFabric {
    */
   deleteAppAuthorization(
     args: DeleteAppAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<DeleteAppAuthorizationCommandOutput>;
   deleteAppAuthorization(
     args: DeleteAppAuthorizationCommandInput,
@@ -290,7 +302,7 @@ export interface AppFabric {
   ): void;
   deleteAppAuthorization(
     args: DeleteAppAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: DeleteAppAuthorizationCommandOutput) => void
   ): void;
 
@@ -299,7 +311,7 @@ export interface AppFabric {
    */
   deleteAppBundle(
     args: DeleteAppBundleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<DeleteAppBundleCommandOutput>;
   deleteAppBundle(
     args: DeleteAppBundleCommandInput,
@@ -307,7 +319,7 @@ export interface AppFabric {
   ): void;
   deleteAppBundle(
     args: DeleteAppBundleCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: DeleteAppBundleCommandOutput) => void
   ): void;
 
@@ -316,7 +328,7 @@ export interface AppFabric {
    */
   deleteIngestion(
     args: DeleteIngestionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<DeleteIngestionCommandOutput>;
   deleteIngestion(
     args: DeleteIngestionCommandInput,
@@ -324,7 +336,7 @@ export interface AppFabric {
   ): void;
   deleteIngestion(
     args: DeleteIngestionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: DeleteIngestionCommandOutput) => void
   ): void;
 
@@ -333,7 +345,7 @@ export interface AppFabric {
    */
   deleteIngestionDestination(
     args: DeleteIngestionDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<DeleteIngestionDestinationCommandOutput>;
   deleteIngestionDestination(
     args: DeleteIngestionDestinationCommandInput,
@@ -341,7 +353,7 @@ export interface AppFabric {
   ): void;
   deleteIngestionDestination(
     args: DeleteIngestionDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: DeleteIngestionDestinationCommandOutput) => void
   ): void;
 
@@ -350,7 +362,7 @@ export interface AppFabric {
    */
   getAppAuthorization(
     args: GetAppAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<GetAppAuthorizationCommandOutput>;
   getAppAuthorization(
     args: GetAppAuthorizationCommandInput,
@@ -358,7 +370,7 @@ export interface AppFabric {
   ): void;
   getAppAuthorization(
     args: GetAppAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: GetAppAuthorizationCommandOutput) => void
   ): void;
 
@@ -367,7 +379,7 @@ export interface AppFabric {
    */
   getAppBundle(
     args: GetAppBundleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<GetAppBundleCommandOutput>;
   getAppBundle(
     args: GetAppBundleCommandInput,
@@ -375,7 +387,7 @@ export interface AppFabric {
   ): void;
   getAppBundle(
     args: GetAppBundleCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: GetAppBundleCommandOutput) => void
   ): void;
 
@@ -384,7 +396,7 @@ export interface AppFabric {
    */
   getIngestion(
     args: GetIngestionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<GetIngestionCommandOutput>;
   getIngestion(
     args: GetIngestionCommandInput,
@@ -392,7 +404,7 @@ export interface AppFabric {
   ): void;
   getIngestion(
     args: GetIngestionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: GetIngestionCommandOutput) => void
   ): void;
 
@@ -401,7 +413,7 @@ export interface AppFabric {
    */
   getIngestionDestination(
     args: GetIngestionDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<GetIngestionDestinationCommandOutput>;
   getIngestionDestination(
     args: GetIngestionDestinationCommandInput,
@@ -409,7 +421,7 @@ export interface AppFabric {
   ): void;
   getIngestionDestination(
     args: GetIngestionDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: GetIngestionDestinationCommandOutput) => void
   ): void;
 
@@ -418,7 +430,7 @@ export interface AppFabric {
    */
   listAppAuthorizations(
     args: ListAppAuthorizationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<ListAppAuthorizationsCommandOutput>;
   listAppAuthorizations(
     args: ListAppAuthorizationsCommandInput,
@@ -426,7 +438,7 @@ export interface AppFabric {
   ): void;
   listAppAuthorizations(
     args: ListAppAuthorizationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: ListAppAuthorizationsCommandOutput) => void
   ): void;
 
@@ -436,7 +448,7 @@ export interface AppFabric {
   listAppBundles(): Promise<ListAppBundlesCommandOutput>;
   listAppBundles(
     args: ListAppBundlesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<ListAppBundlesCommandOutput>;
   listAppBundles(
     args: ListAppBundlesCommandInput,
@@ -444,7 +456,7 @@ export interface AppFabric {
   ): void;
   listAppBundles(
     args: ListAppBundlesCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: ListAppBundlesCommandOutput) => void
   ): void;
 
@@ -453,7 +465,7 @@ export interface AppFabric {
    */
   listIngestionDestinations(
     args: ListIngestionDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<ListIngestionDestinationsCommandOutput>;
   listIngestionDestinations(
     args: ListIngestionDestinationsCommandInput,
@@ -461,7 +473,7 @@ export interface AppFabric {
   ): void;
   listIngestionDestinations(
     args: ListIngestionDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: ListIngestionDestinationsCommandOutput) => void
   ): void;
 
@@ -470,7 +482,7 @@ export interface AppFabric {
    */
   listIngestions(
     args: ListIngestionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<ListIngestionsCommandOutput>;
   listIngestions(
     args: ListIngestionsCommandInput,
@@ -478,7 +490,7 @@ export interface AppFabric {
   ): void;
   listIngestions(
     args: ListIngestionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: ListIngestionsCommandOutput) => void
   ): void;
 
@@ -487,7 +499,7 @@ export interface AppFabric {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -495,7 +507,7 @@ export interface AppFabric {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -504,7 +516,7 @@ export interface AppFabric {
    */
   startIngestion(
     args: StartIngestionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<StartIngestionCommandOutput>;
   startIngestion(
     args: StartIngestionCommandInput,
@@ -512,7 +524,7 @@ export interface AppFabric {
   ): void;
   startIngestion(
     args: StartIngestionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: StartIngestionCommandOutput) => void
   ): void;
 
@@ -521,7 +533,7 @@ export interface AppFabric {
    */
   startUserAccessTasks(
     args: StartUserAccessTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<StartUserAccessTasksCommandOutput>;
   startUserAccessTasks(
     args: StartUserAccessTasksCommandInput,
@@ -529,7 +541,7 @@ export interface AppFabric {
   ): void;
   startUserAccessTasks(
     args: StartUserAccessTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: StartUserAccessTasksCommandOutput) => void
   ): void;
 
@@ -538,7 +550,7 @@ export interface AppFabric {
    */
   stopIngestion(
     args: StopIngestionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<StopIngestionCommandOutput>;
   stopIngestion(
     args: StopIngestionCommandInput,
@@ -546,7 +558,7 @@ export interface AppFabric {
   ): void;
   stopIngestion(
     args: StopIngestionCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: StopIngestionCommandOutput) => void
   ): void;
 
@@ -555,7 +567,7 @@ export interface AppFabric {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -563,7 +575,7 @@ export interface AppFabric {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -572,7 +584,7 @@ export interface AppFabric {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -580,7 +592,7 @@ export interface AppFabric {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -589,7 +601,7 @@ export interface AppFabric {
    */
   updateAppAuthorization(
     args: UpdateAppAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<UpdateAppAuthorizationCommandOutput>;
   updateAppAuthorization(
     args: UpdateAppAuthorizationCommandInput,
@@ -597,7 +609,7 @@ export interface AppFabric {
   ): void;
   updateAppAuthorization(
     args: UpdateAppAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: UpdateAppAuthorizationCommandOutput) => void
   ): void;
 
@@ -606,7 +618,7 @@ export interface AppFabric {
    */
   updateIngestionDestination(
     args: UpdateIngestionDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: AppFabricRequestOptions
   ): Promise<UpdateIngestionDestinationCommandOutput>;
   updateIngestionDestination(
     args: UpdateIngestionDestinationCommandInput,
@@ -614,7 +626,7 @@ export interface AppFabric {
   ): void;
   updateIngestionDestination(
     args: UpdateIngestionDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: AppFabricRequestOptions,
     cb: (err: any, data?: UpdateIngestionDestinationCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddPermissionCommandInput,
@@ -147,13 +152,20 @@ const paginators = {
   paginateListQueues,
 };
 
+/**
+ * @public
+ */
+export interface SQSRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface SQS {
   /**
    * @see {@link AddPermissionCommand}
    */
   addPermission(
     args: AddPermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<AddPermissionCommandOutput>;
   addPermission(
     args: AddPermissionCommandInput,
@@ -161,7 +173,7 @@ export interface SQS {
   ): void;
   addPermission(
     args: AddPermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: AddPermissionCommandOutput) => void
   ): void;
 
@@ -170,7 +182,7 @@ export interface SQS {
    */
   cancelMessageMoveTask(
     args: CancelMessageMoveTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<CancelMessageMoveTaskCommandOutput>;
   cancelMessageMoveTask(
     args: CancelMessageMoveTaskCommandInput,
@@ -178,7 +190,7 @@ export interface SQS {
   ): void;
   cancelMessageMoveTask(
     args: CancelMessageMoveTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: CancelMessageMoveTaskCommandOutput) => void
   ): void;
 
@@ -187,7 +199,7 @@ export interface SQS {
    */
   changeMessageVisibility(
     args: ChangeMessageVisibilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<ChangeMessageVisibilityCommandOutput>;
   changeMessageVisibility(
     args: ChangeMessageVisibilityCommandInput,
@@ -195,7 +207,7 @@ export interface SQS {
   ): void;
   changeMessageVisibility(
     args: ChangeMessageVisibilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: ChangeMessageVisibilityCommandOutput) => void
   ): void;
 
@@ -204,7 +216,7 @@ export interface SQS {
    */
   changeMessageVisibilityBatch(
     args: ChangeMessageVisibilityBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<ChangeMessageVisibilityBatchCommandOutput>;
   changeMessageVisibilityBatch(
     args: ChangeMessageVisibilityBatchCommandInput,
@@ -212,7 +224,7 @@ export interface SQS {
   ): void;
   changeMessageVisibilityBatch(
     args: ChangeMessageVisibilityBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: ChangeMessageVisibilityBatchCommandOutput) => void
   ): void;
 
@@ -221,7 +233,7 @@ export interface SQS {
    */
   createQueue(
     args: CreateQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<CreateQueueCommandOutput>;
   createQueue(
     args: CreateQueueCommandInput,
@@ -229,7 +241,7 @@ export interface SQS {
   ): void;
   createQueue(
     args: CreateQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: CreateQueueCommandOutput) => void
   ): void;
 
@@ -238,7 +250,7 @@ export interface SQS {
    */
   deleteMessage(
     args: DeleteMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<DeleteMessageCommandOutput>;
   deleteMessage(
     args: DeleteMessageCommandInput,
@@ -246,7 +258,7 @@ export interface SQS {
   ): void;
   deleteMessage(
     args: DeleteMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: DeleteMessageCommandOutput) => void
   ): void;
 
@@ -255,7 +267,7 @@ export interface SQS {
    */
   deleteMessageBatch(
     args: DeleteMessageBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<DeleteMessageBatchCommandOutput>;
   deleteMessageBatch(
     args: DeleteMessageBatchCommandInput,
@@ -263,7 +275,7 @@ export interface SQS {
   ): void;
   deleteMessageBatch(
     args: DeleteMessageBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: DeleteMessageBatchCommandOutput) => void
   ): void;
 
@@ -272,7 +284,7 @@ export interface SQS {
    */
   deleteQueue(
     args: DeleteQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<DeleteQueueCommandOutput>;
   deleteQueue(
     args: DeleteQueueCommandInput,
@@ -280,7 +292,7 @@ export interface SQS {
   ): void;
   deleteQueue(
     args: DeleteQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: DeleteQueueCommandOutput) => void
   ): void;
 
@@ -289,7 +301,7 @@ export interface SQS {
    */
   getQueueAttributes(
     args: GetQueueAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<GetQueueAttributesCommandOutput>;
   getQueueAttributes(
     args: GetQueueAttributesCommandInput,
@@ -297,7 +309,7 @@ export interface SQS {
   ): void;
   getQueueAttributes(
     args: GetQueueAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: GetQueueAttributesCommandOutput) => void
   ): void;
 
@@ -306,7 +318,7 @@ export interface SQS {
    */
   getQueueUrl(
     args: GetQueueUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<GetQueueUrlCommandOutput>;
   getQueueUrl(
     args: GetQueueUrlCommandInput,
@@ -314,7 +326,7 @@ export interface SQS {
   ): void;
   getQueueUrl(
     args: GetQueueUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: GetQueueUrlCommandOutput) => void
   ): void;
 
@@ -323,7 +335,7 @@ export interface SQS {
    */
   listDeadLetterSourceQueues(
     args: ListDeadLetterSourceQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<ListDeadLetterSourceQueuesCommandOutput>;
   listDeadLetterSourceQueues(
     args: ListDeadLetterSourceQueuesCommandInput,
@@ -331,7 +343,7 @@ export interface SQS {
   ): void;
   listDeadLetterSourceQueues(
     args: ListDeadLetterSourceQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: ListDeadLetterSourceQueuesCommandOutput) => void
   ): void;
 
@@ -340,7 +352,7 @@ export interface SQS {
    */
   listMessageMoveTasks(
     args: ListMessageMoveTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<ListMessageMoveTasksCommandOutput>;
   listMessageMoveTasks(
     args: ListMessageMoveTasksCommandInput,
@@ -348,7 +360,7 @@ export interface SQS {
   ): void;
   listMessageMoveTasks(
     args: ListMessageMoveTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: ListMessageMoveTasksCommandOutput) => void
   ): void;
 
@@ -358,7 +370,7 @@ export interface SQS {
   listQueues(): Promise<ListQueuesCommandOutput>;
   listQueues(
     args: ListQueuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<ListQueuesCommandOutput>;
   listQueues(
     args: ListQueuesCommandInput,
@@ -366,7 +378,7 @@ export interface SQS {
   ): void;
   listQueues(
     args: ListQueuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: ListQueuesCommandOutput) => void
   ): void;
 
@@ -375,7 +387,7 @@ export interface SQS {
    */
   listQueueTags(
     args: ListQueueTagsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<ListQueueTagsCommandOutput>;
   listQueueTags(
     args: ListQueueTagsCommandInput,
@@ -383,7 +395,7 @@ export interface SQS {
   ): void;
   listQueueTags(
     args: ListQueueTagsCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: ListQueueTagsCommandOutput) => void
   ): void;
 
@@ -392,7 +404,7 @@ export interface SQS {
    */
   purgeQueue(
     args: PurgeQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<PurgeQueueCommandOutput>;
   purgeQueue(
     args: PurgeQueueCommandInput,
@@ -400,7 +412,7 @@ export interface SQS {
   ): void;
   purgeQueue(
     args: PurgeQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: PurgeQueueCommandOutput) => void
   ): void;
 
@@ -409,7 +421,7 @@ export interface SQS {
    */
   receiveMessage(
     args: ReceiveMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<ReceiveMessageCommandOutput>;
   receiveMessage(
     args: ReceiveMessageCommandInput,
@@ -417,7 +429,7 @@ export interface SQS {
   ): void;
   receiveMessage(
     args: ReceiveMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: ReceiveMessageCommandOutput) => void
   ): void;
 
@@ -426,7 +438,7 @@ export interface SQS {
    */
   removePermission(
     args: RemovePermissionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<RemovePermissionCommandOutput>;
   removePermission(
     args: RemovePermissionCommandInput,
@@ -434,7 +446,7 @@ export interface SQS {
   ): void;
   removePermission(
     args: RemovePermissionCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: RemovePermissionCommandOutput) => void
   ): void;
 
@@ -443,7 +455,7 @@ export interface SQS {
    */
   sendMessage(
     args: SendMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<SendMessageCommandOutput>;
   sendMessage(
     args: SendMessageCommandInput,
@@ -451,7 +463,7 @@ export interface SQS {
   ): void;
   sendMessage(
     args: SendMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: SendMessageCommandOutput) => void
   ): void;
 
@@ -460,7 +472,7 @@ export interface SQS {
    */
   sendMessageBatch(
     args: SendMessageBatchCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<SendMessageBatchCommandOutput>;
   sendMessageBatch(
     args: SendMessageBatchCommandInput,
@@ -468,7 +480,7 @@ export interface SQS {
   ): void;
   sendMessageBatch(
     args: SendMessageBatchCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: SendMessageBatchCommandOutput) => void
   ): void;
 
@@ -477,7 +489,7 @@ export interface SQS {
    */
   setQueueAttributes(
     args: SetQueueAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<SetQueueAttributesCommandOutput>;
   setQueueAttributes(
     args: SetQueueAttributesCommandInput,
@@ -485,7 +497,7 @@ export interface SQS {
   ): void;
   setQueueAttributes(
     args: SetQueueAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: SetQueueAttributesCommandOutput) => void
   ): void;
 
@@ -494,7 +506,7 @@ export interface SQS {
    */
   startMessageMoveTask(
     args: StartMessageMoveTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<StartMessageMoveTaskCommandOutput>;
   startMessageMoveTask(
     args: StartMessageMoveTaskCommandInput,
@@ -502,7 +514,7 @@ export interface SQS {
   ): void;
   startMessageMoveTask(
     args: StartMessageMoveTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: StartMessageMoveTaskCommandOutput) => void
   ): void;
 
@@ -511,7 +523,7 @@ export interface SQS {
    */
   tagQueue(
     args: TagQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<TagQueueCommandOutput>;
   tagQueue(
     args: TagQueueCommandInput,
@@ -519,7 +531,7 @@ export interface SQS {
   ): void;
   tagQueue(
     args: TagQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: TagQueueCommandOutput) => void
   ): void;
 
@@ -528,7 +540,7 @@ export interface SQS {
    */
   untagQueue(
     args: UntagQueueCommandInput,
-    options?: __HttpHandlerOptions
+    options?: SQSRequestOptions
   ): Promise<UntagQueueCommandOutput>;
   untagQueue(
     args: UntagQueueCommandInput,
@@ -536,7 +548,7 @@ export interface SQS {
   ): void;
   untagQueue(
     args: UntagQueueCommandInput,
-    options: __HttpHandlerOptions,
+    options: SQSRequestOptions,
     cb: (err: any, data?: UntagQueueCommandOutput) => void
   ): void;
 

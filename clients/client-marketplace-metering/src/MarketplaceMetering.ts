@@ -1,6 +1,6 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions as __HttpHandlerOptions, MetricsRecorder as __MetricsRecorder } from "@smithy/types";
 
 import {
   type BatchMeterUsageCommandInput,
@@ -31,13 +31,20 @@ const commands = {
   ResolveCustomerCommand,
 };
 
+/**
+ * @public
+ */
+export interface MarketplaceMeteringRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MarketplaceMetering {
   /**
    * @see {@link BatchMeterUsageCommand}
    */
   batchMeterUsage(
     args: BatchMeterUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceMeteringRequestOptions
   ): Promise<BatchMeterUsageCommandOutput>;
   batchMeterUsage(
     args: BatchMeterUsageCommandInput,
@@ -45,7 +52,7 @@ export interface MarketplaceMetering {
   ): void;
   batchMeterUsage(
     args: BatchMeterUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceMeteringRequestOptions,
     cb: (err: any, data?: BatchMeterUsageCommandOutput) => void
   ): void;
 
@@ -54,7 +61,7 @@ export interface MarketplaceMetering {
    */
   meterUsage(
     args: MeterUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceMeteringRequestOptions
   ): Promise<MeterUsageCommandOutput>;
   meterUsage(
     args: MeterUsageCommandInput,
@@ -62,7 +69,7 @@ export interface MarketplaceMetering {
   ): void;
   meterUsage(
     args: MeterUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceMeteringRequestOptions,
     cb: (err: any, data?: MeterUsageCommandOutput) => void
   ): void;
 
@@ -71,7 +78,7 @@ export interface MarketplaceMetering {
    */
   registerUsage(
     args: RegisterUsageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceMeteringRequestOptions
   ): Promise<RegisterUsageCommandOutput>;
   registerUsage(
     args: RegisterUsageCommandInput,
@@ -79,7 +86,7 @@ export interface MarketplaceMetering {
   ): void;
   registerUsage(
     args: RegisterUsageCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceMeteringRequestOptions,
     cb: (err: any, data?: RegisterUsageCommandOutput) => void
   ): void;
 
@@ -88,7 +95,7 @@ export interface MarketplaceMetering {
    */
   resolveCustomer(
     args: ResolveCustomerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MarketplaceMeteringRequestOptions
   ): Promise<ResolveCustomerCommandOutput>;
   resolveCustomer(
     args: ResolveCustomerCommandInput,
@@ -96,7 +103,7 @@ export interface MarketplaceMetering {
   ): void;
   resolveCustomer(
     args: ResolveCustomerCommandInput,
-    options: __HttpHandlerOptions,
+    options: MarketplaceMeteringRequestOptions,
     cb: (err: any, data?: ResolveCustomerCommandOutput) => void
   ): void;
 }

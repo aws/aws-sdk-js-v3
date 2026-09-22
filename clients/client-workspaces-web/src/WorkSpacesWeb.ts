@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateBrowserSettingsCommandInput,
@@ -479,13 +484,20 @@ const paginators = {
   paginateListUserSettings,
 };
 
+/**
+ * @public
+ */
+export interface WorkSpacesWebRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface WorkSpacesWeb {
   /**
    * @see {@link AssociateBrowserSettingsCommand}
    */
   associateBrowserSettings(
     args: AssociateBrowserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<AssociateBrowserSettingsCommandOutput>;
   associateBrowserSettings(
     args: AssociateBrowserSettingsCommandInput,
@@ -493,7 +505,7 @@ export interface WorkSpacesWeb {
   ): void;
   associateBrowserSettings(
     args: AssociateBrowserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: AssociateBrowserSettingsCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface WorkSpacesWeb {
    */
   associateDataProtectionSettings(
     args: AssociateDataProtectionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<AssociateDataProtectionSettingsCommandOutput>;
   associateDataProtectionSettings(
     args: AssociateDataProtectionSettingsCommandInput,
@@ -510,7 +522,7 @@ export interface WorkSpacesWeb {
   ): void;
   associateDataProtectionSettings(
     args: AssociateDataProtectionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: AssociateDataProtectionSettingsCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface WorkSpacesWeb {
    */
   associateIpAccessSettings(
     args: AssociateIpAccessSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<AssociateIpAccessSettingsCommandOutput>;
   associateIpAccessSettings(
     args: AssociateIpAccessSettingsCommandInput,
@@ -527,7 +539,7 @@ export interface WorkSpacesWeb {
   ): void;
   associateIpAccessSettings(
     args: AssociateIpAccessSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: AssociateIpAccessSettingsCommandOutput) => void
   ): void;
 
@@ -536,7 +548,7 @@ export interface WorkSpacesWeb {
    */
   associateNetworkSettings(
     args: AssociateNetworkSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<AssociateNetworkSettingsCommandOutput>;
   associateNetworkSettings(
     args: AssociateNetworkSettingsCommandInput,
@@ -544,7 +556,7 @@ export interface WorkSpacesWeb {
   ): void;
   associateNetworkSettings(
     args: AssociateNetworkSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: AssociateNetworkSettingsCommandOutput) => void
   ): void;
 
@@ -553,7 +565,7 @@ export interface WorkSpacesWeb {
    */
   associateSessionLogger(
     args: AssociateSessionLoggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<AssociateSessionLoggerCommandOutput>;
   associateSessionLogger(
     args: AssociateSessionLoggerCommandInput,
@@ -561,7 +573,7 @@ export interface WorkSpacesWeb {
   ): void;
   associateSessionLogger(
     args: AssociateSessionLoggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: AssociateSessionLoggerCommandOutput) => void
   ): void;
 
@@ -570,7 +582,7 @@ export interface WorkSpacesWeb {
    */
   associateTrustStore(
     args: AssociateTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<AssociateTrustStoreCommandOutput>;
   associateTrustStore(
     args: AssociateTrustStoreCommandInput,
@@ -578,7 +590,7 @@ export interface WorkSpacesWeb {
   ): void;
   associateTrustStore(
     args: AssociateTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: AssociateTrustStoreCommandOutput) => void
   ): void;
 
@@ -587,7 +599,7 @@ export interface WorkSpacesWeb {
    */
   associateUserAccessLoggingSettings(
     args: AssociateUserAccessLoggingSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<AssociateUserAccessLoggingSettingsCommandOutput>;
   associateUserAccessLoggingSettings(
     args: AssociateUserAccessLoggingSettingsCommandInput,
@@ -595,7 +607,7 @@ export interface WorkSpacesWeb {
   ): void;
   associateUserAccessLoggingSettings(
     args: AssociateUserAccessLoggingSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: AssociateUserAccessLoggingSettingsCommandOutput) => void
   ): void;
 
@@ -604,7 +616,7 @@ export interface WorkSpacesWeb {
    */
   associateUserSettings(
     args: AssociateUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<AssociateUserSettingsCommandOutput>;
   associateUserSettings(
     args: AssociateUserSettingsCommandInput,
@@ -612,7 +624,7 @@ export interface WorkSpacesWeb {
   ): void;
   associateUserSettings(
     args: AssociateUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: AssociateUserSettingsCommandOutput) => void
   ): void;
 
@@ -622,7 +634,7 @@ export interface WorkSpacesWeb {
   createBrowserSettings(): Promise<CreateBrowserSettingsCommandOutput>;
   createBrowserSettings(
     args: CreateBrowserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreateBrowserSettingsCommandOutput>;
   createBrowserSettings(
     args: CreateBrowserSettingsCommandInput,
@@ -630,7 +642,7 @@ export interface WorkSpacesWeb {
   ): void;
   createBrowserSettings(
     args: CreateBrowserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreateBrowserSettingsCommandOutput) => void
   ): void;
 
@@ -640,7 +652,7 @@ export interface WorkSpacesWeb {
   createDataProtectionSettings(): Promise<CreateDataProtectionSettingsCommandOutput>;
   createDataProtectionSettings(
     args: CreateDataProtectionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreateDataProtectionSettingsCommandOutput>;
   createDataProtectionSettings(
     args: CreateDataProtectionSettingsCommandInput,
@@ -648,7 +660,7 @@ export interface WorkSpacesWeb {
   ): void;
   createDataProtectionSettings(
     args: CreateDataProtectionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreateDataProtectionSettingsCommandOutput) => void
   ): void;
 
@@ -657,7 +669,7 @@ export interface WorkSpacesWeb {
    */
   createIdentityProvider(
     args: CreateIdentityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreateIdentityProviderCommandOutput>;
   createIdentityProvider(
     args: CreateIdentityProviderCommandInput,
@@ -665,7 +677,7 @@ export interface WorkSpacesWeb {
   ): void;
   createIdentityProvider(
     args: CreateIdentityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreateIdentityProviderCommandOutput) => void
   ): void;
 
@@ -674,7 +686,7 @@ export interface WorkSpacesWeb {
    */
   createIpAccessSettings(
     args: CreateIpAccessSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreateIpAccessSettingsCommandOutput>;
   createIpAccessSettings(
     args: CreateIpAccessSettingsCommandInput,
@@ -682,7 +694,7 @@ export interface WorkSpacesWeb {
   ): void;
   createIpAccessSettings(
     args: CreateIpAccessSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreateIpAccessSettingsCommandOutput) => void
   ): void;
 
@@ -691,7 +703,7 @@ export interface WorkSpacesWeb {
    */
   createNetworkSettings(
     args: CreateNetworkSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreateNetworkSettingsCommandOutput>;
   createNetworkSettings(
     args: CreateNetworkSettingsCommandInput,
@@ -699,7 +711,7 @@ export interface WorkSpacesWeb {
   ): void;
   createNetworkSettings(
     args: CreateNetworkSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreateNetworkSettingsCommandOutput) => void
   ): void;
 
@@ -709,7 +721,7 @@ export interface WorkSpacesWeb {
   createPortal(): Promise<CreatePortalCommandOutput>;
   createPortal(
     args: CreatePortalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreatePortalCommandOutput>;
   createPortal(
     args: CreatePortalCommandInput,
@@ -717,7 +729,7 @@ export interface WorkSpacesWeb {
   ): void;
   createPortal(
     args: CreatePortalCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreatePortalCommandOutput) => void
   ): void;
 
@@ -726,7 +738,7 @@ export interface WorkSpacesWeb {
    */
   createSessionLogger(
     args: CreateSessionLoggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreateSessionLoggerCommandOutput>;
   createSessionLogger(
     args: CreateSessionLoggerCommandInput,
@@ -734,7 +746,7 @@ export interface WorkSpacesWeb {
   ): void;
   createSessionLogger(
     args: CreateSessionLoggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreateSessionLoggerCommandOutput) => void
   ): void;
 
@@ -743,7 +755,7 @@ export interface WorkSpacesWeb {
    */
   createTrustStore(
     args: CreateTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreateTrustStoreCommandOutput>;
   createTrustStore(
     args: CreateTrustStoreCommandInput,
@@ -751,7 +763,7 @@ export interface WorkSpacesWeb {
   ): void;
   createTrustStore(
     args: CreateTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreateTrustStoreCommandOutput) => void
   ): void;
 
@@ -760,7 +772,7 @@ export interface WorkSpacesWeb {
    */
   createUserAccessLoggingSettings(
     args: CreateUserAccessLoggingSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreateUserAccessLoggingSettingsCommandOutput>;
   createUserAccessLoggingSettings(
     args: CreateUserAccessLoggingSettingsCommandInput,
@@ -768,7 +780,7 @@ export interface WorkSpacesWeb {
   ): void;
   createUserAccessLoggingSettings(
     args: CreateUserAccessLoggingSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreateUserAccessLoggingSettingsCommandOutput) => void
   ): void;
 
@@ -777,7 +789,7 @@ export interface WorkSpacesWeb {
    */
   createUserSettings(
     args: CreateUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<CreateUserSettingsCommandOutput>;
   createUserSettings(
     args: CreateUserSettingsCommandInput,
@@ -785,7 +797,7 @@ export interface WorkSpacesWeb {
   ): void;
   createUserSettings(
     args: CreateUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: CreateUserSettingsCommandOutput) => void
   ): void;
 
@@ -794,7 +806,7 @@ export interface WorkSpacesWeb {
    */
   deleteBrowserSettings(
     args: DeleteBrowserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeleteBrowserSettingsCommandOutput>;
   deleteBrowserSettings(
     args: DeleteBrowserSettingsCommandInput,
@@ -802,7 +814,7 @@ export interface WorkSpacesWeb {
   ): void;
   deleteBrowserSettings(
     args: DeleteBrowserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeleteBrowserSettingsCommandOutput) => void
   ): void;
 
@@ -811,7 +823,7 @@ export interface WorkSpacesWeb {
    */
   deleteDataProtectionSettings(
     args: DeleteDataProtectionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeleteDataProtectionSettingsCommandOutput>;
   deleteDataProtectionSettings(
     args: DeleteDataProtectionSettingsCommandInput,
@@ -819,7 +831,7 @@ export interface WorkSpacesWeb {
   ): void;
   deleteDataProtectionSettings(
     args: DeleteDataProtectionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeleteDataProtectionSettingsCommandOutput) => void
   ): void;
 
@@ -828,7 +840,7 @@ export interface WorkSpacesWeb {
    */
   deleteIdentityProvider(
     args: DeleteIdentityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeleteIdentityProviderCommandOutput>;
   deleteIdentityProvider(
     args: DeleteIdentityProviderCommandInput,
@@ -836,7 +848,7 @@ export interface WorkSpacesWeb {
   ): void;
   deleteIdentityProvider(
     args: DeleteIdentityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeleteIdentityProviderCommandOutput) => void
   ): void;
 
@@ -845,7 +857,7 @@ export interface WorkSpacesWeb {
    */
   deleteIpAccessSettings(
     args: DeleteIpAccessSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeleteIpAccessSettingsCommandOutput>;
   deleteIpAccessSettings(
     args: DeleteIpAccessSettingsCommandInput,
@@ -853,7 +865,7 @@ export interface WorkSpacesWeb {
   ): void;
   deleteIpAccessSettings(
     args: DeleteIpAccessSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeleteIpAccessSettingsCommandOutput) => void
   ): void;
 
@@ -862,7 +874,7 @@ export interface WorkSpacesWeb {
    */
   deleteNetworkSettings(
     args: DeleteNetworkSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeleteNetworkSettingsCommandOutput>;
   deleteNetworkSettings(
     args: DeleteNetworkSettingsCommandInput,
@@ -870,7 +882,7 @@ export interface WorkSpacesWeb {
   ): void;
   deleteNetworkSettings(
     args: DeleteNetworkSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeleteNetworkSettingsCommandOutput) => void
   ): void;
 
@@ -879,7 +891,7 @@ export interface WorkSpacesWeb {
    */
   deletePortal(
     args: DeletePortalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeletePortalCommandOutput>;
   deletePortal(
     args: DeletePortalCommandInput,
@@ -887,7 +899,7 @@ export interface WorkSpacesWeb {
   ): void;
   deletePortal(
     args: DeletePortalCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeletePortalCommandOutput) => void
   ): void;
 
@@ -896,7 +908,7 @@ export interface WorkSpacesWeb {
    */
   deleteSessionLogger(
     args: DeleteSessionLoggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeleteSessionLoggerCommandOutput>;
   deleteSessionLogger(
     args: DeleteSessionLoggerCommandInput,
@@ -904,7 +916,7 @@ export interface WorkSpacesWeb {
   ): void;
   deleteSessionLogger(
     args: DeleteSessionLoggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeleteSessionLoggerCommandOutput) => void
   ): void;
 
@@ -913,7 +925,7 @@ export interface WorkSpacesWeb {
    */
   deleteTrustStore(
     args: DeleteTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeleteTrustStoreCommandOutput>;
   deleteTrustStore(
     args: DeleteTrustStoreCommandInput,
@@ -921,7 +933,7 @@ export interface WorkSpacesWeb {
   ): void;
   deleteTrustStore(
     args: DeleteTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeleteTrustStoreCommandOutput) => void
   ): void;
 
@@ -930,7 +942,7 @@ export interface WorkSpacesWeb {
    */
   deleteUserAccessLoggingSettings(
     args: DeleteUserAccessLoggingSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeleteUserAccessLoggingSettingsCommandOutput>;
   deleteUserAccessLoggingSettings(
     args: DeleteUserAccessLoggingSettingsCommandInput,
@@ -938,7 +950,7 @@ export interface WorkSpacesWeb {
   ): void;
   deleteUserAccessLoggingSettings(
     args: DeleteUserAccessLoggingSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeleteUserAccessLoggingSettingsCommandOutput) => void
   ): void;
 
@@ -947,7 +959,7 @@ export interface WorkSpacesWeb {
    */
   deleteUserSettings(
     args: DeleteUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DeleteUserSettingsCommandOutput>;
   deleteUserSettings(
     args: DeleteUserSettingsCommandInput,
@@ -955,7 +967,7 @@ export interface WorkSpacesWeb {
   ): void;
   deleteUserSettings(
     args: DeleteUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DeleteUserSettingsCommandOutput) => void
   ): void;
 
@@ -964,7 +976,7 @@ export interface WorkSpacesWeb {
    */
   disassociateBrowserSettings(
     args: DisassociateBrowserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DisassociateBrowserSettingsCommandOutput>;
   disassociateBrowserSettings(
     args: DisassociateBrowserSettingsCommandInput,
@@ -972,7 +984,7 @@ export interface WorkSpacesWeb {
   ): void;
   disassociateBrowserSettings(
     args: DisassociateBrowserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DisassociateBrowserSettingsCommandOutput) => void
   ): void;
 
@@ -981,7 +993,7 @@ export interface WorkSpacesWeb {
    */
   disassociateDataProtectionSettings(
     args: DisassociateDataProtectionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DisassociateDataProtectionSettingsCommandOutput>;
   disassociateDataProtectionSettings(
     args: DisassociateDataProtectionSettingsCommandInput,
@@ -989,7 +1001,7 @@ export interface WorkSpacesWeb {
   ): void;
   disassociateDataProtectionSettings(
     args: DisassociateDataProtectionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DisassociateDataProtectionSettingsCommandOutput) => void
   ): void;
 
@@ -998,7 +1010,7 @@ export interface WorkSpacesWeb {
    */
   disassociateIpAccessSettings(
     args: DisassociateIpAccessSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DisassociateIpAccessSettingsCommandOutput>;
   disassociateIpAccessSettings(
     args: DisassociateIpAccessSettingsCommandInput,
@@ -1006,7 +1018,7 @@ export interface WorkSpacesWeb {
   ): void;
   disassociateIpAccessSettings(
     args: DisassociateIpAccessSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DisassociateIpAccessSettingsCommandOutput) => void
   ): void;
 
@@ -1015,7 +1027,7 @@ export interface WorkSpacesWeb {
    */
   disassociateNetworkSettings(
     args: DisassociateNetworkSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DisassociateNetworkSettingsCommandOutput>;
   disassociateNetworkSettings(
     args: DisassociateNetworkSettingsCommandInput,
@@ -1023,7 +1035,7 @@ export interface WorkSpacesWeb {
   ): void;
   disassociateNetworkSettings(
     args: DisassociateNetworkSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DisassociateNetworkSettingsCommandOutput) => void
   ): void;
 
@@ -1032,7 +1044,7 @@ export interface WorkSpacesWeb {
    */
   disassociateSessionLogger(
     args: DisassociateSessionLoggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DisassociateSessionLoggerCommandOutput>;
   disassociateSessionLogger(
     args: DisassociateSessionLoggerCommandInput,
@@ -1040,7 +1052,7 @@ export interface WorkSpacesWeb {
   ): void;
   disassociateSessionLogger(
     args: DisassociateSessionLoggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DisassociateSessionLoggerCommandOutput) => void
   ): void;
 
@@ -1049,7 +1061,7 @@ export interface WorkSpacesWeb {
    */
   disassociateTrustStore(
     args: DisassociateTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DisassociateTrustStoreCommandOutput>;
   disassociateTrustStore(
     args: DisassociateTrustStoreCommandInput,
@@ -1057,7 +1069,7 @@ export interface WorkSpacesWeb {
   ): void;
   disassociateTrustStore(
     args: DisassociateTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DisassociateTrustStoreCommandOutput) => void
   ): void;
 
@@ -1066,7 +1078,7 @@ export interface WorkSpacesWeb {
    */
   disassociateUserAccessLoggingSettings(
     args: DisassociateUserAccessLoggingSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DisassociateUserAccessLoggingSettingsCommandOutput>;
   disassociateUserAccessLoggingSettings(
     args: DisassociateUserAccessLoggingSettingsCommandInput,
@@ -1074,7 +1086,7 @@ export interface WorkSpacesWeb {
   ): void;
   disassociateUserAccessLoggingSettings(
     args: DisassociateUserAccessLoggingSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DisassociateUserAccessLoggingSettingsCommandOutput) => void
   ): void;
 
@@ -1083,7 +1095,7 @@ export interface WorkSpacesWeb {
    */
   disassociateUserSettings(
     args: DisassociateUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<DisassociateUserSettingsCommandOutput>;
   disassociateUserSettings(
     args: DisassociateUserSettingsCommandInput,
@@ -1091,7 +1103,7 @@ export interface WorkSpacesWeb {
   ): void;
   disassociateUserSettings(
     args: DisassociateUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: DisassociateUserSettingsCommandOutput) => void
   ): void;
 
@@ -1100,7 +1112,7 @@ export interface WorkSpacesWeb {
    */
   expireSession(
     args: ExpireSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ExpireSessionCommandOutput>;
   expireSession(
     args: ExpireSessionCommandInput,
@@ -1108,7 +1120,7 @@ export interface WorkSpacesWeb {
   ): void;
   expireSession(
     args: ExpireSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ExpireSessionCommandOutput) => void
   ): void;
 
@@ -1117,7 +1129,7 @@ export interface WorkSpacesWeb {
    */
   getBrowserSettings(
     args: GetBrowserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetBrowserSettingsCommandOutput>;
   getBrowserSettings(
     args: GetBrowserSettingsCommandInput,
@@ -1125,7 +1137,7 @@ export interface WorkSpacesWeb {
   ): void;
   getBrowserSettings(
     args: GetBrowserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetBrowserSettingsCommandOutput) => void
   ): void;
 
@@ -1134,7 +1146,7 @@ export interface WorkSpacesWeb {
    */
   getDataProtectionSettings(
     args: GetDataProtectionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetDataProtectionSettingsCommandOutput>;
   getDataProtectionSettings(
     args: GetDataProtectionSettingsCommandInput,
@@ -1142,7 +1154,7 @@ export interface WorkSpacesWeb {
   ): void;
   getDataProtectionSettings(
     args: GetDataProtectionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetDataProtectionSettingsCommandOutput) => void
   ): void;
 
@@ -1151,7 +1163,7 @@ export interface WorkSpacesWeb {
    */
   getIdentityProvider(
     args: GetIdentityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetIdentityProviderCommandOutput>;
   getIdentityProvider(
     args: GetIdentityProviderCommandInput,
@@ -1159,7 +1171,7 @@ export interface WorkSpacesWeb {
   ): void;
   getIdentityProvider(
     args: GetIdentityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetIdentityProviderCommandOutput) => void
   ): void;
 
@@ -1168,7 +1180,7 @@ export interface WorkSpacesWeb {
    */
   getIpAccessSettings(
     args: GetIpAccessSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetIpAccessSettingsCommandOutput>;
   getIpAccessSettings(
     args: GetIpAccessSettingsCommandInput,
@@ -1176,7 +1188,7 @@ export interface WorkSpacesWeb {
   ): void;
   getIpAccessSettings(
     args: GetIpAccessSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetIpAccessSettingsCommandOutput) => void
   ): void;
 
@@ -1185,7 +1197,7 @@ export interface WorkSpacesWeb {
    */
   getNetworkSettings(
     args: GetNetworkSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetNetworkSettingsCommandOutput>;
   getNetworkSettings(
     args: GetNetworkSettingsCommandInput,
@@ -1193,7 +1205,7 @@ export interface WorkSpacesWeb {
   ): void;
   getNetworkSettings(
     args: GetNetworkSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetNetworkSettingsCommandOutput) => void
   ): void;
 
@@ -1202,7 +1214,7 @@ export interface WorkSpacesWeb {
    */
   getPortal(
     args: GetPortalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetPortalCommandOutput>;
   getPortal(
     args: GetPortalCommandInput,
@@ -1210,7 +1222,7 @@ export interface WorkSpacesWeb {
   ): void;
   getPortal(
     args: GetPortalCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetPortalCommandOutput) => void
   ): void;
 
@@ -1219,7 +1231,7 @@ export interface WorkSpacesWeb {
    */
   getPortalServiceProviderMetadata(
     args: GetPortalServiceProviderMetadataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetPortalServiceProviderMetadataCommandOutput>;
   getPortalServiceProviderMetadata(
     args: GetPortalServiceProviderMetadataCommandInput,
@@ -1227,7 +1239,7 @@ export interface WorkSpacesWeb {
   ): void;
   getPortalServiceProviderMetadata(
     args: GetPortalServiceProviderMetadataCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetPortalServiceProviderMetadataCommandOutput) => void
   ): void;
 
@@ -1236,7 +1248,7 @@ export interface WorkSpacesWeb {
    */
   getSession(
     args: GetSessionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetSessionCommandOutput>;
   getSession(
     args: GetSessionCommandInput,
@@ -1244,7 +1256,7 @@ export interface WorkSpacesWeb {
   ): void;
   getSession(
     args: GetSessionCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetSessionCommandOutput) => void
   ): void;
 
@@ -1253,7 +1265,7 @@ export interface WorkSpacesWeb {
    */
   getSessionLogger(
     args: GetSessionLoggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetSessionLoggerCommandOutput>;
   getSessionLogger(
     args: GetSessionLoggerCommandInput,
@@ -1261,7 +1273,7 @@ export interface WorkSpacesWeb {
   ): void;
   getSessionLogger(
     args: GetSessionLoggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetSessionLoggerCommandOutput) => void
   ): void;
 
@@ -1270,7 +1282,7 @@ export interface WorkSpacesWeb {
    */
   getTrustStore(
     args: GetTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetTrustStoreCommandOutput>;
   getTrustStore(
     args: GetTrustStoreCommandInput,
@@ -1278,7 +1290,7 @@ export interface WorkSpacesWeb {
   ): void;
   getTrustStore(
     args: GetTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetTrustStoreCommandOutput) => void
   ): void;
 
@@ -1287,7 +1299,7 @@ export interface WorkSpacesWeb {
    */
   getTrustStoreCertificate(
     args: GetTrustStoreCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetTrustStoreCertificateCommandOutput>;
   getTrustStoreCertificate(
     args: GetTrustStoreCertificateCommandInput,
@@ -1295,7 +1307,7 @@ export interface WorkSpacesWeb {
   ): void;
   getTrustStoreCertificate(
     args: GetTrustStoreCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetTrustStoreCertificateCommandOutput) => void
   ): void;
 
@@ -1304,7 +1316,7 @@ export interface WorkSpacesWeb {
    */
   getUserAccessLoggingSettings(
     args: GetUserAccessLoggingSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetUserAccessLoggingSettingsCommandOutput>;
   getUserAccessLoggingSettings(
     args: GetUserAccessLoggingSettingsCommandInput,
@@ -1312,7 +1324,7 @@ export interface WorkSpacesWeb {
   ): void;
   getUserAccessLoggingSettings(
     args: GetUserAccessLoggingSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetUserAccessLoggingSettingsCommandOutput) => void
   ): void;
 
@@ -1321,7 +1333,7 @@ export interface WorkSpacesWeb {
    */
   getUserSettings(
     args: GetUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<GetUserSettingsCommandOutput>;
   getUserSettings(
     args: GetUserSettingsCommandInput,
@@ -1329,7 +1341,7 @@ export interface WorkSpacesWeb {
   ): void;
   getUserSettings(
     args: GetUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: GetUserSettingsCommandOutput) => void
   ): void;
 
@@ -1339,7 +1351,7 @@ export interface WorkSpacesWeb {
   listBrowserSettings(): Promise<ListBrowserSettingsCommandOutput>;
   listBrowserSettings(
     args: ListBrowserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListBrowserSettingsCommandOutput>;
   listBrowserSettings(
     args: ListBrowserSettingsCommandInput,
@@ -1347,7 +1359,7 @@ export interface WorkSpacesWeb {
   ): void;
   listBrowserSettings(
     args: ListBrowserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListBrowserSettingsCommandOutput) => void
   ): void;
 
@@ -1357,7 +1369,7 @@ export interface WorkSpacesWeb {
   listDataProtectionSettings(): Promise<ListDataProtectionSettingsCommandOutput>;
   listDataProtectionSettings(
     args: ListDataProtectionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListDataProtectionSettingsCommandOutput>;
   listDataProtectionSettings(
     args: ListDataProtectionSettingsCommandInput,
@@ -1365,7 +1377,7 @@ export interface WorkSpacesWeb {
   ): void;
   listDataProtectionSettings(
     args: ListDataProtectionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListDataProtectionSettingsCommandOutput) => void
   ): void;
 
@@ -1374,7 +1386,7 @@ export interface WorkSpacesWeb {
    */
   listIdentityProviders(
     args: ListIdentityProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListIdentityProvidersCommandOutput>;
   listIdentityProviders(
     args: ListIdentityProvidersCommandInput,
@@ -1382,7 +1394,7 @@ export interface WorkSpacesWeb {
   ): void;
   listIdentityProviders(
     args: ListIdentityProvidersCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListIdentityProvidersCommandOutput) => void
   ): void;
 
@@ -1392,7 +1404,7 @@ export interface WorkSpacesWeb {
   listIpAccessSettings(): Promise<ListIpAccessSettingsCommandOutput>;
   listIpAccessSettings(
     args: ListIpAccessSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListIpAccessSettingsCommandOutput>;
   listIpAccessSettings(
     args: ListIpAccessSettingsCommandInput,
@@ -1400,7 +1412,7 @@ export interface WorkSpacesWeb {
   ): void;
   listIpAccessSettings(
     args: ListIpAccessSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListIpAccessSettingsCommandOutput) => void
   ): void;
 
@@ -1410,7 +1422,7 @@ export interface WorkSpacesWeb {
   listNetworkSettings(): Promise<ListNetworkSettingsCommandOutput>;
   listNetworkSettings(
     args: ListNetworkSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListNetworkSettingsCommandOutput>;
   listNetworkSettings(
     args: ListNetworkSettingsCommandInput,
@@ -1418,7 +1430,7 @@ export interface WorkSpacesWeb {
   ): void;
   listNetworkSettings(
     args: ListNetworkSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListNetworkSettingsCommandOutput) => void
   ): void;
 
@@ -1428,7 +1440,7 @@ export interface WorkSpacesWeb {
   listPortals(): Promise<ListPortalsCommandOutput>;
   listPortals(
     args: ListPortalsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListPortalsCommandOutput>;
   listPortals(
     args: ListPortalsCommandInput,
@@ -1436,7 +1448,7 @@ export interface WorkSpacesWeb {
   ): void;
   listPortals(
     args: ListPortalsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListPortalsCommandOutput) => void
   ): void;
 
@@ -1446,7 +1458,7 @@ export interface WorkSpacesWeb {
   listSessionLoggers(): Promise<ListSessionLoggersCommandOutput>;
   listSessionLoggers(
     args: ListSessionLoggersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListSessionLoggersCommandOutput>;
   listSessionLoggers(
     args: ListSessionLoggersCommandInput,
@@ -1454,7 +1466,7 @@ export interface WorkSpacesWeb {
   ): void;
   listSessionLoggers(
     args: ListSessionLoggersCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListSessionLoggersCommandOutput) => void
   ): void;
 
@@ -1463,7 +1475,7 @@ export interface WorkSpacesWeb {
    */
   listSessions(
     args: ListSessionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListSessionsCommandOutput>;
   listSessions(
     args: ListSessionsCommandInput,
@@ -1471,7 +1483,7 @@ export interface WorkSpacesWeb {
   ): void;
   listSessions(
     args: ListSessionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
@@ -1480,7 +1492,7 @@ export interface WorkSpacesWeb {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1488,7 +1500,7 @@ export interface WorkSpacesWeb {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1497,7 +1509,7 @@ export interface WorkSpacesWeb {
    */
   listTrustStoreCertificates(
     args: ListTrustStoreCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListTrustStoreCertificatesCommandOutput>;
   listTrustStoreCertificates(
     args: ListTrustStoreCertificatesCommandInput,
@@ -1505,7 +1517,7 @@ export interface WorkSpacesWeb {
   ): void;
   listTrustStoreCertificates(
     args: ListTrustStoreCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListTrustStoreCertificatesCommandOutput) => void
   ): void;
 
@@ -1515,7 +1527,7 @@ export interface WorkSpacesWeb {
   listTrustStores(): Promise<ListTrustStoresCommandOutput>;
   listTrustStores(
     args: ListTrustStoresCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListTrustStoresCommandOutput>;
   listTrustStores(
     args: ListTrustStoresCommandInput,
@@ -1523,7 +1535,7 @@ export interface WorkSpacesWeb {
   ): void;
   listTrustStores(
     args: ListTrustStoresCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListTrustStoresCommandOutput) => void
   ): void;
 
@@ -1533,7 +1545,7 @@ export interface WorkSpacesWeb {
   listUserAccessLoggingSettings(): Promise<ListUserAccessLoggingSettingsCommandOutput>;
   listUserAccessLoggingSettings(
     args: ListUserAccessLoggingSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListUserAccessLoggingSettingsCommandOutput>;
   listUserAccessLoggingSettings(
     args: ListUserAccessLoggingSettingsCommandInput,
@@ -1541,7 +1553,7 @@ export interface WorkSpacesWeb {
   ): void;
   listUserAccessLoggingSettings(
     args: ListUserAccessLoggingSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListUserAccessLoggingSettingsCommandOutput) => void
   ): void;
 
@@ -1551,7 +1563,7 @@ export interface WorkSpacesWeb {
   listUserSettings(): Promise<ListUserSettingsCommandOutput>;
   listUserSettings(
     args: ListUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<ListUserSettingsCommandOutput>;
   listUserSettings(
     args: ListUserSettingsCommandInput,
@@ -1559,7 +1571,7 @@ export interface WorkSpacesWeb {
   ): void;
   listUserSettings(
     args: ListUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: ListUserSettingsCommandOutput) => void
   ): void;
 
@@ -1568,7 +1580,7 @@ export interface WorkSpacesWeb {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1576,7 +1588,7 @@ export interface WorkSpacesWeb {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1585,7 +1597,7 @@ export interface WorkSpacesWeb {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1593,7 +1605,7 @@ export interface WorkSpacesWeb {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1602,7 +1614,7 @@ export interface WorkSpacesWeb {
    */
   updateBrowserSettings(
     args: UpdateBrowserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdateBrowserSettingsCommandOutput>;
   updateBrowserSettings(
     args: UpdateBrowserSettingsCommandInput,
@@ -1610,7 +1622,7 @@ export interface WorkSpacesWeb {
   ): void;
   updateBrowserSettings(
     args: UpdateBrowserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdateBrowserSettingsCommandOutput) => void
   ): void;
 
@@ -1619,7 +1631,7 @@ export interface WorkSpacesWeb {
    */
   updateDataProtectionSettings(
     args: UpdateDataProtectionSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdateDataProtectionSettingsCommandOutput>;
   updateDataProtectionSettings(
     args: UpdateDataProtectionSettingsCommandInput,
@@ -1627,7 +1639,7 @@ export interface WorkSpacesWeb {
   ): void;
   updateDataProtectionSettings(
     args: UpdateDataProtectionSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdateDataProtectionSettingsCommandOutput) => void
   ): void;
 
@@ -1636,7 +1648,7 @@ export interface WorkSpacesWeb {
    */
   updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdateIdentityProviderCommandOutput>;
   updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,
@@ -1644,7 +1656,7 @@ export interface WorkSpacesWeb {
   ): void;
   updateIdentityProvider(
     args: UpdateIdentityProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdateIdentityProviderCommandOutput) => void
   ): void;
 
@@ -1653,7 +1665,7 @@ export interface WorkSpacesWeb {
    */
   updateIpAccessSettings(
     args: UpdateIpAccessSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdateIpAccessSettingsCommandOutput>;
   updateIpAccessSettings(
     args: UpdateIpAccessSettingsCommandInput,
@@ -1661,7 +1673,7 @@ export interface WorkSpacesWeb {
   ): void;
   updateIpAccessSettings(
     args: UpdateIpAccessSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdateIpAccessSettingsCommandOutput) => void
   ): void;
 
@@ -1670,7 +1682,7 @@ export interface WorkSpacesWeb {
    */
   updateNetworkSettings(
     args: UpdateNetworkSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdateNetworkSettingsCommandOutput>;
   updateNetworkSettings(
     args: UpdateNetworkSettingsCommandInput,
@@ -1678,7 +1690,7 @@ export interface WorkSpacesWeb {
   ): void;
   updateNetworkSettings(
     args: UpdateNetworkSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdateNetworkSettingsCommandOutput) => void
   ): void;
 
@@ -1687,7 +1699,7 @@ export interface WorkSpacesWeb {
    */
   updatePortal(
     args: UpdatePortalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdatePortalCommandOutput>;
   updatePortal(
     args: UpdatePortalCommandInput,
@@ -1695,7 +1707,7 @@ export interface WorkSpacesWeb {
   ): void;
   updatePortal(
     args: UpdatePortalCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdatePortalCommandOutput) => void
   ): void;
 
@@ -1704,7 +1716,7 @@ export interface WorkSpacesWeb {
    */
   updateSessionLogger(
     args: UpdateSessionLoggerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdateSessionLoggerCommandOutput>;
   updateSessionLogger(
     args: UpdateSessionLoggerCommandInput,
@@ -1712,7 +1724,7 @@ export interface WorkSpacesWeb {
   ): void;
   updateSessionLogger(
     args: UpdateSessionLoggerCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdateSessionLoggerCommandOutput) => void
   ): void;
 
@@ -1721,7 +1733,7 @@ export interface WorkSpacesWeb {
    */
   updateTrustStore(
     args: UpdateTrustStoreCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdateTrustStoreCommandOutput>;
   updateTrustStore(
     args: UpdateTrustStoreCommandInput,
@@ -1729,7 +1741,7 @@ export interface WorkSpacesWeb {
   ): void;
   updateTrustStore(
     args: UpdateTrustStoreCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdateTrustStoreCommandOutput) => void
   ): void;
 
@@ -1738,7 +1750,7 @@ export interface WorkSpacesWeb {
    */
   updateUserAccessLoggingSettings(
     args: UpdateUserAccessLoggingSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdateUserAccessLoggingSettingsCommandOutput>;
   updateUserAccessLoggingSettings(
     args: UpdateUserAccessLoggingSettingsCommandInput,
@@ -1746,7 +1758,7 @@ export interface WorkSpacesWeb {
   ): void;
   updateUserAccessLoggingSettings(
     args: UpdateUserAccessLoggingSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdateUserAccessLoggingSettingsCommandOutput) => void
   ): void;
 
@@ -1755,7 +1767,7 @@ export interface WorkSpacesWeb {
    */
   updateUserSettings(
     args: UpdateUserSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: WorkSpacesWebRequestOptions
   ): Promise<UpdateUserSettingsCommandOutput>;
   updateUserSettings(
     args: UpdateUserSettingsCommandInput,
@@ -1763,7 +1775,7 @@ export interface WorkSpacesWeb {
   ): void;
   updateUserSettings(
     args: UpdateUserSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: WorkSpacesWebRequestOptions,
     cb: (err: any, data?: UpdateUserSettingsCommandOutput) => void
   ): void;
 

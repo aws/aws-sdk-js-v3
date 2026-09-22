@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AssociateVehicleFleetCommandInput,
@@ -377,13 +382,20 @@ const paginators = {
   paginateListVehiclesInFleet,
 };
 
+/**
+ * @public
+ */
+export interface IoTFleetWiseRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IoTFleetWise {
   /**
    * @see {@link AssociateVehicleFleetCommand}
    */
   associateVehicleFleet(
     args: AssociateVehicleFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<AssociateVehicleFleetCommandOutput>;
   associateVehicleFleet(
     args: AssociateVehicleFleetCommandInput,
@@ -391,7 +403,7 @@ export interface IoTFleetWise {
   ): void;
   associateVehicleFleet(
     args: AssociateVehicleFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: AssociateVehicleFleetCommandOutput) => void
   ): void;
 
@@ -400,7 +412,7 @@ export interface IoTFleetWise {
    */
   batchCreateVehicle(
     args: BatchCreateVehicleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<BatchCreateVehicleCommandOutput>;
   batchCreateVehicle(
     args: BatchCreateVehicleCommandInput,
@@ -408,7 +420,7 @@ export interface IoTFleetWise {
   ): void;
   batchCreateVehicle(
     args: BatchCreateVehicleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: BatchCreateVehicleCommandOutput) => void
   ): void;
 
@@ -417,7 +429,7 @@ export interface IoTFleetWise {
    */
   batchUpdateVehicle(
     args: BatchUpdateVehicleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<BatchUpdateVehicleCommandOutput>;
   batchUpdateVehicle(
     args: BatchUpdateVehicleCommandInput,
@@ -425,7 +437,7 @@ export interface IoTFleetWise {
   ): void;
   batchUpdateVehicle(
     args: BatchUpdateVehicleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: BatchUpdateVehicleCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface IoTFleetWise {
    */
   createCampaign(
     args: CreateCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<CreateCampaignCommandOutput>;
   createCampaign(
     args: CreateCampaignCommandInput,
@@ -442,7 +454,7 @@ export interface IoTFleetWise {
   ): void;
   createCampaign(
     args: CreateCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: CreateCampaignCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface IoTFleetWise {
    */
   createDecoderManifest(
     args: CreateDecoderManifestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<CreateDecoderManifestCommandOutput>;
   createDecoderManifest(
     args: CreateDecoderManifestCommandInput,
@@ -459,7 +471,7 @@ export interface IoTFleetWise {
   ): void;
   createDecoderManifest(
     args: CreateDecoderManifestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: CreateDecoderManifestCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface IoTFleetWise {
    */
   createFleet(
     args: CreateFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<CreateFleetCommandOutput>;
   createFleet(
     args: CreateFleetCommandInput,
@@ -476,7 +488,7 @@ export interface IoTFleetWise {
   ): void;
   createFleet(
     args: CreateFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: CreateFleetCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface IoTFleetWise {
    */
   createModelManifest(
     args: CreateModelManifestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<CreateModelManifestCommandOutput>;
   createModelManifest(
     args: CreateModelManifestCommandInput,
@@ -493,7 +505,7 @@ export interface IoTFleetWise {
   ): void;
   createModelManifest(
     args: CreateModelManifestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: CreateModelManifestCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface IoTFleetWise {
    */
   createSignalCatalog(
     args: CreateSignalCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<CreateSignalCatalogCommandOutput>;
   createSignalCatalog(
     args: CreateSignalCatalogCommandInput,
@@ -510,7 +522,7 @@ export interface IoTFleetWise {
   ): void;
   createSignalCatalog(
     args: CreateSignalCatalogCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: CreateSignalCatalogCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface IoTFleetWise {
    */
   createStateTemplate(
     args: CreateStateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<CreateStateTemplateCommandOutput>;
   createStateTemplate(
     args: CreateStateTemplateCommandInput,
@@ -527,7 +539,7 @@ export interface IoTFleetWise {
   ): void;
   createStateTemplate(
     args: CreateStateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: CreateStateTemplateCommandOutput) => void
   ): void;
 
@@ -536,7 +548,7 @@ export interface IoTFleetWise {
    */
   createVehicle(
     args: CreateVehicleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<CreateVehicleCommandOutput>;
   createVehicle(
     args: CreateVehicleCommandInput,
@@ -544,7 +556,7 @@ export interface IoTFleetWise {
   ): void;
   createVehicle(
     args: CreateVehicleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: CreateVehicleCommandOutput) => void
   ): void;
 
@@ -553,7 +565,7 @@ export interface IoTFleetWise {
    */
   deleteCampaign(
     args: DeleteCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<DeleteCampaignCommandOutput>;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
@@ -561,7 +573,7 @@ export interface IoTFleetWise {
   ): void;
   deleteCampaign(
     args: DeleteCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: DeleteCampaignCommandOutput) => void
   ): void;
 
@@ -570,7 +582,7 @@ export interface IoTFleetWise {
    */
   deleteDecoderManifest(
     args: DeleteDecoderManifestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<DeleteDecoderManifestCommandOutput>;
   deleteDecoderManifest(
     args: DeleteDecoderManifestCommandInput,
@@ -578,7 +590,7 @@ export interface IoTFleetWise {
   ): void;
   deleteDecoderManifest(
     args: DeleteDecoderManifestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: DeleteDecoderManifestCommandOutput) => void
   ): void;
 
@@ -587,7 +599,7 @@ export interface IoTFleetWise {
    */
   deleteFleet(
     args: DeleteFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<DeleteFleetCommandOutput>;
   deleteFleet(
     args: DeleteFleetCommandInput,
@@ -595,7 +607,7 @@ export interface IoTFleetWise {
   ): void;
   deleteFleet(
     args: DeleteFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: DeleteFleetCommandOutput) => void
   ): void;
 
@@ -604,7 +616,7 @@ export interface IoTFleetWise {
    */
   deleteModelManifest(
     args: DeleteModelManifestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<DeleteModelManifestCommandOutput>;
   deleteModelManifest(
     args: DeleteModelManifestCommandInput,
@@ -612,7 +624,7 @@ export interface IoTFleetWise {
   ): void;
   deleteModelManifest(
     args: DeleteModelManifestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: DeleteModelManifestCommandOutput) => void
   ): void;
 
@@ -621,7 +633,7 @@ export interface IoTFleetWise {
    */
   deleteSignalCatalog(
     args: DeleteSignalCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<DeleteSignalCatalogCommandOutput>;
   deleteSignalCatalog(
     args: DeleteSignalCatalogCommandInput,
@@ -629,7 +641,7 @@ export interface IoTFleetWise {
   ): void;
   deleteSignalCatalog(
     args: DeleteSignalCatalogCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: DeleteSignalCatalogCommandOutput) => void
   ): void;
 
@@ -638,7 +650,7 @@ export interface IoTFleetWise {
    */
   deleteStateTemplate(
     args: DeleteStateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<DeleteStateTemplateCommandOutput>;
   deleteStateTemplate(
     args: DeleteStateTemplateCommandInput,
@@ -646,7 +658,7 @@ export interface IoTFleetWise {
   ): void;
   deleteStateTemplate(
     args: DeleteStateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: DeleteStateTemplateCommandOutput) => void
   ): void;
 
@@ -655,7 +667,7 @@ export interface IoTFleetWise {
    */
   deleteVehicle(
     args: DeleteVehicleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<DeleteVehicleCommandOutput>;
   deleteVehicle(
     args: DeleteVehicleCommandInput,
@@ -663,7 +675,7 @@ export interface IoTFleetWise {
   ): void;
   deleteVehicle(
     args: DeleteVehicleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: DeleteVehicleCommandOutput) => void
   ): void;
 
@@ -672,7 +684,7 @@ export interface IoTFleetWise {
    */
   disassociateVehicleFleet(
     args: DisassociateVehicleFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<DisassociateVehicleFleetCommandOutput>;
   disassociateVehicleFleet(
     args: DisassociateVehicleFleetCommandInput,
@@ -680,7 +692,7 @@ export interface IoTFleetWise {
   ): void;
   disassociateVehicleFleet(
     args: DisassociateVehicleFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: DisassociateVehicleFleetCommandOutput) => void
   ): void;
 
@@ -689,7 +701,7 @@ export interface IoTFleetWise {
    */
   getCampaign(
     args: GetCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetCampaignCommandOutput>;
   getCampaign(
     args: GetCampaignCommandInput,
@@ -697,7 +709,7 @@ export interface IoTFleetWise {
   ): void;
   getCampaign(
     args: GetCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetCampaignCommandOutput) => void
   ): void;
 
@@ -706,7 +718,7 @@ export interface IoTFleetWise {
    */
   getDecoderManifest(
     args: GetDecoderManifestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetDecoderManifestCommandOutput>;
   getDecoderManifest(
     args: GetDecoderManifestCommandInput,
@@ -714,7 +726,7 @@ export interface IoTFleetWise {
   ): void;
   getDecoderManifest(
     args: GetDecoderManifestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetDecoderManifestCommandOutput) => void
   ): void;
 
@@ -724,7 +736,7 @@ export interface IoTFleetWise {
   getEncryptionConfiguration(): Promise<GetEncryptionConfigurationCommandOutput>;
   getEncryptionConfiguration(
     args: GetEncryptionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetEncryptionConfigurationCommandOutput>;
   getEncryptionConfiguration(
     args: GetEncryptionConfigurationCommandInput,
@@ -732,7 +744,7 @@ export interface IoTFleetWise {
   ): void;
   getEncryptionConfiguration(
     args: GetEncryptionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetEncryptionConfigurationCommandOutput) => void
   ): void;
 
@@ -741,7 +753,7 @@ export interface IoTFleetWise {
    */
   getFleet(
     args: GetFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetFleetCommandOutput>;
   getFleet(
     args: GetFleetCommandInput,
@@ -749,7 +761,7 @@ export interface IoTFleetWise {
   ): void;
   getFleet(
     args: GetFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetFleetCommandOutput) => void
   ): void;
 
@@ -759,7 +771,7 @@ export interface IoTFleetWise {
   getLoggingOptions(): Promise<GetLoggingOptionsCommandOutput>;
   getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetLoggingOptionsCommandOutput>;
   getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
@@ -767,7 +779,7 @@ export interface IoTFleetWise {
   ): void;
   getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetLoggingOptionsCommandOutput) => void
   ): void;
 
@@ -776,7 +788,7 @@ export interface IoTFleetWise {
    */
   getModelManifest(
     args: GetModelManifestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetModelManifestCommandOutput>;
   getModelManifest(
     args: GetModelManifestCommandInput,
@@ -784,7 +796,7 @@ export interface IoTFleetWise {
   ): void;
   getModelManifest(
     args: GetModelManifestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetModelManifestCommandOutput) => void
   ): void;
 
@@ -794,7 +806,7 @@ export interface IoTFleetWise {
   getRegisterAccountStatus(): Promise<GetRegisterAccountStatusCommandOutput>;
   getRegisterAccountStatus(
     args: GetRegisterAccountStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetRegisterAccountStatusCommandOutput>;
   getRegisterAccountStatus(
     args: GetRegisterAccountStatusCommandInput,
@@ -802,7 +814,7 @@ export interface IoTFleetWise {
   ): void;
   getRegisterAccountStatus(
     args: GetRegisterAccountStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetRegisterAccountStatusCommandOutput) => void
   ): void;
 
@@ -811,7 +823,7 @@ export interface IoTFleetWise {
    */
   getSignalCatalog(
     args: GetSignalCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetSignalCatalogCommandOutput>;
   getSignalCatalog(
     args: GetSignalCatalogCommandInput,
@@ -819,7 +831,7 @@ export interface IoTFleetWise {
   ): void;
   getSignalCatalog(
     args: GetSignalCatalogCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetSignalCatalogCommandOutput) => void
   ): void;
 
@@ -828,7 +840,7 @@ export interface IoTFleetWise {
    */
   getStateTemplate(
     args: GetStateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetStateTemplateCommandOutput>;
   getStateTemplate(
     args: GetStateTemplateCommandInput,
@@ -836,7 +848,7 @@ export interface IoTFleetWise {
   ): void;
   getStateTemplate(
     args: GetStateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetStateTemplateCommandOutput) => void
   ): void;
 
@@ -845,7 +857,7 @@ export interface IoTFleetWise {
    */
   getVehicle(
     args: GetVehicleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetVehicleCommandOutput>;
   getVehicle(
     args: GetVehicleCommandInput,
@@ -853,7 +865,7 @@ export interface IoTFleetWise {
   ): void;
   getVehicle(
     args: GetVehicleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetVehicleCommandOutput) => void
   ): void;
 
@@ -862,7 +874,7 @@ export interface IoTFleetWise {
    */
   getVehicleStatus(
     args: GetVehicleStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<GetVehicleStatusCommandOutput>;
   getVehicleStatus(
     args: GetVehicleStatusCommandInput,
@@ -870,7 +882,7 @@ export interface IoTFleetWise {
   ): void;
   getVehicleStatus(
     args: GetVehicleStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: GetVehicleStatusCommandOutput) => void
   ): void;
 
@@ -879,7 +891,7 @@ export interface IoTFleetWise {
    */
   importDecoderManifest(
     args: ImportDecoderManifestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ImportDecoderManifestCommandOutput>;
   importDecoderManifest(
     args: ImportDecoderManifestCommandInput,
@@ -887,7 +899,7 @@ export interface IoTFleetWise {
   ): void;
   importDecoderManifest(
     args: ImportDecoderManifestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ImportDecoderManifestCommandOutput) => void
   ): void;
 
@@ -896,7 +908,7 @@ export interface IoTFleetWise {
    */
   importSignalCatalog(
     args: ImportSignalCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ImportSignalCatalogCommandOutput>;
   importSignalCatalog(
     args: ImportSignalCatalogCommandInput,
@@ -904,7 +916,7 @@ export interface IoTFleetWise {
   ): void;
   importSignalCatalog(
     args: ImportSignalCatalogCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ImportSignalCatalogCommandOutput) => void
   ): void;
 
@@ -914,7 +926,7 @@ export interface IoTFleetWise {
   listCampaigns(): Promise<ListCampaignsCommandOutput>;
   listCampaigns(
     args: ListCampaignsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListCampaignsCommandOutput>;
   listCampaigns(
     args: ListCampaignsCommandInput,
@@ -922,7 +934,7 @@ export interface IoTFleetWise {
   ): void;
   listCampaigns(
     args: ListCampaignsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListCampaignsCommandOutput) => void
   ): void;
 
@@ -931,7 +943,7 @@ export interface IoTFleetWise {
    */
   listDecoderManifestNetworkInterfaces(
     args: ListDecoderManifestNetworkInterfacesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListDecoderManifestNetworkInterfacesCommandOutput>;
   listDecoderManifestNetworkInterfaces(
     args: ListDecoderManifestNetworkInterfacesCommandInput,
@@ -939,7 +951,7 @@ export interface IoTFleetWise {
   ): void;
   listDecoderManifestNetworkInterfaces(
     args: ListDecoderManifestNetworkInterfacesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListDecoderManifestNetworkInterfacesCommandOutput) => void
   ): void;
 
@@ -949,7 +961,7 @@ export interface IoTFleetWise {
   listDecoderManifests(): Promise<ListDecoderManifestsCommandOutput>;
   listDecoderManifests(
     args: ListDecoderManifestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListDecoderManifestsCommandOutput>;
   listDecoderManifests(
     args: ListDecoderManifestsCommandInput,
@@ -957,7 +969,7 @@ export interface IoTFleetWise {
   ): void;
   listDecoderManifests(
     args: ListDecoderManifestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListDecoderManifestsCommandOutput) => void
   ): void;
 
@@ -966,7 +978,7 @@ export interface IoTFleetWise {
    */
   listDecoderManifestSignals(
     args: ListDecoderManifestSignalsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListDecoderManifestSignalsCommandOutput>;
   listDecoderManifestSignals(
     args: ListDecoderManifestSignalsCommandInput,
@@ -974,7 +986,7 @@ export interface IoTFleetWise {
   ): void;
   listDecoderManifestSignals(
     args: ListDecoderManifestSignalsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListDecoderManifestSignalsCommandOutput) => void
   ): void;
 
@@ -984,7 +996,7 @@ export interface IoTFleetWise {
   listFleets(): Promise<ListFleetsCommandOutput>;
   listFleets(
     args: ListFleetsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListFleetsCommandOutput>;
   listFleets(
     args: ListFleetsCommandInput,
@@ -992,7 +1004,7 @@ export interface IoTFleetWise {
   ): void;
   listFleets(
     args: ListFleetsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListFleetsCommandOutput) => void
   ): void;
 
@@ -1001,7 +1013,7 @@ export interface IoTFleetWise {
    */
   listFleetsForVehicle(
     args: ListFleetsForVehicleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListFleetsForVehicleCommandOutput>;
   listFleetsForVehicle(
     args: ListFleetsForVehicleCommandInput,
@@ -1009,7 +1021,7 @@ export interface IoTFleetWise {
   ): void;
   listFleetsForVehicle(
     args: ListFleetsForVehicleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListFleetsForVehicleCommandOutput) => void
   ): void;
 
@@ -1018,7 +1030,7 @@ export interface IoTFleetWise {
    */
   listModelManifestNodes(
     args: ListModelManifestNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListModelManifestNodesCommandOutput>;
   listModelManifestNodes(
     args: ListModelManifestNodesCommandInput,
@@ -1026,7 +1038,7 @@ export interface IoTFleetWise {
   ): void;
   listModelManifestNodes(
     args: ListModelManifestNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListModelManifestNodesCommandOutput) => void
   ): void;
 
@@ -1036,7 +1048,7 @@ export interface IoTFleetWise {
   listModelManifests(): Promise<ListModelManifestsCommandOutput>;
   listModelManifests(
     args: ListModelManifestsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListModelManifestsCommandOutput>;
   listModelManifests(
     args: ListModelManifestsCommandInput,
@@ -1044,7 +1056,7 @@ export interface IoTFleetWise {
   ): void;
   listModelManifests(
     args: ListModelManifestsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListModelManifestsCommandOutput) => void
   ): void;
 
@@ -1053,7 +1065,7 @@ export interface IoTFleetWise {
    */
   listSignalCatalogNodes(
     args: ListSignalCatalogNodesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListSignalCatalogNodesCommandOutput>;
   listSignalCatalogNodes(
     args: ListSignalCatalogNodesCommandInput,
@@ -1061,7 +1073,7 @@ export interface IoTFleetWise {
   ): void;
   listSignalCatalogNodes(
     args: ListSignalCatalogNodesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListSignalCatalogNodesCommandOutput) => void
   ): void;
 
@@ -1071,7 +1083,7 @@ export interface IoTFleetWise {
   listSignalCatalogs(): Promise<ListSignalCatalogsCommandOutput>;
   listSignalCatalogs(
     args: ListSignalCatalogsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListSignalCatalogsCommandOutput>;
   listSignalCatalogs(
     args: ListSignalCatalogsCommandInput,
@@ -1079,7 +1091,7 @@ export interface IoTFleetWise {
   ): void;
   listSignalCatalogs(
     args: ListSignalCatalogsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListSignalCatalogsCommandOutput) => void
   ): void;
 
@@ -1089,7 +1101,7 @@ export interface IoTFleetWise {
   listStateTemplates(): Promise<ListStateTemplatesCommandOutput>;
   listStateTemplates(
     args: ListStateTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListStateTemplatesCommandOutput>;
   listStateTemplates(
     args: ListStateTemplatesCommandInput,
@@ -1097,7 +1109,7 @@ export interface IoTFleetWise {
   ): void;
   listStateTemplates(
     args: ListStateTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListStateTemplatesCommandOutput) => void
   ): void;
 
@@ -1106,7 +1118,7 @@ export interface IoTFleetWise {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1114,7 +1126,7 @@ export interface IoTFleetWise {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1124,7 +1136,7 @@ export interface IoTFleetWise {
   listVehicles(): Promise<ListVehiclesCommandOutput>;
   listVehicles(
     args: ListVehiclesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListVehiclesCommandOutput>;
   listVehicles(
     args: ListVehiclesCommandInput,
@@ -1132,7 +1144,7 @@ export interface IoTFleetWise {
   ): void;
   listVehicles(
     args: ListVehiclesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListVehiclesCommandOutput) => void
   ): void;
 
@@ -1141,7 +1153,7 @@ export interface IoTFleetWise {
    */
   listVehiclesInFleet(
     args: ListVehiclesInFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<ListVehiclesInFleetCommandOutput>;
   listVehiclesInFleet(
     args: ListVehiclesInFleetCommandInput,
@@ -1149,7 +1161,7 @@ export interface IoTFleetWise {
   ): void;
   listVehiclesInFleet(
     args: ListVehiclesInFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: ListVehiclesInFleetCommandOutput) => void
   ): void;
 
@@ -1158,7 +1170,7 @@ export interface IoTFleetWise {
    */
   putEncryptionConfiguration(
     args: PutEncryptionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<PutEncryptionConfigurationCommandOutput>;
   putEncryptionConfiguration(
     args: PutEncryptionConfigurationCommandInput,
@@ -1166,7 +1178,7 @@ export interface IoTFleetWise {
   ): void;
   putEncryptionConfiguration(
     args: PutEncryptionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: PutEncryptionConfigurationCommandOutput) => void
   ): void;
 
@@ -1175,7 +1187,7 @@ export interface IoTFleetWise {
    */
   putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<PutLoggingOptionsCommandOutput>;
   putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
@@ -1183,7 +1195,7 @@ export interface IoTFleetWise {
   ): void;
   putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: PutLoggingOptionsCommandOutput) => void
   ): void;
 
@@ -1193,7 +1205,7 @@ export interface IoTFleetWise {
   registerAccount(): Promise<RegisterAccountCommandOutput>;
   registerAccount(
     args: RegisterAccountCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<RegisterAccountCommandOutput>;
   registerAccount(
     args: RegisterAccountCommandInput,
@@ -1201,7 +1213,7 @@ export interface IoTFleetWise {
   ): void;
   registerAccount(
     args: RegisterAccountCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: RegisterAccountCommandOutput) => void
   ): void;
 
@@ -1210,7 +1222,7 @@ export interface IoTFleetWise {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1218,7 +1230,7 @@ export interface IoTFleetWise {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1227,7 +1239,7 @@ export interface IoTFleetWise {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1235,7 +1247,7 @@ export interface IoTFleetWise {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1244,7 +1256,7 @@ export interface IoTFleetWise {
    */
   updateCampaign(
     args: UpdateCampaignCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<UpdateCampaignCommandOutput>;
   updateCampaign(
     args: UpdateCampaignCommandInput,
@@ -1252,7 +1264,7 @@ export interface IoTFleetWise {
   ): void;
   updateCampaign(
     args: UpdateCampaignCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: UpdateCampaignCommandOutput) => void
   ): void;
 
@@ -1261,7 +1273,7 @@ export interface IoTFleetWise {
    */
   updateDecoderManifest(
     args: UpdateDecoderManifestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<UpdateDecoderManifestCommandOutput>;
   updateDecoderManifest(
     args: UpdateDecoderManifestCommandInput,
@@ -1269,7 +1281,7 @@ export interface IoTFleetWise {
   ): void;
   updateDecoderManifest(
     args: UpdateDecoderManifestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: UpdateDecoderManifestCommandOutput) => void
   ): void;
 
@@ -1278,7 +1290,7 @@ export interface IoTFleetWise {
    */
   updateFleet(
     args: UpdateFleetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<UpdateFleetCommandOutput>;
   updateFleet(
     args: UpdateFleetCommandInput,
@@ -1286,7 +1298,7 @@ export interface IoTFleetWise {
   ): void;
   updateFleet(
     args: UpdateFleetCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: UpdateFleetCommandOutput) => void
   ): void;
 
@@ -1295,7 +1307,7 @@ export interface IoTFleetWise {
    */
   updateModelManifest(
     args: UpdateModelManifestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<UpdateModelManifestCommandOutput>;
   updateModelManifest(
     args: UpdateModelManifestCommandInput,
@@ -1303,7 +1315,7 @@ export interface IoTFleetWise {
   ): void;
   updateModelManifest(
     args: UpdateModelManifestCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: UpdateModelManifestCommandOutput) => void
   ): void;
 
@@ -1312,7 +1324,7 @@ export interface IoTFleetWise {
    */
   updateSignalCatalog(
     args: UpdateSignalCatalogCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<UpdateSignalCatalogCommandOutput>;
   updateSignalCatalog(
     args: UpdateSignalCatalogCommandInput,
@@ -1320,7 +1332,7 @@ export interface IoTFleetWise {
   ): void;
   updateSignalCatalog(
     args: UpdateSignalCatalogCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: UpdateSignalCatalogCommandOutput) => void
   ): void;
 
@@ -1329,7 +1341,7 @@ export interface IoTFleetWise {
    */
   updateStateTemplate(
     args: UpdateStateTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<UpdateStateTemplateCommandOutput>;
   updateStateTemplate(
     args: UpdateStateTemplateCommandInput,
@@ -1337,7 +1349,7 @@ export interface IoTFleetWise {
   ): void;
   updateStateTemplate(
     args: UpdateStateTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: UpdateStateTemplateCommandOutput) => void
   ): void;
 
@@ -1346,7 +1358,7 @@ export interface IoTFleetWise {
    */
   updateVehicle(
     args: UpdateVehicleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTFleetWiseRequestOptions
   ): Promise<UpdateVehicleCommandOutput>;
   updateVehicle(
     args: UpdateVehicleCommandInput,
@@ -1354,7 +1366,7 @@ export interface IoTFleetWise {
   ): void;
   updateVehicle(
     args: UpdateVehicleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTFleetWiseRequestOptions,
     cb: (err: any, data?: UpdateVehicleCommandOutput) => void
   ): void;
 

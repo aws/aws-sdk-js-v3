@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AddApplicationCloudWatchLoggingOptionCommandInput,
@@ -215,13 +220,20 @@ const paginators = {
   paginateListApplicationVersions,
 };
 
+/**
+ * @public
+ */
+export interface KinesisAnalyticsV2RequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface KinesisAnalyticsV2 {
   /**
    * @see {@link AddApplicationCloudWatchLoggingOptionCommand}
    */
   addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput>;
   addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
@@ -229,7 +241,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   addApplicationCloudWatchLoggingOption(
     args: AddApplicationCloudWatchLoggingOptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: AddApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
 
@@ -238,7 +250,7 @@ export interface KinesisAnalyticsV2 {
    */
   addApplicationInput(
     args: AddApplicationInputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<AddApplicationInputCommandOutput>;
   addApplicationInput(
     args: AddApplicationInputCommandInput,
@@ -246,7 +258,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   addApplicationInput(
     args: AddApplicationInputCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: AddApplicationInputCommandOutput) => void
   ): void;
 
@@ -255,7 +267,7 @@ export interface KinesisAnalyticsV2 {
    */
   addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput>;
   addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
@@ -263,7 +275,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   addApplicationInputProcessingConfiguration(
     args: AddApplicationInputProcessingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: AddApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
 
@@ -272,7 +284,7 @@ export interface KinesisAnalyticsV2 {
    */
   addApplicationOutput(
     args: AddApplicationOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<AddApplicationOutputCommandOutput>;
   addApplicationOutput(
     args: AddApplicationOutputCommandInput,
@@ -280,7 +292,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   addApplicationOutput(
     args: AddApplicationOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: AddApplicationOutputCommandOutput) => void
   ): void;
 
@@ -289,7 +301,7 @@ export interface KinesisAnalyticsV2 {
    */
   addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<AddApplicationReferenceDataSourceCommandOutput>;
   addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
@@ -297,7 +309,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   addApplicationReferenceDataSource(
     args: AddApplicationReferenceDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: AddApplicationReferenceDataSourceCommandOutput) => void
   ): void;
 
@@ -306,7 +318,7 @@ export interface KinesisAnalyticsV2 {
    */
   addApplicationVpcConfiguration(
     args: AddApplicationVpcConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<AddApplicationVpcConfigurationCommandOutput>;
   addApplicationVpcConfiguration(
     args: AddApplicationVpcConfigurationCommandInput,
@@ -314,7 +326,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   addApplicationVpcConfiguration(
     args: AddApplicationVpcConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: AddApplicationVpcConfigurationCommandOutput) => void
   ): void;
 
@@ -323,7 +335,7 @@ export interface KinesisAnalyticsV2 {
    */
   createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
@@ -331,7 +343,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   createApplication(
     args: CreateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
@@ -340,7 +352,7 @@ export interface KinesisAnalyticsV2 {
    */
   createApplicationPresignedUrl(
     args: CreateApplicationPresignedUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<CreateApplicationPresignedUrlCommandOutput>;
   createApplicationPresignedUrl(
     args: CreateApplicationPresignedUrlCommandInput,
@@ -348,7 +360,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   createApplicationPresignedUrl(
     args: CreateApplicationPresignedUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: CreateApplicationPresignedUrlCommandOutput) => void
   ): void;
 
@@ -357,7 +369,7 @@ export interface KinesisAnalyticsV2 {
    */
   createApplicationSnapshot(
     args: CreateApplicationSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<CreateApplicationSnapshotCommandOutput>;
   createApplicationSnapshot(
     args: CreateApplicationSnapshotCommandInput,
@@ -365,7 +377,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   createApplicationSnapshot(
     args: CreateApplicationSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: CreateApplicationSnapshotCommandOutput) => void
   ): void;
 
@@ -374,7 +386,7 @@ export interface KinesisAnalyticsV2 {
    */
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DeleteApplicationCommandOutput>;
   deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -382,7 +394,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   deleteApplication(
     args: DeleteApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
@@ -391,7 +403,7 @@ export interface KinesisAnalyticsV2 {
    */
   deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput>;
   deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
@@ -399,7 +411,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   deleteApplicationCloudWatchLoggingOption(
     args: DeleteApplicationCloudWatchLoggingOptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DeleteApplicationCloudWatchLoggingOptionCommandOutput) => void
   ): void;
 
@@ -408,7 +420,7 @@ export interface KinesisAnalyticsV2 {
    */
   deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput>;
   deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
@@ -416,7 +428,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   deleteApplicationInputProcessingConfiguration(
     args: DeleteApplicationInputProcessingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DeleteApplicationInputProcessingConfigurationCommandOutput) => void
   ): void;
 
@@ -425,7 +437,7 @@ export interface KinesisAnalyticsV2 {
    */
   deleteApplicationOutput(
     args: DeleteApplicationOutputCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DeleteApplicationOutputCommandOutput>;
   deleteApplicationOutput(
     args: DeleteApplicationOutputCommandInput,
@@ -433,7 +445,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   deleteApplicationOutput(
     args: DeleteApplicationOutputCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DeleteApplicationOutputCommandOutput) => void
   ): void;
 
@@ -442,7 +454,7 @@ export interface KinesisAnalyticsV2 {
    */
   deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DeleteApplicationReferenceDataSourceCommandOutput>;
   deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
@@ -450,7 +462,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   deleteApplicationReferenceDataSource(
     args: DeleteApplicationReferenceDataSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DeleteApplicationReferenceDataSourceCommandOutput) => void
   ): void;
 
@@ -459,7 +471,7 @@ export interface KinesisAnalyticsV2 {
    */
   deleteApplicationSnapshot(
     args: DeleteApplicationSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DeleteApplicationSnapshotCommandOutput>;
   deleteApplicationSnapshot(
     args: DeleteApplicationSnapshotCommandInput,
@@ -467,7 +479,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   deleteApplicationSnapshot(
     args: DeleteApplicationSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DeleteApplicationSnapshotCommandOutput) => void
   ): void;
 
@@ -476,7 +488,7 @@ export interface KinesisAnalyticsV2 {
    */
   deleteApplicationVpcConfiguration(
     args: DeleteApplicationVpcConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DeleteApplicationVpcConfigurationCommandOutput>;
   deleteApplicationVpcConfiguration(
     args: DeleteApplicationVpcConfigurationCommandInput,
@@ -484,7 +496,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   deleteApplicationVpcConfiguration(
     args: DeleteApplicationVpcConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DeleteApplicationVpcConfigurationCommandOutput) => void
   ): void;
 
@@ -493,7 +505,7 @@ export interface KinesisAnalyticsV2 {
    */
   describeApplication(
     args: DescribeApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DescribeApplicationCommandOutput>;
   describeApplication(
     args: DescribeApplicationCommandInput,
@@ -501,7 +513,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   describeApplication(
     args: DescribeApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DescribeApplicationCommandOutput) => void
   ): void;
 
@@ -510,7 +522,7 @@ export interface KinesisAnalyticsV2 {
    */
   describeApplicationOperation(
     args: DescribeApplicationOperationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DescribeApplicationOperationCommandOutput>;
   describeApplicationOperation(
     args: DescribeApplicationOperationCommandInput,
@@ -518,7 +530,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   describeApplicationOperation(
     args: DescribeApplicationOperationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DescribeApplicationOperationCommandOutput) => void
   ): void;
 
@@ -527,7 +539,7 @@ export interface KinesisAnalyticsV2 {
    */
   describeApplicationSnapshot(
     args: DescribeApplicationSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DescribeApplicationSnapshotCommandOutput>;
   describeApplicationSnapshot(
     args: DescribeApplicationSnapshotCommandInput,
@@ -535,7 +547,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   describeApplicationSnapshot(
     args: DescribeApplicationSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DescribeApplicationSnapshotCommandOutput) => void
   ): void;
 
@@ -544,7 +556,7 @@ export interface KinesisAnalyticsV2 {
    */
   describeApplicationVersion(
     args: DescribeApplicationVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DescribeApplicationVersionCommandOutput>;
   describeApplicationVersion(
     args: DescribeApplicationVersionCommandInput,
@@ -552,7 +564,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   describeApplicationVersion(
     args: DescribeApplicationVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DescribeApplicationVersionCommandOutput) => void
   ): void;
 
@@ -561,7 +573,7 @@ export interface KinesisAnalyticsV2 {
    */
   discoverInputSchema(
     args: DiscoverInputSchemaCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<DiscoverInputSchemaCommandOutput>;
   discoverInputSchema(
     args: DiscoverInputSchemaCommandInput,
@@ -569,7 +581,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   discoverInputSchema(
     args: DiscoverInputSchemaCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: DiscoverInputSchemaCommandOutput) => void
   ): void;
 
@@ -578,7 +590,7 @@ export interface KinesisAnalyticsV2 {
    */
   listApplicationOperations(
     args: ListApplicationOperationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<ListApplicationOperationsCommandOutput>;
   listApplicationOperations(
     args: ListApplicationOperationsCommandInput,
@@ -586,7 +598,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   listApplicationOperations(
     args: ListApplicationOperationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: ListApplicationOperationsCommandOutput) => void
   ): void;
 
@@ -596,7 +608,7 @@ export interface KinesisAnalyticsV2 {
   listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
@@ -604,7 +616,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   listApplications(
     args: ListApplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
@@ -613,7 +625,7 @@ export interface KinesisAnalyticsV2 {
    */
   listApplicationSnapshots(
     args: ListApplicationSnapshotsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<ListApplicationSnapshotsCommandOutput>;
   listApplicationSnapshots(
     args: ListApplicationSnapshotsCommandInput,
@@ -621,7 +633,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   listApplicationSnapshots(
     args: ListApplicationSnapshotsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: ListApplicationSnapshotsCommandOutput) => void
   ): void;
 
@@ -630,7 +642,7 @@ export interface KinesisAnalyticsV2 {
    */
   listApplicationVersions(
     args: ListApplicationVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<ListApplicationVersionsCommandOutput>;
   listApplicationVersions(
     args: ListApplicationVersionsCommandInput,
@@ -638,7 +650,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   listApplicationVersions(
     args: ListApplicationVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: ListApplicationVersionsCommandOutput) => void
   ): void;
 
@@ -647,7 +659,7 @@ export interface KinesisAnalyticsV2 {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -655,7 +667,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -664,7 +676,7 @@ export interface KinesisAnalyticsV2 {
    */
   rollbackApplication(
     args: RollbackApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<RollbackApplicationCommandOutput>;
   rollbackApplication(
     args: RollbackApplicationCommandInput,
@@ -672,7 +684,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   rollbackApplication(
     args: RollbackApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: RollbackApplicationCommandOutput) => void
   ): void;
 
@@ -681,7 +693,7 @@ export interface KinesisAnalyticsV2 {
    */
   startApplication(
     args: StartApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<StartApplicationCommandOutput>;
   startApplication(
     args: StartApplicationCommandInput,
@@ -689,7 +701,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   startApplication(
     args: StartApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: StartApplicationCommandOutput) => void
   ): void;
 
@@ -698,7 +710,7 @@ export interface KinesisAnalyticsV2 {
    */
   stopApplication(
     args: StopApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<StopApplicationCommandOutput>;
   stopApplication(
     args: StopApplicationCommandInput,
@@ -706,7 +718,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   stopApplication(
     args: StopApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: StopApplicationCommandOutput) => void
   ): void;
 
@@ -715,7 +727,7 @@ export interface KinesisAnalyticsV2 {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -723,7 +735,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -732,7 +744,7 @@ export interface KinesisAnalyticsV2 {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -740,7 +752,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -749,7 +761,7 @@ export interface KinesisAnalyticsV2 {
    */
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
@@ -757,7 +769,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   updateApplication(
     args: UpdateApplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): void;
 
@@ -766,7 +778,7 @@ export interface KinesisAnalyticsV2 {
    */
   updateApplicationMaintenanceConfiguration(
     args: UpdateApplicationMaintenanceConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: KinesisAnalyticsV2RequestOptions
   ): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput>;
   updateApplicationMaintenanceConfiguration(
     args: UpdateApplicationMaintenanceConfigurationCommandInput,
@@ -774,7 +786,7 @@ export interface KinesisAnalyticsV2 {
   ): void;
   updateApplicationMaintenanceConfiguration(
     args: UpdateApplicationMaintenanceConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: KinesisAnalyticsV2RequestOptions,
     cb: (err: any, data?: UpdateApplicationMaintenanceConfigurationCommandOutput) => void
   ): void;
 

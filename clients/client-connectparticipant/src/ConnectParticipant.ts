@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CancelParticipantAuthenticationCommandInput,
@@ -73,13 +78,20 @@ const paginators = {
   paginateGetTranscript,
 };
 
+/**
+ * @public
+ */
+export interface ConnectParticipantRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface ConnectParticipant {
   /**
    * @see {@link CancelParticipantAuthenticationCommand}
    */
   cancelParticipantAuthentication(
     args: CancelParticipantAuthenticationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<CancelParticipantAuthenticationCommandOutput>;
   cancelParticipantAuthentication(
     args: CancelParticipantAuthenticationCommandInput,
@@ -87,7 +99,7 @@ export interface ConnectParticipant {
   ): void;
   cancelParticipantAuthentication(
     args: CancelParticipantAuthenticationCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: CancelParticipantAuthenticationCommandOutput) => void
   ): void;
 
@@ -96,7 +108,7 @@ export interface ConnectParticipant {
    */
   completeAttachmentUpload(
     args: CompleteAttachmentUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<CompleteAttachmentUploadCommandOutput>;
   completeAttachmentUpload(
     args: CompleteAttachmentUploadCommandInput,
@@ -104,7 +116,7 @@ export interface ConnectParticipant {
   ): void;
   completeAttachmentUpload(
     args: CompleteAttachmentUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: CompleteAttachmentUploadCommandOutput) => void
   ): void;
 
@@ -113,7 +125,7 @@ export interface ConnectParticipant {
    */
   createParticipantConnection(
     args: CreateParticipantConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<CreateParticipantConnectionCommandOutput>;
   createParticipantConnection(
     args: CreateParticipantConnectionCommandInput,
@@ -121,7 +133,7 @@ export interface ConnectParticipant {
   ): void;
   createParticipantConnection(
     args: CreateParticipantConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: CreateParticipantConnectionCommandOutput) => void
   ): void;
 
@@ -130,7 +142,7 @@ export interface ConnectParticipant {
    */
   describeView(
     args: DescribeViewCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<DescribeViewCommandOutput>;
   describeView(
     args: DescribeViewCommandInput,
@@ -138,7 +150,7 @@ export interface ConnectParticipant {
   ): void;
   describeView(
     args: DescribeViewCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: DescribeViewCommandOutput) => void
   ): void;
 
@@ -147,7 +159,7 @@ export interface ConnectParticipant {
    */
   disconnectParticipant(
     args: DisconnectParticipantCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<DisconnectParticipantCommandOutput>;
   disconnectParticipant(
     args: DisconnectParticipantCommandInput,
@@ -155,7 +167,7 @@ export interface ConnectParticipant {
   ): void;
   disconnectParticipant(
     args: DisconnectParticipantCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: DisconnectParticipantCommandOutput) => void
   ): void;
 
@@ -164,7 +176,7 @@ export interface ConnectParticipant {
    */
   getAttachment(
     args: GetAttachmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<GetAttachmentCommandOutput>;
   getAttachment(
     args: GetAttachmentCommandInput,
@@ -172,7 +184,7 @@ export interface ConnectParticipant {
   ): void;
   getAttachment(
     args: GetAttachmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: GetAttachmentCommandOutput) => void
   ): void;
 
@@ -181,7 +193,7 @@ export interface ConnectParticipant {
    */
   getAuthenticationUrl(
     args: GetAuthenticationUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<GetAuthenticationUrlCommandOutput>;
   getAuthenticationUrl(
     args: GetAuthenticationUrlCommandInput,
@@ -189,7 +201,7 @@ export interface ConnectParticipant {
   ): void;
   getAuthenticationUrl(
     args: GetAuthenticationUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: GetAuthenticationUrlCommandOutput) => void
   ): void;
 
@@ -198,7 +210,7 @@ export interface ConnectParticipant {
    */
   getTranscript(
     args: GetTranscriptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<GetTranscriptCommandOutput>;
   getTranscript(
     args: GetTranscriptCommandInput,
@@ -206,7 +218,7 @@ export interface ConnectParticipant {
   ): void;
   getTranscript(
     args: GetTranscriptCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: GetTranscriptCommandOutput) => void
   ): void;
 
@@ -215,7 +227,7 @@ export interface ConnectParticipant {
    */
   sendEvent(
     args: SendEventCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<SendEventCommandOutput>;
   sendEvent(
     args: SendEventCommandInput,
@@ -223,7 +235,7 @@ export interface ConnectParticipant {
   ): void;
   sendEvent(
     args: SendEventCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: SendEventCommandOutput) => void
   ): void;
 
@@ -232,7 +244,7 @@ export interface ConnectParticipant {
    */
   sendMessage(
     args: SendMessageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<SendMessageCommandOutput>;
   sendMessage(
     args: SendMessageCommandInput,
@@ -240,7 +252,7 @@ export interface ConnectParticipant {
   ): void;
   sendMessage(
     args: SendMessageCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: SendMessageCommandOutput) => void
   ): void;
 
@@ -249,7 +261,7 @@ export interface ConnectParticipant {
    */
   startAttachmentUpload(
     args: StartAttachmentUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ConnectParticipantRequestOptions
   ): Promise<StartAttachmentUploadCommandOutput>;
   startAttachmentUpload(
     args: StartAttachmentUploadCommandInput,
@@ -257,7 +269,7 @@ export interface ConnectParticipant {
   ): void;
   startAttachmentUpload(
     args: StartAttachmentUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: ConnectParticipantRequestOptions,
     cb: (err: any, data?: StartAttachmentUploadCommandOutput) => void
   ): void;
 

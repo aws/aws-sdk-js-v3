@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptResourceGroupingRecommendationsCommandInput,
@@ -411,13 +416,20 @@ const paginators = {
   paginateListUnsupportedAppVersionResources,
 };
 
+/**
+ * @public
+ */
+export interface ResiliencehubRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Resiliencehub {
   /**
    * @see {@link AcceptResourceGroupingRecommendationsCommand}
    */
   acceptResourceGroupingRecommendations(
     args: AcceptResourceGroupingRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<AcceptResourceGroupingRecommendationsCommandOutput>;
   acceptResourceGroupingRecommendations(
     args: AcceptResourceGroupingRecommendationsCommandInput,
@@ -425,7 +437,7 @@ export interface Resiliencehub {
   ): void;
   acceptResourceGroupingRecommendations(
     args: AcceptResourceGroupingRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: AcceptResourceGroupingRecommendationsCommandOutput) => void
   ): void;
 
@@ -434,7 +446,7 @@ export interface Resiliencehub {
    */
   addDraftAppVersionResourceMappings(
     args: AddDraftAppVersionResourceMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<AddDraftAppVersionResourceMappingsCommandOutput>;
   addDraftAppVersionResourceMappings(
     args: AddDraftAppVersionResourceMappingsCommandInput,
@@ -442,7 +454,7 @@ export interface Resiliencehub {
   ): void;
   addDraftAppVersionResourceMappings(
     args: AddDraftAppVersionResourceMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: AddDraftAppVersionResourceMappingsCommandOutput) => void
   ): void;
 
@@ -451,7 +463,7 @@ export interface Resiliencehub {
    */
   batchUpdateRecommendationStatus(
     args: BatchUpdateRecommendationStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<BatchUpdateRecommendationStatusCommandOutput>;
   batchUpdateRecommendationStatus(
     args: BatchUpdateRecommendationStatusCommandInput,
@@ -459,7 +471,7 @@ export interface Resiliencehub {
   ): void;
   batchUpdateRecommendationStatus(
     args: BatchUpdateRecommendationStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: BatchUpdateRecommendationStatusCommandOutput) => void
   ): void;
 
@@ -468,7 +480,7 @@ export interface Resiliencehub {
    */
   createApp(
     args: CreateAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<CreateAppCommandOutput>;
   createApp(
     args: CreateAppCommandInput,
@@ -476,7 +488,7 @@ export interface Resiliencehub {
   ): void;
   createApp(
     args: CreateAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: CreateAppCommandOutput) => void
   ): void;
 
@@ -485,7 +497,7 @@ export interface Resiliencehub {
    */
   createAppVersionAppComponent(
     args: CreateAppVersionAppComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<CreateAppVersionAppComponentCommandOutput>;
   createAppVersionAppComponent(
     args: CreateAppVersionAppComponentCommandInput,
@@ -493,7 +505,7 @@ export interface Resiliencehub {
   ): void;
   createAppVersionAppComponent(
     args: CreateAppVersionAppComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: CreateAppVersionAppComponentCommandOutput) => void
   ): void;
 
@@ -502,7 +514,7 @@ export interface Resiliencehub {
    */
   createAppVersionResource(
     args: CreateAppVersionResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<CreateAppVersionResourceCommandOutput>;
   createAppVersionResource(
     args: CreateAppVersionResourceCommandInput,
@@ -510,7 +522,7 @@ export interface Resiliencehub {
   ): void;
   createAppVersionResource(
     args: CreateAppVersionResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: CreateAppVersionResourceCommandOutput) => void
   ): void;
 
@@ -519,7 +531,7 @@ export interface Resiliencehub {
    */
   createRecommendationTemplate(
     args: CreateRecommendationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<CreateRecommendationTemplateCommandOutput>;
   createRecommendationTemplate(
     args: CreateRecommendationTemplateCommandInput,
@@ -527,7 +539,7 @@ export interface Resiliencehub {
   ): void;
   createRecommendationTemplate(
     args: CreateRecommendationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: CreateRecommendationTemplateCommandOutput) => void
   ): void;
 
@@ -536,7 +548,7 @@ export interface Resiliencehub {
    */
   createResiliencyPolicy(
     args: CreateResiliencyPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<CreateResiliencyPolicyCommandOutput>;
   createResiliencyPolicy(
     args: CreateResiliencyPolicyCommandInput,
@@ -544,7 +556,7 @@ export interface Resiliencehub {
   ): void;
   createResiliencyPolicy(
     args: CreateResiliencyPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: CreateResiliencyPolicyCommandOutput) => void
   ): void;
 
@@ -553,7 +565,7 @@ export interface Resiliencehub {
    */
   deleteApp(
     args: DeleteAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DeleteAppCommandOutput>;
   deleteApp(
     args: DeleteAppCommandInput,
@@ -561,7 +573,7 @@ export interface Resiliencehub {
   ): void;
   deleteApp(
     args: DeleteAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DeleteAppCommandOutput) => void
   ): void;
 
@@ -570,7 +582,7 @@ export interface Resiliencehub {
    */
   deleteAppAssessment(
     args: DeleteAppAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DeleteAppAssessmentCommandOutput>;
   deleteAppAssessment(
     args: DeleteAppAssessmentCommandInput,
@@ -578,7 +590,7 @@ export interface Resiliencehub {
   ): void;
   deleteAppAssessment(
     args: DeleteAppAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DeleteAppAssessmentCommandOutput) => void
   ): void;
 
@@ -587,7 +599,7 @@ export interface Resiliencehub {
    */
   deleteAppInputSource(
     args: DeleteAppInputSourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DeleteAppInputSourceCommandOutput>;
   deleteAppInputSource(
     args: DeleteAppInputSourceCommandInput,
@@ -595,7 +607,7 @@ export interface Resiliencehub {
   ): void;
   deleteAppInputSource(
     args: DeleteAppInputSourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DeleteAppInputSourceCommandOutput) => void
   ): void;
 
@@ -604,7 +616,7 @@ export interface Resiliencehub {
    */
   deleteAppVersionAppComponent(
     args: DeleteAppVersionAppComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DeleteAppVersionAppComponentCommandOutput>;
   deleteAppVersionAppComponent(
     args: DeleteAppVersionAppComponentCommandInput,
@@ -612,7 +624,7 @@ export interface Resiliencehub {
   ): void;
   deleteAppVersionAppComponent(
     args: DeleteAppVersionAppComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DeleteAppVersionAppComponentCommandOutput) => void
   ): void;
 
@@ -621,7 +633,7 @@ export interface Resiliencehub {
    */
   deleteAppVersionResource(
     args: DeleteAppVersionResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DeleteAppVersionResourceCommandOutput>;
   deleteAppVersionResource(
     args: DeleteAppVersionResourceCommandInput,
@@ -629,7 +641,7 @@ export interface Resiliencehub {
   ): void;
   deleteAppVersionResource(
     args: DeleteAppVersionResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DeleteAppVersionResourceCommandOutput) => void
   ): void;
 
@@ -638,7 +650,7 @@ export interface Resiliencehub {
    */
   deleteRecommendationTemplate(
     args: DeleteRecommendationTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DeleteRecommendationTemplateCommandOutput>;
   deleteRecommendationTemplate(
     args: DeleteRecommendationTemplateCommandInput,
@@ -646,7 +658,7 @@ export interface Resiliencehub {
   ): void;
   deleteRecommendationTemplate(
     args: DeleteRecommendationTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DeleteRecommendationTemplateCommandOutput) => void
   ): void;
 
@@ -655,7 +667,7 @@ export interface Resiliencehub {
    */
   deleteResiliencyPolicy(
     args: DeleteResiliencyPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DeleteResiliencyPolicyCommandOutput>;
   deleteResiliencyPolicy(
     args: DeleteResiliencyPolicyCommandInput,
@@ -663,7 +675,7 @@ export interface Resiliencehub {
   ): void;
   deleteResiliencyPolicy(
     args: DeleteResiliencyPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DeleteResiliencyPolicyCommandOutput) => void
   ): void;
 
@@ -672,7 +684,7 @@ export interface Resiliencehub {
    */
   describeApp(
     args: DescribeAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeAppCommandOutput>;
   describeApp(
     args: DescribeAppCommandInput,
@@ -680,7 +692,7 @@ export interface Resiliencehub {
   ): void;
   describeApp(
     args: DescribeAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeAppCommandOutput) => void
   ): void;
 
@@ -689,7 +701,7 @@ export interface Resiliencehub {
    */
   describeAppAssessment(
     args: DescribeAppAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeAppAssessmentCommandOutput>;
   describeAppAssessment(
     args: DescribeAppAssessmentCommandInput,
@@ -697,7 +709,7 @@ export interface Resiliencehub {
   ): void;
   describeAppAssessment(
     args: DescribeAppAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeAppAssessmentCommandOutput) => void
   ): void;
 
@@ -706,7 +718,7 @@ export interface Resiliencehub {
    */
   describeAppVersion(
     args: DescribeAppVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeAppVersionCommandOutput>;
   describeAppVersion(
     args: DescribeAppVersionCommandInput,
@@ -714,7 +726,7 @@ export interface Resiliencehub {
   ): void;
   describeAppVersion(
     args: DescribeAppVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeAppVersionCommandOutput) => void
   ): void;
 
@@ -723,7 +735,7 @@ export interface Resiliencehub {
    */
   describeAppVersionAppComponent(
     args: DescribeAppVersionAppComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeAppVersionAppComponentCommandOutput>;
   describeAppVersionAppComponent(
     args: DescribeAppVersionAppComponentCommandInput,
@@ -731,7 +743,7 @@ export interface Resiliencehub {
   ): void;
   describeAppVersionAppComponent(
     args: DescribeAppVersionAppComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeAppVersionAppComponentCommandOutput) => void
   ): void;
 
@@ -740,7 +752,7 @@ export interface Resiliencehub {
    */
   describeAppVersionResource(
     args: DescribeAppVersionResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeAppVersionResourceCommandOutput>;
   describeAppVersionResource(
     args: DescribeAppVersionResourceCommandInput,
@@ -748,7 +760,7 @@ export interface Resiliencehub {
   ): void;
   describeAppVersionResource(
     args: DescribeAppVersionResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeAppVersionResourceCommandOutput) => void
   ): void;
 
@@ -757,7 +769,7 @@ export interface Resiliencehub {
    */
   describeAppVersionResourcesResolutionStatus(
     args: DescribeAppVersionResourcesResolutionStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeAppVersionResourcesResolutionStatusCommandOutput>;
   describeAppVersionResourcesResolutionStatus(
     args: DescribeAppVersionResourcesResolutionStatusCommandInput,
@@ -765,7 +777,7 @@ export interface Resiliencehub {
   ): void;
   describeAppVersionResourcesResolutionStatus(
     args: DescribeAppVersionResourcesResolutionStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeAppVersionResourcesResolutionStatusCommandOutput) => void
   ): void;
 
@@ -774,7 +786,7 @@ export interface Resiliencehub {
    */
   describeAppVersionTemplate(
     args: DescribeAppVersionTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeAppVersionTemplateCommandOutput>;
   describeAppVersionTemplate(
     args: DescribeAppVersionTemplateCommandInput,
@@ -782,7 +794,7 @@ export interface Resiliencehub {
   ): void;
   describeAppVersionTemplate(
     args: DescribeAppVersionTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeAppVersionTemplateCommandOutput) => void
   ): void;
 
@@ -791,7 +803,7 @@ export interface Resiliencehub {
    */
   describeDraftAppVersionResourcesImportStatus(
     args: DescribeDraftAppVersionResourcesImportStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeDraftAppVersionResourcesImportStatusCommandOutput>;
   describeDraftAppVersionResourcesImportStatus(
     args: DescribeDraftAppVersionResourcesImportStatusCommandInput,
@@ -799,7 +811,7 @@ export interface Resiliencehub {
   ): void;
   describeDraftAppVersionResourcesImportStatus(
     args: DescribeDraftAppVersionResourcesImportStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeDraftAppVersionResourcesImportStatusCommandOutput) => void
   ): void;
 
@@ -808,7 +820,7 @@ export interface Resiliencehub {
    */
   describeMetricsExport(
     args: DescribeMetricsExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeMetricsExportCommandOutput>;
   describeMetricsExport(
     args: DescribeMetricsExportCommandInput,
@@ -816,7 +828,7 @@ export interface Resiliencehub {
   ): void;
   describeMetricsExport(
     args: DescribeMetricsExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeMetricsExportCommandOutput) => void
   ): void;
 
@@ -825,7 +837,7 @@ export interface Resiliencehub {
    */
   describeResiliencyPolicy(
     args: DescribeResiliencyPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeResiliencyPolicyCommandOutput>;
   describeResiliencyPolicy(
     args: DescribeResiliencyPolicyCommandInput,
@@ -833,7 +845,7 @@ export interface Resiliencehub {
   ): void;
   describeResiliencyPolicy(
     args: DescribeResiliencyPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeResiliencyPolicyCommandOutput) => void
   ): void;
 
@@ -842,7 +854,7 @@ export interface Resiliencehub {
    */
   describeResourceGroupingRecommendationTask(
     args: DescribeResourceGroupingRecommendationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<DescribeResourceGroupingRecommendationTaskCommandOutput>;
   describeResourceGroupingRecommendationTask(
     args: DescribeResourceGroupingRecommendationTaskCommandInput,
@@ -850,7 +862,7 @@ export interface Resiliencehub {
   ): void;
   describeResourceGroupingRecommendationTask(
     args: DescribeResourceGroupingRecommendationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: DescribeResourceGroupingRecommendationTaskCommandOutput) => void
   ): void;
 
@@ -859,7 +871,7 @@ export interface Resiliencehub {
    */
   importResourcesToDraftAppVersion(
     args: ImportResourcesToDraftAppVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ImportResourcesToDraftAppVersionCommandOutput>;
   importResourcesToDraftAppVersion(
     args: ImportResourcesToDraftAppVersionCommandInput,
@@ -867,7 +879,7 @@ export interface Resiliencehub {
   ): void;
   importResourcesToDraftAppVersion(
     args: ImportResourcesToDraftAppVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ImportResourcesToDraftAppVersionCommandOutput) => void
   ): void;
 
@@ -876,7 +888,7 @@ export interface Resiliencehub {
    */
   listAlarmRecommendations(
     args: ListAlarmRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAlarmRecommendationsCommandOutput>;
   listAlarmRecommendations(
     args: ListAlarmRecommendationsCommandInput,
@@ -884,7 +896,7 @@ export interface Resiliencehub {
   ): void;
   listAlarmRecommendations(
     args: ListAlarmRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAlarmRecommendationsCommandOutput) => void
   ): void;
 
@@ -893,7 +905,7 @@ export interface Resiliencehub {
    */
   listAppAssessmentComplianceDrifts(
     args: ListAppAssessmentComplianceDriftsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppAssessmentComplianceDriftsCommandOutput>;
   listAppAssessmentComplianceDrifts(
     args: ListAppAssessmentComplianceDriftsCommandInput,
@@ -901,7 +913,7 @@ export interface Resiliencehub {
   ): void;
   listAppAssessmentComplianceDrifts(
     args: ListAppAssessmentComplianceDriftsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppAssessmentComplianceDriftsCommandOutput) => void
   ): void;
 
@@ -910,7 +922,7 @@ export interface Resiliencehub {
    */
   listAppAssessmentResourceDrifts(
     args: ListAppAssessmentResourceDriftsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppAssessmentResourceDriftsCommandOutput>;
   listAppAssessmentResourceDrifts(
     args: ListAppAssessmentResourceDriftsCommandInput,
@@ -918,7 +930,7 @@ export interface Resiliencehub {
   ): void;
   listAppAssessmentResourceDrifts(
     args: ListAppAssessmentResourceDriftsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppAssessmentResourceDriftsCommandOutput) => void
   ): void;
 
@@ -928,7 +940,7 @@ export interface Resiliencehub {
   listAppAssessments(): Promise<ListAppAssessmentsCommandOutput>;
   listAppAssessments(
     args: ListAppAssessmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppAssessmentsCommandOutput>;
   listAppAssessments(
     args: ListAppAssessmentsCommandInput,
@@ -936,7 +948,7 @@ export interface Resiliencehub {
   ): void;
   listAppAssessments(
     args: ListAppAssessmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppAssessmentsCommandOutput) => void
   ): void;
 
@@ -945,7 +957,7 @@ export interface Resiliencehub {
    */
   listAppComponentCompliances(
     args: ListAppComponentCompliancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppComponentCompliancesCommandOutput>;
   listAppComponentCompliances(
     args: ListAppComponentCompliancesCommandInput,
@@ -953,7 +965,7 @@ export interface Resiliencehub {
   ): void;
   listAppComponentCompliances(
     args: ListAppComponentCompliancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppComponentCompliancesCommandOutput) => void
   ): void;
 
@@ -962,7 +974,7 @@ export interface Resiliencehub {
    */
   listAppComponentRecommendations(
     args: ListAppComponentRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppComponentRecommendationsCommandOutput>;
   listAppComponentRecommendations(
     args: ListAppComponentRecommendationsCommandInput,
@@ -970,7 +982,7 @@ export interface Resiliencehub {
   ): void;
   listAppComponentRecommendations(
     args: ListAppComponentRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppComponentRecommendationsCommandOutput) => void
   ): void;
 
@@ -979,7 +991,7 @@ export interface Resiliencehub {
    */
   listAppInputSources(
     args: ListAppInputSourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppInputSourcesCommandOutput>;
   listAppInputSources(
     args: ListAppInputSourcesCommandInput,
@@ -987,7 +999,7 @@ export interface Resiliencehub {
   ): void;
   listAppInputSources(
     args: ListAppInputSourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppInputSourcesCommandOutput) => void
   ): void;
 
@@ -997,7 +1009,7 @@ export interface Resiliencehub {
   listApps(): Promise<ListAppsCommandOutput>;
   listApps(
     args: ListAppsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppsCommandOutput>;
   listApps(
     args: ListAppsCommandInput,
@@ -1005,7 +1017,7 @@ export interface Resiliencehub {
   ): void;
   listApps(
     args: ListAppsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppsCommandOutput) => void
   ): void;
 
@@ -1014,7 +1026,7 @@ export interface Resiliencehub {
    */
   listAppVersionAppComponents(
     args: ListAppVersionAppComponentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppVersionAppComponentsCommandOutput>;
   listAppVersionAppComponents(
     args: ListAppVersionAppComponentsCommandInput,
@@ -1022,7 +1034,7 @@ export interface Resiliencehub {
   ): void;
   listAppVersionAppComponents(
     args: ListAppVersionAppComponentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppVersionAppComponentsCommandOutput) => void
   ): void;
 
@@ -1031,7 +1043,7 @@ export interface Resiliencehub {
    */
   listAppVersionResourceMappings(
     args: ListAppVersionResourceMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppVersionResourceMappingsCommandOutput>;
   listAppVersionResourceMappings(
     args: ListAppVersionResourceMappingsCommandInput,
@@ -1039,7 +1051,7 @@ export interface Resiliencehub {
   ): void;
   listAppVersionResourceMappings(
     args: ListAppVersionResourceMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppVersionResourceMappingsCommandOutput) => void
   ): void;
 
@@ -1048,7 +1060,7 @@ export interface Resiliencehub {
    */
   listAppVersionResources(
     args: ListAppVersionResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppVersionResourcesCommandOutput>;
   listAppVersionResources(
     args: ListAppVersionResourcesCommandInput,
@@ -1056,7 +1068,7 @@ export interface Resiliencehub {
   ): void;
   listAppVersionResources(
     args: ListAppVersionResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppVersionResourcesCommandOutput) => void
   ): void;
 
@@ -1065,7 +1077,7 @@ export interface Resiliencehub {
    */
   listAppVersions(
     args: ListAppVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListAppVersionsCommandOutput>;
   listAppVersions(
     args: ListAppVersionsCommandInput,
@@ -1073,7 +1085,7 @@ export interface Resiliencehub {
   ): void;
   listAppVersions(
     args: ListAppVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListAppVersionsCommandOutput) => void
   ): void;
 
@@ -1083,7 +1095,7 @@ export interface Resiliencehub {
   listMetrics(): Promise<ListMetricsCommandOutput>;
   listMetrics(
     args: ListMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListMetricsCommandOutput>;
   listMetrics(
     args: ListMetricsCommandInput,
@@ -1091,7 +1103,7 @@ export interface Resiliencehub {
   ): void;
   listMetrics(
     args: ListMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListMetricsCommandOutput) => void
   ): void;
 
@@ -1101,7 +1113,7 @@ export interface Resiliencehub {
   listRecommendationTemplates(): Promise<ListRecommendationTemplatesCommandOutput>;
   listRecommendationTemplates(
     args: ListRecommendationTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListRecommendationTemplatesCommandOutput>;
   listRecommendationTemplates(
     args: ListRecommendationTemplatesCommandInput,
@@ -1109,7 +1121,7 @@ export interface Resiliencehub {
   ): void;
   listRecommendationTemplates(
     args: ListRecommendationTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListRecommendationTemplatesCommandOutput) => void
   ): void;
 
@@ -1119,7 +1131,7 @@ export interface Resiliencehub {
   listResiliencyPolicies(): Promise<ListResiliencyPoliciesCommandOutput>;
   listResiliencyPolicies(
     args: ListResiliencyPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListResiliencyPoliciesCommandOutput>;
   listResiliencyPolicies(
     args: ListResiliencyPoliciesCommandInput,
@@ -1127,7 +1139,7 @@ export interface Resiliencehub {
   ): void;
   listResiliencyPolicies(
     args: ListResiliencyPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListResiliencyPoliciesCommandOutput) => void
   ): void;
 
@@ -1137,7 +1149,7 @@ export interface Resiliencehub {
   listResourceGroupingRecommendations(): Promise<ListResourceGroupingRecommendationsCommandOutput>;
   listResourceGroupingRecommendations(
     args: ListResourceGroupingRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListResourceGroupingRecommendationsCommandOutput>;
   listResourceGroupingRecommendations(
     args: ListResourceGroupingRecommendationsCommandInput,
@@ -1145,7 +1157,7 @@ export interface Resiliencehub {
   ): void;
   listResourceGroupingRecommendations(
     args: ListResourceGroupingRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListResourceGroupingRecommendationsCommandOutput) => void
   ): void;
 
@@ -1154,7 +1166,7 @@ export interface Resiliencehub {
    */
   listSopRecommendations(
     args: ListSopRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListSopRecommendationsCommandOutput>;
   listSopRecommendations(
     args: ListSopRecommendationsCommandInput,
@@ -1162,7 +1174,7 @@ export interface Resiliencehub {
   ): void;
   listSopRecommendations(
     args: ListSopRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListSopRecommendationsCommandOutput) => void
   ): void;
 
@@ -1172,7 +1184,7 @@ export interface Resiliencehub {
   listSuggestedResiliencyPolicies(): Promise<ListSuggestedResiliencyPoliciesCommandOutput>;
   listSuggestedResiliencyPolicies(
     args: ListSuggestedResiliencyPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListSuggestedResiliencyPoliciesCommandOutput>;
   listSuggestedResiliencyPolicies(
     args: ListSuggestedResiliencyPoliciesCommandInput,
@@ -1180,7 +1192,7 @@ export interface Resiliencehub {
   ): void;
   listSuggestedResiliencyPolicies(
     args: ListSuggestedResiliencyPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListSuggestedResiliencyPoliciesCommandOutput) => void
   ): void;
 
@@ -1189,7 +1201,7 @@ export interface Resiliencehub {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1197,7 +1209,7 @@ export interface Resiliencehub {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1206,7 +1218,7 @@ export interface Resiliencehub {
    */
   listTestRecommendations(
     args: ListTestRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListTestRecommendationsCommandOutput>;
   listTestRecommendations(
     args: ListTestRecommendationsCommandInput,
@@ -1214,7 +1226,7 @@ export interface Resiliencehub {
   ): void;
   listTestRecommendations(
     args: ListTestRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListTestRecommendationsCommandOutput) => void
   ): void;
 
@@ -1223,7 +1235,7 @@ export interface Resiliencehub {
    */
   listUnsupportedAppVersionResources(
     args: ListUnsupportedAppVersionResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ListUnsupportedAppVersionResourcesCommandOutput>;
   listUnsupportedAppVersionResources(
     args: ListUnsupportedAppVersionResourcesCommandInput,
@@ -1231,7 +1243,7 @@ export interface Resiliencehub {
   ): void;
   listUnsupportedAppVersionResources(
     args: ListUnsupportedAppVersionResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ListUnsupportedAppVersionResourcesCommandOutput) => void
   ): void;
 
@@ -1240,7 +1252,7 @@ export interface Resiliencehub {
    */
   publishAppVersion(
     args: PublishAppVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<PublishAppVersionCommandOutput>;
   publishAppVersion(
     args: PublishAppVersionCommandInput,
@@ -1248,7 +1260,7 @@ export interface Resiliencehub {
   ): void;
   publishAppVersion(
     args: PublishAppVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: PublishAppVersionCommandOutput) => void
   ): void;
 
@@ -1257,7 +1269,7 @@ export interface Resiliencehub {
    */
   putDraftAppVersionTemplate(
     args: PutDraftAppVersionTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<PutDraftAppVersionTemplateCommandOutput>;
   putDraftAppVersionTemplate(
     args: PutDraftAppVersionTemplateCommandInput,
@@ -1265,7 +1277,7 @@ export interface Resiliencehub {
   ): void;
   putDraftAppVersionTemplate(
     args: PutDraftAppVersionTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: PutDraftAppVersionTemplateCommandOutput) => void
   ): void;
 
@@ -1274,7 +1286,7 @@ export interface Resiliencehub {
    */
   rejectResourceGroupingRecommendations(
     args: RejectResourceGroupingRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<RejectResourceGroupingRecommendationsCommandOutput>;
   rejectResourceGroupingRecommendations(
     args: RejectResourceGroupingRecommendationsCommandInput,
@@ -1282,7 +1294,7 @@ export interface Resiliencehub {
   ): void;
   rejectResourceGroupingRecommendations(
     args: RejectResourceGroupingRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: RejectResourceGroupingRecommendationsCommandOutput) => void
   ): void;
 
@@ -1291,7 +1303,7 @@ export interface Resiliencehub {
    */
   removeDraftAppVersionResourceMappings(
     args: RemoveDraftAppVersionResourceMappingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<RemoveDraftAppVersionResourceMappingsCommandOutput>;
   removeDraftAppVersionResourceMappings(
     args: RemoveDraftAppVersionResourceMappingsCommandInput,
@@ -1299,7 +1311,7 @@ export interface Resiliencehub {
   ): void;
   removeDraftAppVersionResourceMappings(
     args: RemoveDraftAppVersionResourceMappingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: RemoveDraftAppVersionResourceMappingsCommandOutput) => void
   ): void;
 
@@ -1308,7 +1320,7 @@ export interface Resiliencehub {
    */
   resolveAppVersionResources(
     args: ResolveAppVersionResourcesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<ResolveAppVersionResourcesCommandOutput>;
   resolveAppVersionResources(
     args: ResolveAppVersionResourcesCommandInput,
@@ -1316,7 +1328,7 @@ export interface Resiliencehub {
   ): void;
   resolveAppVersionResources(
     args: ResolveAppVersionResourcesCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: ResolveAppVersionResourcesCommandOutput) => void
   ): void;
 
@@ -1325,7 +1337,7 @@ export interface Resiliencehub {
    */
   startAppAssessment(
     args: StartAppAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<StartAppAssessmentCommandOutput>;
   startAppAssessment(
     args: StartAppAssessmentCommandInput,
@@ -1333,7 +1345,7 @@ export interface Resiliencehub {
   ): void;
   startAppAssessment(
     args: StartAppAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: StartAppAssessmentCommandOutput) => void
   ): void;
 
@@ -1343,7 +1355,7 @@ export interface Resiliencehub {
   startMetricsExport(): Promise<StartMetricsExportCommandOutput>;
   startMetricsExport(
     args: StartMetricsExportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<StartMetricsExportCommandOutput>;
   startMetricsExport(
     args: StartMetricsExportCommandInput,
@@ -1351,7 +1363,7 @@ export interface Resiliencehub {
   ): void;
   startMetricsExport(
     args: StartMetricsExportCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: StartMetricsExportCommandOutput) => void
   ): void;
 
@@ -1360,7 +1372,7 @@ export interface Resiliencehub {
    */
   startResourceGroupingRecommendationTask(
     args: StartResourceGroupingRecommendationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<StartResourceGroupingRecommendationTaskCommandOutput>;
   startResourceGroupingRecommendationTask(
     args: StartResourceGroupingRecommendationTaskCommandInput,
@@ -1368,7 +1380,7 @@ export interface Resiliencehub {
   ): void;
   startResourceGroupingRecommendationTask(
     args: StartResourceGroupingRecommendationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: StartResourceGroupingRecommendationTaskCommandOutput) => void
   ): void;
 
@@ -1377,7 +1389,7 @@ export interface Resiliencehub {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -1385,7 +1397,7 @@ export interface Resiliencehub {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -1394,7 +1406,7 @@ export interface Resiliencehub {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -1402,7 +1414,7 @@ export interface Resiliencehub {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -1411,7 +1423,7 @@ export interface Resiliencehub {
    */
   updateApp(
     args: UpdateAppCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<UpdateAppCommandOutput>;
   updateApp(
     args: UpdateAppCommandInput,
@@ -1419,7 +1431,7 @@ export interface Resiliencehub {
   ): void;
   updateApp(
     args: UpdateAppCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: UpdateAppCommandOutput) => void
   ): void;
 
@@ -1428,7 +1440,7 @@ export interface Resiliencehub {
    */
   updateAppVersion(
     args: UpdateAppVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<UpdateAppVersionCommandOutput>;
   updateAppVersion(
     args: UpdateAppVersionCommandInput,
@@ -1436,7 +1448,7 @@ export interface Resiliencehub {
   ): void;
   updateAppVersion(
     args: UpdateAppVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: UpdateAppVersionCommandOutput) => void
   ): void;
 
@@ -1445,7 +1457,7 @@ export interface Resiliencehub {
    */
   updateAppVersionAppComponent(
     args: UpdateAppVersionAppComponentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<UpdateAppVersionAppComponentCommandOutput>;
   updateAppVersionAppComponent(
     args: UpdateAppVersionAppComponentCommandInput,
@@ -1453,7 +1465,7 @@ export interface Resiliencehub {
   ): void;
   updateAppVersionAppComponent(
     args: UpdateAppVersionAppComponentCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: UpdateAppVersionAppComponentCommandOutput) => void
   ): void;
 
@@ -1462,7 +1474,7 @@ export interface Resiliencehub {
    */
   updateAppVersionResource(
     args: UpdateAppVersionResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<UpdateAppVersionResourceCommandOutput>;
   updateAppVersionResource(
     args: UpdateAppVersionResourceCommandInput,
@@ -1470,7 +1482,7 @@ export interface Resiliencehub {
   ): void;
   updateAppVersionResource(
     args: UpdateAppVersionResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: UpdateAppVersionResourceCommandOutput) => void
   ): void;
 
@@ -1479,7 +1491,7 @@ export interface Resiliencehub {
    */
   updateResiliencyPolicy(
     args: UpdateResiliencyPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: ResiliencehubRequestOptions
   ): Promise<UpdateResiliencyPolicyCommandOutput>;
   updateResiliencyPolicy(
     args: UpdateResiliencyPolicyCommandInput,
@@ -1487,7 +1499,7 @@ export interface Resiliencehub {
   ): void;
   updateResiliencyPolicy(
     args: UpdateResiliencyPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: ResiliencehubRequestOptions,
     cb: (err: any, data?: UpdateResiliencyPolicyCommandOutput) => void
   ): void;
 

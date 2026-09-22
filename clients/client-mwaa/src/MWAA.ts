@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type CreateCliTokenCommandInput,
@@ -83,13 +88,20 @@ const paginators = {
   paginateListEnvironments,
 };
 
+/**
+ * @public
+ */
+export interface MWAARequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface MWAA {
   /**
    * @see {@link CreateCliTokenCommand}
    */
   createCliToken(
     args: CreateCliTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<CreateCliTokenCommandOutput>;
   createCliToken(
     args: CreateCliTokenCommandInput,
@@ -97,7 +109,7 @@ export interface MWAA {
   ): void;
   createCliToken(
     args: CreateCliTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: CreateCliTokenCommandOutput) => void
   ): void;
 
@@ -106,7 +118,7 @@ export interface MWAA {
    */
   createEnvironment(
     args: CreateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<CreateEnvironmentCommandOutput>;
   createEnvironment(
     args: CreateEnvironmentCommandInput,
@@ -114,7 +126,7 @@ export interface MWAA {
   ): void;
   createEnvironment(
     args: CreateEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: CreateEnvironmentCommandOutput) => void
   ): void;
 
@@ -123,7 +135,7 @@ export interface MWAA {
    */
   createWebLoginToken(
     args: CreateWebLoginTokenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<CreateWebLoginTokenCommandOutput>;
   createWebLoginToken(
     args: CreateWebLoginTokenCommandInput,
@@ -131,7 +143,7 @@ export interface MWAA {
   ): void;
   createWebLoginToken(
     args: CreateWebLoginTokenCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: CreateWebLoginTokenCommandOutput) => void
   ): void;
 
@@ -140,7 +152,7 @@ export interface MWAA {
    */
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<DeleteEnvironmentCommandOutput>;
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
@@ -148,7 +160,7 @@ export interface MWAA {
   ): void;
   deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: DeleteEnvironmentCommandOutput) => void
   ): void;
 
@@ -157,7 +169,7 @@ export interface MWAA {
    */
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<GetEnvironmentCommandOutput>;
   getEnvironment(
     args: GetEnvironmentCommandInput,
@@ -165,7 +177,7 @@ export interface MWAA {
   ): void;
   getEnvironment(
     args: GetEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: GetEnvironmentCommandOutput) => void
   ): void;
 
@@ -174,7 +186,7 @@ export interface MWAA {
    */
   invokeRestApi(
     args: InvokeRestApiCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<InvokeRestApiCommandOutput>;
   invokeRestApi(
     args: InvokeRestApiCommandInput,
@@ -182,7 +194,7 @@ export interface MWAA {
   ): void;
   invokeRestApi(
     args: InvokeRestApiCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: InvokeRestApiCommandOutput) => void
   ): void;
 
@@ -192,7 +204,7 @@ export interface MWAA {
   listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
@@ -200,7 +212,7 @@ export interface MWAA {
   ): void;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): void;
 
@@ -209,7 +221,7 @@ export interface MWAA {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -217,7 +229,7 @@ export interface MWAA {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -226,7 +238,7 @@ export interface MWAA {
    */
   publishMetrics(
     args: PublishMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<PublishMetricsCommandOutput>;
   publishMetrics(
     args: PublishMetricsCommandInput,
@@ -234,7 +246,7 @@ export interface MWAA {
   ): void;
   publishMetrics(
     args: PublishMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: PublishMetricsCommandOutput) => void
   ): void;
 
@@ -243,7 +255,7 @@ export interface MWAA {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -251,7 +263,7 @@ export interface MWAA {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -260,7 +272,7 @@ export interface MWAA {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -268,7 +280,7 @@ export interface MWAA {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -277,7 +289,7 @@ export interface MWAA {
    */
   updateEnvironment(
     args: UpdateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: MWAARequestOptions
   ): Promise<UpdateEnvironmentCommandOutput>;
   updateEnvironment(
     args: UpdateEnvironmentCommandInput,
@@ -285,7 +297,7 @@ export interface MWAA {
   ): void;
   updateEnvironment(
     args: UpdateEnvironmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: MWAARequestOptions,
     cb: (err: any, data?: UpdateEnvironmentCommandOutput) => void
   ): void;
 

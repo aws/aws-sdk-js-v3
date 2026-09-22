@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type ActivateGatewayCommandInput,
@@ -601,13 +606,20 @@ const paginators = {
   paginateListVolumes,
 };
 
+/**
+ * @public
+ */
+export interface StorageGatewayRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface StorageGateway {
   /**
    * @see {@link ActivateGatewayCommand}
    */
   activateGateway(
     args: ActivateGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ActivateGatewayCommandOutput>;
   activateGateway(
     args: ActivateGatewayCommandInput,
@@ -615,7 +627,7 @@ export interface StorageGateway {
   ): void;
   activateGateway(
     args: ActivateGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ActivateGatewayCommandOutput) => void
   ): void;
 
@@ -624,7 +636,7 @@ export interface StorageGateway {
    */
   addCache(
     args: AddCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<AddCacheCommandOutput>;
   addCache(
     args: AddCacheCommandInput,
@@ -632,7 +644,7 @@ export interface StorageGateway {
   ): void;
   addCache(
     args: AddCacheCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: AddCacheCommandOutput) => void
   ): void;
 
@@ -641,7 +653,7 @@ export interface StorageGateway {
    */
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<AddTagsToResourceCommandOutput>;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -649,7 +661,7 @@ export interface StorageGateway {
   ): void;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): void;
 
@@ -658,7 +670,7 @@ export interface StorageGateway {
    */
   addUploadBuffer(
     args: AddUploadBufferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<AddUploadBufferCommandOutput>;
   addUploadBuffer(
     args: AddUploadBufferCommandInput,
@@ -666,7 +678,7 @@ export interface StorageGateway {
   ): void;
   addUploadBuffer(
     args: AddUploadBufferCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: AddUploadBufferCommandOutput) => void
   ): void;
 
@@ -675,7 +687,7 @@ export interface StorageGateway {
    */
   addWorkingStorage(
     args: AddWorkingStorageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<AddWorkingStorageCommandOutput>;
   addWorkingStorage(
     args: AddWorkingStorageCommandInput,
@@ -683,7 +695,7 @@ export interface StorageGateway {
   ): void;
   addWorkingStorage(
     args: AddWorkingStorageCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: AddWorkingStorageCommandOutput) => void
   ): void;
 
@@ -692,7 +704,7 @@ export interface StorageGateway {
    */
   assignTapePool(
     args: AssignTapePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<AssignTapePoolCommandOutput>;
   assignTapePool(
     args: AssignTapePoolCommandInput,
@@ -700,7 +712,7 @@ export interface StorageGateway {
   ): void;
   assignTapePool(
     args: AssignTapePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: AssignTapePoolCommandOutput) => void
   ): void;
 
@@ -709,7 +721,7 @@ export interface StorageGateway {
    */
   associateFileSystem(
     args: AssociateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<AssociateFileSystemCommandOutput>;
   associateFileSystem(
     args: AssociateFileSystemCommandInput,
@@ -717,7 +729,7 @@ export interface StorageGateway {
   ): void;
   associateFileSystem(
     args: AssociateFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: AssociateFileSystemCommandOutput) => void
   ): void;
 
@@ -726,7 +738,7 @@ export interface StorageGateway {
    */
   attachVolume(
     args: AttachVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<AttachVolumeCommandOutput>;
   attachVolume(
     args: AttachVolumeCommandInput,
@@ -734,7 +746,7 @@ export interface StorageGateway {
   ): void;
   attachVolume(
     args: AttachVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: AttachVolumeCommandOutput) => void
   ): void;
 
@@ -743,7 +755,7 @@ export interface StorageGateway {
    */
   cancelArchival(
     args: CancelArchivalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CancelArchivalCommandOutput>;
   cancelArchival(
     args: CancelArchivalCommandInput,
@@ -751,7 +763,7 @@ export interface StorageGateway {
   ): void;
   cancelArchival(
     args: CancelArchivalCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CancelArchivalCommandOutput) => void
   ): void;
 
@@ -760,7 +772,7 @@ export interface StorageGateway {
    */
   cancelCacheReport(
     args: CancelCacheReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CancelCacheReportCommandOutput>;
   cancelCacheReport(
     args: CancelCacheReportCommandInput,
@@ -768,7 +780,7 @@ export interface StorageGateway {
   ): void;
   cancelCacheReport(
     args: CancelCacheReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CancelCacheReportCommandOutput) => void
   ): void;
 
@@ -777,7 +789,7 @@ export interface StorageGateway {
    */
   cancelRetrieval(
     args: CancelRetrievalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CancelRetrievalCommandOutput>;
   cancelRetrieval(
     args: CancelRetrievalCommandInput,
@@ -785,7 +797,7 @@ export interface StorageGateway {
   ): void;
   cancelRetrieval(
     args: CancelRetrievalCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CancelRetrievalCommandOutput) => void
   ): void;
 
@@ -794,7 +806,7 @@ export interface StorageGateway {
    */
   createCachediSCSIVolume(
     args: CreateCachediSCSIVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CreateCachediSCSIVolumeCommandOutput>;
   createCachediSCSIVolume(
     args: CreateCachediSCSIVolumeCommandInput,
@@ -802,7 +814,7 @@ export interface StorageGateway {
   ): void;
   createCachediSCSIVolume(
     args: CreateCachediSCSIVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CreateCachediSCSIVolumeCommandOutput) => void
   ): void;
 
@@ -811,7 +823,7 @@ export interface StorageGateway {
    */
   createNFSFileShare(
     args: CreateNFSFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CreateNFSFileShareCommandOutput>;
   createNFSFileShare(
     args: CreateNFSFileShareCommandInput,
@@ -819,7 +831,7 @@ export interface StorageGateway {
   ): void;
   createNFSFileShare(
     args: CreateNFSFileShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CreateNFSFileShareCommandOutput) => void
   ): void;
 
@@ -828,7 +840,7 @@ export interface StorageGateway {
    */
   createSMBFileShare(
     args: CreateSMBFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CreateSMBFileShareCommandOutput>;
   createSMBFileShare(
     args: CreateSMBFileShareCommandInput,
@@ -836,7 +848,7 @@ export interface StorageGateway {
   ): void;
   createSMBFileShare(
     args: CreateSMBFileShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CreateSMBFileShareCommandOutput) => void
   ): void;
 
@@ -845,7 +857,7 @@ export interface StorageGateway {
    */
   createSnapshot(
     args: CreateSnapshotCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CreateSnapshotCommandOutput>;
   createSnapshot(
     args: CreateSnapshotCommandInput,
@@ -853,7 +865,7 @@ export interface StorageGateway {
   ): void;
   createSnapshot(
     args: CreateSnapshotCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): void;
 
@@ -862,7 +874,7 @@ export interface StorageGateway {
    */
   createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput>;
   createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
@@ -870,7 +882,7 @@ export interface StorageGateway {
   ): void;
   createSnapshotFromVolumeRecoveryPoint(
     args: CreateSnapshotFromVolumeRecoveryPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CreateSnapshotFromVolumeRecoveryPointCommandOutput) => void
   ): void;
 
@@ -879,7 +891,7 @@ export interface StorageGateway {
    */
   createStorediSCSIVolume(
     args: CreateStorediSCSIVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CreateStorediSCSIVolumeCommandOutput>;
   createStorediSCSIVolume(
     args: CreateStorediSCSIVolumeCommandInput,
@@ -887,7 +899,7 @@ export interface StorageGateway {
   ): void;
   createStorediSCSIVolume(
     args: CreateStorediSCSIVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CreateStorediSCSIVolumeCommandOutput) => void
   ): void;
 
@@ -896,7 +908,7 @@ export interface StorageGateway {
    */
   createTapePool(
     args: CreateTapePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CreateTapePoolCommandOutput>;
   createTapePool(
     args: CreateTapePoolCommandInput,
@@ -904,7 +916,7 @@ export interface StorageGateway {
   ): void;
   createTapePool(
     args: CreateTapePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CreateTapePoolCommandOutput) => void
   ): void;
 
@@ -913,7 +925,7 @@ export interface StorageGateway {
    */
   createTapes(
     args: CreateTapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CreateTapesCommandOutput>;
   createTapes(
     args: CreateTapesCommandInput,
@@ -921,7 +933,7 @@ export interface StorageGateway {
   ): void;
   createTapes(
     args: CreateTapesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CreateTapesCommandOutput) => void
   ): void;
 
@@ -930,7 +942,7 @@ export interface StorageGateway {
    */
   createTapeWithBarcode(
     args: CreateTapeWithBarcodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<CreateTapeWithBarcodeCommandOutput>;
   createTapeWithBarcode(
     args: CreateTapeWithBarcodeCommandInput,
@@ -938,7 +950,7 @@ export interface StorageGateway {
   ): void;
   createTapeWithBarcode(
     args: CreateTapeWithBarcodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: CreateTapeWithBarcodeCommandOutput) => void
   ): void;
 
@@ -947,7 +959,7 @@ export interface StorageGateway {
    */
   deleteAutomaticTapeCreationPolicy(
     args: DeleteAutomaticTapeCreationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput>;
   deleteAutomaticTapeCreationPolicy(
     args: DeleteAutomaticTapeCreationPolicyCommandInput,
@@ -955,7 +967,7 @@ export interface StorageGateway {
   ): void;
   deleteAutomaticTapeCreationPolicy(
     args: DeleteAutomaticTapeCreationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteAutomaticTapeCreationPolicyCommandOutput) => void
   ): void;
 
@@ -964,7 +976,7 @@ export interface StorageGateway {
    */
   deleteBandwidthRateLimit(
     args: DeleteBandwidthRateLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteBandwidthRateLimitCommandOutput>;
   deleteBandwidthRateLimit(
     args: DeleteBandwidthRateLimitCommandInput,
@@ -972,7 +984,7 @@ export interface StorageGateway {
   ): void;
   deleteBandwidthRateLimit(
     args: DeleteBandwidthRateLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteBandwidthRateLimitCommandOutput) => void
   ): void;
 
@@ -981,7 +993,7 @@ export interface StorageGateway {
    */
   deleteCacheReport(
     args: DeleteCacheReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteCacheReportCommandOutput>;
   deleteCacheReport(
     args: DeleteCacheReportCommandInput,
@@ -989,7 +1001,7 @@ export interface StorageGateway {
   ): void;
   deleteCacheReport(
     args: DeleteCacheReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteCacheReportCommandOutput) => void
   ): void;
 
@@ -998,7 +1010,7 @@ export interface StorageGateway {
    */
   deleteChapCredentials(
     args: DeleteChapCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteChapCredentialsCommandOutput>;
   deleteChapCredentials(
     args: DeleteChapCredentialsCommandInput,
@@ -1006,7 +1018,7 @@ export interface StorageGateway {
   ): void;
   deleteChapCredentials(
     args: DeleteChapCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteChapCredentialsCommandOutput) => void
   ): void;
 
@@ -1015,7 +1027,7 @@ export interface StorageGateway {
    */
   deleteFileShare(
     args: DeleteFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteFileShareCommandOutput>;
   deleteFileShare(
     args: DeleteFileShareCommandInput,
@@ -1023,7 +1035,7 @@ export interface StorageGateway {
   ): void;
   deleteFileShare(
     args: DeleteFileShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteFileShareCommandOutput) => void
   ): void;
 
@@ -1032,7 +1044,7 @@ export interface StorageGateway {
    */
   deleteGateway(
     args: DeleteGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteGatewayCommandOutput>;
   deleteGateway(
     args: DeleteGatewayCommandInput,
@@ -1040,7 +1052,7 @@ export interface StorageGateway {
   ): void;
   deleteGateway(
     args: DeleteGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteGatewayCommandOutput) => void
   ): void;
 
@@ -1049,7 +1061,7 @@ export interface StorageGateway {
    */
   deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteSnapshotScheduleCommandOutput>;
   deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
@@ -1057,7 +1069,7 @@ export interface StorageGateway {
   ): void;
   deleteSnapshotSchedule(
     args: DeleteSnapshotScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteSnapshotScheduleCommandOutput) => void
   ): void;
 
@@ -1066,7 +1078,7 @@ export interface StorageGateway {
    */
   deleteTape(
     args: DeleteTapeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteTapeCommandOutput>;
   deleteTape(
     args: DeleteTapeCommandInput,
@@ -1074,7 +1086,7 @@ export interface StorageGateway {
   ): void;
   deleteTape(
     args: DeleteTapeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteTapeCommandOutput) => void
   ): void;
 
@@ -1083,7 +1095,7 @@ export interface StorageGateway {
    */
   deleteTapeArchive(
     args: DeleteTapeArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteTapeArchiveCommandOutput>;
   deleteTapeArchive(
     args: DeleteTapeArchiveCommandInput,
@@ -1091,7 +1103,7 @@ export interface StorageGateway {
   ): void;
   deleteTapeArchive(
     args: DeleteTapeArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteTapeArchiveCommandOutput) => void
   ): void;
 
@@ -1100,7 +1112,7 @@ export interface StorageGateway {
    */
   deleteTapePool(
     args: DeleteTapePoolCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteTapePoolCommandOutput>;
   deleteTapePool(
     args: DeleteTapePoolCommandInput,
@@ -1108,7 +1120,7 @@ export interface StorageGateway {
   ): void;
   deleteTapePool(
     args: DeleteTapePoolCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteTapePoolCommandOutput) => void
   ): void;
 
@@ -1117,7 +1129,7 @@ export interface StorageGateway {
    */
   deleteVolume(
     args: DeleteVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DeleteVolumeCommandOutput>;
   deleteVolume(
     args: DeleteVolumeCommandInput,
@@ -1125,7 +1137,7 @@ export interface StorageGateway {
   ): void;
   deleteVolume(
     args: DeleteVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DeleteVolumeCommandOutput) => void
   ): void;
 
@@ -1134,7 +1146,7 @@ export interface StorageGateway {
    */
   describeAvailabilityMonitorTest(
     args: DescribeAvailabilityMonitorTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeAvailabilityMonitorTestCommandOutput>;
   describeAvailabilityMonitorTest(
     args: DescribeAvailabilityMonitorTestCommandInput,
@@ -1142,7 +1154,7 @@ export interface StorageGateway {
   ): void;
   describeAvailabilityMonitorTest(
     args: DescribeAvailabilityMonitorTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeAvailabilityMonitorTestCommandOutput) => void
   ): void;
 
@@ -1151,7 +1163,7 @@ export interface StorageGateway {
    */
   describeBandwidthRateLimit(
     args: DescribeBandwidthRateLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeBandwidthRateLimitCommandOutput>;
   describeBandwidthRateLimit(
     args: DescribeBandwidthRateLimitCommandInput,
@@ -1159,7 +1171,7 @@ export interface StorageGateway {
   ): void;
   describeBandwidthRateLimit(
     args: DescribeBandwidthRateLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeBandwidthRateLimitCommandOutput) => void
   ): void;
 
@@ -1168,7 +1180,7 @@ export interface StorageGateway {
    */
   describeBandwidthRateLimitSchedule(
     args: DescribeBandwidthRateLimitScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeBandwidthRateLimitScheduleCommandOutput>;
   describeBandwidthRateLimitSchedule(
     args: DescribeBandwidthRateLimitScheduleCommandInput,
@@ -1176,7 +1188,7 @@ export interface StorageGateway {
   ): void;
   describeBandwidthRateLimitSchedule(
     args: DescribeBandwidthRateLimitScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeBandwidthRateLimitScheduleCommandOutput) => void
   ): void;
 
@@ -1185,7 +1197,7 @@ export interface StorageGateway {
    */
   describeCache(
     args: DescribeCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeCacheCommandOutput>;
   describeCache(
     args: DescribeCacheCommandInput,
@@ -1193,7 +1205,7 @@ export interface StorageGateway {
   ): void;
   describeCache(
     args: DescribeCacheCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeCacheCommandOutput) => void
   ): void;
 
@@ -1202,7 +1214,7 @@ export interface StorageGateway {
    */
   describeCachediSCSIVolumes(
     args: DescribeCachediSCSIVolumesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeCachediSCSIVolumesCommandOutput>;
   describeCachediSCSIVolumes(
     args: DescribeCachediSCSIVolumesCommandInput,
@@ -1210,7 +1222,7 @@ export interface StorageGateway {
   ): void;
   describeCachediSCSIVolumes(
     args: DescribeCachediSCSIVolumesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeCachediSCSIVolumesCommandOutput) => void
   ): void;
 
@@ -1219,7 +1231,7 @@ export interface StorageGateway {
    */
   describeCacheReport(
     args: DescribeCacheReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeCacheReportCommandOutput>;
   describeCacheReport(
     args: DescribeCacheReportCommandInput,
@@ -1227,7 +1239,7 @@ export interface StorageGateway {
   ): void;
   describeCacheReport(
     args: DescribeCacheReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeCacheReportCommandOutput) => void
   ): void;
 
@@ -1236,7 +1248,7 @@ export interface StorageGateway {
    */
   describeChapCredentials(
     args: DescribeChapCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeChapCredentialsCommandOutput>;
   describeChapCredentials(
     args: DescribeChapCredentialsCommandInput,
@@ -1244,7 +1256,7 @@ export interface StorageGateway {
   ): void;
   describeChapCredentials(
     args: DescribeChapCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeChapCredentialsCommandOutput) => void
   ): void;
 
@@ -1253,7 +1265,7 @@ export interface StorageGateway {
    */
   describeFileSystemAssociations(
     args: DescribeFileSystemAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeFileSystemAssociationsCommandOutput>;
   describeFileSystemAssociations(
     args: DescribeFileSystemAssociationsCommandInput,
@@ -1261,7 +1273,7 @@ export interface StorageGateway {
   ): void;
   describeFileSystemAssociations(
     args: DescribeFileSystemAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeFileSystemAssociationsCommandOutput) => void
   ): void;
 
@@ -1270,7 +1282,7 @@ export interface StorageGateway {
    */
   describeGatewayInformation(
     args: DescribeGatewayInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeGatewayInformationCommandOutput>;
   describeGatewayInformation(
     args: DescribeGatewayInformationCommandInput,
@@ -1278,7 +1290,7 @@ export interface StorageGateway {
   ): void;
   describeGatewayInformation(
     args: DescribeGatewayInformationCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeGatewayInformationCommandOutput) => void
   ): void;
 
@@ -1287,7 +1299,7 @@ export interface StorageGateway {
    */
   describeMaintenanceStartTime(
     args: DescribeMaintenanceStartTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeMaintenanceStartTimeCommandOutput>;
   describeMaintenanceStartTime(
     args: DescribeMaintenanceStartTimeCommandInput,
@@ -1295,7 +1307,7 @@ export interface StorageGateway {
   ): void;
   describeMaintenanceStartTime(
     args: DescribeMaintenanceStartTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeMaintenanceStartTimeCommandOutput) => void
   ): void;
 
@@ -1304,7 +1316,7 @@ export interface StorageGateway {
    */
   describeNFSFileShares(
     args: DescribeNFSFileSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeNFSFileSharesCommandOutput>;
   describeNFSFileShares(
     args: DescribeNFSFileSharesCommandInput,
@@ -1312,7 +1324,7 @@ export interface StorageGateway {
   ): void;
   describeNFSFileShares(
     args: DescribeNFSFileSharesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeNFSFileSharesCommandOutput) => void
   ): void;
 
@@ -1321,7 +1333,7 @@ export interface StorageGateway {
    */
   describeSMBFileShares(
     args: DescribeSMBFileSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeSMBFileSharesCommandOutput>;
   describeSMBFileShares(
     args: DescribeSMBFileSharesCommandInput,
@@ -1329,7 +1341,7 @@ export interface StorageGateway {
   ): void;
   describeSMBFileShares(
     args: DescribeSMBFileSharesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeSMBFileSharesCommandOutput) => void
   ): void;
 
@@ -1338,7 +1350,7 @@ export interface StorageGateway {
    */
   describeSMBSettings(
     args: DescribeSMBSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeSMBSettingsCommandOutput>;
   describeSMBSettings(
     args: DescribeSMBSettingsCommandInput,
@@ -1346,7 +1358,7 @@ export interface StorageGateway {
   ): void;
   describeSMBSettings(
     args: DescribeSMBSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeSMBSettingsCommandOutput) => void
   ): void;
 
@@ -1355,7 +1367,7 @@ export interface StorageGateway {
    */
   describeSnapshotSchedule(
     args: DescribeSnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeSnapshotScheduleCommandOutput>;
   describeSnapshotSchedule(
     args: DescribeSnapshotScheduleCommandInput,
@@ -1363,7 +1375,7 @@ export interface StorageGateway {
   ): void;
   describeSnapshotSchedule(
     args: DescribeSnapshotScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeSnapshotScheduleCommandOutput) => void
   ): void;
 
@@ -1372,7 +1384,7 @@ export interface StorageGateway {
    */
   describeStorediSCSIVolumes(
     args: DescribeStorediSCSIVolumesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeStorediSCSIVolumesCommandOutput>;
   describeStorediSCSIVolumes(
     args: DescribeStorediSCSIVolumesCommandInput,
@@ -1380,7 +1392,7 @@ export interface StorageGateway {
   ): void;
   describeStorediSCSIVolumes(
     args: DescribeStorediSCSIVolumesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeStorediSCSIVolumesCommandOutput) => void
   ): void;
 
@@ -1390,7 +1402,7 @@ export interface StorageGateway {
   describeTapeArchives(): Promise<DescribeTapeArchivesCommandOutput>;
   describeTapeArchives(
     args: DescribeTapeArchivesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeTapeArchivesCommandOutput>;
   describeTapeArchives(
     args: DescribeTapeArchivesCommandInput,
@@ -1398,7 +1410,7 @@ export interface StorageGateway {
   ): void;
   describeTapeArchives(
     args: DescribeTapeArchivesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeTapeArchivesCommandOutput) => void
   ): void;
 
@@ -1407,7 +1419,7 @@ export interface StorageGateway {
    */
   describeTapeRecoveryPoints(
     args: DescribeTapeRecoveryPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeTapeRecoveryPointsCommandOutput>;
   describeTapeRecoveryPoints(
     args: DescribeTapeRecoveryPointsCommandInput,
@@ -1415,7 +1427,7 @@ export interface StorageGateway {
   ): void;
   describeTapeRecoveryPoints(
     args: DescribeTapeRecoveryPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeTapeRecoveryPointsCommandOutput) => void
   ): void;
 
@@ -1424,7 +1436,7 @@ export interface StorageGateway {
    */
   describeTapes(
     args: DescribeTapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeTapesCommandOutput>;
   describeTapes(
     args: DescribeTapesCommandInput,
@@ -1432,7 +1444,7 @@ export interface StorageGateway {
   ): void;
   describeTapes(
     args: DescribeTapesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeTapesCommandOutput) => void
   ): void;
 
@@ -1441,7 +1453,7 @@ export interface StorageGateway {
    */
   describeUploadBuffer(
     args: DescribeUploadBufferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeUploadBufferCommandOutput>;
   describeUploadBuffer(
     args: DescribeUploadBufferCommandInput,
@@ -1449,7 +1461,7 @@ export interface StorageGateway {
   ): void;
   describeUploadBuffer(
     args: DescribeUploadBufferCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeUploadBufferCommandOutput) => void
   ): void;
 
@@ -1458,7 +1470,7 @@ export interface StorageGateway {
    */
   describeVTLDevices(
     args: DescribeVTLDevicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeVTLDevicesCommandOutput>;
   describeVTLDevices(
     args: DescribeVTLDevicesCommandInput,
@@ -1466,7 +1478,7 @@ export interface StorageGateway {
   ): void;
   describeVTLDevices(
     args: DescribeVTLDevicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeVTLDevicesCommandOutput) => void
   ): void;
 
@@ -1475,7 +1487,7 @@ export interface StorageGateway {
    */
   describeWorkingStorage(
     args: DescribeWorkingStorageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DescribeWorkingStorageCommandOutput>;
   describeWorkingStorage(
     args: DescribeWorkingStorageCommandInput,
@@ -1483,7 +1495,7 @@ export interface StorageGateway {
   ): void;
   describeWorkingStorage(
     args: DescribeWorkingStorageCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DescribeWorkingStorageCommandOutput) => void
   ): void;
 
@@ -1492,7 +1504,7 @@ export interface StorageGateway {
    */
   detachVolume(
     args: DetachVolumeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DetachVolumeCommandOutput>;
   detachVolume(
     args: DetachVolumeCommandInput,
@@ -1500,7 +1512,7 @@ export interface StorageGateway {
   ): void;
   detachVolume(
     args: DetachVolumeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DetachVolumeCommandOutput) => void
   ): void;
 
@@ -1509,7 +1521,7 @@ export interface StorageGateway {
    */
   disableGateway(
     args: DisableGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DisableGatewayCommandOutput>;
   disableGateway(
     args: DisableGatewayCommandInput,
@@ -1517,7 +1529,7 @@ export interface StorageGateway {
   ): void;
   disableGateway(
     args: DisableGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DisableGatewayCommandOutput) => void
   ): void;
 
@@ -1526,7 +1538,7 @@ export interface StorageGateway {
    */
   disassociateFileSystem(
     args: DisassociateFileSystemCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<DisassociateFileSystemCommandOutput>;
   disassociateFileSystem(
     args: DisassociateFileSystemCommandInput,
@@ -1534,7 +1546,7 @@ export interface StorageGateway {
   ): void;
   disassociateFileSystem(
     args: DisassociateFileSystemCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: DisassociateFileSystemCommandOutput) => void
   ): void;
 
@@ -1543,7 +1555,7 @@ export interface StorageGateway {
    */
   evictFilesFailingUpload(
     args: EvictFilesFailingUploadCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<EvictFilesFailingUploadCommandOutput>;
   evictFilesFailingUpload(
     args: EvictFilesFailingUploadCommandInput,
@@ -1551,7 +1563,7 @@ export interface StorageGateway {
   ): void;
   evictFilesFailingUpload(
     args: EvictFilesFailingUploadCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: EvictFilesFailingUploadCommandOutput) => void
   ): void;
 
@@ -1560,7 +1572,7 @@ export interface StorageGateway {
    */
   joinDomain(
     args: JoinDomainCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<JoinDomainCommandOutput>;
   joinDomain(
     args: JoinDomainCommandInput,
@@ -1568,7 +1580,7 @@ export interface StorageGateway {
   ): void;
   joinDomain(
     args: JoinDomainCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: JoinDomainCommandOutput) => void
   ): void;
 
@@ -1578,7 +1590,7 @@ export interface StorageGateway {
   listAutomaticTapeCreationPolicies(): Promise<ListAutomaticTapeCreationPoliciesCommandOutput>;
   listAutomaticTapeCreationPolicies(
     args: ListAutomaticTapeCreationPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListAutomaticTapeCreationPoliciesCommandOutput>;
   listAutomaticTapeCreationPolicies(
     args: ListAutomaticTapeCreationPoliciesCommandInput,
@@ -1586,7 +1598,7 @@ export interface StorageGateway {
   ): void;
   listAutomaticTapeCreationPolicies(
     args: ListAutomaticTapeCreationPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListAutomaticTapeCreationPoliciesCommandOutput) => void
   ): void;
 
@@ -1596,7 +1608,7 @@ export interface StorageGateway {
   listCacheReports(): Promise<ListCacheReportsCommandOutput>;
   listCacheReports(
     args: ListCacheReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListCacheReportsCommandOutput>;
   listCacheReports(
     args: ListCacheReportsCommandInput,
@@ -1604,7 +1616,7 @@ export interface StorageGateway {
   ): void;
   listCacheReports(
     args: ListCacheReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListCacheReportsCommandOutput) => void
   ): void;
 
@@ -1614,7 +1626,7 @@ export interface StorageGateway {
   listFileShares(): Promise<ListFileSharesCommandOutput>;
   listFileShares(
     args: ListFileSharesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListFileSharesCommandOutput>;
   listFileShares(
     args: ListFileSharesCommandInput,
@@ -1622,7 +1634,7 @@ export interface StorageGateway {
   ): void;
   listFileShares(
     args: ListFileSharesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListFileSharesCommandOutput) => void
   ): void;
 
@@ -1632,7 +1644,7 @@ export interface StorageGateway {
   listFileSystemAssociations(): Promise<ListFileSystemAssociationsCommandOutput>;
   listFileSystemAssociations(
     args: ListFileSystemAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListFileSystemAssociationsCommandOutput>;
   listFileSystemAssociations(
     args: ListFileSystemAssociationsCommandInput,
@@ -1640,7 +1652,7 @@ export interface StorageGateway {
   ): void;
   listFileSystemAssociations(
     args: ListFileSystemAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListFileSystemAssociationsCommandOutput) => void
   ): void;
 
@@ -1650,7 +1662,7 @@ export interface StorageGateway {
   listGateways(): Promise<ListGatewaysCommandOutput>;
   listGateways(
     args: ListGatewaysCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListGatewaysCommandOutput>;
   listGateways(
     args: ListGatewaysCommandInput,
@@ -1658,7 +1670,7 @@ export interface StorageGateway {
   ): void;
   listGateways(
     args: ListGatewaysCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListGatewaysCommandOutput) => void
   ): void;
 
@@ -1667,7 +1679,7 @@ export interface StorageGateway {
    */
   listLocalDisks(
     args: ListLocalDisksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListLocalDisksCommandOutput>;
   listLocalDisks(
     args: ListLocalDisksCommandInput,
@@ -1675,7 +1687,7 @@ export interface StorageGateway {
   ): void;
   listLocalDisks(
     args: ListLocalDisksCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListLocalDisksCommandOutput) => void
   ): void;
 
@@ -1684,7 +1696,7 @@ export interface StorageGateway {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1692,7 +1704,7 @@ export interface StorageGateway {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -1702,7 +1714,7 @@ export interface StorageGateway {
   listTapePools(): Promise<ListTapePoolsCommandOutput>;
   listTapePools(
     args: ListTapePoolsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListTapePoolsCommandOutput>;
   listTapePools(
     args: ListTapePoolsCommandInput,
@@ -1710,7 +1722,7 @@ export interface StorageGateway {
   ): void;
   listTapePools(
     args: ListTapePoolsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListTapePoolsCommandOutput) => void
   ): void;
 
@@ -1720,7 +1732,7 @@ export interface StorageGateway {
   listTapes(): Promise<ListTapesCommandOutput>;
   listTapes(
     args: ListTapesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListTapesCommandOutput>;
   listTapes(
     args: ListTapesCommandInput,
@@ -1728,7 +1740,7 @@ export interface StorageGateway {
   ): void;
   listTapes(
     args: ListTapesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListTapesCommandOutput) => void
   ): void;
 
@@ -1737,7 +1749,7 @@ export interface StorageGateway {
    */
   listVolumeInitiators(
     args: ListVolumeInitiatorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListVolumeInitiatorsCommandOutput>;
   listVolumeInitiators(
     args: ListVolumeInitiatorsCommandInput,
@@ -1745,7 +1757,7 @@ export interface StorageGateway {
   ): void;
   listVolumeInitiators(
     args: ListVolumeInitiatorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListVolumeInitiatorsCommandOutput) => void
   ): void;
 
@@ -1754,7 +1766,7 @@ export interface StorageGateway {
    */
   listVolumeRecoveryPoints(
     args: ListVolumeRecoveryPointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListVolumeRecoveryPointsCommandOutput>;
   listVolumeRecoveryPoints(
     args: ListVolumeRecoveryPointsCommandInput,
@@ -1762,7 +1774,7 @@ export interface StorageGateway {
   ): void;
   listVolumeRecoveryPoints(
     args: ListVolumeRecoveryPointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListVolumeRecoveryPointsCommandOutput) => void
   ): void;
 
@@ -1772,7 +1784,7 @@ export interface StorageGateway {
   listVolumes(): Promise<ListVolumesCommandOutput>;
   listVolumes(
     args: ListVolumesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ListVolumesCommandOutput>;
   listVolumes(
     args: ListVolumesCommandInput,
@@ -1780,7 +1792,7 @@ export interface StorageGateway {
   ): void;
   listVolumes(
     args: ListVolumesCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ListVolumesCommandOutput) => void
   ): void;
 
@@ -1789,7 +1801,7 @@ export interface StorageGateway {
    */
   notifyWhenUploaded(
     args: NotifyWhenUploadedCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<NotifyWhenUploadedCommandOutput>;
   notifyWhenUploaded(
     args: NotifyWhenUploadedCommandInput,
@@ -1797,7 +1809,7 @@ export interface StorageGateway {
   ): void;
   notifyWhenUploaded(
     args: NotifyWhenUploadedCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: NotifyWhenUploadedCommandOutput) => void
   ): void;
 
@@ -1806,7 +1818,7 @@ export interface StorageGateway {
    */
   refreshCache(
     args: RefreshCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<RefreshCacheCommandOutput>;
   refreshCache(
     args: RefreshCacheCommandInput,
@@ -1814,7 +1826,7 @@ export interface StorageGateway {
   ): void;
   refreshCache(
     args: RefreshCacheCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: RefreshCacheCommandOutput) => void
   ): void;
 
@@ -1823,7 +1835,7 @@ export interface StorageGateway {
    */
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<RemoveTagsFromResourceCommandOutput>;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -1831,7 +1843,7 @@ export interface StorageGateway {
   ): void;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): void;
 
@@ -1840,7 +1852,7 @@ export interface StorageGateway {
    */
   resetCache(
     args: ResetCacheCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ResetCacheCommandOutput>;
   resetCache(
     args: ResetCacheCommandInput,
@@ -1848,7 +1860,7 @@ export interface StorageGateway {
   ): void;
   resetCache(
     args: ResetCacheCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ResetCacheCommandOutput) => void
   ): void;
 
@@ -1857,7 +1869,7 @@ export interface StorageGateway {
    */
   retrieveTapeArchive(
     args: RetrieveTapeArchiveCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<RetrieveTapeArchiveCommandOutput>;
   retrieveTapeArchive(
     args: RetrieveTapeArchiveCommandInput,
@@ -1865,7 +1877,7 @@ export interface StorageGateway {
   ): void;
   retrieveTapeArchive(
     args: RetrieveTapeArchiveCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: RetrieveTapeArchiveCommandOutput) => void
   ): void;
 
@@ -1874,7 +1886,7 @@ export interface StorageGateway {
    */
   retrieveTapeRecoveryPoint(
     args: RetrieveTapeRecoveryPointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<RetrieveTapeRecoveryPointCommandOutput>;
   retrieveTapeRecoveryPoint(
     args: RetrieveTapeRecoveryPointCommandInput,
@@ -1882,7 +1894,7 @@ export interface StorageGateway {
   ): void;
   retrieveTapeRecoveryPoint(
     args: RetrieveTapeRecoveryPointCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: RetrieveTapeRecoveryPointCommandOutput) => void
   ): void;
 
@@ -1891,7 +1903,7 @@ export interface StorageGateway {
    */
   setLocalConsolePassword(
     args: SetLocalConsolePasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<SetLocalConsolePasswordCommandOutput>;
   setLocalConsolePassword(
     args: SetLocalConsolePasswordCommandInput,
@@ -1899,7 +1911,7 @@ export interface StorageGateway {
   ): void;
   setLocalConsolePassword(
     args: SetLocalConsolePasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: SetLocalConsolePasswordCommandOutput) => void
   ): void;
 
@@ -1908,7 +1920,7 @@ export interface StorageGateway {
    */
   setSMBGuestPassword(
     args: SetSMBGuestPasswordCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<SetSMBGuestPasswordCommandOutput>;
   setSMBGuestPassword(
     args: SetSMBGuestPasswordCommandInput,
@@ -1916,7 +1928,7 @@ export interface StorageGateway {
   ): void;
   setSMBGuestPassword(
     args: SetSMBGuestPasswordCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: SetSMBGuestPasswordCommandOutput) => void
   ): void;
 
@@ -1925,7 +1937,7 @@ export interface StorageGateway {
    */
   shutdownGateway(
     args: ShutdownGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<ShutdownGatewayCommandOutput>;
   shutdownGateway(
     args: ShutdownGatewayCommandInput,
@@ -1933,7 +1945,7 @@ export interface StorageGateway {
   ): void;
   shutdownGateway(
     args: ShutdownGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: ShutdownGatewayCommandOutput) => void
   ): void;
 
@@ -1942,7 +1954,7 @@ export interface StorageGateway {
    */
   startAvailabilityMonitorTest(
     args: StartAvailabilityMonitorTestCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<StartAvailabilityMonitorTestCommandOutput>;
   startAvailabilityMonitorTest(
     args: StartAvailabilityMonitorTestCommandInput,
@@ -1950,7 +1962,7 @@ export interface StorageGateway {
   ): void;
   startAvailabilityMonitorTest(
     args: StartAvailabilityMonitorTestCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: StartAvailabilityMonitorTestCommandOutput) => void
   ): void;
 
@@ -1959,7 +1971,7 @@ export interface StorageGateway {
    */
   startCacheReport(
     args: StartCacheReportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<StartCacheReportCommandOutput>;
   startCacheReport(
     args: StartCacheReportCommandInput,
@@ -1967,7 +1979,7 @@ export interface StorageGateway {
   ): void;
   startCacheReport(
     args: StartCacheReportCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: StartCacheReportCommandOutput) => void
   ): void;
 
@@ -1976,7 +1988,7 @@ export interface StorageGateway {
    */
   startGateway(
     args: StartGatewayCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<StartGatewayCommandOutput>;
   startGateway(
     args: StartGatewayCommandInput,
@@ -1984,7 +1996,7 @@ export interface StorageGateway {
   ): void;
   startGateway(
     args: StartGatewayCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: StartGatewayCommandOutput) => void
   ): void;
 
@@ -1993,7 +2005,7 @@ export interface StorageGateway {
    */
   updateAutomaticTapeCreationPolicy(
     args: UpdateAutomaticTapeCreationPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput>;
   updateAutomaticTapeCreationPolicy(
     args: UpdateAutomaticTapeCreationPolicyCommandInput,
@@ -2001,7 +2013,7 @@ export interface StorageGateway {
   ): void;
   updateAutomaticTapeCreationPolicy(
     args: UpdateAutomaticTapeCreationPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateAutomaticTapeCreationPolicyCommandOutput) => void
   ): void;
 
@@ -2010,7 +2022,7 @@ export interface StorageGateway {
    */
   updateBandwidthRateLimit(
     args: UpdateBandwidthRateLimitCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateBandwidthRateLimitCommandOutput>;
   updateBandwidthRateLimit(
     args: UpdateBandwidthRateLimitCommandInput,
@@ -2018,7 +2030,7 @@ export interface StorageGateway {
   ): void;
   updateBandwidthRateLimit(
     args: UpdateBandwidthRateLimitCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateBandwidthRateLimitCommandOutput) => void
   ): void;
 
@@ -2027,7 +2039,7 @@ export interface StorageGateway {
    */
   updateBandwidthRateLimitSchedule(
     args: UpdateBandwidthRateLimitScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateBandwidthRateLimitScheduleCommandOutput>;
   updateBandwidthRateLimitSchedule(
     args: UpdateBandwidthRateLimitScheduleCommandInput,
@@ -2035,7 +2047,7 @@ export interface StorageGateway {
   ): void;
   updateBandwidthRateLimitSchedule(
     args: UpdateBandwidthRateLimitScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateBandwidthRateLimitScheduleCommandOutput) => void
   ): void;
 
@@ -2044,7 +2056,7 @@ export interface StorageGateway {
    */
   updateChapCredentials(
     args: UpdateChapCredentialsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateChapCredentialsCommandOutput>;
   updateChapCredentials(
     args: UpdateChapCredentialsCommandInput,
@@ -2052,7 +2064,7 @@ export interface StorageGateway {
   ): void;
   updateChapCredentials(
     args: UpdateChapCredentialsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateChapCredentialsCommandOutput) => void
   ): void;
 
@@ -2061,7 +2073,7 @@ export interface StorageGateway {
    */
   updateFileSystemAssociation(
     args: UpdateFileSystemAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateFileSystemAssociationCommandOutput>;
   updateFileSystemAssociation(
     args: UpdateFileSystemAssociationCommandInput,
@@ -2069,7 +2081,7 @@ export interface StorageGateway {
   ): void;
   updateFileSystemAssociation(
     args: UpdateFileSystemAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateFileSystemAssociationCommandOutput) => void
   ): void;
 
@@ -2078,7 +2090,7 @@ export interface StorageGateway {
    */
   updateGatewayInformation(
     args: UpdateGatewayInformationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateGatewayInformationCommandOutput>;
   updateGatewayInformation(
     args: UpdateGatewayInformationCommandInput,
@@ -2086,7 +2098,7 @@ export interface StorageGateway {
   ): void;
   updateGatewayInformation(
     args: UpdateGatewayInformationCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateGatewayInformationCommandOutput) => void
   ): void;
 
@@ -2095,7 +2107,7 @@ export interface StorageGateway {
    */
   updateGatewaySoftwareNow(
     args: UpdateGatewaySoftwareNowCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateGatewaySoftwareNowCommandOutput>;
   updateGatewaySoftwareNow(
     args: UpdateGatewaySoftwareNowCommandInput,
@@ -2103,7 +2115,7 @@ export interface StorageGateway {
   ): void;
   updateGatewaySoftwareNow(
     args: UpdateGatewaySoftwareNowCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateGatewaySoftwareNowCommandOutput) => void
   ): void;
 
@@ -2112,7 +2124,7 @@ export interface StorageGateway {
    */
   updateMaintenanceStartTime(
     args: UpdateMaintenanceStartTimeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateMaintenanceStartTimeCommandOutput>;
   updateMaintenanceStartTime(
     args: UpdateMaintenanceStartTimeCommandInput,
@@ -2120,7 +2132,7 @@ export interface StorageGateway {
   ): void;
   updateMaintenanceStartTime(
     args: UpdateMaintenanceStartTimeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateMaintenanceStartTimeCommandOutput) => void
   ): void;
 
@@ -2129,7 +2141,7 @@ export interface StorageGateway {
    */
   updateNFSFileShare(
     args: UpdateNFSFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateNFSFileShareCommandOutput>;
   updateNFSFileShare(
     args: UpdateNFSFileShareCommandInput,
@@ -2137,7 +2149,7 @@ export interface StorageGateway {
   ): void;
   updateNFSFileShare(
     args: UpdateNFSFileShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateNFSFileShareCommandOutput) => void
   ): void;
 
@@ -2146,7 +2158,7 @@ export interface StorageGateway {
    */
   updateSMBFileShare(
     args: UpdateSMBFileShareCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateSMBFileShareCommandOutput>;
   updateSMBFileShare(
     args: UpdateSMBFileShareCommandInput,
@@ -2154,7 +2166,7 @@ export interface StorageGateway {
   ): void;
   updateSMBFileShare(
     args: UpdateSMBFileShareCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateSMBFileShareCommandOutput) => void
   ): void;
 
@@ -2163,7 +2175,7 @@ export interface StorageGateway {
    */
   updateSMBFileShareVisibility(
     args: UpdateSMBFileShareVisibilityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateSMBFileShareVisibilityCommandOutput>;
   updateSMBFileShareVisibility(
     args: UpdateSMBFileShareVisibilityCommandInput,
@@ -2171,7 +2183,7 @@ export interface StorageGateway {
   ): void;
   updateSMBFileShareVisibility(
     args: UpdateSMBFileShareVisibilityCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateSMBFileShareVisibilityCommandOutput) => void
   ): void;
 
@@ -2180,7 +2192,7 @@ export interface StorageGateway {
    */
   updateSMBLocalGroups(
     args: UpdateSMBLocalGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateSMBLocalGroupsCommandOutput>;
   updateSMBLocalGroups(
     args: UpdateSMBLocalGroupsCommandInput,
@@ -2188,7 +2200,7 @@ export interface StorageGateway {
   ): void;
   updateSMBLocalGroups(
     args: UpdateSMBLocalGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateSMBLocalGroupsCommandOutput) => void
   ): void;
 
@@ -2197,7 +2209,7 @@ export interface StorageGateway {
    */
   updateSMBSecurityStrategy(
     args: UpdateSMBSecurityStrategyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateSMBSecurityStrategyCommandOutput>;
   updateSMBSecurityStrategy(
     args: UpdateSMBSecurityStrategyCommandInput,
@@ -2205,7 +2217,7 @@ export interface StorageGateway {
   ): void;
   updateSMBSecurityStrategy(
     args: UpdateSMBSecurityStrategyCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateSMBSecurityStrategyCommandOutput) => void
   ): void;
 
@@ -2214,7 +2226,7 @@ export interface StorageGateway {
    */
   updateSnapshotSchedule(
     args: UpdateSnapshotScheduleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateSnapshotScheduleCommandOutput>;
   updateSnapshotSchedule(
     args: UpdateSnapshotScheduleCommandInput,
@@ -2222,7 +2234,7 @@ export interface StorageGateway {
   ): void;
   updateSnapshotSchedule(
     args: UpdateSnapshotScheduleCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateSnapshotScheduleCommandOutput) => void
   ): void;
 
@@ -2231,7 +2243,7 @@ export interface StorageGateway {
    */
   updateVTLDeviceType(
     args: UpdateVTLDeviceTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: StorageGatewayRequestOptions
   ): Promise<UpdateVTLDeviceTypeCommandOutput>;
   updateVTLDeviceType(
     args: UpdateVTLDeviceTypeCommandInput,
@@ -2239,7 +2251,7 @@ export interface StorageGateway {
   ): void;
   updateVTLDeviceType(
     args: UpdateVTLDeviceTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: StorageGatewayRequestOptions,
     cb: (err: any, data?: UpdateVTLDeviceTypeCommandOutput) => void
   ): void;
 

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type AcceptCertificateTransferCommandInput,
@@ -1749,13 +1754,20 @@ const paginators = {
   paginateListViolationEvents,
 };
 
+/**
+ * @public
+ */
+export interface IoTRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface IoT {
   /**
    * @see {@link AcceptCertificateTransferCommand}
    */
   acceptCertificateTransfer(
     args: AcceptCertificateTransferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<AcceptCertificateTransferCommandOutput>;
   acceptCertificateTransfer(
     args: AcceptCertificateTransferCommandInput,
@@ -1763,7 +1775,7 @@ export interface IoT {
   ): void;
   acceptCertificateTransfer(
     args: AcceptCertificateTransferCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: AcceptCertificateTransferCommandOutput) => void
   ): void;
 
@@ -1773,7 +1785,7 @@ export interface IoT {
   addThingToBillingGroup(): Promise<AddThingToBillingGroupCommandOutput>;
   addThingToBillingGroup(
     args: AddThingToBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<AddThingToBillingGroupCommandOutput>;
   addThingToBillingGroup(
     args: AddThingToBillingGroupCommandInput,
@@ -1781,7 +1793,7 @@ export interface IoT {
   ): void;
   addThingToBillingGroup(
     args: AddThingToBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: AddThingToBillingGroupCommandOutput) => void
   ): void;
 
@@ -1791,7 +1803,7 @@ export interface IoT {
   addThingToThingGroup(): Promise<AddThingToThingGroupCommandOutput>;
   addThingToThingGroup(
     args: AddThingToThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<AddThingToThingGroupCommandOutput>;
   addThingToThingGroup(
     args: AddThingToThingGroupCommandInput,
@@ -1799,7 +1811,7 @@ export interface IoT {
   ): void;
   addThingToThingGroup(
     args: AddThingToThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: AddThingToThingGroupCommandOutput) => void
   ): void;
 
@@ -1808,7 +1820,7 @@ export interface IoT {
    */
   associateSbomWithPackageVersion(
     args: AssociateSbomWithPackageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<AssociateSbomWithPackageVersionCommandOutput>;
   associateSbomWithPackageVersion(
     args: AssociateSbomWithPackageVersionCommandInput,
@@ -1816,7 +1828,7 @@ export interface IoT {
   ): void;
   associateSbomWithPackageVersion(
     args: AssociateSbomWithPackageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: AssociateSbomWithPackageVersionCommandOutput) => void
   ): void;
 
@@ -1825,7 +1837,7 @@ export interface IoT {
    */
   associateTargetsWithJob(
     args: AssociateTargetsWithJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<AssociateTargetsWithJobCommandOutput>;
   associateTargetsWithJob(
     args: AssociateTargetsWithJobCommandInput,
@@ -1833,7 +1845,7 @@ export interface IoT {
   ): void;
   associateTargetsWithJob(
     args: AssociateTargetsWithJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: AssociateTargetsWithJobCommandOutput) => void
   ): void;
 
@@ -1842,7 +1854,7 @@ export interface IoT {
    */
   attachPolicy(
     args: AttachPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<AttachPolicyCommandOutput>;
   attachPolicy(
     args: AttachPolicyCommandInput,
@@ -1850,7 +1862,7 @@ export interface IoT {
   ): void;
   attachPolicy(
     args: AttachPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: AttachPolicyCommandOutput) => void
   ): void;
 
@@ -1859,7 +1871,7 @@ export interface IoT {
    */
   attachPrincipalPolicy(
     args: AttachPrincipalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<AttachPrincipalPolicyCommandOutput>;
   attachPrincipalPolicy(
     args: AttachPrincipalPolicyCommandInput,
@@ -1867,7 +1879,7 @@ export interface IoT {
   ): void;
   attachPrincipalPolicy(
     args: AttachPrincipalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: AttachPrincipalPolicyCommandOutput) => void
   ): void;
 
@@ -1876,7 +1888,7 @@ export interface IoT {
    */
   attachSecurityProfile(
     args: AttachSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<AttachSecurityProfileCommandOutput>;
   attachSecurityProfile(
     args: AttachSecurityProfileCommandInput,
@@ -1884,7 +1896,7 @@ export interface IoT {
   ): void;
   attachSecurityProfile(
     args: AttachSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: AttachSecurityProfileCommandOutput) => void
   ): void;
 
@@ -1893,7 +1905,7 @@ export interface IoT {
    */
   attachThingPrincipal(
     args: AttachThingPrincipalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<AttachThingPrincipalCommandOutput>;
   attachThingPrincipal(
     args: AttachThingPrincipalCommandInput,
@@ -1901,7 +1913,7 @@ export interface IoT {
   ): void;
   attachThingPrincipal(
     args: AttachThingPrincipalCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: AttachThingPrincipalCommandOutput) => void
   ): void;
 
@@ -1910,7 +1922,7 @@ export interface IoT {
    */
   cancelAuditMitigationActionsTask(
     args: CancelAuditMitigationActionsTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CancelAuditMitigationActionsTaskCommandOutput>;
   cancelAuditMitigationActionsTask(
     args: CancelAuditMitigationActionsTaskCommandInput,
@@ -1918,7 +1930,7 @@ export interface IoT {
   ): void;
   cancelAuditMitigationActionsTask(
     args: CancelAuditMitigationActionsTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CancelAuditMitigationActionsTaskCommandOutput) => void
   ): void;
 
@@ -1927,7 +1939,7 @@ export interface IoT {
    */
   cancelAuditTask(
     args: CancelAuditTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CancelAuditTaskCommandOutput>;
   cancelAuditTask(
     args: CancelAuditTaskCommandInput,
@@ -1935,7 +1947,7 @@ export interface IoT {
   ): void;
   cancelAuditTask(
     args: CancelAuditTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CancelAuditTaskCommandOutput) => void
   ): void;
 
@@ -1944,7 +1956,7 @@ export interface IoT {
    */
   cancelCertificateTransfer(
     args: CancelCertificateTransferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CancelCertificateTransferCommandOutput>;
   cancelCertificateTransfer(
     args: CancelCertificateTransferCommandInput,
@@ -1952,7 +1964,7 @@ export interface IoT {
   ): void;
   cancelCertificateTransfer(
     args: CancelCertificateTransferCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CancelCertificateTransferCommandOutput) => void
   ): void;
 
@@ -1961,7 +1973,7 @@ export interface IoT {
    */
   cancelDetectMitigationActionsTask(
     args: CancelDetectMitigationActionsTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CancelDetectMitigationActionsTaskCommandOutput>;
   cancelDetectMitigationActionsTask(
     args: CancelDetectMitigationActionsTaskCommandInput,
@@ -1969,7 +1981,7 @@ export interface IoT {
   ): void;
   cancelDetectMitigationActionsTask(
     args: CancelDetectMitigationActionsTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CancelDetectMitigationActionsTaskCommandOutput) => void
   ): void;
 
@@ -1978,7 +1990,7 @@ export interface IoT {
    */
   cancelJob(
     args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CancelJobCommandOutput>;
   cancelJob(
     args: CancelJobCommandInput,
@@ -1986,7 +1998,7 @@ export interface IoT {
   ): void;
   cancelJob(
     args: CancelJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CancelJobCommandOutput) => void
   ): void;
 
@@ -1995,7 +2007,7 @@ export interface IoT {
    */
   cancelJobExecution(
     args: CancelJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CancelJobExecutionCommandOutput>;
   cancelJobExecution(
     args: CancelJobExecutionCommandInput,
@@ -2003,7 +2015,7 @@ export interface IoT {
   ): void;
   cancelJobExecution(
     args: CancelJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CancelJobExecutionCommandOutput) => void
   ): void;
 
@@ -2013,7 +2025,7 @@ export interface IoT {
   clearDefaultAuthorizer(): Promise<ClearDefaultAuthorizerCommandOutput>;
   clearDefaultAuthorizer(
     args: ClearDefaultAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ClearDefaultAuthorizerCommandOutput>;
   clearDefaultAuthorizer(
     args: ClearDefaultAuthorizerCommandInput,
@@ -2021,7 +2033,7 @@ export interface IoT {
   ): void;
   clearDefaultAuthorizer(
     args: ClearDefaultAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ClearDefaultAuthorizerCommandOutput) => void
   ): void;
 
@@ -2030,7 +2042,7 @@ export interface IoT {
    */
   confirmTopicRuleDestination(
     args: ConfirmTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ConfirmTopicRuleDestinationCommandOutput>;
   confirmTopicRuleDestination(
     args: ConfirmTopicRuleDestinationCommandInput,
@@ -2038,7 +2050,7 @@ export interface IoT {
   ): void;
   confirmTopicRuleDestination(
     args: ConfirmTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ConfirmTopicRuleDestinationCommandOutput) => void
   ): void;
 
@@ -2047,7 +2059,7 @@ export interface IoT {
    */
   createAuditSuppression(
     args: CreateAuditSuppressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateAuditSuppressionCommandOutput>;
   createAuditSuppression(
     args: CreateAuditSuppressionCommandInput,
@@ -2055,7 +2067,7 @@ export interface IoT {
   ): void;
   createAuditSuppression(
     args: CreateAuditSuppressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateAuditSuppressionCommandOutput) => void
   ): void;
 
@@ -2064,7 +2076,7 @@ export interface IoT {
    */
   createAuthorizer(
     args: CreateAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateAuthorizerCommandOutput>;
   createAuthorizer(
     args: CreateAuthorizerCommandInput,
@@ -2072,7 +2084,7 @@ export interface IoT {
   ): void;
   createAuthorizer(
     args: CreateAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateAuthorizerCommandOutput) => void
   ): void;
 
@@ -2081,7 +2093,7 @@ export interface IoT {
    */
   createBillingGroup(
     args: CreateBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateBillingGroupCommandOutput>;
   createBillingGroup(
     args: CreateBillingGroupCommandInput,
@@ -2089,7 +2101,7 @@ export interface IoT {
   ): void;
   createBillingGroup(
     args: CreateBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateBillingGroupCommandOutput) => void
   ): void;
 
@@ -2098,7 +2110,7 @@ export interface IoT {
    */
   createCertificateFromCsr(
     args: CreateCertificateFromCsrCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateCertificateFromCsrCommandOutput>;
   createCertificateFromCsr(
     args: CreateCertificateFromCsrCommandInput,
@@ -2106,7 +2118,7 @@ export interface IoT {
   ): void;
   createCertificateFromCsr(
     args: CreateCertificateFromCsrCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateCertificateFromCsrCommandOutput) => void
   ): void;
 
@@ -2115,7 +2127,7 @@ export interface IoT {
    */
   createCertificateProvider(
     args: CreateCertificateProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateCertificateProviderCommandOutput>;
   createCertificateProvider(
     args: CreateCertificateProviderCommandInput,
@@ -2123,7 +2135,7 @@ export interface IoT {
   ): void;
   createCertificateProvider(
     args: CreateCertificateProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateCertificateProviderCommandOutput) => void
   ): void;
 
@@ -2132,7 +2144,7 @@ export interface IoT {
    */
   createCommand(
     args: CreateCommandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateCommandCommandOutput>;
   createCommand(
     args: CreateCommandCommandInput,
@@ -2140,7 +2152,7 @@ export interface IoT {
   ): void;
   createCommand(
     args: CreateCommandCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateCommandCommandOutput) => void
   ): void;
 
@@ -2149,7 +2161,7 @@ export interface IoT {
    */
   createCustomMetric(
     args: CreateCustomMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateCustomMetricCommandOutput>;
   createCustomMetric(
     args: CreateCustomMetricCommandInput,
@@ -2157,7 +2169,7 @@ export interface IoT {
   ): void;
   createCustomMetric(
     args: CreateCustomMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateCustomMetricCommandOutput) => void
   ): void;
 
@@ -2166,7 +2178,7 @@ export interface IoT {
    */
   createDimension(
     args: CreateDimensionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateDimensionCommandOutput>;
   createDimension(
     args: CreateDimensionCommandInput,
@@ -2174,7 +2186,7 @@ export interface IoT {
   ): void;
   createDimension(
     args: CreateDimensionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateDimensionCommandOutput) => void
   ): void;
 
@@ -2183,7 +2195,7 @@ export interface IoT {
    */
   createDomainConfiguration(
     args: CreateDomainConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateDomainConfigurationCommandOutput>;
   createDomainConfiguration(
     args: CreateDomainConfigurationCommandInput,
@@ -2191,7 +2203,7 @@ export interface IoT {
   ): void;
   createDomainConfiguration(
     args: CreateDomainConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateDomainConfigurationCommandOutput) => void
   ): void;
 
@@ -2200,7 +2212,7 @@ export interface IoT {
    */
   createDynamicThingGroup(
     args: CreateDynamicThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateDynamicThingGroupCommandOutput>;
   createDynamicThingGroup(
     args: CreateDynamicThingGroupCommandInput,
@@ -2208,7 +2220,7 @@ export interface IoT {
   ): void;
   createDynamicThingGroup(
     args: CreateDynamicThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateDynamicThingGroupCommandOutput) => void
   ): void;
 
@@ -2217,7 +2229,7 @@ export interface IoT {
    */
   createFleetMetric(
     args: CreateFleetMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateFleetMetricCommandOutput>;
   createFleetMetric(
     args: CreateFleetMetricCommandInput,
@@ -2225,7 +2237,7 @@ export interface IoT {
   ): void;
   createFleetMetric(
     args: CreateFleetMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateFleetMetricCommandOutput) => void
   ): void;
 
@@ -2234,7 +2246,7 @@ export interface IoT {
    */
   createJob(
     args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateJobCommandOutput>;
   createJob(
     args: CreateJobCommandInput,
@@ -2242,7 +2254,7 @@ export interface IoT {
   ): void;
   createJob(
     args: CreateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateJobCommandOutput) => void
   ): void;
 
@@ -2251,7 +2263,7 @@ export interface IoT {
    */
   createJobTemplate(
     args: CreateJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateJobTemplateCommandOutput>;
   createJobTemplate(
     args: CreateJobTemplateCommandInput,
@@ -2259,7 +2271,7 @@ export interface IoT {
   ): void;
   createJobTemplate(
     args: CreateJobTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateJobTemplateCommandOutput) => void
   ): void;
 
@@ -2269,7 +2281,7 @@ export interface IoT {
   createKeysAndCertificate(): Promise<CreateKeysAndCertificateCommandOutput>;
   createKeysAndCertificate(
     args: CreateKeysAndCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateKeysAndCertificateCommandOutput>;
   createKeysAndCertificate(
     args: CreateKeysAndCertificateCommandInput,
@@ -2277,7 +2289,7 @@ export interface IoT {
   ): void;
   createKeysAndCertificate(
     args: CreateKeysAndCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateKeysAndCertificateCommandOutput) => void
   ): void;
 
@@ -2286,7 +2298,7 @@ export interface IoT {
    */
   createMitigationAction(
     args: CreateMitigationActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateMitigationActionCommandOutput>;
   createMitigationAction(
     args: CreateMitigationActionCommandInput,
@@ -2294,7 +2306,7 @@ export interface IoT {
   ): void;
   createMitigationAction(
     args: CreateMitigationActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateMitigationActionCommandOutput) => void
   ): void;
 
@@ -2303,7 +2315,7 @@ export interface IoT {
    */
   createOTAUpdate(
     args: CreateOTAUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateOTAUpdateCommandOutput>;
   createOTAUpdate(
     args: CreateOTAUpdateCommandInput,
@@ -2311,7 +2323,7 @@ export interface IoT {
   ): void;
   createOTAUpdate(
     args: CreateOTAUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateOTAUpdateCommandOutput) => void
   ): void;
 
@@ -2320,7 +2332,7 @@ export interface IoT {
    */
   createPackage(
     args: CreatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreatePackageCommandOutput>;
   createPackage(
     args: CreatePackageCommandInput,
@@ -2328,7 +2340,7 @@ export interface IoT {
   ): void;
   createPackage(
     args: CreatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreatePackageCommandOutput) => void
   ): void;
 
@@ -2337,7 +2349,7 @@ export interface IoT {
    */
   createPackageVersion(
     args: CreatePackageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreatePackageVersionCommandOutput>;
   createPackageVersion(
     args: CreatePackageVersionCommandInput,
@@ -2345,7 +2357,7 @@ export interface IoT {
   ): void;
   createPackageVersion(
     args: CreatePackageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreatePackageVersionCommandOutput) => void
   ): void;
 
@@ -2354,7 +2366,7 @@ export interface IoT {
    */
   createPolicy(
     args: CreatePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreatePolicyCommandOutput>;
   createPolicy(
     args: CreatePolicyCommandInput,
@@ -2362,7 +2374,7 @@ export interface IoT {
   ): void;
   createPolicy(
     args: CreatePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreatePolicyCommandOutput) => void
   ): void;
 
@@ -2371,7 +2383,7 @@ export interface IoT {
    */
   createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreatePolicyVersionCommandOutput>;
   createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
@@ -2379,7 +2391,7 @@ export interface IoT {
   ): void;
   createPolicyVersion(
     args: CreatePolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreatePolicyVersionCommandOutput) => void
   ): void;
 
@@ -2388,7 +2400,7 @@ export interface IoT {
    */
   createProvisioningClaim(
     args: CreateProvisioningClaimCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateProvisioningClaimCommandOutput>;
   createProvisioningClaim(
     args: CreateProvisioningClaimCommandInput,
@@ -2396,7 +2408,7 @@ export interface IoT {
   ): void;
   createProvisioningClaim(
     args: CreateProvisioningClaimCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateProvisioningClaimCommandOutput) => void
   ): void;
 
@@ -2405,7 +2417,7 @@ export interface IoT {
    */
   createProvisioningTemplate(
     args: CreateProvisioningTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateProvisioningTemplateCommandOutput>;
   createProvisioningTemplate(
     args: CreateProvisioningTemplateCommandInput,
@@ -2413,7 +2425,7 @@ export interface IoT {
   ): void;
   createProvisioningTemplate(
     args: CreateProvisioningTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateProvisioningTemplateCommandOutput) => void
   ): void;
 
@@ -2422,7 +2434,7 @@ export interface IoT {
    */
   createProvisioningTemplateVersion(
     args: CreateProvisioningTemplateVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateProvisioningTemplateVersionCommandOutput>;
   createProvisioningTemplateVersion(
     args: CreateProvisioningTemplateVersionCommandInput,
@@ -2430,7 +2442,7 @@ export interface IoT {
   ): void;
   createProvisioningTemplateVersion(
     args: CreateProvisioningTemplateVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateProvisioningTemplateVersionCommandOutput) => void
   ): void;
 
@@ -2439,7 +2451,7 @@ export interface IoT {
    */
   createRoleAlias(
     args: CreateRoleAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateRoleAliasCommandOutput>;
   createRoleAlias(
     args: CreateRoleAliasCommandInput,
@@ -2447,7 +2459,7 @@ export interface IoT {
   ): void;
   createRoleAlias(
     args: CreateRoleAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateRoleAliasCommandOutput) => void
   ): void;
 
@@ -2456,7 +2468,7 @@ export interface IoT {
    */
   createScheduledAudit(
     args: CreateScheduledAuditCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateScheduledAuditCommandOutput>;
   createScheduledAudit(
     args: CreateScheduledAuditCommandInput,
@@ -2464,7 +2476,7 @@ export interface IoT {
   ): void;
   createScheduledAudit(
     args: CreateScheduledAuditCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateScheduledAuditCommandOutput) => void
   ): void;
 
@@ -2473,7 +2485,7 @@ export interface IoT {
    */
   createSecurityProfile(
     args: CreateSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateSecurityProfileCommandOutput>;
   createSecurityProfile(
     args: CreateSecurityProfileCommandInput,
@@ -2481,7 +2493,7 @@ export interface IoT {
   ): void;
   createSecurityProfile(
     args: CreateSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateSecurityProfileCommandOutput) => void
   ): void;
 
@@ -2490,7 +2502,7 @@ export interface IoT {
    */
   createStream(
     args: CreateStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateStreamCommandOutput>;
   createStream(
     args: CreateStreamCommandInput,
@@ -2498,7 +2510,7 @@ export interface IoT {
   ): void;
   createStream(
     args: CreateStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateStreamCommandOutput) => void
   ): void;
 
@@ -2507,7 +2519,7 @@ export interface IoT {
    */
   createThing(
     args: CreateThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateThingCommandOutput>;
   createThing(
     args: CreateThingCommandInput,
@@ -2515,7 +2527,7 @@ export interface IoT {
   ): void;
   createThing(
     args: CreateThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateThingCommandOutput) => void
   ): void;
 
@@ -2524,7 +2536,7 @@ export interface IoT {
    */
   createThingGroup(
     args: CreateThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateThingGroupCommandOutput>;
   createThingGroup(
     args: CreateThingGroupCommandInput,
@@ -2532,7 +2544,7 @@ export interface IoT {
   ): void;
   createThingGroup(
     args: CreateThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateThingGroupCommandOutput) => void
   ): void;
 
@@ -2541,7 +2553,7 @@ export interface IoT {
    */
   createThingType(
     args: CreateThingTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateThingTypeCommandOutput>;
   createThingType(
     args: CreateThingTypeCommandInput,
@@ -2549,7 +2561,7 @@ export interface IoT {
   ): void;
   createThingType(
     args: CreateThingTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateThingTypeCommandOutput) => void
   ): void;
 
@@ -2558,7 +2570,7 @@ export interface IoT {
    */
   createTopicRule(
     args: CreateTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateTopicRuleCommandOutput>;
   createTopicRule(
     args: CreateTopicRuleCommandInput,
@@ -2566,7 +2578,7 @@ export interface IoT {
   ): void;
   createTopicRule(
     args: CreateTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateTopicRuleCommandOutput) => void
   ): void;
 
@@ -2575,7 +2587,7 @@ export interface IoT {
    */
   createTopicRuleDestination(
     args: CreateTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<CreateTopicRuleDestinationCommandOutput>;
   createTopicRuleDestination(
     args: CreateTopicRuleDestinationCommandInput,
@@ -2583,7 +2595,7 @@ export interface IoT {
   ): void;
   createTopicRuleDestination(
     args: CreateTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: CreateTopicRuleDestinationCommandOutput) => void
   ): void;
 
@@ -2593,7 +2605,7 @@ export interface IoT {
   deleteAccountAuditConfiguration(): Promise<DeleteAccountAuditConfigurationCommandOutput>;
   deleteAccountAuditConfiguration(
     args: DeleteAccountAuditConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteAccountAuditConfigurationCommandOutput>;
   deleteAccountAuditConfiguration(
     args: DeleteAccountAuditConfigurationCommandInput,
@@ -2601,7 +2613,7 @@ export interface IoT {
   ): void;
   deleteAccountAuditConfiguration(
     args: DeleteAccountAuditConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void
   ): void;
 
@@ -2610,7 +2622,7 @@ export interface IoT {
    */
   deleteAuditSuppression(
     args: DeleteAuditSuppressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteAuditSuppressionCommandOutput>;
   deleteAuditSuppression(
     args: DeleteAuditSuppressionCommandInput,
@@ -2618,7 +2630,7 @@ export interface IoT {
   ): void;
   deleteAuditSuppression(
     args: DeleteAuditSuppressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteAuditSuppressionCommandOutput) => void
   ): void;
 
@@ -2627,7 +2639,7 @@ export interface IoT {
    */
   deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteAuthorizerCommandOutput>;
   deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
@@ -2635,7 +2647,7 @@ export interface IoT {
   ): void;
   deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteAuthorizerCommandOutput) => void
   ): void;
 
@@ -2644,7 +2656,7 @@ export interface IoT {
    */
   deleteBillingGroup(
     args: DeleteBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteBillingGroupCommandOutput>;
   deleteBillingGroup(
     args: DeleteBillingGroupCommandInput,
@@ -2652,7 +2664,7 @@ export interface IoT {
   ): void;
   deleteBillingGroup(
     args: DeleteBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteBillingGroupCommandOutput) => void
   ): void;
 
@@ -2661,7 +2673,7 @@ export interface IoT {
    */
   deleteCACertificate(
     args: DeleteCACertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteCACertificateCommandOutput>;
   deleteCACertificate(
     args: DeleteCACertificateCommandInput,
@@ -2669,7 +2681,7 @@ export interface IoT {
   ): void;
   deleteCACertificate(
     args: DeleteCACertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteCACertificateCommandOutput) => void
   ): void;
 
@@ -2678,7 +2690,7 @@ export interface IoT {
    */
   deleteCertificate(
     args: DeleteCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteCertificateCommandOutput>;
   deleteCertificate(
     args: DeleteCertificateCommandInput,
@@ -2686,7 +2698,7 @@ export interface IoT {
   ): void;
   deleteCertificate(
     args: DeleteCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteCertificateCommandOutput) => void
   ): void;
 
@@ -2695,7 +2707,7 @@ export interface IoT {
    */
   deleteCertificateProvider(
     args: DeleteCertificateProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteCertificateProviderCommandOutput>;
   deleteCertificateProvider(
     args: DeleteCertificateProviderCommandInput,
@@ -2703,7 +2715,7 @@ export interface IoT {
   ): void;
   deleteCertificateProvider(
     args: DeleteCertificateProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteCertificateProviderCommandOutput) => void
   ): void;
 
@@ -2712,7 +2724,7 @@ export interface IoT {
    */
   deleteCommand(
     args: DeleteCommandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteCommandCommandOutput>;
   deleteCommand(
     args: DeleteCommandCommandInput,
@@ -2720,7 +2732,7 @@ export interface IoT {
   ): void;
   deleteCommand(
     args: DeleteCommandCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteCommandCommandOutput) => void
   ): void;
 
@@ -2729,7 +2741,7 @@ export interface IoT {
    */
   deleteCommandExecution(
     args: DeleteCommandExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteCommandExecutionCommandOutput>;
   deleteCommandExecution(
     args: DeleteCommandExecutionCommandInput,
@@ -2737,7 +2749,7 @@ export interface IoT {
   ): void;
   deleteCommandExecution(
     args: DeleteCommandExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteCommandExecutionCommandOutput) => void
   ): void;
 
@@ -2746,7 +2758,7 @@ export interface IoT {
    */
   deleteCustomMetric(
     args: DeleteCustomMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteCustomMetricCommandOutput>;
   deleteCustomMetric(
     args: DeleteCustomMetricCommandInput,
@@ -2754,7 +2766,7 @@ export interface IoT {
   ): void;
   deleteCustomMetric(
     args: DeleteCustomMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteCustomMetricCommandOutput) => void
   ): void;
 
@@ -2763,7 +2775,7 @@ export interface IoT {
    */
   deleteDimension(
     args: DeleteDimensionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteDimensionCommandOutput>;
   deleteDimension(
     args: DeleteDimensionCommandInput,
@@ -2771,7 +2783,7 @@ export interface IoT {
   ): void;
   deleteDimension(
     args: DeleteDimensionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteDimensionCommandOutput) => void
   ): void;
 
@@ -2780,7 +2792,7 @@ export interface IoT {
    */
   deleteDomainConfiguration(
     args: DeleteDomainConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteDomainConfigurationCommandOutput>;
   deleteDomainConfiguration(
     args: DeleteDomainConfigurationCommandInput,
@@ -2788,7 +2800,7 @@ export interface IoT {
   ): void;
   deleteDomainConfiguration(
     args: DeleteDomainConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteDomainConfigurationCommandOutput) => void
   ): void;
 
@@ -2797,7 +2809,7 @@ export interface IoT {
    */
   deleteDynamicThingGroup(
     args: DeleteDynamicThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteDynamicThingGroupCommandOutput>;
   deleteDynamicThingGroup(
     args: DeleteDynamicThingGroupCommandInput,
@@ -2805,7 +2817,7 @@ export interface IoT {
   ): void;
   deleteDynamicThingGroup(
     args: DeleteDynamicThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteDynamicThingGroupCommandOutput) => void
   ): void;
 
@@ -2814,7 +2826,7 @@ export interface IoT {
    */
   deleteFleetMetric(
     args: DeleteFleetMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteFleetMetricCommandOutput>;
   deleteFleetMetric(
     args: DeleteFleetMetricCommandInput,
@@ -2822,7 +2834,7 @@ export interface IoT {
   ): void;
   deleteFleetMetric(
     args: DeleteFleetMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteFleetMetricCommandOutput) => void
   ): void;
 
@@ -2831,7 +2843,7 @@ export interface IoT {
    */
   deleteJob(
     args: DeleteJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteJobCommandOutput>;
   deleteJob(
     args: DeleteJobCommandInput,
@@ -2839,7 +2851,7 @@ export interface IoT {
   ): void;
   deleteJob(
     args: DeleteJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteJobCommandOutput) => void
   ): void;
 
@@ -2848,7 +2860,7 @@ export interface IoT {
    */
   deleteJobExecution(
     args: DeleteJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteJobExecutionCommandOutput>;
   deleteJobExecution(
     args: DeleteJobExecutionCommandInput,
@@ -2856,7 +2868,7 @@ export interface IoT {
   ): void;
   deleteJobExecution(
     args: DeleteJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteJobExecutionCommandOutput) => void
   ): void;
 
@@ -2865,7 +2877,7 @@ export interface IoT {
    */
   deleteJobTemplate(
     args: DeleteJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteJobTemplateCommandOutput>;
   deleteJobTemplate(
     args: DeleteJobTemplateCommandInput,
@@ -2873,7 +2885,7 @@ export interface IoT {
   ): void;
   deleteJobTemplate(
     args: DeleteJobTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteJobTemplateCommandOutput) => void
   ): void;
 
@@ -2882,7 +2894,7 @@ export interface IoT {
    */
   deleteMitigationAction(
     args: DeleteMitigationActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteMitigationActionCommandOutput>;
   deleteMitigationAction(
     args: DeleteMitigationActionCommandInput,
@@ -2890,7 +2902,7 @@ export interface IoT {
   ): void;
   deleteMitigationAction(
     args: DeleteMitigationActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteMitigationActionCommandOutput) => void
   ): void;
 
@@ -2899,7 +2911,7 @@ export interface IoT {
    */
   deleteOTAUpdate(
     args: DeleteOTAUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteOTAUpdateCommandOutput>;
   deleteOTAUpdate(
     args: DeleteOTAUpdateCommandInput,
@@ -2907,7 +2919,7 @@ export interface IoT {
   ): void;
   deleteOTAUpdate(
     args: DeleteOTAUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteOTAUpdateCommandOutput) => void
   ): void;
 
@@ -2916,7 +2928,7 @@ export interface IoT {
    */
   deletePackage(
     args: DeletePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeletePackageCommandOutput>;
   deletePackage(
     args: DeletePackageCommandInput,
@@ -2924,7 +2936,7 @@ export interface IoT {
   ): void;
   deletePackage(
     args: DeletePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeletePackageCommandOutput) => void
   ): void;
 
@@ -2933,7 +2945,7 @@ export interface IoT {
    */
   deletePackageVersion(
     args: DeletePackageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeletePackageVersionCommandOutput>;
   deletePackageVersion(
     args: DeletePackageVersionCommandInput,
@@ -2941,7 +2953,7 @@ export interface IoT {
   ): void;
   deletePackageVersion(
     args: DeletePackageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeletePackageVersionCommandOutput) => void
   ): void;
 
@@ -2950,7 +2962,7 @@ export interface IoT {
    */
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeletePolicyCommandOutput>;
   deletePolicy(
     args: DeletePolicyCommandInput,
@@ -2958,7 +2970,7 @@ export interface IoT {
   ): void;
   deletePolicy(
     args: DeletePolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeletePolicyCommandOutput) => void
   ): void;
 
@@ -2967,7 +2979,7 @@ export interface IoT {
    */
   deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeletePolicyVersionCommandOutput>;
   deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
@@ -2975,7 +2987,7 @@ export interface IoT {
   ): void;
   deletePolicyVersion(
     args: DeletePolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeletePolicyVersionCommandOutput) => void
   ): void;
 
@@ -2984,7 +2996,7 @@ export interface IoT {
    */
   deleteProvisioningTemplate(
     args: DeleteProvisioningTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteProvisioningTemplateCommandOutput>;
   deleteProvisioningTemplate(
     args: DeleteProvisioningTemplateCommandInput,
@@ -2992,7 +3004,7 @@ export interface IoT {
   ): void;
   deleteProvisioningTemplate(
     args: DeleteProvisioningTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteProvisioningTemplateCommandOutput) => void
   ): void;
 
@@ -3001,7 +3013,7 @@ export interface IoT {
    */
   deleteProvisioningTemplateVersion(
     args: DeleteProvisioningTemplateVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteProvisioningTemplateVersionCommandOutput>;
   deleteProvisioningTemplateVersion(
     args: DeleteProvisioningTemplateVersionCommandInput,
@@ -3009,7 +3021,7 @@ export interface IoT {
   ): void;
   deleteProvisioningTemplateVersion(
     args: DeleteProvisioningTemplateVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteProvisioningTemplateVersionCommandOutput) => void
   ): void;
 
@@ -3019,7 +3031,7 @@ export interface IoT {
   deleteRegistrationCode(): Promise<DeleteRegistrationCodeCommandOutput>;
   deleteRegistrationCode(
     args: DeleteRegistrationCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteRegistrationCodeCommandOutput>;
   deleteRegistrationCode(
     args: DeleteRegistrationCodeCommandInput,
@@ -3027,7 +3039,7 @@ export interface IoT {
   ): void;
   deleteRegistrationCode(
     args: DeleteRegistrationCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteRegistrationCodeCommandOutput) => void
   ): void;
 
@@ -3036,7 +3048,7 @@ export interface IoT {
    */
   deleteRoleAlias(
     args: DeleteRoleAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteRoleAliasCommandOutput>;
   deleteRoleAlias(
     args: DeleteRoleAliasCommandInput,
@@ -3044,7 +3056,7 @@ export interface IoT {
   ): void;
   deleteRoleAlias(
     args: DeleteRoleAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteRoleAliasCommandOutput) => void
   ): void;
 
@@ -3053,7 +3065,7 @@ export interface IoT {
    */
   deleteScheduledAudit(
     args: DeleteScheduledAuditCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteScheduledAuditCommandOutput>;
   deleteScheduledAudit(
     args: DeleteScheduledAuditCommandInput,
@@ -3061,7 +3073,7 @@ export interface IoT {
   ): void;
   deleteScheduledAudit(
     args: DeleteScheduledAuditCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteScheduledAuditCommandOutput) => void
   ): void;
 
@@ -3070,7 +3082,7 @@ export interface IoT {
    */
   deleteSecurityProfile(
     args: DeleteSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteSecurityProfileCommandOutput>;
   deleteSecurityProfile(
     args: DeleteSecurityProfileCommandInput,
@@ -3078,7 +3090,7 @@ export interface IoT {
   ): void;
   deleteSecurityProfile(
     args: DeleteSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
   ): void;
 
@@ -3087,7 +3099,7 @@ export interface IoT {
    */
   deleteStream(
     args: DeleteStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteStreamCommandOutput>;
   deleteStream(
     args: DeleteStreamCommandInput,
@@ -3095,7 +3107,7 @@ export interface IoT {
   ): void;
   deleteStream(
     args: DeleteStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteStreamCommandOutput) => void
   ): void;
 
@@ -3104,7 +3116,7 @@ export interface IoT {
    */
   deleteThing(
     args: DeleteThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteThingCommandOutput>;
   deleteThing(
     args: DeleteThingCommandInput,
@@ -3112,7 +3124,7 @@ export interface IoT {
   ): void;
   deleteThing(
     args: DeleteThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteThingCommandOutput) => void
   ): void;
 
@@ -3121,7 +3133,7 @@ export interface IoT {
    */
   deleteThingGroup(
     args: DeleteThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteThingGroupCommandOutput>;
   deleteThingGroup(
     args: DeleteThingGroupCommandInput,
@@ -3129,7 +3141,7 @@ export interface IoT {
   ): void;
   deleteThingGroup(
     args: DeleteThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteThingGroupCommandOutput) => void
   ): void;
 
@@ -3138,7 +3150,7 @@ export interface IoT {
    */
   deleteThingType(
     args: DeleteThingTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteThingTypeCommandOutput>;
   deleteThingType(
     args: DeleteThingTypeCommandInput,
@@ -3146,7 +3158,7 @@ export interface IoT {
   ): void;
   deleteThingType(
     args: DeleteThingTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteThingTypeCommandOutput) => void
   ): void;
 
@@ -3155,7 +3167,7 @@ export interface IoT {
    */
   deleteTopicRule(
     args: DeleteTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteTopicRuleCommandOutput>;
   deleteTopicRule(
     args: DeleteTopicRuleCommandInput,
@@ -3163,7 +3175,7 @@ export interface IoT {
   ): void;
   deleteTopicRule(
     args: DeleteTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteTopicRuleCommandOutput) => void
   ): void;
 
@@ -3172,7 +3184,7 @@ export interface IoT {
    */
   deleteTopicRuleDestination(
     args: DeleteTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteTopicRuleDestinationCommandOutput>;
   deleteTopicRuleDestination(
     args: DeleteTopicRuleDestinationCommandInput,
@@ -3180,7 +3192,7 @@ export interface IoT {
   ): void;
   deleteTopicRuleDestination(
     args: DeleteTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteTopicRuleDestinationCommandOutput) => void
   ): void;
 
@@ -3189,7 +3201,7 @@ export interface IoT {
    */
   deleteV2LoggingLevel(
     args: DeleteV2LoggingLevelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeleteV2LoggingLevelCommandOutput>;
   deleteV2LoggingLevel(
     args: DeleteV2LoggingLevelCommandInput,
@@ -3197,7 +3209,7 @@ export interface IoT {
   ): void;
   deleteV2LoggingLevel(
     args: DeleteV2LoggingLevelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeleteV2LoggingLevelCommandOutput) => void
   ): void;
 
@@ -3206,7 +3218,7 @@ export interface IoT {
    */
   deprecateThingType(
     args: DeprecateThingTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DeprecateThingTypeCommandOutput>;
   deprecateThingType(
     args: DeprecateThingTypeCommandInput,
@@ -3214,7 +3226,7 @@ export interface IoT {
   ): void;
   deprecateThingType(
     args: DeprecateThingTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DeprecateThingTypeCommandOutput) => void
   ): void;
 
@@ -3224,7 +3236,7 @@ export interface IoT {
   describeAccountAuditConfiguration(): Promise<DescribeAccountAuditConfigurationCommandOutput>;
   describeAccountAuditConfiguration(
     args: DescribeAccountAuditConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeAccountAuditConfigurationCommandOutput>;
   describeAccountAuditConfiguration(
     args: DescribeAccountAuditConfigurationCommandInput,
@@ -3232,7 +3244,7 @@ export interface IoT {
   ): void;
   describeAccountAuditConfiguration(
     args: DescribeAccountAuditConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeAccountAuditConfigurationCommandOutput) => void
   ): void;
 
@@ -3241,7 +3253,7 @@ export interface IoT {
    */
   describeAuditFinding(
     args: DescribeAuditFindingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeAuditFindingCommandOutput>;
   describeAuditFinding(
     args: DescribeAuditFindingCommandInput,
@@ -3249,7 +3261,7 @@ export interface IoT {
   ): void;
   describeAuditFinding(
     args: DescribeAuditFindingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeAuditFindingCommandOutput) => void
   ): void;
 
@@ -3258,7 +3270,7 @@ export interface IoT {
    */
   describeAuditMitigationActionsTask(
     args: DescribeAuditMitigationActionsTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeAuditMitigationActionsTaskCommandOutput>;
   describeAuditMitigationActionsTask(
     args: DescribeAuditMitigationActionsTaskCommandInput,
@@ -3266,7 +3278,7 @@ export interface IoT {
   ): void;
   describeAuditMitigationActionsTask(
     args: DescribeAuditMitigationActionsTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeAuditMitigationActionsTaskCommandOutput) => void
   ): void;
 
@@ -3275,7 +3287,7 @@ export interface IoT {
    */
   describeAuditSuppression(
     args: DescribeAuditSuppressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeAuditSuppressionCommandOutput>;
   describeAuditSuppression(
     args: DescribeAuditSuppressionCommandInput,
@@ -3283,7 +3295,7 @@ export interface IoT {
   ): void;
   describeAuditSuppression(
     args: DescribeAuditSuppressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeAuditSuppressionCommandOutput) => void
   ): void;
 
@@ -3292,7 +3304,7 @@ export interface IoT {
    */
   describeAuditTask(
     args: DescribeAuditTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeAuditTaskCommandOutput>;
   describeAuditTask(
     args: DescribeAuditTaskCommandInput,
@@ -3300,7 +3312,7 @@ export interface IoT {
   ): void;
   describeAuditTask(
     args: DescribeAuditTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeAuditTaskCommandOutput) => void
   ): void;
 
@@ -3309,7 +3321,7 @@ export interface IoT {
    */
   describeAuthorizer(
     args: DescribeAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeAuthorizerCommandOutput>;
   describeAuthorizer(
     args: DescribeAuthorizerCommandInput,
@@ -3317,7 +3329,7 @@ export interface IoT {
   ): void;
   describeAuthorizer(
     args: DescribeAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeAuthorizerCommandOutput) => void
   ): void;
 
@@ -3326,7 +3338,7 @@ export interface IoT {
    */
   describeBillingGroup(
     args: DescribeBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeBillingGroupCommandOutput>;
   describeBillingGroup(
     args: DescribeBillingGroupCommandInput,
@@ -3334,7 +3346,7 @@ export interface IoT {
   ): void;
   describeBillingGroup(
     args: DescribeBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeBillingGroupCommandOutput) => void
   ): void;
 
@@ -3343,7 +3355,7 @@ export interface IoT {
    */
   describeCACertificate(
     args: DescribeCACertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeCACertificateCommandOutput>;
   describeCACertificate(
     args: DescribeCACertificateCommandInput,
@@ -3351,7 +3363,7 @@ export interface IoT {
   ): void;
   describeCACertificate(
     args: DescribeCACertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeCACertificateCommandOutput) => void
   ): void;
 
@@ -3360,7 +3372,7 @@ export interface IoT {
    */
   describeCertificate(
     args: DescribeCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeCertificateCommandOutput>;
   describeCertificate(
     args: DescribeCertificateCommandInput,
@@ -3368,7 +3380,7 @@ export interface IoT {
   ): void;
   describeCertificate(
     args: DescribeCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeCertificateCommandOutput) => void
   ): void;
 
@@ -3377,7 +3389,7 @@ export interface IoT {
    */
   describeCertificateProvider(
     args: DescribeCertificateProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeCertificateProviderCommandOutput>;
   describeCertificateProvider(
     args: DescribeCertificateProviderCommandInput,
@@ -3385,7 +3397,7 @@ export interface IoT {
   ): void;
   describeCertificateProvider(
     args: DescribeCertificateProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeCertificateProviderCommandOutput) => void
   ): void;
 
@@ -3394,7 +3406,7 @@ export interface IoT {
    */
   describeCustomMetric(
     args: DescribeCustomMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeCustomMetricCommandOutput>;
   describeCustomMetric(
     args: DescribeCustomMetricCommandInput,
@@ -3402,7 +3414,7 @@ export interface IoT {
   ): void;
   describeCustomMetric(
     args: DescribeCustomMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeCustomMetricCommandOutput) => void
   ): void;
 
@@ -3412,7 +3424,7 @@ export interface IoT {
   describeDefaultAuthorizer(): Promise<DescribeDefaultAuthorizerCommandOutput>;
   describeDefaultAuthorizer(
     args: DescribeDefaultAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeDefaultAuthorizerCommandOutput>;
   describeDefaultAuthorizer(
     args: DescribeDefaultAuthorizerCommandInput,
@@ -3420,7 +3432,7 @@ export interface IoT {
   ): void;
   describeDefaultAuthorizer(
     args: DescribeDefaultAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeDefaultAuthorizerCommandOutput) => void
   ): void;
 
@@ -3429,7 +3441,7 @@ export interface IoT {
    */
   describeDetectMitigationActionsTask(
     args: DescribeDetectMitigationActionsTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeDetectMitigationActionsTaskCommandOutput>;
   describeDetectMitigationActionsTask(
     args: DescribeDetectMitigationActionsTaskCommandInput,
@@ -3437,7 +3449,7 @@ export interface IoT {
   ): void;
   describeDetectMitigationActionsTask(
     args: DescribeDetectMitigationActionsTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeDetectMitigationActionsTaskCommandOutput) => void
   ): void;
 
@@ -3446,7 +3458,7 @@ export interface IoT {
    */
   describeDimension(
     args: DescribeDimensionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeDimensionCommandOutput>;
   describeDimension(
     args: DescribeDimensionCommandInput,
@@ -3454,7 +3466,7 @@ export interface IoT {
   ): void;
   describeDimension(
     args: DescribeDimensionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeDimensionCommandOutput) => void
   ): void;
 
@@ -3463,7 +3475,7 @@ export interface IoT {
    */
   describeDomainConfiguration(
     args: DescribeDomainConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeDomainConfigurationCommandOutput>;
   describeDomainConfiguration(
     args: DescribeDomainConfigurationCommandInput,
@@ -3471,7 +3483,7 @@ export interface IoT {
   ): void;
   describeDomainConfiguration(
     args: DescribeDomainConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeDomainConfigurationCommandOutput) => void
   ): void;
 
@@ -3481,7 +3493,7 @@ export interface IoT {
   describeEncryptionConfiguration(): Promise<DescribeEncryptionConfigurationCommandOutput>;
   describeEncryptionConfiguration(
     args: DescribeEncryptionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeEncryptionConfigurationCommandOutput>;
   describeEncryptionConfiguration(
     args: DescribeEncryptionConfigurationCommandInput,
@@ -3489,7 +3501,7 @@ export interface IoT {
   ): void;
   describeEncryptionConfiguration(
     args: DescribeEncryptionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeEncryptionConfigurationCommandOutput) => void
   ): void;
 
@@ -3499,7 +3511,7 @@ export interface IoT {
   describeEndpoint(): Promise<DescribeEndpointCommandOutput>;
   describeEndpoint(
     args: DescribeEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeEndpointCommandOutput>;
   describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -3507,7 +3519,7 @@ export interface IoT {
   ): void;
   describeEndpoint(
     args: DescribeEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): void;
 
@@ -3517,7 +3529,7 @@ export interface IoT {
   describeEventConfigurations(): Promise<DescribeEventConfigurationsCommandOutput>;
   describeEventConfigurations(
     args: DescribeEventConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeEventConfigurationsCommandOutput>;
   describeEventConfigurations(
     args: DescribeEventConfigurationsCommandInput,
@@ -3525,7 +3537,7 @@ export interface IoT {
   ): void;
   describeEventConfigurations(
     args: DescribeEventConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeEventConfigurationsCommandOutput) => void
   ): void;
 
@@ -3534,7 +3546,7 @@ export interface IoT {
    */
   describeFleetMetric(
     args: DescribeFleetMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeFleetMetricCommandOutput>;
   describeFleetMetric(
     args: DescribeFleetMetricCommandInput,
@@ -3542,7 +3554,7 @@ export interface IoT {
   ): void;
   describeFleetMetric(
     args: DescribeFleetMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeFleetMetricCommandOutput) => void
   ): void;
 
@@ -3551,7 +3563,7 @@ export interface IoT {
    */
   describeIndex(
     args: DescribeIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeIndexCommandOutput>;
   describeIndex(
     args: DescribeIndexCommandInput,
@@ -3559,7 +3571,7 @@ export interface IoT {
   ): void;
   describeIndex(
     args: DescribeIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeIndexCommandOutput) => void
   ): void;
 
@@ -3568,7 +3580,7 @@ export interface IoT {
    */
   describeJob(
     args: DescribeJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeJobCommandOutput>;
   describeJob(
     args: DescribeJobCommandInput,
@@ -3576,7 +3588,7 @@ export interface IoT {
   ): void;
   describeJob(
     args: DescribeJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeJobCommandOutput) => void
   ): void;
 
@@ -3585,7 +3597,7 @@ export interface IoT {
    */
   describeJobExecution(
     args: DescribeJobExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeJobExecutionCommandOutput>;
   describeJobExecution(
     args: DescribeJobExecutionCommandInput,
@@ -3593,7 +3605,7 @@ export interface IoT {
   ): void;
   describeJobExecution(
     args: DescribeJobExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeJobExecutionCommandOutput) => void
   ): void;
 
@@ -3602,7 +3614,7 @@ export interface IoT {
    */
   describeJobTemplate(
     args: DescribeJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeJobTemplateCommandOutput>;
   describeJobTemplate(
     args: DescribeJobTemplateCommandInput,
@@ -3610,7 +3622,7 @@ export interface IoT {
   ): void;
   describeJobTemplate(
     args: DescribeJobTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeJobTemplateCommandOutput) => void
   ): void;
 
@@ -3619,7 +3631,7 @@ export interface IoT {
    */
   describeManagedJobTemplate(
     args: DescribeManagedJobTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeManagedJobTemplateCommandOutput>;
   describeManagedJobTemplate(
     args: DescribeManagedJobTemplateCommandInput,
@@ -3627,7 +3639,7 @@ export interface IoT {
   ): void;
   describeManagedJobTemplate(
     args: DescribeManagedJobTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeManagedJobTemplateCommandOutput) => void
   ): void;
 
@@ -3636,7 +3648,7 @@ export interface IoT {
    */
   describeMitigationAction(
     args: DescribeMitigationActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeMitigationActionCommandOutput>;
   describeMitigationAction(
     args: DescribeMitigationActionCommandInput,
@@ -3644,7 +3656,7 @@ export interface IoT {
   ): void;
   describeMitigationAction(
     args: DescribeMitigationActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeMitigationActionCommandOutput) => void
   ): void;
 
@@ -3653,7 +3665,7 @@ export interface IoT {
    */
   describeProvisioningTemplate(
     args: DescribeProvisioningTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeProvisioningTemplateCommandOutput>;
   describeProvisioningTemplate(
     args: DescribeProvisioningTemplateCommandInput,
@@ -3661,7 +3673,7 @@ export interface IoT {
   ): void;
   describeProvisioningTemplate(
     args: DescribeProvisioningTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeProvisioningTemplateCommandOutput) => void
   ): void;
 
@@ -3670,7 +3682,7 @@ export interface IoT {
    */
   describeProvisioningTemplateVersion(
     args: DescribeProvisioningTemplateVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeProvisioningTemplateVersionCommandOutput>;
   describeProvisioningTemplateVersion(
     args: DescribeProvisioningTemplateVersionCommandInput,
@@ -3678,7 +3690,7 @@ export interface IoT {
   ): void;
   describeProvisioningTemplateVersion(
     args: DescribeProvisioningTemplateVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeProvisioningTemplateVersionCommandOutput) => void
   ): void;
 
@@ -3687,7 +3699,7 @@ export interface IoT {
    */
   describeRoleAlias(
     args: DescribeRoleAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeRoleAliasCommandOutput>;
   describeRoleAlias(
     args: DescribeRoleAliasCommandInput,
@@ -3695,7 +3707,7 @@ export interface IoT {
   ): void;
   describeRoleAlias(
     args: DescribeRoleAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeRoleAliasCommandOutput) => void
   ): void;
 
@@ -3704,7 +3716,7 @@ export interface IoT {
    */
   describeScheduledAudit(
     args: DescribeScheduledAuditCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeScheduledAuditCommandOutput>;
   describeScheduledAudit(
     args: DescribeScheduledAuditCommandInput,
@@ -3712,7 +3724,7 @@ export interface IoT {
   ): void;
   describeScheduledAudit(
     args: DescribeScheduledAuditCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeScheduledAuditCommandOutput) => void
   ): void;
 
@@ -3721,7 +3733,7 @@ export interface IoT {
    */
   describeSecurityProfile(
     args: DescribeSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeSecurityProfileCommandOutput>;
   describeSecurityProfile(
     args: DescribeSecurityProfileCommandInput,
@@ -3729,7 +3741,7 @@ export interface IoT {
   ): void;
   describeSecurityProfile(
     args: DescribeSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
   ): void;
 
@@ -3738,7 +3750,7 @@ export interface IoT {
    */
   describeStream(
     args: DescribeStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeStreamCommandOutput>;
   describeStream(
     args: DescribeStreamCommandInput,
@@ -3746,7 +3758,7 @@ export interface IoT {
   ): void;
   describeStream(
     args: DescribeStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeStreamCommandOutput) => void
   ): void;
 
@@ -3755,7 +3767,7 @@ export interface IoT {
    */
   describeThing(
     args: DescribeThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeThingCommandOutput>;
   describeThing(
     args: DescribeThingCommandInput,
@@ -3763,7 +3775,7 @@ export interface IoT {
   ): void;
   describeThing(
     args: DescribeThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeThingCommandOutput) => void
   ): void;
 
@@ -3772,7 +3784,7 @@ export interface IoT {
    */
   describeThingGroup(
     args: DescribeThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeThingGroupCommandOutput>;
   describeThingGroup(
     args: DescribeThingGroupCommandInput,
@@ -3780,7 +3792,7 @@ export interface IoT {
   ): void;
   describeThingGroup(
     args: DescribeThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeThingGroupCommandOutput) => void
   ): void;
 
@@ -3789,7 +3801,7 @@ export interface IoT {
    */
   describeThingRegistrationTask(
     args: DescribeThingRegistrationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeThingRegistrationTaskCommandOutput>;
   describeThingRegistrationTask(
     args: DescribeThingRegistrationTaskCommandInput,
@@ -3797,7 +3809,7 @@ export interface IoT {
   ): void;
   describeThingRegistrationTask(
     args: DescribeThingRegistrationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeThingRegistrationTaskCommandOutput) => void
   ): void;
 
@@ -3806,7 +3818,7 @@ export interface IoT {
    */
   describeThingType(
     args: DescribeThingTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DescribeThingTypeCommandOutput>;
   describeThingType(
     args: DescribeThingTypeCommandInput,
@@ -3814,7 +3826,7 @@ export interface IoT {
   ): void;
   describeThingType(
     args: DescribeThingTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DescribeThingTypeCommandOutput) => void
   ): void;
 
@@ -3823,7 +3835,7 @@ export interface IoT {
    */
   detachPolicy(
     args: DetachPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DetachPolicyCommandOutput>;
   detachPolicy(
     args: DetachPolicyCommandInput,
@@ -3831,7 +3843,7 @@ export interface IoT {
   ): void;
   detachPolicy(
     args: DetachPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DetachPolicyCommandOutput) => void
   ): void;
 
@@ -3840,7 +3852,7 @@ export interface IoT {
    */
   detachPrincipalPolicy(
     args: DetachPrincipalPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DetachPrincipalPolicyCommandOutput>;
   detachPrincipalPolicy(
     args: DetachPrincipalPolicyCommandInput,
@@ -3848,7 +3860,7 @@ export interface IoT {
   ): void;
   detachPrincipalPolicy(
     args: DetachPrincipalPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DetachPrincipalPolicyCommandOutput) => void
   ): void;
 
@@ -3857,7 +3869,7 @@ export interface IoT {
    */
   detachSecurityProfile(
     args: DetachSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DetachSecurityProfileCommandOutput>;
   detachSecurityProfile(
     args: DetachSecurityProfileCommandInput,
@@ -3865,7 +3877,7 @@ export interface IoT {
   ): void;
   detachSecurityProfile(
     args: DetachSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DetachSecurityProfileCommandOutput) => void
   ): void;
 
@@ -3874,7 +3886,7 @@ export interface IoT {
    */
   detachThingPrincipal(
     args: DetachThingPrincipalCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DetachThingPrincipalCommandOutput>;
   detachThingPrincipal(
     args: DetachThingPrincipalCommandInput,
@@ -3882,7 +3894,7 @@ export interface IoT {
   ): void;
   detachThingPrincipal(
     args: DetachThingPrincipalCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DetachThingPrincipalCommandOutput) => void
   ): void;
 
@@ -3891,7 +3903,7 @@ export interface IoT {
    */
   disableTopicRule(
     args: DisableTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DisableTopicRuleCommandOutput>;
   disableTopicRule(
     args: DisableTopicRuleCommandInput,
@@ -3899,7 +3911,7 @@ export interface IoT {
   ): void;
   disableTopicRule(
     args: DisableTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DisableTopicRuleCommandOutput) => void
   ): void;
 
@@ -3908,7 +3920,7 @@ export interface IoT {
    */
   disassociateSbomFromPackageVersion(
     args: DisassociateSbomFromPackageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<DisassociateSbomFromPackageVersionCommandOutput>;
   disassociateSbomFromPackageVersion(
     args: DisassociateSbomFromPackageVersionCommandInput,
@@ -3916,7 +3928,7 @@ export interface IoT {
   ): void;
   disassociateSbomFromPackageVersion(
     args: DisassociateSbomFromPackageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: DisassociateSbomFromPackageVersionCommandOutput) => void
   ): void;
 
@@ -3925,7 +3937,7 @@ export interface IoT {
    */
   enableTopicRule(
     args: EnableTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<EnableTopicRuleCommandOutput>;
   enableTopicRule(
     args: EnableTopicRuleCommandInput,
@@ -3933,7 +3945,7 @@ export interface IoT {
   ): void;
   enableTopicRule(
     args: EnableTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: EnableTopicRuleCommandOutput) => void
   ): void;
 
@@ -3943,7 +3955,7 @@ export interface IoT {
   getBehaviorModelTrainingSummaries(): Promise<GetBehaviorModelTrainingSummariesCommandOutput>;
   getBehaviorModelTrainingSummaries(
     args: GetBehaviorModelTrainingSummariesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetBehaviorModelTrainingSummariesCommandOutput>;
   getBehaviorModelTrainingSummaries(
     args: GetBehaviorModelTrainingSummariesCommandInput,
@@ -3951,7 +3963,7 @@ export interface IoT {
   ): void;
   getBehaviorModelTrainingSummaries(
     args: GetBehaviorModelTrainingSummariesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetBehaviorModelTrainingSummariesCommandOutput) => void
   ): void;
 
@@ -3960,7 +3972,7 @@ export interface IoT {
    */
   getBucketsAggregation(
     args: GetBucketsAggregationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetBucketsAggregationCommandOutput>;
   getBucketsAggregation(
     args: GetBucketsAggregationCommandInput,
@@ -3968,7 +3980,7 @@ export interface IoT {
   ): void;
   getBucketsAggregation(
     args: GetBucketsAggregationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetBucketsAggregationCommandOutput) => void
   ): void;
 
@@ -3977,7 +3989,7 @@ export interface IoT {
    */
   getCardinality(
     args: GetCardinalityCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetCardinalityCommandOutput>;
   getCardinality(
     args: GetCardinalityCommandInput,
@@ -3985,7 +3997,7 @@ export interface IoT {
   ): void;
   getCardinality(
     args: GetCardinalityCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetCardinalityCommandOutput) => void
   ): void;
 
@@ -3994,7 +4006,7 @@ export interface IoT {
    */
   getCommand(
     args: GetCommandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetCommandCommandOutput>;
   getCommand(
     args: GetCommandCommandInput,
@@ -4002,7 +4014,7 @@ export interface IoT {
   ): void;
   getCommand(
     args: GetCommandCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetCommandCommandOutput) => void
   ): void;
 
@@ -4011,7 +4023,7 @@ export interface IoT {
    */
   getCommandExecution(
     args: GetCommandExecutionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetCommandExecutionCommandOutput>;
   getCommandExecution(
     args: GetCommandExecutionCommandInput,
@@ -4019,7 +4031,7 @@ export interface IoT {
   ): void;
   getCommandExecution(
     args: GetCommandExecutionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetCommandExecutionCommandOutput) => void
   ): void;
 
@@ -4029,7 +4041,7 @@ export interface IoT {
   getEffectivePolicies(): Promise<GetEffectivePoliciesCommandOutput>;
   getEffectivePolicies(
     args: GetEffectivePoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetEffectivePoliciesCommandOutput>;
   getEffectivePolicies(
     args: GetEffectivePoliciesCommandInput,
@@ -4037,7 +4049,7 @@ export interface IoT {
   ): void;
   getEffectivePolicies(
     args: GetEffectivePoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetEffectivePoliciesCommandOutput) => void
   ): void;
 
@@ -4047,7 +4059,7 @@ export interface IoT {
   getIndexingConfiguration(): Promise<GetIndexingConfigurationCommandOutput>;
   getIndexingConfiguration(
     args: GetIndexingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetIndexingConfigurationCommandOutput>;
   getIndexingConfiguration(
     args: GetIndexingConfigurationCommandInput,
@@ -4055,7 +4067,7 @@ export interface IoT {
   ): void;
   getIndexingConfiguration(
     args: GetIndexingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetIndexingConfigurationCommandOutput) => void
   ): void;
 
@@ -4064,7 +4076,7 @@ export interface IoT {
    */
   getJobDocument(
     args: GetJobDocumentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetJobDocumentCommandOutput>;
   getJobDocument(
     args: GetJobDocumentCommandInput,
@@ -4072,7 +4084,7 @@ export interface IoT {
   ): void;
   getJobDocument(
     args: GetJobDocumentCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetJobDocumentCommandOutput) => void
   ): void;
 
@@ -4082,7 +4094,7 @@ export interface IoT {
   getLoggingOptions(): Promise<GetLoggingOptionsCommandOutput>;
   getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetLoggingOptionsCommandOutput>;
   getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
@@ -4090,7 +4102,7 @@ export interface IoT {
   ): void;
   getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetLoggingOptionsCommandOutput) => void
   ): void;
 
@@ -4099,7 +4111,7 @@ export interface IoT {
    */
   getOTAUpdate(
     args: GetOTAUpdateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetOTAUpdateCommandOutput>;
   getOTAUpdate(
     args: GetOTAUpdateCommandInput,
@@ -4107,7 +4119,7 @@ export interface IoT {
   ): void;
   getOTAUpdate(
     args: GetOTAUpdateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetOTAUpdateCommandOutput) => void
   ): void;
 
@@ -4116,7 +4128,7 @@ export interface IoT {
    */
   getPackage(
     args: GetPackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetPackageCommandOutput>;
   getPackage(
     args: GetPackageCommandInput,
@@ -4124,7 +4136,7 @@ export interface IoT {
   ): void;
   getPackage(
     args: GetPackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetPackageCommandOutput) => void
   ): void;
 
@@ -4134,7 +4146,7 @@ export interface IoT {
   getPackageConfiguration(): Promise<GetPackageConfigurationCommandOutput>;
   getPackageConfiguration(
     args: GetPackageConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetPackageConfigurationCommandOutput>;
   getPackageConfiguration(
     args: GetPackageConfigurationCommandInput,
@@ -4142,7 +4154,7 @@ export interface IoT {
   ): void;
   getPackageConfiguration(
     args: GetPackageConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetPackageConfigurationCommandOutput) => void
   ): void;
 
@@ -4151,7 +4163,7 @@ export interface IoT {
    */
   getPackageVersion(
     args: GetPackageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetPackageVersionCommandOutput>;
   getPackageVersion(
     args: GetPackageVersionCommandInput,
@@ -4159,7 +4171,7 @@ export interface IoT {
   ): void;
   getPackageVersion(
     args: GetPackageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetPackageVersionCommandOutput) => void
   ): void;
 
@@ -4168,7 +4180,7 @@ export interface IoT {
    */
   getPercentiles(
     args: GetPercentilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetPercentilesCommandOutput>;
   getPercentiles(
     args: GetPercentilesCommandInput,
@@ -4176,7 +4188,7 @@ export interface IoT {
   ): void;
   getPercentiles(
     args: GetPercentilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetPercentilesCommandOutput) => void
   ): void;
 
@@ -4185,7 +4197,7 @@ export interface IoT {
    */
   getPolicy(
     args: GetPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetPolicyCommandOutput>;
   getPolicy(
     args: GetPolicyCommandInput,
@@ -4193,7 +4205,7 @@ export interface IoT {
   ): void;
   getPolicy(
     args: GetPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
@@ -4202,7 +4214,7 @@ export interface IoT {
    */
   getPolicyVersion(
     args: GetPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetPolicyVersionCommandOutput>;
   getPolicyVersion(
     args: GetPolicyVersionCommandInput,
@@ -4210,7 +4222,7 @@ export interface IoT {
   ): void;
   getPolicyVersion(
     args: GetPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetPolicyVersionCommandOutput) => void
   ): void;
 
@@ -4220,7 +4232,7 @@ export interface IoT {
   getRegistrationCode(): Promise<GetRegistrationCodeCommandOutput>;
   getRegistrationCode(
     args: GetRegistrationCodeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetRegistrationCodeCommandOutput>;
   getRegistrationCode(
     args: GetRegistrationCodeCommandInput,
@@ -4228,7 +4240,7 @@ export interface IoT {
   ): void;
   getRegistrationCode(
     args: GetRegistrationCodeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetRegistrationCodeCommandOutput) => void
   ): void;
 
@@ -4237,7 +4249,7 @@ export interface IoT {
    */
   getStatistics(
     args: GetStatisticsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetStatisticsCommandOutput>;
   getStatistics(
     args: GetStatisticsCommandInput,
@@ -4245,7 +4257,7 @@ export interface IoT {
   ): void;
   getStatistics(
     args: GetStatisticsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetStatisticsCommandOutput) => void
   ): void;
 
@@ -4254,7 +4266,7 @@ export interface IoT {
    */
   getThingConnectivityData(
     args: GetThingConnectivityDataCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetThingConnectivityDataCommandOutput>;
   getThingConnectivityData(
     args: GetThingConnectivityDataCommandInput,
@@ -4262,7 +4274,7 @@ export interface IoT {
   ): void;
   getThingConnectivityData(
     args: GetThingConnectivityDataCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetThingConnectivityDataCommandOutput) => void
   ): void;
 
@@ -4271,7 +4283,7 @@ export interface IoT {
    */
   getTopicRule(
     args: GetTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetTopicRuleCommandOutput>;
   getTopicRule(
     args: GetTopicRuleCommandInput,
@@ -4279,7 +4291,7 @@ export interface IoT {
   ): void;
   getTopicRule(
     args: GetTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetTopicRuleCommandOutput) => void
   ): void;
 
@@ -4288,7 +4300,7 @@ export interface IoT {
    */
   getTopicRuleDestination(
     args: GetTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetTopicRuleDestinationCommandOutput>;
   getTopicRuleDestination(
     args: GetTopicRuleDestinationCommandInput,
@@ -4296,7 +4308,7 @@ export interface IoT {
   ): void;
   getTopicRuleDestination(
     args: GetTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetTopicRuleDestinationCommandOutput) => void
   ): void;
 
@@ -4306,7 +4318,7 @@ export interface IoT {
   getV2LoggingOptions(): Promise<GetV2LoggingOptionsCommandOutput>;
   getV2LoggingOptions(
     args: GetV2LoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<GetV2LoggingOptionsCommandOutput>;
   getV2LoggingOptions(
     args: GetV2LoggingOptionsCommandInput,
@@ -4314,7 +4326,7 @@ export interface IoT {
   ): void;
   getV2LoggingOptions(
     args: GetV2LoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: GetV2LoggingOptionsCommandOutput) => void
   ): void;
 
@@ -4324,7 +4336,7 @@ export interface IoT {
   listActiveViolations(): Promise<ListActiveViolationsCommandOutput>;
   listActiveViolations(
     args: ListActiveViolationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListActiveViolationsCommandOutput>;
   listActiveViolations(
     args: ListActiveViolationsCommandInput,
@@ -4332,7 +4344,7 @@ export interface IoT {
   ): void;
   listActiveViolations(
     args: ListActiveViolationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListActiveViolationsCommandOutput) => void
   ): void;
 
@@ -4341,7 +4353,7 @@ export interface IoT {
    */
   listAttachedPolicies(
     args: ListAttachedPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListAttachedPoliciesCommandOutput>;
   listAttachedPolicies(
     args: ListAttachedPoliciesCommandInput,
@@ -4349,7 +4361,7 @@ export interface IoT {
   ): void;
   listAttachedPolicies(
     args: ListAttachedPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListAttachedPoliciesCommandOutput) => void
   ): void;
 
@@ -4359,7 +4371,7 @@ export interface IoT {
   listAuditFindings(): Promise<ListAuditFindingsCommandOutput>;
   listAuditFindings(
     args: ListAuditFindingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListAuditFindingsCommandOutput>;
   listAuditFindings(
     args: ListAuditFindingsCommandInput,
@@ -4367,7 +4379,7 @@ export interface IoT {
   ): void;
   listAuditFindings(
     args: ListAuditFindingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListAuditFindingsCommandOutput) => void
   ): void;
 
@@ -4376,7 +4388,7 @@ export interface IoT {
    */
   listAuditMitigationActionsExecutions(
     args: ListAuditMitigationActionsExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListAuditMitigationActionsExecutionsCommandOutput>;
   listAuditMitigationActionsExecutions(
     args: ListAuditMitigationActionsExecutionsCommandInput,
@@ -4384,7 +4396,7 @@ export interface IoT {
   ): void;
   listAuditMitigationActionsExecutions(
     args: ListAuditMitigationActionsExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListAuditMitigationActionsExecutionsCommandOutput) => void
   ): void;
 
@@ -4393,7 +4405,7 @@ export interface IoT {
    */
   listAuditMitigationActionsTasks(
     args: ListAuditMitigationActionsTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListAuditMitigationActionsTasksCommandOutput>;
   listAuditMitigationActionsTasks(
     args: ListAuditMitigationActionsTasksCommandInput,
@@ -4401,7 +4413,7 @@ export interface IoT {
   ): void;
   listAuditMitigationActionsTasks(
     args: ListAuditMitigationActionsTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void
   ): void;
 
@@ -4411,7 +4423,7 @@ export interface IoT {
   listAuditSuppressions(): Promise<ListAuditSuppressionsCommandOutput>;
   listAuditSuppressions(
     args: ListAuditSuppressionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListAuditSuppressionsCommandOutput>;
   listAuditSuppressions(
     args: ListAuditSuppressionsCommandInput,
@@ -4419,7 +4431,7 @@ export interface IoT {
   ): void;
   listAuditSuppressions(
     args: ListAuditSuppressionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListAuditSuppressionsCommandOutput) => void
   ): void;
 
@@ -4428,7 +4440,7 @@ export interface IoT {
    */
   listAuditTasks(
     args: ListAuditTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListAuditTasksCommandOutput>;
   listAuditTasks(
     args: ListAuditTasksCommandInput,
@@ -4436,7 +4448,7 @@ export interface IoT {
   ): void;
   listAuditTasks(
     args: ListAuditTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListAuditTasksCommandOutput) => void
   ): void;
 
@@ -4446,7 +4458,7 @@ export interface IoT {
   listAuthorizers(): Promise<ListAuthorizersCommandOutput>;
   listAuthorizers(
     args: ListAuthorizersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListAuthorizersCommandOutput>;
   listAuthorizers(
     args: ListAuthorizersCommandInput,
@@ -4454,7 +4466,7 @@ export interface IoT {
   ): void;
   listAuthorizers(
     args: ListAuthorizersCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListAuthorizersCommandOutput) => void
   ): void;
 
@@ -4464,7 +4476,7 @@ export interface IoT {
   listBillingGroups(): Promise<ListBillingGroupsCommandOutput>;
   listBillingGroups(
     args: ListBillingGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListBillingGroupsCommandOutput>;
   listBillingGroups(
     args: ListBillingGroupsCommandInput,
@@ -4472,7 +4484,7 @@ export interface IoT {
   ): void;
   listBillingGroups(
     args: ListBillingGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListBillingGroupsCommandOutput) => void
   ): void;
 
@@ -4482,7 +4494,7 @@ export interface IoT {
   listCACertificates(): Promise<ListCACertificatesCommandOutput>;
   listCACertificates(
     args: ListCACertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListCACertificatesCommandOutput>;
   listCACertificates(
     args: ListCACertificatesCommandInput,
@@ -4490,7 +4502,7 @@ export interface IoT {
   ): void;
   listCACertificates(
     args: ListCACertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListCACertificatesCommandOutput) => void
   ): void;
 
@@ -4500,7 +4512,7 @@ export interface IoT {
   listCertificateProviders(): Promise<ListCertificateProvidersCommandOutput>;
   listCertificateProviders(
     args: ListCertificateProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListCertificateProvidersCommandOutput>;
   listCertificateProviders(
     args: ListCertificateProvidersCommandInput,
@@ -4508,7 +4520,7 @@ export interface IoT {
   ): void;
   listCertificateProviders(
     args: ListCertificateProvidersCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListCertificateProvidersCommandOutput) => void
   ): void;
 
@@ -4518,7 +4530,7 @@ export interface IoT {
   listCertificates(): Promise<ListCertificatesCommandOutput>;
   listCertificates(
     args: ListCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListCertificatesCommandOutput>;
   listCertificates(
     args: ListCertificatesCommandInput,
@@ -4526,7 +4538,7 @@ export interface IoT {
   ): void;
   listCertificates(
     args: ListCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListCertificatesCommandOutput) => void
   ): void;
 
@@ -4535,7 +4547,7 @@ export interface IoT {
    */
   listCertificatesByCA(
     args: ListCertificatesByCACommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListCertificatesByCACommandOutput>;
   listCertificatesByCA(
     args: ListCertificatesByCACommandInput,
@@ -4543,7 +4555,7 @@ export interface IoT {
   ): void;
   listCertificatesByCA(
     args: ListCertificatesByCACommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListCertificatesByCACommandOutput) => void
   ): void;
 
@@ -4553,7 +4565,7 @@ export interface IoT {
   listCommandExecutions(): Promise<ListCommandExecutionsCommandOutput>;
   listCommandExecutions(
     args: ListCommandExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListCommandExecutionsCommandOutput>;
   listCommandExecutions(
     args: ListCommandExecutionsCommandInput,
@@ -4561,7 +4573,7 @@ export interface IoT {
   ): void;
   listCommandExecutions(
     args: ListCommandExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListCommandExecutionsCommandOutput) => void
   ): void;
 
@@ -4571,7 +4583,7 @@ export interface IoT {
   listCommands(): Promise<ListCommandsCommandOutput>;
   listCommands(
     args: ListCommandsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListCommandsCommandOutput>;
   listCommands(
     args: ListCommandsCommandInput,
@@ -4579,7 +4591,7 @@ export interface IoT {
   ): void;
   listCommands(
     args: ListCommandsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListCommandsCommandOutput) => void
   ): void;
 
@@ -4589,7 +4601,7 @@ export interface IoT {
   listCustomMetrics(): Promise<ListCustomMetricsCommandOutput>;
   listCustomMetrics(
     args: ListCustomMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListCustomMetricsCommandOutput>;
   listCustomMetrics(
     args: ListCustomMetricsCommandInput,
@@ -4597,7 +4609,7 @@ export interface IoT {
   ): void;
   listCustomMetrics(
     args: ListCustomMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListCustomMetricsCommandOutput) => void
   ): void;
 
@@ -4607,7 +4619,7 @@ export interface IoT {
   listDetectMitigationActionsExecutions(): Promise<ListDetectMitigationActionsExecutionsCommandOutput>;
   listDetectMitigationActionsExecutions(
     args: ListDetectMitigationActionsExecutionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListDetectMitigationActionsExecutionsCommandOutput>;
   listDetectMitigationActionsExecutions(
     args: ListDetectMitigationActionsExecutionsCommandInput,
@@ -4615,7 +4627,7 @@ export interface IoT {
   ): void;
   listDetectMitigationActionsExecutions(
     args: ListDetectMitigationActionsExecutionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListDetectMitigationActionsExecutionsCommandOutput) => void
   ): void;
 
@@ -4624,7 +4636,7 @@ export interface IoT {
    */
   listDetectMitigationActionsTasks(
     args: ListDetectMitigationActionsTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListDetectMitigationActionsTasksCommandOutput>;
   listDetectMitigationActionsTasks(
     args: ListDetectMitigationActionsTasksCommandInput,
@@ -4632,7 +4644,7 @@ export interface IoT {
   ): void;
   listDetectMitigationActionsTasks(
     args: ListDetectMitigationActionsTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListDetectMitigationActionsTasksCommandOutput) => void
   ): void;
 
@@ -4642,7 +4654,7 @@ export interface IoT {
   listDimensions(): Promise<ListDimensionsCommandOutput>;
   listDimensions(
     args: ListDimensionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListDimensionsCommandOutput>;
   listDimensions(
     args: ListDimensionsCommandInput,
@@ -4650,7 +4662,7 @@ export interface IoT {
   ): void;
   listDimensions(
     args: ListDimensionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListDimensionsCommandOutput) => void
   ): void;
 
@@ -4660,7 +4672,7 @@ export interface IoT {
   listDomainConfigurations(): Promise<ListDomainConfigurationsCommandOutput>;
   listDomainConfigurations(
     args: ListDomainConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListDomainConfigurationsCommandOutput>;
   listDomainConfigurations(
     args: ListDomainConfigurationsCommandInput,
@@ -4668,7 +4680,7 @@ export interface IoT {
   ): void;
   listDomainConfigurations(
     args: ListDomainConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListDomainConfigurationsCommandOutput) => void
   ): void;
 
@@ -4678,7 +4690,7 @@ export interface IoT {
   listFleetMetrics(): Promise<ListFleetMetricsCommandOutput>;
   listFleetMetrics(
     args: ListFleetMetricsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListFleetMetricsCommandOutput>;
   listFleetMetrics(
     args: ListFleetMetricsCommandInput,
@@ -4686,7 +4698,7 @@ export interface IoT {
   ): void;
   listFleetMetrics(
     args: ListFleetMetricsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListFleetMetricsCommandOutput) => void
   ): void;
 
@@ -4696,7 +4708,7 @@ export interface IoT {
   listIndices(): Promise<ListIndicesCommandOutput>;
   listIndices(
     args: ListIndicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListIndicesCommandOutput>;
   listIndices(
     args: ListIndicesCommandInput,
@@ -4704,7 +4716,7 @@ export interface IoT {
   ): void;
   listIndices(
     args: ListIndicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListIndicesCommandOutput) => void
   ): void;
 
@@ -4713,7 +4725,7 @@ export interface IoT {
    */
   listJobExecutionsForJob(
     args: ListJobExecutionsForJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListJobExecutionsForJobCommandOutput>;
   listJobExecutionsForJob(
     args: ListJobExecutionsForJobCommandInput,
@@ -4721,7 +4733,7 @@ export interface IoT {
   ): void;
   listJobExecutionsForJob(
     args: ListJobExecutionsForJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListJobExecutionsForJobCommandOutput) => void
   ): void;
 
@@ -4730,7 +4742,7 @@ export interface IoT {
    */
   listJobExecutionsForThing(
     args: ListJobExecutionsForThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListJobExecutionsForThingCommandOutput>;
   listJobExecutionsForThing(
     args: ListJobExecutionsForThingCommandInput,
@@ -4738,7 +4750,7 @@ export interface IoT {
   ): void;
   listJobExecutionsForThing(
     args: ListJobExecutionsForThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListJobExecutionsForThingCommandOutput) => void
   ): void;
 
@@ -4748,7 +4760,7 @@ export interface IoT {
   listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListJobsCommandOutput>;
   listJobs(
     args: ListJobsCommandInput,
@@ -4756,7 +4768,7 @@ export interface IoT {
   ): void;
   listJobs(
     args: ListJobsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
   ): void;
 
@@ -4766,7 +4778,7 @@ export interface IoT {
   listJobTemplates(): Promise<ListJobTemplatesCommandOutput>;
   listJobTemplates(
     args: ListJobTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListJobTemplatesCommandOutput>;
   listJobTemplates(
     args: ListJobTemplatesCommandInput,
@@ -4774,7 +4786,7 @@ export interface IoT {
   ): void;
   listJobTemplates(
     args: ListJobTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListJobTemplatesCommandOutput) => void
   ): void;
 
@@ -4784,7 +4796,7 @@ export interface IoT {
   listManagedJobTemplates(): Promise<ListManagedJobTemplatesCommandOutput>;
   listManagedJobTemplates(
     args: ListManagedJobTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListManagedJobTemplatesCommandOutput>;
   listManagedJobTemplates(
     args: ListManagedJobTemplatesCommandInput,
@@ -4792,7 +4804,7 @@ export interface IoT {
   ): void;
   listManagedJobTemplates(
     args: ListManagedJobTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListManagedJobTemplatesCommandOutput) => void
   ): void;
 
@@ -4801,7 +4813,7 @@ export interface IoT {
    */
   listMetricValues(
     args: ListMetricValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListMetricValuesCommandOutput>;
   listMetricValues(
     args: ListMetricValuesCommandInput,
@@ -4809,7 +4821,7 @@ export interface IoT {
   ): void;
   listMetricValues(
     args: ListMetricValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListMetricValuesCommandOutput) => void
   ): void;
 
@@ -4819,7 +4831,7 @@ export interface IoT {
   listMitigationActions(): Promise<ListMitigationActionsCommandOutput>;
   listMitigationActions(
     args: ListMitigationActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListMitigationActionsCommandOutput>;
   listMitigationActions(
     args: ListMitigationActionsCommandInput,
@@ -4827,7 +4839,7 @@ export interface IoT {
   ): void;
   listMitigationActions(
     args: ListMitigationActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListMitigationActionsCommandOutput) => void
   ): void;
 
@@ -4837,7 +4849,7 @@ export interface IoT {
   listOTAUpdates(): Promise<ListOTAUpdatesCommandOutput>;
   listOTAUpdates(
     args: ListOTAUpdatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListOTAUpdatesCommandOutput>;
   listOTAUpdates(
     args: ListOTAUpdatesCommandInput,
@@ -4845,7 +4857,7 @@ export interface IoT {
   ): void;
   listOTAUpdates(
     args: ListOTAUpdatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListOTAUpdatesCommandOutput) => void
   ): void;
 
@@ -4855,7 +4867,7 @@ export interface IoT {
   listOutgoingCertificates(): Promise<ListOutgoingCertificatesCommandOutput>;
   listOutgoingCertificates(
     args: ListOutgoingCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListOutgoingCertificatesCommandOutput>;
   listOutgoingCertificates(
     args: ListOutgoingCertificatesCommandInput,
@@ -4863,7 +4875,7 @@ export interface IoT {
   ): void;
   listOutgoingCertificates(
     args: ListOutgoingCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListOutgoingCertificatesCommandOutput) => void
   ): void;
 
@@ -4873,7 +4885,7 @@ export interface IoT {
   listPackages(): Promise<ListPackagesCommandOutput>;
   listPackages(
     args: ListPackagesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListPackagesCommandOutput>;
   listPackages(
     args: ListPackagesCommandInput,
@@ -4881,7 +4893,7 @@ export interface IoT {
   ): void;
   listPackages(
     args: ListPackagesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListPackagesCommandOutput) => void
   ): void;
 
@@ -4890,7 +4902,7 @@ export interface IoT {
    */
   listPackageVersions(
     args: ListPackageVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListPackageVersionsCommandOutput>;
   listPackageVersions(
     args: ListPackageVersionsCommandInput,
@@ -4898,7 +4910,7 @@ export interface IoT {
   ): void;
   listPackageVersions(
     args: ListPackageVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListPackageVersionsCommandOutput) => void
   ): void;
 
@@ -4908,7 +4920,7 @@ export interface IoT {
   listPolicies(): Promise<ListPoliciesCommandOutput>;
   listPolicies(
     args: ListPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListPoliciesCommandOutput>;
   listPolicies(
     args: ListPoliciesCommandInput,
@@ -4916,7 +4928,7 @@ export interface IoT {
   ): void;
   listPolicies(
     args: ListPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListPoliciesCommandOutput) => void
   ): void;
 
@@ -4925,7 +4937,7 @@ export interface IoT {
    */
   listPolicyPrincipals(
     args: ListPolicyPrincipalsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListPolicyPrincipalsCommandOutput>;
   listPolicyPrincipals(
     args: ListPolicyPrincipalsCommandInput,
@@ -4933,7 +4945,7 @@ export interface IoT {
   ): void;
   listPolicyPrincipals(
     args: ListPolicyPrincipalsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListPolicyPrincipalsCommandOutput) => void
   ): void;
 
@@ -4942,7 +4954,7 @@ export interface IoT {
    */
   listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListPolicyVersionsCommandOutput>;
   listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
@@ -4950,7 +4962,7 @@ export interface IoT {
   ): void;
   listPolicyVersions(
     args: ListPolicyVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListPolicyVersionsCommandOutput) => void
   ): void;
 
@@ -4959,7 +4971,7 @@ export interface IoT {
    */
   listPrincipalPolicies(
     args: ListPrincipalPoliciesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListPrincipalPoliciesCommandOutput>;
   listPrincipalPolicies(
     args: ListPrincipalPoliciesCommandInput,
@@ -4967,7 +4979,7 @@ export interface IoT {
   ): void;
   listPrincipalPolicies(
     args: ListPrincipalPoliciesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListPrincipalPoliciesCommandOutput) => void
   ): void;
 
@@ -4976,7 +4988,7 @@ export interface IoT {
    */
   listPrincipalThings(
     args: ListPrincipalThingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListPrincipalThingsCommandOutput>;
   listPrincipalThings(
     args: ListPrincipalThingsCommandInput,
@@ -4984,7 +4996,7 @@ export interface IoT {
   ): void;
   listPrincipalThings(
     args: ListPrincipalThingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListPrincipalThingsCommandOutput) => void
   ): void;
 
@@ -4993,7 +5005,7 @@ export interface IoT {
    */
   listPrincipalThingsV2(
     args: ListPrincipalThingsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListPrincipalThingsV2CommandOutput>;
   listPrincipalThingsV2(
     args: ListPrincipalThingsV2CommandInput,
@@ -5001,7 +5013,7 @@ export interface IoT {
   ): void;
   listPrincipalThingsV2(
     args: ListPrincipalThingsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListPrincipalThingsV2CommandOutput) => void
   ): void;
 
@@ -5011,7 +5023,7 @@ export interface IoT {
   listProvisioningTemplates(): Promise<ListProvisioningTemplatesCommandOutput>;
   listProvisioningTemplates(
     args: ListProvisioningTemplatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListProvisioningTemplatesCommandOutput>;
   listProvisioningTemplates(
     args: ListProvisioningTemplatesCommandInput,
@@ -5019,7 +5031,7 @@ export interface IoT {
   ): void;
   listProvisioningTemplates(
     args: ListProvisioningTemplatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListProvisioningTemplatesCommandOutput) => void
   ): void;
 
@@ -5028,7 +5040,7 @@ export interface IoT {
    */
   listProvisioningTemplateVersions(
     args: ListProvisioningTemplateVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListProvisioningTemplateVersionsCommandOutput>;
   listProvisioningTemplateVersions(
     args: ListProvisioningTemplateVersionsCommandInput,
@@ -5036,7 +5048,7 @@ export interface IoT {
   ): void;
   listProvisioningTemplateVersions(
     args: ListProvisioningTemplateVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListProvisioningTemplateVersionsCommandOutput) => void
   ): void;
 
@@ -5045,7 +5057,7 @@ export interface IoT {
    */
   listRelatedResourcesForAuditFinding(
     args: ListRelatedResourcesForAuditFindingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListRelatedResourcesForAuditFindingCommandOutput>;
   listRelatedResourcesForAuditFinding(
     args: ListRelatedResourcesForAuditFindingCommandInput,
@@ -5053,7 +5065,7 @@ export interface IoT {
   ): void;
   listRelatedResourcesForAuditFinding(
     args: ListRelatedResourcesForAuditFindingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListRelatedResourcesForAuditFindingCommandOutput) => void
   ): void;
 
@@ -5063,7 +5075,7 @@ export interface IoT {
   listRoleAliases(): Promise<ListRoleAliasesCommandOutput>;
   listRoleAliases(
     args: ListRoleAliasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListRoleAliasesCommandOutput>;
   listRoleAliases(
     args: ListRoleAliasesCommandInput,
@@ -5071,7 +5083,7 @@ export interface IoT {
   ): void;
   listRoleAliases(
     args: ListRoleAliasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListRoleAliasesCommandOutput) => void
   ): void;
 
@@ -5080,7 +5092,7 @@ export interface IoT {
    */
   listSbomValidationResults(
     args: ListSbomValidationResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListSbomValidationResultsCommandOutput>;
   listSbomValidationResults(
     args: ListSbomValidationResultsCommandInput,
@@ -5088,7 +5100,7 @@ export interface IoT {
   ): void;
   listSbomValidationResults(
     args: ListSbomValidationResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListSbomValidationResultsCommandOutput) => void
   ): void;
 
@@ -5098,7 +5110,7 @@ export interface IoT {
   listScheduledAudits(): Promise<ListScheduledAuditsCommandOutput>;
   listScheduledAudits(
     args: ListScheduledAuditsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListScheduledAuditsCommandOutput>;
   listScheduledAudits(
     args: ListScheduledAuditsCommandInput,
@@ -5106,7 +5118,7 @@ export interface IoT {
   ): void;
   listScheduledAudits(
     args: ListScheduledAuditsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListScheduledAuditsCommandOutput) => void
   ): void;
 
@@ -5116,7 +5128,7 @@ export interface IoT {
   listSecurityProfiles(): Promise<ListSecurityProfilesCommandOutput>;
   listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListSecurityProfilesCommandOutput>;
   listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
@@ -5124,7 +5136,7 @@ export interface IoT {
   ): void;
   listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListSecurityProfilesCommandOutput) => void
   ): void;
 
@@ -5133,7 +5145,7 @@ export interface IoT {
    */
   listSecurityProfilesForTarget(
     args: ListSecurityProfilesForTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListSecurityProfilesForTargetCommandOutput>;
   listSecurityProfilesForTarget(
     args: ListSecurityProfilesForTargetCommandInput,
@@ -5141,7 +5153,7 @@ export interface IoT {
   ): void;
   listSecurityProfilesForTarget(
     args: ListSecurityProfilesForTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListSecurityProfilesForTargetCommandOutput) => void
   ): void;
 
@@ -5151,7 +5163,7 @@ export interface IoT {
   listStreams(): Promise<ListStreamsCommandOutput>;
   listStreams(
     args: ListStreamsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListStreamsCommandOutput>;
   listStreams(
     args: ListStreamsCommandInput,
@@ -5159,7 +5171,7 @@ export interface IoT {
   ): void;
   listStreams(
     args: ListStreamsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListStreamsCommandOutput) => void
   ): void;
 
@@ -5168,7 +5180,7 @@ export interface IoT {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -5176,7 +5188,7 @@ export interface IoT {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -5185,7 +5197,7 @@ export interface IoT {
    */
   listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListTargetsForPolicyCommandOutput>;
   listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
@@ -5193,7 +5205,7 @@ export interface IoT {
   ): void;
   listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListTargetsForPolicyCommandOutput) => void
   ): void;
 
@@ -5202,7 +5214,7 @@ export interface IoT {
    */
   listTargetsForSecurityProfile(
     args: ListTargetsForSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListTargetsForSecurityProfileCommandOutput>;
   listTargetsForSecurityProfile(
     args: ListTargetsForSecurityProfileCommandInput,
@@ -5210,7 +5222,7 @@ export interface IoT {
   ): void;
   listTargetsForSecurityProfile(
     args: ListTargetsForSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListTargetsForSecurityProfileCommandOutput) => void
   ): void;
 
@@ -5220,7 +5232,7 @@ export interface IoT {
   listThingGroups(): Promise<ListThingGroupsCommandOutput>;
   listThingGroups(
     args: ListThingGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingGroupsCommandOutput>;
   listThingGroups(
     args: ListThingGroupsCommandInput,
@@ -5228,7 +5240,7 @@ export interface IoT {
   ): void;
   listThingGroups(
     args: ListThingGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingGroupsCommandOutput) => void
   ): void;
 
@@ -5237,7 +5249,7 @@ export interface IoT {
    */
   listThingGroupsForThing(
     args: ListThingGroupsForThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingGroupsForThingCommandOutput>;
   listThingGroupsForThing(
     args: ListThingGroupsForThingCommandInput,
@@ -5245,7 +5257,7 @@ export interface IoT {
   ): void;
   listThingGroupsForThing(
     args: ListThingGroupsForThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingGroupsForThingCommandOutput) => void
   ): void;
 
@@ -5254,7 +5266,7 @@ export interface IoT {
    */
   listThingPrincipals(
     args: ListThingPrincipalsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingPrincipalsCommandOutput>;
   listThingPrincipals(
     args: ListThingPrincipalsCommandInput,
@@ -5262,7 +5274,7 @@ export interface IoT {
   ): void;
   listThingPrincipals(
     args: ListThingPrincipalsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingPrincipalsCommandOutput) => void
   ): void;
 
@@ -5271,7 +5283,7 @@ export interface IoT {
    */
   listThingPrincipalsV2(
     args: ListThingPrincipalsV2CommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingPrincipalsV2CommandOutput>;
   listThingPrincipalsV2(
     args: ListThingPrincipalsV2CommandInput,
@@ -5279,7 +5291,7 @@ export interface IoT {
   ): void;
   listThingPrincipalsV2(
     args: ListThingPrincipalsV2CommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingPrincipalsV2CommandOutput) => void
   ): void;
 
@@ -5288,7 +5300,7 @@ export interface IoT {
    */
   listThingRegistrationTaskReports(
     args: ListThingRegistrationTaskReportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingRegistrationTaskReportsCommandOutput>;
   listThingRegistrationTaskReports(
     args: ListThingRegistrationTaskReportsCommandInput,
@@ -5296,7 +5308,7 @@ export interface IoT {
   ): void;
   listThingRegistrationTaskReports(
     args: ListThingRegistrationTaskReportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingRegistrationTaskReportsCommandOutput) => void
   ): void;
 
@@ -5306,7 +5318,7 @@ export interface IoT {
   listThingRegistrationTasks(): Promise<ListThingRegistrationTasksCommandOutput>;
   listThingRegistrationTasks(
     args: ListThingRegistrationTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingRegistrationTasksCommandOutput>;
   listThingRegistrationTasks(
     args: ListThingRegistrationTasksCommandInput,
@@ -5314,7 +5326,7 @@ export interface IoT {
   ): void;
   listThingRegistrationTasks(
     args: ListThingRegistrationTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingRegistrationTasksCommandOutput) => void
   ): void;
 
@@ -5324,7 +5336,7 @@ export interface IoT {
   listThings(): Promise<ListThingsCommandOutput>;
   listThings(
     args: ListThingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingsCommandOutput>;
   listThings(
     args: ListThingsCommandInput,
@@ -5332,7 +5344,7 @@ export interface IoT {
   ): void;
   listThings(
     args: ListThingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingsCommandOutput) => void
   ): void;
 
@@ -5341,7 +5353,7 @@ export interface IoT {
    */
   listThingsInBillingGroup(
     args: ListThingsInBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingsInBillingGroupCommandOutput>;
   listThingsInBillingGroup(
     args: ListThingsInBillingGroupCommandInput,
@@ -5349,7 +5361,7 @@ export interface IoT {
   ): void;
   listThingsInBillingGroup(
     args: ListThingsInBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingsInBillingGroupCommandOutput) => void
   ): void;
 
@@ -5358,7 +5370,7 @@ export interface IoT {
    */
   listThingsInThingGroup(
     args: ListThingsInThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingsInThingGroupCommandOutput>;
   listThingsInThingGroup(
     args: ListThingsInThingGroupCommandInput,
@@ -5366,7 +5378,7 @@ export interface IoT {
   ): void;
   listThingsInThingGroup(
     args: ListThingsInThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingsInThingGroupCommandOutput) => void
   ): void;
 
@@ -5376,7 +5388,7 @@ export interface IoT {
   listThingTypes(): Promise<ListThingTypesCommandOutput>;
   listThingTypes(
     args: ListThingTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListThingTypesCommandOutput>;
   listThingTypes(
     args: ListThingTypesCommandInput,
@@ -5384,7 +5396,7 @@ export interface IoT {
   ): void;
   listThingTypes(
     args: ListThingTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListThingTypesCommandOutput) => void
   ): void;
 
@@ -5394,7 +5406,7 @@ export interface IoT {
   listTopicRuleDestinations(): Promise<ListTopicRuleDestinationsCommandOutput>;
   listTopicRuleDestinations(
     args: ListTopicRuleDestinationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListTopicRuleDestinationsCommandOutput>;
   listTopicRuleDestinations(
     args: ListTopicRuleDestinationsCommandInput,
@@ -5402,7 +5414,7 @@ export interface IoT {
   ): void;
   listTopicRuleDestinations(
     args: ListTopicRuleDestinationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListTopicRuleDestinationsCommandOutput) => void
   ): void;
 
@@ -5412,7 +5424,7 @@ export interface IoT {
   listTopicRules(): Promise<ListTopicRulesCommandOutput>;
   listTopicRules(
     args: ListTopicRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListTopicRulesCommandOutput>;
   listTopicRules(
     args: ListTopicRulesCommandInput,
@@ -5420,7 +5432,7 @@ export interface IoT {
   ): void;
   listTopicRules(
     args: ListTopicRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListTopicRulesCommandOutput) => void
   ): void;
 
@@ -5430,7 +5442,7 @@ export interface IoT {
   listV2LoggingLevels(): Promise<ListV2LoggingLevelsCommandOutput>;
   listV2LoggingLevels(
     args: ListV2LoggingLevelsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListV2LoggingLevelsCommandOutput>;
   listV2LoggingLevels(
     args: ListV2LoggingLevelsCommandInput,
@@ -5438,7 +5450,7 @@ export interface IoT {
   ): void;
   listV2LoggingLevels(
     args: ListV2LoggingLevelsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListV2LoggingLevelsCommandOutput) => void
   ): void;
 
@@ -5447,7 +5459,7 @@ export interface IoT {
    */
   listViolationEvents(
     args: ListViolationEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ListViolationEventsCommandOutput>;
   listViolationEvents(
     args: ListViolationEventsCommandInput,
@@ -5455,7 +5467,7 @@ export interface IoT {
   ): void;
   listViolationEvents(
     args: ListViolationEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ListViolationEventsCommandOutput) => void
   ): void;
 
@@ -5464,7 +5476,7 @@ export interface IoT {
    */
   putVerificationStateOnViolation(
     args: PutVerificationStateOnViolationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<PutVerificationStateOnViolationCommandOutput>;
   putVerificationStateOnViolation(
     args: PutVerificationStateOnViolationCommandInput,
@@ -5472,7 +5484,7 @@ export interface IoT {
   ): void;
   putVerificationStateOnViolation(
     args: PutVerificationStateOnViolationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: PutVerificationStateOnViolationCommandOutput) => void
   ): void;
 
@@ -5481,7 +5493,7 @@ export interface IoT {
    */
   registerCACertificate(
     args: RegisterCACertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<RegisterCACertificateCommandOutput>;
   registerCACertificate(
     args: RegisterCACertificateCommandInput,
@@ -5489,7 +5501,7 @@ export interface IoT {
   ): void;
   registerCACertificate(
     args: RegisterCACertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: RegisterCACertificateCommandOutput) => void
   ): void;
 
@@ -5498,7 +5510,7 @@ export interface IoT {
    */
   registerCertificate(
     args: RegisterCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<RegisterCertificateCommandOutput>;
   registerCertificate(
     args: RegisterCertificateCommandInput,
@@ -5506,7 +5518,7 @@ export interface IoT {
   ): void;
   registerCertificate(
     args: RegisterCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: RegisterCertificateCommandOutput) => void
   ): void;
 
@@ -5515,7 +5527,7 @@ export interface IoT {
    */
   registerCertificateWithoutCA(
     args: RegisterCertificateWithoutCACommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<RegisterCertificateWithoutCACommandOutput>;
   registerCertificateWithoutCA(
     args: RegisterCertificateWithoutCACommandInput,
@@ -5523,7 +5535,7 @@ export interface IoT {
   ): void;
   registerCertificateWithoutCA(
     args: RegisterCertificateWithoutCACommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: RegisterCertificateWithoutCACommandOutput) => void
   ): void;
 
@@ -5532,7 +5544,7 @@ export interface IoT {
    */
   registerThing(
     args: RegisterThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<RegisterThingCommandOutput>;
   registerThing(
     args: RegisterThingCommandInput,
@@ -5540,7 +5552,7 @@ export interface IoT {
   ): void;
   registerThing(
     args: RegisterThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: RegisterThingCommandOutput) => void
   ): void;
 
@@ -5549,7 +5561,7 @@ export interface IoT {
    */
   rejectCertificateTransfer(
     args: RejectCertificateTransferCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<RejectCertificateTransferCommandOutput>;
   rejectCertificateTransfer(
     args: RejectCertificateTransferCommandInput,
@@ -5557,7 +5569,7 @@ export interface IoT {
   ): void;
   rejectCertificateTransfer(
     args: RejectCertificateTransferCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: RejectCertificateTransferCommandOutput) => void
   ): void;
 
@@ -5567,7 +5579,7 @@ export interface IoT {
   removeThingFromBillingGroup(): Promise<RemoveThingFromBillingGroupCommandOutput>;
   removeThingFromBillingGroup(
     args: RemoveThingFromBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<RemoveThingFromBillingGroupCommandOutput>;
   removeThingFromBillingGroup(
     args: RemoveThingFromBillingGroupCommandInput,
@@ -5575,7 +5587,7 @@ export interface IoT {
   ): void;
   removeThingFromBillingGroup(
     args: RemoveThingFromBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: RemoveThingFromBillingGroupCommandOutput) => void
   ): void;
 
@@ -5585,7 +5597,7 @@ export interface IoT {
   removeThingFromThingGroup(): Promise<RemoveThingFromThingGroupCommandOutput>;
   removeThingFromThingGroup(
     args: RemoveThingFromThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<RemoveThingFromThingGroupCommandOutput>;
   removeThingFromThingGroup(
     args: RemoveThingFromThingGroupCommandInput,
@@ -5593,7 +5605,7 @@ export interface IoT {
   ): void;
   removeThingFromThingGroup(
     args: RemoveThingFromThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: RemoveThingFromThingGroupCommandOutput) => void
   ): void;
 
@@ -5602,7 +5614,7 @@ export interface IoT {
    */
   replaceTopicRule(
     args: ReplaceTopicRuleCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ReplaceTopicRuleCommandOutput>;
   replaceTopicRule(
     args: ReplaceTopicRuleCommandInput,
@@ -5610,7 +5622,7 @@ export interface IoT {
   ): void;
   replaceTopicRule(
     args: ReplaceTopicRuleCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ReplaceTopicRuleCommandOutput) => void
   ): void;
 
@@ -5619,7 +5631,7 @@ export interface IoT {
    */
   searchIndex(
     args: SearchIndexCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<SearchIndexCommandOutput>;
   searchIndex(
     args: SearchIndexCommandInput,
@@ -5627,7 +5639,7 @@ export interface IoT {
   ): void;
   searchIndex(
     args: SearchIndexCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: SearchIndexCommandOutput) => void
   ): void;
 
@@ -5636,7 +5648,7 @@ export interface IoT {
    */
   setDefaultAuthorizer(
     args: SetDefaultAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<SetDefaultAuthorizerCommandOutput>;
   setDefaultAuthorizer(
     args: SetDefaultAuthorizerCommandInput,
@@ -5644,7 +5656,7 @@ export interface IoT {
   ): void;
   setDefaultAuthorizer(
     args: SetDefaultAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: SetDefaultAuthorizerCommandOutput) => void
   ): void;
 
@@ -5653,7 +5665,7 @@ export interface IoT {
    */
   setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<SetDefaultPolicyVersionCommandOutput>;
   setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
@@ -5661,7 +5673,7 @@ export interface IoT {
   ): void;
   setDefaultPolicyVersion(
     args: SetDefaultPolicyVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: SetDefaultPolicyVersionCommandOutput) => void
   ): void;
 
@@ -5670,7 +5682,7 @@ export interface IoT {
    */
   setLoggingOptions(
     args: SetLoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<SetLoggingOptionsCommandOutput>;
   setLoggingOptions(
     args: SetLoggingOptionsCommandInput,
@@ -5678,7 +5690,7 @@ export interface IoT {
   ): void;
   setLoggingOptions(
     args: SetLoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: SetLoggingOptionsCommandOutput) => void
   ): void;
 
@@ -5687,7 +5699,7 @@ export interface IoT {
    */
   setV2LoggingLevel(
     args: SetV2LoggingLevelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<SetV2LoggingLevelCommandOutput>;
   setV2LoggingLevel(
     args: SetV2LoggingLevelCommandInput,
@@ -5695,7 +5707,7 @@ export interface IoT {
   ): void;
   setV2LoggingLevel(
     args: SetV2LoggingLevelCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: SetV2LoggingLevelCommandOutput) => void
   ): void;
 
@@ -5705,7 +5717,7 @@ export interface IoT {
   setV2LoggingOptions(): Promise<SetV2LoggingOptionsCommandOutput>;
   setV2LoggingOptions(
     args: SetV2LoggingOptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<SetV2LoggingOptionsCommandOutput>;
   setV2LoggingOptions(
     args: SetV2LoggingOptionsCommandInput,
@@ -5713,7 +5725,7 @@ export interface IoT {
   ): void;
   setV2LoggingOptions(
     args: SetV2LoggingOptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: SetV2LoggingOptionsCommandOutput) => void
   ): void;
 
@@ -5722,7 +5734,7 @@ export interface IoT {
    */
   startAuditMitigationActionsTask(
     args: StartAuditMitigationActionsTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<StartAuditMitigationActionsTaskCommandOutput>;
   startAuditMitigationActionsTask(
     args: StartAuditMitigationActionsTaskCommandInput,
@@ -5730,7 +5742,7 @@ export interface IoT {
   ): void;
   startAuditMitigationActionsTask(
     args: StartAuditMitigationActionsTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: StartAuditMitigationActionsTaskCommandOutput) => void
   ): void;
 
@@ -5739,7 +5751,7 @@ export interface IoT {
    */
   startDetectMitigationActionsTask(
     args: StartDetectMitigationActionsTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<StartDetectMitigationActionsTaskCommandOutput>;
   startDetectMitigationActionsTask(
     args: StartDetectMitigationActionsTaskCommandInput,
@@ -5747,7 +5759,7 @@ export interface IoT {
   ): void;
   startDetectMitigationActionsTask(
     args: StartDetectMitigationActionsTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: StartDetectMitigationActionsTaskCommandOutput) => void
   ): void;
 
@@ -5756,7 +5768,7 @@ export interface IoT {
    */
   startOnDemandAuditTask(
     args: StartOnDemandAuditTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<StartOnDemandAuditTaskCommandOutput>;
   startOnDemandAuditTask(
     args: StartOnDemandAuditTaskCommandInput,
@@ -5764,7 +5776,7 @@ export interface IoT {
   ): void;
   startOnDemandAuditTask(
     args: StartOnDemandAuditTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: StartOnDemandAuditTaskCommandOutput) => void
   ): void;
 
@@ -5773,7 +5785,7 @@ export interface IoT {
    */
   startThingRegistrationTask(
     args: StartThingRegistrationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<StartThingRegistrationTaskCommandOutput>;
   startThingRegistrationTask(
     args: StartThingRegistrationTaskCommandInput,
@@ -5781,7 +5793,7 @@ export interface IoT {
   ): void;
   startThingRegistrationTask(
     args: StartThingRegistrationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: StartThingRegistrationTaskCommandOutput) => void
   ): void;
 
@@ -5790,7 +5802,7 @@ export interface IoT {
    */
   stopThingRegistrationTask(
     args: StopThingRegistrationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<StopThingRegistrationTaskCommandOutput>;
   stopThingRegistrationTask(
     args: StopThingRegistrationTaskCommandInput,
@@ -5798,7 +5810,7 @@ export interface IoT {
   ): void;
   stopThingRegistrationTask(
     args: StopThingRegistrationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: StopThingRegistrationTaskCommandOutput) => void
   ): void;
 
@@ -5807,7 +5819,7 @@ export interface IoT {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -5815,7 +5827,7 @@ export interface IoT {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -5824,7 +5836,7 @@ export interface IoT {
    */
   testAuthorization(
     args: TestAuthorizationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<TestAuthorizationCommandOutput>;
   testAuthorization(
     args: TestAuthorizationCommandInput,
@@ -5832,7 +5844,7 @@ export interface IoT {
   ): void;
   testAuthorization(
     args: TestAuthorizationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: TestAuthorizationCommandOutput) => void
   ): void;
 
@@ -5841,7 +5853,7 @@ export interface IoT {
    */
   testInvokeAuthorizer(
     args: TestInvokeAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<TestInvokeAuthorizerCommandOutput>;
   testInvokeAuthorizer(
     args: TestInvokeAuthorizerCommandInput,
@@ -5849,7 +5861,7 @@ export interface IoT {
   ): void;
   testInvokeAuthorizer(
     args: TestInvokeAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: TestInvokeAuthorizerCommandOutput) => void
   ): void;
 
@@ -5858,7 +5870,7 @@ export interface IoT {
    */
   transferCertificate(
     args: TransferCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<TransferCertificateCommandOutput>;
   transferCertificate(
     args: TransferCertificateCommandInput,
@@ -5866,7 +5878,7 @@ export interface IoT {
   ): void;
   transferCertificate(
     args: TransferCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: TransferCertificateCommandOutput) => void
   ): void;
 
@@ -5875,7 +5887,7 @@ export interface IoT {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -5883,7 +5895,7 @@ export interface IoT {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
@@ -5893,7 +5905,7 @@ export interface IoT {
   updateAccountAuditConfiguration(): Promise<UpdateAccountAuditConfigurationCommandOutput>;
   updateAccountAuditConfiguration(
     args: UpdateAccountAuditConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateAccountAuditConfigurationCommandOutput>;
   updateAccountAuditConfiguration(
     args: UpdateAccountAuditConfigurationCommandInput,
@@ -5901,7 +5913,7 @@ export interface IoT {
   ): void;
   updateAccountAuditConfiguration(
     args: UpdateAccountAuditConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateAccountAuditConfigurationCommandOutput) => void
   ): void;
 
@@ -5910,7 +5922,7 @@ export interface IoT {
    */
   updateAuditSuppression(
     args: UpdateAuditSuppressionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateAuditSuppressionCommandOutput>;
   updateAuditSuppression(
     args: UpdateAuditSuppressionCommandInput,
@@ -5918,7 +5930,7 @@ export interface IoT {
   ): void;
   updateAuditSuppression(
     args: UpdateAuditSuppressionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateAuditSuppressionCommandOutput) => void
   ): void;
 
@@ -5927,7 +5939,7 @@ export interface IoT {
    */
   updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateAuthorizerCommandOutput>;
   updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
@@ -5935,7 +5947,7 @@ export interface IoT {
   ): void;
   updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateAuthorizerCommandOutput) => void
   ): void;
 
@@ -5944,7 +5956,7 @@ export interface IoT {
    */
   updateBillingGroup(
     args: UpdateBillingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateBillingGroupCommandOutput>;
   updateBillingGroup(
     args: UpdateBillingGroupCommandInput,
@@ -5952,7 +5964,7 @@ export interface IoT {
   ): void;
   updateBillingGroup(
     args: UpdateBillingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateBillingGroupCommandOutput) => void
   ): void;
 
@@ -5961,7 +5973,7 @@ export interface IoT {
    */
   updateCACertificate(
     args: UpdateCACertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateCACertificateCommandOutput>;
   updateCACertificate(
     args: UpdateCACertificateCommandInput,
@@ -5969,7 +5981,7 @@ export interface IoT {
   ): void;
   updateCACertificate(
     args: UpdateCACertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateCACertificateCommandOutput) => void
   ): void;
 
@@ -5978,7 +5990,7 @@ export interface IoT {
    */
   updateCertificate(
     args: UpdateCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateCertificateCommandOutput>;
   updateCertificate(
     args: UpdateCertificateCommandInput,
@@ -5986,7 +5998,7 @@ export interface IoT {
   ): void;
   updateCertificate(
     args: UpdateCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateCertificateCommandOutput) => void
   ): void;
 
@@ -5995,7 +6007,7 @@ export interface IoT {
    */
   updateCertificateProvider(
     args: UpdateCertificateProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateCertificateProviderCommandOutput>;
   updateCertificateProvider(
     args: UpdateCertificateProviderCommandInput,
@@ -6003,7 +6015,7 @@ export interface IoT {
   ): void;
   updateCertificateProvider(
     args: UpdateCertificateProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateCertificateProviderCommandOutput) => void
   ): void;
 
@@ -6012,7 +6024,7 @@ export interface IoT {
    */
   updateCommand(
     args: UpdateCommandCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateCommandCommandOutput>;
   updateCommand(
     args: UpdateCommandCommandInput,
@@ -6020,7 +6032,7 @@ export interface IoT {
   ): void;
   updateCommand(
     args: UpdateCommandCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateCommandCommandOutput) => void
   ): void;
 
@@ -6029,7 +6041,7 @@ export interface IoT {
    */
   updateCustomMetric(
     args: UpdateCustomMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateCustomMetricCommandOutput>;
   updateCustomMetric(
     args: UpdateCustomMetricCommandInput,
@@ -6037,7 +6049,7 @@ export interface IoT {
   ): void;
   updateCustomMetric(
     args: UpdateCustomMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateCustomMetricCommandOutput) => void
   ): void;
 
@@ -6046,7 +6058,7 @@ export interface IoT {
    */
   updateDimension(
     args: UpdateDimensionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateDimensionCommandOutput>;
   updateDimension(
     args: UpdateDimensionCommandInput,
@@ -6054,7 +6066,7 @@ export interface IoT {
   ): void;
   updateDimension(
     args: UpdateDimensionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateDimensionCommandOutput) => void
   ): void;
 
@@ -6063,7 +6075,7 @@ export interface IoT {
    */
   updateDomainConfiguration(
     args: UpdateDomainConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateDomainConfigurationCommandOutput>;
   updateDomainConfiguration(
     args: UpdateDomainConfigurationCommandInput,
@@ -6071,7 +6083,7 @@ export interface IoT {
   ): void;
   updateDomainConfiguration(
     args: UpdateDomainConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateDomainConfigurationCommandOutput) => void
   ): void;
 
@@ -6080,7 +6092,7 @@ export interface IoT {
    */
   updateDynamicThingGroup(
     args: UpdateDynamicThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateDynamicThingGroupCommandOutput>;
   updateDynamicThingGroup(
     args: UpdateDynamicThingGroupCommandInput,
@@ -6088,7 +6100,7 @@ export interface IoT {
   ): void;
   updateDynamicThingGroup(
     args: UpdateDynamicThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateDynamicThingGroupCommandOutput) => void
   ): void;
 
@@ -6097,7 +6109,7 @@ export interface IoT {
    */
   updateEncryptionConfiguration(
     args: UpdateEncryptionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateEncryptionConfigurationCommandOutput>;
   updateEncryptionConfiguration(
     args: UpdateEncryptionConfigurationCommandInput,
@@ -6105,7 +6117,7 @@ export interface IoT {
   ): void;
   updateEncryptionConfiguration(
     args: UpdateEncryptionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateEncryptionConfigurationCommandOutput) => void
   ): void;
 
@@ -6115,7 +6127,7 @@ export interface IoT {
   updateEventConfigurations(): Promise<UpdateEventConfigurationsCommandOutput>;
   updateEventConfigurations(
     args: UpdateEventConfigurationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateEventConfigurationsCommandOutput>;
   updateEventConfigurations(
     args: UpdateEventConfigurationsCommandInput,
@@ -6123,7 +6135,7 @@ export interface IoT {
   ): void;
   updateEventConfigurations(
     args: UpdateEventConfigurationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateEventConfigurationsCommandOutput) => void
   ): void;
 
@@ -6132,7 +6144,7 @@ export interface IoT {
    */
   updateFleetMetric(
     args: UpdateFleetMetricCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateFleetMetricCommandOutput>;
   updateFleetMetric(
     args: UpdateFleetMetricCommandInput,
@@ -6140,7 +6152,7 @@ export interface IoT {
   ): void;
   updateFleetMetric(
     args: UpdateFleetMetricCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateFleetMetricCommandOutput) => void
   ): void;
 
@@ -6150,7 +6162,7 @@ export interface IoT {
   updateIndexingConfiguration(): Promise<UpdateIndexingConfigurationCommandOutput>;
   updateIndexingConfiguration(
     args: UpdateIndexingConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateIndexingConfigurationCommandOutput>;
   updateIndexingConfiguration(
     args: UpdateIndexingConfigurationCommandInput,
@@ -6158,7 +6170,7 @@ export interface IoT {
   ): void;
   updateIndexingConfiguration(
     args: UpdateIndexingConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateIndexingConfigurationCommandOutput) => void
   ): void;
 
@@ -6167,7 +6179,7 @@ export interface IoT {
    */
   updateJob(
     args: UpdateJobCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateJobCommandOutput>;
   updateJob(
     args: UpdateJobCommandInput,
@@ -6175,7 +6187,7 @@ export interface IoT {
   ): void;
   updateJob(
     args: UpdateJobCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateJobCommandOutput) => void
   ): void;
 
@@ -6184,7 +6196,7 @@ export interface IoT {
    */
   updateMitigationAction(
     args: UpdateMitigationActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateMitigationActionCommandOutput>;
   updateMitigationAction(
     args: UpdateMitigationActionCommandInput,
@@ -6192,7 +6204,7 @@ export interface IoT {
   ): void;
   updateMitigationAction(
     args: UpdateMitigationActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateMitigationActionCommandOutput) => void
   ): void;
 
@@ -6201,7 +6213,7 @@ export interface IoT {
    */
   updatePackage(
     args: UpdatePackageCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdatePackageCommandOutput>;
   updatePackage(
     args: UpdatePackageCommandInput,
@@ -6209,7 +6221,7 @@ export interface IoT {
   ): void;
   updatePackage(
     args: UpdatePackageCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdatePackageCommandOutput) => void
   ): void;
 
@@ -6219,7 +6231,7 @@ export interface IoT {
   updatePackageConfiguration(): Promise<UpdatePackageConfigurationCommandOutput>;
   updatePackageConfiguration(
     args: UpdatePackageConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdatePackageConfigurationCommandOutput>;
   updatePackageConfiguration(
     args: UpdatePackageConfigurationCommandInput,
@@ -6227,7 +6239,7 @@ export interface IoT {
   ): void;
   updatePackageConfiguration(
     args: UpdatePackageConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdatePackageConfigurationCommandOutput) => void
   ): void;
 
@@ -6236,7 +6248,7 @@ export interface IoT {
    */
   updatePackageVersion(
     args: UpdatePackageVersionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdatePackageVersionCommandOutput>;
   updatePackageVersion(
     args: UpdatePackageVersionCommandInput,
@@ -6244,7 +6256,7 @@ export interface IoT {
   ): void;
   updatePackageVersion(
     args: UpdatePackageVersionCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdatePackageVersionCommandOutput) => void
   ): void;
 
@@ -6253,7 +6265,7 @@ export interface IoT {
    */
   updateProvisioningTemplate(
     args: UpdateProvisioningTemplateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateProvisioningTemplateCommandOutput>;
   updateProvisioningTemplate(
     args: UpdateProvisioningTemplateCommandInput,
@@ -6261,7 +6273,7 @@ export interface IoT {
   ): void;
   updateProvisioningTemplate(
     args: UpdateProvisioningTemplateCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateProvisioningTemplateCommandOutput) => void
   ): void;
 
@@ -6270,7 +6282,7 @@ export interface IoT {
    */
   updateRoleAlias(
     args: UpdateRoleAliasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateRoleAliasCommandOutput>;
   updateRoleAlias(
     args: UpdateRoleAliasCommandInput,
@@ -6278,7 +6290,7 @@ export interface IoT {
   ): void;
   updateRoleAlias(
     args: UpdateRoleAliasCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateRoleAliasCommandOutput) => void
   ): void;
 
@@ -6287,7 +6299,7 @@ export interface IoT {
    */
   updateScheduledAudit(
     args: UpdateScheduledAuditCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateScheduledAuditCommandOutput>;
   updateScheduledAudit(
     args: UpdateScheduledAuditCommandInput,
@@ -6295,7 +6307,7 @@ export interface IoT {
   ): void;
   updateScheduledAudit(
     args: UpdateScheduledAuditCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateScheduledAuditCommandOutput) => void
   ): void;
 
@@ -6304,7 +6316,7 @@ export interface IoT {
    */
   updateSecurityProfile(
     args: UpdateSecurityProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateSecurityProfileCommandOutput>;
   updateSecurityProfile(
     args: UpdateSecurityProfileCommandInput,
@@ -6312,7 +6324,7 @@ export interface IoT {
   ): void;
   updateSecurityProfile(
     args: UpdateSecurityProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
   ): void;
 
@@ -6321,7 +6333,7 @@ export interface IoT {
    */
   updateStream(
     args: UpdateStreamCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateStreamCommandOutput>;
   updateStream(
     args: UpdateStreamCommandInput,
@@ -6329,7 +6341,7 @@ export interface IoT {
   ): void;
   updateStream(
     args: UpdateStreamCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateStreamCommandOutput) => void
   ): void;
 
@@ -6338,7 +6350,7 @@ export interface IoT {
    */
   updateThing(
     args: UpdateThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateThingCommandOutput>;
   updateThing(
     args: UpdateThingCommandInput,
@@ -6346,7 +6358,7 @@ export interface IoT {
   ): void;
   updateThing(
     args: UpdateThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateThingCommandOutput) => void
   ): void;
 
@@ -6355,7 +6367,7 @@ export interface IoT {
    */
   updateThingGroup(
     args: UpdateThingGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateThingGroupCommandOutput>;
   updateThingGroup(
     args: UpdateThingGroupCommandInput,
@@ -6363,7 +6375,7 @@ export interface IoT {
   ): void;
   updateThingGroup(
     args: UpdateThingGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateThingGroupCommandOutput) => void
   ): void;
 
@@ -6373,7 +6385,7 @@ export interface IoT {
   updateThingGroupsForThing(): Promise<UpdateThingGroupsForThingCommandOutput>;
   updateThingGroupsForThing(
     args: UpdateThingGroupsForThingCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateThingGroupsForThingCommandOutput>;
   updateThingGroupsForThing(
     args: UpdateThingGroupsForThingCommandInput,
@@ -6381,7 +6393,7 @@ export interface IoT {
   ): void;
   updateThingGroupsForThing(
     args: UpdateThingGroupsForThingCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateThingGroupsForThingCommandOutput) => void
   ): void;
 
@@ -6390,7 +6402,7 @@ export interface IoT {
    */
   updateThingType(
     args: UpdateThingTypeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateThingTypeCommandOutput>;
   updateThingType(
     args: UpdateThingTypeCommandInput,
@@ -6398,7 +6410,7 @@ export interface IoT {
   ): void;
   updateThingType(
     args: UpdateThingTypeCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateThingTypeCommandOutput) => void
   ): void;
 
@@ -6407,7 +6419,7 @@ export interface IoT {
    */
   updateTopicRuleDestination(
     args: UpdateTopicRuleDestinationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<UpdateTopicRuleDestinationCommandOutput>;
   updateTopicRuleDestination(
     args: UpdateTopicRuleDestinationCommandInput,
@@ -6415,7 +6427,7 @@ export interface IoT {
   ): void;
   updateTopicRuleDestination(
     args: UpdateTopicRuleDestinationCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: UpdateTopicRuleDestinationCommandOutput) => void
   ): void;
 
@@ -6424,7 +6436,7 @@ export interface IoT {
    */
   validateSecurityProfileBehaviors(
     args: ValidateSecurityProfileBehaviorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: IoTRequestOptions
   ): Promise<ValidateSecurityProfileBehaviorsCommandOutput>;
   validateSecurityProfileBehaviors(
     args: ValidateSecurityProfileBehaviorsCommandInput,
@@ -6432,7 +6444,7 @@ export interface IoT {
   ): void;
   validateSecurityProfileBehaviors(
     args: ValidateSecurityProfileBehaviorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: IoTRequestOptions,
     cb: (err: any, data?: ValidateSecurityProfileBehaviorsCommandOutput) => void
   ): void;
 

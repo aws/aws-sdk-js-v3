@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DescribeServicesCommandInput,
@@ -47,6 +52,13 @@ const paginators = {
   paginateListPriceLists,
 };
 
+/**
+ * @public
+ */
+export interface PricingRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface Pricing {
   /**
    * @see {@link DescribeServicesCommand}
@@ -54,7 +66,7 @@ export interface Pricing {
   describeServices(): Promise<DescribeServicesCommandOutput>;
   describeServices(
     args: DescribeServicesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingRequestOptions
   ): Promise<DescribeServicesCommandOutput>;
   describeServices(
     args: DescribeServicesCommandInput,
@@ -62,7 +74,7 @@ export interface Pricing {
   ): void;
   describeServices(
     args: DescribeServicesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingRequestOptions,
     cb: (err: any, data?: DescribeServicesCommandOutput) => void
   ): void;
 
@@ -71,7 +83,7 @@ export interface Pricing {
    */
   getAttributeValues(
     args: GetAttributeValuesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingRequestOptions
   ): Promise<GetAttributeValuesCommandOutput>;
   getAttributeValues(
     args: GetAttributeValuesCommandInput,
@@ -79,7 +91,7 @@ export interface Pricing {
   ): void;
   getAttributeValues(
     args: GetAttributeValuesCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingRequestOptions,
     cb: (err: any, data?: GetAttributeValuesCommandOutput) => void
   ): void;
 
@@ -88,7 +100,7 @@ export interface Pricing {
    */
   getPriceListFileUrl(
     args: GetPriceListFileUrlCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingRequestOptions
   ): Promise<GetPriceListFileUrlCommandOutput>;
   getPriceListFileUrl(
     args: GetPriceListFileUrlCommandInput,
@@ -96,7 +108,7 @@ export interface Pricing {
   ): void;
   getPriceListFileUrl(
     args: GetPriceListFileUrlCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingRequestOptions,
     cb: (err: any, data?: GetPriceListFileUrlCommandOutput) => void
   ): void;
 
@@ -105,7 +117,7 @@ export interface Pricing {
    */
   getProducts(
     args: GetProductsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingRequestOptions
   ): Promise<GetProductsCommandOutput>;
   getProducts(
     args: GetProductsCommandInput,
@@ -113,7 +125,7 @@ export interface Pricing {
   ): void;
   getProducts(
     args: GetProductsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingRequestOptions,
     cb: (err: any, data?: GetProductsCommandOutput) => void
   ): void;
 
@@ -122,7 +134,7 @@ export interface Pricing {
    */
   listPriceLists(
     args: ListPriceListsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: PricingRequestOptions
   ): Promise<ListPriceListsCommandOutput>;
   listPriceLists(
     args: ListPriceListsCommandInput,
@@ -130,7 +142,7 @@ export interface Pricing {
   ): void;
   listPriceLists(
     args: ListPriceListsCommandInput,
-    options: __HttpHandlerOptions,
+    options: PricingRequestOptions,
     cb: (err: any, data?: ListPriceListsCommandOutput) => void
   ): void;
 

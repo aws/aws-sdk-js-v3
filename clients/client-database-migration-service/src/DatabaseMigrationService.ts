@@ -2,6 +2,7 @@
 import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
 import type {
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
   PaginationConfiguration,
   Paginator,
   WaiterConfiguration,
@@ -866,13 +867,20 @@ const waiters = {
   waitUntilReplicationTaskStopped,
 };
 
+/**
+ * @public
+ */
+export interface DatabaseMigrationServiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface DatabaseMigrationService {
   /**
    * @see {@link AddTagsToResourceCommand}
    */
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<AddTagsToResourceCommandOutput>;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -880,7 +888,7 @@ export interface DatabaseMigrationService {
   ): void;
   addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): void;
 
@@ -889,7 +897,7 @@ export interface DatabaseMigrationService {
    */
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ApplyPendingMaintenanceActionCommandOutput>;
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
@@ -897,7 +905,7 @@ export interface DatabaseMigrationService {
   ): void;
   applyPendingMaintenanceAction(
     args: ApplyPendingMaintenanceActionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
   ): void;
 
@@ -907,7 +915,7 @@ export interface DatabaseMigrationService {
   batchStartRecommendations(): Promise<BatchStartRecommendationsCommandOutput>;
   batchStartRecommendations(
     args: BatchStartRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<BatchStartRecommendationsCommandOutput>;
   batchStartRecommendations(
     args: BatchStartRecommendationsCommandInput,
@@ -915,7 +923,7 @@ export interface DatabaseMigrationService {
   ): void;
   batchStartRecommendations(
     args: BatchStartRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: BatchStartRecommendationsCommandOutput) => void
   ): void;
 
@@ -924,7 +932,7 @@ export interface DatabaseMigrationService {
    */
   cancelMetadataModelConversion(
     args: CancelMetadataModelConversionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CancelMetadataModelConversionCommandOutput>;
   cancelMetadataModelConversion(
     args: CancelMetadataModelConversionCommandInput,
@@ -932,7 +940,7 @@ export interface DatabaseMigrationService {
   ): void;
   cancelMetadataModelConversion(
     args: CancelMetadataModelConversionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CancelMetadataModelConversionCommandOutput) => void
   ): void;
 
@@ -941,7 +949,7 @@ export interface DatabaseMigrationService {
    */
   cancelMetadataModelCreation(
     args: CancelMetadataModelCreationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CancelMetadataModelCreationCommandOutput>;
   cancelMetadataModelCreation(
     args: CancelMetadataModelCreationCommandInput,
@@ -949,7 +957,7 @@ export interface DatabaseMigrationService {
   ): void;
   cancelMetadataModelCreation(
     args: CancelMetadataModelCreationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CancelMetadataModelCreationCommandOutput) => void
   ): void;
 
@@ -958,7 +966,7 @@ export interface DatabaseMigrationService {
    */
   cancelReplicationTaskAssessmentRun(
     args: CancelReplicationTaskAssessmentRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CancelReplicationTaskAssessmentRunCommandOutput>;
   cancelReplicationTaskAssessmentRun(
     args: CancelReplicationTaskAssessmentRunCommandInput,
@@ -966,7 +974,7 @@ export interface DatabaseMigrationService {
   ): void;
   cancelReplicationTaskAssessmentRun(
     args: CancelReplicationTaskAssessmentRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CancelReplicationTaskAssessmentRunCommandOutput) => void
   ): void;
 
@@ -975,7 +983,7 @@ export interface DatabaseMigrationService {
    */
   createDataMigration(
     args: CreateDataMigrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateDataMigrationCommandOutput>;
   createDataMigration(
     args: CreateDataMigrationCommandInput,
@@ -983,7 +991,7 @@ export interface DatabaseMigrationService {
   ): void;
   createDataMigration(
     args: CreateDataMigrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateDataMigrationCommandOutput) => void
   ): void;
 
@@ -992,7 +1000,7 @@ export interface DatabaseMigrationService {
    */
   createDataProvider(
     args: CreateDataProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateDataProviderCommandOutput>;
   createDataProvider(
     args: CreateDataProviderCommandInput,
@@ -1000,7 +1008,7 @@ export interface DatabaseMigrationService {
   ): void;
   createDataProvider(
     args: CreateDataProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateDataProviderCommandOutput) => void
   ): void;
 
@@ -1009,7 +1017,7 @@ export interface DatabaseMigrationService {
    */
   createEndpoint(
     args: CreateEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateEndpointCommandOutput>;
   createEndpoint(
     args: CreateEndpointCommandInput,
@@ -1017,7 +1025,7 @@ export interface DatabaseMigrationService {
   ): void;
   createEndpoint(
     args: CreateEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateEndpointCommandOutput) => void
   ): void;
 
@@ -1026,7 +1034,7 @@ export interface DatabaseMigrationService {
    */
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateEventSubscriptionCommandOutput>;
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
@@ -1034,7 +1042,7 @@ export interface DatabaseMigrationService {
   ): void;
   createEventSubscription(
     args: CreateEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -1043,7 +1051,7 @@ export interface DatabaseMigrationService {
    */
   createFleetAdvisorCollector(
     args: CreateFleetAdvisorCollectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateFleetAdvisorCollectorCommandOutput>;
   createFleetAdvisorCollector(
     args: CreateFleetAdvisorCollectorCommandInput,
@@ -1051,7 +1059,7 @@ export interface DatabaseMigrationService {
   ): void;
   createFleetAdvisorCollector(
     args: CreateFleetAdvisorCollectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateFleetAdvisorCollectorCommandOutput) => void
   ): void;
 
@@ -1061,7 +1069,7 @@ export interface DatabaseMigrationService {
   createInstanceProfile(): Promise<CreateInstanceProfileCommandOutput>;
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateInstanceProfileCommandOutput>;
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
@@ -1069,7 +1077,7 @@ export interface DatabaseMigrationService {
   ): void;
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateInstanceProfileCommandOutput) => void
   ): void;
 
@@ -1078,7 +1086,7 @@ export interface DatabaseMigrationService {
    */
   createMigrationProject(
     args: CreateMigrationProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateMigrationProjectCommandOutput>;
   createMigrationProject(
     args: CreateMigrationProjectCommandInput,
@@ -1086,7 +1094,7 @@ export interface DatabaseMigrationService {
   ): void;
   createMigrationProject(
     args: CreateMigrationProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateMigrationProjectCommandOutput) => void
   ): void;
 
@@ -1095,7 +1103,7 @@ export interface DatabaseMigrationService {
    */
   createReplicationConfig(
     args: CreateReplicationConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateReplicationConfigCommandOutput>;
   createReplicationConfig(
     args: CreateReplicationConfigCommandInput,
@@ -1103,7 +1111,7 @@ export interface DatabaseMigrationService {
   ): void;
   createReplicationConfig(
     args: CreateReplicationConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateReplicationConfigCommandOutput) => void
   ): void;
 
@@ -1112,7 +1120,7 @@ export interface DatabaseMigrationService {
    */
   createReplicationInstance(
     args: CreateReplicationInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateReplicationInstanceCommandOutput>;
   createReplicationInstance(
     args: CreateReplicationInstanceCommandInput,
@@ -1120,7 +1128,7 @@ export interface DatabaseMigrationService {
   ): void;
   createReplicationInstance(
     args: CreateReplicationInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateReplicationInstanceCommandOutput) => void
   ): void;
 
@@ -1129,7 +1137,7 @@ export interface DatabaseMigrationService {
    */
   createReplicationSubnetGroup(
     args: CreateReplicationSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateReplicationSubnetGroupCommandOutput>;
   createReplicationSubnetGroup(
     args: CreateReplicationSubnetGroupCommandInput,
@@ -1137,7 +1145,7 @@ export interface DatabaseMigrationService {
   ): void;
   createReplicationSubnetGroup(
     args: CreateReplicationSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateReplicationSubnetGroupCommandOutput) => void
   ): void;
 
@@ -1146,7 +1154,7 @@ export interface DatabaseMigrationService {
    */
   createReplicationTask(
     args: CreateReplicationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<CreateReplicationTaskCommandOutput>;
   createReplicationTask(
     args: CreateReplicationTaskCommandInput,
@@ -1154,7 +1162,7 @@ export interface DatabaseMigrationService {
   ): void;
   createReplicationTask(
     args: CreateReplicationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: CreateReplicationTaskCommandOutput) => void
   ): void;
 
@@ -1163,7 +1171,7 @@ export interface DatabaseMigrationService {
    */
   deleteCertificate(
     args: DeleteCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteCertificateCommandOutput>;
   deleteCertificate(
     args: DeleteCertificateCommandInput,
@@ -1171,7 +1179,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteCertificate(
     args: DeleteCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteCertificateCommandOutput) => void
   ): void;
 
@@ -1180,7 +1188,7 @@ export interface DatabaseMigrationService {
    */
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteConnectionCommandOutput>;
   deleteConnection(
     args: DeleteConnectionCommandInput,
@@ -1188,7 +1196,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteConnection(
     args: DeleteConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteConnectionCommandOutput) => void
   ): void;
 
@@ -1197,7 +1205,7 @@ export interface DatabaseMigrationService {
    */
   deleteDataMigration(
     args: DeleteDataMigrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteDataMigrationCommandOutput>;
   deleteDataMigration(
     args: DeleteDataMigrationCommandInput,
@@ -1205,7 +1213,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteDataMigration(
     args: DeleteDataMigrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteDataMigrationCommandOutput) => void
   ): void;
 
@@ -1214,7 +1222,7 @@ export interface DatabaseMigrationService {
    */
   deleteDataProvider(
     args: DeleteDataProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteDataProviderCommandOutput>;
   deleteDataProvider(
     args: DeleteDataProviderCommandInput,
@@ -1222,7 +1230,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteDataProvider(
     args: DeleteDataProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteDataProviderCommandOutput) => void
   ): void;
 
@@ -1231,7 +1239,7 @@ export interface DatabaseMigrationService {
    */
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteEndpointCommandOutput>;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -1239,7 +1247,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): void;
 
@@ -1248,7 +1256,7 @@ export interface DatabaseMigrationService {
    */
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteEventSubscriptionCommandOutput>;
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
@@ -1256,7 +1264,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteEventSubscription(
     args: DeleteEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -1265,7 +1273,7 @@ export interface DatabaseMigrationService {
    */
   deleteFleetAdvisorCollector(
     args: DeleteFleetAdvisorCollectorCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteFleetAdvisorCollectorCommandOutput>;
   deleteFleetAdvisorCollector(
     args: DeleteFleetAdvisorCollectorCommandInput,
@@ -1273,7 +1281,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteFleetAdvisorCollector(
     args: DeleteFleetAdvisorCollectorCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteFleetAdvisorCollectorCommandOutput) => void
   ): void;
 
@@ -1282,7 +1290,7 @@ export interface DatabaseMigrationService {
    */
   deleteFleetAdvisorDatabases(
     args: DeleteFleetAdvisorDatabasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteFleetAdvisorDatabasesCommandOutput>;
   deleteFleetAdvisorDatabases(
     args: DeleteFleetAdvisorDatabasesCommandInput,
@@ -1290,7 +1298,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteFleetAdvisorDatabases(
     args: DeleteFleetAdvisorDatabasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteFleetAdvisorDatabasesCommandOutput) => void
   ): void;
 
@@ -1299,7 +1307,7 @@ export interface DatabaseMigrationService {
    */
   deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteInstanceProfileCommandOutput>;
   deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
@@ -1307,7 +1315,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteInstanceProfile(
     args: DeleteInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteInstanceProfileCommandOutput) => void
   ): void;
 
@@ -1316,7 +1324,7 @@ export interface DatabaseMigrationService {
    */
   deleteMigrationProject(
     args: DeleteMigrationProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteMigrationProjectCommandOutput>;
   deleteMigrationProject(
     args: DeleteMigrationProjectCommandInput,
@@ -1324,7 +1332,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteMigrationProject(
     args: DeleteMigrationProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteMigrationProjectCommandOutput) => void
   ): void;
 
@@ -1333,7 +1341,7 @@ export interface DatabaseMigrationService {
    */
   deleteReplicationConfig(
     args: DeleteReplicationConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteReplicationConfigCommandOutput>;
   deleteReplicationConfig(
     args: DeleteReplicationConfigCommandInput,
@@ -1341,7 +1349,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteReplicationConfig(
     args: DeleteReplicationConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteReplicationConfigCommandOutput) => void
   ): void;
 
@@ -1350,7 +1358,7 @@ export interface DatabaseMigrationService {
    */
   deleteReplicationInstance(
     args: DeleteReplicationInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteReplicationInstanceCommandOutput>;
   deleteReplicationInstance(
     args: DeleteReplicationInstanceCommandInput,
@@ -1358,7 +1366,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteReplicationInstance(
     args: DeleteReplicationInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteReplicationInstanceCommandOutput) => void
   ): void;
 
@@ -1367,7 +1375,7 @@ export interface DatabaseMigrationService {
    */
   deleteReplicationSubnetGroup(
     args: DeleteReplicationSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteReplicationSubnetGroupCommandOutput>;
   deleteReplicationSubnetGroup(
     args: DeleteReplicationSubnetGroupCommandInput,
@@ -1375,7 +1383,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteReplicationSubnetGroup(
     args: DeleteReplicationSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteReplicationSubnetGroupCommandOutput) => void
   ): void;
 
@@ -1384,7 +1392,7 @@ export interface DatabaseMigrationService {
    */
   deleteReplicationTask(
     args: DeleteReplicationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteReplicationTaskCommandOutput>;
   deleteReplicationTask(
     args: DeleteReplicationTaskCommandInput,
@@ -1392,7 +1400,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteReplicationTask(
     args: DeleteReplicationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteReplicationTaskCommandOutput) => void
   ): void;
 
@@ -1401,7 +1409,7 @@ export interface DatabaseMigrationService {
    */
   deleteReplicationTaskAssessmentRun(
     args: DeleteReplicationTaskAssessmentRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DeleteReplicationTaskAssessmentRunCommandOutput>;
   deleteReplicationTaskAssessmentRun(
     args: DeleteReplicationTaskAssessmentRunCommandInput,
@@ -1409,7 +1417,7 @@ export interface DatabaseMigrationService {
   ): void;
   deleteReplicationTaskAssessmentRun(
     args: DeleteReplicationTaskAssessmentRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DeleteReplicationTaskAssessmentRunCommandOutput) => void
   ): void;
 
@@ -1419,7 +1427,7 @@ export interface DatabaseMigrationService {
   describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
@@ -1427,7 +1435,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): void;
 
@@ -1437,7 +1445,7 @@ export interface DatabaseMigrationService {
   describeApplicableIndividualAssessments(): Promise<DescribeApplicableIndividualAssessmentsCommandOutput>;
   describeApplicableIndividualAssessments(
     args: DescribeApplicableIndividualAssessmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeApplicableIndividualAssessmentsCommandOutput>;
   describeApplicableIndividualAssessments(
     args: DescribeApplicableIndividualAssessmentsCommandInput,
@@ -1445,7 +1453,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeApplicableIndividualAssessments(
     args: DescribeApplicableIndividualAssessmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeApplicableIndividualAssessmentsCommandOutput) => void
   ): void;
 
@@ -1455,7 +1463,7 @@ export interface DatabaseMigrationService {
   describeCertificates(): Promise<DescribeCertificatesCommandOutput>;
   describeCertificates(
     args: DescribeCertificatesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeCertificatesCommandOutput>;
   describeCertificates(
     args: DescribeCertificatesCommandInput,
@@ -1463,7 +1471,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeCertificates(
     args: DescribeCertificatesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeCertificatesCommandOutput) => void
   ): void;
 
@@ -1473,7 +1481,7 @@ export interface DatabaseMigrationService {
   describeConnections(): Promise<DescribeConnectionsCommandOutput>;
   describeConnections(
     args: DescribeConnectionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeConnectionsCommandOutput>;
   describeConnections(
     args: DescribeConnectionsCommandInput,
@@ -1481,7 +1489,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeConnections(
     args: DescribeConnectionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeConnectionsCommandOutput) => void
   ): void;
 
@@ -1490,7 +1498,7 @@ export interface DatabaseMigrationService {
    */
   describeConversionConfiguration(
     args: DescribeConversionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeConversionConfigurationCommandOutput>;
   describeConversionConfiguration(
     args: DescribeConversionConfigurationCommandInput,
@@ -1498,7 +1506,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeConversionConfiguration(
     args: DescribeConversionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeConversionConfigurationCommandOutput) => void
   ): void;
 
@@ -1508,7 +1516,7 @@ export interface DatabaseMigrationService {
   describeDataMigrations(): Promise<DescribeDataMigrationsCommandOutput>;
   describeDataMigrations(
     args: DescribeDataMigrationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeDataMigrationsCommandOutput>;
   describeDataMigrations(
     args: DescribeDataMigrationsCommandInput,
@@ -1516,7 +1524,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeDataMigrations(
     args: DescribeDataMigrationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeDataMigrationsCommandOutput) => void
   ): void;
 
@@ -1526,7 +1534,7 @@ export interface DatabaseMigrationService {
   describeDataProviders(): Promise<DescribeDataProvidersCommandOutput>;
   describeDataProviders(
     args: DescribeDataProvidersCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeDataProvidersCommandOutput>;
   describeDataProviders(
     args: DescribeDataProvidersCommandInput,
@@ -1534,7 +1542,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeDataProviders(
     args: DescribeDataProvidersCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeDataProvidersCommandOutput) => void
   ): void;
 
@@ -1544,7 +1552,7 @@ export interface DatabaseMigrationService {
   describeEndpoints(): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
@@ -1552,7 +1560,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeEndpointsCommandOutput) => void
   ): void;
 
@@ -1561,7 +1569,7 @@ export interface DatabaseMigrationService {
    */
   describeEndpointSettings(
     args: DescribeEndpointSettingsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeEndpointSettingsCommandOutput>;
   describeEndpointSettings(
     args: DescribeEndpointSettingsCommandInput,
@@ -1569,7 +1577,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeEndpointSettings(
     args: DescribeEndpointSettingsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeEndpointSettingsCommandOutput) => void
   ): void;
 
@@ -1579,7 +1587,7 @@ export interface DatabaseMigrationService {
   describeEndpointTypes(): Promise<DescribeEndpointTypesCommandOutput>;
   describeEndpointTypes(
     args: DescribeEndpointTypesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeEndpointTypesCommandOutput>;
   describeEndpointTypes(
     args: DescribeEndpointTypesCommandInput,
@@ -1587,7 +1595,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeEndpointTypes(
     args: DescribeEndpointTypesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeEndpointTypesCommandOutput) => void
   ): void;
 
@@ -1597,7 +1605,7 @@ export interface DatabaseMigrationService {
   describeEngineVersions(): Promise<DescribeEngineVersionsCommandOutput>;
   describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeEngineVersionsCommandOutput>;
   describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
@@ -1605,7 +1613,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeEngineVersionsCommandOutput) => void
   ): void;
 
@@ -1615,7 +1623,7 @@ export interface DatabaseMigrationService {
   describeEventCategories(): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
@@ -1623,7 +1631,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeEventCategoriesCommandOutput) => void
   ): void;
 
@@ -1633,7 +1641,7 @@ export interface DatabaseMigrationService {
   describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
@@ -1641,7 +1649,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeEvents(
     args: DescribeEventsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeEventsCommandOutput) => void
   ): void;
 
@@ -1651,7 +1659,7 @@ export interface DatabaseMigrationService {
   describeEventSubscriptions(): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
@@ -1659,7 +1667,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeEventSubscriptionsCommandOutput) => void
   ): void;
 
@@ -1668,7 +1676,7 @@ export interface DatabaseMigrationService {
    */
   describeExtensionPackAssociations(
     args: DescribeExtensionPackAssociationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeExtensionPackAssociationsCommandOutput>;
   describeExtensionPackAssociations(
     args: DescribeExtensionPackAssociationsCommandInput,
@@ -1676,7 +1684,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeExtensionPackAssociations(
     args: DescribeExtensionPackAssociationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeExtensionPackAssociationsCommandOutput) => void
   ): void;
 
@@ -1686,7 +1694,7 @@ export interface DatabaseMigrationService {
   describeFleetAdvisorCollectors(): Promise<DescribeFleetAdvisorCollectorsCommandOutput>;
   describeFleetAdvisorCollectors(
     args: DescribeFleetAdvisorCollectorsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeFleetAdvisorCollectorsCommandOutput>;
   describeFleetAdvisorCollectors(
     args: DescribeFleetAdvisorCollectorsCommandInput,
@@ -1694,7 +1702,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeFleetAdvisorCollectors(
     args: DescribeFleetAdvisorCollectorsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeFleetAdvisorCollectorsCommandOutput) => void
   ): void;
 
@@ -1704,7 +1712,7 @@ export interface DatabaseMigrationService {
   describeFleetAdvisorDatabases(): Promise<DescribeFleetAdvisorDatabasesCommandOutput>;
   describeFleetAdvisorDatabases(
     args: DescribeFleetAdvisorDatabasesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeFleetAdvisorDatabasesCommandOutput>;
   describeFleetAdvisorDatabases(
     args: DescribeFleetAdvisorDatabasesCommandInput,
@@ -1712,7 +1720,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeFleetAdvisorDatabases(
     args: DescribeFleetAdvisorDatabasesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeFleetAdvisorDatabasesCommandOutput) => void
   ): void;
 
@@ -1722,7 +1730,7 @@ export interface DatabaseMigrationService {
   describeFleetAdvisorLsaAnalysis(): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput>;
   describeFleetAdvisorLsaAnalysis(
     args: DescribeFleetAdvisorLsaAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput>;
   describeFleetAdvisorLsaAnalysis(
     args: DescribeFleetAdvisorLsaAnalysisCommandInput,
@@ -1730,7 +1738,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeFleetAdvisorLsaAnalysis(
     args: DescribeFleetAdvisorLsaAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeFleetAdvisorLsaAnalysisCommandOutput) => void
   ): void;
 
@@ -1740,7 +1748,7 @@ export interface DatabaseMigrationService {
   describeFleetAdvisorSchemaObjectSummary(): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput>;
   describeFleetAdvisorSchemaObjectSummary(
     args: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput>;
   describeFleetAdvisorSchemaObjectSummary(
     args: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
@@ -1748,7 +1756,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeFleetAdvisorSchemaObjectSummary(
     args: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeFleetAdvisorSchemaObjectSummaryCommandOutput) => void
   ): void;
 
@@ -1758,7 +1766,7 @@ export interface DatabaseMigrationService {
   describeFleetAdvisorSchemas(): Promise<DescribeFleetAdvisorSchemasCommandOutput>;
   describeFleetAdvisorSchemas(
     args: DescribeFleetAdvisorSchemasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeFleetAdvisorSchemasCommandOutput>;
   describeFleetAdvisorSchemas(
     args: DescribeFleetAdvisorSchemasCommandInput,
@@ -1766,7 +1774,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeFleetAdvisorSchemas(
     args: DescribeFleetAdvisorSchemasCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeFleetAdvisorSchemasCommandOutput) => void
   ): void;
 
@@ -1776,7 +1784,7 @@ export interface DatabaseMigrationService {
   describeInstanceProfiles(): Promise<DescribeInstanceProfilesCommandOutput>;
   describeInstanceProfiles(
     args: DescribeInstanceProfilesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeInstanceProfilesCommandOutput>;
   describeInstanceProfiles(
     args: DescribeInstanceProfilesCommandInput,
@@ -1784,7 +1792,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeInstanceProfiles(
     args: DescribeInstanceProfilesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeInstanceProfilesCommandOutput) => void
   ): void;
 
@@ -1793,7 +1801,7 @@ export interface DatabaseMigrationService {
    */
   describeMetadataModel(
     args: DescribeMetadataModelCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeMetadataModelCommandOutput>;
   describeMetadataModel(
     args: DescribeMetadataModelCommandInput,
@@ -1801,7 +1809,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeMetadataModel(
     args: DescribeMetadataModelCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeMetadataModelCommandOutput) => void
   ): void;
 
@@ -1810,7 +1818,7 @@ export interface DatabaseMigrationService {
    */
   describeMetadataModelAssessments(
     args: DescribeMetadataModelAssessmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeMetadataModelAssessmentsCommandOutput>;
   describeMetadataModelAssessments(
     args: DescribeMetadataModelAssessmentsCommandInput,
@@ -1818,7 +1826,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeMetadataModelAssessments(
     args: DescribeMetadataModelAssessmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeMetadataModelAssessmentsCommandOutput) => void
   ): void;
 
@@ -1827,7 +1835,7 @@ export interface DatabaseMigrationService {
    */
   describeMetadataModelChildren(
     args: DescribeMetadataModelChildrenCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeMetadataModelChildrenCommandOutput>;
   describeMetadataModelChildren(
     args: DescribeMetadataModelChildrenCommandInput,
@@ -1835,7 +1843,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeMetadataModelChildren(
     args: DescribeMetadataModelChildrenCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeMetadataModelChildrenCommandOutput) => void
   ): void;
 
@@ -1844,7 +1852,7 @@ export interface DatabaseMigrationService {
    */
   describeMetadataModelConversions(
     args: DescribeMetadataModelConversionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeMetadataModelConversionsCommandOutput>;
   describeMetadataModelConversions(
     args: DescribeMetadataModelConversionsCommandInput,
@@ -1852,7 +1860,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeMetadataModelConversions(
     args: DescribeMetadataModelConversionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeMetadataModelConversionsCommandOutput) => void
   ): void;
 
@@ -1861,7 +1869,7 @@ export interface DatabaseMigrationService {
    */
   describeMetadataModelCreations(
     args: DescribeMetadataModelCreationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeMetadataModelCreationsCommandOutput>;
   describeMetadataModelCreations(
     args: DescribeMetadataModelCreationsCommandInput,
@@ -1869,7 +1877,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeMetadataModelCreations(
     args: DescribeMetadataModelCreationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeMetadataModelCreationsCommandOutput) => void
   ): void;
 
@@ -1878,7 +1886,7 @@ export interface DatabaseMigrationService {
    */
   describeMetadataModelExportsAsScript(
     args: DescribeMetadataModelExportsAsScriptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeMetadataModelExportsAsScriptCommandOutput>;
   describeMetadataModelExportsAsScript(
     args: DescribeMetadataModelExportsAsScriptCommandInput,
@@ -1886,7 +1894,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeMetadataModelExportsAsScript(
     args: DescribeMetadataModelExportsAsScriptCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeMetadataModelExportsAsScriptCommandOutput) => void
   ): void;
 
@@ -1895,7 +1903,7 @@ export interface DatabaseMigrationService {
    */
   describeMetadataModelExportsToTarget(
     args: DescribeMetadataModelExportsToTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeMetadataModelExportsToTargetCommandOutput>;
   describeMetadataModelExportsToTarget(
     args: DescribeMetadataModelExportsToTargetCommandInput,
@@ -1903,7 +1911,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeMetadataModelExportsToTarget(
     args: DescribeMetadataModelExportsToTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeMetadataModelExportsToTargetCommandOutput) => void
   ): void;
 
@@ -1912,7 +1920,7 @@ export interface DatabaseMigrationService {
    */
   describeMetadataModelImports(
     args: DescribeMetadataModelImportsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeMetadataModelImportsCommandOutput>;
   describeMetadataModelImports(
     args: DescribeMetadataModelImportsCommandInput,
@@ -1920,7 +1928,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeMetadataModelImports(
     args: DescribeMetadataModelImportsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeMetadataModelImportsCommandOutput) => void
   ): void;
 
@@ -1930,7 +1938,7 @@ export interface DatabaseMigrationService {
   describeMigrationProjects(): Promise<DescribeMigrationProjectsCommandOutput>;
   describeMigrationProjects(
     args: DescribeMigrationProjectsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeMigrationProjectsCommandOutput>;
   describeMigrationProjects(
     args: DescribeMigrationProjectsCommandInput,
@@ -1938,7 +1946,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeMigrationProjects(
     args: DescribeMigrationProjectsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeMigrationProjectsCommandOutput) => void
   ): void;
 
@@ -1948,7 +1956,7 @@ export interface DatabaseMigrationService {
   describeOrderableReplicationInstances(): Promise<DescribeOrderableReplicationInstancesCommandOutput>;
   describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeOrderableReplicationInstancesCommandOutput>;
   describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
@@ -1956,7 +1964,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeOrderableReplicationInstancesCommandOutput) => void
   ): void;
 
@@ -1966,7 +1974,7 @@ export interface DatabaseMigrationService {
   describePendingMaintenanceActions(): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
@@ -1974,7 +1982,7 @@ export interface DatabaseMigrationService {
   ): void;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribePendingMaintenanceActionsCommandOutput) => void
   ): void;
 
@@ -1984,7 +1992,7 @@ export interface DatabaseMigrationService {
   describeRecommendationLimitations(): Promise<DescribeRecommendationLimitationsCommandOutput>;
   describeRecommendationLimitations(
     args: DescribeRecommendationLimitationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeRecommendationLimitationsCommandOutput>;
   describeRecommendationLimitations(
     args: DescribeRecommendationLimitationsCommandInput,
@@ -1992,7 +2000,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeRecommendationLimitations(
     args: DescribeRecommendationLimitationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeRecommendationLimitationsCommandOutput) => void
   ): void;
 
@@ -2002,7 +2010,7 @@ export interface DatabaseMigrationService {
   describeRecommendations(): Promise<DescribeRecommendationsCommandOutput>;
   describeRecommendations(
     args: DescribeRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeRecommendationsCommandOutput>;
   describeRecommendations(
     args: DescribeRecommendationsCommandInput,
@@ -2010,7 +2018,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeRecommendations(
     args: DescribeRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeRecommendationsCommandOutput) => void
   ): void;
 
@@ -2019,7 +2027,7 @@ export interface DatabaseMigrationService {
    */
   describeRefreshSchemasStatus(
     args: DescribeRefreshSchemasStatusCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeRefreshSchemasStatusCommandOutput>;
   describeRefreshSchemasStatus(
     args: DescribeRefreshSchemasStatusCommandInput,
@@ -2027,7 +2035,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeRefreshSchemasStatus(
     args: DescribeRefreshSchemasStatusCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeRefreshSchemasStatusCommandOutput) => void
   ): void;
 
@@ -2037,7 +2045,7 @@ export interface DatabaseMigrationService {
   describeReplicationConfigs(): Promise<DescribeReplicationConfigsCommandOutput>;
   describeReplicationConfigs(
     args: DescribeReplicationConfigsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationConfigsCommandOutput>;
   describeReplicationConfigs(
     args: DescribeReplicationConfigsCommandInput,
@@ -2045,7 +2053,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplicationConfigs(
     args: DescribeReplicationConfigsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationConfigsCommandOutput) => void
   ): void;
 
@@ -2055,7 +2063,7 @@ export interface DatabaseMigrationService {
   describeReplicationInstances(): Promise<DescribeReplicationInstancesCommandOutput>;
   describeReplicationInstances(
     args: DescribeReplicationInstancesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationInstancesCommandOutput>;
   describeReplicationInstances(
     args: DescribeReplicationInstancesCommandInput,
@@ -2063,7 +2071,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplicationInstances(
     args: DescribeReplicationInstancesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationInstancesCommandOutput) => void
   ): void;
 
@@ -2072,7 +2080,7 @@ export interface DatabaseMigrationService {
    */
   describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput>;
   describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
@@ -2080,7 +2088,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplicationInstanceTaskLogs(
     args: DescribeReplicationInstanceTaskLogsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationInstanceTaskLogsCommandOutput) => void
   ): void;
 
@@ -2090,7 +2098,7 @@ export interface DatabaseMigrationService {
   describeReplications(): Promise<DescribeReplicationsCommandOutput>;
   describeReplications(
     args: DescribeReplicationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationsCommandOutput>;
   describeReplications(
     args: DescribeReplicationsCommandInput,
@@ -2098,7 +2106,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplications(
     args: DescribeReplicationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationsCommandOutput) => void
   ): void;
 
@@ -2108,7 +2116,7 @@ export interface DatabaseMigrationService {
   describeReplicationSubnetGroups(): Promise<DescribeReplicationSubnetGroupsCommandOutput>;
   describeReplicationSubnetGroups(
     args: DescribeReplicationSubnetGroupsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationSubnetGroupsCommandOutput>;
   describeReplicationSubnetGroups(
     args: DescribeReplicationSubnetGroupsCommandInput,
@@ -2116,7 +2124,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplicationSubnetGroups(
     args: DescribeReplicationSubnetGroupsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationSubnetGroupsCommandOutput) => void
   ): void;
 
@@ -2125,7 +2133,7 @@ export interface DatabaseMigrationService {
    */
   describeReplicationTableStatistics(
     args: DescribeReplicationTableStatisticsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationTableStatisticsCommandOutput>;
   describeReplicationTableStatistics(
     args: DescribeReplicationTableStatisticsCommandInput,
@@ -2133,7 +2141,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplicationTableStatistics(
     args: DescribeReplicationTableStatisticsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationTableStatisticsCommandOutput) => void
   ): void;
 
@@ -2143,7 +2151,7 @@ export interface DatabaseMigrationService {
   describeReplicationTaskAssessmentResults(): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput>;
   describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput>;
   describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
@@ -2151,7 +2159,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationTaskAssessmentResultsCommandOutput) => void
   ): void;
 
@@ -2161,7 +2169,7 @@ export interface DatabaseMigrationService {
   describeReplicationTaskAssessmentRuns(): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput>;
   describeReplicationTaskAssessmentRuns(
     args: DescribeReplicationTaskAssessmentRunsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput>;
   describeReplicationTaskAssessmentRuns(
     args: DescribeReplicationTaskAssessmentRunsCommandInput,
@@ -2169,7 +2177,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplicationTaskAssessmentRuns(
     args: DescribeReplicationTaskAssessmentRunsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationTaskAssessmentRunsCommandOutput) => void
   ): void;
 
@@ -2179,7 +2187,7 @@ export interface DatabaseMigrationService {
   describeReplicationTaskIndividualAssessments(): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput>;
   describeReplicationTaskIndividualAssessments(
     args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput>;
   describeReplicationTaskIndividualAssessments(
     args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
@@ -2187,7 +2195,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplicationTaskIndividualAssessments(
     args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationTaskIndividualAssessmentsCommandOutput) => void
   ): void;
 
@@ -2197,7 +2205,7 @@ export interface DatabaseMigrationService {
   describeReplicationTasks(): Promise<DescribeReplicationTasksCommandOutput>;
   describeReplicationTasks(
     args: DescribeReplicationTasksCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeReplicationTasksCommandOutput>;
   describeReplicationTasks(
     args: DescribeReplicationTasksCommandInput,
@@ -2205,7 +2213,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeReplicationTasks(
     args: DescribeReplicationTasksCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeReplicationTasksCommandOutput) => void
   ): void;
 
@@ -2214,7 +2222,7 @@ export interface DatabaseMigrationService {
    */
   describeSchemas(
     args: DescribeSchemasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeSchemasCommandOutput>;
   describeSchemas(
     args: DescribeSchemasCommandInput,
@@ -2222,7 +2230,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeSchemas(
     args: DescribeSchemasCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeSchemasCommandOutput) => void
   ): void;
 
@@ -2231,7 +2239,7 @@ export interface DatabaseMigrationService {
    */
   describeTableStatistics(
     args: DescribeTableStatisticsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<DescribeTableStatisticsCommandOutput>;
   describeTableStatistics(
     args: DescribeTableStatisticsCommandInput,
@@ -2239,7 +2247,7 @@ export interface DatabaseMigrationService {
   ): void;
   describeTableStatistics(
     args: DescribeTableStatisticsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: DescribeTableStatisticsCommandOutput) => void
   ): void;
 
@@ -2248,7 +2256,7 @@ export interface DatabaseMigrationService {
    */
   exportMetadataModelAssessment(
     args: ExportMetadataModelAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ExportMetadataModelAssessmentCommandOutput>;
   exportMetadataModelAssessment(
     args: ExportMetadataModelAssessmentCommandInput,
@@ -2256,7 +2264,7 @@ export interface DatabaseMigrationService {
   ): void;
   exportMetadataModelAssessment(
     args: ExportMetadataModelAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ExportMetadataModelAssessmentCommandOutput) => void
   ): void;
 
@@ -2265,7 +2273,7 @@ export interface DatabaseMigrationService {
    */
   getTargetSelectionRules(
     args: GetTargetSelectionRulesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<GetTargetSelectionRulesCommandOutput>;
   getTargetSelectionRules(
     args: GetTargetSelectionRulesCommandInput,
@@ -2273,7 +2281,7 @@ export interface DatabaseMigrationService {
   ): void;
   getTargetSelectionRules(
     args: GetTargetSelectionRulesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: GetTargetSelectionRulesCommandOutput) => void
   ): void;
 
@@ -2282,7 +2290,7 @@ export interface DatabaseMigrationService {
    */
   importCertificate(
     args: ImportCertificateCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ImportCertificateCommandOutput>;
   importCertificate(
     args: ImportCertificateCommandInput,
@@ -2290,7 +2298,7 @@ export interface DatabaseMigrationService {
   ): void;
   importCertificate(
     args: ImportCertificateCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ImportCertificateCommandOutput) => void
   ): void;
 
@@ -2300,7 +2308,7 @@ export interface DatabaseMigrationService {
   listTagsForResource(): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2308,7 +2316,7 @@ export interface DatabaseMigrationService {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -2317,7 +2325,7 @@ export interface DatabaseMigrationService {
    */
   modifyConversionConfiguration(
     args: ModifyConversionConfigurationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyConversionConfigurationCommandOutput>;
   modifyConversionConfiguration(
     args: ModifyConversionConfigurationCommandInput,
@@ -2325,7 +2333,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyConversionConfiguration(
     args: ModifyConversionConfigurationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyConversionConfigurationCommandOutput) => void
   ): void;
 
@@ -2334,7 +2342,7 @@ export interface DatabaseMigrationService {
    */
   modifyDataMigration(
     args: ModifyDataMigrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyDataMigrationCommandOutput>;
   modifyDataMigration(
     args: ModifyDataMigrationCommandInput,
@@ -2342,7 +2350,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyDataMigration(
     args: ModifyDataMigrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyDataMigrationCommandOutput) => void
   ): void;
 
@@ -2351,7 +2359,7 @@ export interface DatabaseMigrationService {
    */
   modifyDataProvider(
     args: ModifyDataProviderCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyDataProviderCommandOutput>;
   modifyDataProvider(
     args: ModifyDataProviderCommandInput,
@@ -2359,7 +2367,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyDataProvider(
     args: ModifyDataProviderCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyDataProviderCommandOutput) => void
   ): void;
 
@@ -2368,7 +2376,7 @@ export interface DatabaseMigrationService {
    */
   modifyEndpoint(
     args: ModifyEndpointCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyEndpointCommandOutput>;
   modifyEndpoint(
     args: ModifyEndpointCommandInput,
@@ -2376,7 +2384,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyEndpoint(
     args: ModifyEndpointCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyEndpointCommandOutput) => void
   ): void;
 
@@ -2385,7 +2393,7 @@ export interface DatabaseMigrationService {
    */
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyEventSubscriptionCommandOutput>;
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
@@ -2393,7 +2401,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyEventSubscription(
     args: ModifyEventSubscriptionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyEventSubscriptionCommandOutput) => void
   ): void;
 
@@ -2402,7 +2410,7 @@ export interface DatabaseMigrationService {
    */
   modifyInstanceProfile(
     args: ModifyInstanceProfileCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyInstanceProfileCommandOutput>;
   modifyInstanceProfile(
     args: ModifyInstanceProfileCommandInput,
@@ -2410,7 +2418,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyInstanceProfile(
     args: ModifyInstanceProfileCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyInstanceProfileCommandOutput) => void
   ): void;
 
@@ -2419,7 +2427,7 @@ export interface DatabaseMigrationService {
    */
   modifyMigrationProject(
     args: ModifyMigrationProjectCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyMigrationProjectCommandOutput>;
   modifyMigrationProject(
     args: ModifyMigrationProjectCommandInput,
@@ -2427,7 +2435,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyMigrationProject(
     args: ModifyMigrationProjectCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyMigrationProjectCommandOutput) => void
   ): void;
 
@@ -2436,7 +2444,7 @@ export interface DatabaseMigrationService {
    */
   modifyReplicationConfig(
     args: ModifyReplicationConfigCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyReplicationConfigCommandOutput>;
   modifyReplicationConfig(
     args: ModifyReplicationConfigCommandInput,
@@ -2444,7 +2452,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyReplicationConfig(
     args: ModifyReplicationConfigCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyReplicationConfigCommandOutput) => void
   ): void;
 
@@ -2453,7 +2461,7 @@ export interface DatabaseMigrationService {
    */
   modifyReplicationInstance(
     args: ModifyReplicationInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyReplicationInstanceCommandOutput>;
   modifyReplicationInstance(
     args: ModifyReplicationInstanceCommandInput,
@@ -2461,7 +2469,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyReplicationInstance(
     args: ModifyReplicationInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyReplicationInstanceCommandOutput) => void
   ): void;
 
@@ -2470,7 +2478,7 @@ export interface DatabaseMigrationService {
    */
   modifyReplicationSubnetGroup(
     args: ModifyReplicationSubnetGroupCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyReplicationSubnetGroupCommandOutput>;
   modifyReplicationSubnetGroup(
     args: ModifyReplicationSubnetGroupCommandInput,
@@ -2478,7 +2486,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyReplicationSubnetGroup(
     args: ModifyReplicationSubnetGroupCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyReplicationSubnetGroupCommandOutput) => void
   ): void;
 
@@ -2487,7 +2495,7 @@ export interface DatabaseMigrationService {
    */
   modifyReplicationTask(
     args: ModifyReplicationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ModifyReplicationTaskCommandOutput>;
   modifyReplicationTask(
     args: ModifyReplicationTaskCommandInput,
@@ -2495,7 +2503,7 @@ export interface DatabaseMigrationService {
   ): void;
   modifyReplicationTask(
     args: ModifyReplicationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ModifyReplicationTaskCommandOutput) => void
   ): void;
 
@@ -2504,7 +2512,7 @@ export interface DatabaseMigrationService {
    */
   moveReplicationTask(
     args: MoveReplicationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<MoveReplicationTaskCommandOutput>;
   moveReplicationTask(
     args: MoveReplicationTaskCommandInput,
@@ -2512,7 +2520,7 @@ export interface DatabaseMigrationService {
   ): void;
   moveReplicationTask(
     args: MoveReplicationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: MoveReplicationTaskCommandOutput) => void
   ): void;
 
@@ -2521,7 +2529,7 @@ export interface DatabaseMigrationService {
    */
   rebootReplicationInstance(
     args: RebootReplicationInstanceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<RebootReplicationInstanceCommandOutput>;
   rebootReplicationInstance(
     args: RebootReplicationInstanceCommandInput,
@@ -2529,7 +2537,7 @@ export interface DatabaseMigrationService {
   ): void;
   rebootReplicationInstance(
     args: RebootReplicationInstanceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: RebootReplicationInstanceCommandOutput) => void
   ): void;
 
@@ -2538,7 +2546,7 @@ export interface DatabaseMigrationService {
    */
   refreshSchemas(
     args: RefreshSchemasCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<RefreshSchemasCommandOutput>;
   refreshSchemas(
     args: RefreshSchemasCommandInput,
@@ -2546,7 +2554,7 @@ export interface DatabaseMigrationService {
   ): void;
   refreshSchemas(
     args: RefreshSchemasCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: RefreshSchemasCommandOutput) => void
   ): void;
 
@@ -2555,7 +2563,7 @@ export interface DatabaseMigrationService {
    */
   reloadReplicationTables(
     args: ReloadReplicationTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ReloadReplicationTablesCommandOutput>;
   reloadReplicationTables(
     args: ReloadReplicationTablesCommandInput,
@@ -2563,7 +2571,7 @@ export interface DatabaseMigrationService {
   ): void;
   reloadReplicationTables(
     args: ReloadReplicationTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ReloadReplicationTablesCommandOutput) => void
   ): void;
 
@@ -2572,7 +2580,7 @@ export interface DatabaseMigrationService {
    */
   reloadTables(
     args: ReloadTablesCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<ReloadTablesCommandOutput>;
   reloadTables(
     args: ReloadTablesCommandInput,
@@ -2580,7 +2588,7 @@ export interface DatabaseMigrationService {
   ): void;
   reloadTables(
     args: ReloadTablesCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: ReloadTablesCommandOutput) => void
   ): void;
 
@@ -2589,7 +2597,7 @@ export interface DatabaseMigrationService {
    */
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<RemoveTagsFromResourceCommandOutput>;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -2597,7 +2605,7 @@ export interface DatabaseMigrationService {
   ): void;
   removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): void;
 
@@ -2607,7 +2615,7 @@ export interface DatabaseMigrationService {
   runFleetAdvisorLsaAnalysis(): Promise<RunFleetAdvisorLsaAnalysisCommandOutput>;
   runFleetAdvisorLsaAnalysis(
     args: RunFleetAdvisorLsaAnalysisCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<RunFleetAdvisorLsaAnalysisCommandOutput>;
   runFleetAdvisorLsaAnalysis(
     args: RunFleetAdvisorLsaAnalysisCommandInput,
@@ -2615,7 +2623,7 @@ export interface DatabaseMigrationService {
   ): void;
   runFleetAdvisorLsaAnalysis(
     args: RunFleetAdvisorLsaAnalysisCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: RunFleetAdvisorLsaAnalysisCommandOutput) => void
   ): void;
 
@@ -2624,7 +2632,7 @@ export interface DatabaseMigrationService {
    */
   startDataMigration(
     args: StartDataMigrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartDataMigrationCommandOutput>;
   startDataMigration(
     args: StartDataMigrationCommandInput,
@@ -2632,7 +2640,7 @@ export interface DatabaseMigrationService {
   ): void;
   startDataMigration(
     args: StartDataMigrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartDataMigrationCommandOutput) => void
   ): void;
 
@@ -2641,7 +2649,7 @@ export interface DatabaseMigrationService {
    */
   startExtensionPackAssociation(
     args: StartExtensionPackAssociationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartExtensionPackAssociationCommandOutput>;
   startExtensionPackAssociation(
     args: StartExtensionPackAssociationCommandInput,
@@ -2649,7 +2657,7 @@ export interface DatabaseMigrationService {
   ): void;
   startExtensionPackAssociation(
     args: StartExtensionPackAssociationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartExtensionPackAssociationCommandOutput) => void
   ): void;
 
@@ -2658,7 +2666,7 @@ export interface DatabaseMigrationService {
    */
   startMetadataModelAssessment(
     args: StartMetadataModelAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartMetadataModelAssessmentCommandOutput>;
   startMetadataModelAssessment(
     args: StartMetadataModelAssessmentCommandInput,
@@ -2666,7 +2674,7 @@ export interface DatabaseMigrationService {
   ): void;
   startMetadataModelAssessment(
     args: StartMetadataModelAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartMetadataModelAssessmentCommandOutput) => void
   ): void;
 
@@ -2675,7 +2683,7 @@ export interface DatabaseMigrationService {
    */
   startMetadataModelConversion(
     args: StartMetadataModelConversionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartMetadataModelConversionCommandOutput>;
   startMetadataModelConversion(
     args: StartMetadataModelConversionCommandInput,
@@ -2683,7 +2691,7 @@ export interface DatabaseMigrationService {
   ): void;
   startMetadataModelConversion(
     args: StartMetadataModelConversionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartMetadataModelConversionCommandOutput) => void
   ): void;
 
@@ -2692,7 +2700,7 @@ export interface DatabaseMigrationService {
    */
   startMetadataModelCreation(
     args: StartMetadataModelCreationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartMetadataModelCreationCommandOutput>;
   startMetadataModelCreation(
     args: StartMetadataModelCreationCommandInput,
@@ -2700,7 +2708,7 @@ export interface DatabaseMigrationService {
   ): void;
   startMetadataModelCreation(
     args: StartMetadataModelCreationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartMetadataModelCreationCommandOutput) => void
   ): void;
 
@@ -2709,7 +2717,7 @@ export interface DatabaseMigrationService {
    */
   startMetadataModelExportAsScript(
     args: StartMetadataModelExportAsScriptCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartMetadataModelExportAsScriptCommandOutput>;
   startMetadataModelExportAsScript(
     args: StartMetadataModelExportAsScriptCommandInput,
@@ -2717,7 +2725,7 @@ export interface DatabaseMigrationService {
   ): void;
   startMetadataModelExportAsScript(
     args: StartMetadataModelExportAsScriptCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartMetadataModelExportAsScriptCommandOutput) => void
   ): void;
 
@@ -2726,7 +2734,7 @@ export interface DatabaseMigrationService {
    */
   startMetadataModelExportToTarget(
     args: StartMetadataModelExportToTargetCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartMetadataModelExportToTargetCommandOutput>;
   startMetadataModelExportToTarget(
     args: StartMetadataModelExportToTargetCommandInput,
@@ -2734,7 +2742,7 @@ export interface DatabaseMigrationService {
   ): void;
   startMetadataModelExportToTarget(
     args: StartMetadataModelExportToTargetCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartMetadataModelExportToTargetCommandOutput) => void
   ): void;
 
@@ -2743,7 +2751,7 @@ export interface DatabaseMigrationService {
    */
   startMetadataModelImport(
     args: StartMetadataModelImportCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartMetadataModelImportCommandOutput>;
   startMetadataModelImport(
     args: StartMetadataModelImportCommandInput,
@@ -2751,7 +2759,7 @@ export interface DatabaseMigrationService {
   ): void;
   startMetadataModelImport(
     args: StartMetadataModelImportCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartMetadataModelImportCommandOutput) => void
   ): void;
 
@@ -2760,7 +2768,7 @@ export interface DatabaseMigrationService {
    */
   startRecommendations(
     args: StartRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartRecommendationsCommandOutput>;
   startRecommendations(
     args: StartRecommendationsCommandInput,
@@ -2768,7 +2776,7 @@ export interface DatabaseMigrationService {
   ): void;
   startRecommendations(
     args: StartRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartRecommendationsCommandOutput) => void
   ): void;
 
@@ -2777,7 +2785,7 @@ export interface DatabaseMigrationService {
    */
   startReplication(
     args: StartReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartReplicationCommandOutput>;
   startReplication(
     args: StartReplicationCommandInput,
@@ -2785,7 +2793,7 @@ export interface DatabaseMigrationService {
   ): void;
   startReplication(
     args: StartReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartReplicationCommandOutput) => void
   ): void;
 
@@ -2794,7 +2802,7 @@ export interface DatabaseMigrationService {
    */
   startReplicationTask(
     args: StartReplicationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartReplicationTaskCommandOutput>;
   startReplicationTask(
     args: StartReplicationTaskCommandInput,
@@ -2802,7 +2810,7 @@ export interface DatabaseMigrationService {
   ): void;
   startReplicationTask(
     args: StartReplicationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartReplicationTaskCommandOutput) => void
   ): void;
 
@@ -2811,7 +2819,7 @@ export interface DatabaseMigrationService {
    */
   startReplicationTaskAssessment(
     args: StartReplicationTaskAssessmentCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartReplicationTaskAssessmentCommandOutput>;
   startReplicationTaskAssessment(
     args: StartReplicationTaskAssessmentCommandInput,
@@ -2819,7 +2827,7 @@ export interface DatabaseMigrationService {
   ): void;
   startReplicationTaskAssessment(
     args: StartReplicationTaskAssessmentCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartReplicationTaskAssessmentCommandOutput) => void
   ): void;
 
@@ -2828,7 +2836,7 @@ export interface DatabaseMigrationService {
    */
   startReplicationTaskAssessmentRun(
     args: StartReplicationTaskAssessmentRunCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StartReplicationTaskAssessmentRunCommandOutput>;
   startReplicationTaskAssessmentRun(
     args: StartReplicationTaskAssessmentRunCommandInput,
@@ -2836,7 +2844,7 @@ export interface DatabaseMigrationService {
   ): void;
   startReplicationTaskAssessmentRun(
     args: StartReplicationTaskAssessmentRunCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StartReplicationTaskAssessmentRunCommandOutput) => void
   ): void;
 
@@ -2845,7 +2853,7 @@ export interface DatabaseMigrationService {
    */
   stopDataMigration(
     args: StopDataMigrationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StopDataMigrationCommandOutput>;
   stopDataMigration(
     args: StopDataMigrationCommandInput,
@@ -2853,7 +2861,7 @@ export interface DatabaseMigrationService {
   ): void;
   stopDataMigration(
     args: StopDataMigrationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StopDataMigrationCommandOutput) => void
   ): void;
 
@@ -2862,7 +2870,7 @@ export interface DatabaseMigrationService {
    */
   stopReplication(
     args: StopReplicationCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StopReplicationCommandOutput>;
   stopReplication(
     args: StopReplicationCommandInput,
@@ -2870,7 +2878,7 @@ export interface DatabaseMigrationService {
   ): void;
   stopReplication(
     args: StopReplicationCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StopReplicationCommandOutput) => void
   ): void;
 
@@ -2879,7 +2887,7 @@ export interface DatabaseMigrationService {
    */
   stopReplicationTask(
     args: StopReplicationTaskCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<StopReplicationTaskCommandOutput>;
   stopReplicationTask(
     args: StopReplicationTaskCommandInput,
@@ -2887,7 +2895,7 @@ export interface DatabaseMigrationService {
   ): void;
   stopReplicationTask(
     args: StopReplicationTaskCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: StopReplicationTaskCommandOutput) => void
   ): void;
 
@@ -2896,7 +2904,7 @@ export interface DatabaseMigrationService {
    */
   testConnection(
     args: TestConnectionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<TestConnectionCommandOutput>;
   testConnection(
     args: TestConnectionCommandInput,
@@ -2904,7 +2912,7 @@ export interface DatabaseMigrationService {
   ): void;
   testConnection(
     args: TestConnectionCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: TestConnectionCommandOutput) => void
   ): void;
 
@@ -2914,7 +2922,7 @@ export interface DatabaseMigrationService {
   updateSubscriptionsToEventBridge(): Promise<UpdateSubscriptionsToEventBridgeCommandOutput>;
   updateSubscriptionsToEventBridge(
     args: UpdateSubscriptionsToEventBridgeCommandInput,
-    options?: __HttpHandlerOptions
+    options?: DatabaseMigrationServiceRequestOptions
   ): Promise<UpdateSubscriptionsToEventBridgeCommandOutput>;
   updateSubscriptionsToEventBridge(
     args: UpdateSubscriptionsToEventBridgeCommandInput,
@@ -2922,7 +2930,7 @@ export interface DatabaseMigrationService {
   ): void;
   updateSubscriptionsToEventBridge(
     args: UpdateSubscriptionsToEventBridgeCommandInput,
-    options: __HttpHandlerOptions,
+    options: DatabaseMigrationServiceRequestOptions,
     cb: (err: any, data?: UpdateSubscriptionsToEventBridgeCommandOutput) => void
   ): void;
 

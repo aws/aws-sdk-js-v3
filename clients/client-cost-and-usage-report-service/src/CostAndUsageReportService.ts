@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetricsRecorder as __MetricsRecorder,
+  PaginationConfiguration,
+  Paginator,
+} from "@smithy/types";
 
 import {
   type DeleteReportDefinitionCommandInput,
@@ -53,13 +58,20 @@ const paginators = {
   paginateDescribeReportDefinitions,
 };
 
+/**
+ * @public
+ */
+export interface CostAndUsageReportServiceRequestOptions extends __HttpHandlerOptions {
+  metricsRecorder?: __MetricsRecorder<unknown>;
+}
+
 export interface CostAndUsageReportService {
   /**
    * @see {@link DeleteReportDefinitionCommand}
    */
   deleteReportDefinition(
     args: DeleteReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostAndUsageReportServiceRequestOptions
   ): Promise<DeleteReportDefinitionCommandOutput>;
   deleteReportDefinition(
     args: DeleteReportDefinitionCommandInput,
@@ -67,7 +79,7 @@ export interface CostAndUsageReportService {
   ): void;
   deleteReportDefinition(
     args: DeleteReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostAndUsageReportServiceRequestOptions,
     cb: (err: any, data?: DeleteReportDefinitionCommandOutput) => void
   ): void;
 
@@ -77,7 +89,7 @@ export interface CostAndUsageReportService {
   describeReportDefinitions(): Promise<DescribeReportDefinitionsCommandOutput>;
   describeReportDefinitions(
     args: DescribeReportDefinitionsCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostAndUsageReportServiceRequestOptions
   ): Promise<DescribeReportDefinitionsCommandOutput>;
   describeReportDefinitions(
     args: DescribeReportDefinitionsCommandInput,
@@ -85,7 +97,7 @@ export interface CostAndUsageReportService {
   ): void;
   describeReportDefinitions(
     args: DescribeReportDefinitionsCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostAndUsageReportServiceRequestOptions,
     cb: (err: any, data?: DescribeReportDefinitionsCommandOutput) => void
   ): void;
 
@@ -94,7 +106,7 @@ export interface CostAndUsageReportService {
    */
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostAndUsageReportServiceRequestOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -102,7 +114,7 @@ export interface CostAndUsageReportService {
   ): void;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostAndUsageReportServiceRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
@@ -111,7 +123,7 @@ export interface CostAndUsageReportService {
    */
   modifyReportDefinition(
     args: ModifyReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostAndUsageReportServiceRequestOptions
   ): Promise<ModifyReportDefinitionCommandOutput>;
   modifyReportDefinition(
     args: ModifyReportDefinitionCommandInput,
@@ -119,7 +131,7 @@ export interface CostAndUsageReportService {
   ): void;
   modifyReportDefinition(
     args: ModifyReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostAndUsageReportServiceRequestOptions,
     cb: (err: any, data?: ModifyReportDefinitionCommandOutput) => void
   ): void;
 
@@ -128,7 +140,7 @@ export interface CostAndUsageReportService {
    */
   putReportDefinition(
     args: PutReportDefinitionCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostAndUsageReportServiceRequestOptions
   ): Promise<PutReportDefinitionCommandOutput>;
   putReportDefinition(
     args: PutReportDefinitionCommandInput,
@@ -136,7 +148,7 @@ export interface CostAndUsageReportService {
   ): void;
   putReportDefinition(
     args: PutReportDefinitionCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostAndUsageReportServiceRequestOptions,
     cb: (err: any, data?: PutReportDefinitionCommandOutput) => void
   ): void;
 
@@ -145,7 +157,7 @@ export interface CostAndUsageReportService {
    */
   tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostAndUsageReportServiceRequestOptions
   ): Promise<TagResourceCommandOutput>;
   tagResource(
     args: TagResourceCommandInput,
@@ -153,7 +165,7 @@ export interface CostAndUsageReportService {
   ): void;
   tagResource(
     args: TagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostAndUsageReportServiceRequestOptions,
     cb: (err: any, data?: TagResourceCommandOutput) => void
   ): void;
 
@@ -162,7 +174,7 @@ export interface CostAndUsageReportService {
    */
   untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions
+    options?: CostAndUsageReportServiceRequestOptions
   ): Promise<UntagResourceCommandOutput>;
   untagResource(
     args: UntagResourceCommandInput,
@@ -170,7 +182,7 @@ export interface CostAndUsageReportService {
   ): void;
   untagResource(
     args: UntagResourceCommandInput,
-    options: __HttpHandlerOptions,
+    options: CostAndUsageReportServiceRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
