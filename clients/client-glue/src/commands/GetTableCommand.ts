@@ -164,6 +164,15 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //       SubObjectVersionIds: [ // ViewSubObjectVersionIdsList
  * //         Number("long"),
  * //       ],
+ * //       SubObjectsStatistics: [ // SubObjectsStatisticsList
+ * //         { // SubObjectStatistics
+ * //           SourceType: "HIVE_PARQUET" || "HIVE_ORC" || "HIVE_CSV" || "HIVE_JSON" || "PLAIN_PARQUET" || "ICEBERG",
+ * //           GlueVersionId: "STRING_VALUE",
+ * //           PartitionCount: Number("long"),
+ * //           FileCount: Number("long"),
+ * //           TotalFileBytes: Number("long"),
+ * //         },
+ * //       ],
  * //       Representations: [ // ViewRepresentationList
  * //         { // ViewRepresentation
  * //           Dialect: "REDSHIFT" || "ATHENA" || "SPARK",
@@ -174,6 +183,9 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //           IsStale: true || false,
  * //         },
  * //       ],
+ * //       SparkPipelineInfo: { // SparkPipelineInfoMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //     IsMultiDialectView: true || false,
  * //     IsMaterializedView: true || false,
@@ -335,6 +347,15 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //             SubObjectVersionIds: [
  * //               Number("long"),
  * //             ],
+ * //             SubObjectsStatistics: [
+ * //               {
+ * //                 SourceType: "HIVE_PARQUET" || "HIVE_ORC" || "HIVE_CSV" || "HIVE_JSON" || "PLAIN_PARQUET" || "ICEBERG",
+ * //                 GlueVersionId: "STRING_VALUE",
+ * //                 PartitionCount: Number("long"),
+ * //                 FileCount: Number("long"),
+ * //                 TotalFileBytes: Number("long"),
+ * //               },
+ * //             ],
  * //             Representations: [
  * //               {
  * //                 Dialect: "REDSHIFT" || "ATHENA" || "SPARK",
@@ -345,6 +366,9 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //                 IsStale: true || false,
  * //               },
  * //             ],
+ * //             SparkPipelineInfo: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
  * //           },
  * //           IsMultiDialectView: true || false,
  * //           IsMaterializedView: true || false,

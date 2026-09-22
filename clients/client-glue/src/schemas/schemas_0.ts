@@ -883,6 +883,7 @@ const _FC = "FederatedCatalog";
 const _FCARN = "FanoutConsumerARN";
 const _FCi = "FilterConfiguration";
 const _FCil = "FilterClause";
+const _FCile = "FileCount";
 const _FD = "FederatedDatabase";
 const _FDM = "FieldDefinitionMap";
 const _FDT = "FieldDataType";
@@ -1219,6 +1220,7 @@ const _GUTM = "GetUnfilteredTableMetadata";
 const _GUTMR = "GetUnfilteredTableMetadataRequest";
 const _GUTMRe = "GetUnfilteredTableMetadataResponse";
 const _GV = "GlueVersion";
+const _GVI = "GlueVersionId";
 const _GW = "GetWorkflow";
 const _GWR = "GetWorkflowRequest";
 const _GWRP = "GetWorkflowRunProperties";
@@ -1769,6 +1771,7 @@ const _PCP = "PythonConnectionProperties";
 const _PCPR = "PhysicalConnectionPropertiesRequired";
 const _PCR = "PhysicalConnectionRequirements";
 const _PCa = "PaginationConfiguration";
+const _PCar = "PartitionCount";
 const _PCr = "ProfileConfiguration";
 const _PDCEC = "PutDataCatalogExportConfiguration";
 const _PDCECI = "PutDataCatalogExportConfigurationInput";
@@ -2206,6 +2209,9 @@ const _SNta = "StatisticName";
 const _SO = "StartedOn";
 const _SOC = "StartOnCreation";
 const _SOD = "StatementOutputData";
+const _SOS = "SubObjectStatistics";
+const _SOSL = "SubObjectsStatisticsList";
+const _SOSu = "SubObjectsStatistics";
 const _SOVI = "SubObjectVersionIds";
 const _SOo = "SortOrders";
 const _SOor = "SortOrder";
@@ -2214,6 +2220,7 @@ const _SOta = "StartingOffsets";
 const _SOtat = "StatementOutput";
 const _SOu = "SubObjects";
 const _SP = "SparkProperties";
+const _SPI = "SparkPipelineInfo";
 const _SPM = "StatisticPropertiesMap";
 const _SPP = "SourceProcessingProperties";
 const _SPPe = "SearchPropertyPredicates";
@@ -2336,6 +2343,7 @@ const _TEa = "TableError";
 const _TEab = "TableErrors";
 const _TEr = "TransformEncryption";
 const _TF = "TimestampFilter";
+const _TFB = "TotalFileBytes";
 const _TFC = "TransformFilterCriteria";
 const _TFh = "ThresholdFraction";
 const _TI = "TransactionId";
@@ -7756,6 +7764,11 @@ export var StringColumnStatisticsData$: StaticStructureSchema = [3, n0, _SCSD,
   [_ML, _AL, _NON, _NODV],
   [1, 1, 1, 1], 4
 ];
+export var SubObjectStatistics$: StaticStructureSchema = [3, n0, _SOS,
+  0,
+  [_ST, _GVI, _PCar, _FCile, _TFB],
+  [0, 0, 1, 1, 1]
+];
 export var SupportedDialect$: StaticStructureSchema = [3, n0, _SDu,
   0,
   [_Dia, _DVia],
@@ -8313,13 +8326,13 @@ export var UserDefinedFunctionInput$: StaticStructureSchema = [3, n0, _UDFI,
 ];
 export var ViewDefinition$: StaticStructureSchema = [3, n0, _VD,
   0,
-  [_IPs, _Def, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _Repr],
-  [2, 0, 1, 0, 1, 0, 64 | 0, 64 | 1, () => ViewRepresentationList]
+  [_IPs, _Def, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _Repr, _SPI],
+  [2, 0, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, () => ViewRepresentationList, 128 | 0]
 ];
 export var ViewDefinitionInput$: StaticStructureSchema = [3, n0, _VDI,
   0,
-  [_IPs, _Def, _Repr, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI],
-  [2, 0, () => ViewRepresentationInputList, 1, 0, 1, 0, 64 | 0, 64 | 1]
+  [_IPs, _Def, _Repr, _VVI, _VVT, _RSef, _LRT, _SOu, _SOVI, _SOSu, _SPI],
+  [2, 0, () => ViewRepresentationInputList, 1, 0, 1, 0, 64 | 0, 64 | 1, () => SubObjectsStatisticsList, 128 | 0]
 ];
 export var ViewRepresentation$: StaticStructureSchema = [3, n0, _VRi,
   0,
@@ -8854,6 +8867,9 @@ var StatisticSummaryList: StaticListSchema = [1, n0, _SSL,
     0]
 ];
 var StringList = 64 | 0;
+var SubObjectsStatisticsList: StaticListSchema = [1, n0, _SOSL,
+  0, () => SubObjectStatistics$
+];
 var TableAttributesList = 64 | 0;
 var TableErrors: StaticListSchema = [1, n0, _TEab,
   0, () => TableError$
@@ -8988,6 +9004,7 @@ var PropertyNameOverrides = 128 | 0;
 var RuleMetricsMap: StaticMapSchema = [2, n0, _RMM,
   8, 0, 1
 ];
+var SparkPipelineInfoMap = 128 | 0;
 var StatisticPropertiesMap: StaticMapSchema = [2, n0, _SPM,
   8, 0, 0
 ];

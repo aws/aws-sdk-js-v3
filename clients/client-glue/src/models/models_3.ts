@@ -159,6 +159,59 @@ import type {
 /**
  * @public
  */
+export interface RemoveSchemaVersionMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the schema.</p>
+   * @public
+   */
+  SchemaArn?: string | undefined;
+
+  /**
+   * <p>The name of the schema.</p>
+   * @public
+   */
+  SchemaName?: string | undefined;
+
+  /**
+   * <p>The name of the registry.</p>
+   * @public
+   */
+  RegistryName?: string | undefined;
+
+  /**
+   * <p>The latest version of the schema.</p>
+   * @public
+   */
+  LatestVersion?: boolean | undefined;
+
+  /**
+   * <p>The version number of the schema.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The version ID for the schema version.</p>
+   * @public
+   */
+  SchemaVersionId?: string | undefined;
+
+  /**
+   * <p>The metadata key.</p>
+   * @public
+   */
+  MetadataKey?: string | undefined;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   * @public
+   */
+  MetadataValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ResetJobBookmarkRequest {
   /**
    * <p>The name of the job in question.</p>

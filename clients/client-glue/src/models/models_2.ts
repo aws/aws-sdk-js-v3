@@ -4,6 +4,7 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 import type {
   AuthenticationType,
   BackfillErrorCode,
+  CatalogEncryptionMode,
   Compatibility,
   ConnectionType,
   ConnectorOAuth2GrantType,
@@ -87,7 +88,6 @@ import type {
   ConnectionPasswordEncryption,
   ConnectorProperty,
   DataQualityTargetTable,
-  EncryptionAtRest,
   EncryptionConfiguration,
   IcebergPartitionSpec,
   IcebergSchema,
@@ -101,12 +101,37 @@ import type {
   Session,
   SourceProcessingProperties,
   SourceTableConfig,
+  SubObjectStatistics,
   Tag,
   TargetProcessingProperties,
   TargetTableConfig,
   TransformEncryption,
   TransformParameters,
 } from "./models_1";
+
+/**
+ * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
+ * @public
+ */
+export interface EncryptionAtRest {
+  /**
+   * <p>The encryption-at-rest mode for encrypting Data Catalog data.</p>
+   * @public
+   */
+  CatalogEncryptionMode: CatalogEncryptionMode | undefined;
+
+  /**
+   * <p>The ID of the KMS key to use for encryption at rest.</p>
+   * @public
+   */
+  SseAwsKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The role that Glue assumes to encrypt and decrypt the Data Catalog objects on the caller's behalf.</p>
+   * @public
+   */
+  CatalogEncryptionServiceRole?: string | undefined;
+}
 
 /**
  * <p>Contains configuration information for maintaining Data Catalog security.</p>
@@ -4082,10 +4107,25 @@ export interface ViewDefinition {
   SubObjectVersionIds?: number[] | undefined;
 
   /**
+   * <p>Statistics captured for each sub-object referenced by the materialized view as of its most
+   *       recent refresh, such as the source type, Glue version ID, and the partition,
+   *       file, and byte counts. Each entry describes one sub-object, identified by its source type.</p>
+   * @public
+   */
+  SubObjectsStatistics?: SubObjectStatistics[] | undefined;
+
+  /**
    * <p>A list of representations.</p>
    * @public
    */
   Representations?: ViewRepresentation[] | undefined;
+
+  /**
+   * <p>A map of key-value pairs containing Spark Declarative Pipelines (SDP) information for the
+   *       materialized view.</p>
+   * @public
+   */
+  SparkPipelineInfo?: Record<string, string> | undefined;
 }
 
 /**
@@ -8796,57 +8836,4 @@ export interface RemoveSchemaVersionMetadataInput {
    * @public
    */
   MetadataKeyValue: MetadataKeyValuePair | undefined;
-}
-
-/**
- * @public
- */
-export interface RemoveSchemaVersionMetadataResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the schema.</p>
-   * @public
-   */
-  SchemaArn?: string | undefined;
-
-  /**
-   * <p>The name of the schema.</p>
-   * @public
-   */
-  SchemaName?: string | undefined;
-
-  /**
-   * <p>The name of the registry.</p>
-   * @public
-   */
-  RegistryName?: string | undefined;
-
-  /**
-   * <p>The latest version of the schema.</p>
-   * @public
-   */
-  LatestVersion?: boolean | undefined;
-
-  /**
-   * <p>The version number of the schema.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The version ID for the schema version.</p>
-   * @public
-   */
-  SchemaVersionId?: string | undefined;
-
-  /**
-   * <p>The metadata key.</p>
-   * @public
-   */
-  MetadataKey?: string | undefined;
-
-  /**
-   * <p>The value of the metadata key.</p>
-   * @public
-   */
-  MetadataValue?: string | undefined;
 }

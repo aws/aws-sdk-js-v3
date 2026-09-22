@@ -1580,6 +1580,23 @@ export type ViewDialect = (typeof ViewDialect)[keyof typeof ViewDialect];
  * @public
  * @enum
  */
+export const SubObjectSourceType = {
+  HIVE_CSV: "HIVE_CSV",
+  HIVE_JSON: "HIVE_JSON",
+  HIVE_ORC: "HIVE_ORC",
+  HIVE_PARQUET: "HIVE_PARQUET",
+  ICEBERG: "ICEBERG",
+  PLAIN_PARQUET: "PLAIN_PARQUET",
+} as const;
+/**
+ * @public
+ */
+export type SubObjectSourceType = (typeof SubObjectSourceType)[keyof typeof SubObjectSourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const FunctionType = {
   AGGREGATE_FUNCTION: "AGGREGATE_FUNCTION",
   REGULAR_FUNCTION: "REGULAR_FUNCTION",

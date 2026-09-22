@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { RemoveSchemaVersionMetadataInput, RemoveSchemaVersionMetadataResponse } from "../models/models_2";
+import type { RemoveSchemaVersionMetadataInput } from "../models/models_2";
+import type { RemoveSchemaVersionMetadataResponse } from "../models/models_3";
 import { RemoveSchemaVersionMetadata$ } from "../schemas/schemas_0";
 
 /**

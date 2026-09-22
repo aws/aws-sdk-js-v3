@@ -141,6 +141,18 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *       SubObjectVersionIds: [ // ViewSubObjectVersionIdsList
  *         Number("long"),
  *       ],
+ *       SubObjectsStatistics: [ // SubObjectsStatisticsList
+ *         { // SubObjectStatistics
+ *           SourceType: "HIVE_PARQUET" || "HIVE_ORC" || "HIVE_CSV" || "HIVE_JSON" || "PLAIN_PARQUET" || "ICEBERG",
+ *           GlueVersionId: "STRING_VALUE",
+ *           PartitionCount: Number("long"),
+ *           FileCount: Number("long"),
+ *           TotalFileBytes: Number("long"),
+ *         },
+ *       ],
+ *       SparkPipelineInfo: { // SparkPipelineInfoMap
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   SkipArchive: true || false,

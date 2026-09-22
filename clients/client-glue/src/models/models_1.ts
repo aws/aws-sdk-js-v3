@@ -5,7 +5,6 @@ import type {
   AllowFullTableExternalDataAccessEnum,
   AuthenticationType,
   BlueprintRunState,
-  CatalogEncryptionMode,
   CloudWatchEncryptionMode,
   ColumnStatisticsState,
   ColumnStatisticsType,
@@ -50,6 +49,7 @@ import type {
   SessionStatus,
   SessionType,
   SettingSource,
+  SubObjectSourceType,
   TableOptimizerType,
   TransformType,
   TriggerType,
@@ -3241,6 +3241,47 @@ export interface ViewRepresentationInput {
 }
 
 /**
+ * <p>Statistics for one sub-object referenced by a materialized view, recorded when the
+ *       materialized view was created or last fully refreshed. These values describe what that refresh
+ *       selected from the sub-object, which can be a subset of the table when the materialized view's
+ *       definition limits the data it reads. The fields present depend on the sub-object's format.</p>
+ * @public
+ */
+export interface SubObjectStatistics {
+  /**
+   * <p>The source type of the sub-object (for example, its table format), which identifies the
+   *       sub-object.</p>
+   * @public
+   */
+  SourceType?: SubObjectSourceType | undefined;
+
+  /**
+   * <p>The Glue version ID of the sub-object that the statistics were captured for.</p>
+   * @public
+   */
+  GlueVersionId?: string | undefined;
+
+  /**
+   * <p>The number of sub-object partitions selected for that refresh. Not present for
+   *       unpartitioned sub-objects.</p>
+   * @public
+   */
+  PartitionCount?: number | undefined;
+
+  /**
+   * <p>The number of sub-object data files selected for that refresh.</p>
+   * @public
+   */
+  FileCount?: number | undefined;
+
+  /**
+   * <p>The total size, in bytes, of the data files counted by <code>FileCount</code>.</p>
+   * @public
+   */
+  TotalFileBytes?: number | undefined;
+}
+
+/**
  * <p>A structure containing details for creating or updating an Glue view.</p>
  * @public
  */
@@ -3300,6 +3341,21 @@ export interface ViewDefinitionInput {
    * @public
    */
   SubObjectVersionIds?: number[] | undefined;
+
+  /**
+   * <p>Statistics for each sub-object referenced by the materialized view, such as the source
+   *       type, Glue version ID, and the partition, file, and byte counts. Each entry
+   *       describes one sub-object, identified by its source type.</p>
+   * @public
+   */
+  SubObjectsStatistics?: SubObjectStatistics[] | undefined;
+
+  /**
+   * <p>A map of key-value pairs containing Spark Declarative Pipelines (SDP) information for the
+   *       materialized view.</p>
+   * @public
+   */
+  SparkPipelineInfo?: Record<string, string> | undefined;
 }
 
 /**
@@ -8591,28 +8647,4 @@ export interface ConnectionPasswordEncryption {
    * @public
    */
   AwsKmsKeyId?: string | undefined;
-}
-
-/**
- * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
- * @public
- */
-export interface EncryptionAtRest {
-  /**
-   * <p>The encryption-at-rest mode for encrypting Data Catalog data.</p>
-   * @public
-   */
-  CatalogEncryptionMode: CatalogEncryptionMode | undefined;
-
-  /**
-   * <p>The ID of the KMS key to use for encryption at rest.</p>
-   * @public
-   */
-  SseAwsKmsKeyId?: string | undefined;
-
-  /**
-   * <p>The role that Glue assumes to encrypt and decrypt the Data Catalog objects on the caller's behalf.</p>
-   * @public
-   */
-  CatalogEncryptionServiceRole?: string | undefined;
 }

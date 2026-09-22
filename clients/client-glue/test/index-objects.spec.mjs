@@ -1746,6 +1746,8 @@ import {
   StorageDescriptor$,
   StreamingDataPreviewOptions$,
   StringColumnStatisticsData$,
+  SubObjectSourceType,
+  SubObjectStatistics$,
   SupportedDialect$,
   Table$,
   TableAttributes,
@@ -3513,6 +3515,7 @@ assert(typeof StopWorkflowRunResponse$ === "object");
 assert(typeof StorageDescriptor$ === "object");
 assert(typeof StreamingDataPreviewOptions$ === "object");
 assert(typeof StringColumnStatisticsData$ === "object");
+assert(typeof SubObjectStatistics$ === "object");
 assert(typeof SupportedDialect$ === "object");
 assert(typeof Table$ === "object");
 assert(typeof TableError$ === "object");
@@ -3764,6 +3767,7 @@ assert(typeof SourceControlProvider === "object");
 assert(typeof StartingPosition === "object");
 assert(typeof StatementState === "object");
 assert(typeof StatisticEvaluationLevel === "object");
+assert(typeof SubObjectSourceType === "object");
 assert(typeof TableAttributes === "object");
 assert(typeof TableOptimizerEventType === "object");
 assert(typeof TableOptimizerType === "object");
